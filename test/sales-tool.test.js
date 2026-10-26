@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
-import { decodeRmsSku, getCatalogCapabilityLeads, getSectionalPieceOptions, matchDocumentedSectionalLayout, validateSectionalConfiguration } from '../src/logic.js';
+import { buildSectionalStudioRmsLine, decodeRmsSku, getCatalogCapabilityLeads, getSectionalPieceOptions, matchDocumentedSectionalLayout, validateSectionalConfiguration, validateSectionalStudioLayout } from '../src/logic.js';
 
 const readJson = (name) => readFile(new URL(`../public/${name}`, import.meta.url), 'utf8').then(JSON.parse);
 const catalog = await readJson('catalog_data-v2.json');
@@ -9,6 +9,35 @@ catalog.recliner_catalog_2026 = await readJson('recliner-catalog-2026.json');
 catalog.motion_catalog_2026 = await readJson('motion-catalog-2026.json');
 catalog.stationary_catalog_2026 = await readJson('stationary-catalog-2026.json');
 catalog.designers_choice_catalog_2026 = await readJson('designers-choice-catalog-2026.json');
+
+test('builds a piece-by-piece RMS entry preview and appends only explicitly selected options', () => {
+  const piece = { code: '44A', modelCode: '769' };
+  assert.equal(buildSectionalStudioRmsLine(piece, 'DP', '1808', '52'), '44A-769 DP180852');
+  assert.equal(buildSectionalStudioRmsLine(piece, 'DP', '1808', '52', ['FS', 'LW']), '44A-769 DP180852 FS LW');
+});
+
+test('validates a catalog-backed L layout and flags terminal orientation, corner topology, room bounds and unsupported identity', () => {
+  const profile = catalog.product_profiles.find((entry) => entry.model_code === '769');
+  const piece = (key, code, x, y, width, height, rotation = 0) => ({ key, code, modelCode: '769', family: profile.sectional_family, x, y, width, height, rotation });
+  const validL = [
+    piece('LA_recliner', '44A', 100, 140, 40, 40, 270),
+    piece('corner_wedge', '44C', 100, 100, 40, 40),
+    piece('RA_recliner', '44B', 140, 100, 40, 40),
+  ];
+  assert.equal(validateSectionalStudioLayout(validL, { width: 400, height: 300 }, catalog).valid, true);
+
+  const wrongEnd = validL.map((item) => item.key === 'LA_recliner' ? { ...item, rotation: 90 } : item);
+  assert.ok(validateSectionalStudioLayout(wrongEnd, { width: 400, height: 300 }, catalog).errors.some((error) => /facing the wrong direction/i.test(error)));
+
+  const straightCorner = [
+    piece('LA_recliner', '44A', 20, 100, 40, 40),
+    piece('corner_wedge', '44C', 60, 100, 40, 40),
+    piece('RA_recliner', '44B', 100, 100, 40, 40),
+  ];
+  assert.ok(validateSectionalStudioLayout(straightCorner, { width: 400, height: 300 }, catalog).errors.some((error) => /90° junction/i.test(error)));
+  assert.ok(validateSectionalStudioLayout([piece('LA_recliner', '44A', 390, 280, 39, 32)], { width: 400, height: 300 }, catalog).errors.some((error) => /room boundary/i.test(error)));
+  assert.ok(validateSectionalStudioLayout([piece('LA_recliner', 'not-a-prefix', 20, 20, 39, 32)], { width: 400, height: 300 }, catalog).errors.some((error) => /not listed for model/i.test(error)));
+});
 
 test('decodes a catalog-listed recliner SKU into style, model, cover segment and finish without fabric-name guesses', () => {
   const result = decodeRmsSku('10X-759 D185559 FN 007', catalog);
