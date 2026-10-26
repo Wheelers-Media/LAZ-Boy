@@ -1307,6 +1307,92 @@ export function getSectionalPieceOptions(catalog, family, modelCode, pieceCode) 
   return [...new Set(tearPadPiece?.pricebook_options || [])];
 }
 
+export function buildSectionalStudioRmsLine(piece, cover, pattern, color, options = []) {
+  return `${piece.code}-${piece.modelCode} ${cover}${pattern}${color}${options.length ? ` ${options.join(' ')}` : ''}`;
+}
+
+export function validateSectionalStudioLayout(items, room, catalog) {
+  const pieces = Array.isArray(items) ? items : [];
+  const errors = [];
+  const warnings = [];
+  if (!pieces.length) return { valid: false, errors: ['Add a piece to the floor plan.'], warnings };
+  const bounds = room || { width: 900, height: 600 };
+  const edges = pieces.map(() => []);
+  const gap = 22;
+  const near = (a, b) => Math.abs(a - b) <= gap;
+
+  for (const [index, piece] of pieces.entries()) {
+    if (piece.x < 0 || piece.y < 0 || piece.x + piece.width > bounds.width || piece.y + piece.height > bounds.height) {
+      errors.push(`${piece.name || piece.code} extends beyond the room boundary.`);
+    }
+    for (let otherIndex = 0; otherIndex < index; otherIndex += 1) {
+      const other = pieces[otherIndex];
+      const overlapX = Math.min(piece.x + piece.width, other.x + other.width) - Math.max(piece.x, other.x);
+      const overlapY = Math.min(piece.y + piece.height, other.y + other.height) - Math.max(piece.y, other.y);
+      if (overlapX > 2 && overlapY > 2) errors.push(`${piece.name || piece.code} overlaps ${other.name || other.code}.`);
+      const verticalTouch = (near(piece.x + piece.width, other.x) || near(other.x + other.width, piece.x))
+        && Math.max(piece.y, other.y) < Math.min(piece.y + piece.height, other.y + other.height);
+      const horizontalTouch = (near(piece.y + piece.height, other.y) || near(other.y + other.height, piece.y))
+        && Math.max(piece.x, other.x) < Math.min(piece.x + piece.width, other.x + other.width);
+      if (verticalTouch || horizontalTouch) {
+        const direction = verticalTouch ? (other.x > piece.x ? 'right' : 'left') : (other.y > piece.y ? 'down' : 'up');
+        const opposite = { right: 'left', left: 'right', up: 'down', down: 'up' }[direction];
+        edges[index].push({ index: otherIndex, axis: verticalTouch ? 'horizontal' : 'vertical', direction });
+        edges[otherIndex].push({ index, axis: verticalTouch ? 'horizontal' : 'vertical', direction: opposite });
+      }
+    }
+  }
+
+  const category = (piece) => {
+    const key = String(piece.key || '');
+    if (/^LA_/.test(key)) return 'left';
+    if (/^RA_/.test(key)) return 'right';
+    if (/corner/i.test(key)) return 'corner';
+    if (/armless/i.test(key)) return 'middle';
+    if (/console/i.test(key)) return 'console';
+    return 'other';
+  };
+  const modelCodes = new Set(pieces.map((piece) => String(piece.modelCode)));
+  const families = new Set(pieces.map((piece) => piece.family));
+  if (modelCodes.size > 1 || families.size > 1) errors.push('A floor plan must use pieces from one collection/model.');
+  const profile = catalog?.product_profiles?.find((entry) => String(entry.model_code) === String(pieces[0]?.modelCode) && entry.sectional_family === pieces[0]?.family);
+  if (catalog && !profile) errors.push('The selected model/family has no matching catalog profile.');
+  for (const piece of pieces) {
+    const sourcePiece = profile?.pieces?.find((entry) => entry.key === piece.key);
+    const sourceCodes = sourcePiece ? [sourcePiece.code, ...(sourcePiece.variants || []).map((variant) => variant.code)].filter(Boolean).flatMap((code) => String(code).split('/').map((part) => part.trim())) : [];
+    if (catalog && !sourceCodes.includes(piece.code)) errors.push(`${piece.code || 'Unknown piece'} is not listed for model ${piece.modelCode || '(missing)'}.`);
+  }
+  for (const [index, piece] of pieces.entries()) {
+    const role = category(piece);
+    const neighbors = edges[index];
+    if (role === 'left' || role === 'right') {
+      if (neighbors.length > 1) errors.push(`${piece.code} is an end piece and cannot connect in the middle of a run.`);
+      const rotation = ((piece.rotation || 0) % 360 + 360) % 360;
+      const leftConnection = { 0: 'right', 90: 'down', 180: 'left', 270: 'up' }[rotation];
+      const rightConnection = { 0: 'left', 90: 'up', 180: 'right', 270: 'down' }[rotation];
+      const expected = role === 'left' ? leftConnection : rightConnection;
+      if (neighbors.length === 1 && neighbors[0].direction !== expected) errors.push(`${piece.code} ${role === 'left' ? 'left-arm' : 'right-arm'} piece is facing the wrong direction for this end.`);
+      if (role === 'left' && neighbors.some(({ index: n }) => category(pieces[n]) === 'left')) errors.push('Left-arm terminal pieces cannot join each other.');
+      if (role === 'right' && neighbors.some(({ index: n }) => category(pieces[n]) === 'right')) errors.push('Right-arm terminal pieces cannot join each other.');
+    } else if (role === 'corner') {
+      if (neighbors.length !== 2) errors.push(`${piece.code} corner must connect at exactly one vertex between two runs.`);
+      if (neighbors.length === 2 && neighbors[0].axis === neighbors[1].axis) {
+        errors.push(`${piece.code} corner cannot sit in the middle of a straight run; connect it at a 90° junction.`);
+      }
+    } else if (role === 'middle') {
+      const validNeighbors = neighbors.length === 2 && neighbors.every(({ index: n }) => ['left', 'right', 'corner'].includes(category(pieces[n])));
+      if (!validNeighbors) errors.push(`${piece.code} armless piece must sit between two terminal pieces or a terminal and corner.`);
+    } else if (role === 'console') {
+      if (neighbors.length === 0 || neighbors.length > 2 || neighbors.some(({ index: n }) => category(pieces[n]) === 'other')) {
+        errors.push(`${piece.code} console must connect to modular seating at an end or between compatible seats.`);
+      }
+    }
+  }
+  if (!errors.length) warnings.push('Spatial checks pass; verify the exact connection plan against the collection tear pad and current dealer ordering guide.');
+  else warnings.push('Only indexed piece identity is source-backed. Adjust the plan and confirm the final connection topology with the tear pad.');
+  return { valid: errors.length === 0, errors: [...new Set(errors)], warnings, pieceCount: pieces.length, status: errors.length ? 'needs_changes' : 'draft_requires_order_guide_check' };
+}
+
 export function matchDocumentedSectionalLayout(items, catalog) {
   if (!Array.isArray(items) || !items.length) return null;
   const { modelCode } = items[0];
