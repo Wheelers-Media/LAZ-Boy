@@ -1,0 +1,597 @@
+{
+  "model_code": "724",
+  "model_name": "Trouper",
+  "sectional_family": "La-Z-Time",
+  "source": "Trouper Tearpad - MP0092 6-6-24.pdf",
+  "source_document_code": "MP0092",
+  "source_document_footer_date": "06/01/24",
+  "source_precedence_note": "This model-specific tear pad establishes Trouper model number 724. It replaces the erroneous 717 Trouper mapping in the prior local catalog/index.",
+  "product_description": "Trouper is a family-friendly sectional with sculpted bucket seats and split backs for head, neck, and lumbar cushioning. Its modular pieces include reclining seating, chaise options, and a storage console with cup holders.",
+  "catalog_model": {
+    "category": "La-Z-Time Modular Sectional",
+    "scale": "Not specified in tear pad",
+    "recommended_height": "Not specified in tear pad",
+    "weight_limit_lbs": null,
+    "recommendation_eligible": false,
+    "key_features": [
+      "Sculpted bucket seats",
+      "Split back cushions for head, neck, and lumbar support",
+      "Reclining chaise pieces",
+      "Optional storage console with cup holders"
+    ],
+    "look_alikes": [
+      "Finley (747)",
+      "James (521)"
+    ],
+    "quick_spotter": "Trouper tear pad MP0092 (2024) documents sculpted bucket seats, split-back cushioning, and modular reclining seating. The tear pad does not provide ergonomic height guidance or seat capacity."
+  },
+  "pieces": [
+    {
+      "key": "LA_reclining_loveseat",
+      "name": "Left-Arm Sitting Reclining Loveseat",
+      "variants": [
+        {
+          "code": "44D",
+          "label": "Non-power"
+        },
+        {
+          "code": "U4D",
+          "label": "Power"
+        },
+        {
+          "code": "X4D",
+          "label": "Power"
+        }
+      ],
+      "dimensions_text": "42\" H × 56\" W × 40\" D",
+      "fully_extended_in": 66
+    },
+    {
+      "key": "RA_reclining_loveseat",
+      "name": "Right-Arm Sitting Reclining Loveseat",
+      "variants": [
+        {
+          "code": "44E",
+          "label": "Non-power"
+        },
+        {
+          "code": "U4E",
+          "label": "Power"
+        },
+        {
+          "code": "X4E",
+          "label": "Power"
+        }
+      ],
+      "dimensions_text": "42\" H × 56\" W × 40\" D",
+      "fully_extended_in": 66
+    },
+    {
+      "key": "corner_wedge",
+      "name": "Corner",
+      "variants": [
+        {
+          "code": "44C",
+          "label": "Corner"
+        }
+      ],
+      "dimensions_text": "42\" H × 62\" W × 38\" D"
+    },
+    {
+      "key": "armless_recliner",
+      "name": "Armless Recliner",
+      "variants": [
+        {
+          "code": "44S",
+          "label": "Non-power"
+        },
+        {
+          "code": "U4S",
+          "label": "Power"
+        },
+        {
+          "code": "X4S",
+          "label": "Power"
+        }
+      ],
+      "dimensions_text": "42\" H × 24\" W × 40\" D",
+      "fully_extended_in": 66
+    },
+    {
+      "key": "armless_chair",
+      "name": "Armless Chair",
+      "variants": [
+        {
+          "code": "M44",
+          "label": "Chair"
+        }
+      ],
+      "dimensions_text": "42\" H × 24\" W × 40\" D"
+    },
+    {
+      "key": "LA_chaise",
+      "name": "Left-Arm Sitting Reclining Chaise",
+      "variants": [
+        {
+          "code": "44Q",
+          "label": "Non-power"
+        },
+        {
+          "code": "U4Q",
+          "label": "Power"
+        },
+        {
+          "code": "X4Q",
+          "label": "Power"
+        }
+      ],
+      "dimensions_text": "42\" H × 35\" W × 68\" D",
+      "fully_extended_in": 79
+    },
+    {
+      "key": "RA_chaise",
+      "name": "Right-Arm Sitting Reclining Chaise",
+      "variants": [
+        {
+          "code": "44V",
+          "label": "Non-power"
+        },
+        {
+          "code": "U4V",
+          "label": "Power"
+        },
+        {
+          "code": "X4V",
+          "label": "Power"
+        }
+      ],
+      "dimensions_text": "42\" H × 35\" W × 68\" D",
+      "fully_extended_in": 79
+    },
+    {
+      "key": "storage_console",
+      "name": "Storage Console",
+      "variants": [
+        {
+          "code": "SC4",
+          "label": "Console"
+        }
+      ],
+      "dimensions_text": "38.5\" H × 14.5\" W × 37.5\" D"
+    },
+    {
+      "key": "LA_recliner",
+      "name": "Left-Arm Sitting Recliner",
+      "variants": [
+        {
+          "code": "44A",
+          "label": "Non-power"
+        },
+        {
+          "code": "U4A",
+          "label": "Power"
+        },
+        {
+          "code": "X4A",
+          "label": "Power"
+        }
+      ],
+      "dimensions_text": "42\" H × 30\" W × 40\" D",
+      "fully_extended_in": 66
+    },
+    {
+      "key": "RA_recliner",
+      "name": "Right-Arm Sitting Recliner",
+      "variants": [
+        {
+          "code": "44B",
+          "label": "Non-power"
+        },
+        {
+          "code": "U4B",
+          "label": "Power"
+        },
+        {
+          "code": "X4B",
+          "label": "Power"
+        }
+      ],
+      "dimensions_text": "42\" H × 30\" W × 40\" D",
+      "fully_extended_in": 66
+    }
+  ],
+  "configuration_diagram_dimension_labels_in": [
+    "90.5",
+    "105.5",
+    "102",
+    "91",
+    "105",
+    "119.5",
+    "114.5",
+    "151.5"
+  ],
+  "configuration_diagram_dimension_note": "Dimension labels are transcribed from the sectional arrangement diagrams. Text extraction does not reliably map every dimension to its arrangement, so no specific footprint sequence is asserted.",
+  "fit_specs_verified": false,
+  "product_guide_measurements": {
+    "source": "APRIL 2026 - PRODUCT INFORMATION GUIDE.xlsx",
+    "edition": "April 2026",
+    "columns": [
+      "H",
+      "W",
+      "D",
+      "SH",
+      "SW",
+      "SD",
+      "AH",
+      "EXT",
+      "RD",
+      "LH",
+      "WT_LB",
+      "SEAT_FACTOR",
+      "WALL_SPACE"
+    ],
+    "note": "Values are transcribed from the guide Dimensions table and keyed to exact printed style numbers. Linear measurements are inches. WT_LB is the product/unit weight, not a user-weight capacity. Blank source cells remain null. These dimensions do not establish recommended customer height or fit.",
+    "rows": {
+      "44D724": [
+        42,
+        56,
+        40,
+        20.5,
+        45,
+        20.5,
+        26,
+        66,
+        4,
+        null,
+        128,
+        2,
+        56
+      ],
+      "U4D724": [
+        42,
+        56,
+        40,
+        20.5,
+        45,
+        20.5,
+        26,
+        66,
+        4,
+        null,
+        145,
+        2,
+        56
+      ],
+      "X4D724": [
+        42,
+        56,
+        40,
+        20.5,
+        45,
+        20.5,
+        26,
+        66,
+        4,
+        null,
+        155,
+        2,
+        56
+      ],
+      "44E724": [
+        42,
+        56,
+        40,
+        20.5,
+        45,
+        20.5,
+        26,
+        66,
+        4,
+        null,
+        128,
+        2,
+        56
+      ],
+      "U4E724": [
+        42,
+        56,
+        40,
+        20.5,
+        45,
+        20.5,
+        26,
+        66,
+        4,
+        null,
+        145,
+        2,
+        56
+      ],
+      "X4E724": [
+        42,
+        56,
+        40,
+        20.5,
+        45,
+        20.5,
+        26,
+        66,
+        4,
+        null,
+        155,
+        2,
+        56
+      ],
+      "44C724": [
+        42,
+        62,
+        38,
+        19.5,
+        null,
+        22,
+        null,
+        null,
+        null,
+        null,
+        72,
+        2,
+        92
+      ],
+      "44S724": [
+        42,
+        24,
+        40,
+        20.5,
+        24,
+        20.5,
+        null,
+        66,
+        4,
+        null,
+        62,
+        1,
+        24
+      ],
+      "U4S724": [
+        42,
+        24,
+        40,
+        20.5,
+        24,
+        20.5,
+        null,
+        66,
+        4,
+        null,
+        77,
+        1,
+        null
+      ],
+      "X4S724": [
+        42,
+        24,
+        40,
+        20.5,
+        24,
+        20.5,
+        null,
+        66,
+        4,
+        null,
+        82,
+        1,
+        null
+      ],
+      "M44724": [
+        42,
+        24,
+        40,
+        20.5,
+        24,
+        20.5,
+        null,
+        null,
+        null,
+        null,
+        48,
+        1,
+        null
+      ],
+      "44Q724": [
+        42,
+        35,
+        68,
+        20,
+        26,
+        49,
+        26,
+        79,
+        10,
+        null,
+        105,
+        2,
+        35
+      ],
+      "U4Q724": [
+        42,
+        35,
+        68,
+        20,
+        26,
+        49,
+        26,
+        79,
+        10,
+        null,
+        105,
+        2,
+        35
+      ],
+      "X4Q724": [
+        42,
+        35,
+        68,
+        20,
+        26,
+        49,
+        26,
+        79,
+        10,
+        null,
+        115,
+        2,
+        35
+      ],
+      "44V724": [
+        42,
+        35,
+        68,
+        20,
+        26,
+        49,
+        26,
+        79,
+        10,
+        null,
+        105,
+        2,
+        35
+      ],
+      "U4V724": [
+        42,
+        35,
+        68,
+        20,
+        26,
+        49,
+        26,
+        79,
+        10,
+        null,
+        105,
+        2,
+        35
+      ],
+      "X4V724": [
+        42,
+        35,
+        68,
+        20,
+        26,
+        49,
+        26,
+        79,
+        10,
+        null,
+        115,
+        2,
+        35
+      ],
+      "SC4724": [
+        38.5,
+        14.5,
+        37.5,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        55,
+        1,
+        15.5
+      ],
+      "44A724": [
+        42,
+        30,
+        40,
+        20.5,
+        22,
+        21,
+        26,
+        66,
+        4,
+        null,
+        80,
+        2,
+        30
+      ],
+      "U4A724": [
+        42,
+        30,
+        40,
+        20.5,
+        22,
+        21,
+        26,
+        66,
+        4,
+        null,
+        97,
+        2,
+        30
+      ],
+      "X4A724": [
+        42,
+        30,
+        40,
+        20.5,
+        22,
+        21,
+        26,
+        66,
+        4,
+        null,
+        102,
+        2,
+        30
+      ],
+      "44B724": [
+        42,
+        30,
+        40,
+        20.5,
+        22,
+        21,
+        26,
+        66,
+        4,
+        null,
+        80,
+        2,
+        30
+      ],
+      "U4B724": [
+        42,
+        30,
+        40,
+        20.5,
+        22,
+        21,
+        26,
+        66,
+        4,
+        null,
+        97,
+        2,
+        30
+      ],
+      "X4B724": [
+        42,
+        30,
+        40,
+        20.5,
+        22,
+        21,
+        26,
+        66,
+        4,
+        null,
+        102,
+        2,
+        30
+      ]
+    }
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "model_code": "812",
+  "model_name": "Armitage",
+  "sectional_family": "La-Z-Motion",
+  "source": "Armitage TearPad MP0105 8-8-25.pdf",
+  "source_document_code": "MP0105",
+  "source_document_footer_date": "07/01/25",
+  "product_description": "Armitage is a modern low-profile sectional with bold track arms and chunky wood legs. The tear pad describes power reclining with headrest support and zero-gravity functionality.",
+  "pieces": [
+    {
+      "code": "8AU",
+      "key": "LA_power_recliner",
+      "name": "Power Left-Arm Sitting Recliner with Headrest",
+      "dimensions_text": "42\" H × 45\" W × 38.5\" D",
+      "printed_codes": [
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "8BU",
+      "key": "RA_power_recliner",
+      "name": "Power Right-Arm Sitting Recliner with Headrest",
+      "dimensions_text": "42\" H × 45\" W × 38.5\" D",
+      "printed_codes": [
+        "9CC",
+        "9EP",
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "8C0",
+      "key": "corner_wedge",
+      "name": "Rounded Corner",
+      "dimensions_text": "34.5\" H × 68.5\" W × 38\" D",
+      "dimensions_note": "Extracted component dimensions state 34.5 inches high; nearby arrangement diagrams label 38.5-inch side dimensions. Verify the piece dimension from a page image before relying on it.",
+      "printed_codes": [
+        "9CC",
+        "9EP",
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "8M0",
+      "key": "armless_middle",
+      "name": "Armless Chair",
+      "dimensions_text": "42\" H × 34\" W × 38.5\" D",
+      "printed_codes": [
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "8SU",
+      "key": "armless_power_recliner",
+      "name": "Power Armless Recliner with Headrest",
+      "dimensions_text": "42\" H × 34\" W × 38.5\" D",
+      "printed_codes": [
+        "9CC",
+        "9EP",
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "8SC",
+      "key": "stowaway_console",
+      "name": "Storage Console",
+      "dimensions_text": "29.5\" H × 13\" W × 38\" D",
+      "printed_codes": [
+        "9CC",
+        "9EP",
+        "9DP",
+        "90M"
+      ]
+    }
+  ],
+  "configuration_diagram_dimension_labels_in": [
+    "142 x 129",
+    "142 x 163",
+    "129 x 129",
+    "129 x 142",
+    "103",
+    "124"
+  ],
+  "configuration_diagram_dimension_note": "Dimension labels are reproduced from the arrangement diagrams. The extracted PDF text does not preserve a reliable mapping or orientation for each label, so they are listed without assigning them to a specific piece sequence.",
+  "printed_codes_note": "Printed codes are transcribed from the piece callouts; the text extraction does not identify what each code denotes or reliably map all codes to their meanings.",
+  "fit_specs_verified": false,
+  "product_guide_measurements": {
+    "source": "APRIL 2026 - PRODUCT INFORMATION GUIDE.xlsx",
+    "edition": "April 2026",
+    "columns": [
+      "H",
+      "W",
+      "D",
+      "SH",
+      "SW",
+      "SD",
+      "AH",
+      "EXT",
+      "RD",
+      "LH",
+      "WT_LB",
+      "SEAT_FACTOR",
+      "WALL_SPACE"
+    ],
+    "note": "Values are transcribed from the guide Dimensions table and keyed to exact printed style numbers. Linear measurements are inches. WT_LB is the product/unit weight, not a user-weight capacity. Blank source cells remain null. These dimensions do not establish recommended customer height or fit.",
+    "rows": {
+      "8AU812": [
+        42,
+        45,
+        38.5,
+        19.5,
+        34,
+        22,
+        24.5,
+        65,
+        8,
+        null,
+        157,
+        2,
+        null
+      ],
+      "8BU812": [
+        42,
+        45,
+        38.5,
+        19.5,
+        34,
+        22,
+        24.5,
+        65,
+        8,
+        null,
+        157,
+        2,
+        null
+      ],
+      "8C0812": [
+        34.5,
+        68.5,
+        38,
+        19.5,
+        null,
+        22,
+        null,
+        null,
+        null,
+        null,
+        84,
+        2,
+        100
+      ],
+      "8M0812": [
+        34.5,
+        34,
+        38.5,
+        19.5,
+        34,
+        22,
+        null,
+        null,
+        null,
+        null,
+        58,
+        1,
+        null
+      ],
+      "8SU812": [
+        42,
+        34,
+        38.5,
+        19.5,
+        34,
+        22,
+        24.5,
+        63,
+        8,
+        null,
+        121,
+        1,
+        null
+      ],
+      "8SC812": [
+        29.5,
+        13,
+        38,
+        null,
+        null,
+        null,
+        null,
+        44,
+        null,
+        null,
+        55,
+        1,
+        null
+      ]
+    }
+  }
+}

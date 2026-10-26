@@ -1,0 +1,4264 @@
+{
+  "title": "La-Z-Boy Stationary Collection",
+  "edition": "Summer/Fall 2026",
+  "source_documents": [
+    {
+      "file": "La-Z-Boy_Stationary_Catalog_Part_1.pdf",
+      "pages": "cover, prefix definitions, index, warranty"
+    },
+    {
+      "file": "La-Z-Boy_Stationary_Catalog_Part_2.pdf",
+      "pages": "options, finishes, pillow collections"
+    },
+    {
+      "file": "La-Z-Boy_Stationary_Catalog_Part_3.pdf",
+      "pages": "1-8"
+    },
+    {
+      "file": "La-Z-Boy_Stationary_Catalog_Part_4.pdf",
+      "pages": "9-15"
+    },
+    {
+      "file": "La-Z-Boy_Stationary_Catalog_Part_5.pdf",
+      "pages": "16-24"
+    },
+    {
+      "file": "La-Z-Boy_Stationary_Catalog_Part_6.pdf",
+      "pages": "25, 28-29, options and finishes"
+    },
+    {
+      "file": "La-Z-Boy_Stationary_Catalog_Part_7.pdf",
+      "pages": "publication footer"
+    }
+  ],
+  "publication_footer": "© 2026 La-Z-Boy Incorporated · 04/2026 · 000119-A-4",
+  "source_note": "Catalog facts below are transcribed from the supplied Summer/Fall 2026 stationary catalog text extraction. The catalog says to refer to current price books for complete details. Measurements are listed as H × W × D in inches unless the source itself uses another order. Availability and options remain style-specific.",
+  "index": [
+    {
+      "model_code": "418",
+      "model_name": "Leah",
+      "pages": [
+        1
+      ],
+      "catalog_categories": [
+        "Sleeper"
+      ],
+      "fabric": true,
+      "leather": false
+    },
+    {
+      "model_code": "435",
+      "model_name": "Mackenzie",
+      "pages": [
+        2
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Sleeper",
+        "Loveseat",
+        "Chair & Ottoman"
+      ],
+      "fabric": true,
+      "leather": true
+    },
+    {
+      "model_code": "494",
+      "model_name": "Collins",
+      "pages": [
+        3,
+        4,
+        5
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Loveseat",
+        "Chair & Ottoman",
+        "Sectional"
+      ],
+      "fabric": true,
+      "leather": true
+    },
+    {
+      "model_code": "593",
+      "model_name": "Kennedy",
+      "pages": [
+        6
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Sleeper",
+        "Loveseat",
+        "Chair & Ottoman"
+      ],
+      "fabric": true,
+      "leather": true
+    },
+    {
+      "model_code": "603",
+      "model_name": "Wilmette",
+      "pages": [
+        7,
+        8
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Sectional"
+      ],
+      "fabric": true,
+      "leather": true
+    },
+    {
+      "model_code": "606",
+      "model_name": "Noah",
+      "pages": [
+        9
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Loveseat",
+        "Chair & Ottoman"
+      ],
+      "fabric": true,
+      "leather": true
+    },
+    {
+      "model_code": "613",
+      "model_name": "Olson",
+      "pages": [
+        10
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Sleeper",
+        "Loveseat",
+        "Chair & Ottoman"
+      ],
+      "fabric": true,
+      "leather": true
+    },
+    {
+      "model_code": "620",
+      "model_name": "Piper",
+      "pages": [
+        11
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Sleeper",
+        "Loveseat"
+      ],
+      "fabric": true,
+      "leather": true
+    },
+    {
+      "model_code": "632",
+      "model_name": "Tahoe",
+      "pages": [
+        12
+      ],
+      "catalog_categories": [
+        "Sectional"
+      ],
+      "fabric": true,
+      "leather": true
+    },
+    {
+      "model_code": "636",
+      "model_name": "Shiloh",
+      "pages": [
+        13
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Sleeper",
+        "Loveseat",
+        "Chair & Ottoman"
+      ],
+      "fabric": true,
+      "leather": true
+    },
+    {
+      "model_code": "638",
+      "model_name": "Charlie",
+      "pages": [
+        14,
+        15,
+        16
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Sleeper",
+        "Loveseat",
+        "Chair & Ottoman",
+        "Sectional"
+      ],
+      "fabric": true,
+      "leather": true
+    },
+    {
+      "model_code": "663",
+      "model_name": "Paxton",
+      "pages": [
+        17,
+        18
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Loveseat",
+        "Chair & Ottoman",
+        "Sectional"
+      ],
+      "fabric": true,
+      "leather": true
+    },
+    {
+      "model_code": "665",
+      "model_name": "Alani",
+      "pages": [
+        19
+      ],
+      "catalog_categories": [
+        "Sectional"
+      ],
+      "fabric": true,
+      "leather": true
+    },
+    {
+      "model_code": "677",
+      "model_name": "Lauren",
+      "pages": [
+        20
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Loveseat",
+        "Chair & Ottoman"
+      ],
+      "fabric": true,
+      "leather": false
+    },
+    {
+      "model_code": "678",
+      "model_name": "Fleetwood",
+      "pages": [
+        21
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Loveseat",
+        "Chair & Ottoman"
+      ],
+      "fabric": true,
+      "leather": false
+    },
+    {
+      "model_code": "681",
+      "model_name": "Bexley",
+      "pages": [
+        22
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Sleeper",
+        "Loveseat"
+      ],
+      "fabric": true,
+      "leather": false
+    },
+    {
+      "model_code": "694",
+      "model_name": "Meyer",
+      "pages": [
+        23,
+        24,
+        25
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Loveseat",
+        "Chair & Ottoman",
+        "Sectional"
+      ],
+      "fabric": true,
+      "leather": true
+    },
+    {
+      "model_code": "893",
+      "model_name": "Colby",
+      "pages": [
+        28
+      ],
+      "catalog_categories": [
+        "DUO Reclining Sofa",
+        "DUO Reclining Loveseat",
+        "DUO Reclining Chair"
+      ],
+      "fabric": true,
+      "leather": true
+    },
+    {
+      "model_code": "899",
+      "model_name": "Bennett",
+      "pages": [
+        29
+      ],
+      "catalog_categories": [
+        "DUO Reclining Sofa",
+        "DUO Reclining Loveseat",
+        "DUO Reclining Chair"
+      ],
+      "fabric": true,
+      "leather": true
+    }
+  ],
+  "stationary_prefix_definitions": [
+    {
+      "code": "510",
+      "description": "Queen Sleep Sofa"
+    },
+    {
+      "code": "51S",
+      "description": "Queen Sleep Sofa with Chaise"
+    },
+    {
+      "code": "520",
+      "description": "Full Sleep Sofa"
+    },
+    {
+      "code": "610",
+      "description": "Sofa"
+    },
+    {
+      "code": "61S",
+      "description": "Sofa with Chaise"
+    },
+    {
+      "code": "620",
+      "description": "Apartment-Size Sofa"
+    },
+    {
+      "code": "630",
+      "description": "Loveseat"
+    },
+    {
+      "code": "555",
+      "description": "Twin Sleep Chair"
+    },
+    {
+      "code": "655",
+      "description": "Chair & a Half"
+    },
+    {
+      "code": "230",
+      "description": "Chair"
+    },
+    {
+      "code": "240",
+      "description": "Ottoman"
+    },
+    {
+      "code": "60A",
+      "description": "Left-Arm Sitting Chair"
+    },
+    {
+      "code": "6AL",
+      "description": "Left-Arm Sitting Storage Arm"
+    },
+    {
+      "code": "60B",
+      "description": "Right-Arm Sitting Chair"
+    },
+    {
+      "code": "6AR",
+      "description": "Right-Arm Sitting Storage Arm"
+    },
+    {
+      "code": "60C",
+      "description": "Rounded Corner Unit"
+    },
+    {
+      "code": "6CC",
+      "description": "90 Degree Corner Unit"
+    },
+    {
+      "code": "60D",
+      "description": "Left-Arm Sitting Loveseat"
+    },
+    {
+      "code": "60E",
+      "description": "Right-Arm Sitting Loveseat"
+    },
+    {
+      "code": "60L",
+      "description": "Left-Arm Sitting Chaise"
+    },
+    {
+      "code": "60R",
+      "description": "Right-Arm Sitting Chaise"
+    },
+    {
+      "code": "60M",
+      "description": "Armless Chair"
+    },
+    {
+      "code": "6MM",
+      "description": "Armless Loveseat"
+    },
+    {
+      "code": "6SC",
+      "description": "Storage Console"
+    },
+    {
+      "code": "6SL",
+      "description": "Left-Arm Sitting Chaise with Storage"
+    },
+    {
+      "code": "6SR",
+      "description": "Right-Arm Sitting Chaise with Storage"
+    },
+    {
+      "code": "6SP",
+      "description": "Armless Full Sleep Sofa"
+    },
+    {
+      "code": "60W",
+      "description": "Left-Arm Sitting Sofa with Attached Corner"
+    },
+    {
+      "code": "60X",
+      "description": "Right-Arm Sitting Sofa with Attached Corner"
+    },
+    {
+      "code": "60Y",
+      "description": "Left-Arm Sitting Sofa"
+    },
+    {
+      "code": "60Z",
+      "description": "Right-Arm Sitting Sofa"
+    }
+  ],
+  "options": [
+    {
+      "code": "088AC2 / 088AC3 / 088AC4",
+      "name": "Arm cap / headrest covers",
+      "details": "Napkin-style arm caps and headrest covers are available with fabric orders; additional fabric or leather hides may be ordered for decorative detailing or repair."
+    },
+    {
+      "code": "NN",
+      "name": "No nailhead trim",
+      "details": "Removes nailhead trim where it is a standard feature."
+    },
+    {
+      "code": "NB",
+      "name": "Black nailhead trim",
+      "details": "Hammered black nickel trim; available on select styles."
+    },
+    {
+      "code": "NS",
+      "name": "Platinum nailhead trim",
+      "details": "Available on select styles."
+    },
+    {
+      "code": "NH",
+      "name": "Brass nailhead trim",
+      "details": "Available on select styles."
+    },
+    {
+      "code": "LG",
+      "name": "Leg change",
+      "details": "Changes standard legs to a different leg design."
+    },
+    {
+      "code": "FP",
+      "name": "Featherlite pillows",
+      "details": "95% duck feathers, 5% duck down, in 100% cotton down-proof ticking for additional support."
+    },
+    {
+      "code": "P1",
+      "name": "Contrasting pillows",
+      "details": "Changes the fabric on accent pillows."
+    },
+    {
+      "code": "P2",
+      "name": "Contrasting second pillow set",
+      "details": "Changes the fabric on a second set of accent pillows on styles supplied with two sets."
+    },
+    {
+      "code": "MT",
+      "name": "Tempur-Response memory foam mattress",
+      "details": "Upgrade for Queen, Full, and Twin sleeper sizes."
+    },
+    {
+      "code": "MA",
+      "name": "SlumberAir mattress",
+      "details": "SlumberAir mattress system upgrade for Queen, Full, and Twin sleeper sizes."
+    },
+    {
+      "code": "DC",
+      "name": "ComfortDown cushion",
+      "details": "Upgrade from standard ComfortCore to pocketed-coil and high-resiliency foam core wrapped in a feather/down and fiber blend jacket."
+    },
+    {
+      "code": "Z6",
+      "name": "ComfortCore with Contour cushion",
+      "details": "Upgrade from standard ComfortCore seat cushions."
+    },
+    {
+      "code": "LT",
+      "name": "Left-hand power activator",
+      "details": "Moves the two-button mounted controller with USB from right-side to left-side sitting."
+    },
+    {
+      "code": "0881YC",
+      "name": "Rechargeable lithium-ion battery pack",
+      "details": "Cordless power for motion styles; catalog note says not available on lift chairs."
+    }
+  ],
+  "finishes": [
+    {
+      "code": "007",
+      "name": "Brown Mahogany",
+      "details": "Medium-brown patina."
+    },
+    {
+      "code": "021",
+      "name": "Coffee",
+      "details": "Deep finish with dark-brown undertones."
+    },
+    {
+      "code": "041",
+      "name": "Graphite",
+      "details": "Textured finish with understated gray tones."
+    },
+    {
+      "code": "071",
+      "name": "Driftwood",
+      "details": "Lighter, natural-textured wood tone."
+    }
+  ],
+  "pillow_styles": [
+    {
+      "code": "01P-202",
+      "name": "Box Border Kidney",
+      "dimensions": "12 in H × 21 in W",
+      "quantity": 1,
+      "options": [
+        "FP"
+      ]
+    },
+    {
+      "code": "01P-203",
+      "name": "Long Box Border Kidney",
+      "dimensions": "12 in H × 26 in W",
+      "quantity": 1,
+      "options": [
+        "FP"
+      ]
+    },
+    {
+      "code": "01P-204",
+      "name": "Long Knife Edge Kidney with Welt",
+      "dimensions": "11 in H × 36 in W",
+      "quantity": 1,
+      "options": [
+        "FP"
+      ]
+    },
+    {
+      "code": "01P-222",
+      "name": "Knife Edge with Welt",
+      "dimensions": "18 in H × 18 in W",
+      "quantity": 1,
+      "options": [
+        "FP"
+      ]
+    },
+    {
+      "code": "01P-262",
+      "name": "Knife Edge with Welt",
+      "dimensions": "20 in H × 20 in W",
+      "quantity": 1,
+      "options": [
+        "FP"
+      ]
+    },
+    {
+      "code": "08P-201",
+      "name": "Knife Edge Kidney with Welt",
+      "dimensions": "12 in H × 23 in W",
+      "quantity": 1,
+      "options": [
+        "FP"
+      ],
+      "note": "Listed as a single pillow."
+    },
+    {
+      "code": "08P-220",
+      "name": "Knife Edge",
+      "dimensions": "18 in H × 18 in W",
+      "quantity": 2,
+      "options": [
+        "FP"
+      ]
+    },
+    {
+      "code": "08P-222",
+      "name": "Knife Edge with Welt",
+      "dimensions": "18 in H × 18 in W",
+      "quantity": 2,
+      "options": [
+        "FP"
+      ]
+    },
+    {
+      "code": "08P-260",
+      "name": "Knife Edge",
+      "dimensions": "20 in H × 20 in W",
+      "quantity": 2,
+      "options": [
+        "FP"
+      ]
+    },
+    {
+      "code": "08P-262",
+      "name": "Knife Edge with Welt",
+      "dimensions": "20 in H × 20 in W",
+      "quantity": 2,
+      "options": [
+        "FP"
+      ]
+    }
+  ],
+  "warranty_reference": {
+    "source": "La-Z-Boy Stationary Catalog Part 1, warranty table and text",
+    "tiers_shown": [
+      "1 year",
+      "3 year",
+      "5 year",
+      "Limited Lifetime"
+    ],
+    "raw_table_text": "Premier sofas, sleep sofas, and sectionals table lists Frame; Show Wood; Springs and Spring Systems; Supreme Comfort mechanism; SlumberAir motor; polyurethane foam cushioning; ComfortCore cushion; ComfortCore with Contour cushion; ComfortDown cushion; fabric and leather; conserve fabric; antimicrobial fabric and leather; Restore by Nanobionic fabric; iClean fabric and leather combinations; Supreme Comfort mattress; SlumberAir mattress; Tempur-Response memory foam mattress. Premier sofas, sectionals, loveseats, and chairs table lists Frame; Show Wood; Springs and Spring Systems; Electrical Components; duo mechanism; ComfortCore cushion; fabric and leather; conserve; antimicrobial; Restore by Nanobionic; iClean variants; Battery Pack.",
+    "notes": [
+      "The text extraction does not retain the warranty-table dot alignment for every component, so per-component year assignments are not reconstructed here.",
+      "Catalog warranty text says the majority of frames are backed by a Limited Lifetime Warranty; consult current full written warranty terms.",
+      "One-year cover warranty text applies to seam failure, fabric separation, and nap loss; fabric and leather coverage concerns manufacturing and material defects; natural leather markings are not defects.",
+      "Specialty-fabric availability is stated as applying to most styles; consult CustomerCare for covered spills and exclusions."
+    ],
+    "customer_care_url": "https://la-z-boy.com/content/CustomerCare"
+  },
+  "products": [
+    {
+      "model_code": "418",
+      "model_name": "Leah",
+      "pages": [
+        1
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sleeper",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR",
+              "DP",
+              "NP",
+              "PS",
+              "VS"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ]
+          },
+          "fabric_collections": [
+            {
+              "name": "Social Club",
+              "prefix": "B1808",
+              "swatches": [
+                [
+                  "B180852",
+                  "Stone"
+                ],
+                [
+                  "B180857",
+                  "Charcoal"
+                ],
+                [
+                  "B180868",
+                  "Pewter"
+                ],
+                [
+                  "B180872",
+                  "Chalk"
+                ],
+                [
+                  "B180876",
+                  "Cocoa"
+                ]
+              ]
+            },
+            {
+              "name": "Rome",
+              "prefix": "D2116",
+              "swatches": [
+                [
+                  "D211632",
+                  "Porcelain"
+                ],
+                [
+                  "D211652",
+                  "Fog"
+                ],
+                [
+                  "D211675",
+                  "Saddle"
+                ],
+                [
+                  "D211686",
+                  "Indigo"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "510-418",
+              "category": "Queen Sleep Sofa",
+              "dimensions": "38 in H × 82 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "520-418",
+              "category": "Full Sleep Sofa",
+              "dimensions": "38 in H × 73.5 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "555-418",
+              "category": "Twin Sleep Chair",
+              "dimensions": "38 in H × 54 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "435",
+      "model_name": "Mackenzie",
+      "pages": [
+        2
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sofa",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR",
+              "DP",
+              "NP",
+              "PS",
+              "VS"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Bartaloni",
+              "prefix": "C1757",
+              "swatches": [
+                [
+                  "C175731",
+                  "Oatmeal"
+                ],
+                [
+                  "C175733",
+                  "Birch"
+                ],
+                [
+                  "C175753",
+                  "Flannel"
+                ],
+                [
+                  "C175773",
+                  "Twig"
+                ]
+              ]
+            },
+            {
+              "name": "Watari",
+              "prefix": "C2121",
+              "swatches": [
+                [
+                  "C212152",
+                  "Mineral"
+                ],
+                [
+                  "C212167",
+                  "Flint"
+                ],
+                [
+                  "C212171",
+                  "Flax"
+                ],
+                [
+                  "C212174",
+                  "Sandstone"
+                ],
+                [
+                  "C212181",
+                  "Spa"
+                ]
+              ]
+            },
+            {
+              "name": "Sutton",
+              "prefix": "LB2060",
+              "swatches": [
+                [
+                  "LB206032",
+                  "Ivory"
+                ],
+                [
+                  "LB206054",
+                  "Greystone"
+                ],
+                [
+                  "LB206077",
+                  "Cognac"
+                ],
+                [
+                  "LB206087",
+                  "Navy"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "610-435",
+              "category": "Sofa",
+              "dimensions": "36.5 in H × 87 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "510-435",
+              "category": "Queen Sleep Sofa",
+              "dimensions": "36.5 in H × 87 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "630-435",
+              "category": "Loveseat",
+              "dimensions": "36.5 in H × 64 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "230-435",
+              "category": "Chair",
+              "dimensions": "37.5 in H × 42 in W × 37 in D",
+              "options": [
+                "DC",
+                "FN",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "240-435",
+              "category": "Ottoman",
+              "dimensions": "19.5 in H × 32 in W × 24 in D",
+              "options": [
+                "FN"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "494",
+      "model_name": "Collins",
+      "pages": [
+        3,
+        4,
+        5
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sofa",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR",
+              "DP",
+              "NP",
+              "PS",
+              "VS"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "021"
+          ],
+          "fabric_collections": [
+            {
+              "name": "York",
+              "prefix": "D1905",
+              "swatches": [
+                [
+                  "D190531",
+                  "Cream"
+                ],
+                [
+                  "D190558",
+                  "Granite"
+                ],
+                [
+                  "D190574",
+                  "Bisque"
+                ],
+                [
+                  "D190554",
+                  "Quarry"
+                ],
+                [
+                  "D190572",
+                  "Barley"
+                ]
+              ]
+            },
+            {
+              "name": "i-Favorite",
+              "prefix": "D2099",
+              "swatches": [
+                [
+                  "D209931",
+                  "Parchment"
+                ],
+                [
+                  "D209953",
+                  "Pewter"
+                ],
+                [
+                  "D209933",
+                  "Oyster"
+                ],
+                [
+                  "D209965",
+                  "Driftwood"
+                ]
+              ]
+            },
+            {
+              "name": "Fairfax",
+              "prefix": "D1807",
+              "swatches": [
+                [
+                  "D180732",
+                  "Oyster"
+                ],
+                [
+                  "D180757",
+                  "Iron"
+                ],
+                [
+                  "D180753",
+                  "Ash"
+                ],
+                [
+                  "D180764",
+                  "Almond"
+                ],
+                [
+                  "D180774",
+                  "Mocha"
+                ],
+                [
+                  "D180786",
+                  "Eclipse"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "610-494",
+              "category": "Sofa",
+              "dimensions": "37.5 in H × 89 in W × 39 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "630-494",
+              "category": "Loveseat",
+              "dimensions": "37.5 in H × 65 in W × 39 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "230-494",
+              "category": "Chair",
+              "dimensions": "37.5 in H × 41 in W × 39 in D",
+              "options": [
+                "DC",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "240-494",
+              "category": "Ottoman",
+              "dimensions": "18.5 in H × 31.5 in W × 23.5 in D",
+              "options": []
+            }
+          ]
+        },
+        {
+          "name": "Stationary Sectional",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR",
+              "DP",
+              "NP",
+              "PS",
+              "VS"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "021"
+          ],
+          "styles": [
+            {
+              "style_code": "60A-494",
+              "category": "Left-Arm Sitting Chair",
+              "dimensions": "37.5 in H × 32.5 in W × 39 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60B-494",
+              "category": "Right-Arm Sitting Chair",
+              "dimensions": "37.5 in H × 32.5 in W × 39 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60C-494",
+              "category": "Rounded Corner Unit",
+              "dimensions": "37.5 in H × 67 in W × 39 in D",
+              "wall_space_required_inches": 98,
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6CC-494",
+              "category": "90 Degree Corner Unit",
+              "dimensions": "37.5 in H × 53 in W × 39 in D",
+              "wall_space_required_inches": 78,
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60D-494",
+              "category": "Left-Arm Sitting Loveseat",
+              "dimensions": "37.5 in H × 56.5 in W × 39 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60E-494",
+              "category": "Right-Arm Sitting Loveseat",
+              "dimensions": "37.5 in H × 56.5 in W × 39 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60L-494",
+              "category": "Left-Arm Sitting Chaise",
+              "dimensions": "37.5 in H × 32.5 in W × 64 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6SL-494",
+              "category": "Left-Arm Sitting Chaise with Storage",
+              "dimensions": "37.5 in H × 39 in W × 64 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60M-494",
+              "category": "Armless Chair",
+              "dimensions": "37.5 in H × 24 in W × 39 in D",
+              "options": [
+                "DC",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6MM-494",
+              "category": "Sectional Armless Loveseat",
+              "dimensions": "37.5 in H × 63 in W × 39 in D",
+              "options": [
+                "DC",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60R-494",
+              "category": "Right-Arm Sitting Chaise",
+              "dimensions": "37.5 in H × 32.5 in W × 64 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6SR-494",
+              "category": "Right-Arm Sitting Chaise with Storage",
+              "dimensions": "37.5 in H × 39 in W × 64 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6SC-494",
+              "category": "Storage Console",
+              "dimensions": "25.5 in H × 10 in W × 38.5 in D",
+              "options": [
+                "FN"
+              ],
+              "features": [
+                "storage drawer",
+                "charging ports",
+                "wireless charging"
+              ]
+            },
+            {
+              "style_code": "6SP-494",
+              "category": "Armless Full Sleeper",
+              "dimensions": "37.5 in H × 63 in W × 39 in D",
+              "options": [
+                "DC",
+                "MA",
+                "MT",
+                "Z6"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "593",
+      "model_name": "Kennedy",
+      "pages": [
+        6
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sofa",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR",
+              "VS"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041",
+            "071"
+          ],
+          "fabric_collections": [
+            {
+              "name": "i-Hallandale",
+              "prefix": "D1564",
+              "swatches": [
+                [
+                  "D156464",
+                  "Wicker"
+                ],
+                [
+                  "D156487",
+                  "Admiral"
+                ],
+                [
+                  "D156431",
+                  "Ivory"
+                ],
+                [
+                  "D156453",
+                  "Platinum"
+                ],
+                [
+                  "D156458",
+                  "Charcoal"
+                ]
+              ]
+            },
+            {
+              "name": "Zinnamon",
+              "prefix": "D2129",
+              "swatches": [
+                [
+                  "D212954",
+                  "Stone"
+                ],
+                [
+                  "D212970",
+                  "Mushroom"
+                ],
+                [
+                  "D212931",
+                  "Dove"
+                ],
+                [
+                  "D212933",
+                  "Natural"
+                ],
+                [
+                  "D212952",
+                  "Steel"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "610-593",
+              "category": "Sofa",
+              "dimensions": "39 in H × 77 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "510-593",
+              "category": "Queen Sleep Sofa",
+              "dimensions": "39 in H × 77 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "620-593",
+              "category": "Apartment-Size Sofa",
+              "dimensions": "39 in H × 69 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "520-593",
+              "category": "Full Sleep Sofa",
+              "dimensions": "39 in H × 69 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "630-593",
+              "category": "Loveseat",
+              "dimensions": "39 in H × 54.5 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "230-593",
+              "category": "Chair",
+              "dimensions": "39 in H × 32 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "240-593",
+              "category": "Ottoman",
+              "dimensions": "19 in H × 27 in W × 24 in D",
+              "options": [
+                "FN"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "603",
+      "model_name": "Wilmette",
+      "pages": [
+        7,
+        8
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sofa",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR",
+              "DP",
+              "NP",
+              "PS",
+              "VS"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041",
+            "071"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Duffey",
+              "prefix": "C2042",
+              "swatches": [
+                [
+                  "C204232",
+                  "Oat"
+                ],
+                [
+                  "C204253",
+                  "Fog"
+                ],
+                [
+                  "C204260",
+                  "Dove"
+                ],
+                [
+                  "C204274",
+                  "Hazel"
+                ]
+              ]
+            },
+            {
+              "name": "Sutton",
+              "prefix": "LB2060",
+              "swatches": [
+                [
+                  "LB206032",
+                  "Ivory"
+                ],
+                [
+                  "LB206054",
+                  "Greystone"
+                ],
+                [
+                  "LB206077",
+                  "Cognac"
+                ],
+                [
+                  "LB206087",
+                  "Navy"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "610-603",
+              "category": "Sofa",
+              "dimensions": "34 in H × 75.5 in W × 36 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "655-603",
+              "category": "Chair & a Half",
+              "dimensions": "34 in H × 39 in W × 36 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "240-603",
+              "category": "Ottoman",
+              "dimensions": "18 in H × 37.5 in W × 24 in D",
+              "options": [
+                "FN"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Stationary Sectional",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR",
+              "DP",
+              "NP",
+              "PS",
+              "VS"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041",
+            "071"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Duffey",
+              "prefix": "C2042",
+              "swatches": [
+                [
+                  "C204232",
+                  "Oat"
+                ],
+                [
+                  "C204253",
+                  "Fog"
+                ],
+                [
+                  "C204260",
+                  "Dove"
+                ],
+                [
+                  "C204274",
+                  "Hazel"
+                ]
+              ]
+            },
+            {
+              "name": "Sutton",
+              "prefix": "LB2060",
+              "swatches": [
+                [
+                  "LB206032",
+                  "Ivory"
+                ],
+                [
+                  "LB206054",
+                  "Greystone"
+                ],
+                [
+                  "LB206077",
+                  "Cognac"
+                ],
+                [
+                  "LB206087",
+                  "Navy"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "60W-603",
+              "category": "Left-Arm Sitting Sofa with Attached Corner",
+              "dimensions": "34 in H × 107 in W × 36 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60X-603",
+              "category": "Right-Arm Sitting Sofa with Attached Corner",
+              "dimensions": "34 in H × 107 in W × 36 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60Y-603",
+              "category": "Left-Arm Sitting Sofa",
+              "dimensions": "34 in H × 73.5 in W × 36 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60Z-603",
+              "category": "Right-Arm Sitting Sofa",
+              "dimensions": "34 in H × 73.5 in W × 36 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "606",
+      "model_name": "Noah",
+      "pages": [
+        9
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sofa",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041"
+          ],
+          "fabric_collections": [
+            {
+              "name": "i-Rene",
+              "prefix": "D2010",
+              "swatches": [
+                [
+                  "D201014",
+                  "Nutmeg"
+                ],
+                [
+                  "D201025",
+                  "Moss"
+                ],
+                [
+                  "D201019",
+                  "Spice"
+                ],
+                [
+                  "D201032",
+                  "Oat"
+                ],
+                [
+                  "D201065",
+                  "Mushroom"
+                ],
+                [
+                  "D201081",
+                  "Bluestone"
+                ],
+                [
+                  "D201052",
+                  "Ash"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "610-606",
+              "category": "Sofa",
+              "dimensions": "36.5 in H × 83 in W × 36 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "630-606",
+              "category": "Loveseat",
+              "dimensions": "36.5 in H × 60.5 in W × 36 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "230-606",
+              "category": "Chair",
+              "dimensions": "36.5 in H × 35 in W × 36 in D",
+              "options": [
+                "DC",
+                "FN",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "240-606",
+              "category": "Ottoman",
+              "dimensions": "17.5 in H × 30 in W × 23 in D",
+              "options": [
+                "FN"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "613",
+      "model_name": "Olson",
+      "pages": [
+        10
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sofa",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR",
+              "DP",
+              "NP",
+              "PS",
+              "VS"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041",
+            "071"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Marteon",
+              "prefix": "D1970",
+              "swatches": [
+                [
+                  "D197034",
+                  "Natural"
+                ],
+                [
+                  "D197052",
+                  "Whisper"
+                ],
+                [
+                  "D197056",
+                  "Onyx"
+                ],
+                [
+                  "D197066",
+                  "Porcini"
+                ],
+                [
+                  "D197096",
+                  "Ocean"
+                ]
+              ]
+            },
+            {
+              "name": "Gail",
+              "prefix": "D2074",
+              "swatches": [
+                [
+                  "D207432",
+                  "Ecru"
+                ],
+                [
+                  "D207451",
+                  "Oyster"
+                ],
+                [
+                  "D207460",
+                  "Porcelain"
+                ],
+                [
+                  "D207478",
+                  "Fossil"
+                ],
+                [
+                  "D207480",
+                  "Lotus"
+                ],
+                [
+                  "D207486",
+                  "Navy"
+                ]
+              ]
+            },
+            {
+              "name": "Artisia",
+              "prefix": "D2093",
+              "swatches": [
+                [
+                  "D209324",
+                  "Leaf"
+                ],
+                [
+                  "D209331",
+                  "Vellum"
+                ],
+                [
+                  "D209351",
+                  "Silver"
+                ],
+                [
+                  "D209355",
+                  "Mushroom"
+                ],
+                [
+                  "D209374",
+                  "Dusty Rose"
+                ],
+                [
+                  "D209375",
+                  "Cappuccino"
+                ],
+                [
+                  "D209376",
+                  "Truffle"
+                ]
+              ]
+            },
+            {
+              "name": "Sutton",
+              "prefix": "LB2060",
+              "swatches": [
+                [
+                  "LB206032",
+                  "Ivory"
+                ],
+                [
+                  "LB206054",
+                  "Greystone"
+                ],
+                [
+                  "LB206077",
+                  "Cognac"
+                ],
+                [
+                  "LB206087",
+                  "Navy"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "610-613",
+              "category": "Sofa",
+              "dimensions": "37 in H × 83.5 in W × 39.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "510-613",
+              "category": "Queen Sleep Sofa",
+              "dimensions": "37 in H × 83.5 in W × 39.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "620-613",
+              "category": "Apartment-Size Sofa",
+              "dimensions": "37 in H × 75.5 in W × 39.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "520-613",
+              "category": "Full Sleep Sofa",
+              "dimensions": "37 in H × 75.5 in W × 39.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "655-613",
+              "category": "Chair & a Half",
+              "dimensions": "37 in H × 56 in W × 39.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "555-613",
+              "category": "Twin Sleep Chair",
+              "dimensions": "37 in H × 56 in W × 39.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "620",
+      "model_name": "Piper",
+      "pages": [
+        11
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sofa",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041",
+            "071"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Sheldon",
+              "prefix": "C2043",
+              "swatches": [
+                [
+                  "C204357",
+                  "Granite"
+                ],
+                [
+                  "C204376",
+                  "Stone"
+                ],
+                [
+                  "C204373",
+                  "Fawn"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "610-620",
+              "category": "Sofa",
+              "dimensions": "37.5 in H × 82 in W × 37 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "510-620",
+              "category": "Queen Sleep Sofa",
+              "dimensions": "37.5 in H × 82 in W × 37 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "630-620",
+              "category": "Loveseat",
+              "dimensions": "37.5 in H × 59.5 in W × 37 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "61S-620",
+              "category": "Sofa with Chaise",
+              "dimensions": "37.5 in H × 82 in W × 61 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "51S-620",
+              "category": "Queen Sleep Sofa with Chaise",
+              "dimensions": "37.5 in H × 82 in W × 61 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "632",
+      "model_name": "Tahoe",
+      "pages": [
+        12
+      ],
+      "catalog_groups": [
+        {
+          "name": "Stationary Sectional",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "021",
+            "007"
+          ],
+          "finish_note": "Finish options only available on 6AL, 6AR, and 6SC prefixes.",
+          "fabric_collections": [
+            {
+              "name": "Promise",
+              "prefix": "D2009",
+              "swatches": [
+                [
+                  "D200931",
+                  "Ecru"
+                ],
+                [
+                  "D200952",
+                  "Oyster"
+                ],
+                [
+                  "D200972",
+                  "Khaki"
+                ],
+                [
+                  "D200983",
+                  "Powder"
+                ],
+                [
+                  "D200946",
+                  "Gold"
+                ],
+                [
+                  "D200959",
+                  "Thunder"
+                ]
+              ]
+            },
+            {
+              "name": "i-Adario",
+              "prefix": "E1917",
+              "swatches": [
+                [
+                  "E191734",
+                  "Basmati"
+                ],
+                [
+                  "E191753",
+                  "Stone"
+                ],
+                [
+                  "E191752",
+                  "Fog"
+                ],
+                [
+                  "E191765",
+                  "Taupe"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "6AL-632",
+              "category": "Left-Arm Sitting Storage Arm",
+              "dimensions": "25.5 in H × 10 in W × 38.5 in D",
+              "options": [
+                "FN"
+              ]
+            },
+            {
+              "style_code": "60A-632",
+              "category": "Left-Arm Sitting Chair",
+              "dimensions": "37 in H × 47 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60B-632",
+              "category": "Right-Arm Sitting Chair",
+              "dimensions": "37 in H × 47 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6AR-632",
+              "category": "Right-Arm Sitting Storage Arm",
+              "dimensions": "25.5 in H × 10 in W × 38.5 in D",
+              "options": [
+                "FN"
+              ]
+            },
+            {
+              "style_code": "6CC-632",
+              "category": "90 Degree Corner Unit",
+              "dimensions": "37 in H × 39.5 in W × 39.5 in D",
+              "wall_space_required_inches": 79,
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60M-632",
+              "category": "Armless Chair",
+              "dimensions": "37 in H × 37 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6MM-632",
+              "category": "Armless Loveseat",
+              "dimensions": "37 in H × 74.5 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6SC-632",
+              "category": "Storage Console",
+              "dimensions": "25.5 in H × 10 in W × 38.5 in D",
+              "options": [
+                "FN"
+              ],
+              "features": [
+                "storage drawer",
+                "charging ports",
+                "wireless charging"
+              ]
+            },
+            {
+              "style_code": "240-632",
+              "category": "Storage Ottoman",
+              "dimensions": "21.5 in H × 38.5 in W × 38.5 in D",
+              "options": [],
+              "note": "Also available in DP, NP, PS, and VS cover cap codes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "636",
+      "model_name": "Shiloh",
+      "pages": [
+        13
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sofa",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR",
+              "DP",
+              "NP",
+              "PS",
+              "VS"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041",
+            "071"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Marteon",
+              "prefix": "D1970",
+              "swatches": [
+                [
+                  "D197034",
+                  "Natural"
+                ],
+                [
+                  "D197052",
+                  "Whisper"
+                ],
+                [
+                  "D197056",
+                  "Onyx"
+                ],
+                [
+                  "D197066",
+                  "Porcini"
+                ],
+                [
+                  "D197096",
+                  "Ocean"
+                ]
+              ]
+            },
+            {
+              "name": "Gail",
+              "prefix": "D2074",
+              "swatches": [
+                [
+                  "D207432",
+                  "Ecru"
+                ],
+                [
+                  "D207451",
+                  "Oyster"
+                ],
+                [
+                  "D207460",
+                  "Porcelain"
+                ],
+                [
+                  "D207478",
+                  "Fossil"
+                ],
+                [
+                  "D207480",
+                  "Lotus"
+                ],
+                [
+                  "D207486",
+                  "Navy"
+                ]
+              ]
+            },
+            {
+              "name": "Artisia",
+              "prefix": "D2093",
+              "swatches": [
+                [
+                  "D209324",
+                  "Leaf"
+                ],
+                [
+                  "D209331",
+                  "Vellum"
+                ],
+                [
+                  "D209351",
+                  "Silver"
+                ],
+                [
+                  "D209355",
+                  "Mushroom"
+                ],
+                [
+                  "D209374",
+                  "Dusty Rose"
+                ],
+                [
+                  "D209375",
+                  "Cappuccino"
+                ],
+                [
+                  "D209376",
+                  "Truffle"
+                ]
+              ]
+            },
+            {
+              "name": "Sutton",
+              "prefix": "LB2060",
+              "swatches": [
+                [
+                  "LB206032",
+                  "Ivory"
+                ],
+                [
+                  "LB206054",
+                  "Greystone"
+                ],
+                [
+                  "LB206077",
+                  "Cognac"
+                ],
+                [
+                  "LB206087",
+                  "Navy"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "610-636",
+              "category": "Sofa",
+              "dimensions": "37 in H × 80.5 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "510-636",
+              "category": "Queen Sleep Sofa",
+              "dimensions": "37 in H × 80.5 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "620-636",
+              "category": "Apartment-Size Sofa",
+              "dimensions": "37 in H × 72.5 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "520-636",
+              "category": "Full Sleep Sofa",
+              "dimensions": "37 in H × 72.5 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "655-636",
+              "category": "Chair & a Half",
+              "dimensions": "37 in H × 52.5 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "555-636",
+              "category": "Twin Sleep Sofa",
+              "dimensions": "37 in H × 52.5 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "638",
+      "model_name": "Charlie",
+      "pages": [
+        14,
+        15,
+        16
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sofa",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041",
+            "071"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Marteon",
+              "prefix": "D1970",
+              "swatches": [
+                [
+                  "D197034",
+                  "Natural"
+                ],
+                [
+                  "D197052",
+                  "Whisper"
+                ],
+                [
+                  "D197056",
+                  "Onyx"
+                ],
+                [
+                  "D197066",
+                  "Porcini"
+                ],
+                [
+                  "D197096",
+                  "Ocean"
+                ]
+              ]
+            },
+            {
+              "name": "Gail",
+              "prefix": "D2074",
+              "swatches": [
+                [
+                  "D207432",
+                  "Ecru"
+                ],
+                [
+                  "D207451",
+                  "Oyster"
+                ],
+                [
+                  "D207460",
+                  "Porcelain"
+                ],
+                [
+                  "D207478",
+                  "Fossil"
+                ],
+                [
+                  "D207480",
+                  "Lotus"
+                ],
+                [
+                  "D207486",
+                  "Navy"
+                ]
+              ]
+            },
+            {
+              "name": "Artisia",
+              "prefix": "D2093",
+              "swatches": [
+                [
+                  "D209324",
+                  "Leaf"
+                ],
+                [
+                  "D209331",
+                  "Vellum"
+                ],
+                [
+                  "D209351",
+                  "Silver"
+                ],
+                [
+                  "D209355",
+                  "Mushroom"
+                ],
+                [
+                  "D209374",
+                  "Dusty Rose"
+                ],
+                [
+                  "D209375",
+                  "Cappuccino"
+                ],
+                [
+                  "D209376",
+                  "Truffle"
+                ]
+              ]
+            },
+            {
+              "name": "Sutton",
+              "prefix": "LB2060",
+              "swatches": [
+                [
+                  "LB206032",
+                  "Ivory"
+                ],
+                [
+                  "LB206054",
+                  "Greystone"
+                ],
+                [
+                  "LB206077",
+                  "Cognac"
+                ],
+                [
+                  "LB206087",
+                  "Navy"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "610-638",
+              "category": "Sofa",
+              "dimensions": "37 in H × 79 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "510-638",
+              "category": "Queen Sleep Sofa",
+              "dimensions": "37 in H × 79 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "620-638",
+              "category": "Apartment-Size Sofa",
+              "dimensions": "37 in H × 71 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "520-638",
+              "category": "Full Sleep Sofa",
+              "dimensions": "37 in H × 71 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "655-638",
+              "category": "Chair & a Half",
+              "dimensions": "37 in H × 50.5 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "555-638",
+              "category": "Twin Sleep Chair",
+              "dimensions": "37 in H × 50.5 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "240-638",
+              "category": "Ottoman",
+              "dimensions": "19 in H × 41 in W × 26.5 in D",
+              "options": [
+                "FN"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Stationary Sectional",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041",
+            "071"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Marteon",
+              "prefix": "D1970",
+              "swatches": [
+                [
+                  "D197034",
+                  "Natural"
+                ],
+                [
+                  "D197052",
+                  "Whisper"
+                ],
+                [
+                  "D197056",
+                  "Onyx"
+                ],
+                [
+                  "D197066",
+                  "Porcini"
+                ],
+                [
+                  "D197096",
+                  "Ocean"
+                ]
+              ]
+            },
+            {
+              "name": "Gail",
+              "prefix": "D2074",
+              "swatches": [
+                [
+                  "D207432",
+                  "Ecru"
+                ],
+                [
+                  "D207451",
+                  "Oyster"
+                ],
+                [
+                  "D207460",
+                  "Porcelain"
+                ],
+                [
+                  "D207478",
+                  "Fossil"
+                ],
+                [
+                  "D207480",
+                  "Lotus"
+                ],
+                [
+                  "D207486",
+                  "Navy"
+                ]
+              ]
+            },
+            {
+              "name": "Artisia",
+              "prefix": "D2093",
+              "swatches": [
+                [
+                  "D209324",
+                  "Leaf"
+                ],
+                [
+                  "D209331",
+                  "Vellum"
+                ],
+                [
+                  "D209351",
+                  "Silver"
+                ],
+                [
+                  "D209355",
+                  "Mushroom"
+                ],
+                [
+                  "D209374",
+                  "Dusty Rose"
+                ],
+                [
+                  "D209375",
+                  "Cappuccino"
+                ],
+                [
+                  "D209376",
+                  "Truffle"
+                ]
+              ]
+            },
+            {
+              "name": "Sutton",
+              "prefix": "LB2060",
+              "swatches": [
+                [
+                  "LB206032",
+                  "Ivory"
+                ],
+                [
+                  "LB206054",
+                  "Greystone"
+                ],
+                [
+                  "LB206077",
+                  "Cognac"
+                ],
+                [
+                  "LB206087",
+                  "Navy"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "60A-638",
+              "category": "Left-Arm Sitting Chair",
+              "dimensions": "37 in H × 37 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60B-638",
+              "category": "Right-Arm Sitting Chair",
+              "dimensions": "37 in H × 37 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60C-638",
+              "category": "Rounded Corner Unit",
+              "dimensions": "37 in H × 59.5 in W × 37 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6CC-638",
+              "category": "90 Degree Corner Unit",
+              "dimensions": "37 in H × 52.5 in W × 37 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60D-638",
+              "category": "Left-Arm Sitting Loveseat",
+              "dimensions": "37 in H × 68.5 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60E-638",
+              "category": "Right-Arm Sitting Loveseat",
+              "dimensions": "37 in H × 68.5 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60L-638",
+              "category": "Left-Arm Sitting Chaise",
+              "dimensions": "37 in H × 37.5 in W × 63.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6SL-638",
+              "category": "Left-Arm Sitting Chaise with Storage",
+              "dimensions": "37 in H × 37.5 in W × 63.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60R-638",
+              "category": "Right-Arm Sitting Chaise",
+              "dimensions": "37 in H × 37.5 in W × 63.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6SR-638",
+              "category": "Right-Arm Sitting Chaise with Storage",
+              "dimensions": "37 in H × 37.5 in W × 63.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60M-638",
+              "category": "Sectional Armless Chair",
+              "dimensions": "37 in H × 32 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6MM-638",
+              "category": "Armless Loveseat",
+              "dimensions": "37 in H × 62.5 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6SP-638",
+              "category": "Armless Full Sleeper",
+              "dimensions": "37 in H × 62.5 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "MA",
+                "MT",
+                "Z6"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "663",
+      "model_name": "Paxton",
+      "pages": [
+        17,
+        18
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sofa",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041",
+            "071"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Novan",
+              "prefix": "D2101",
+              "swatches": [
+                [
+                  "D210155",
+                  "Pebble"
+                ],
+                [
+                  "D210162",
+                  "Flax"
+                ],
+                [
+                  "D210174",
+                  "Twine"
+                ],
+                [
+                  "D210137",
+                  "Porcelain"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "610-663",
+              "category": "Sofa",
+              "dimensions": "38 in H × 88 in W × 42 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "630-663",
+              "category": "Loveseat",
+              "dimensions": "38 in H × 64 in W × 42 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "655-663",
+              "category": "Chair & a Half",
+              "dimensions": "38 in H × 52 in W × 42 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "240-663",
+              "category": "Ottoman",
+              "dimensions": "19 in H × 41 in W × 26.5 in D",
+              "options": [
+                "FN"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Stationary Sectional",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041",
+            "071"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Novan",
+              "prefix": "D2101",
+              "swatches": [
+                [
+                  "D210155",
+                  "Pebble"
+                ],
+                [
+                  "D210162",
+                  "Flax"
+                ],
+                [
+                  "D210174",
+                  "Twine"
+                ],
+                [
+                  "D210137",
+                  "Porcelain"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "60A-663",
+              "category": "Left-Arm Sitting Chair",
+              "dimensions": "38 in H × 45 in W × 42 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60B-663",
+              "category": "Right-Arm Sitting Chair",
+              "dimensions": "38 in H × 45 in W × 42 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6CC-663",
+              "category": "90 Degree Corner Unit",
+              "dimensions": "38 in H × 68 in W × 42 in D",
+              "wall_space_required_inches": 84,
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60L-663",
+              "category": "Left-Arm Sitting Chaise",
+              "dimensions": "38 in H × 45 in W × 66.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60M-663",
+              "category": "Armless Chair",
+              "dimensions": "38 in H × 40 in W × 42 in D",
+              "options": [
+                "DC",
+                "FN",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60R-663",
+              "category": "Right-Arm Sitting Chaise",
+              "dimensions": "38 in H × 45 in W × 66.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "665",
+      "model_name": "Alani",
+      "pages": [
+        19
+      ],
+      "catalog_groups": [
+        {
+          "name": "Stationary Sectional",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [],
+          "fabric_collections": [
+            {
+              "name": "Fairfax",
+              "prefix": "D1807",
+              "swatches": [
+                [
+                  "D180732",
+                  "Oyster"
+                ],
+                [
+                  "D180757",
+                  "Iron"
+                ],
+                [
+                  "D180753",
+                  "Ash"
+                ],
+                [
+                  "D180764",
+                  "Almond"
+                ],
+                [
+                  "D180774",
+                  "Mocha"
+                ],
+                [
+                  "D1807786",
+                  "Eclipse"
+                ]
+              ]
+            },
+            {
+              "name": "Novan",
+              "prefix": "D2101",
+              "swatches": [
+                [
+                  "D210137",
+                  "Porcelain"
+                ],
+                [
+                  "D210162",
+                  "Flax"
+                ],
+                [
+                  "D210155",
+                  "Pebble"
+                ],
+                [
+                  "D210174",
+                  "Twine"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "60A-665",
+              "category": "Left-Arm Sitting Chair",
+              "dimensions": "38 in H × 46 in W × 42 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60B-665",
+              "category": "Right-Arm Sitting Chair",
+              "dimensions": "38 in H × 46 in W × 42 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6CC-665",
+              "category": "90 Degree Corner Unit",
+              "dimensions": "38 in H × 68 in W × 42 in D",
+              "wall_space_required_inches": 84,
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60M-665",
+              "category": "Armless Chair",
+              "dimensions": "38 in H × 40.5 in W × 42 in D",
+              "options": [
+                "DC",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60L-665",
+              "category": "Left-Arm Sitting Chaise",
+              "dimensions": "38 in H × 46 in W × 66 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60R-665",
+              "category": "Right-Arm Sitting Chaise",
+              "dimensions": "38 in H × 46 in W × 66 in D",
+              "options": [
+                "DC",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "677",
+      "model_name": "Lauren",
+      "pages": [
+        20
+      ],
+      "catalog_groups": [
+        {
+          "name": "Comfort Essentials",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ]
+          },
+          "fabric_collections": [
+            {
+              "name": "Longmont",
+              "prefix": "C2119",
+              "swatches": [
+                [
+                  "C211932",
+                  "Linen"
+                ],
+                [
+                  "C211955",
+                  "Stone"
+                ],
+                [
+                  "C211962",
+                  "Pebble"
+                ],
+                [
+                  "C211952",
+                  "Nickel"
+                ]
+              ]
+            },
+            {
+              "name": "Taber",
+              "prefix": "C2122",
+              "swatches": [
+                [
+                  "C212232",
+                  "Linen"
+                ],
+                [
+                  "C212263",
+                  "Taupe"
+                ],
+                [
+                  "C212267",
+                  "Mushroom"
+                ],
+                [
+                  "C212252",
+                  "Silver"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "061-677",
+              "category": "Sofa",
+              "dimensions": "38.5 in H × 78.5 in W × 39 in D",
+              "options": []
+            },
+            {
+              "style_code": "063-677",
+              "category": "Loveseat",
+              "dimensions": "38.5 in H × 56 in W × 39 in D",
+              "options": []
+            },
+            {
+              "style_code": "023-677",
+              "category": "Chair",
+              "dimensions": "38.5 in H × 33.5 in W × 39 in D",
+              "options": []
+            },
+            {
+              "style_code": "024-677",
+              "category": "Ottoman",
+              "dimensions": "19.5 in H × 29 in W × 22 in D",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "678",
+      "model_name": "Fleetwood",
+      "pages": [
+        21
+      ],
+      "catalog_groups": [
+        {
+          "name": "Comfort Essentials",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ]
+          },
+          "fabric_collections": [
+            {
+              "name": "Longmont",
+              "prefix": "C2119",
+              "swatches": [
+                [
+                  "C211932",
+                  "Linen"
+                ],
+                [
+                  "C211955",
+                  "Stone"
+                ],
+                [
+                  "C211962",
+                  "Pebble"
+                ],
+                [
+                  "C211952",
+                  "Nickel"
+                ]
+              ]
+            },
+            {
+              "name": "Taber",
+              "prefix": "C2122",
+              "swatches": [
+                [
+                  "C212232",
+                  "Linen"
+                ],
+                [
+                  "C212263",
+                  "Taupe"
+                ],
+                [
+                  "C212267",
+                  "Mushroom"
+                ],
+                [
+                  "C212252",
+                  "Silver"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "061-678",
+              "category": "Sofa",
+              "dimensions": "37 in H × 81 in W × 38 in D",
+              "options": []
+            },
+            {
+              "style_code": "063-678",
+              "category": "Loveseat",
+              "dimensions": "37 in H × 58.5 in W × 38 in D",
+              "options": []
+            },
+            {
+              "style_code": "023-678",
+              "category": "Chair",
+              "dimensions": "37 in H × 36 in W × 38 in D",
+              "options": []
+            },
+            {
+              "style_code": "024-678",
+              "category": "Ottoman",
+              "dimensions": "19.5 in H × 29 in W × 22 in D",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "681",
+      "model_name": "Bexley",
+      "pages": [
+        22
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sofa",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR",
+              "DP",
+              "NP",
+              "PS",
+              "VS"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041",
+            "071"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Promise",
+              "prefix": "D2009",
+              "swatches": [
+                [
+                  "D200931",
+                  "Ecru"
+                ],
+                [
+                  "D200952",
+                  "Oyster"
+                ],
+                [
+                  "D200972",
+                  "Khaki"
+                ],
+                [
+                  "D200983",
+                  "Powder"
+                ],
+                [
+                  "D200946",
+                  "Gold"
+                ],
+                [
+                  "D200959",
+                  "Thunder"
+                ]
+              ]
+            },
+            {
+              "name": "i-Rockport",
+              "prefix": "D2071",
+              "swatches": [
+                [
+                  "D207119",
+                  "Salsa"
+                ],
+                [
+                  "D207152",
+                  "Mushroom"
+                ],
+                [
+                  "D207178",
+                  "Brownstone"
+                ],
+                [
+                  "D207131",
+                  "Linen"
+                ],
+                [
+                  "D207154",
+                  "Grey"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "610-681",
+              "category": "Sofa",
+              "dimensions": "38 in H × 82 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "NB",
+                "NH",
+                "NS",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "510-681",
+              "category": "Queen Sleep Sofa",
+              "dimensions": "38 in H × 82 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "NB",
+                "NH",
+                "NS",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "630-681",
+              "category": "Loveseat",
+              "dimensions": "38 in H × 59.5 in W × 38.5 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "NB",
+                "NH",
+                "NS",
+                "P1",
+                "Z6"
+              ]
+            }
+          ],
+          "notes": [
+            "Catalog marks nailhead trim option NB; verify exact selectable trim/style pairing."
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "694",
+      "model_name": "Meyer",
+      "pages": [
+        23,
+        24,
+        25
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sofa",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR",
+              "DP",
+              "NP",
+              "PS",
+              "UE",
+              "VS"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Nora",
+              "prefix": "C1965",
+              "swatches": [
+                [
+                  "C196532",
+                  "Ivory"
+                ],
+                [
+                  "C196566",
+                  "Truffle"
+                ],
+                [
+                  "C196584",
+                  "Harbor"
+                ],
+                [
+                  "C196552",
+                  "Oyster"
+                ]
+              ]
+            },
+            {
+              "name": "i-Favorite",
+              "prefix": "D2099",
+              "swatches": [
+                [
+                  "D209931",
+                  "Parchment"
+                ],
+                [
+                  "D209953",
+                  "Pewter"
+                ],
+                [
+                  "D209965",
+                  "Driftwood"
+                ],
+                [
+                  "D209933",
+                  "Oyster"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "610-694",
+              "category": "Sofa",
+              "dimensions": "37.5 in H × 86 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "630-694",
+              "category": "Loveseat",
+              "dimensions": "37.5 in H × 62 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "230-694",
+              "category": "Chair",
+              "dimensions": "37.5 in H × 38 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "240-694",
+              "category": "Ottoman",
+              "dimensions": "18 in H × 30.5 in W × 23.5 in D",
+              "options": [
+                "FN"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Stationary Sectional",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR",
+              "DP",
+              "NP",
+              "PS",
+              "VS"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021"
+          ],
+          "styles": [
+            {
+              "style_code": "60A-694",
+              "category": "Left-Arm Sitting Chair",
+              "dimensions": "37.5 in H × 31 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60B-694",
+              "category": "Right-Arm Sitting Chair",
+              "dimensions": "37.5 in H × 31 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60C-694",
+              "category": "Rounded Corner Unit",
+              "dimensions": "37.5 in H × 67 in W × 39 in D",
+              "wall_space_required_inches": 98,
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6CC-694",
+              "category": "90 Degree Corner Unit",
+              "dimensions": "37.5 in H × 53 in W × 39 in D",
+              "wall_space_required_inches": 78,
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60D-694",
+              "category": "Left-Arm Sitting Loveseat",
+              "dimensions": "37.5 in H × 55 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60E-694",
+              "category": "Right-Arm Sitting Loveseat",
+              "dimensions": "37.5 in H × 55 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60L-694",
+              "category": "Left-Arm Sitting Chaise",
+              "dimensions": "37.5 in H × 31 in W × 64 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6SL-694",
+              "category": "Left-Arm Sitting Chaise with Storage",
+              "dimensions": "37.5 in H × 39 in W × 64 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60M-694",
+              "category": "Sectional Armless Chair",
+              "dimensions": "37.5 in H × 24 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6MM-694",
+              "category": "Armless Loveseat",
+              "dimensions": "37.5 in H × 63 in W × 39 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "60R-694",
+              "category": "Right-Arm Sitting Chaise",
+              "dimensions": "37.5 in H × 31 in W × 64 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "Z6",
+                "P1"
+              ]
+            },
+            {
+              "style_code": "6SR-694",
+              "category": "Right-Arm Sitting Chaise with Storage",
+              "dimensions": "37.5 in H × 39 in W × 64 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "6SC-694",
+              "category": "Storage Console",
+              "dimensions": "25.5 in H × 10 in W × 38.5 in D",
+              "options": [
+                "FN"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "893",
+      "model_name": "Colby",
+      "pages": [
+        28
+      ],
+      "catalog_groups": [
+        {
+          "name": "DUO by La-Z-Boy",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR",
+              "DP",
+              "NP",
+              "PS",
+              "VS"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Nico",
+              "prefix": "C1700",
+              "swatches": [
+                [
+                  "C170033",
+                  "Oyster"
+                ],
+                [
+                  "C170057",
+                  "Charcoal"
+                ],
+                [
+                  "C170053",
+                  "Ash"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "P91-893",
+              "category": "DUO Reclining Sofa",
+              "dimensions": "41 in H × 83 in W × 39.5 in D",
+              "options": [
+                "FN",
+                "FP",
+                "P1"
+              ]
+            },
+            {
+              "style_code": "P93-893",
+              "category": "DUO Reclining Loveseat",
+              "dimensions": "41 in H × 61 in W × 39.5 in D",
+              "options": [
+                "FN",
+                "FP",
+                "P1"
+              ]
+            },
+            {
+              "style_code": "P94-893",
+              "category": "DUO Reclining Chair",
+              "dimensions": "41 in H × 39 in W × 39.5 in D",
+              "options": [
+                "FN",
+                "LT"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "899",
+      "model_name": "Bennett",
+      "pages": [
+        29
+      ],
+      "catalog_groups": [
+        {
+          "name": "DUO by La-Z-Boy",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR"
+            ],
+            "faux_leather": [
+              "BU",
+              "RL",
+              "UE"
+            ],
+            "leather": [
+              "LL",
+              "LM"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Social Club",
+              "prefix": "B1808",
+              "swatches": [
+                [
+                  "B180852",
+                  "Stone"
+                ],
+                [
+                  "B180857",
+                  "Charcoal"
+                ],
+                [
+                  "B180868",
+                  "Pewter"
+                ],
+                [
+                  "B180872",
+                  "Chalk"
+                ],
+                [
+                  "B180876",
+                  "Cocoa"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "P91-899",
+              "category": "DUO Reclining Sofa",
+              "dimensions": "39.5 in H × 82.5 in W × 39 in D",
+              "options": [
+                "FN",
+                "FP",
+                "P1"
+              ]
+            },
+            {
+              "style_code": "P93-899",
+              "category": "DUO Reclining Loveseat",
+              "dimensions": "39.5 in H × 60 in W × 39 in D",
+              "options": [
+                "FN",
+                "FP",
+                "P1"
+              ]
+            },
+            {
+              "style_code": "P94-899",
+              "category": "DUO Reclining Chair",
+              "dimensions": "39.5 in H × 37.5 in W × 39 in D",
+              "options": [
+                "FN",
+                "LT"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

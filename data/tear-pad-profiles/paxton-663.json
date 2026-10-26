@@ -1,0 +1,92 @@
+{
+  "model_code": "663",
+  "model_name": "Paxton",
+  "sectional_family": "Stationary",
+  "source": "Paxton Tearpad - TS0043 6-6-24.pdf",
+  "source_document_code": "TS0043",
+  "source_document_footer_date": "06/01/24",
+  "source_document_market": "Not specified; tear-pad footer lists la-z-boy.com",
+  "product_description": "The tear pad describes Paxton as a comfortably casual sectional with wide arms, deep seats, clean lines, and crisp welt trim, with modular pieces for customizable room layouts.",
+  "catalog_model": {
+    "category": "Stationary Modular Sectional",
+    "scale": "Not specified in tear pad",
+    "recommended_height": "Not specified in tear pad",
+    "weight_limit_lbs": null,
+    "recommendation_eligible": false,
+    "key_features": [
+      "Wide arms and deep seats",
+      "Clean lines with crisp welt trim",
+      "Modular pieces for customizable room layouts"
+    ],
+    "look_alikes": [],
+    "quick_spotter": "The Paxton tear pad describes wide arms, deep seats, clean lines, and crisp welt trim. It does not provide ergonomic height guidance or user-weight capacity."
+  },
+  "pieces": [
+    {
+      "code": "60A",
+      "key": "LA_chair",
+      "name": "Left-Arm Sitting Chair",
+      "dimensions_text": "38\" H × 45\" W × 42\" D"
+    },
+    {
+      "code": "60B",
+      "key": "RA_chair",
+      "name": "Right-Arm Sitting Chair",
+      "dimensions_text": "38\" H × 45\" W × 42\" D"
+    },
+    {
+      "code": "60L",
+      "key": "LA_chaise",
+      "name": "Left-Arm Sitting Chaise",
+      "dimensions_text": "38\" H × 45\" W × 66.5\" D"
+    },
+    {
+      "code": "60R",
+      "key": "RA_chaise",
+      "name": "Right-Arm Sitting Chaise",
+      "dimensions_text": "38\" H × 45\" W × 66.5\" D"
+    },
+    {
+      "code": "6CC",
+      "key": "corner_wedge",
+      "name": "Corner",
+      "dimensions_text": "38\" H × 68\" W × 42\" D"
+    },
+    {
+      "code": "60M",
+      "key": "armless_chair",
+      "name": "Armless Chair",
+      "dimensions_text": "38\" D × 40\" W × 42\" D",
+      "dimensions_note": "The supplied text extraction lists 38 inches D × 40 inches W × 42 inches D, with no unambiguous height and a repeated depth designation. This source text is preserved without inferring or correcting the dimensions."
+    }
+  ],
+  "configuration_diagram_dimension_labels_in": [
+    "127",
+    "66.5",
+    "42",
+    "130",
+    "66.5",
+    "127",
+    "127",
+    "87",
+    "42",
+    "42",
+    "127",
+    "167",
+    "127",
+    "66.5",
+    "42",
+    "66.5",
+    "90",
+    "42",
+    "42",
+    "127",
+    "127",
+    "164",
+    "127",
+    "42",
+    "42"
+  ],
+  "configuration_diagram_dimension_note": "Dimension labels are transcribed in extracted-text order from the sectional arrangement diagrams. The extraction does not preserve a reliable mapping from each label to a specific layout, so no arrangement footprint is assigned.",
+  "fit_specs_verified": false
+}

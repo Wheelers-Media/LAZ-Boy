@@ -1,0 +1,580 @@
+{
+  "model_code": "769",
+  "model_name": "Ava",
+  "sectional_family": "La-Z-Time",
+  "source": "Ava Tearpad MP0102 6-6-24.pdf",
+  "source_document_code": "MP0102",
+  "source_document_footer_date": "06/01/24",
+  "product_description": "Ava is a streamlined modular sectional with a wide frame and sleek arms, designed for stretching out or gathering together. The tear pad describes adjustable headrest and lumbar options.",
+  "pieces": [
+    {
+      "key": "LA_recliner",
+      "name": "Left-Arm Sitting Recliner",
+      "variants": [
+        {
+          "code": "44A",
+          "label": "Non-power"
+        },
+        {
+          "code": "U4A",
+          "label": "Power"
+        },
+        {
+          "code": "X4A",
+          "label": "Power"
+        }
+      ],
+      "dimensions_text": "42\" H × 32\" W × 39\" D",
+      "fully_extended_in": 65.5
+    },
+    {
+      "key": "RA_recliner",
+      "name": "Right-Arm Sitting Recliner",
+      "variants": [
+        {
+          "code": "44B",
+          "label": "Non-power"
+        },
+        {
+          "code": "U4B",
+          "label": "Power"
+        },
+        {
+          "code": "X4B",
+          "label": "Power"
+        }
+      ],
+      "dimensions_text": "42\" H × 32\" W × 39\" D",
+      "fully_extended_in": 65.5
+    },
+    {
+      "key": "LA_chaise",
+      "name": "Left-Arm Sitting Reclining Chaise",
+      "variants": [
+        {
+          "code": "44Q",
+          "label": "Non-power"
+        },
+        {
+          "code": "U4Q",
+          "label": "Power"
+        },
+        {
+          "code": "X4Q",
+          "label": "Power"
+        }
+      ],
+      "dimensions_text": "42\" H × 35\" W × 67\" D",
+      "fully_extended_in": 76
+    },
+    {
+      "key": "RA_chaise",
+      "name": "Right-Arm Sitting Reclining Chaise",
+      "variants": [
+        {
+          "code": "44V",
+          "label": "Non-power"
+        },
+        {
+          "code": "U4V",
+          "label": "Power"
+        },
+        {
+          "code": "X4V",
+          "label": "Power"
+        }
+      ],
+      "dimensions_text": "42\" H × 35\" W × 67\" D",
+      "fully_extended_in": 76
+    },
+    {
+      "key": "storage_console",
+      "name": "Storage Console",
+      "variants": [
+        {
+          "code": "SC4",
+          "label": "Console"
+        }
+      ],
+      "dimensions_text": "38.5\" H × 14.5\" W × 37.5\" D"
+    },
+    {
+      "key": "corner_wedge",
+      "name": "Corner",
+      "variants": [
+        {
+          "code": "44C",
+          "label": "Corner"
+        }
+      ],
+      "dimensions_text": "42\" H × 60\" W × 39\" D"
+    },
+    {
+      "key": "armless_recliner",
+      "name": "Armless Recliner",
+      "variants": [
+        {
+          "code": "44S",
+          "label": "Non-power"
+        },
+        {
+          "code": "U4S",
+          "label": "Power"
+        },
+        {
+          "code": "X4S",
+          "label": "Power"
+        }
+      ],
+      "dimensions_text": "42\" H × 24\" W × 39\" D",
+      "fully_extended_in": 65.5
+    },
+    {
+      "key": "armless_chair",
+      "name": "Armless Chair",
+      "variants": [
+        {
+          "code": "M44",
+          "label": "Chair"
+        }
+      ],
+      "dimensions_text": "42\" H × 24\" W × 39\" D"
+    },
+    {
+      "key": "LA_reclining_loveseat",
+      "name": "Left-Arm Sitting Reclining Loveseat",
+      "variants": [
+        {
+          "code": "44D",
+          "label": "Non-power"
+        },
+        {
+          "code": "U4D",
+          "label": "Power"
+        },
+        {
+          "code": "X4D",
+          "label": "Power"
+        }
+      ],
+      "dimensions_text": "42\" H × 57\" W × 39\" D",
+      "fully_extended_in": 65.5
+    },
+    {
+      "key": "RA_reclining_loveseat",
+      "name": "Right-Arm Sitting Reclining Loveseat",
+      "variants": [
+        {
+          "code": "44E",
+          "label": "Non-power"
+        },
+        {
+          "code": "U4E",
+          "label": "Power"
+        },
+        {
+          "code": "X4E",
+          "label": "Power"
+        }
+      ],
+      "dimensions_text": "42\" H × 57\" W × 39\" D",
+      "fully_extended_in": 65.5
+    }
+  ],
+  "configuration_diagram_dimension_labels_in": [
+    "90.5",
+    "67",
+    "106.5",
+    "101",
+    "92",
+    "103",
+    "117.5",
+    "114.5",
+    "155.5"
+  ],
+  "configuration_diagram_dimension_note": "The tear-pad text extraction includes these arrangement dimensions but does not preserve the mapping between each dimension and its diagram. They are listed without assigning them to a specific piece sequence.",
+  "printed_codes_note": "Power prefixes U4* and X4* are both labelled Power in the source; the extracted text does not explain the difference between them.",
+  "fit_specs_verified": false,
+  "product_guide_measurements": {
+    "source": "APRIL 2026 - PRODUCT INFORMATION GUIDE.xlsx",
+    "edition": "April 2026",
+    "columns": [
+      "H",
+      "W",
+      "D",
+      "SH",
+      "SW",
+      "SD",
+      "AH",
+      "EXT",
+      "RD",
+      "LH",
+      "WT_LB",
+      "SEAT_FACTOR",
+      "WALL_SPACE"
+    ],
+    "note": "Values are transcribed from the guide Dimensions table and keyed to exact printed style numbers. Linear measurements are inches. WT_LB is the product/unit weight, not a user-weight capacity. Blank source cells remain null. These dimensions do not establish recommended customer height or fit.",
+    "rows": {
+      "44A769": [
+        42,
+        32,
+        39,
+        21,
+        23.5,
+        22.5,
+        25,
+        65.5,
+        5,
+        null,
+        79,
+        2,
+        null
+      ],
+      "U4A769": [
+        42,
+        32,
+        41,
+        21,
+        23.5,
+        22.5,
+        25,
+        65.5,
+        5,
+        null,
+        91,
+        2,
+        null
+      ],
+      "X4A769": [
+        42,
+        32,
+        41,
+        21,
+        23.5,
+        22.5,
+        25,
+        65.5,
+        5,
+        null,
+        96,
+        2,
+        null
+      ],
+      "44B769": [
+        42,
+        32,
+        39,
+        21,
+        23.5,
+        22.5,
+        25,
+        65.5,
+        5,
+        null,
+        79,
+        2,
+        null
+      ],
+      "U4B769": [
+        42,
+        32,
+        41,
+        21,
+        23.5,
+        22.5,
+        25,
+        65.5,
+        5,
+        null,
+        91,
+        2,
+        null
+      ],
+      "X4B769": [
+        42,
+        32,
+        41,
+        21,
+        23.5,
+        22.5,
+        25,
+        65.5,
+        5,
+        null,
+        96,
+        2,
+        null
+      ],
+      "44Q769": [
+        42,
+        35,
+        67,
+        21,
+        26,
+        50,
+        25,
+        76,
+        8,
+        null,
+        92,
+        2,
+        null
+      ],
+      "U4Q769": [
+        42,
+        35,
+        67,
+        21,
+        26,
+        50,
+        25,
+        76,
+        8,
+        null,
+        115,
+        2,
+        null
+      ],
+      "X4Q769": [
+        42,
+        35,
+        67,
+        21,
+        26,
+        50,
+        25,
+        76,
+        8,
+        null,
+        120,
+        2,
+        null
+      ],
+      "44V769": [
+        42,
+        35,
+        67,
+        21,
+        26,
+        50,
+        25,
+        76,
+        8,
+        null,
+        92,
+        2,
+        null
+      ],
+      "U4V769": [
+        42,
+        35,
+        67,
+        21,
+        26,
+        50,
+        25,
+        76,
+        8,
+        null,
+        115,
+        2,
+        null
+      ],
+      "X4V769": [
+        42,
+        35,
+        67,
+        21,
+        26,
+        50,
+        25,
+        76,
+        8,
+        null,
+        120,
+        2,
+        null
+      ],
+      "SC4769": [
+        38.5,
+        14.5,
+        37.5,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "44C769": [
+        42,
+        60,
+        41,
+        21,
+        null,
+        26,
+        25,
+        null,
+        null,
+        null,
+        65,
+        2,
+        91
+      ],
+      "44S769": [
+        42,
+        24,
+        41,
+        21,
+        25,
+        22.5,
+        25,
+        65.5,
+        4,
+        null,
+        62,
+        1,
+        null
+      ],
+      "U4S769": [
+        42,
+        24,
+        41,
+        21,
+        24,
+        22.5,
+        null,
+        65.5,
+        4,
+        null,
+        77,
+        1,
+        null
+      ],
+      "X4S769": [
+        42,
+        24,
+        41,
+        21,
+        24,
+        22.5,
+        null,
+        65.5,
+        4,
+        null,
+        82,
+        1,
+        null
+      ],
+      "M44769": [
+        42,
+        24,
+        39,
+        21,
+        24,
+        22.5,
+        null,
+        null,
+        null,
+        null,
+        43,
+        1,
+        null
+      ],
+      "44D769": [
+        42,
+        54.5,
+        39,
+        21,
+        48.5,
+        22.5,
+        25,
+        65.5,
+        5,
+        null,
+        122,
+        2,
+        null
+      ],
+      "U4D769": [
+        42,
+        54.5,
+        41,
+        21,
+        48.5,
+        22.5,
+        25,
+        65.5,
+        5,
+        null,
+        134,
+        2,
+        null
+      ],
+      "X4D769": [
+        42,
+        54.5,
+        41,
+        21,
+        48.5,
+        22.5,
+        25,
+        65.5,
+        5,
+        null,
+        144,
+        2,
+        null
+      ],
+      "44E769": [
+        42,
+        54.5,
+        39,
+        21,
+        48.5,
+        22.5,
+        25,
+        65.5,
+        5,
+        null,
+        122,
+        2,
+        null
+      ],
+      "U4E769": [
+        42,
+        54.5,
+        41,
+        21,
+        48.5,
+        22.5,
+        25,
+        65.5,
+        5,
+        null,
+        134,
+        2,
+        null
+      ],
+      "X4E769": [
+        42,
+        54.5,
+        41,
+        21,
+        48.5,
+        22.5,
+        25,
+        65.5,
+        5,
+        null,
+        144,
+        2,
+        null
+      ]
+    }
+  }
+}

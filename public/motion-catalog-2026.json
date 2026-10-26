@@ -1,0 +1,4970 @@
+{
+  "title": "La-Z-Boy Motion Collection",
+  "edition": "Summer/Fall 2026",
+  "source_documents": [
+    {
+      "file": "La-Z-Boy_Motion_Catalog_Part_01_pages_1-5.pdf",
+      "pages": "cover, prefix definitions, index"
+    },
+    {
+      "file": "La-Z-Boy_Motion_Catalog_Part_02_pages_6-11.pdf",
+      "pages": "table of contents, warranty, options, finishes, pillow collections"
+    },
+    {
+      "file": "La-Z-Boy_Motion_Catalog_Part_03_pages_12-22.pdf",
+      "pages": "1-11 model specifications"
+    },
+    {
+      "file": "La-Z-Boy_Motion_Catalog_Part_04_pages_23-32.pdf",
+      "pages": "12-21 model specifications"
+    },
+    {
+      "file": "La-Z-Boy_Motion_Catalog_Part_05_pages_33-43.pdf",
+      "pages": "printed catalog pages 22-32 model specifications"
+    },
+    {
+      "file": "La-Z-Boy_Motion_Catalog_Part_06_pages_44-50.pdf",
+      "pages": "printed catalog pages 33-39 model specifications"
+    },
+    {
+      "file": "La-Z-Boy_Motion_Catalog_Part_07_pages_51-52.pdf",
+      "pages": "printed catalog page 40 model and publication footer"
+    }
+  ],
+  "source_note": "Transcribed from the supplied Summer/Fall 2026 Motion Collection text extractions. Dimensions are H × W × D in inches as printed; extracted decimal glyphs appeared as a replacement mark in some dimensions and have been normalized to the visible source decimal fraction when unambiguous. Verify in current price books. Index flags are only collection categories, not complete orderability or compatibility evidence. No fit or capacity claims are inferred.",
+  "source_conflicts": [
+    "The earlier supplied Summer/Fall 2026 Recliner Collection and its supplemental image index use different pagination and sometimes different category flags from this Motion Collection. This motion index is kept separate; for example Liam 786 appears on motion page 23 while the earlier recliner source places it on pages 35-36.",
+    "The motion table of contents prints Quinault 810 twice for page 30; both entries are retained in source_order as a duplicate printed row.",
+    "The table of contents places Ovation A86 after Bennett despite assigning it page 36; source_order follows the printed row order, while page remains 36.",
+    "The supplied Palmer 800 page-24 extraction labels the 44S/U4S/X4S armless-recliner rows with suffix 521 despite their position in the Palmer 800 table; retained as a source discrepancy.",
+    "Motion TOC lists Palmer as code 810 on pages 24-25, while supplied page style tables label it Palmer 800. Both entries are retained as source-specific facts.",
+    "Page-table extraction shows Acadia/Armitage corner code 8C0 (zero), while prefix definitions extraction renders 8CO (letter O); both searchable variants retained.",
+    "The motion TOC places Ovation A86 after Bennett but assigns it page 36; source order and page are preserved separately."
+  ],
+  "index_categories": [
+    "sofa",
+    "loveseat",
+    "recliner",
+    "modular",
+    "power_recline",
+    "fabric",
+    "leather"
+  ],
+  "index": [
+    {
+      "code": "512",
+      "name": "Pinnacle",
+      "pages": [
+        1
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": true,
+        "modular": false,
+        "power_recline": false,
+        "fabric": true,
+        "leather": false
+      }
+    },
+    {
+      "code": "521",
+      "name": "James",
+      "pages": [
+        2,
+        3,
+        4
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": false,
+        "modular": true,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "530",
+      "name": "Greyson",
+      "pages": [
+        5
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": true,
+        "modular": false,
+        "power_recline": false,
+        "fabric": true,
+        "leather": false
+      }
+    },
+    {
+      "code": "706",
+      "name": "Jay",
+      "pages": [
+        6
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": true,
+        "modular": false,
+        "power_recline": false,
+        "fabric": true,
+        "leather": false
+      }
+    },
+    {
+      "code": "722",
+      "name": "Roman",
+      "pages": [
+        7
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": true,
+        "modular": false,
+        "power_recline": false,
+        "fabric": true,
+        "leather": false
+      }
+    },
+    {
+      "code": "724",
+      "name": "Trouper",
+      "pages": [
+        8,
+        9,
+        10
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": false,
+        "modular": true,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "727",
+      "name": "Brooks",
+      "pages": [
+        11
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": true,
+        "modular": false,
+        "power_recline": false,
+        "fabric": true,
+        "leather": false
+      }
+    },
+    {
+      "code": "747",
+      "name": "Finley",
+      "pages": [
+        12
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "755",
+      "name": "Dorian",
+      "pages": [
+        13
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": true,
+        "modular": false,
+        "power_recline": false,
+        "fabric": true,
+        "leather": false
+      }
+    },
+    {
+      "code": "757",
+      "name": "Apollo",
+      "pages": [
+        14
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": true,
+        "modular": false,
+        "power_recline": false,
+        "fabric": true,
+        "leather": false
+      }
+    },
+    {
+      "code": "759",
+      "name": "Maddox",
+      "pages": [
+        15,
+        16
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "761",
+      "name": "Joel",
+      "pages": [
+        17
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": true,
+        "modular": false,
+        "power_recline": false,
+        "fabric": true,
+        "leather": false
+      }
+    },
+    {
+      "code": "766",
+      "name": "Morrison",
+      "pages": [
+        18
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": true,
+        "modular": false,
+        "power_recline": false,
+        "fabric": true,
+        "leather": false
+      }
+    },
+    {
+      "code": "769",
+      "name": "Ava",
+      "pages": [
+        19,
+        20,
+        21
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "781",
+      "name": "Emmons",
+      "pages": [
+        22
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": true,
+        "modular": false,
+        "power_recline": false,
+        "fabric": true,
+        "leather": false
+      }
+    },
+    {
+      "code": "786",
+      "name": "Liam",
+      "pages": [
+        23
+      ],
+      "categories": {
+        "sofa": true,
+        "loveseat": true,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "810",
+      "name": "Palmer",
+      "pages": [
+        24,
+        25
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": true,
+        "modular": true,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "802",
+      "name": "Cassian",
+      "pages": [
+        26
+      ],
+      "categories": {
+        "sofa": true,
+        "loveseat": true,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "803",
+      "name": "Cade",
+      "pages": [
+        27
+      ],
+      "categories": {
+        "sofa": true,
+        "loveseat": true,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "804",
+      "name": "Belmont",
+      "pages": [
+        28
+      ],
+      "new_introduction": true,
+      "categories": {
+        "sofa": true,
+        "loveseat": true,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "807",
+      "name": "Baron",
+      "pages": [
+        29
+      ],
+      "categories": {
+        "sofa": true,
+        "loveseat": true,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "810",
+      "name": "Quinault",
+      "pages": [
+        30
+      ],
+      "categories": {
+        "sofa": true,
+        "loveseat": true,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      },
+      "duplicate_toc_row": true
+    },
+    {
+      "code": "811",
+      "name": "Acadia",
+      "pages": [
+        31
+      ],
+      "categories": {
+        "sofa": true,
+        "loveseat": true,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "811",
+      "name": "Acadia",
+      "pages": [
+        32
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": false,
+        "modular": true,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "812",
+      "name": "Armitage",
+      "pages": [
+        33
+      ],
+      "categories": {
+        "sofa": false,
+        "loveseat": false,
+        "recliner": false,
+        "modular": true,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "813",
+      "name": "Clybourn",
+      "pages": [
+        34
+      ],
+      "categories": {
+        "sofa": true,
+        "loveseat": true,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "828",
+      "name": "Dutton",
+      "pages": [
+        35
+      ],
+      "new_introduction": true,
+      "categories": {
+        "sofa": true,
+        "loveseat": true,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "893",
+      "name": "Colby",
+      "pages": [
+        39
+      ],
+      "categories": {
+        "sofa": true,
+        "loveseat": true,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "899",
+      "name": "Bennett",
+      "pages": [
+        40
+      ],
+      "categories": {
+        "sofa": true,
+        "loveseat": true,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    },
+    {
+      "code": "A86",
+      "name": "Ovation",
+      "pages": [
+        36
+      ],
+      "new_introduction": true,
+      "categories": {
+        "sofa": true,
+        "loveseat": true,
+        "recliner": true,
+        "modular": false,
+        "power_recline": true,
+        "fabric": true,
+        "leather": true
+      }
+    }
+  ],
+  "prefix_definitions": [
+    [
+      "010",
+      "Rocking Recliner",
+      "Rocker Recliners / Wall Recliners / Gliders"
+    ],
+    [
+      "P10",
+      "Power Rocking Recliner",
+      "Rocker Recliners / Wall Recliners / Gliders"
+    ],
+    [
+      "10U",
+      "Power Rocking Recliner with Headrest",
+      "Rocker Recliners / Wall Recliners / Gliders"
+    ],
+    [
+      "10X",
+      "Power Rocking Recliner with Headrest and Lumbar",
+      "Rocker Recliners / Wall Recliners / Gliders"
+    ],
+    [
+      "016",
+      "Wall Recliner",
+      "Rocker Recliners / Wall Recliners / Gliders"
+    ],
+    [
+      "P16",
+      "Power Wall Recliner",
+      "Rocker Recliners / Wall Recliners / Gliders"
+    ],
+    [
+      "16X",
+      "Power Wall Recliner with Headrest and Lumbar",
+      "Rocker Recliners / Wall Recliners / Gliders"
+    ],
+    [
+      "017",
+      "Swivel Gliding Recliner",
+      "Rocker Recliners / Wall Recliners / Gliders"
+    ],
+    [
+      "30L",
+      "Left-Arm Sitting Rocking Recliner",
+      "Rocker Recliners / Wall Recliners / Gliders"
+    ],
+    [
+      "30R",
+      "Right-Arm Sitting Rocking Recliner",
+      "Rocker Recliners / Wall Recliners / Gliders"
+    ],
+    [
+      "SC3",
+      "Storage Console",
+      "Rocker Recliners / Wall Recliners / Gliders"
+    ],
+    [
+      "1HM",
+      "Gold Power Lift Recliner with Massage and Heat",
+      "Lift Chairs"
+    ],
+    [
+      "1PH",
+      "Platinum Power Lift Recliner with Headrest and Lumbar",
+      "Lift Chairs"
+    ],
+    [
+      "1PL",
+      "Platinum Power Lift Recliner",
+      "Lift Chairs"
+    ],
+    [
+      "3BL",
+      "Bronze Power Lift Recliner",
+      "Lift Chairs"
+    ],
+    [
+      "330",
+      "Wall Reclining Sofa",
+      "Reclina-Way Motion"
+    ],
+    [
+      "33U",
+      "Power Wall Reclining Sofa with Headrest",
+      "Reclina-Way Motion"
+    ],
+    [
+      "33X",
+      "Power Wall Reclining Sofa with Headrest and Lumbar",
+      "Reclina-Way Motion"
+    ],
+    [
+      "320",
+      "Wall Reclining Loveseat",
+      "Reclina-Way Motion"
+    ],
+    [
+      "32U",
+      "Power Wall Reclining Loveseat with Headrest",
+      "Reclina-Way Motion"
+    ],
+    [
+      "32X",
+      "Power Wall Reclining Loveseat with Headrest and Lumbar",
+      "Reclina-Way Motion"
+    ],
+    [
+      "360",
+      "Wall Reclining Sofa with Drop-Down Table",
+      "Reclina-Way Motion"
+    ],
+    [
+      "36U",
+      "Power Wall Reclining Sofa with Headrest and Drop-Down Table",
+      "Reclina-Way Motion"
+    ],
+    [
+      "36X",
+      "Power Wall Reclining Sofa with Headrest, Lumbar and Drop-Down Table",
+      "Reclina-Way Motion"
+    ],
+    [
+      "339",
+      "Wall Reclining Loveseat with Console",
+      "Reclina-Way Motion"
+    ],
+    [
+      "U39",
+      "Power Wall Reclining Loveseat with Headrest and Console",
+      "Reclina-Way Motion"
+    ],
+    [
+      "X39",
+      "Power Wall Reclining Loveseat with Headrest, Lumbar and Console",
+      "Reclina-Way Motion"
+    ],
+    [
+      "84U",
+      "Power Reclining Sofa with Headrest",
+      "La-Z-Motion"
+    ],
+    [
+      "88U",
+      "Power Reclining Loveseat with Headrest",
+      "La-Z-Motion"
+    ],
+    [
+      "85U",
+      "Power Reclining Chair-and-a-Half with Headrest",
+      "La-Z-Motion"
+    ],
+    [
+      "81U",
+      "Power Reclining Chair with Headrest",
+      "La-Z-Motion"
+    ],
+    [
+      "8AU",
+      "Power Left-Arm Sitting Recliner with Headrest",
+      "La-Z-Motion Modulars"
+    ],
+    [
+      "8BU",
+      "Power Right-Arm Sitting Recliner with Headrest",
+      "La-Z-Motion Modulars"
+    ],
+    [
+      "8CO",
+      "Corner Unit",
+      "La-Z-Motion Modulars"
+    ],
+    [
+      "8MO",
+      "Armless Middle",
+      "La-Z-Motion Modulars"
+    ],
+    [
+      "8SU",
+      "Power Armless Recliner with Headrest",
+      "La-Z-Motion Modulars"
+    ],
+    [
+      "8SC",
+      "Storage Console",
+      "La-Z-Motion Modulars"
+    ],
+    [
+      "445",
+      "Reclining Chair-and-a-Half",
+      "La-Z-Time Motion"
+    ],
+    [
+      "U45",
+      "Power Reclining Chair-and-a-Half with Headrest",
+      "La-Z-Time Motion"
+    ],
+    [
+      "X45",
+      "Power Reclining Chair-and-a-Half with Headrest and Lumbar",
+      "La-Z-Time Motion"
+    ],
+    [
+      "443",
+      "Reclining Two-Seat Sofa",
+      "La-Z-Time Motion"
+    ],
+    [
+      "U43",
+      "Power Reclining Two-Seat Sofa with Headrest",
+      "La-Z-Time Motion"
+    ],
+    [
+      "X43",
+      "Power Reclining Two-Seat Sofa with Headrest and Lumbar",
+      "La-Z-Time Motion"
+    ],
+    [
+      "444",
+      "Reclining Sofa",
+      "La-Z-Time Motion"
+    ],
+    [
+      "U44",
+      "Power Reclining Sofa with Headrest",
+      "La-Z-Time Motion"
+    ],
+    [
+      "X44",
+      "Power Reclining Sofa with Headrest and Lumbar",
+      "La-Z-Time Motion"
+    ],
+    [
+      "446",
+      "Reclining Sofa with Drop-Down Table",
+      "La-Z-Time Motion"
+    ],
+    [
+      "U46",
+      "Power Reclining Sofa with Headrest and Drop-Down Table",
+      "La-Z-Time Motion"
+    ],
+    [
+      "X46",
+      "Power Reclining Sofa with Headrest, Lumbar and Drop-Down Table",
+      "La-Z-Time Motion"
+    ],
+    [
+      "448",
+      "Reclining Loveseat",
+      "La-Z-Time Motion"
+    ],
+    [
+      "U48",
+      "Power Reclining Loveseat with Headrest",
+      "La-Z-Time Motion"
+    ],
+    [
+      "X48",
+      "Power Reclining Loveseat with Headrest and Lumbar",
+      "La-Z-Time Motion"
+    ],
+    [
+      "449",
+      "Reclining Loveseat with Console",
+      "La-Z-Time Motion"
+    ],
+    [
+      "U49",
+      "Power Reclining Loveseat with Headrest and Console",
+      "La-Z-Time Motion"
+    ],
+    [
+      "X49",
+      "Power Reclining Loveseat with Headrest, Lumbar and Console",
+      "La-Z-Time Motion"
+    ],
+    [
+      "44A",
+      "Left-Arm Sitting Recliner",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "U4A",
+      "Power Left-Arm Sitting Recliner with Headrest",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "X4A",
+      "Power Left-Arm Sitting Recliner with Headrest and Lumbar",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "44B",
+      "Right-Arm Sitting Recliner",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "U4B",
+      "Power Right-Arm Sitting Recliner with Headrest",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "X4B",
+      "Power Right-Arm Sitting Recliner with Headrest and Lumbar",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "44C",
+      "Corner Unit",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "SC4",
+      "Storage Console",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "44D",
+      "Left-Arm Sitting Reclining Loveseat",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "U4D",
+      "Power Left-Arm Sitting Reclining Loveseat with Headrest",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "X4D",
+      "Power Left-Arm Sitting Reclining Loveseat with Headrest and Lumbar",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "44E",
+      "Right-Arm Sitting Reclining Loveseat",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "U4E",
+      "Power Right-Arm Sitting Reclining Loveseat with Headrest",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "X4E",
+      "Power Right-Arm Sitting Reclining Loveseat with Headrest and Lumbar",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "M44",
+      "Armless Chair",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "44Q",
+      "Left-Arm Sitting Reclining Chaise",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "U4Q",
+      "Power Left-Arm Sitting Reclining Chaise with Headrest",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "X4Q",
+      "Power Left-Arm Sitting Reclining Chaise with Headrest and Lumbar",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "44S",
+      "Armless Recliner",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "U4S",
+      "Power Armless Recliner with Headrest",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "X4S",
+      "Power Armless Recliner with Headrest and Lumbar",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "44V",
+      "Right-Arm Sitting Reclining Chaise",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "U4V",
+      "Power Right-Arm Sitting Reclining Chaise with Headrest",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "X4V",
+      "Power Right-Arm Sitting Reclining Chaise with Headrest and Lumbar",
+      "La-Z-Time Modulars"
+    ],
+    [
+      "P91",
+      "Power Reclining Sofa",
+      "duo"
+    ],
+    [
+      "P93",
+      "Power Reclining Loveseat",
+      "duo"
+    ],
+    [
+      "P94",
+      "Power Reclining Chair",
+      "duo"
+    ],
+    [
+      "01P",
+      "Single Custom Pillow",
+      "Special Items"
+    ],
+    [
+      "08P",
+      "Pair of Custom Pillows",
+      "Special Items"
+    ],
+    [
+      "088",
+      "Swivel/tall bases/handles/armcaps/battery packs/mattresses/audio/miscellaneous items",
+      "Special Items"
+    ]
+  ],
+  "options": [
+    [
+      "RW",
+      "Right-side sitting-mounted cradle with wireless remote instead of standard outside-mounted controller"
+    ],
+    [
+      "LT",
+      "Moves the 4-button mounted controller with USB from right-side to left-side sitting"
+    ],
+    [
+      "ES",
+      "Single elongated comfort selector; adds 2 inches to standard handle"
+    ],
+    [
+      "LE",
+      "Left-side comfort selector; adds 2 inches to standard handle"
+    ],
+    [
+      "H3",
+      "Matte-black Arc single comfort selector"
+    ],
+    [
+      "L3",
+      "Left-side matte-black Arc comfort selector"
+    ],
+    [
+      "LS",
+      "Moves standard comfort selector to left side"
+    ],
+    [
+      "H1",
+      "Brushed-nickel Arc single comfort selector"
+    ],
+    [
+      "L1",
+      "Left-side brushed-nickel Arc comfort selector"
+    ],
+    [
+      "LW",
+      "Left-side wireless remote cradle"
+    ],
+    [
+      "1H",
+      "Adds two brushed-nickel Arc handles on Reclina-Way sofas/loveseats"
+    ],
+    [
+      "2E",
+      "Adds two elongated standard handles on Reclina-Way sofas/loveseats"
+    ],
+    [
+      "3H",
+      "Adds two matte-black Arc handles on Reclina-Way sofas/loveseats"
+    ],
+    [
+      "W2",
+      "Replaces standard outside controls with two mounted wireless remotes"
+    ],
+    [
+      "CB",
+      "Power Console Bundle: wireless charging tray, two electrical outlets and two USB ports inside flip-top storage tub, two table ports, removable black table"
+    ],
+    [
+      "CC",
+      "Power Console Bundle with removable coffee-finish wood table; included ports/charging as described in catalog"
+    ],
+    [
+      "CM",
+      "Power Console Bundle with removable brown-mahogany-finish wood table; included ports/charging as described in catalog"
+    ],
+    [
+      "2E-dual",
+      "Adds two inches to both standard handles on Reclina-Way sofas and loveseats"
+    ],
+    [
+      "FS",
+      "La-Z-Boy Contour Cushion option"
+    ],
+    [
+      "BP1",
+      "Rechargeable lithium-ion single battery pack; motion styles except lift chairs and La-Z-Motion"
+    ],
+    [
+      "BP2",
+      "Two-battery pack; see current price book for exact eligibility"
+    ],
+    [
+      "088AC2 / 088AC3 / 088AC4",
+      "Arm-cap/headrest cover quantities"
+    ],
+    [
+      "01P / 08P",
+      "Custom single/pair pillow prefixes; options vary by style"
+    ],
+    [
+      "1YC",
+      "Rechargeable lithium-ion battery pack option with storage shelf; catalog note says not available on lift chairs."
+    ],
+    [
+      "FP",
+      "Featherlite pillow upgrade: 95% duck feathers and 5% duck down in cotton downproof ticking."
+    ],
+    [
+      "P1",
+      "Contrasting accent pillows; catalog says accent-pillow fabric can be changed."
+    ],
+    [
+      "NB",
+      "Dutton 828 style option code; meaning is not defined in supplied extraction. Brass nailhead is standard."
+    ],
+    [
+      "NN",
+      "Dutton 828 style option code; meaning is not defined in supplied extraction. Brass nailhead is standard."
+    ],
+    [
+      "NS",
+      "Dutton 828 style option code; meaning is not defined in supplied extraction. Brass nailhead is standard."
+    ]
+  ],
+  "finishes": [
+    {
+      "code": "007",
+      "name": "Brown Mahogany",
+      "description": "Medium-brown patina; standard finish; some motion styles restrict optional finishes."
+    },
+    {
+      "code": "021",
+      "name": "Coffee",
+      "description": "Deep brown finish; optional on many styles, model/prefix limitations apply."
+    },
+    {
+      "code": "067",
+      "name": "Sable",
+      "description": "Rich earthy brown neutral; standard on drop-down-table prefixes 360/36U/36X/446/U46/X46; the extracted supplied pages also specifically restrict 446/U46/X46 to Sable."
+    }
+  ],
+  "cover_cap_choices": [
+    {
+      "material": "Fabric",
+      "codes": [
+        "DR",
+        "UR"
+      ]
+    },
+    {
+      "material": "Fabric (select styles)",
+      "codes": [
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "Faux leather",
+      "codes": [
+        "BU",
+        "RL",
+        "UE"
+      ]
+    },
+    {
+      "material": "Leather",
+      "codes": [
+        "LL",
+        "LM"
+      ]
+    }
+  ],
+  "warranty_reference": {
+    "source_pages": [
+      6
+    ],
+    "terms_shown": {
+      "motion_and_recliner_groups": [
+        "1 year",
+        "3 year"
+      ],
+      "chair_tables": [
+        "1 year",
+        "3 year",
+        "5 year"
+      ]
+    },
+    "groups": [
+      "Recliners, motion modulars, rocking recliners, wall recliners and glider recliners",
+      "La-Z-Motion Motion and Modulars mechanisms",
+      "Chairs"
+    ],
+    "components": [
+      "battery pack",
+      "mechanism",
+      "La-Z-Motion Motion and Modulars mechanism",
+      "electrical components",
+      "frame",
+      "show wood",
+      "springs and spring systems",
+      "polyurethane foam cushioning",
+      "La-Z-Boy Contour Cushion",
+      "fabric and leather",
+      "conserve fabric",
+      "antimicrobial fabric and leather",
+      "Restore by Nanobionic fabric",
+      "iClean fabric and leather",
+      "duo mechanism",
+      "ComfortCore cushion"
+    ],
+    "notes": [
+      "The extraction shows columns for one and three years for recliner/motion groups and one, three, and five years for chairs; its bullet/column alignment is not reliable, so no term is assigned to an individual component.",
+      "One-year fabric cover warranty applies to seam failure, fabric separation and nap loss; cover warranty addresses manufacturing/material defects; natural leather markings are not defects. See the complete current written warranty."
+    ]
+  },
+  "pillow_collections": [
+    [
+      "01P-202",
+      "Box Border Kidney",
+      "12 × 21",
+      "FP",
+      1
+    ],
+    [
+      "01P-203",
+      "Long Box Border Kidney",
+      "12 × 26",
+      "FP",
+      1
+    ],
+    [
+      "01P-204",
+      "Long Knife Edge Kidney",
+      "11 × 36",
+      "FP",
+      1
+    ],
+    [
+      "01P-222",
+      "Knife Edge With Welt",
+      "18 × 18",
+      "FP",
+      1
+    ],
+    [
+      "01P-262",
+      "Knife Edge With Welt",
+      "20 × 20",
+      "FP",
+      1
+    ],
+    [
+      "08P-201",
+      "Knife Edge Kidney With Welt",
+      "12 × 23",
+      "FP",
+      1
+    ],
+    [
+      "08P-220",
+      "Knife Edge",
+      "18 × 18",
+      "FP",
+      2
+    ],
+    [
+      "08P-222",
+      "Knife Edge With Welt",
+      "18 × 18",
+      "FP",
+      2
+    ],
+    [
+      "08P-260",
+      "Knife Edge",
+      "20 × 20",
+      "FP",
+      2
+    ],
+    [
+      "08P-262",
+      "Knife Edge With Welt",
+      "20 × 20",
+      "FP",
+      2
+    ]
+  ],
+  "models": [
+    {
+      "code": "512",
+      "name": "Pinnacle",
+      "pages": [
+        1
+      ],
+      "product_groups": [
+        "La-Z-Time reclining sofas/loveseats",
+        "La-Z-Time reclining sectional"
+      ],
+      "styles": [
+        [
+          "330",
+          "Wall Reclining Sofa",
+          "42 × 81.5 × 38",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "33U",
+          "Power Wall Reclining Sofa with Headrest",
+          "42 × 80.5 × 38.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "33X",
+          "Power Wall Reclining Sofa with Headrest and Lumbar",
+          "42 × 80.5 × 38.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "320",
+          "Wall Reclining Loveseat",
+          "42 × 57 × 38",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "32U",
+          "Power Wall Reclining Loveseat with Headrest",
+          "42 × 56 × 38.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "32X",
+          "Power Wall Reclining Loveseat with Headrest and Lumbar",
+          "42 × 56 × 38.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "339",
+          "Wall Reclining Loveseat with Console",
+          "42 × 75.5 × 38",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "CB",
+            "CC",
+            "CM",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "U39",
+          "Power Wall Reclining Loveseat with Headrest and Console",
+          "42 × 74.5 × 38",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X39",
+          "Power Wall Reclining Loveseat with Console, Headrest and Lumbar",
+          "41 × 74.5 × 38",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "30L",
+          "Left-Arm Sitting Rocking Recliner",
+          "41.5 × 30 × 37.5",
+          [
+            "FN",
+            "FS",
+            "L1",
+            "L3",
+            "LE"
+          ]
+        ],
+        [
+          "30R",
+          "Right-Arm Sitting Rocking Recliner",
+          "41.5 × 30 × 37.5",
+          [
+            "ES",
+            "FS",
+            "FN",
+            "H1",
+            "H3"
+          ]
+        ],
+        [
+          "SC3",
+          "Storage Console",
+          "35 × 14.5 × 33.5",
+          [
+            "CB",
+            "CC",
+            "CM"
+          ]
+        ]
+      ],
+      "notes": [
+        "Finish options only available on 320, 330, 339, 30L and 30R prefixes.",
+        "A console must be placed between 30L and 30R units."
+      ]
+    },
+    {
+      "code": "521",
+      "name": "James",
+      "pages": [
+        2,
+        3,
+        4
+      ],
+      "product_groups": [
+        "La-Z-Time reclining sofa/loveseat",
+        "La-Z-Time reclining sectional"
+      ],
+      "styles": [
+        [
+          "444",
+          "Reclining Sofa",
+          "41.5 × 87 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U44",
+          "Power Reclining Sofa with Headrest",
+          "41.5 × 87 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X44",
+          "Power Reclining Sofa with Headrest and Lumbar",
+          "41.5 × 87 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "448",
+          "Reclining Loveseat",
+          "41.5 × 64 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U48",
+          "Power Reclining Loveseat with Headrest",
+          "41.5 × 64 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X48",
+          "Power Reclining Loveseat with Headrest and Lumbar",
+          "41.5 × 64 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "449",
+          "Reclining Loveseat with Console",
+          "41.5 × 79 × 39",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS"
+          ]
+        ],
+        [
+          "U49",
+          "Power Reclining Loveseat with Headrest and Console",
+          "41.5 × 79 × 39",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X49",
+          "Power Reclining Loveseat with Headrest, Lumbar and Console",
+          "41.5 × 79 × 39",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "44A",
+          "Left-Arm Sitting Recliner",
+          "41.5 × 33 × 39.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4A",
+          "Power Left-Arm Sitting Recliner with Headrest",
+          "41.5 × 33 × 39.5",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "X4A",
+          "Power Left-Arm Sitting Recliner with Headrest and Lumbar",
+          "41.5 × 33 × 39.5",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "44B",
+          "Right-Arm Sitting Recliner",
+          "41.5 × 33 × 39.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4B",
+          "Power Right-Arm Sitting Recliner with Headrest",
+          "41.5 × 33 × 39.5",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4B",
+          "Power Right-Arm Sitting Recliner with Headrest and Lumbar",
+          "41.5 × 33 × 39.5",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "44C",
+          "Rounded Corner Unit (wall space required: 88 in)",
+          "41.5 × 61 × 39.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "SC4",
+          "Storage Console",
+          "38.5 × 14.5 × 38.5",
+          [
+            "CB",
+            "CC",
+            "CM"
+          ]
+        ],
+        [
+          "44D",
+          "Left-Arm Sitting Reclining Loveseat",
+          "41.5 × 56.5 × 39.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4D",
+          "Power Left-Arm Sitting Reclining Loveseat with Headrest",
+          "41.5 × 56.5 × 39.5",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "X4D",
+          "Power Left-Arm Sitting Reclining Loveseat with Headrest and Lumbar",
+          "41.5 × 56.5 × 39.5",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "44E",
+          "Right-Arm Sitting Reclining Loveseat",
+          "41.5 × 56.5 × 39.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4E",
+          "Power Right-Arm Sitting Reclining Loveseat with Headrest",
+          "41.5 × 56.5 × 39.5",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4E",
+          "Power Right-Arm Sitting Reclining Loveseat with Headrest and Lumbar",
+          "41.5 × 56.5 × 39.5",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "M44",
+          "Armless Chair",
+          "41.5 × 23.5 × 39.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "44Q",
+          "Left-Arm Sitting Reclining Chaise",
+          "41.5 × 37.5 × 68",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4Q",
+          "Power Left-Arm Sitting Reclining Chaise with Headrest",
+          "41.5 × 37.5 × 68",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "X4Q",
+          "Power Left-Arm Sitting Reclining Chaise with Headrest and Lumbar",
+          "41.5 × 37.5 × 68",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "44S",
+          "Armless Recliner",
+          "41.5 × 23.5 × 39.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4S",
+          "Power Armless Recliner with Headrest",
+          "41.5 × 23.5 × 39.5",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4S",
+          "Power Armless Recliner with Headrest and Lumbar",
+          "41.5 × 23.5 × 39.5",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "44V",
+          "Right-Arm Sitting Reclining Chaise",
+          "41.5 × 37.5 × 68",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4V",
+          "Power Right-Arm Sitting Reclining Chaise with Headrest",
+          "41.5 × 37.5 × 68",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4V",
+          "Power Right-Arm Sitting Reclining Chaise with Headrest and Lumbar",
+          "41.5 × 37.5 × 68",
+          [
+            "FS",
+            "RW"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "530",
+      "name": "Greyson",
+      "pages": [
+        5
+      ],
+      "product_groups": [
+        "La-Z-Time sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "444",
+          "Reclining Sofa",
+          "41 × 85 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U44",
+          "Power Reclining Sofa with Headrest",
+          "41 × 85 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X44",
+          "Power Reclining Sofa with Headrest and Lumbar",
+          "41 × 85 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "446",
+          "Reclining Sofa with Drop-Down Table",
+          "41 × 85 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U46",
+          "Power Reclining Sofa with Headrest and Drop-Down Table",
+          "41 × 85 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X46",
+          "Power Reclining Sofa with Headrest, Lumbar and Drop-Down Table",
+          "41 × 85 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "448",
+          "Reclining Loveseat",
+          "41 × 62.5 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U48",
+          "Power Reclining Loveseat with Headrest",
+          "41 × 62.5 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X48",
+          "Power Reclining Loveseat with Headrest and Lumbar",
+          "41 × 62.5 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "449",
+          "Reclining Loveseat with Console",
+          "41 × 77 × 39",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS"
+          ]
+        ],
+        [
+          "U49",
+          "Power Reclining Loveseat with Headrest and Console",
+          "41 × 77 × 39",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X49",
+          "Power Reclining Loveseat with Headrest, Lumbar and Console",
+          "41 × 77 × 39",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ]
+      ],
+      "notes": [
+        "Drop-down table only available on 446/U46/X46 prefixes in 067 Sable finish."
+      ]
+    },
+    {
+      "code": "706",
+      "name": "Jay",
+      "pages": [
+        6
+      ],
+      "product_groups": [
+        "La-Z-Time sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "444",
+          "Reclining Sofa",
+          "43 × 86.5 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U44",
+          "Power Reclining Sofa with Headrest",
+          "43 × 86.5 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X44",
+          "Power Reclining Sofa with Headrest and Lumbar",
+          "43 × 86.5 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "448",
+          "Reclining Loveseat",
+          "43 × 63.5 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U48",
+          "Power Reclining Loveseat with Headrest",
+          "43 × 63.5 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X48",
+          "Power Reclining Loveseat with Headrest and Lumbar",
+          "43 × 63.5 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "449",
+          "Reclining Loveseat with Console",
+          "43 × 78.5 × 39",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS"
+          ]
+        ],
+        [
+          "U49",
+          "Power Reclining Loveseat with Headrest and Console",
+          "43 × 78.5 × 39",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X49",
+          "Power Reclining Loveseat with Headrest, Lumbar and Console",
+          "43 × 78.5 × 39",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "722",
+      "name": "Roman",
+      "pages": [
+        7
+      ],
+      "product_groups": [
+        "La-Z-Time sofa/loveseat and chair-and-a-half"
+      ],
+      "styles": [
+        [
+          "443",
+          "Reclining Two-Seat Sofa",
+          "43 × 85 × 41",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U43",
+          "Power Reclining Two-Seat Sofa with Headrest",
+          "43 × 85 × 41",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X43",
+          "Power Reclining Two-Seat Sofa with Headrest and Lumbar",
+          "43 × 85 × 41",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "445",
+          "Reclining Chair-and-a-Half",
+          "43 × 52.5 × 41",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U45",
+          "Power Reclining Chair-and-a-Half with Headrest",
+          "43 × 52.5 × 41",
+          [
+            "FS",
+            "LT",
+            "LW",
+            "RW"
+          ]
+        ],
+        [
+          "X45",
+          "Power Reclining Chair-and-a-Half with Headrest and Lumbar",
+          "43 × 52.5 × 41",
+          [
+            "FS",
+            "LT",
+            "LW",
+            "RW"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "724",
+      "name": "Trouper",
+      "pages": [
+        8,
+        9,
+        10
+      ],
+      "product_groups": [
+        "La-Z-Time sofa/loveseat",
+        "La-Z-Time reclining sectional"
+      ],
+      "styles": [
+        [
+          "444",
+          "Reclining Sofa",
+          "41.5 × 85 × 42",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U44",
+          "Power Reclining Sofa with Headrest",
+          "41.5 × 85 × 42",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X44",
+          "Power Reclining Sofa with Headrest and Lumbar",
+          "41.5 × 85 × 42",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "448",
+          "Reclining Loveseat",
+          "41.5 × 62 × 42",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U48",
+          "Power Reclining Loveseat with Headrest",
+          "41.5 × 62 × 42",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X48",
+          "Power Reclining Loveseat with Headrest and Lumbar",
+          "41.5 × 62 × 42",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "446",
+          "Reclining Sofa with Drop-Down Table",
+          "41.5 × 85 × 42",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U46",
+          "Power Reclining Sofa with Headrest and Drop-Down Table",
+          "41.5 × 85 × 42",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X46",
+          "Power Reclining Sofa with Headrest, Lumbar and Drop-Down Table",
+          "41.5 × 85 × 42",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "449",
+          "Reclining Loveseat with Console",
+          "41.5 × 77 × 42",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS"
+          ]
+        ],
+        [
+          "U49",
+          "Power Reclining Loveseat with Headrest and Console",
+          "41.5 × 77 × 42",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X49",
+          "Power Reclining Loveseat with Headrest, Lumbar and Console",
+          "41.5 × 77 × 42",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "44A",
+          "Left-Arm Sitting Recliner",
+          "42 × 30 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4A",
+          "Power Left-Arm Sitting Recliner with Headrest",
+          "42 × 30 × 40",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "X4A",
+          "Power Left-Arm Sitting Recliner with Headrest and Lumbar",
+          "42 × 30 × 40",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "44B",
+          "Right-Arm Sitting Recliner",
+          "42 × 30 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4B",
+          "Power Right-Arm Sitting Recliner with Headrest",
+          "42 × 30 × 40",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4B",
+          "Power Right-Arm Sitting Recliner with Headrest and Lumbar",
+          "42 × 30 × 40",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "44C",
+          "Rounded Corner Unit (wall space required: 92 in)",
+          "42 × 62 × 38",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "SC4",
+          "Storage Console",
+          "38.5 × 14.5 × 37.5",
+          [
+            "CB",
+            "CC",
+            "CM"
+          ]
+        ],
+        [
+          "44D",
+          "Left-Arm Sitting Reclining Loveseat",
+          "42 × 56 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4D",
+          "Power Left-Arm Sitting Reclining Loveseat with Headrest",
+          "42 × 56 × 40",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "X4D",
+          "Power Left-Arm Sitting Reclining Loveseat with Headrest and Lumbar",
+          "42 × 56 × 40",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "44E",
+          "Right-Arm Sitting Reclining Loveseat",
+          "42 × 56 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4E",
+          "Power Right-Arm Sitting Reclining Loveseat with Headrest",
+          "42 × 56 × 40",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4E",
+          "Power Right-Arm Sitting Reclining Loveseat with Headrest and Lumbar",
+          "42 × 56 × 40",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "M44",
+          "Armless Chair",
+          "42 × 24 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "44Q",
+          "Left-Arm Sitting Reclining Chaise",
+          "42 × 35 × 68",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4Q",
+          "Power Left-Arm Sitting Reclining Chaise with Headrest",
+          "42 × 35 × 68",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "X4Q",
+          "Power Left-Arm Sitting Reclining Chaise with Headrest and Lumbar",
+          "42 × 35 × 68",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "44S",
+          "Armless Recliner",
+          "42 × 24 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4S",
+          "Power Armless Recliner with Headrest",
+          "42 × 24 × 40",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4S",
+          "Power Armless Recliner with Headrest and Lumbar",
+          "42 × 24 × 40",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "44V",
+          "Right-Arm Sitting Reclining Chaise",
+          "42 × 35 × 68",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4V",
+          "Power Right-Arm Sitting Reclining Chaise with Headrest",
+          "42 × 35 × 68",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4V",
+          "Power Right-Arm Sitting Reclining Chaise with Headrest and Lumbar",
+          "42 × 35 × 68",
+          [
+            "FS",
+            "RW"
+          ]
+        ]
+      ],
+      "notes": [
+        "Pages 9-10 are sectional pieces; the source table lists sofa and loveseat product prefixes plus modular piece prefixes.",
+        "Drop-down table only available on 446/U46/X46 prefixes in 067 Sable finish."
+      ]
+    },
+    {
+      "code": "727",
+      "name": "Brooks",
+      "pages": [
+        11
+      ],
+      "product_groups": [
+        "La-Z-Time sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "444",
+          "Reclining Sofa",
+          "41 × 84 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U44",
+          "Power Reclining Sofa with Headrest",
+          "41 × 84 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X44",
+          "Power Reclining Sofa with Headrest and Lumbar",
+          "41 × 84 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "448",
+          "Reclining Loveseat",
+          "41 × 63 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U48",
+          "Power Reclining Loveseat with Headrest",
+          "41 × 63 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X48",
+          "Power Reclining Loveseat with Headrest and Lumbar",
+          "41 × 63 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "449",
+          "Reclining Loveseat with Console",
+          "41 × 78 × 40",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS"
+          ]
+        ],
+        [
+          "U49",
+          "Power Reclining Loveseat with Headrest and Console",
+          "41 × 78 × 40",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X49",
+          "Power Reclining Loveseat with Headrest, Lumbar and Console",
+          "41 × 78 × 40",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "747",
+      "name": "Finley",
+      "pages": [
+        12
+      ],
+      "product_groups": [
+        "Reclina-Way sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "330",
+          "Wall Reclining Sofa",
+          "43 × 85 × 38",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "33U",
+          "Power Wall Reclining Sofa with Headrest",
+          "43 × 81 × 38",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "33X",
+          "Power Wall Reclining Sofa with Headrest and Lumbar",
+          "43 × 81 × 38",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "320",
+          "Wall Reclining Loveseat",
+          "43 × 61 × 38",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "32U",
+          "Power Wall Reclining Loveseat with Headrest",
+          "43 × 57 × 38",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "32X",
+          "Power Wall Reclining Loveseat with Headrest and Lumbar",
+          "43 × 57 × 38",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "339",
+          "Wall Reclining Loveseat with Console",
+          "43 × 75.5 × 38",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "CB",
+            "CC",
+            "CM",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "U39",
+          "Power Wall Reclining Loveseat with Headrest and Console",
+          "43 × 71.5 × 38",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X39",
+          "Power Wall Reclining Loveseat with Console, Headrest and Lumbar",
+          "43 × 71.5 × 38",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "755",
+      "name": "Dorian",
+      "pages": [
+        13
+      ],
+      "product_groups": [
+        "La-Z-Time reclining sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "444",
+          "Reclining Sofa",
+          "44 × 86 × 39.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U44",
+          "Power Reclining Sofa with Headrest",
+          "44 × 86 × 39.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X44",
+          "Power Reclining Sofa with Headrest and Lumbar",
+          "44 × 86 × 39.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "448",
+          "Reclining Loveseat",
+          "44 × 63 × 39.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U48",
+          "Power Reclining Loveseat with Headrest",
+          "44 × 63 × 39.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X48",
+          "Power Reclining Loveseat with Headrest and Lumbar",
+          "44 × 63 × 39.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "449",
+          "Reclining Loveseat with Console",
+          "44 × 78 × 39.5",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS"
+          ]
+        ],
+        [
+          "U49",
+          "Power Reclining Loveseat with Headrest and Console",
+          "44 × 78 × 39.5",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X49",
+          "Power Reclining Loveseat with Headrest, Lumbar and Console",
+          "44 × 78 × 39.5",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "757",
+      "name": "Apollo",
+      "pages": [
+        14
+      ],
+      "product_groups": [
+        "La-Z-Time reclining sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "444",
+          "Reclining Sofa",
+          "42 × 85.5 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U44",
+          "Power Reclining Sofa with Headrest",
+          "42 × 85.5 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X44",
+          "Power Reclining Sofa with Headrest and Lumbar",
+          "42 × 85.5 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "446",
+          "Reclining Sofa with Drop-Down Table",
+          "42 × 85.5 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U46",
+          "Power Reclining Sofa with Headrest and Drop-Down Table",
+          "42 × 85.5 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X46",
+          "Power Reclining Sofa with Headrest, Lumbar and Drop-Down Table",
+          "42 × 85.5 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "448",
+          "Reclining Loveseat",
+          "42 × 62.5 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U48",
+          "Power Reclining Loveseat with Headrest",
+          "42 × 62.5 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X48",
+          "Power Reclining Loveseat with Headrest and Lumbar",
+          "42 × 62.5 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "449",
+          "Reclining Loveseat with Console",
+          "42 × 77 × 40",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS"
+          ]
+        ],
+        [
+          "U49",
+          "Power Reclining Loveseat with Headrest and Console",
+          "42 × 77 × 40",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X49",
+          "Power Reclining Loveseat with Headrest, Lumbar and Console",
+          "42 × 77 × 40",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "759",
+      "name": "Maddox",
+      "pages": [
+        15,
+        16
+      ],
+      "product_groups": [
+        "La-Z-Time reclining sectional",
+        "Reclining chair-and-a-half"
+      ],
+      "styles": [
+        [
+          "44A",
+          "Left-Arm Sitting Recliner",
+          "42 × 40 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4A",
+          "Power Left-Arm Sitting Recliner with Headrest",
+          "42 × 40 × 40",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "X4A",
+          "Power Left-Arm Sitting Recliner with Headrest and Lumbar",
+          "42 × 40 × 40",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "44B",
+          "Right-Arm Sitting Recliner",
+          "42 × 40 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4B",
+          "Power Right-Arm Sitting Recliner with Headrest",
+          "42 × 40 × 40",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4B",
+          "Power Right-Arm Sitting Recliner with Headrest and Lumbar",
+          "42 × 40 × 40",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "44C",
+          "Rounded Corner Unit (wall space required: 92 in)",
+          "42 × 62 × 37",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "SC4",
+          "Storage Console",
+          "38.5 × 14.5 × 37.5",
+          [
+            "CB",
+            "CC",
+            "CM"
+          ]
+        ],
+        [
+          "M44",
+          "Armless Chair",
+          "42 × 32 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "44Q",
+          "Left-Arm Sitting Reclining Chaise",
+          "42 × 42 × 65.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4Q",
+          "Power Left-Arm Sitting Reclining Chaise with Headrest",
+          "42 × 42 × 65.5",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "X4Q",
+          "Power Left-Arm Sitting Reclining Chaise with Headrest and Lumbar",
+          "42 × 42 × 65.5",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "44S",
+          "Armless Recliner",
+          "42 × 32 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4S",
+          "Power Armless Recliner with Headrest",
+          "42 × 32 × 40",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4S",
+          "Power Armless Recliner with Headrest and Lumbar",
+          "42 × 32 × 40",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "44V",
+          "Right-Arm Sitting Reclining Chaise",
+          "42 × 42 × 65.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4V",
+          "Power Right-Arm Sitting Reclining Chaise with Headrest",
+          "42 × 42 × 65.5",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4V",
+          "Power Right-Arm Sitting Reclining Chaise with Headrest and Lumbar",
+          "42 × 42 × 65.5",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "445",
+          "Reclining Chair and a Half",
+          "42 × 48 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U45",
+          "Power Reclining Chair and a Half with Headrest",
+          "42 × 48 × 40",
+          [
+            "FS",
+            "LT",
+            "LW",
+            "RW"
+          ]
+        ],
+        [
+          "X45",
+          "Power Reclining Chair and a Half with Headrest and Lumbar",
+          "42 × 48 × 40",
+          [
+            "FS",
+            "LT",
+            "LW",
+            "RW"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "761",
+      "name": "Joel",
+      "pages": [
+        17
+      ],
+      "product_groups": [
+        "Reclining sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "444",
+          "Reclining Sofa",
+          "43 × 90 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U44",
+          "Power Reclining Sofa with Headrest",
+          "43 × 90 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X44",
+          "Power Reclining Sofa with Headrest and Lumbar",
+          "43 × 90 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "448",
+          "Reclining Loveseat",
+          "43 × 67 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U48",
+          "Power Reclining Loveseat with Headrest",
+          "43 × 67 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X48",
+          "Power Reclining Loveseat with Headrest and Lumbar",
+          "43 × 67 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "449",
+          "Reclining Loveseat with Console",
+          "43 × 81.5 × 40",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS"
+          ]
+        ],
+        [
+          "U49",
+          "Power Reclining Loveseat with Headrest and Console",
+          "43 × 81.5 × 40",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X49",
+          "Power Reclining Loveseat with Headrest, Lumbar and Console",
+          "43 × 81.5 × 40",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "766",
+      "name": "Morrison",
+      "pages": [
+        18
+      ],
+      "product_groups": [
+        "Reclining sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "444",
+          "Reclining Sofa",
+          "42 × 86 × 39.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U44",
+          "Power Reclining Sofa with Headrest",
+          "42 × 86 × 39.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X44",
+          "Power Reclining Sofa with Headrest and Lumbar",
+          "42 × 86 × 39.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "446",
+          "Reclining Sofa with Drop-Down Table",
+          "42 × 86 × 39.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U46",
+          "Power Reclining Sofa with Headrest and Drop-Down Table",
+          "42 × 86 × 39.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X46",
+          "Power Reclining Sofa with Headrest, Lumbar and Drop-Down Table",
+          "42 × 86 × 39.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "448",
+          "Reclining Loveseat",
+          "42 × 63.5 × 39.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U48",
+          "Power Reclining Loveseat with Headrest",
+          "42 × 63.5 × 39.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X48",
+          "Power Reclining Loveseat with Headrest and Lumbar",
+          "42 × 63.5 × 39.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "449",
+          "Reclining Loveseat with Console",
+          "42 × 78.5 × 39.5",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS"
+          ]
+        ],
+        [
+          "U49",
+          "Power Reclining Loveseat with Headrest and Console",
+          "42 × 78.5 × 39.5",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X49",
+          "Power Reclining Loveseat with Headrest, Lumbar and Console",
+          "42 × 78.5 × 39.5",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ]
+      ],
+      "notes": [
+        "The source says no image of the drop-down table is currently available for Morrison.",
+        "Drop-down table is only available on 446/U46/X46 prefixes in 067 Sable finish."
+      ]
+    },
+    {
+      "code": "769",
+      "name": "Ava",
+      "pages": [
+        19,
+        20,
+        21
+      ],
+      "product_groups": [
+        "Reclining sofa/loveseat",
+        "Reclining sectional"
+      ],
+      "styles": [
+        [
+          "444",
+          "Reclining Sofa",
+          "42 × 86 × 44.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U44",
+          "Power Reclining Sofa with Headrest",
+          "42 × 86 × 44.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X44",
+          "Power Reclining Sofa with Headrest and Lumbar",
+          "42 × 86 × 44.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "448",
+          "Reclining Loveseat",
+          "42 × 63 × 44.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U48",
+          "Power Reclining Loveseat with Headrest",
+          "42 × 63 × 44.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X48",
+          "Power Reclining Loveseat with Headrest and Lumbar",
+          "42 × 63 × 44.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "449",
+          "Reclining Loveseat with Console",
+          "42 × 77.5 × 44.5",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS"
+          ]
+        ],
+        [
+          "U49",
+          "Power Reclining Loveseat with Headrest and Console",
+          "42 × 77.5 × 44.5",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X49",
+          "Power Reclining Loveseat with Headrest, Lumbar and Console",
+          "42 × 77.5 × 44.5",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "44A",
+          "Left-Arm Sitting Recliner",
+          "42 × 32 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4A",
+          "Power Left-Arm Sitting Recliner with Headrest",
+          "42 × 32 × 39",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "X4A",
+          "Power Left-Arm Sitting Recliner with Headrest and Lumbar",
+          "42 × 32 × 39",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "44B",
+          "Right-Arm Sitting Recliner",
+          "42 × 32 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4B",
+          "Power Right-Arm Sitting Recliner with Headrest",
+          "42 × 32 × 39",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4B",
+          "Power Right-Arm Sitting Recliner with Headrest and Lumbar",
+          "42 × 32 × 39",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "44C",
+          "Rounded Corner Unit (wall space required: 91 in)",
+          "42 × 60 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "SC4",
+          "Storage Console",
+          "38.5 × 14.5 × 37.5",
+          [
+            "CB",
+            "CC",
+            "CM"
+          ]
+        ],
+        [
+          "44D",
+          "Left-Arm Sitting Reclining Loveseat",
+          "42 × 54.5 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4D",
+          "Power Left-Arm Sitting Reclining Loveseat with Headrest",
+          "42 × 54.5 × 39",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "X4D",
+          "Power Left-Arm Sitting Reclining Loveseat with Headrest and Lumbar",
+          "42 × 54.5 × 39",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "44E",
+          "Right-Arm Sitting Reclining Loveseat",
+          "42 × 54.5 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4E",
+          "Power Right-Arm Sitting Reclining Loveseat with Headrest",
+          "42 × 54.5 × 39",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4E",
+          "Power Right-Arm Sitting Reclining Loveseat with Headrest and Lumbar",
+          "42 × 54.5 × 39",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "M44",
+          "Armless Chair",
+          "42 × 24 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "44Q",
+          "Left-Arm Sitting Reclining Chaise",
+          "42 × 35 × 67",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4Q",
+          "Power Left-Arm Sitting Reclining Chaise with Headrest",
+          "42 × 35 × 67",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "X4Q",
+          "Power Left-Arm Sitting Reclining Chaise with Headrest and Lumbar",
+          "42 × 35 × 67",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "44S",
+          "Armless Recliner",
+          "42 × 24 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4S",
+          "Power Armless Recliner with Headrest",
+          "42 × 24 × 39",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4S",
+          "Power Armless Recliner with Headrest and Lumbar",
+          "42 × 24 × 39",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "44V",
+          "Right-Arm Sitting Reclining Chaise",
+          "42 × 35 × 67",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4V",
+          "Power Right-Arm Sitting Reclining Chaise with Headrest",
+          "42 × 35 × 67",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4V",
+          "Power Right-Arm Sitting Reclining Chaise with Headrest and Lumbar",
+          "42 × 35 × 67",
+          [
+            "FS",
+            "RW"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "781",
+      "name": "Emmons",
+      "pages": [
+        22
+      ],
+      "product_groups": [
+        "La-Z-Time reclining sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "444",
+          "Reclining Sofa",
+          "43 × 83.5 × 40.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U44",
+          "Power Reclining Sofa with Headrest",
+          "43 × 83.5 × 40.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X44",
+          "Power Reclining Sofa with Headrest and Lumbar",
+          "43 × 83.5 × 40.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "448",
+          "Reclining Loveseat",
+          "43 × 60.5 × 40.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U48",
+          "Power Reclining Loveseat with Headrest",
+          "43 × 60.5 × 40.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X48",
+          "Power Reclining Loveseat with Headrest and Lumbar",
+          "43 × 60.5 × 40.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "449",
+          "Reclining Loveseat with Console",
+          "43 × 75 × 40.5",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS"
+          ]
+        ],
+        [
+          "U49",
+          "Power Reclining Loveseat with Headrest and Console",
+          "43 × 75 × 40.5",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X49",
+          "Power Reclining Loveseat with Headrest, Lumbar and Console",
+          "43 × 75 × 40.5",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "786",
+      "name": "Liam",
+      "pages": [
+        23
+      ],
+      "product_groups": [
+        "Reclina-Way wall reclining sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "330",
+          "Wall Reclining Sofa",
+          "41 × 86 × 39",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "33U",
+          "Power Wall Reclining Sofa with Headrest",
+          "41 × 83 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "33X",
+          "Power Wall Reclining Sofa with Headrest and Lumbar",
+          "41 × 83 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "320",
+          "Wall Reclining Loveseat",
+          "41 × 62 × 39",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "32U",
+          "Power Wall Reclining Loveseat with Headrest",
+          "41 × 58 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "32X",
+          "Power Wall Reclining Loveseat with Headrest and Lumbar",
+          "41 × 58 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "339",
+          "Wall Reclining Loveseat with Console",
+          "41 × 76.5 × 39",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "CB",
+            "CC",
+            "CM",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "U39",
+          "Power Wall Reclining Loveseat with Headrest and Console",
+          "41 × 73.5 × 39",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X39",
+          "Power Wall Reclining Loveseat with Console, Headrest and Lumbar",
+          "41 × 73.5 × 39",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ]
+      ],
+      "notes": [
+        "This motion source lists Liam 786 on page 23; a prior supplied recliner source uses different pagination. Keep source page references distinct."
+      ]
+    },
+    {
+      "code": "800",
+      "name": "Palmer",
+      "pages": [
+        24,
+        25
+      ],
+      "product_groups": [
+        "La-Z-Time reclining sectional",
+        "Reclining chair-and-a-half"
+      ],
+      "styles": [
+        [
+          "44A",
+          "Left-Arm Sitting Recliner",
+          "43 × 42.5 × 38",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4A",
+          "Power Left-Arm Sitting Recliner with Headrest",
+          "43 × 42.5 × 38",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "X4A",
+          "Power Left-Arm Sitting Recliner with Headrest and Lumbar",
+          "43 × 42.5 × 38",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "44B",
+          "Right-Arm Sitting Recliner",
+          "43 × 42.5 × 38",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4B",
+          "Power Right-Arm Sitting Recliner with Headrest",
+          "43 × 42.5 × 38",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4B",
+          "Power Right-Arm Sitting Recliner with Headrest and Lumbar",
+          "43 × 42.5 × 38",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "44C",
+          "Corner Unit",
+          "43 × 59 × 38",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "SC4",
+          "Storage Console",
+          "38.5 × 14.5 × 38.5",
+          [
+            "CB",
+            "CC",
+            "CM"
+          ]
+        ],
+        [
+          "M44",
+          "Armless Chair",
+          "43 × 33.5 × 38",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "44Q",
+          "Left-Arm Sitting Reclining Chaise",
+          "43 × 42.5 × 66.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4Q",
+          "Power Left-Arm Sitting Reclining Chaise with Headrest",
+          "43 × 42.5 × 66.5",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "X4Q",
+          "Power Left-Arm Sitting Reclining Chaise with Headrest and Lumbar",
+          "43 × 42.5 × 66.5",
+          [
+            "FS",
+            "LW"
+          ]
+        ],
+        [
+          "44S",
+          "Armless Recliner",
+          "43 × 33.5 × 38",
+          [
+            "FS"
+          ],
+          "Printed model suffix in supplied extraction is 521 despite appearing in Palmer 800 table."
+        ],
+        [
+          "U4S",
+          "Power Armless Recliner with Headrest",
+          "43 × 33.5 × 38",
+          [
+            "FS",
+            "RW"
+          ],
+          "Printed model suffix in supplied extraction is 521 despite appearing in Palmer 800 table."
+        ],
+        [
+          "X4S",
+          "Power Armless Recliner with Headrest and Lumbar",
+          "43 × 33.5 × 38",
+          [
+            "FS",
+            "RW"
+          ],
+          "Printed model suffix in supplied extraction is 521 despite appearing in Palmer 800 table."
+        ],
+        [
+          "44V",
+          "Right-Arm Sitting Reclining Chaise",
+          "43 × 42.5 × 66.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U4V",
+          "Power Right-Arm Sitting Reclining Chaise with Headrest",
+          "43 × 42.5 × 66.5",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "X4V",
+          "Power Right-Arm Sitting Reclining Chaise with Headrest and Lumbar",
+          "43 × 42.5 × 66.5",
+          [
+            "FS",
+            "RW"
+          ]
+        ],
+        [
+          "445",
+          "Reclining Chair and a Half",
+          "43 × 54.5 × 38",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U45",
+          "Power Reclining Chair and a Half with Headrest",
+          "43 × 54.5 × 38",
+          [
+            "FS",
+            "LW",
+            "RW"
+          ]
+        ],
+        [
+          "X45",
+          "Power Reclining Chair and a Half with Headrest and Lumbar",
+          "43 × 54.5 × 38",
+          [
+            "FS",
+            "LW",
+            "RW"
+          ]
+        ]
+      ],
+      "notes": [
+        "Rows 44S/U4S/X4S print suffix 521 in the extraction, despite appearing within the Palmer 800 table; style search retains this discrepancy."
+      ]
+    },
+    {
+      "code": "802",
+      "name": "Cassian",
+      "pages": [
+        26
+      ],
+      "product_groups": [
+        "La-Z-Motion reclining sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "444",
+          "Reclining Sofa",
+          "42.5 × 86 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U44",
+          "Power Reclining Sofa with Headrest",
+          "42.5 × 86 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X44",
+          "Power Reclining Sofa with Headrest and Lumbar",
+          "42.5 × 86 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "448",
+          "Reclining Loveseat",
+          "42.5 × 63 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U48",
+          "Power Reclining Loveseat with Headrest",
+          "42.5 × 63 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X48",
+          "Power Reclining Loveseat with Headrest and Lumbar",
+          "42.5 × 63 × 40",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "449",
+          "Reclining Loveseat with Console",
+          "42.5 × 77.5 × 40",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS"
+          ]
+        ],
+        [
+          "U49",
+          "Power Reclining Loveseat with Headrest and Console",
+          "42.5 × 77.5 × 40",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X49",
+          "Power Reclining Loveseat with Headrest, Lumbar and Console",
+          "42.5 × 77.5 × 40",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "803",
+      "name": "Cade",
+      "pages": [
+        27
+      ],
+      "product_groups": [
+        "La-Z-Motion reclining sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "444",
+          "Reclining Sofa",
+          "42 × 83 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U44",
+          "Power Reclining Sofa with Headrest",
+          "42 × 83 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X44",
+          "Power Reclining Sofa with Headrest and Lumbar",
+          "42 × 83 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "448",
+          "Reclining Loveseat",
+          "42 × 60 × 39",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "U48",
+          "Power Reclining Loveseat with Headrest",
+          "42 × 60 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X48",
+          "Power Reclining Loveseat with Headrest and Lumbar",
+          "42 × 60 × 39",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "449",
+          "Reclining Loveseat with Console",
+          "42 × 74.5 × 39",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS"
+          ]
+        ],
+        [
+          "U49",
+          "Power Reclining Loveseat with Headrest and Console",
+          "42 × 74.5 × 39",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X49",
+          "Power Reclining Loveseat with Headrest, Lumbar and Console",
+          "42 × 74.5 × 39",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "804",
+      "name": "Belmont",
+      "pages": [
+        28
+      ],
+      "product_groups": [
+        "Reclina-Way wall reclining sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "330",
+          "Wall Reclining Sofa",
+          "44 × 87 × 38",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "33U",
+          "Power Wall Reclining Sofa with Headrest",
+          "44 × 83 × 38",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "33X",
+          "Power Wall Reclining Sofa with Headrest and Lumbar",
+          "44 × 83 × 38",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "320",
+          "Wall Reclining Loveseat",
+          "44 × 63 × 38",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "32U",
+          "Power Wall Reclining Loveseat with Headrest",
+          "44 × 59 × 38",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "32X",
+          "Power Wall Reclining Loveseat with Headrest and Lumbar",
+          "44 × 59 × 38",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "339",
+          "Wall Reclining Loveseat with Console",
+          "44 × 77.5 × 38",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "CB",
+            "CC",
+            "CM",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "U39",
+          "Power Wall Reclining Loveseat with Headrest and Console",
+          "44 × 73.5 × 38",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X39",
+          "Power Wall Reclining Loveseat with Console, Headrest and Lumbar",
+          "44 × 73.5 × 38",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "360",
+          "Wall Reclining Sofa with Drop-Down Table",
+          "44 × 87 × 38",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "36U",
+          "Power Wall Reclining Sofa with Headrest and Drop-Down Table",
+          "44 × 83 × 38",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "36X",
+          "Power Wall Reclining Sofa with Headrest, Lumbar and Drop-Down Table",
+          "44 × 83 × 38",
+          [
+            "FS",
+            "W2"
+          ]
+        ]
+      ],
+      "notes": [
+        "Optional 007 Brown Mahogany and 021 Coffee finishes are limited to prefixes 320, 330 and 339. Drop-down table and additional storage only on 360/36U/36X; drop-down table requires 067 Sable."
+      ]
+    },
+    {
+      "code": "807",
+      "name": "Baron",
+      "pages": [
+        29
+      ],
+      "product_groups": [
+        "Reclina-Way wall reclining sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "330",
+          "Wall Reclining Sofa",
+          "43 × 85.5 × 38.5",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "33U",
+          "Power Wall Reclining Sofa with Headrest",
+          "43 × 81.5 × 38.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "33X",
+          "Power Wall Reclining Sofa with Headrest and Lumbar",
+          "43 × 81.5 × 38.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "320",
+          "Wall Reclining Loveseat",
+          "43 × 61.5 × 38.5",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "32U",
+          "Power Wall Reclining Loveseat with Headrest",
+          "43 × 57.5 × 38.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "32X",
+          "Power Wall Reclining Loveseat with Headrest and Lumbar",
+          "43 × 57.5 × 38.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "339",
+          "Wall Reclining Loveseat with Console",
+          "43 × 76 × 38.5",
+          [
+            "1H",
+            "2E",
+            "3H",
+            "CB",
+            "CC",
+            "CM",
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "U39",
+          "Power Wall Reclining Loveseat with Headrest and Console",
+          "43 × 72 × 38.5",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "X39",
+          "Power Wall Reclining Loveseat with Console, Headrest and Lumbar",
+          "43 × 72 × 38.5",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "360",
+          "Wall Reclining Sofa with Drop-Down Table",
+          "43 × 85.5 × 38.5",
+          [
+            "FS",
+            "FN"
+          ]
+        ],
+        [
+          "36U",
+          "Power Wall Reclining Sofa with Headrest and Drop-Down Table",
+          "43 × 81.5 × 38.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ],
+        [
+          "36X",
+          "Power Wall Reclining Sofa with Headrest, Lumbar and Drop-Down Table",
+          "43 × 81.5 × 38.5",
+          [
+            "FS",
+            "W2"
+          ]
+        ]
+      ],
+      "notes": [
+        "Optional finish choices only on 320, 330 and 339 prefixes. Drop-down table and additional storage only on 360/36U/36X; drop-down table in 067 Sable."
+      ]
+    },
+    {
+      "code": "810",
+      "name": "Quinault",
+      "pages": [
+        30
+      ],
+      "product_groups": [
+        "La-Z-Motion sofa/loveseat/chair"
+      ],
+      "styles": [
+        [
+          "84U",
+          "Power Reclining Sofa with Headrest",
+          "39.5 × 79 × 34",
+          [
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "88U",
+          "Power Reclining Loveseat with Headrest",
+          "39.5 × 57 × 34",
+          [
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "81U",
+          "Power Reclining Chair with Headrest",
+          "39.5 × 33 × 34",
+          [
+            "FN",
+            "FS",
+            "LT"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "811",
+      "name": "Acadia",
+      "pages": [
+        31,
+        32
+      ],
+      "product_groups": [
+        "La-Z-Motion sofa/loveseat/chair",
+        "La-Z-Motion modular sectional"
+      ],
+      "styles": [
+        [
+          "84U",
+          "Power Reclining Sofa with Headrest",
+          "43 × 84 × 40",
+          [
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "88U",
+          "Power Reclining Loveseat with Headrest",
+          "43 × 61.5 × 40",
+          [
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "81U",
+          "Power Reclining Chair with Headrest",
+          "43 × 39 × 40",
+          [
+            "FN",
+            "FS",
+            "LT"
+          ]
+        ],
+        [
+          "8AU",
+          "Power Left-Arm Sitting Recliner with Headrest",
+          "43 × 44.5 × 40",
+          [
+            "FS",
+            "FN"
+          ]
+        ],
+        [
+          "8BU",
+          "Power Right-Arm Sitting Recliner with Headrest",
+          "43 × 44.5 × 40",
+          [
+            "FS",
+            "FN"
+          ]
+        ],
+        [
+          "8C0",
+          "Rounded Corner Unit (wall space required: 100 in)",
+          "43 × 68.5 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "8M0",
+          "Armless Chair",
+          "43 × 35 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "8SC",
+          "Storage Console",
+          "39 × 13 × 39",
+          [
+            "N/A"
+          ]
+        ],
+        [
+          "8SU",
+          "Power Armless Recliner with Headrest",
+          "43 × 35 × 40",
+          [
+            "FS"
+          ]
+        ]
+      ],
+      "notes": [
+        "Pages 31 and 32 present sofa/chair and modular configurations separately. The catalog index flags sofa/chair on page 31 and modular on page 32.",
+        "The page-32 drawing appears to print corner prefix 8C0 (zero); the earlier prefix-definition page extracts it as 8CO (letter O). Both spellings are retained in search. Storage console 8SC only comes in 021 Coffee finish."
+      ]
+    },
+    {
+      "code": "812",
+      "name": "Armitage",
+      "pages": [
+        33
+      ],
+      "product_groups": [
+        "La-Z-Motion modular sectional",
+        "La-Z-Motion chair-and-a-half"
+      ],
+      "styles": [
+        [
+          "8AU",
+          "Power Left-Arm Sitting Recliner with Headrest",
+          "34.5 × 45 × 38.5",
+          [
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "8BU",
+          "Power Right-Arm Sitting Recliner with Headrest",
+          "34.5 × 45 × 38.5",
+          [
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "8C0",
+          "Rounded Corner Unit (wall space required: 100 in)",
+          "34.5 × 68.5 × 38",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "8M0",
+          "Armless Chair",
+          "34.5 × 34 × 38.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "8SC",
+          "Storage Console",
+          "29.5 × 13 × 38",
+          [
+            "N/A"
+          ]
+        ],
+        [
+          "8SU",
+          "Power Armless Recliner with Headrest",
+          "34.5 × 34 × 38.5",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "85U",
+          "Power Reclining Chair and a Half with Headrest",
+          "34.5 × 55.5 × 38.5",
+          [
+            "FN",
+            "FS",
+            "LT"
+          ]
+        ]
+      ],
+      "notes": [
+        "Standard finish 021 Coffee; optional 007 Brown Mahogany only on 8AU, 8BU and 85U. Storage console 8SC only comes in 021 Coffee. Prefix is shown as 8C0 on the page table; the prefix definitions page extraction appears as 8CO."
+      ]
+    },
+    {
+      "code": "813",
+      "name": "Clybourn",
+      "pages": [
+        34
+      ],
+      "product_groups": [
+        "La-Z-Motion sofa/loveseat/chair"
+      ],
+      "styles": [
+        [
+          "84U",
+          "Power Reclining Sofa with Headrest",
+          "41 × 86 × 39",
+          [
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "88U",
+          "Power Reclining Loveseat with Headrest",
+          "41 × 64 × 39",
+          [
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "81U",
+          "Power Reclining Chair with Headrest",
+          "41 × 40 × 39",
+          [
+            "FN",
+            "FS",
+            "LT"
+          ]
+        ]
+      ]
+    },
+    {
+      "code": "828",
+      "name": "Dutton",
+      "pages": [
+        35
+      ],
+      "product_groups": [
+        "La-Z-Time reclining sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "444",
+          "Reclining Sofa",
+          "42.5 × 87 × 41",
+          [
+            "FS",
+            "NB",
+            "NN",
+            "NS"
+          ]
+        ],
+        [
+          "U44",
+          "Power Reclining Sofa with Headrest",
+          "42.5 × 87 × 41",
+          [
+            "FS",
+            "NB",
+            "NN",
+            "NS",
+            "W2"
+          ]
+        ],
+        [
+          "X44",
+          "Power Reclining Sofa with Headrest and Lumbar",
+          "42.5 × 87 × 41",
+          [
+            "FS",
+            "NB",
+            "NN",
+            "NS",
+            "W2"
+          ]
+        ],
+        [
+          "446",
+          "Reclining Sofa with Drop-Down Table",
+          "42.5 × 87 × 41",
+          [
+            "FS",
+            "NB",
+            "NN",
+            "NS"
+          ]
+        ],
+        [
+          "U46",
+          "Power Reclining Sofa with Headrest and Drop-Down Table",
+          "42.5 × 87 × 41",
+          [
+            "FS",
+            "NB",
+            "NN",
+            "NS",
+            "W2"
+          ]
+        ],
+        [
+          "X46",
+          "Power Reclining Sofa with Headrest, Lumbar and Drop-Down Table",
+          "42.5 × 87 × 41",
+          [
+            "FS",
+            "NB",
+            "NN",
+            "NS",
+            "W2"
+          ]
+        ],
+        [
+          "448",
+          "Reclining Loveseat",
+          "42.5 × 64 × 41",
+          [
+            "FS",
+            "NB",
+            "NN",
+            "NS"
+          ]
+        ],
+        [
+          "U48",
+          "Power Reclining Loveseat with Headrest",
+          "42.5 × 64 × 41",
+          [
+            "FS",
+            "NB",
+            "NN",
+            "NS",
+            "W2"
+          ]
+        ],
+        [
+          "X48",
+          "Power Reclining Loveseat with Headrest and Lumbar",
+          "42.5 × 64 × 41",
+          [
+            "FS",
+            "NB",
+            "NN",
+            "NS",
+            "W2"
+          ]
+        ],
+        [
+          "449",
+          "Reclining Loveseat with Console",
+          "42.5 × 78.5 × 41",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "NB",
+            "NN",
+            "NS"
+          ]
+        ],
+        [
+          "U49",
+          "Power Reclining Loveseat with Headrest and Console",
+          "42.5 × 78.5 × 41",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "NB",
+            "NN",
+            "NS",
+            "W2"
+          ]
+        ],
+        [
+          "X49",
+          "Power Reclining Loveseat with Headrest, Lumbar and Console",
+          "42.5 × 78.5 × 41",
+          [
+            "CB",
+            "CC",
+            "CM",
+            "FS",
+            "NB",
+            "NN",
+            "NS",
+            "W2"
+          ]
+        ]
+      ],
+      "notes": [
+        "Brass nailhead is listed as standard. Drop-down table is restricted to 446/U46/X46 in 067 Sable. NB, NN and NS are printed style option codes but their meanings are not defined in the supplied text."
+      ]
+    },
+    {
+      "code": "A86",
+      "name": "Ovation",
+      "pages": [
+        36
+      ],
+      "product_groups": [
+        "La-Z-Boy AudioLuxe wall reclining sofa/loveseat"
+      ],
+      "styles": [
+        [
+          "36X",
+          "Power Wall Reclining Sofa with Headrest, Lumbar and Drop-Down Table",
+          "42 × 86 × 40",
+          [
+            "FS"
+          ]
+        ],
+        [
+          "X39",
+          "Power Wall Reclining Loveseat with Console, Headrest and Lumbar",
+          "42 × 76.5 × 40",
+          [
+            "FS"
+          ]
+        ]
+      ],
+      "notes": [
+        "La-Z-Boy AudioLuxe: Klipsch speakers are built into headrests on LSS and RSS models; audio controls and subwoofer are inside a covered compartment.",
+        "Drop-down table and additional storage only available on 36X; table requires 067 Sable. Left-arm leather perforation only on select leathers."
+      ]
+    },
+    {
+      "code": "893",
+      "name": "Colby",
+      "pages": [
+        39
+      ],
+      "product_groups": [
+        "duo by La-Z-Boy"
+      ],
+      "styles": [
+        [
+          "P91",
+          "duo Reclining Sofa",
+          "41 × 83 × 39.5",
+          [
+            "FN",
+            "FP",
+            "P1"
+          ]
+        ],
+        [
+          "P93",
+          "duo Reclining Loveseat",
+          "41 × 61 × 39.5",
+          [
+            "FN",
+            "FP",
+            "P1"
+          ]
+        ],
+        [
+          "P94",
+          "duo Reclining Chair",
+          "41 × 39 × 39.5",
+          [
+            "LT",
+            "FN"
+          ]
+        ]
+      ],
+      "notes": [
+        "Standard finish 007 Brown Mahogany; optional 021 Coffee and 041 Graphite."
+      ]
+    },
+    {
+      "code": "899",
+      "name": "Bennett",
+      "pages": [
+        40
+      ],
+      "product_groups": [
+        "duo by La-Z-Boy"
+      ],
+      "styles": [
+        [
+          "P91",
+          "duo Reclining Sofa",
+          "39.5 × 82.5 × 39",
+          [
+            "FP",
+            "P1",
+            "FN"
+          ]
+        ],
+        [
+          "P93",
+          "duo Reclining Loveseat",
+          "39.5 × 60 × 39",
+          [
+            "FP",
+            "P1",
+            "FN"
+          ]
+        ],
+        [
+          "P94",
+          "duo Reclining Chair",
+          "39.5 × 37.5 × 39",
+          [
+            "FN",
+            "LT"
+          ]
+        ]
+      ],
+      "notes": [
+        "Standard finish 007 Brown Mahogany; optional 021 Coffee and 041 Graphite."
+      ]
+    }
+  ],
+  "prefix_definitions_additional": [
+    [
+      "8C0",
+      "Rounded Corner Unit",
+      "La-Z-Motion Modulars; page drawings use zero in 8C0, while earlier prefix definition extraction renders the character as letter O."
+    ]
+  ],
+  "publication_footer": "© 2026 La-Z-Boy Incorporated · 04/2026 · 000119-A-3"
+}

@@ -1,0 +1,327 @@
+{
+  "model_code": "638",
+  "model_name": "Charlie",
+  "sectional_family": "Stationary",
+  "source": "Charlie Tearpad 032026.pdf",
+  "source_document_sku": "0000106-A",
+  "source_document_footer_date": "03/01/26",
+  "product_description": "Charlie brings a fresh, modern spirit to a classic transitional design. The tear pad describes loose bullnose back cushions, tailored box-border seats, gracefully sloping arms, and a range of pieces for lounging, gathering, or sleeping.",
+  "pieces": [
+    {
+      "code": "6SR",
+      "key": "RA_storage_chaise",
+      "name": "Right-Arm Sitting Chaise with Storage",
+      "dimensions_text": "37\" H × 37.5\" W × 63.5\" D"
+    },
+    {
+      "code": "6SL",
+      "key": "LA_storage_chaise",
+      "name": "Left-Arm Sitting Chaise with Storage",
+      "dimensions_text": "37\" H × 37.5\" W × 63.5\" D"
+    },
+    {
+      "code": "60A",
+      "key": "LA_chair",
+      "name": "Left-Arm Sitting Chair",
+      "dimensions_text": "37\" H × 37\" W × 38.5\" D"
+    },
+    {
+      "code": "60B",
+      "key": "RA_chair",
+      "name": "Right-Arm Sitting Chair",
+      "dimensions_text": "37\" H × 37\" W × 38.5\" D"
+    },
+    {
+      "code": "60C",
+      "key": "corner_wedge",
+      "name": "Corner",
+      "dimensions_text": "37\" H × 59.5\" W × 37\" D"
+    },
+    {
+      "code": "6CC",
+      "key": "corner_wedge_compact",
+      "name": "Corner",
+      "dimensions_text": "37\" H × 52.5\" W × 37\" D"
+    },
+    {
+      "code": "60M",
+      "key": "armless_chair",
+      "name": "Armless Chair",
+      "dimensions_text": "37\" H × 32\" W × 38\" D"
+    },
+    {
+      "code": "60D",
+      "key": "LA_loveseat",
+      "name": "Left-Arm Sitting Loveseat",
+      "dimensions_text": "37\" H × 68.5\" W × 38.5\" D"
+    },
+    {
+      "code": "60E",
+      "key": "RA_loveseat",
+      "name": "Right-Arm Sitting Loveseat",
+      "dimensions_text": "37\" H × 68.5\" W × 38.5\" D"
+    },
+    {
+      "code": "6SP",
+      "key": "armless_full_sleeper_sofa",
+      "name": "Armless Full Sleeper Sofa",
+      "dimensions_text": "37\" H × 62.5\" W × 38\" D",
+      "fully_extended_in": 90.5
+    },
+    {
+      "code": "6MM",
+      "key": "armless_loveseat",
+      "name": "Armless Loveseat",
+      "dimensions_text": "37\" H × 62.5\" W × 38\" D"
+    },
+    {
+      "code": "60L",
+      "key": "LA_chaise",
+      "name": "Left-Arm Sitting Chaise",
+      "dimensions_text": "37\" H × 37.5\" W × 63.5\" D"
+    },
+    {
+      "code": "60R",
+      "key": "RA_chaise",
+      "name": "Right-Arm Sitting Chaise",
+      "dimensions_text": "37\" H × 37.5\" W × 63.5\" D"
+    }
+  ],
+  "configuration_diagram_dimension_labels_in": [
+    "117.5",
+    "148",
+    "106.5",
+    "63.5",
+    "137",
+    "90.5",
+    "150",
+    "159.5",
+    "117.5",
+    "148",
+    "148.5",
+    "149.5"
+  ],
+  "configuration_diagram_dimension_note": "Dimension labels are transcribed from the sectional arrangement diagrams. Text extraction does not preserve a reliable mapping from each label to a specific layout, so no footprint sequence is asserted.",
+  "unmapped_diagram_codes": [
+    "03C"
+  ],
+  "unmapped_diagram_codes_note": "03C appears in arrangement diagrams, but the extracted text does not identify it as a listed Charlie piece; its meaning is left unassigned pending visual or source verification.",
+  "fit_specs_verified": false,
+  "product_guide_measurements": {
+    "source": "APRIL 2026 - PRODUCT INFORMATION GUIDE.xlsx",
+    "edition": "April 2026",
+    "columns": [
+      "H",
+      "W",
+      "D",
+      "SH",
+      "SW",
+      "SD",
+      "AH",
+      "EXT",
+      "RD",
+      "LH",
+      "WT_LB",
+      "SEAT_FACTOR",
+      "WALL_SPACE"
+    ],
+    "note": "Values are transcribed from the guide Dimensions table and keyed to exact printed style numbers. Linear measurements are inches. WT_LB is the product/unit weight, not a user-weight capacity. Blank source cells remain null. These dimensions do not establish recommended customer height or fit.",
+    "rows": {
+      "6SR638": [
+        37,
+        37.5,
+        63.5,
+        21.5,
+        31.5,
+        47,
+        25,
+        null,
+        null,
+        null,
+        162,
+        2,
+        37.5
+      ],
+      "6SL638": [
+        37,
+        37.5,
+        63.5,
+        21.5,
+        31.5,
+        47,
+        25,
+        null,
+        null,
+        null,
+        162,
+        2,
+        37.5
+      ],
+      "60A638": [
+        37,
+        37,
+        38.5,
+        21.5,
+        31,
+        21.5,
+        25,
+        null,
+        null,
+        null,
+        75,
+        1,
+        37
+      ],
+      "60B638": [
+        37,
+        37,
+        38.5,
+        21.5,
+        31,
+        21.5,
+        25,
+        null,
+        null,
+        null,
+        75,
+        1,
+        37
+      ],
+      "60C638": [
+        37,
+        59.5,
+        37,
+        21,
+        null,
+        22.5,
+        null,
+        null,
+        null,
+        null,
+        74,
+        2,
+        97
+      ],
+      "6CC638": [
+        37,
+        52.5,
+        37,
+        21,
+        null,
+        29.5,
+        null,
+        null,
+        null,
+        null,
+        62,
+        1,
+        74
+      ],
+      "60M638": [
+        37,
+        32,
+        38,
+        21.5,
+        32,
+        20.5,
+        null,
+        null,
+        null,
+        null,
+        53,
+        1,
+        32
+      ],
+      "60D638": [
+        37,
+        68.5,
+        38.5,
+        21.5,
+        62.5,
+        21.5,
+        25,
+        null,
+        null,
+        null,
+        114,
+        2,
+        null
+      ],
+      "60E638": [
+        37,
+        68.5,
+        38.5,
+        21.5,
+        62.5,
+        21.5,
+        25,
+        null,
+        null,
+        null,
+        114,
+        2,
+        null
+      ],
+      "6SP638": [
+        37,
+        62.5,
+        38,
+        21.5,
+        62.5,
+        21,
+        null,
+        90.5,
+        null,
+        null,
+        150,
+        2,
+        null
+      ],
+      "6MM638": [
+        37,
+        62.5,
+        38,
+        21.5,
+        62.5,
+        21,
+        null,
+        null,
+        null,
+        null,
+        91,
+        2,
+        62.5
+      ],
+      "60L638": [
+        37,
+        37.5,
+        63.5,
+        21.5,
+        31.5,
+        47,
+        25,
+        null,
+        null,
+        null,
+        117,
+        2,
+        37.5
+      ],
+      "60R638": [
+        37,
+        37.5,
+        63.5,
+        21.5,
+        31.5,
+        47,
+        25,
+        null,
+        null,
+        null,
+        117,
+        2,
+        37.5
+      ]
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "model_code": "800",
+  "model_name": "Palmer",
+  "sectional_family": "La-Z-Time",
+  "source": "Palmer Tearpad MP0108 11-20-2025.pdf",
+  "source_document_code": "MP0108",
+  "source_document_filename_date": "11-20-2025",
+  "source_document_footer_date": "08/01/25",
+  "source_document_market": "Not specified; tear-pad footer lists la-z-boy.com",
+  "product_description": "The tear pad describes Palmer as having simple styling, laid-back loungey energy, a chunky padded arm, a wide waterfall chaise seat, and a pillowy back cushion, with reclining comfort.",
+  "source_text_extraction": "44Q/U4Q/X4Q-800 Left-Arm Sitting Reclining Chaise 44C-800 Rounded Corner Unit The simple styling has laid-back, loungey energy that feels fresh. Its chunky padded arm, wide waterfall chaise seat, and pillowy back cushion offer reclining comfort you can sink into. Palmer 44V/U4V/X4V-800 Right-Arm Sitting Reclining Chaise M44-800 Armless Chair U4S/X4S-800 (Power) 44S-800 (Non-Power) Armless Recliner U45/X45-800 (Power) 445-800 (Non-Power) Reclining Chair & a Half SC4-800 Storage Console 44A/U4A/X4A-800 Left-Arm Sitting Recliner 44B/U4B/X4B-800 Right-Arm Sitting Recliner 44C M44 M44 44B 44C 44C 44C 44S M44 44S M44 44A 44V 44B 44A M44 M44 44B 44B 44A 44A 44C 44C 44S 44S M44 M44 M44 44Q 44B 44B 44A 44V M44 44A 122\" 136.5\" 136.5\" 136.5\" 118.5\" 136.5\" 150\" 122\" 136.5\" 42.5\" 42.5\" 42.5\" 99.5\" 64\" 64\" 64\" 64\" 64\" 64\" 64\" 64\" 64\" 64\" 64\" 64\" 44Q 42.5\" 76.5\" 136.5\" 122\" 122\" 122\" 76.5\" 76.5\" SC4 SC4 SC4 SC4 SC4 SC4 SC4 155.5\" 76.5\" U4A/X4A-800 (Power) 44A-800 (Non-Power) Left-Arm Sitting Recliner 43\" H x 42.5\" W x 38\" D U4B/X4B-800 (Power) 44B-800 (Non-Power) Right-Arm Sitting Recliner 43\" H x 42.5\" W x 38\" D 46\" 46\" 04C 40D 40E 04M 40S 40B 04Q 04V 4CS 4CN 4CW 40A 9CC 90M 44C-800 Rounded Corner Unit 43\" H X 59\" W X 38\" D SC4-800 Storage Console 38.5\" H X 14.5\" W X 38.5\" D M44-800 Armless Chair 43\" H X 33.5\" W X 38\" D U4S/X4S-800 (Power) 44S-800 (Non-Power) Armless Recliner 43\" H X 33.5\" W X 38\" D U4Q/X4Q-800 (Power) 44Q-800 (Non-Power) Left-Arm Sitting Reclining Chaise 43\" H X 42.5\" W X 66.5\" D U4V/X4V-800 (Power) 44V-800 (Non-Power) Right-Arm Sitting Reclining Chaise 43\" H x 42.5\" W x 66.5\" D U45/X45-800 (Power) 445-800 (Non-Power) Reclining Chair & a Half 43\" H X 54.5\" W X 38\" D Choose an arrangement shown below, or create the one that suits your home. La-Z-Boy products are handcrafted and variations from standard dimensions and appearance can occur. MP0108 8/1/25© 2025 La-Z-Boy Incorporatedla-z-boy.com",
+  "catalog_model": {
+    "category": "La-Z-Time Modular Sectional",
+    "scale": "Not specified in tear pad",
+    "recommended_height": "Not specified in tear pad",
+    "weight_limit_lbs": null,
+    "recommendation_eligible": false,
+    "key_features": [
+      "Chunky padded arm",
+      "Wide waterfall chaise seat",
+      "Pillowy back cushion",
+      "Manual and power reclining pieces are listed"
+    ],
+    "look_alikes": [],
+    "quick_spotter": "The Palmer tear pad describes a chunky padded arm, wide waterfall chaise seat, and pillowy back cushion. It does not provide ergonomic height guidance or user-weight capacity."
+  },
+  "pieces": [
+    {
+      "key": "LA_reclining_chaise",
+      "name": "Left-Arm Sitting Reclining Chaise",
+      "variants": [
+        { "code": "44Q", "label": "Non-power" },
+        { "code": "U4Q", "label": "Power" },
+        { "code": "X4Q", "label": "Power" }
+      ],
+      "dimensions_text": "43\" H × 42.5\" W × 66.5\" D"
+    },
+    {
+      "code": "44C",
+      "key": "corner_wedge",
+      "name": "Rounded Corner Unit",
+      "dimensions_text": "43\" H × 59\" W × 38\" D"
+    },
+    {
+      "key": "RA_reclining_chaise",
+      "name": "Right-Arm Sitting Reclining Chaise",
+      "variants": [
+        { "code": "44V", "label": "Non-power" },
+        { "code": "U4V", "label": "Power" },
+        { "code": "X4V", "label": "Power" }
+      ],
+      "dimensions_text": "43\" H × 42.5\" W × 66.5\" D"
+    },
+    {
+      "code": "M44",
+      "key": "armless_chair",
+      "name": "Armless Chair",
+      "dimensions_text": "43\" H × 33.5\" W × 38\" D"
+    },
+    {
+      "key": "armless_recliner",
+      "name": "Armless Recliner",
+      "variants": [
+        { "code": "44S", "label": "Non-power" },
+        { "code": "U4S", "label": "Power" },
+        { "code": "X4S", "label": "Power" }
+      ],
+      "dimensions_text": "43\" H × 33.5\" W × 38\" D"
+    },
+    {
+      "key": "reclining_chair_and_a_half",
+      "name": "Reclining Chair & a Half",
+      "variants": [
+        { "code": "445", "label": "Non-power" },
+        { "code": "U45", "label": "Power" },
+        { "code": "X45", "label": "Power" }
+      ],
+      "dimensions_text": "43\" H × 54.5\" W × 38\" D"
+    },
+    {
+      "key": "storage_console",
+      "name": "Storage Console",
+      "variants": [{ "code": "SC4", "label": "Console" }],
+      "dimensions_text": "38.5\" H × 14.5\" W × 38.5\" D"
+    },
+    {
+      "key": "LA_recliner",
+      "name": "Left-Arm Sitting Recliner",
+      "variants": [
+        { "code": "44A", "label": "Non-power" },
+        { "code": "U4A", "label": "Power" },
+        { "code": "X4A", "label": "Power" }
+      ],
+      "dimensions_text": "43\" H × 42.5\" W × 38\" D"
+    },
+    {
+      "key": "RA_recliner",
+      "name": "Right-Arm Sitting Recliner",
+      "variants": [
+        { "code": "44B", "label": "Non-power" },
+        { "code": "U4B", "label": "Power" },
+        { "code": "X4B", "label": "Power" }
+      ],
+      "dimensions_text": "43\" H × 42.5\" W × 38\" D"
+    }
+  ],
+  "configuration_diagram_dimension_labels_in": [
+    "122",
+    "136.5",
+    "136.5",
+    "136.5",
+    "118.5",
+    "136.5",
+    "150",
+    "122",
+    "136.5",
+    "42.5",
+    "42.5",
+    "42.5",
+    "99.5",
+    "64",
+    "64",
+    "64",
+    "64",
+    "64",
+    "64",
+    "64",
+    "64",
+    "64",
+    "64",
+    "64",
+    "64",
+    "76.5",
+    "136.5",
+    "122",
+    "122",
+    "122",
+    "76.5",
+    "76.5",
+    "155.5",
+    "76.5"
+  ],
+  "configuration_diagram_dimension_note": "Diagram dimensions are preserved in extracted-text order. The text extraction does not reliably map every label to a specific arrangement; no layout footprint is assigned.",
+  "unmapped_printed_codes": [
+    "04C",
+    "40D",
+    "40E",
+    "04M",
+    "40S",
+    "40B",
+    "04Q",
+    "04V",
+    "4CS",
+    "4CN",
+    "4CW",
+    "40A",
+    "9CC",
+    "90M"
+  ],
+  "unmapped_printed_codes_note": "These codes appear in extracted piece callouts, but their meanings are not clear from the text extraction and are not assigned to piece attributes.",
+  "arrangement_piece_callout_sequence": [
+    "44C", "M44", "M44", "44B", "44C", "44C", "44C", "44S", "M44", "44S", "M44", "44A", "44V", "44B", "44A", "M44", "M44", "44B", "44B", "44A", "44A", "44C", "44C", "44S", "44S", "M44", "M44", "M44", "44Q", "44B", "44B", "44A", "44V", "M44", "44A"
+  ],
+  "arrangement_dimension_extraction_note": "Arrangement code sequences and dimensions are retained as extracted source text because the extraction does not preserve a dependable mapping from individual dimension labels to each arrangement.",
+  "assembly_note": "Choose an arrangement shown below, or create the one that suits your home.",
+  "handcrafted_variation_note": "La-Z-Boy products are handcrafted and variations from standard dimensions and appearance can occur.",
+  "fit_specs_verified": false
+}

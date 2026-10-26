@@ -1,0 +1,100 @@
+{
+  "model_code": "942",
+  "model_name": "Lakewood",
+  "sectional_family": "La-Z-Motion",
+  "source": "MP0099_TearPad-Lakewood_2024.pdf",
+  "source_document_code": "MP0099",
+  "source_document_footer_date": "07/2024",
+  "source_document_market": "Not specified; tear-pad footer lists la-z-boy.com",
+  "product_description": "Lakewood is part of the ZMod collection. The tear pad describes chic, sleek, clean lines, top-quality cushions, a low profile, and power-adjustable legrests and headrests with multiple reclining positions.",
+  "source_text_extraction": "73U-942 Power Sofa with Power Headrest 71U-942 Power Chair with Power Headrest 7EU-942 Power Right Side Sitting Loveseat with Power Headrest 7DU-942 Power Left Side Sitting Loveseat with Power Headrest 7C0-942 Corner 7SC-942 Storage Console 7SU-942 Power Armless Recliner with Power Headrest 7M0-942 Power Armless Chair 7AU-942 Power Left Side Sitting Recliner with Power Headrest 7BU-942 Power Right Side Sitting Recliner with Power Headrest Chic, sleek, clean lines. Innovative reclining designs. And that lounge-worthy comfort you love. Welcome to our all-new ZMod collection! Where you can sink into the sophistication of distinctly modern style while still enjoying the luxuries of our most popular recliners. Lakewood offers a low profile, top-quality cushions and power adjustable legrests, headrests, and unlimited reclining positions. Lakewood 7SU 7SC 118\" 123\" 118\" 123\" 123\" 123\" 7C0 7SU 40\" 45\" 40\" 45\" 7SC 7SU 167\" 40\" 40\" 45\" 7DU 7DU7EU 7EU 118\" 123\" 89\" 94\" 7C0 40\" 7AU7M0 7BU 45\" 45\" 160\" 165\" 137.5\" 118\" 7C0 40\" 45\" 7DU 7EU 7SU 40\" 7SC 132.5\" 118\" 7C0 7AU 7BU 7M0 118\" 123\" 160\" 165\" 7C0 7DU 7EU Choose an arrangement shown below, or create the one that suits your home. 73U-942 Power Sofa with Power Headrest 34”H X 88”W X 40”D 71U-942 Power Chair with Power Headrest 34”H X 48”W X 40”D 7EU-942 Power Right Side Sitting Loveseat with Power Headrest 34”H X 69”W X 40”D 7DU-942 Power Left Side Sitting Loveseat with Power Headrest 34”H X 69”W X 40”D 7C0-942 Corner 34”H X 49”W X 40”D 7SC-942 Storage Console 30.5”H X 13”W X 40”D 7SU-942 Power Armless Recliner with Power Headrest 34”H X 29”W X 40”D 7M0-942 Power Armless Chair 34”H X 29”W X 40”D 7AU-942 Power Left Side Sitting Recliner with Power Headrest 34”H X 39.5”W X 40”D 7BU-942 Power Right Side Sitting Recliner with Power Headrest 34”H X 39.5”W X 40”D 43 48 48 MP0099 7/2024© 2024 La-Z-Boy Incorporatedla-z-boy.com",
+  "catalog_model": {
+    "category": "ZMod Modular Power Sectional",
+    "scale": "Not specified in tear pad",
+    "recommended_height": "Not specified in tear pad",
+    "weight_limit_lbs": null,
+    "recommendation_eligible": false,
+    "key_features": [
+      "Low-profile styling with clean lines",
+      "Power-adjustable legrests and headrests",
+      "Top-quality cushions",
+      "Multiple reclining positions"
+    ],
+    "look_alikes": [],
+    "quick_spotter": "Lakewood is described in the 2024 MP0099 tear pad as a low-profile ZMod power sectional with adjustable legrests and headrests. The document does not provide ergonomic height guidance or user-weight capacity."
+  },
+  "pieces": [
+    {
+      "code": "73U",
+      "key": "power_sofa",
+      "name": "Power Sofa with Power Headrest",
+      "dimensions_text": "34\" H × 88\" W × 40\" D"
+    },
+    {
+      "code": "71U",
+      "key": "power_chair",
+      "name": "Power Chair with Power Headrest",
+      "dimensions_text": "34\" H × 48\" W × 40\" D"
+    },
+    {
+      "code": "7EU",
+      "key": "RA_power_loveseat",
+      "name": "Power Right Side Sitting Loveseat with Power Headrest",
+      "dimensions_text": "34\" H × 69\" W × 40\" D"
+    },
+    {
+      "code": "7DU",
+      "key": "LA_power_loveseat",
+      "name": "Power Left Side Sitting Loveseat with Power Headrest",
+      "dimensions_text": "34\" H × 69\" W × 40\" D"
+    },
+    {
+      "code": "7C0",
+      "key": "corner_wedge",
+      "name": "Corner",
+      "dimensions_text": "34\" H × 49\" W × 40\" D"
+    },
+    {
+      "code": "7SC",
+      "key": "storage_console",
+      "name": "Storage Console",
+      "dimensions_text": "30.5\" H × 13\" W × 40\" D"
+    },
+    {
+      "code": "7SU",
+      "key": "armless_power_recliner",
+      "name": "Power Armless Recliner with Power Headrest",
+      "dimensions_text": "34\" H × 29\" W × 40\" D"
+    },
+    {
+      "code": "7M0",
+      "key": "armless_power_chair",
+      "name": "Power Armless Chair",
+      "dimensions_text": "34\" H × 29\" W × 40\" D"
+    },
+    {
+      "code": "7AU",
+      "key": "LA_power_recliner",
+      "name": "Power Left Side Sitting Recliner with Power Headrest",
+      "dimensions_text": "34\" H × 39.5\" W × 40\" D"
+    },
+    {
+      "code": "7BU",
+      "key": "RA_power_recliner",
+      "name": "Power Right Side Sitting Recliner with Power Headrest",
+      "dimensions_text": "34\" H × 39.5\" W × 40\" D"
+    }
+  ],
+  "configuration_diagram_dimension_labels_in": [
+    "118", "123", "118", "123", "123", "123", "40", "45", "40", "45", "167", "40", "40", "45", "118", "123", "89", "94", "40", "45", "45", "160", "165", "137.5", "118", "40", "45", "40", "132.5", "118", "118", "123", "160", "165"
+  ],
+  "configuration_diagram_piece_callouts": [
+    "7SU", "7SC", "7C0", "7SU", "7SC", "7SU", "7DU", "7DU7EU", "7EU", "7C0", "7AU7M0", "7BU", "7C0", "7DU", "7EU", "7SU", "7SC", "7C0", "7AU", "7BU", "7M0", "7C0", "7DU", "7EU"
+  ],
+  "configuration_diagram_dimension_note": "Arrangement labels and dimension values are preserved from the extracted tear-pad text. Extraction order does not reliably map every value to a specific layout; no specific configuration footprint is asserted.",
+  "unmapped_extracted_values": ["43", "48", "48"],
+  "unmapped_extracted_values_note": "The extraction ends with values 43, 48, and 48 before the footer but does not preserve their labels or meaning; they are retained without interpretation.",
+  "assembly_note": "Choose an arrangement shown below, or create the one that suits your home.",
+  "handcrafted_variation_note": "La-Z-Boy products are handcrafted and variations from standard dimensions and appearance can occur.",
+  "fit_specs_verified": false
+}

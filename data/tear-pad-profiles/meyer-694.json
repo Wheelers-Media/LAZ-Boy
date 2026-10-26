@@ -1,0 +1,124 @@
+{
+  "model_code": "694",
+  "model_name": "Meyer",
+  "sectional_family": "Stationary",
+  "source": "Meyer TearPad TS0040 8-8-25.pdf",
+  "source_document_code": "TS0040",
+  "source_document_footer_date": "07/01/25",
+  "source_document_market": "Not specified; tear-pad footer lists la-z-boy.com",
+  "product_description": "The tear pad describes Meyer as a casual sectional with a simple, fresh silhouette, updated track arms, crisp welt detail, rich wood legs, plush box-border seats, and configurable pieces.",
+  "source_text_extraction": "6SR-694 Right-Arm Sitting Chaise with Storage 6SL-694 Left-Arm Sitting Chaise with Storage Consider our Meyer sectional as the foundation piece of your new favorite space. The simple but fresh silhouette, accentuated by updated track arms, crisp welt detail and rich wood legs, adds a contemporary touch to Meyer's casual style. Plush box border seats, and a choice of comfy configurations, make Meyer a must for relaxing. 60A-694 Left-Arm Sitting Chair 60D-694 Left-Arm Sitting Loveseat 60E-694 Right-Arm Sitting Loveseat 60B-694 Right-Arm Sitting Chair 6CC-694 Corner 60C-694 Corner 60M-694 Armless Chair 6MM-694 Armless Loveseat 60L-694 Left-Arm Sitting Chaise 60R-694 Right-Arm Sitting Chaise 6SC-694 Storage Console Meyer 60D 6SR 94\" 64\" 39\" 39\" 128\" 104\" 39\" 60M 60C 60D 60E 39\" 114\" 143\" 64\" 31\" 60M60C 60A 6MM 39\" 133\" 64\" 31\" 60D6CC 60R 94\" 39\" 6SL 64\" 94” 126\" 60M 60M 39\" 39\" 60E 6CC 6SL 64\" 94” 141\" 39\" 39\" 60E 6CC 6SC 60R 94\" 64” 128\" 60M 60M 39\" 31\" 60D 6CC 6SC 6SC 6SL 64\" 104” 122\" 60M 39\" 39\" 60E 60C 6MM 60R 161\" 80\" 64\" 39\" 60C 60B 6MM 39\" 6SC 6SL 6MM 60M-694 Armless Chair 37.5\" H x 24\" W x 39\" D 6MM-694 Armless Loveseat 37.5\" H x 63\" W x 39\" D 60D-694 Left-Arm Sitting Loveseat 37.5\" H x 55\" W x 39\" D 60E-694 Right-Arm Sitting Loveseat 37.5\" H x 55\" W x 39\" D 39\" 39\" 9CC 9EP 9DP 90M6CC-694 Corner 37.5\" H x 53\" W x 39\" D 9CC 9EP 9DP 90M 49\" 49\" 60C-694 Corner 37.5\" H x 67\" W x 39\" D9CC 9EP 9DP 90M 60L-694 Left-Arm Sitting Chaise 37.5\" H x 31\" W x 64\" D 9CC 9EP 9DP 90M 6SL-694 Left-Arm Sitting Chaise with Storage 37.5\" H x 39\" W x 64\" D 9CC 9EP 9DP 90M 60R-694 Right-Arm Sitting Chaise 37.5\" H x 31\" W x 64\" D 9CC 9EP 9DP 90M 6SR-694 Right-Arm Sitting Chaise with Storage 37.5\" H x 39\" W x 64\" D Choose an arrangement shown below, or create the one that suits your home. La-Z-Boy products are handcrafted and variations from standard dimensions and appearance can occur. TS0040 07/01/25© 2025 La-Z-Boy Incorporatedla-z-boy.com 9CC 90M 6SC-694 Storage Console 25.5\" H x 10\" W x 38.5\" D 60B-694 Right-Arm Sitting Chair 37.5\" H x 31\" W x 39\" D 60A-694 Left-Arm Sitting Chair 37.5\" H x 31\" W x 39\" D",
+  "catalog_model": {
+    "category": "Stationary Modular Sectional",
+    "scale": "Not specified in tear pad",
+    "recommended_height": "Not specified in tear pad",
+    "weight_limit_lbs": null,
+    "recommendation_eligible": false,
+    "key_features": [
+      "Updated track arms",
+      "Crisp welt detail and rich wood legs",
+      "Plush box-border seats",
+      "Choice of configurable sectional pieces"
+    ],
+    "look_alikes": [],
+    "quick_spotter": "Meyer features updated track arms, crisp welt detail, rich wood legs, and plush box-border seats. The tear pad does not provide ergonomic height guidance or user-weight capacity."
+  },
+  "pieces": [
+    {
+      "code": "60A",
+      "key": "LA_chair",
+      "name": "Left-Arm Sitting Chair",
+      "dimensions_text": "37.5\" H × 31\" W × 39\" D",
+      "printed_codes": ["9CC", "9EP", "9DP", "90M"]
+    },
+    {
+      "code": "60B",
+      "key": "RA_chair",
+      "name": "Right-Arm Sitting Chair",
+      "dimensions_text": "37.5\" H × 31\" W × 39\" D",
+      "printed_codes": ["9CC", "9EP", "9DP", "90M"]
+    },
+    {
+      "code": "60D",
+      "key": "LA_loveseat",
+      "name": "Left-Arm Sitting Loveseat",
+      "dimensions_text": "37.5\" H × 55\" W × 39\" D"
+    },
+    {
+      "code": "60E",
+      "key": "RA_loveseat",
+      "name": "Right-Arm Sitting Loveseat",
+      "dimensions_text": "37.5\" H × 55\" W × 39\" D"
+    },
+    {
+      "code": "6CC",
+      "key": "corner_wedge_compact",
+      "name": "Corner",
+      "dimensions_text": "37.5\" H × 53\" W × 39\" D",
+      "printed_codes": ["9CC", "9EP", "9DP", "90M"]
+    },
+    {
+      "code": "60C",
+      "key": "corner_wedge",
+      "name": "Corner",
+      "dimensions_text": "37.5\" H × 67\" W × 39\" D",
+      "printed_codes": ["9CC", "9EP", "9DP", "90M"]
+    },
+    {
+      "code": "60M",
+      "key": "armless_chair",
+      "name": "Armless Chair",
+      "dimensions_text": "37.5\" H × 24\" W × 39\" D"
+    },
+    {
+      "code": "6MM",
+      "key": "armless_loveseat",
+      "name": "Armless Loveseat",
+      "dimensions_text": "37.5\" H × 63\" W × 39\" D"
+    },
+    {
+      "code": "60L",
+      "key": "LA_chaise",
+      "name": "Left-Arm Sitting Chaise",
+      "dimensions_text": "37.5\" H × 31\" W × 64\" D",
+      "printed_codes": ["9CC", "9EP", "9DP", "90M"]
+    },
+    {
+      "code": "60R",
+      "key": "RA_chaise",
+      "name": "Right-Arm Sitting Chaise",
+      "dimensions_text": "37.5\" H × 31\" W × 64\" D",
+      "printed_codes": ["9CC", "9EP", "9DP", "90M"]
+    },
+    {
+      "code": "6SL",
+      "key": "LA_storage_chaise",
+      "name": "Left-Arm Sitting Chaise with Storage",
+      "dimensions_text": "37.5\" H × 39\" W × 64\" D",
+      "printed_codes": ["9CC", "9EP", "9DP", "90M"]
+    },
+    {
+      "code": "6SR",
+      "key": "RA_storage_chaise",
+      "name": "Right-Arm Sitting Chaise with Storage",
+      "dimensions_text": "37.5\" H × 39\" W × 64\" D",
+      "printed_codes": ["9CC", "9EP", "9DP", "90M"]
+    },
+    {
+      "code": "6SC",
+      "key": "storage_console",
+      "name": "Storage Console",
+      "dimensions_text": "25.5\" H × 10\" W × 38.5\" D",
+      "printed_codes": ["9CC", "90M"]
+    }
+  ],
+  "configuration_diagram_dimension_labels_in": [
+    "94", "64", "39", "39", "128", "104", "39", "39", "114", "143", "64", "31", "39", "133", "64", "31", "94", "39", "64", "94", "126", "39", "39", "64", "94", "141", "39", "39", "94", "64", "128", "39", "31", "64", "104", "122", "39", "39", "161", "80", "64", "39", "39"
+  ],
+  "configuration_diagram_piece_callouts": [
+    "60D", "6SR", "60M", "60C", "60D", "60E", "60M", "60C", "60A", "6MM", "60D", "6CC", "60R", "6SL", "60M", "60M", "60E", "6CC", "6SL", "60E", "6CC", "6SC", "60R", "6SC", "6SC", "6SL", "60M", "60M", "60D", "6CC", "6SC", "6SC", "6SL", "60M", "60E", "60C", "6MM", "60R", "60C", "60B", "6MM", "6SC", "6SL", "6MM"
+  ],
+  "diagram_note": "Diagram dimensions and piece callouts are retained in extracted-text order; text extraction does not reliably map them to each layout. No particular configuration footprint is asserted.",
+  "handcrafted_variation_note": "La-Z-Boy products are handcrafted and variations from standard dimensions and appearance can occur.",
+  "fit_specs_verified": false
+}

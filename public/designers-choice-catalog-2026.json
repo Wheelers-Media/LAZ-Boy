@@ -1,0 +1,2780 @@
+{
+  "title": "La-Z-Boy Designer’s Choice Collection",
+  "edition": "Summer/Fall 2026",
+  "source_documents": [
+    {
+      "file": "La-Z-Boy_Designers_Choice_2026_part_01.pdf",
+      "pages": "collection title"
+    },
+    {
+      "file": "La-Z-Boy_Designers_Choice_2026_part_02.pdf",
+      "pages": "prefix definitions, style index, table of contents, warranty"
+    },
+    {
+      "file": "La-Z-Boy_Designers_Choice_2026_part_03.pdf",
+      "pages": "options, finishes, models 205, 225 and 301"
+    },
+    {
+      "file": "La-Z-Boy_Designers_Choice_2026_part_04.pdf",
+      "pages": "models 30A through 416"
+    },
+    {
+      "file": "La-Z-Boy_Designers_Choice_2026_part_05.pdf",
+      "pages": "printed catalog pages 13-20 model specifications"
+    },
+    {
+      "file": "La-Z-Boy_Designers_Choice_2026_part_06.pdf",
+      "pages": "printed catalog pages 21-27 model specifications"
+    },
+    {
+      "file": "La-Z-Boy_Designers_Choice_2026_part_07.pdf",
+      "pages": "printed catalog pages 28-29 and 32-33 model specifications; options and finishes"
+    },
+    {
+      "file": "La-Z-Boy_Designers_Choice_2026_part_08.pdf",
+      "pages": "publication footer"
+    }
+  ],
+  "source_note": "Separate Designer’s Choice index transcribed from supplied Summer/Fall 2026 catalog extractions. TOC category flags are index metadata only, not full availability or fit evidence. Index entries do not establish dimensions, compatibility, capacity, or current availability. Consult individual style tables and current price book.",
+  "index_categories": [
+    "stationary_chair",
+    "ottoman",
+    "reclining_chair",
+    "swivel_chair",
+    "press_back_recliner",
+    "power",
+    "fabric",
+    "leather"
+  ],
+  "index": [
+    {
+      "code": "205",
+      "name": "Cory",
+      "pages": [
+        1
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": true,
+        "reclining_chair": false,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "024"
+      ]
+    },
+    {
+      "code": "225",
+      "name": "Roundabout",
+      "pages": [
+        2
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": true,
+        "reclining_chair": false,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "024"
+      ]
+    },
+    {
+      "code": "301",
+      "name": "Oliver",
+      "pages": [
+        3
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": true,
+        "reclining_chair": false,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "245"
+      ]
+    },
+    {
+      "code": "30A",
+      "name": "Leo",
+      "pages": [
+        4
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": true,
+        "reclining_chair": false,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "024"
+      ]
+    },
+    {
+      "code": "304",
+      "name": "Scout",
+      "pages": [
+        5
+      ],
+      "new_introduction": true,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": true,
+        "reclining_chair": false,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "245"
+      ]
+    },
+    {
+      "code": "400",
+      "name": "Dora",
+      "pages": [
+        6
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": true,
+        "ottoman": true,
+        "reclining_chair": false,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "225",
+        "235",
+        "245"
+      ]
+    },
+    {
+      "code": "401",
+      "name": "Allegra",
+      "pages": [
+        7
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": true,
+        "ottoman": true,
+        "reclining_chair": false,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "225",
+        "235",
+        "245"
+      ]
+    },
+    {
+      "code": "402",
+      "name": "Maeve",
+      "pages": [
+        8
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": true,
+        "ottoman": true,
+        "reclining_chair": false,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "225",
+        "235",
+        "245"
+      ]
+    },
+    {
+      "code": "405",
+      "name": "Dante",
+      "pages": [
+        9
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": true,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "295",
+        "29U"
+      ]
+    },
+    {
+      "code": "406",
+      "name": "Gemma",
+      "pages": [
+        10
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": true,
+        "ottoman": false,
+        "reclining_chair": false,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "235"
+      ]
+    },
+    {
+      "code": "408",
+      "name": "Ferndale",
+      "pages": [
+        11
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": true,
+        "swivel_chair": true,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "225",
+        "265",
+        "245"
+      ]
+    },
+    {
+      "code": "416",
+      "name": "Rae",
+      "pages": [
+        12
+      ],
+      "new_introduction": true,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": true,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "028"
+      ]
+    },
+    {
+      "code": "421",
+      "name": "Bellevue",
+      "pages": [
+        13
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": true,
+        "ottoman": false,
+        "reclining_chair": false,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": false
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "210"
+      ]
+    },
+    {
+      "code": "423",
+      "name": "Eldorado",
+      "pages": [
+        14
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": true,
+        "ottoman": true,
+        "reclining_chair": false,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "295"
+      ]
+    },
+    {
+      "code": "425",
+      "name": "Alma",
+      "pages": [
+        15
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": true,
+        "ottoman": true,
+        "reclining_chair": false,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": false
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "225"
+      ]
+    },
+    {
+      "code": "430",
+      "name": "Brentwood",
+      "pages": [
+        16
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": true,
+        "ottoman": true,
+        "reclining_chair": true,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "295",
+        "29U"
+      ]
+    },
+    {
+      "code": "431",
+      "name": "Scarlett",
+      "pages": [
+        17
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": true,
+        "ottoman": false,
+        "reclining_chair": false,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": false
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "028"
+      ]
+    },
+    {
+      "code": "448",
+      "name": "Riley",
+      "pages": [
+        18
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": true,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "295"
+      ]
+    },
+    {
+      "code": "450",
+      "name": "Haven",
+      "pages": [
+        19
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": true,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "028"
+      ]
+    },
+    {
+      "code": "456",
+      "name": "Opal",
+      "pages": [
+        20
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": false,
+        "swivel_chair": true,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "215"
+      ]
+    },
+    {
+      "code": "457",
+      "name": "Audrey",
+      "pages": [
+        21
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": true,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": true,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "295",
+        "29U"
+      ]
+    },
+    {
+      "code": "458",
+      "name": "Rheeves",
+      "pages": [
+        22
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": true,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": true,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "295",
+        "29U"
+      ]
+    },
+    {
+      "code": "460",
+      "name": "Reegan",
+      "pages": [
+        23
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": false,
+        "swivel_chair": true,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "210"
+      ]
+    },
+    {
+      "code": "462",
+      "name": "Roxie",
+      "pages": [
+        24
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": false,
+        "swivel_chair": true,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": false
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "225"
+      ]
+    },
+    {
+      "code": "471",
+      "name": "Carleton",
+      "pages": [
+        25
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": true,
+        "ottoman": false,
+        "reclining_chair": true,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "295",
+        "29U"
+      ]
+    },
+    {
+      "code": "479",
+      "name": "Midtown",
+      "pages": [
+        26
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": false,
+        "swivel_chair": true,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "225"
+      ]
+    },
+    {
+      "code": "632",
+      "name": "Tahoe",
+      "pages": [
+        27
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": true,
+        "reclining_chair": false,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "240"
+      ]
+    },
+    {
+      "code": "916",
+      "name": "Kimberly",
+      "pages": [
+        28
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": true,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": false
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "028"
+      ]
+    },
+    {
+      "code": "931",
+      "name": "Charlotte",
+      "pages": [
+        29
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": true,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": false,
+        "fabric": true,
+        "leather": false
+      },
+      "configuration_status": "specifications_transcribed",
+      "style_codes": [
+        "028"
+      ]
+    },
+    {
+      "code": "893",
+      "name": "Colby",
+      "pages": [
+        32
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": true,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": true,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "partial_specs_transcribed",
+      "style_codes": [
+        "P94"
+      ]
+    },
+    {
+      "code": "899",
+      "name": "Bennett",
+      "pages": [
+        33
+      ],
+      "new_introduction": false,
+      "categories": {
+        "stationary_chair": false,
+        "ottoman": false,
+        "reclining_chair": true,
+        "swivel_chair": false,
+        "press_back_recliner": false,
+        "power": true,
+        "fabric": true,
+        "leather": true
+      },
+      "configuration_status": "partial_specs_transcribed",
+      "style_codes": [
+        "P94"
+      ]
+    }
+  ],
+  "source_conflicts": [
+    "Tahoe 632, Colby 893 and Bennett 899 also occur in other supplied collection sources; this Designer’s Choice listing remains distinct.",
+    "Table-of-contents flags reproduce printed bullets and are not a complete list of orderable pieces; verify style eligibility and current price-book details.",
+    "The supplied Designer’s Choice extracts now cover model specifications on printed pages 1-29 and 32-33. The supplied excerpts jump from printed page 29 to page 32; no pages 30-31 content was provided. Colby 893 and Bennett 899 are indexed from their supplied P94 chair tables only; no other configurations are inferred."
+  ],
+  "prefix_definitions": [
+    [
+      "028",
+      "High Leg Reclining Chair",
+      "Classics"
+    ],
+    [
+      "295",
+      "High Leg Reclining Chair",
+      "Classics"
+    ],
+    [
+      "29U",
+      "High Leg Power Reclining Chair with Headrest",
+      "Classics"
+    ],
+    [
+      "024/245",
+      "Ottoman",
+      "Complements"
+    ],
+    [
+      "210",
+      "High Leg Swivel Chair",
+      "Complements"
+    ],
+    [
+      "215",
+      "Swivel Chair",
+      "Complements"
+    ],
+    [
+      "225",
+      "Swivel Gliding Chair",
+      "Complements"
+    ],
+    [
+      "235",
+      "Chair",
+      "Complements"
+    ],
+    [
+      "265",
+      "Reclining Chair",
+      "Complements"
+    ],
+    [
+      "024",
+      "Ottoman",
+      "Stationary sofas and sleep sofas"
+    ],
+    [
+      "245",
+      "Ottoman",
+      "Complements"
+    ],
+    [
+      "P94",
+      "Power Reclining Chair",
+      "duo"
+    ]
+  ],
+  "options": [
+    [
+      "LW",
+      "Adds left-side sitting mounted cradle and wireless remote instead of standard right-side remote on 29U styles."
+    ],
+    [
+      "RW",
+      "Right-side sitting control panel with mounted cradle and wireless remote; standard on 29U styles."
+    ],
+    [
+      "NN",
+      "Removes nailhead trim where standard."
+    ],
+    [
+      "FP",
+      "Featherlite accent pillow upgrade: 95% duck feathers, 5% duck down in cotton down-proof ticking."
+    ],
+    [
+      "NB",
+      "Adds hammered black nickel nailhead trim to select styles."
+    ],
+    [
+      "LG",
+      "Changes standard leg design; designs vary by style."
+    ],
+    [
+      "NS",
+      "Adds platinum nailhead trim to select styles."
+    ],
+    [
+      "P1",
+      "Allows accent pillow fabric to be changed."
+    ],
+    [
+      "NH",
+      "Adds brass nailhead trim to select styles."
+    ],
+    [
+      "088AC2 / 088AC3 / 088AC4",
+      "Napkin-style arm-cap/headrest cover quantity choices with fabric orders."
+    ],
+    [
+      "088 BP1",
+      "Rechargeable lithium-ion battery pack for Designer’s Choice and duo styles; not available on lift chairs."
+    ],
+    [
+      "DC",
+      "Upgrades standard ComfortCore seat cushion to ComfortDown Cushion with pocketed coils, high-resiliency foam, and feather/down/fiber blend jacket."
+    ],
+    [
+      "Z6",
+      "Upgrades standard ComfortCore seat cushions to ComfortCore with Contour Cushion."
+    ],
+    [
+      "4C",
+      "Style option printed on Leo 024-30A; meaning not defined in supplied extraction."
+    ]
+  ],
+  "finishes": [
+    {
+      "code": "007",
+      "name": "Brown Mahogany",
+      "description": "Medium-brown patina; catalog describes it as a classic finish.",
+      "applicable_models": [
+        "421",
+        "425",
+        "430",
+        "431",
+        "448",
+        "450",
+        "457",
+        "458",
+        "460",
+        "462",
+        "471",
+        "479",
+        "916",
+        "931",
+        "893",
+        "899"
+      ],
+      "standard_models": [
+        "421",
+        "425",
+        "430",
+        "431",
+        "448",
+        "450",
+        "457",
+        "458",
+        "460",
+        "462",
+        "471",
+        "479",
+        "916",
+        "931",
+        "893",
+        "899"
+      ]
+    },
+    {
+      "code": "021",
+      "name": "Coffee",
+      "description": "Deep brown finish with dark-brown undertones.",
+      "applicable_models": [
+        "421",
+        "423",
+        "425",
+        "430",
+        "431",
+        "448",
+        "450",
+        "457",
+        "458",
+        "460",
+        "462",
+        "471",
+        "479",
+        "931",
+        "893",
+        "899"
+      ],
+      "optional_models": [
+        "421",
+        "423",
+        "425",
+        "430",
+        "431",
+        "448",
+        "450",
+        "457",
+        "458",
+        "460",
+        "462",
+        "471",
+        "479",
+        "931",
+        "893",
+        "899"
+      ]
+    },
+    {
+      "code": "041",
+      "name": "Graphite",
+      "description": "Understated gray tones; dramatic modern finish.",
+      "applicable_models": [
+        "421",
+        "430",
+        "431",
+        "450",
+        "457",
+        "458",
+        "460",
+        "931",
+        "893",
+        "899"
+      ],
+      "optional_models": [
+        "421",
+        "430",
+        "431",
+        "450",
+        "457",
+        "458",
+        "460",
+        "931",
+        "893",
+        "899"
+      ]
+    },
+    {
+      "code": "067",
+      "name": "Sable",
+      "description": "Rich earthy brown-neutral finish; standard on Scout 245-304."
+    },
+    {
+      "code": "071",
+      "name": "Driftwood",
+      "description": "Lighter natural wood tone; style-specific availability.",
+      "applicable_models": [
+        "421",
+        "430",
+        "457",
+        "460"
+      ],
+      "optional_models": [
+        "421",
+        "430",
+        "457",
+        "460"
+      ]
+    },
+    {
+      "code": "142",
+      "name": "Mesa",
+      "description": "Catalog lists this finish only for 295-423.",
+      "applicable_models": [
+        "423"
+      ],
+      "standard_models": [
+        "423"
+      ]
+    }
+  ],
+  "warranty_reference": {
+    "source_pages": [
+      2
+    ],
+    "tables": [
+      {
+        "product_group": "duo chairs",
+        "terms_shown": [
+          "1 year",
+          "3 year",
+          "5 year"
+        ]
+      },
+      {
+        "product_group": "Complements from La-Z-Boy",
+        "terms_shown": [
+          "1 year",
+          "3 year",
+          "5 year"
+        ]
+      },
+      {
+        "product_group": "La-Z-Boy Classics chairs",
+        "terms_shown": [
+          "1 year",
+          "3 year",
+          "5 year"
+        ]
+      }
+    ],
+    "notes": [
+      "The extraction shows term columns and component bullets; this index does not assign a term to an individual component.",
+      "One-year fabric cover warranty applies to seam failure, fabric separation and nap loss; fabric/leather coverage addresses manufacturing/material defects; natural leather markings are not defects. Refer to complete current written warranty."
+    ]
+  },
+  "models": [
+    {
+      "code": "205",
+      "name": "Cory",
+      "pages": [
+        1
+      ],
+      "styles": [
+        [
+          "024",
+          "Ottoman",
+          "20 × 45 × 26",
+          [
+            "N/A"
+          ]
+        ]
+      ],
+      "notes": [
+        "Additional storage shown."
+      ]
+    },
+    {
+      "code": "225",
+      "name": "Roundabout",
+      "pages": [
+        2
+      ],
+      "styles": [
+        [
+          "024",
+          "Ottoman",
+          "18 × 35 × 35",
+          [
+            "N/A"
+          ]
+        ]
+      ],
+      "notes": [
+        "Tuft detail on top."
+      ]
+    },
+    {
+      "code": "301",
+      "name": "Oliver",
+      "pages": [
+        3
+      ],
+      "styles": [
+        [
+          "245",
+          "Ottoman",
+          "18 × 39.5 × 39.5",
+          [
+            "N/A"
+          ]
+        ]
+      ],
+      "notes": [
+        "Additional storage shown."
+      ]
+    },
+    {
+      "code": "30A",
+      "name": "Leo",
+      "pages": [
+        4
+      ],
+      "styles": [
+        [
+          "024",
+          "Ottoman",
+          "21.5 × 22.5 × 22.5",
+          [
+            "4C",
+            "FN"
+          ]
+        ]
+      ],
+      "notes": [
+        "Additional storage and castor option shown; finishes 007, 021, 041, 071. Option 4C is undefined in extracted options."
+      ]
+    },
+    {
+      "code": "304",
+      "name": "Scout",
+      "pages": [
+        5
+      ],
+      "styles": [
+        [
+          "245",
+          "Ottoman",
+          "18 × 22.5 × 22.5",
+          [
+            "N/A"
+          ]
+        ]
+      ],
+      "notes": [
+        "New introduction. Standard finish 067 Sable; additional storage shown."
+      ]
+    },
+    {
+      "code": "400",
+      "name": "Dora",
+      "pages": [
+        6
+      ],
+      "styles": [
+        [
+          "225",
+          "Swivel Gliding Chair",
+          "41.5 × 34.5 × 38",
+          [
+            "DC",
+            "FN",
+            "Z6"
+          ]
+        ],
+        [
+          "235",
+          "Chair",
+          "41.5 × 34.5 × 37.5",
+          [
+            "DC",
+            "FN",
+            "Z6"
+          ]
+        ],
+        [
+          "245",
+          "Ottoman",
+          "20 × 29 × 23.5",
+          [
+            "FN"
+          ]
+        ]
+      ],
+      "notes": [
+        "Graphite and Driftwood optional only for 235/245."
+      ]
+    },
+    {
+      "code": "401",
+      "name": "Allegra",
+      "pages": [
+        7
+      ],
+      "styles": [
+        [
+          "225",
+          "Swivel Gliding Chair",
+          "36 × 34 × 35",
+          [
+            "DC",
+            "FN",
+            "Z6"
+          ]
+        ],
+        [
+          "235",
+          "Chair",
+          "35.5 × 34 × 34",
+          [
+            "DC",
+            "FN",
+            "Z6"
+          ]
+        ],
+        [
+          "245",
+          "Ottoman",
+          "19 × 27.5 × 23",
+          [
+            "FN"
+          ]
+        ]
+      ],
+      "notes": [
+        "Graphite optional only for prefixes 235/245."
+      ]
+    },
+    {
+      "code": "402",
+      "name": "Maeve",
+      "pages": [
+        8
+      ],
+      "styles": [
+        [
+          "225",
+          "Swivel Gliding Chair",
+          "35.5 × 31 × 40",
+          [
+            "FN",
+            "Z6"
+          ]
+        ],
+        [
+          "235",
+          "Chair",
+          "37 × 31 × 40",
+          [
+            "FN",
+            "Z6"
+          ]
+        ],
+        [
+          "245",
+          "Ottoman",
+          "18 × 28 × 22",
+          [
+            "N/A"
+          ]
+        ]
+      ],
+      "notes": [
+        "Additional storage shown; 041/071 finish options limited to 235."
+      ]
+    },
+    {
+      "code": "405",
+      "name": "Dante",
+      "pages": [
+        9
+      ],
+      "styles": [
+        [
+          "295",
+          "High Leg Reclining Chair",
+          "43 × 29.5 × 43",
+          [
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "29U",
+          "High Leg Power Recliner with Headrest",
+          "43 × 29.5 × 43",
+          [
+            "FN",
+            "FS",
+            "LW"
+          ]
+        ]
+      ],
+      "notes": [
+        "Standard finish 007; optional 021, 041, 071."
+      ]
+    },
+    {
+      "code": "406",
+      "name": "Gemma",
+      "pages": [
+        10
+      ],
+      "styles": [
+        [
+          "235",
+          "Chair",
+          "38.5 × 29.5 × 33.5",
+          [
+            "FN",
+            "Z6"
+          ]
+        ]
+      ],
+      "notes": [
+        "Standard finish 007; optional 021, 041, 071."
+      ]
+    },
+    {
+      "code": "408",
+      "name": "Ferndale",
+      "pages": [
+        11
+      ],
+      "styles": [
+        [
+          "225",
+          "Swivel Gliding Chair",
+          "39 × 35 × 37",
+          [
+            "DC",
+            "FN",
+            "Z6"
+          ]
+        ],
+        [
+          "265",
+          "Reclining Chair",
+          "40 × 32 × 34.5",
+          [
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "245",
+          "Ottoman",
+          "18 × 25 × 22",
+          [
+            "FN"
+          ]
+        ]
+      ],
+      "notes": [
+        "Graphite and Driftwood only on 245/265; Coffee also available for 225."
+      ]
+    },
+    {
+      "code": "416",
+      "name": "Rae",
+      "pages": [
+        12
+      ],
+      "styles": [
+        [
+          "028",
+          "High Leg Reclining Chair",
+          "42.5 × 30.5 × 36.5",
+          [
+            "FN",
+            "FS"
+          ]
+        ]
+      ],
+      "notes": [
+        "New introduction; standard 007, optional 021 and 041."
+      ]
+    },
+    {
+      "code": "421",
+      "name": "Bellevue",
+      "pages": [
+        13
+      ],
+      "styles": [
+        [
+          "210",
+          "High Leg Swivel Chair",
+          "37 × 33 × 36",
+          [
+            "DC",
+            "FN",
+            "Z6"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021",
+          "041",
+          "071"
+        ]
+      }
+    },
+    {
+      "code": "423",
+      "name": "Eldorado",
+      "pages": [
+        14
+      ],
+      "styles": [
+        [
+          "295",
+          "High Leg Reclining Chair",
+          "42 × 32.5 × 41",
+          [
+            "FN",
+            "FS"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ],
+        "leather": [
+          "LL",
+          "LM"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "142"
+        ],
+        "optional": [
+          "021"
+        ]
+      }
+    },
+    {
+      "code": "425",
+      "name": "Alma",
+      "pages": [
+        15
+      ],
+      "styles": [
+        [
+          "225",
+          "Swivel Gliding Chair",
+          "36 × 32 × 37.5",
+          [
+            "DC",
+            "FN",
+            "Z6"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021"
+        ]
+      }
+    },
+    {
+      "code": "430",
+      "name": "Brentwood",
+      "pages": [
+        16
+      ],
+      "styles": [
+        [
+          "295",
+          "High Leg Reclining Chair",
+          "43.5 × 33.5 × 35",
+          [
+            "FN",
+            "FS",
+            "LG"
+          ]
+        ],
+        [
+          "29U",
+          "High Leg Power Recliner with Headrest",
+          "43.5 × 33.5 × 35",
+          [
+            "FN",
+            "FS",
+            "LG",
+            "LW"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ],
+        "leather": [
+          "LL",
+          "LM"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021",
+          "041",
+          "071"
+        ]
+      }
+    },
+    {
+      "code": "431",
+      "name": "Scarlett",
+      "pages": [
+        17
+      ],
+      "styles": [
+        [
+          "028",
+          "High Leg Reclining Chair",
+          "39 × 33 × 37",
+          [
+            "FN",
+            "FS"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ],
+        "leather": [
+          "LL",
+          "LM"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021",
+          "041"
+        ]
+      }
+    },
+    {
+      "code": "448",
+      "name": "Riley",
+      "pages": [
+        18
+      ],
+      "styles": [
+        [
+          "295",
+          "High Leg Reclining Chair",
+          "41 × 35.5 × 37",
+          [
+            "FN",
+            "FS"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ],
+        "leather": [
+          "LL",
+          "LM"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021"
+        ]
+      }
+    },
+    {
+      "code": "450",
+      "name": "Haven",
+      "pages": [
+        19
+      ],
+      "styles": [
+        [
+          "028",
+          "High Leg Reclining Chair",
+          "40 × 35 × 37",
+          [
+            "FN",
+            "FS"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ],
+        "leather": [
+          "LL"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021",
+          "041"
+        ]
+      }
+    },
+    {
+      "code": "456",
+      "name": "Opal",
+      "pages": [
+        20
+      ],
+      "styles": [
+        [
+          "215",
+          "Swivel Chair",
+          "34.5 × 51 × 52",
+          [
+            "DC",
+            "FP",
+            "P1",
+            "Z6"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ],
+        "leather": [
+          "LL",
+          "LM"
+        ]
+      }
+    },
+    {
+      "code": "457",
+      "name": "Audrey",
+      "pages": [
+        21
+      ],
+      "styles": [
+        [
+          "295",
+          "High Leg Reclining Chair",
+          "42 × 31.5 × 38.5",
+          [
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "29U",
+          "High Leg Power Recliner with Headrest",
+          "42 × 31.5 × 38.5",
+          [
+            "FN",
+            "FS",
+            "LW"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ],
+        "leather": [
+          "LL",
+          "LM"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021",
+          "041",
+          "071"
+        ]
+      }
+    },
+    {
+      "code": "458",
+      "name": "Rheeves",
+      "pages": [
+        22
+      ],
+      "styles": [
+        [
+          "295",
+          "High Leg Reclining Chair",
+          "43 × 33.5 × 36",
+          [
+            "FN",
+            "FS"
+          ]
+        ],
+        [
+          "29U",
+          "High Leg Power Recliner with Headrest",
+          "43 × 33.5 × 36",
+          [
+            "FN",
+            "FS",
+            "LW"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ],
+        "leather": [
+          "LL",
+          "LM"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021",
+          "041"
+        ]
+      }
+    },
+    {
+      "code": "460",
+      "name": "Reegan",
+      "pages": [
+        23
+      ],
+      "styles": [
+        [
+          "210",
+          "High Leg Swivel Chair",
+          "36.5 × 30 × 35",
+          [
+            "DC",
+            "FN",
+            "Z6"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ],
+        "leather": [
+          "LL"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021",
+          "041",
+          "071"
+        ]
+      }
+    },
+    {
+      "code": "462",
+      "name": "Roxie",
+      "pages": [
+        24
+      ],
+      "styles": [
+        [
+          "225",
+          "Swivel Gliding Chair",
+          "37 × 37 × 37",
+          [
+            "DC",
+            "FN",
+            "Z6"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021"
+        ]
+      }
+    },
+    {
+      "code": "471",
+      "name": "Carleton",
+      "pages": [
+        25
+      ],
+      "styles": [
+        [
+          "295",
+          "High Leg Reclining Chair",
+          "42 × 36 × 39",
+          [
+            "FN",
+            "FS",
+            "NB",
+            "NH",
+            "NS"
+          ]
+        ],
+        [
+          "29U",
+          "High Leg Power Recliner with Headrest",
+          "42 × 36 × 39",
+          [
+            "FN",
+            "FS",
+            "LW",
+            "NB",
+            "NH",
+            "NS"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ],
+        "leather": [
+          "LL",
+          "LM"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021"
+        ]
+      }
+    },
+    {
+      "code": "479",
+      "name": "Midtown",
+      "pages": [
+        26
+      ],
+      "styles": [
+        [
+          "225",
+          "Swivel Gliding Chair",
+          "40 × 32 × 36",
+          [
+            "DC",
+            "FN",
+            "Z6"
+          ],
+          "For leather cap LL, welt trim changes to single-needle topstitching."
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "leather": [
+          "LL"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021"
+        ]
+      }
+    },
+    {
+      "code": "632",
+      "name": "Tahoe",
+      "pages": [
+        27
+      ],
+      "styles": [
+        [
+          "240",
+          "Ottoman",
+          "21.5 × 38.5 × 38.5",
+          [
+            "N/A"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ],
+        "leather": [
+          "LL",
+          "LM"
+        ]
+      },
+      "notes": [
+        "Additional storage shown. The supplied page lists covers and colors: D2124 i-Westvale (Antique, Charcoal, Oat, Timber), E1917 i-Adario (Basmati, Fog, Stone, Taupe), D2009 Promise (Ecru, Gold, Khaki, Oyster, Powder, Thunder)."
+      ]
+    },
+    {
+      "code": "916",
+      "name": "Kimberly",
+      "pages": [
+        28
+      ],
+      "styles": [
+        [
+          "028",
+          "High Leg Reclining Chair",
+          "41 × 29.5 × 37.5",
+          [
+            "FS"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": []
+      }
+    },
+    {
+      "code": "931",
+      "name": "Charlotte",
+      "pages": [
+        29
+      ],
+      "styles": [
+        [
+          "028",
+          "High Leg Reclining Chair",
+          "38.5 × 33 × 35",
+          [
+            "FN",
+            "FS"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021",
+          "041"
+        ]
+      }
+    },
+    {
+      "code": "893",
+      "name": "Colby",
+      "pages": [
+        32
+      ],
+      "styles": [
+        [
+          "P94",
+          "duo Reclining Chair",
+          "41 × 39 × 39.5",
+          [
+            "FN",
+            "LT"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR",
+          "DP",
+          "NP",
+          "PS",
+          "VS"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ],
+        "leather": [
+          "LL",
+          "LM"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021",
+          "041"
+        ]
+      },
+      "notes": [
+        "Available La-Z-Boy Select cover families include C1700 Nico: Oyster, Charcoal and Ash."
+      ],
+      "coverage_status": "partial_style_table"
+    },
+    {
+      "code": "899",
+      "name": "Bennett",
+      "pages": [
+        33
+      ],
+      "styles": [
+        [
+          "P94",
+          "duo Reclining Chair",
+          "39.5 × 37.5 × 39",
+          [
+            "FN",
+            "LT"
+          ]
+        ]
+      ],
+      "cover_cap_choices": {
+        "fabric": [
+          "DR",
+          "UR"
+        ],
+        "faux_leather": [
+          "BU",
+          "UE",
+          "RL"
+        ],
+        "leather": [
+          "LL",
+          "LM"
+        ]
+      },
+      "finishes": {
+        "standard": [
+          "007"
+        ],
+        "optional": [
+          "021",
+          "041"
+        ]
+      },
+      "notes": [
+        "Available La-Z-Boy Select covers shown: B1808 Social Club in Stone, Pewter, Cocoa, Charcoal and Chalk."
+      ],
+      "coverage_status": "partial_style_table"
+    }
+  ],
+  "publication_footer": "© 2026 La-Z-Boy Incorporated · 04/2026 · 000119-A-1",
+  "model_cover_cap_choices": [
+    {
+      "material": "fabric",
+      "model_code": "421",
+      "model_name": "Bellevue",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "421",
+      "model_name": "Bellevue",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "423",
+      "model_name": "Eldorado",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "423",
+      "model_name": "Eldorado",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "leather",
+      "model_code": "423",
+      "model_name": "Eldorado",
+      "codes": [
+        "LL",
+        "LM"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "425",
+      "model_name": "Alma",
+      "codes": [
+        "DR",
+        "UR"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "425",
+      "model_name": "Alma",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "430",
+      "model_name": "Brentwood",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "430",
+      "model_name": "Brentwood",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "leather",
+      "model_code": "430",
+      "model_name": "Brentwood",
+      "codes": [
+        "LL",
+        "LM"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "431",
+      "model_name": "Scarlett",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "431",
+      "model_name": "Scarlett",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "leather",
+      "model_code": "431",
+      "model_name": "Scarlett",
+      "codes": [
+        "LL",
+        "LM"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "448",
+      "model_name": "Riley",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "448",
+      "model_name": "Riley",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "leather",
+      "model_code": "448",
+      "model_name": "Riley",
+      "codes": [
+        "LL",
+        "LM"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "450",
+      "model_name": "Haven",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "450",
+      "model_name": "Haven",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "leather",
+      "model_code": "450",
+      "model_name": "Haven",
+      "codes": [
+        "LL"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "456",
+      "model_name": "Opal",
+      "codes": [
+        "DR",
+        "UR"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "456",
+      "model_name": "Opal",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "leather",
+      "model_code": "456",
+      "model_name": "Opal",
+      "codes": [
+        "LL",
+        "LM"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "457",
+      "model_name": "Audrey",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "457",
+      "model_name": "Audrey",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "leather",
+      "model_code": "457",
+      "model_name": "Audrey",
+      "codes": [
+        "LL",
+        "LM"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "458",
+      "model_name": "Rheeves",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "458",
+      "model_name": "Rheeves",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "leather",
+      "model_code": "458",
+      "model_name": "Rheeves",
+      "codes": [
+        "LL",
+        "LM"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "460",
+      "model_name": "Reegan",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "460",
+      "model_name": "Reegan",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "leather",
+      "model_code": "460",
+      "model_name": "Reegan",
+      "codes": [
+        "LL"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "462",
+      "model_name": "Roxie",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "462",
+      "model_name": "Roxie",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "471",
+      "model_name": "Carleton",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "471",
+      "model_name": "Carleton",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "leather",
+      "model_code": "471",
+      "model_name": "Carleton",
+      "codes": [
+        "LL",
+        "LM"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "479",
+      "model_name": "Midtown",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "leather",
+      "model_code": "479",
+      "model_name": "Midtown",
+      "codes": [
+        "LL"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "632",
+      "model_name": "Tahoe",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "632",
+      "model_name": "Tahoe",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "leather",
+      "model_code": "632",
+      "model_name": "Tahoe",
+      "codes": [
+        "LL",
+        "LM"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "916",
+      "model_name": "Kimberly",
+      "codes": [
+        "DR",
+        "UR"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "931",
+      "model_name": "Charlotte",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "931",
+      "model_name": "Charlotte",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "893",
+      "model_name": "Colby",
+      "codes": [
+        "DR",
+        "UR",
+        "DP",
+        "NP",
+        "PS",
+        "VS"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "893",
+      "model_name": "Colby",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "leather",
+      "model_code": "893",
+      "model_name": "Colby",
+      "codes": [
+        "LL",
+        "LM"
+      ]
+    },
+    {
+      "material": "fabric",
+      "model_code": "899",
+      "model_name": "Bennett",
+      "codes": [
+        "DR",
+        "UR"
+      ]
+    },
+    {
+      "material": "faux_leather",
+      "model_code": "899",
+      "model_name": "Bennett",
+      "codes": [
+        "BU",
+        "UE",
+        "RL"
+      ]
+    },
+    {
+      "material": "leather",
+      "model_code": "899",
+      "model_name": "Bennett",
+      "codes": [
+        "LL",
+        "LM"
+      ]
+    }
+  ],
+  "coverage_note": "Full details for Colby 893 and Bennett 899 sofa/loveseat configurations are missing from the supplied extracts (the supplied pages only give their P94 chair styles). Do not infer the missing sofa/loveseat dimensions, options, or covers."
+}

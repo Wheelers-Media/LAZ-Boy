@@ -1,0 +1,202 @@
+{
+  "model_code": "811",
+  "model_name": "Acadia",
+  "sectional_family": "La-Z-Motion",
+  "source": "Acadia TearPad 2-11-2026.pdf",
+  "source_document_sku": "000102-A",
+  "source_document_footer_date": "02/01/26",
+  "product_description": "Acadia offers adjustable comfort and smooth, clean lines, with a tall tailored back and extra-wide waterfall chaise. The tear pad describes zero-gravity power recline, inside-mounted controls, hidden cupholders, and USB ports.",
+  "pieces": [
+    {
+      "code": "8AU",
+      "key": "LA_power_recliner",
+      "name": "Power Left-Arm Sitting Recliner with Headrest",
+      "dimensions_text": "43\" H × 44.5\" W × 40\" D",
+      "printed_codes": [
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "8BU",
+      "key": "RA_power_recliner",
+      "name": "Power Right-Arm Sitting Recliner with Headrest",
+      "dimensions_text": "43\" H × 44.5\" W × 40\" D",
+      "printed_codes": [
+        "9CC",
+        "9EP",
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "8C0",
+      "key": "corner_wedge",
+      "name": "Rounded Corner",
+      "dimensions_text": "43\" H × 68.5\" W × 40\" D",
+      "printed_codes": [
+        "9CC",
+        "9EP",
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "8M0",
+      "key": "armless_middle",
+      "name": "Armless Chair",
+      "dimensions_text": "43\" H × 35\" W × 40\" D",
+      "printed_codes": [
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "8SU",
+      "key": "armless_power_recliner",
+      "name": "Power Armless Recliner with Headrest",
+      "dimensions_text": "43\" H × 35\" W × 40\" D",
+      "printed_codes": [
+        "9CC",
+        "9EP",
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "8SC",
+      "key": "stowaway_console",
+      "name": "Storage Console",
+      "dimensions_text": "39\" H × 13\" W × 39\" D",
+      "printed_codes": [
+        "9CC",
+        "9EP",
+        "9DP",
+        "90M"
+      ]
+    }
+  ],
+  "configuration_diagram_dimension_labels_in": [
+    "142.5 x 129.5",
+    "142.5 x 164.5",
+    "129.5 x 129.5",
+    "129.5 x 142.5",
+    "102",
+    "124"
+  ],
+  "configuration_diagram_dimension_note": "Dimension labels are reproduced from the arrangement diagrams. The extracted PDF text does not preserve a reliable mapping or orientation for each label, so they are listed without assigning them to a specific piece sequence.",
+  "printed_codes_note": "Printed codes are transcribed from the piece callouts; the extraction does not identify what each code denotes or reliably map all codes to color/cover meanings.",
+  "fit_specs_verified": false,
+  "product_guide_measurements": {
+    "source": "APRIL 2026 - PRODUCT INFORMATION GUIDE.xlsx",
+    "edition": "April 2026",
+    "columns": [
+      "H",
+      "W",
+      "D",
+      "SH",
+      "SW",
+      "SD",
+      "AH",
+      "EXT",
+      "RD",
+      "LH",
+      "WT_LB",
+      "SEAT_FACTOR",
+      "WALL_SPACE"
+    ],
+    "note": "Values are transcribed from the guide Dimensions table and keyed to exact printed style numbers. Linear measurements are inches. WT_LB is the product/unit weight, not a user-weight capacity. Blank source cells remain null. These dimensions do not establish recommended customer height or fit.",
+    "rows": {
+      "8AU811": [
+        43,
+        44.5,
+        40,
+        21,
+        33.5,
+        21,
+        26,
+        67.5,
+        8.5,
+        null,
+        144,
+        2,
+        44.5
+      ],
+      "8BU811": [
+        43,
+        44.5,
+        40,
+        21,
+        33.5,
+        21,
+        26,
+        67.5,
+        8.5,
+        null,
+        144,
+        2,
+        44.5
+      ],
+      "8C0811": [
+        43,
+        68.5,
+        40,
+        21,
+        null,
+        24,
+        null,
+        null,
+        null,
+        null,
+        75,
+        2,
+        100
+      ],
+      "8M0811": [
+        43,
+        35,
+        40,
+        21,
+        null,
+        21,
+        null,
+        null,
+        null,
+        null,
+        60,
+        2,
+        35
+      ],
+      "8SU811": [
+        43,
+        35,
+        40,
+        21,
+        null,
+        21,
+        null,
+        67.5,
+        8.5,
+        null,
+        109,
+        2,
+        35
+      ],
+      "8SC811": [
+        39,
+        13,
+        39,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        61,
+        1,
+        13
+      ]
+    }
+  }
+}

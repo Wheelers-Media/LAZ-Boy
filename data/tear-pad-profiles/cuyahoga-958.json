@@ -1,0 +1,94 @@
+{
+  "model_code": "958",
+  "model_name": "Cuyahoga",
+  "sectional_family": "La-Z-Motion",
+  "source": "MP0098_TearPad-Cuyahoga_2024 (1).pdf",
+  "source_document_code": "MP0098",
+  "source_document_footer_date": "07/2024",
+  "source_document_market": "Not specified; tear-pad footer lists la-z-boy.com",
+  "product_description": "Cuyahoga is part of the ZMod collection. The tear pad describes sharp simplicity, clean lines, top-quality cushions, and power-adjustable legrests and headrests with multiple reclining positions.",
+  "source_text_extraction": "Chic, sleek, clean lines. Innovative reclining designs. And that lounge-worthy comfort you love. Welcome to our all-new ZMod collection! Where you can sink into the sophistication of distinctly modern style while still enjoying the luxuries of our most popular recliners. Cuyahoga offers sharp simplicity, top-quality cushions and power adjustable legrests, headrests, and unlimited reclining positions. 74U-958 Power Sofa with Power Headrest 71U-958 Power Chair with Power Headrest 7BU-958 Power Right-Side Sitting Recliner with Power Headrest 7AU-958 Power Left-Side Sitting Recliner with Power Headrest 7C0-958 Corner 7SC-958 Storage Console 7PC-958 Storage Console with Audio 7SU-958 Power Armless Recliner with Power Headrest 7M0-958 Armless Chair Cuyahoga 7SC 7SC 113\" 125\" 113\" 125\" 7C0 7SU 7SU 7MO 7AU 7BU 38\" 50\" 38\" 50\" 126\" 138\" 142\" 154\" 7C0 7SU 7MO 7MO 7AU 7BU 7PC 38\" 50\" 126\" 138\" 142\" 154\" 7C0 7SU 7MO 7AU 7BU 129\" 7AU7BU 38\" 50\" 7SC 7PC7SU 129\" 7AU7BU 38\" 50\" 7PC 74U-958 Power Sofa with Power Headrest 40”H x 87”W x 38”D 71U-958 Power Chair with Power Headrest 40”H x 39”W x 38”D 7AU-958 Power Left-Side Sitting Recliner with Power Headrest 40”H X 37”W X 38”D 7BU-958 Power Right-Side Sitting Recliner with Power Headrest 40”H X 37”W X 38”D 7PC-958 Storage Console with Audio 36”H X 13”W X 38”D 7SC-958 Storage Console 36”H x 13”W x 38”D 7SU-958 Power Armless Recliner with Power Headrest 40”H X 29”W X 38”D 7M0-958 Armless Chair 40”H X 29”W X 38”D 7C0-958 Corner 40”H X 66”W X 42”D 42 47 47 MP0098 7/2024© 2024 La-Z-Boy Incorporatedla-z-boy.com Choose an arrangement shown below, or create the one that suits your home. La-Z-Boy products are handcrafted and variations from standard dimensions and appearance can occur.",
+  "catalog_model": {
+    "category": "ZMod Modular Power Sectional",
+    "scale": "Not specified in tear pad",
+    "recommended_height": "Not specified in tear pad",
+    "weight_limit_lbs": null,
+    "recommendation_eligible": false,
+    "key_features": [
+      "Sharp simplicity and clean lines",
+      "Top-quality cushions",
+      "Power-adjustable legrests and headrests",
+      "Multiple reclining positions"
+    ],
+    "look_alikes": [],
+    "quick_spotter": "Cuyahoga is described in the 2024 MP0098 tear pad as a clean-lined ZMod power sectional with adjustable legrests and headrests. The document does not provide ergonomic height guidance or user-weight capacity."
+  },
+  "pieces": [
+    {
+      "code": "74U",
+      "key": "power_sofa",
+      "name": "Power Sofa with Power Headrest",
+      "dimensions_text": "40\" H × 87\" W × 38\" D"
+    },
+    {
+      "code": "71U",
+      "key": "power_chair",
+      "name": "Power Chair with Power Headrest",
+      "dimensions_text": "40\" H × 39\" W × 38\" D"
+    },
+    {
+      "code": "7BU",
+      "key": "RA_power_recliner",
+      "name": "Power Right-Side Sitting Recliner with Power Headrest",
+      "dimensions_text": "40\" H × 37\" W × 38\" D"
+    },
+    {
+      "code": "7AU",
+      "key": "LA_power_recliner",
+      "name": "Power Left-Side Sitting Recliner with Power Headrest",
+      "dimensions_text": "40\" H × 37\" W × 38\" D"
+    },
+    {
+      "code": "7C0",
+      "key": "corner_wedge",
+      "name": "Corner",
+      "dimensions_text": "40\" H × 66\" W × 42\" D"
+    },
+    {
+      "code": "7SC",
+      "key": "storage_console",
+      "name": "Storage Console",
+      "dimensions_text": "36\" H × 13\" W × 38\" D"
+    },
+    {
+      "code": "7PC",
+      "key": "audio_storage_console",
+      "name": "Storage Console with Audio",
+      "dimensions_text": "36\" H × 13\" W × 38\" D"
+    },
+    {
+      "code": "7SU",
+      "key": "armless_power_recliner",
+      "name": "Power Armless Recliner with Power Headrest",
+      "dimensions_text": "40\" H × 29\" W × 38\" D"
+    },
+    {
+      "code": "7M0",
+      "key": "armless_chair",
+      "name": "Armless Chair",
+      "dimensions_text": "40\" H × 29\" W × 38\" D"
+    }
+  ],
+  "configuration_diagram_dimension_labels_in": [
+    "113", "125", "113", "125", "38", "50", "38", "50", "126", "138", "142", "154", "38", "50", "126", "138", "142", "154", "129", "38", "50", "129", "38", "50"
+  ],
+  "configuration_diagram_piece_callouts": [
+    "7SC", "7SC", "7C0", "7SU", "7SU", "7M0", "7AU", "7BU", "7C0", "7SU", "7M0", "7M0", "7AU", "7BU", "7PC", "7C0", "7SU", "7M0", "7AU", "7BU", "7AU", "7BU", "7SC", "7PC", "7SU", "7AU", "7BU", "7PC"
+  ],
+  "configuration_diagram_dimension_note": "Arrangement callouts and dimension labels are retained from extracted text. The text extraction does not reliably map every label to a specific arrangement; no configuration footprint is assigned.",
+  "unmapped_extracted_values": ["42", "47", "47"],
+  "unmapped_extracted_values_note": "The extracted text includes 42, 47, and 47 before the footer, but does not preserve the corresponding labels or meaning; these values are retained without interpretation.",
+  "assembly_note": "Choose an arrangement shown below, or create the one that suits your home.",
+  "handcrafted_variation_note": "La-Z-Boy products are handcrafted and variations from standard dimensions and appearance can occur.",
+  "fit_specs_verified": false
+}

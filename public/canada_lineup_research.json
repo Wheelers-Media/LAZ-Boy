@@ -1,0 +1,301 @@
+{
+  "reference_id": "canada-lineup-analysis",
+  "title": "La-Z-Boy Canada Lineup Analysis",
+  "source_file": "La-Z-Boy Canada Lineup Analysis.docx",
+  "market": "Canada (as stated by source)",
+  "verification_status": "unverified_secondary_research",
+  "current_catalog_authority": false,
+  "fit_evidence_note": "This evidence incorporates the user's Canadian La-Z-Boy Recliner Research document. Its claims remain attributed secondary evidence unless it cites a readable primary Canadian manufacturer source. Manufacturer US tear-pad dimensions are market/configuration specific. Never convert chair shipping weight into user capacity; disputed fit claims are withheld from recommendations.",
+  "source_note": "This reference combines the user's Canadian La-Z-Boy Recliner Research and earlier web research. Dealer-provided fit guidance is secondary evidence, not a manufacturer-confirmed anthropometric recommendation. Dimensions are specific to their cited market and configuration. The uploaded research's Pinnacle 350-lb capacity applies to the 1PL512 Platinum lift configuration only; do not infer it for the regular recliner. All other missing capacities remain unknown. Conflicting models are withheld from candidate lists.",
+  "coverage_note": "The source calls itself a lineup analysis but does not establish a complete, current Canadian SKU catalog. Validate active Canadian models and options against current Canadian tear pads or official dealer materials.",
+  "research_document": {
+    "name": "Canadian La-Z-Boy Recliner Research.docx",
+    "overall_status": "secondary_research_with_configuration_specific_primary_tear_pad_evidence",
+    "source_confidence_note": "The document quotes Canadian dealers and a manufacturer US James tear pad. Treat exact model/configuration and source market as required fields; its other fit and availability statements are secondary, not manufacturer-verified for Canada.",
+    "model_evidence": {
+      "512": {
+        "canadian_availability": "Canadian dealer secondary",
+        "explicit_fit_guidance": "Canadian dealer says the Pinnacle is designed with smaller body types in mind, specifically mentioning customers 5 ft 3 in and under; another Canada fit article places Pinnacle in small-scale 5 ft 4 in–5 ft 9 in band.",
+        "fit_source_url": "https://www.jcperreault.com/en/pages/buying-guide/best-la-z-boy-recliner-for-back-pain",
+        "secondary_fit_status": "conflicting_height_ranges_across_canadian_dealer_sources",
+        "dimensions": { "overall_height_inches": 41, "overall_width_inches": 33, "overall_depth_inches": 38.5, "source_market": "Canada dealer" },
+        "capacity": { "limit_lbs": 350, "configuration": "Platinum Power Lift Recliner 1PL512 only", "source_market": "US manufacturer", "source_status": "manufacturer-confirmed-other-market" },
+        "source_configuration_note": "The research report distinguishes standard 010512 rocking recliner from lift configuration 1PL512. Do not apply lift specs/capacity to the standard recliner.",
+        "mechanisms": ["010512 rocking recliner", "wall recliner", "1PL512 Platinum power lift", "optional headrest/lumbar; verify exact prefix"]
+      },
+      "403": {
+        "canadian_availability": "Canadian dealer secondary",
+        "explicit_fit_guidance": "Canadian dealer describes Vail as a smaller-frame/petite option; no numeric height range provided.",
+        "dimensions": { "body_height_inches": 40.5, "body_width_inches": 32, "body_depth_inches": 36, "seat_height_inches": 18, "seat_depth_inches": 19.5, "seat_width_inches": 17.5, "source_market": "Canada dealer", "configuration": "manual rocking recliner" },
+        "capacity": null,
+        "mechanisms": ["manual rocking", "wall", "power", "swivel base; secondary-source listings"]
+      },
+      "521": {
+        "canadian_availability": "Canadian dealer secondary",
+        "explicit_fit_guidance": null,
+        "dimensions": { "height_inches": 41.5, "width_inches": 33, "depth_inches": 39.5, "fully_extended_inches": 64.5, "source_market": "US manufacturer", "configuration": "44A/U4A/X4A left-arm modular recliner module", "source_url": "https://content.la-z-boy.com/productassets/productconfigurations/tearpads/tearpad-james.pdf" },
+        "capacity": null,
+        "mechanisms": ["modular sectional pieces", "010-521 rocking", "016-521 wall", "10X/16X power headrest/lumbar per supplied report"],
+        "fit_status": "no explicit fit guidance in supplied report"
+      },
+      "765": {
+        "canadian_availability": "Canadian dealer secondary",
+        "explicit_fit_guidance": "Canadian dealer recommends Rowan for 5 ft 4 in–5 ft 9 in.",
+        "fit_source_url": "https://www.jcperreault.com/en/pages/buying-guide/best-la-z-boy-recliner-for-back-pain",
+        "dimensions": null,
+        "capacity": null,
+        "mechanisms": ["010-765 rocking", "power headrest/lumbar; secondary documentation"]
+      },
+      "799": {
+        "canadian_availability": "Canadian dealer secondary",
+        "explicit_fit_guidance": "Canadian dealer describes Harbor Town as compact and suitable for petite individuals; no numeric range.",
+        "fit_source_url": "https://www.rkfurnituregallery.ca/inspired/blog-post-title-two-f3zz5",
+        "dimensions": null,
+        "capacity": null,
+        "mechanisms": ["rocking", "016799 wall", "gliding; secondary documentation"]
+      },
+      "724": {
+        "canadian_availability": "Canadian dealer secondary",
+        "explicit_fit_guidance": "Conflicting: Canadian dealer calls the Trouper a top seller for shorter customers; US dealer guide says users up to 6 ft 1 in prefer the 42-inch Trouper.",
+        "fit_status": "conflicting; withhold from automatic fit results",
+        "dimensions": { "overall_height_inches": 41, "overall_width_inches": 37, "overall_depth_inches": 40, "source_market": "Canada dealer", "configuration": "Power rocking recliner with headrest and lumbar" },
+        "other_configuration_dimensions": { "seat_height_inches": 20, "seat_depth_inches": 20.5, "fully_extended_inches": 67, "source_market": "US dealer", "configuration": "manual rocking recliner 010-724" },
+        "capacity": null,
+        "mechanisms": ["724 modular sectional", "010-724 rocking", "016-724 wall", "power variants; exact model tear pad needed"]
+      },
+      "766": {
+        "canadian_availability": "Canadian dealer secondary",
+        "explicit_fit_guidance": null,
+        "dimensions": null,
+        "capacity": null,
+        "mechanisms": ["rocking", "wall; Canadian portal listing cited in uploaded report"],
+        "source_url": "https://fr.la-z-boy.com/p/armitage-sectional/_/R-xxs812"
+      },
+      "530": {
+        "canadian_availability": "Canadian dealer secondary",
+        "explicit_fit_guidance": "Secondary article describes plush tall-back cushioning and broad body support; not an explicit height range.",
+        "dimensions": null,
+        "capacity": null,
+        "mechanisms": ["manual rocking", "power; secondary documentation"]
+      },
+      "519": {
+        "canadian_availability": "Canadian dealer secondary",
+        "explicit_fit_guidance": "Secondary Canadian article describes a taller base and elongated back but says Astor is not officially in the Summit Series; no numeric fit band found in this report.",
+        "fit_source_url": "https://www.stylemeetscomfort.ca/learning-center/review-summit-series",
+        "dimensions": null,
+        "capacity": null,
+        "mechanisms": ["016828 wall reference in source appears to be a model/configuration mismatch; other rocking/power variants need exact sourcing"]
+      },
+      "776": {
+        "canadian_availability": "Canadian dealer secondary",
+        "explicit_fit_guidance": "Canadian dealer calls Redwood designed for larger/heavier people; secondary source says Summit Series and tall enhancements. No official weight limit stated.",
+        "fit_source_url": "https://www.stylemeetscomfort.ca/learning-center/review-summit-series",
+        "dimensions": { "seat_width_inches": 22, "source_market": "Canada dealer", "configuration": "wall recliner" },
+        "other_configuration_dimensions": { "overall_height_inches": 46.5, "seat_height_inches": 21.5, "seat_depth_inches": 23.5, "seat_width_inches": 24, "fully_extended_inches": 75.5, "source_market": "US dealer", "configuration": "manual rocking recliner" },
+        "capacity": null,
+        "mechanisms": ["wall recliner", "rocking recliner; report cited Summit enhancements"]
+      },
+      "777": {
+        "canadian_availability": "Canadian dealer secondary",
+        "explicit_fit_guidance": "Canadian dealer describes Randell as commonly recommended around 6 ft 3 in or taller; this is secondary, not manufacturer guidance.",
+        "fit_source_url": "https://www.stylemeetscomfort.ca/learning-center/review-summit-series",
+        "dimensions": { "seat_width_inches": 24, "source_market": "Canada dealer" },
+        "capacity": null,
+        "mechanisms": ["Summit Series oversized recliner; detailed configuration confirmation needed"]
+      },
+      "805": {
+        "canadian_availability": "not found",
+        "explicit_fit_guidance": null,
+        "dimensions": null,
+        "capacity": null,
+        "mechanisms": null,
+        "status": "not found in supplied Canadian report"
+      }
+    }
+  },
+  "model_fit_evidence": {
+    "512": {
+      "dimensions": { "body_height_inches": 41, "seat_width_inches": 19, "seat_depth_inches": 21.5, "seat_height_inches": 18.5, "source_market": "US", "configuration": "rocking recliner 010512", "source_kind": "official_lazboy_product_page_search_snippet", "source_url": "https://www.la-z-boy.com/p/living-room/recliners/rocking-recliners/pinnacle-rocking-recliner/R-010512" },
+      "fit_claim": { "market": "Canada", "statement": "A La-Z-Boy Canada dealer article describes Pinnacle as small-scale for people 5′4″ to 5′9″.", "source_kind": "canadian_lazboy_dealer_article", "source_url": "https://www.stylemeetscomfort.ca/learning-center/recliners-for-short-people/", "status": "provisional_fit_guidance" }
+    },
+    "403": {
+      "dimensions": { "body_height_inches": 40.5, "seat_width_inches": 17.5, "seat_depth_inches": 19.5, "seat_height_inches": 18, "source_market": "US", "configuration": "rocking recliner 010403", "source_kind": "official_lazboy_product_page_search_snippet", "source_url": "https://www.la-z-boy.com/p/living-room/recliners/rocking-recliners/vail-rocking-recliner/R-010403" },
+      "fit_claim": { "market": "Canada", "statement": "Described as petite / smaller-frame seating; no numeric user-height range found.", "source_kind": "canadian_lazboy_dealer_articles", "source_url": "https://www.lifestylemeetscomfort.ca/la-z-boy-recliners-for-different-fits/", "status": "qualitative_fit_guidance" }
+    },
+    "521": {
+      "dimensions": { "seat_width_inches": 21.5, "seat_depth_inches": 21, "seat_height_inches": 20, "source_market": "US", "configuration": "rocking recliner 010521", "source_kind": "official_lazboy_product_page_search_snippet", "source_url": "https://www.la-z-boy.com/p/living-room/recliners/rocking-recliners/james-rocking-recliner/R-010521" },
+      "fit_claim": { "market": "US dealer", "statement": "Dealer product listings describe James as tall scale (5′10″ to 6′2″), contradicting its placement in the supplied Canada analysis small/medium band.", "source_kind": "us_dealer_product_listing", "source_url": "https://www.masseysfurniturebarn.com/product/la-z-boy-james-lead-manual-rocking-recliner-010521-d206659-1899038", "status": "conflicting_fit_guidance" }
+    },
+    "765": {
+      "dimensions": { "body_height_inches": 41, "seat_depth_inches": 21, "seat_height_inches": 20, "source_market": "US", "configuration": "rocking recliner 010765", "source_kind": "official_lazboy_product_page_search_snippet", "source_url": "https://www.la-z-boy.com/p/living-room/recliners/rocking-recliners/rowan-rocking-recliner/R-010765" },
+      "fit_claim": { "market": "US dealer", "statement": "Dealer product listings describe Rowan as small scale (5′4″ to 5′9″).", "source_kind": "us_dealer_product_listing", "source_url": "https://www.garfieldfurniture.com/product/la-z-boy-rowan-ash-manual-rocking-recliner-010765-d201052-1690559", "status": "provisional_fit_guidance" }
+    },
+    "799": {
+      "dimensions": { "body_height_inches": 41, "seat_width_inches": 23, "seat_depth_inches": 19.5, "seat_height_inches": 19, "source_market": "Canada", "configuration": "rocking recliner 010799", "source_kind": "canadian_lazboy_dealer_product_listing", "source_url": "https://hochhome.ca/products/420lzbhar" },
+      "fit_claim": { "market": "Canada", "statement": "Canadian retailer lists Harbor Town as small scale (5′4″ to 5′9″).", "source_kind": "canadian_dealer_product_listing", "source_url": "https://hochhome.ca/products/420lzbhar", "status": "provisional_fit_guidance" }
+    },
+    "724": {
+      "dimensions": { "seat_width_inches": 19.5, "seat_depth_inches": 20.5, "seat_height_inches": 20, "source_market": "US", "configuration": "rocking recliner 010724", "source_kind": "official_lazboy_product_page_search_snippet", "source_url": "https://www.la-z-boy.com/p/living-room/recliners/rocking-recliners/trouper-rocking-recliner/R-010724" },
+      "fit_claim": { "market": "Canada and US dealer sources", "statement": "Canadian La-Z-Boy dealer calls Trouper a top seller for shorter customers, while US dealer listings describe its rocking recliner as tall scale (5′10″ to 6′2″). The sectional tear pad does not include fit dimensions.", "source_kind": "conflicting_dealer_fit_sources", "source_url": "https://www.lifestylemeetscomfort.ca/la-z-boy-recliners-for-different-fits/", "conflict_url": "https://www.fxmarcotte.com/la-z-boy-trouper-rocking-recliner/010724-126/iteminformation.aspx", "status": "conflicting_fit_guidance" }
+    },
+    "766": {
+      "dimensions": { "seat_width_inches": 19, "seat_depth_inches": 20.5, "seat_height_inches": 20, "source_market": "US", "configuration": "rocking recliner 010766", "source_kind": "official_lazboy_product_page_search_snippet", "source_url": "https://www.la-z-boy.com/p/living-room/recliners/rocking-recliners/morrison-rocking-recliner/R-010766" },
+      "fit_claim": { "market": "US dealer", "statement": "Dealer product listing describes Morrison as tall scale (5′10″ to 6′2″).", "source_kind": "us_dealer_product_listing", "source_url": "https://www.artsample.com/la-z-boy-morrison-rocking-recliner/010766-126/iteminformation.aspx", "status": "provisional_fit_guidance" }
+    },
+    "530": {
+      "dimensions": { "seat_width_inches": 20, "seat_depth_inches": 23, "seat_height_inches": 20.5, "source_market": "US", "configuration": "rocking recliner 010530", "source_kind": "official_lazboy_product_page_search_snippet", "source_url": "https://www.la-z-boy.com/p/living-room/recliners/rocking-recliners/greyson-rocking-recliner/R-010530" },
+      "fit_claim": { "market": "US dealer", "statement": "Dealer product listing describes Greyson as tall scale (5′10″ to 6′2″).", "source_kind": "us_dealer_product_listing", "source_url": "https://www.fxmarcotte.com/la-z-boy-greyson-power-rocking-recliner-with/10u530-126/iteminformation.aspx", "status": "provisional_fit_guidance" }
+    },
+    "519": {
+      "dimensions": { "body_height_inches": 44.5, "seat_depth_inches": 21, "seat_height_inches": 21, "source_market": "US", "configuration": "rocking recliner 010519", "source_kind": "official_lazboy_product_page_search_snippet", "source_url": "https://www.la-z-boy.com/p/living-room/recliners/rocking-recliners/astor-rocking-recliner/R-010519" },
+      "fit_claim": { "market": "US dealer", "statement": "Dealer listings describe Astor as extra-tall scale (6′3″ and up); official US product copy describes a deep, wide seat and a tall base.", "source_kind": "official_and_dealer_product_copy", "source_url": "https://www.richeysfurniture.com/product/la-z-boy-astor-earth-manual-rocking-recliner-010519-d180678-1105117", "status": "provisional_fit_guidance" }
+    },
+    "776": {
+      "dimensions": { "seat_depth_inches": 23.5, "seat_height_inches": 21.5, "source_market": "US", "configuration": "rocking recliner 010776", "source_kind": "official_lazboy_product_page_search_snippet", "source_url": "https://www.la-z-boy.com/p/living-room/recliners/rocking-recliners/redwood-rocking-recliner/R-010776" },
+      "fit_claim": { "market": "Canada and US", "statement": "Official US product copy says Redwood is designed especially for taller users; La-Z-Boy Vancouver dealer describes it as designed for larger, heavier people, without a numeric user-height or weight capacity.", "source_kind": "official_product_copy_and_canadian_dealer_article", "source_url": "https://www.la-z-boy.com/p/living-room/recliners/rocking-recliners/redwood-rocking-recliner/R-010776", "additional_source_url": "https://www.lifestylemeetscomfort.ca/la-z-boy-recliners-for-different-fits/", "status": "qualitative_fit_guidance" }
+    },
+    "777": {
+      "dimensions": { "source_market": "US", "configuration": "rocking recliner 010777", "source_kind": "dealer_listing_only", "source_url": "https://www.artsample.com/la-z-boy-randell-rocking-recliner/10-777-126/iteminformation.aspx" },
+      "fit_claim": { "market": "US dealer", "statement": "Dealer product listing describes Randell as tall scale (5′10″ to 6′2″); official La-Z-Boy specification details were not confirmed in this research.", "source_kind": "us_dealer_product_listing", "source_url": "https://www.artsample.com/la-z-boy-randell-rocking-recliner/10-777-126/iteminformation.aspx", "status": "provisional_fit_guidance" }
+    },
+    "805": {
+      "dimensions": { "body_height_inches": 47, "seat_depth_inches": 23.5, "seat_height_inches": 21.5, "source_market": "US", "configuration": "rocking recliner 010805", "source_kind": "official_lazboy_product_page_search_snippet", "source_url": "https://www.la-z-boy.com/p/living-room/recliners/rocking-recliners/ace-rocking-recliner/R-010805" },
+      "fit_claim": { "market": "US dealer", "statement": "Dealer product listings describe Ace as extra-tall scale (6′3″ and up); official US product copy describes it as extra-large scale.", "source_kind": "official_and_dealer_product_copy", "source_url": "https://www.mcmhg.com/product/la-z-boy-ace-lead-power-rocking-recliner-with-headrest-10u805-d206659-2162714", "status": "provisional_fit_guidance" }
+    }
+  },
+  "fit_guidance_bands": [
+    {
+      "band": "Petite",
+      "height_min_inches": 0,
+      "height_max_inches": 64,
+      "height_summary": "5 ft 4 in and under",
+      "seat_depth_inches": [18, 19.5],
+      "seat_height_inches": [18, 19],
+      "candidates": [
+        { "model_code": "512", "model_name": "Pinnacle", "category": "recliner", "categories": ["recliner", "lift"], "mechanism_options": ["Manual", "Power recline", "Power + headrest", "Power + lumbar", "Lift chair", "Gold-series lift"] },
+        { "model_code": "403", "model_name": "Vail", "category": "recliner", "mechanism_options": null }
+      ],
+      "verification_status": "unverified_fit_guidance",
+      "note": "Research suggestions only. Model-specific dimensions, active Canadian availability, category, and fit are not confirmed by the analysis."
+    },
+    {
+      "band": "Small to Medium",
+      "height_min_inches": 65,
+      "height_max_inches": 69,
+      "height_summary": "5 ft 5 in to 5 ft 9 in",
+      "seat_depth_inches": [19.5, 20.5],
+      "seat_height_inches": [19, 20],
+      "candidates": [
+        { "model_code": "521", "model_name": "James", "category": "recliner", "categories": ["recliner", "lift"], "mechanism_options": ["Manual", "Power recline", "Power + headrest", "Power + lumbar", "Lift chair"], "recommendation_status": "conflicting_fit_guidance" },
+        { "model_code": "765", "model_name": "Rowan", "category": "recliner", "mechanism_options": null },
+        { "model_code": "799", "model_name": "Harbor Town", "category": "recliner", "mechanism_options": null }
+      ],
+      "verification_status": "unverified_fit_guidance",
+      "note": "Research suggestions only. Model-specific dimensions, active Canadian availability, category, and fit are not confirmed by the analysis."
+    },
+    {
+      "band": "Tall / Large",
+      "height_min_inches": 70,
+      "height_max_inches": 74,
+      "height_summary": "5 ft 10 in to 6 ft 2 in",
+      "seat_depth_inches": [20.5, 22],
+      "seat_height_inches": [20, 21],
+      "candidates": [
+        { "model_code": "724", "model_name": "Trouper", "category": "sectional", "mechanism_options": ["Power recline", "Power + headrest", "Power + lumbar"], "recommendation_status": "conflicting_fit_guidance" },
+        { "model_code": "766", "model_name": "Morrison", "category": "motion sofa", "mechanism_options": ["Power recline", "Power + headrest", "Power + lumbar"] },
+        { "model_code": "530", "model_name": "Greyson", "category": "motion sofa", "mechanism_options": ["Power recline", "Power + headrest", "Power + lumbar"] }
+      ],
+      "verification_status": "unverified_fit_guidance",
+      "note": "Research suggestions only. Model-specific dimensions, active Canadian availability, category, and fit are not confirmed by the analysis."
+    },
+    {
+      "band": "Extra Tall / XL",
+      "height_min_inches": 75,
+      "height_max_inches": null,
+      "height_summary": "6 ft 3 in and taller",
+      "seat_depth_inches": [21, 23],
+      "seat_height_inches": [21, 22.5],
+      "candidates": [
+        { "model_code": "519", "model_name": "Astor", "category": "recliner", "categories": ["recliner", "lift"], "mechanism_options": ["Manual", "Power recline", "Power + headrest", "Power + lumbar", "Lift chair"] },
+        { "model_code": "776", "model_name": "Redwood", "category": "recliner", "mechanism_options": ["Manual", "Power recline", "Power + headrest", "Power + lumbar"] },
+        { "model_code": "777", "model_name": "Randell", "category": "recliner", "mechanism_options": ["Manual", "Power recline", "Power + headrest", "Power + lumbar"] },
+        { "model_code": "805", "model_name": "Ace", "category": "recliner", "mechanism_options": ["Manual", "Power recline", "Power + headrest", "Power + lumbar"] }
+      ],
+      "verification_status": "unverified_fit_guidance",
+      "note": "Research suggestions only. Model-specific dimensions, active Canadian availability, category, and fit are not confirmed by the analysis."
+    }
+  ],
+  "entries": [
+    { "section": "Canada market and ordering", "title": "Canadian dealer pricing and surcharges (source claim)", "claim": "The analysis claims Canadian orders use Canadian-dollar transactions based on U.S.-dollar wholesale lists and that some lines may have import surcharges. It supplies no current exchange rate, surcharge schedule, dealer terms, or calculation method. Do not calculate or quote prices from this claim.", "codes": [], "verification_status": "unverified_business_claim" },
+    { "section": "Engineering claims", "title": "Motion-cycle testing (source claim)", "claim": "The document claims manual and power recline assemblies are tested for 100,000 cycles under a 300 lb load per seat; headrest and lumbar mechanisms for 7,500 articulations; and rocker springs for 500,000 oscillations. These figures have not been independently verified and should not be presented as a warranty or lifespan promise.", "codes": [], "verification_status": "unverified_engineering_claim" },
+    { "section": "Engineering claims", "title": "Frame construction (source claim)", "claim": "The document describes a four-sided wood-and-steel unibody chassis and a proprietary OSB panel, with comparative strength and moisture-resistance percentages. The engineering composition and numerical comparisons require manufacturer confirmation.", "codes": [], "verification_status": "unverified_engineering_claim" },
+    { "section": "Manual mechanisms", "title": "Reclina-Rocker mechanism (source claim)", "claim": "The analysis associates prefix 010 with a manual rocker recliner and describes independent back recline, a 16-position ratcheting arc, a three-position legrest, and under-seat tension adjusters. Verify prefix function and feature availability by model.", "codes": ["010"], "verification_status": "unverified_prefix_claim" },
+    { "section": "Manual mechanisms", "title": "Reclina-Way wall recliner mechanism (source claim)", "claim": "The analysis associates prefix 016 with a track-and-wheel wall recliner and claims as little as 5 inches of clearance. The existing local catalog currently describes 016 as a glider recliner, so this conflict must be resolved against a current source before use.", "codes": ["016"], "verification_status": "conflicts_with_local_catalog" },
+    { "section": "Manual mechanisms", "title": "Reclina-Glider mechanism (source claim)", "claim": "The analysis associates prefix 017 with a manual glider, 360-degree swivel, independent back recline, and one-position legrest. Verify the swivel and operation details for each model.", "codes": ["017"], "verification_status": "unverified_prefix_claim" },
+    { "section": "Power mechanisms", "title": "Power recline platform P10/P16 (source claim)", "claim": "The analysis describes two motors for back and leg movement and a four-button control with USB. Verify motor count and controls by current model-specific documentation.", "codes": ["P10", "P16"], "verification_status": "unverified_hardware_claim" },
+    { "section": "Power mechanisms", "title": "Power headrest platform (source claim)", "claim": "The analysis describes three motors for back, leg, and headrest movement, a headrest articulation angle up to 55 degrees, toggle controls, home button, and USB. Treat as a general claim needing model-specific confirmation.", "codes": ["10U", "33U", "U44"], "verification_status": "unverified_hardware_claim" },
+    { "section": "Power mechanisms", "title": "Power headrest and lumbar platform (source claim)", "claim": "The analysis describes four motors and lumbar extension up to 3 inches, in addition to back, leg, and headrest movement. Verify exact prefix meanings and model compatibility.", "codes": ["10X", "16X", "33X"], "verification_status": "unverified_hardware_claim" },
+    { "section": "Power mechanisms", "title": "Wireless remote upgrade (source claim)", "claim": "The source claims compatible multi-actuator remotes provide two memory presets, auto-home, a locator, magnetic cradle, and a control lock. Model and option compatibility are not established.", "codes": ["RW", "LW"], "verification_status": "unverified_option_claim" },
+    { "section": "Power mechanisms", "title": "Power mechanism obstruction safety (source claim)", "claim": "The document claims a spring-loaded disengagement system protects motors when a closing mechanism encounters an obstruction. Do not treat this as a safety guarantee without manufacturer confirmation.", "codes": [], "verification_status": "unverified_safety_claim" },
+    { "section": "Ergonomic research", "title": "Petite fit band (research suggestion)", "claim": "The analysis suggests a height band of 5 ft 4 in and under, with seat depth 18–19.5 in and seat height 18–19 in, and mentions Pinnacle 512 and Vail 403. It does not provide model-specific supporting dimensions or Canadian verification; do not use as an automatic recommendation.", "codes": ["512", "403"], "verification_status": "unverified_fit_guidance" },
+    { "section": "Ergonomic research", "title": "Small-to-medium fit band (research suggestion)", "claim": "The analysis suggests 5 ft 5 in–5 ft 9 in, seat depth 19.5–20.5 in, and seat height 19–20 in; it names James 521, Rowan 765, and Harbor Town 799. Verify model dimensions and source before recommending.", "codes": ["521", "765", "799"], "verification_status": "unverified_fit_guidance" },
+    { "section": "Ergonomic research", "title": "Tall/large fit band (research suggestion)", "claim": "The analysis suggests 5 ft 10 in–6 ft 2 in, seat depth 20.5–22 in, and seat height 20–21 in; it names Trouper 724, Morrison 766, and Greyson 530. Verify each model's dimensions; this is not medical or guaranteed-fit advice.", "codes": ["724", "766", "530"], "verification_status": "unverified_fit_guidance" },
+    { "section": "Ergonomic research", "title": "Extra-tall fit band (research suggestion)", "claim": "The analysis suggests 6 ft 3 in and taller, seat depth 21–23 in, and seat height 21–22.5 in; it names Astor 519 and Summit models. The document does not substantiate dimensions by model; do not use as an automatic recommendation.", "codes": ["519", "776", "777", "805"], "verification_status": "unverified_fit_guidance" },
+    { "section": "Product line research", "title": "Summit Series models and construction (source claim)", "claim": "The source groups Redwood 776, Randell 777, and Ace 805 as Summit Series and claims a taller solid-wood base, wider chassis, five springs per seat, reinforced drive rods, 2.5 lb foam, and additional calf support. Confirm exact model membership, specifications, and availability with current Canadian literature.", "codes": ["776", "777", "805"], "verification_status": "unverified_product_claim" },
+    { "section": "Lift chair research", "title": "Bronze lift tier (source claim)", "claim": "The analysis lists Liam 786, Jean 793, and Billie 794 at 300 lb, with a sequential one-motor lift/recline system and 13-inch clearance. Verify per-model rating and clearance before use.", "codes": ["786", "793", "794", "3BL"], "verification_status": "unverified_lift_spec" },
+    { "section": "Lift chair research", "title": "Silver lift tier (source claim)", "claim": "The analysis lists James 521 at 325 lb, with two motors and 5-inch clearance. Confirm against current model tear pads and Canadian warranty/spec sheets.", "codes": ["521", "4LP"], "verification_status": "unverified_lift_spec" },
+    { "section": "Lift chair research", "title": "Gold lift tier (source claim)", "claim": "The analysis lists Clayton 562 at 500 lb and claims three motors, 13-inch clearance, six massage motors, and warming pads. Verify every specification and current availability.", "codes": ["562", "1HM"], "verification_status": "unverified_lift_spec" },
+    { "section": "Lift chair research", "title": "Platinum lift tier (source claim)", "claim": "The analysis lists Pinnacle 512 and Astor 519 at 350 lb, with 1PL/1PH configurations, enclosed bases, 12-inch clearance, and zero-gravity positioning. Verify by exact model and prefix before use.", "codes": ["512", "519", "1PL", "1PH"], "verification_status": "unverified_lift_spec" },
+    { "section": "Style prefix research", "title": "Recliner prefix taxonomy (source claim)", "claim": "The analysis groups 010/P10, 10U/10X, 016/P16/16X, 017, and lift prefixes 1HM, 1PL/1PH, 4LP/3BL by mechanism. Prefix aliases and motor/feature meanings may vary by model; confirm with tear pads.", "codes": ["010", "P10", "10U", "10X", "016", "P16", "16X", "017", "1HM", "1PL", "1PH", "4LP", "3BL"], "verification_status": "unverified_prefix_taxonomy" },
+    { "section": "Style prefix research", "title": "La-Z-Time 400-series prefix taxonomy (source claim)", "claim": "The analysis describes sofa, loveseat, console loveseat, drop-down table sofa, and chair-and-a-half families, plus left/right modular pieces and power/headrest/lumbar variants. Mid-run-only notes appear for some modular prefixes. Verify exact combinations and model-run applicability.", "codes": ["444", "U44", "X44", "448", "U48", "X48", "449", "U49", "X49", "446", "U46", "X46", "445", "U45", "X45", "44A", "U44A", "X44A", "44B", "U44B", "X44B", "44S", "U44S", "X44S", "44Q", "44V", "44C", "SC4"], "verification_status": "unverified_prefix_taxonomy" },
+    { "section": "Style prefix research", "title": "Reclina-Way 300-series prefix taxonomy (source claim)", "claim": "The analysis groups wall sofa, loveseat, and console loveseat prefixes with power/headrest/lumbar variants. Confirm nomenclature and hardware availability by model.", "codes": ["330", "33U", "33X", "320", "32U", "32X", "339", "U39", "X39"], "verification_status": "unverified_prefix_taxonomy" },
+    { "section": "Style prefix research", "title": "Stationary, sleeper, accent, and duo prefixes (source claim)", "claim": "The analysis lists these family/code groupings: 510/520/555 sleeper frames; 610/620/630 stationary frames; 230/240/855 accent/ottoman/chair-and-a-half; 061/063/023 Comfort Essentials; and P91/P93/P94 duo. Verify names and active Canadian applicability.", "codes": ["510", "520", "555", "610", "620", "630", "230", "240", "855", "061", "063", "023", "P91", "P93", "P94"], "verification_status": "unverified_prefix_taxonomy" },
+    { "section": "Cushion research", "title": "Cushion core density and application claims", "claim": "The source describes standard, Ultra Plush, ComfortCore Premier, FS Contour, Z6, and DC cushion systems, with foam density/layering claims and suggested applications. The text contains questionable unit notation (for example, foam density rendered as '27 lb/cu. ft. (1.8 Density)'); do not copy numerical density values into product specs until the original engineering source clarifies units.", "codes": ["FS", "Z6", "DC"], "verification_status": "unverified_cushion_claim" },
+    { "section": "Cushion research", "title": "Bucket seat geometry (source claim)", "claim": "The analysis distinguishes Original, Sculpted, and Hybrid bucket geometries and claims different side-wedge densities, including 440/444 variants. Verify exact model and production-run applicability.", "codes": ["440", "444"], "verification_status": "unverified_cushion_claim" },
+    { "section": "Cover compatibility research", "title": "Wearability classes and motion restrictions (source claim)", "claim": "The analysis says Normal/Black Dot is broadly approved, Medium/Green Dot is limited to stationary, sleeper, duo, high-leg, and occasional-chair frames, and Performance/P Dot is broadly approved. It explicitly prohibits Medium on motion prefixes. These are high-impact buildability rules; do not enforce them until checked against official current CAP/cover documents.", "codes": [], "verification_status": "unverified_build_rule" },
+    { "section": "Cover treatment research", "title": "i-Clean stain coverage (source claim)", "claim": "The document lists example covered and excluded stains and claims a three-year stain warranty. This is not the warranty text; refer customers to current written Canadian warranty and care instructions.", "codes": ["i-Clean"], "verification_status": "unverified_warranty_claim" },
+    { "section": "Cover treatment research", "title": "Specialty fabric treatment terms (source claim)", "claim": "The analysis describes Pet Friendly (PF), Conserve (c), Antimicrobial (A), Restore by Nanobionic (N), and Bleach Cleanable (WB/W*B) treatments. Availability and marketing claims are not verified for the Canadian market or for any specific cover.", "codes": ["PF", "c", "A", "N", "WB", "W*B"], "verification_status": "unverified_cover_claim" },
+    { "section": "Cover construction research", "title": "CAP codes and cutting/orientation (source claim)", "claim": "The source describes UR, DR, VS, PS, DP, NP, UE, BU, and RL cutting/orientation or venting implications. Local CAP catalog definitions may differ; do not change SKU logic or selection rules based on this summary alone.", "codes": ["UR", "DR", "VS", "PS", "DP", "NP", "UE", "BU", "RL"], "verification_status": "unverified_cap_claim" },
+    { "section": "Leather research", "title": "Leather classifications and treatment claims", "claim": "The source distinguishes Authentic, Performance, Nubuck, Crypton, and iClean leather and describes surface treatments and care properties. It cites examples such as Athena FL1932, but these are not confirmed active Canadian offerings.", "codes": ["FL1932", "DL1962", "FL1907", "FL2078", "HL1906"], "verification_status": "unverified_leather_claim" },
+    { "section": "Leather research", "title": "Leather application tiers and pillow restriction (source claim)", "claim": "The document describes SLR/SLS/CLM/CLP leather application tiers and claims P1 accent pillows cannot use LL/LS/LM/RL/BU/UE covers, requiring a separate valid fabric or omission of pillows. Treat as a critical candidate validation rule pending confirmation from the cited leather and CAP documents.", "codes": ["SLR", "SLS", "CLM", "CLP", "LL", "LS", "LM", "RL", "BU", "UE", "P1"], "verification_status": "unverified_build_rule" },
+    { "section": "Battery research", "title": "Battery SKUs, run-time, and compatibility (source claim)", "claim": "The analysis names 088BP1 single and 088BP2 dual packs, claims 5–7 hours charging and 5–7 days operation at ten cycles per day, and lists prefix compatibility. It excludes lift chairs, power-console bundles, and drop-down tables. Existing app codes use BP1/BP2; the 088 SKU crosswalk is not verified. Do not generate or reject orders from these claims yet.", "codes": ["088BP1", "088BP2", "0881YC", "BP1", "BP2"], "verification_status": "unverified_battery_rule" },
+    { "section": "Console and accessory research", "title": "Power console bundles (source claim)", "claim": "The source lists CB/CC/CM finishes, selected console loveseat and modular prefixes, outlets, USB, wireless charging, and accessory SKUs. Verify voltage, components, eligible models, and Canadian electrical specifications before customer-facing use.", "codes": ["CB", "CC", "CM", "SC4", "6SC", "088110", "088112", "088113"], "verification_status": "unverified_accessory_claim" },
+    { "section": "Console and accessory research", "title": "Drop-down table and swivel/base options (source claim)", "claim": "The document describes 446/U46/X46 table features and power requirements, SL/SW swivel options, tall-base kits, and handle options. Exact fit, prefix, and SKU compatibility is not established; verify against model-specific tear pads.", "codes": ["446", "U46", "X46", "SL", "SW", "088210", "088266", "1H", "3H", "L1", "L3", "LE"], "verification_status": "unverified_accessory_claim" },
+    { "section": "Warranty research", "title": "Warranty matrix (source claim; not Canadian warranty text)", "claim": "The analysis claims limited lifetime for manual mechanisms/frames/springs, five years for duo mechanisms, three years for power motors/electronics and certain iClean stains, and one year for batteries, foam, and standard fabric/leather seam or nap loss. This conflicts with existing local warranty summaries and is not a substitute for the current Canadian written warranty.", "codes": [], "verification_status": "conflicts_with_local_catalog" },
+    { "section": "Recommendation-engine research", "title": "Five proposed validation stages", "claim": "The analysis proposes: ergonomic/capacity filtering; mechanical prefix selection; fabric wearability validation; leather tier and accent-pillow checks; and battery/electronics compatibility. This is a candidate validation checklist only; no rules are enabled until their source data and model-specific exceptions are verified.", "codes": [], "verification_status": "research_only" },
+    { "section": "Product lineup candidates", "title": "Acadia · 811 (source matrix claim)", "claim": "The analysis labels Acadia as a small/medium motion sectional with power variants and FS Contour availability. The uploaded Acadia tear pad is a better source for its specific piece codes and dimensions; the analysis does not establish current variant availability.", "codes": ["811", "P10", "P16", "10U", "10X", "FS"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Ace · 805 (source matrix claim)", "claim": "Listed as Summit manual, extra-tall, and no sleeper, with a firm cushion. Current Canadian availability and details are unverified.", "codes": ["805"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Alani · 665 (source matrix claim)", "claim": "Listed as a motion modular line with power/headrest and FS Contour. This conflicts with the provided 2024 Alani tear pad, which describes a stationary sectional with chair, chaise, and corner pieces. Use the tear pad for its documented pieces; verify any motion variants separately.", "codes": ["665", "FS"], "verification_status": "conflicts_with_uploaded_tearpad" },
+    { "section": "Product lineup candidates", "title": "Allegra · 401 (source matrix claim)", "claim": "Listed as stationary with Z6/DC cushion upgrades. Current Canadian availability and model specifications are unverified.", "codes": ["401", "Z6", "DC"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Apollo · 757 (source matrix claim)", "claim": "Listed as recliner with 446 drop-down table option and FS Contour. Verify each option for the active Canadian model.", "codes": ["757", "446", "FS"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Armitage · 812 (source matrix claim)", "claim": "Listed as small/medium motion with FS Contour. The uploaded Armitage tear pad is the source for its piece names and dimensions; current variants and cushion option still need confirmation.", "codes": ["812", "10U", "10X", "FS"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Astor · 519 (source matrix claim)", "claim": "Listed as extra-tall, with 1PL/1PH lift options and FS Contour. Verify the exact reclining and lift configurations from current Canadian sheets.", "codes": ["519", "1PL", "1PH", "FS"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Bennett · 899 (source matrix claim)", "claim": "Listed as stationary with a queen sleeper option and Z6/DC cushion upgrades. Current Canadian availability is unverified.", "codes": ["899", "Z6", "DC"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Billie · 794 (source matrix claim)", "claim": "Listed with manual/power, 3BL lift, and FS Contour. Verify compatibility and availability by configuration.", "codes": ["794", "3BL", "FS"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Clayton · 562 (source matrix claim)", "claim": "Listed as lift-only with 1HM. The existing lift-tier catalog also contains Clayton; validate rating and features against a current Canadian tear pad.", "codes": ["562", "1HM"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Collins · 494 (source matrix claim)", "claim": "Listed as stationary with queen/full sleeper options and Z6/DC. Current Canadian availability and sleeper details are unverified.", "codes": ["494", "Z6", "DC"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Dutton · 828 (source matrix claim)", "claim": "Listed as La-Z-Time motion with 446 drop-down table. Confirm family, prefixes, and current Canadian availability.", "codes": ["828", "U44", "U48", "X44", "X48", "446"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Greyson · 530 (source matrix claim)", "claim": "Listed as La-Z-Time motion with 446 drop-down table and tall/large fit. Verify against current model-specific documentation.", "codes": ["530", "U44", "U48", "X44", "X48", "446"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "James · 521 (source matrix claim)", "claim": "Listed as small/medium, with a 4LP lift-chair configuration and FS Contour. Verify exact model/run compatibility.", "codes": ["521", "4LP", "FS"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Jean · 793 (source matrix claim)", "claim": "Listed as small/medium with 3BL lift and FS Contour. Verify current Canadian model availability and options.", "codes": ["793", "3BL", "FS"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Liam · 786 (source matrix claim)", "claim": "Listed as small/medium with 3BL lift and FS Contour. Verify current Canadian model availability and options.", "codes": ["786", "3BL", "FS"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Morrison · 766 (source matrix claim)", "claim": "Listed as La-Z-Time motion with tall/large fit and 446 drop-down table. Verify all claims against current Canadian sheets.", "codes": ["766", "U44", "U48", "X44", "X48", "446"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Pinnacle · 512 (source matrix claim)", "claim": "Listed as petite, with 1PL/1PH lift options and FS Contour. The source's prefix taxonomy contains an inconsistent 16X association; verify exact variants and fit dimensions.", "codes": ["512", "1PL", "1PH", "10U", "16X", "FS"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Randell · 777 (source matrix claim)", "claim": "Listed as Summit manual and extra-tall. Current Canadian availability and specifications are unverified.", "codes": ["777"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Redwood · 776 (source matrix claim)", "claim": "Listed as Summit manual and extra-tall. Current Canadian availability and specifications are unverified.", "codes": ["776"], "verification_status": "unverified_lineup_claim" },
+    { "section": "Product lineup candidates", "title": "Trouper · 724 (research matrix, tear-pad-confirmed model code)", "claim": "The uploaded Trouper tear pad MP0092 (2024) confirms Trouper sectional model code 724 and supersedes the earlier incorrect local 717 mapping. The matrix also suggests tall/large fit and a 446 drop-down table; those details remain unverified by the tear pad and should not be imported as confirmed specifications.", "codes": ["724", "U44", "U48", "X44", "X48", "446"], "verification_status": "model_code_confirmed_by_uploaded_tearpad" },
+    { "section": "Source limitations", "title": "Citations and document extraction caveats", "claim": "The analysis cites several separate PDFs and web pages, but their contents are not all attached with this resource. The extracted document contains malformed table separators and stray 'h>' text. Treat quoted tables as leads; verify original source pages and dates before importing specifications or rules.", "codes": [], "verification_status": "source_limitation" }
+  ],
+  "cited_sources_unverified": [
+    "Lazy boy Knowledge Base.pdf (cited in the analysis; not attached in this batch)",
+    "a3pj6zuhwjwl0slnqn8x.pdf (cited in the analysis; not attached in this batch)",
+    "Cap Codes 3.pdf (cited in the analysis; not attached in this batch)",
+    "La-Z-Boy Leathers 3.pdf (cited in the analysis; not attached in this batch)",
+    "https://www.la-z-boy.co.nz/comfort-guides/recliners/ (New Zealand market source)",
+    "https://www.la-z-boy.com/p/living-room/recliners/rocking-recliners/astor-rocking-recliner/R-010519 (U.S. market source)",
+    "https://www.stylemeetscomfort.ca/learning-center/recliner-best-fit (Canadian secondary source)",
+    "https://www.southtexasfurniture.com/blog/how-to-find-the-best-recliner-fit-for-you (U.S. secondary source)",
+    "https://www.la-z-boy.com/p/living-room/recliners/rocking-recliners/pinnacle-rocking-recliner/R-010512 (U.S. market source)",
+    "https://www.la-z-boy.com/p/living-room/recliners/wall-recliners/apollo-power-wall-recliner-w-headrest-lumbar/R-16X757 (U.S. market source)"
+  ]
+}

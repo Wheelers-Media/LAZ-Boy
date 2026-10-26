@@ -1,0 +1,208 @@
+{
+  "model_code": "665",
+  "model_name": "Alani",
+  "sectional_family": "Stationary",
+  "source": "Alani Tearpad - MP0095 7-5-2024.pdf",
+  "source_document_code": "MP0095",
+  "source_document_footer_date": "06/01/24",
+  "product_description": "Alani is a spacious stationary sectional with deep, wide cushions and casual rolled arms. Its premium cushions are described as keeping their shape, with a selection of modular pieces for custom layouts.",
+  "pieces": [
+    {
+      "code": "60A",
+      "key": "LA_chair",
+      "name": "Left-Arm Sitting Chair",
+      "dimensions_text": "38\" H × 46\" W × 42\" D",
+      "printed_codes": [
+        "9CC",
+        "9EP",
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "60B",
+      "key": "RA_chair",
+      "name": "Right-Arm Sitting Chair",
+      "dimensions_text": "38\" H × 46\" W × 42\" D",
+      "printed_codes": [
+        "9CC",
+        "9EP",
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "6CC",
+      "key": "corner_wedge",
+      "name": "Corner",
+      "dimensions_text": "38\" H × 68\" W × 42\" D",
+      "printed_codes": [
+        "9CC",
+        "9EP",
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "60M",
+      "key": "armless_chair",
+      "name": "Armless Chair",
+      "dimensions_text": "38\" D × 40.5\" W × 42\" D",
+      "dimensions_note": "Extracted text labels both the first and third dimensions as depth; verify the first label from the page image before relying on it.",
+      "printed_codes": [
+        "9CC",
+        "9EP",
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "60L",
+      "key": "LA_chaise",
+      "name": "Left-Arm Sitting Chaise",
+      "dimensions_text": "38\" H × 46\" W × 64\" D",
+      "printed_codes": [
+        "9CC",
+        "9EP",
+        "9DP",
+        "90M"
+      ]
+    },
+    {
+      "code": "60R",
+      "key": "RA_chaise",
+      "name": "Right-Arm Sitting Chaise",
+      "dimensions_text": "38\" H × 46\" W × 64\" D",
+      "printed_codes": [
+        "9CC",
+        "9EP",
+        "9DP",
+        "90M"
+      ]
+    }
+  ],
+  "configuration_diagram_dimension_labels_in": [
+    "132.5 x 64",
+    "169",
+    "128.5",
+    "88",
+    "165",
+    "128.5 x 128.5",
+    "128.5 x 169"
+  ],
+  "configuration_diagram_dimension_note": "Dimension labels are reproduced from the arrangement diagrams. Text extraction does not preserve a reliable mapping between each label and its diagram, so no specific piece sequence is assigned.",
+  "printed_codes_note": "Printed codes are transcribed from the piece callouts; their meanings are not established by the extracted text.",
+  "fit_specs_verified": false,
+  "product_guide_measurements": {
+    "source": "APRIL 2026 - PRODUCT INFORMATION GUIDE.xlsx",
+    "edition": "April 2026",
+    "columns": [
+      "H",
+      "W",
+      "D",
+      "SH",
+      "SW",
+      "SD",
+      "AH",
+      "EXT",
+      "RD",
+      "LH",
+      "WT_LB",
+      "SEAT_FACTOR",
+      "WALL_SPACE"
+    ],
+    "note": "Values are transcribed from the guide Dimensions table and keyed to exact printed style numbers. Linear measurements are inches. WT_LB is the product/unit weight, not a user-weight capacity. Blank source cells remain null. These dimensions do not establish recommended customer height or fit.",
+    "rows": {
+      "60A665": [
+        38,
+        46,
+        42,
+        21,
+        36,
+        24,
+        26.5,
+        null,
+        null,
+        null,
+        104,
+        2,
+        46
+      ],
+      "60B665": [
+        38,
+        46,
+        42,
+        21,
+        36,
+        24,
+        26.5,
+        null,
+        null,
+        null,
+        104,
+        2,
+        46
+      ],
+      "6CC665": [
+        38,
+        68,
+        42,
+        21,
+        null,
+        25,
+        null,
+        null,
+        null,
+        null,
+        98,
+        2,
+        84
+      ],
+      "60M665": [
+        38,
+        40.5,
+        42,
+        21,
+        40.5,
+        24,
+        null,
+        null,
+        null,
+        null,
+        80,
+        2,
+        40.5
+      ],
+      "60L665": [
+        38,
+        46,
+        66,
+        21,
+        36,
+        48,
+        26.5,
+        null,
+        null,
+        null,
+        140,
+        2,
+        46
+      ],
+      "60R665": [
+        38,
+        46,
+        66,
+        21,
+        36,
+        48,
+        26.5,
+        null,
+        null,
+        null,
+        146,
+        2,
+        46
+      ]
+    }
+  }
+}

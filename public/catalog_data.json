@@ -1,0 +1,122 @@
+{
+  "system_info": {
+    "title": "La-Z-Boy Master Catalog Data Engine",
+    "version": "1.0.0",
+    "description": "Local sales-floor reference data for style prefixes, models, covers, options, warranties, and modular pieces."
+  },
+  "style_prefixes": [
+    { "prefix": "010", "category": "Recliner", "type": "Manual Rocking Recliner", "description": "Standard 3-position handle reclining chair with 360-degree rocking motion when upright.", "clearance_required_inches": 12, "swivel_compatible": true, "power_compatible": false },
+    { "prefix": "015", "category": "Recliner", "type": "Manual Wall Recliner", "description": "Wall-away track reclining chair that glides forward. Ideal for tight spaces.", "clearance_required_inches": 4, "swivel_compatible": false, "power_compatible": false, "supports_power": true },
+    { "prefix": "016", "category": "Recliner", "type": "Glider Recliner", "description": "Smooth linear gliding motion chair with full reclining mechanism.", "clearance_required_inches": 12, "swivel_compatible": true, "power_compatible": false },
+    { "prefix": "017", "category": "Recliner", "type": "Swivel Glider Recliner", "description": "Swivel glider recliner for smooth motion and easy conversation.", "clearance_required_inches": 12, "swivel_compatible": true, "power_compatible": false },
+    { "prefix": "10U", "category": "Power Recliner", "type": "Power Rocking Recliner w/ Power Headrest", "description": "Power rocking recliner with independently adjustable headrest.", "clearance_required_inches": 12, "swivel_compatible": true, "power_compatible": true, "battery_pack": "BP1" },
+    { "prefix": "10X", "category": "Power Recliner", "type": "Power Rocking Recliner w/ Power Headrest & Lumbar", "description": "Power rocking recliner with independent power headrest and power lumbar support.", "clearance_required_inches": 12, "swivel_compatible": true, "power_compatible": true, "battery_pack": "BP1" },
+    { "prefix": "16X", "category": "Power Recliner", "type": "Power Wall Recliner w/ Power Headrest & Lumbar", "description": "Power wall-away recliner needing only 4 inches clearance with power headrest and lumbar.", "clearance_required_inches": 4, "swivel_compatible": false, "power_compatible": true, "battery_pack": "BP1" },
+    { "prefix": "1HM", "category": "Lift Chair", "type": "Gold Series Luxury Power Lift Recliner", "description": "Full power lift chair with massage and heat wand control.", "clearance_required_inches": 18, "swivel_compatible": false, "power_compatible": true, "battery_pack": "INCOMPATIBLE" },
+    { "prefix": "3BL", "category": "Lift Chair", "type": "Bronze Series Power Lift Recliner", "description": "Essential power lift chair with simple hand controller.", "clearance_required_inches": 18, "swivel_compatible": false, "power_compatible": true, "battery_pack": "BP1" },
+    { "prefix": "028", "category": "High Leg Accent", "type": "2-Position High Leg Recliner", "description": "Designer’s Choice push-back high leg chair with 2 reclining positions.", "clearance_required_inches": 16, "swivel_compatible": false, "power_compatible": false },
+    { "prefix": "295", "category": "High Leg Accent", "type": "3-Position High Leg Recliner", "description": "Designer’s Choice press-back reclining chair with 3 defined recline angles.", "clearance_required_inches": 16, "swivel_compatible": false, "power_compatible": false },
+    { "prefix": "29U", "category": "High Leg Accent", "type": "Power High Leg Recliner w/ Headrest", "description": "Power reclining high-leg chair with concealed power headrest.", "clearance_required_inches": 16, "swivel_compatible": false, "power_compatible": true, "battery_pack": "BP1" },
+    { "prefix": "330", "category": "Motion Furniture", "type": "Reclina-Way Manual Motion Sofa / Loveseat", "description": "Dual reclining sofa or loveseat with center console or drop-down table options.", "clearance_required_inches": 4, "swivel_compatible": false, "power_compatible": false },
+    { "prefix": "444", "category": "Motion Furniture", "type": "La-Z-Time Manual Motion Group", "description": "Classic motion family sofa and loveseat group.", "clearance_required_inches": 6, "swivel_compatible": false, "power_compatible": false },
+    { "prefix": "33P", "category": "Motion Furniture", "type": "Power Reclina-Way Motion Group", "description": "Power motion group with optional power headrest and battery compatibility.", "clearance_required_inches": 4, "swivel_compatible": false, "power_compatible": true, "battery_pack": "BP2" },
+    { "prefix": "33U", "category": "Motion Furniture", "type": "Power Reclina-Way Group w/ Headrest", "description": "Power motion sofa or loveseat with adjustable headrest.", "clearance_required_inches": 4, "swivel_compatible": false, "power_compatible": true, "battery_pack": "BP2" },
+    { "prefix": "33X", "category": "Motion Furniture", "type": "Power Reclina-Way Group w/ Headrest & Lumbar", "description": "Power motion group with power headrest and lumbar support.", "clearance_required_inches": 4, "swivel_compatible": false, "power_compatible": true, "battery_pack": "BP2" },
+    { "prefix": "32U", "category": "Motion Furniture", "type": "Power Wall-Away Motion Group w/ Headrest", "description": "Wall-away power motion sofa or loveseat with adjustable headrest.", "clearance_required_inches": 4, "swivel_compatible": false, "power_compatible": true, "battery_pack": "BP2" },
+    { "prefix": "39P", "category": "Motion Furniture", "type": "Power Motion Group", "description": "Power motion sofa or loveseat, compatible with BP2.", "clearance_required_inches": 4, "swivel_compatible": false, "power_compatible": true, "battery_pack": "BP2" },
+    { "prefix": "811", "category": "Modular Motion Sectional", "type": "Acadia Modular Power Sectional Group", "description": "Modern track-arm modular reclining sectional with wireless charging console.", "clearance_required_inches": 4, "swivel_compatible": false, "power_compatible": true, "battery_pack": "BP2" },
+    { "prefix": "610", "category": "Stationary", "type": "Stationary Sofa / Loveseat / Chair", "description": "Static deep-seat living room suite with wood feet or skirt option.", "clearance_required_inches": 0, "swivel_compatible": false, "power_compatible": false },
+    { "prefix": "510", "category": "Sleeper", "type": "Full / Queen Innerspring Sleeper Sofa", "description": "Stationary sofa featuring pull-out Memory Foam or Supreme Comfort mattress.", "clearance_required_inches": 0, "swivel_compatible": false, "power_compatible": false, "weight_limit_lbs": 400 }
+  ],
+  "models_database": [
+    { "model_code": "402", "model_name": "Maeve", "category": "Stationary / Designer Accent", "scale": "Mid-Scale", "recommended_height": "5'5\" - 5'11\"", "weight_limit_lbs": 300, "key_features": ["Track arms", "Tailored profile"], "look_alikes": ["Bellevue (421)", "Eldorado (423)"], "quick_spotter": "Maeve has sharp flat track arms; Bellevue has subtle outward flares." },
+    { "model_code": "512", "model_name": "Pinnacle", "category": "Recliner / Lift Chair", "scale": "Mid-Scale / Plush", "recommended_height": "5'7\" - 6'0\"", "weight_limit_lbs": 350, "key_features": ["Pillow top arms", "High split-back channel cushioning", "Chaise legrest"], "look_alikes": ["Trouper (724)", "Astor (519)"], "quick_spotter": "Pinnacle has plush pillow-top arms; Trouper has structured padded arms." },
+    { "model_code": "519", "model_name": "Astor", "category": "Recliner / Lift Chair", "scale": "Tall / Large", "recommended_height": "6'1\"+", "weight_limit_lbs": 350, "key_features": ["Tall 45.5\" back", "Deep seat depth", "Triple cushion pillow back"], "look_alikes": ["Clayton (562)", "Pinnacle (512)"], "quick_spotter": "Astor is noticeably taller with three distinct horizontal back cushions." },
+    { "model_code": "521", "model_name": "James", "category": "Motion Sofa / Sectional / Recliner", "scale": "Mid to Large Scale", "recommended_height": "5'8\" - 6'2\"", "weight_limit_lbs": 325, "key_features": ["Pillow top arms", "Stitched bucket seating", "Casual family profile"], "look_alikes": ["Trouper (724)", "Morrison (706)"], "quick_spotter": "James features stitched bucket seats; Morrison features smooth continuous seats." },
+    { "model_code": "562", "model_name": "Clayton", "category": "Heavy-Duty Lift Chair", "scale": "Large / Extra Wide", "recommended_height": "5'10\" - 6'4\"", "weight_limit_lbs": 500, "key_features": ["Extra-wide seat frame", "Dual motor lift mechanism", "500 lbs rating"], "look_alikes": ["Astor (519)"], "quick_spotter": "Clayton seat width is noticeably wider (26\" inside seat width) for heavy-duty support." },
+    { "model_code": "677", "model_name": "Lauren", "category": "Stationary Sofa Suite", "scale": "Mid-Scale Classic", "recommended_height": "Universal", "weight_limit_lbs": 300, "key_features": ["Rolled arms", "Boxed cushions"], "look_alikes": ["Fleetwood (678)", "Collins (610)"], "quick_spotter": "Lauren has pronounced welt trim on rolled arms and boxed cushions." },
+    { "model_code": "724", "model_name": "Trouper", "category": "La-Z-Time Modular Sectional", "scale": "Mid-Scale (verify fit dimensions)", "recommended_height": "Not specified in the tear pad", "weight_limit_lbs": null, "key_features": ["Sculpted bucket seats", "Split back cushions for head, neck, and lumbar support", "Reclining chaise pieces", "Optional storage console with cup holders"], "look_alikes": ["Finley (747)", "James (521)"], "quick_spotter": "Trouper sectional tear pad 2024 (MP0092) documents sculpted bucket seats, split-back cushioning, and modular reclining seating. It does not give ergonomic height guidance or seat capacity." },
+    { "model_code": "747", "model_name": "Finley", "category": "Modern Recliner", "scale": "Contemporary / Compact", "recommended_height": "5'5\" - 5'10\"", "weight_limit_lbs": 300, "key_features": ["Clean contemporary track arms", "Compact profile"], "look_alikes": ["Cade (762)", "Trouper (724)"], "quick_spotter": "Finley features clean contemporary track arms without bulky arm padding." },
+    { "model_code": "811", "model_name": "Acadia", "category": "Modern Motion / Sectional", "scale": "Contemporary High-Tech", "recommended_height": "5'6\" - 6'1\"", "weight_limit_lbs": 300, "key_features": ["Exposed wood legs", "Power motion", "Wireless charging console"], "look_alikes": ["Quinault (810)", "Ovation (A86)"], "quick_spotter": "Acadia sits elevated on exposed wood legs even as a power motion sofa." }
+  ],
+  "cover_cap_codes": [
+    { "code": "DR", "type": "Fabric", "name": "Standard Body Fabric", "grade": "A-C", "description": "High-durability residential woven fabrics." },
+    { "code": "UR", "type": "Fabric", "name": "Upgraded Body Fabric", "grade": "B-C", "description": "Textured chenilles and multi-tone wovens." },
+    { "code": "FL", "type": "Fabric", "name": "Select Accent Fabric", "grade": "FL", "description": "House accent covers for high-leg chairs and pillows." },
+    { "code": "DP", "type": "Fabric", "name": "iClean Performance Fabric", "grade": "D-F", "description": "Stain-resistant liquid barrier technology." },
+    { "code": "BU", "type": "Faux Leather", "name": "Polyurethane / Faux Leather", "grade": "C-D", "description": "Easy-wipe durable synthetic leather." },
+    { "code": "RL", "type": "Recycled Leather", "name": "Recycled Bonded Leather", "grade": "D", "description": "Eco-friendly smooth leather finish." },
+    { "code": "LL", "type": "Leather", "name": "Top Grain Authentic Leather", "grade": "LB/LL", "description": "100% genuine top-grain cowhide leather." },
+    { "code": "LM", "type": "Leather Mate", "name": "Leather Match", "grade": "LM", "description": "Top-grain leather on seating surfaces with matching vinyl on outer sides and back." }
+  ],
+  "cleaning_codes": [
+    { "code": "W", "meaning": "Water-based cleaner", "instructions": "Clean with water-based cleaning agents or foam only." },
+    { "code": "S", "meaning": "Solvent-based cleaner", "instructions": "Clean with mild water-free dry-cleaning solvent only." },
+    { "code": "W-S", "meaning": "Water or Solvent cleaner", "instructions": "Clean with water-based agents or dry-cleaning solvents." },
+    { "code": "X", "meaning": "Vacuum only", "instructions": "Clean only by vacuuming or light brushing. Do not use water or solvents." }
+  ],
+  "wood_finishes": [
+    { "code": "007", "name": "Brown Mahogany", "status": "Standard", "description": "Classic dark warm reddish-brown wood stain." },
+    { "code": "021", "name": "Coffee", "status": "Optional Upgrade", "description": "Deep espresso dark brown stain." },
+    { "code": "041", "name": "Graphite", "status": "Optional Upgrade", "description": "Modern charcoal gray stain." },
+    { "code": "071", "name": "Driftwood", "status": "Optional Upgrade", "description": "Light weathered coastal gray-beige stain." },
+    { "code": "142", "name": "Mesa", "status": "Optional Upgrade", "description": "Warm mid-tone natural oak stain." },
+    { "code": "067", "name": "Sable", "status": "Table Finish", "description": "Rich dark finish used on drop-down console tables." }
+  ],
+  "cushion_upgrades": [
+    { "code": "STD", "name": "Standard Poly Foam", "warranty_years": 1, "description": "High-resiliency polyurethane foam core." },
+    { "code": "FS", "name": "Contour Cushion", "warranty_years": 3, "description": "Body-molding, pressure-relieving Contour Cushion foam over high-resiliency base." },
+    { "code": "Z6", "name": "ComfortCore Plus w/ Contour Cushion", "warranty_years": 3, "description": "Zoned ComfortCore cushioning with Contour Cushion overlay for maximum pressure relief." },
+    { "code": "DC", "name": "ComfortDown Cushion", "warranty_years": 5, "description": "Individually pocketed coils wrapped in a 90/10 down-feather blend casing." }
+  ],
+  "option_suffixes": [
+    { "code": "ES", "name": "Extended Arc Handle", "description": "Longer curved arc wooden handle for easier reach on manual recliners." },
+    { "code": "FS", "name": "Power Swivel Base", "description": "145-degree turning base for power recliners with safety stop." },
+    { "code": "Z6", "name": "360 Swivel Base", "description": "Full 360-degree swivel base for manual recliners." },
+    { "code": "LW", "name": "Left Wireless Remote", "description": "Wireless remote control mounted on left arm side." },
+    { "code": "RW", "name": "Right Wireless Remote", "description": "Wireless remote control mounted on right arm side." },
+    { "code": "BP1", "name": "Single Battery Pack", "description": "Rechargeable lithium-ion battery pack for 1-motor power recliners." },
+    { "code": "BP2", "name": "Dual Battery Pack", "description": "Rechargeable lithium-ion battery pack for 2-motor motion sofas/loveseats." },
+    { "code": "NB", "name": "Black Nailhead Trim", "description": "Hammered black nickel decorative nailheads." },
+    { "code": "NH", "name": "Brass Nailhead Trim", "description": "Classic antique brass decorative nailheads." },
+    { "code": "NS", "name": "Platinum Nailhead Trim", "description": "Modern silver platinum decorative nailheads." },
+    { "code": "SL", "name": "Safety Lock Stopper", "description": "A safety lock option for eligible power swivel configurations." },
+    { "code": "MA", "name": "Memory Foam Mattress", "description": "Memory foam mattress option for eligible sleeper sofas." },
+    { "code": "P1", "name": "Accent Pillows", "description": "Accent pillows to coordinate with the selected cover." },
+    { "code": "FP", "name": "Featherlite Pillows", "description": "Featherlite pillow upgrade for eligible styles." }
+  ],
+  "sectional_modular_pieces": [
+    { "prefix": "44A / U4A / X4A / 8AU", "name": "Left-Arm Recliner", "type": "End Recliner" },
+    { "prefix": "44B / U4B / X4B / 8BU", "name": "Right-Arm Recliner", "type": "End Recliner" },
+    { "prefix": "44C / 8C0", "name": "Corner Unit", "type": "Corner Wedge" },
+    { "prefix": "M44 / 8M0", "name": "Armless Middle Chair", "type": "Stationary Middle" },
+    { "prefix": "44S / U4S / X4S / 8SU", "name": "Armless Recliner", "type": "Motion Middle" },
+    { "prefix": "SC4 / 8SC", "name": "Stow-Away Storage Console", "type": "Console w/ Wireless Charging & USB-C" },
+    { "prefix": "44Q / 8QU", "name": "Left-Arm Reclining Chaise", "type": "Chaise End" },
+    { "prefix": "44V / 8VU", "name": "Right-Arm Reclining Chaise", "type": "Chaise End" },
+    { "prefix": "60A", "name": "Left-Arm Chair", "type": "Stationary Modular End" },
+    { "prefix": "60B", "name": "Right-Arm Chair", "type": "Stationary Modular End" },
+    { "prefix": "60C", "name": "Stationary Corner", "type": "Stationary Modular Corner" },
+    { "prefix": "60M", "name": "Stationary Armless Chair", "type": "Stationary Modular Middle" }
+  ],
+  "warranty_rules": {
+    "lifetime_coverage": "Internal furniture frames, springs, and reclining mechanisms: limited lifetime warranty.",
+    "three_year_coverage": "Electrical components, motors, and lift mechanisms: 3-year warranty. Contour Cushion foam also has 3-year coverage.",
+    "one_year_coverage": "Foam, fabric, leather, battery packs, and labor: 1-year warranty unless a specific upgraded component states otherwise.",
+    "iclean_covered_stains": ["Wine", "Coffee", "Beer", "Milk", "Juice", "Soda", "Ketchup", "Urine", "Dirt"],
+    "iclean_excluded_stains": ["Oil-based products", "Wax / crayons", "Ink marks", "Mustard"]
+  },
+  "battery_packs": [
+    { "code": "BP1", "batteries": 1, "compatible_types": ["Single Power Recliners", "DUO", "La-Z-Motion"], "incompatible_types": ["Luxury Lift", "Console Power Bundles"], "charge_time_hours": "5-7", "low_battery_alert_percent": 30 },
+    { "code": "BP2", "batteries": 2, "compatible_types": ["Power ReclinaWay Motion Sofas/Loveseats"], "incompatible_types": ["Luxury Lift", "Console Power Bundles"], "charge_time_hours": "5-7", "low_battery_alert_percent": 30 }
+  ],
+  "lift_chair_weight_tiers": [
+    { "model": "Clayton", "model_code": "562", "limit_lbs": 500 },
+    { "model": "Pinnacle", "model_code": "512", "limit_lbs": 350 },
+    { "model": "Astor", "model_code": "519", "limit_lbs": 350 },
+    { "model": "James", "model_code": "521", "limit_lbs": 325 },
+    { "model": "Liam", "model_code": "786", "limit_lbs": 300 },
+    { "model": "Jean", "model_code": "793", "limit_lbs": 300 },
+    { "model": "Billie", "model_code": "794", "limit_lbs": 300 }
+  ]
+}

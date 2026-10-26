@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.wrangler/
+**/.wrangler/
+.env
+.env.*
+!.env.example
+.current-preview.*
+.paxton-vite.*
+.preview-response.html
+.vite-preview.*
+.wrangler-preview.*

@@ -1,0 +1,155 @@
+{
+  "model_code": "521",
+  "model_name": "James",
+  "sectional_family": "La-Z-Time",
+  "source": "James Tearpad - MP0521 6-6-24.pdf",
+  "source_document_code": "MP0521",
+  "source_document_footer_date": "06/01/24",
+  "source_document_market": "Not specified; the tear-pad footer lists la-z-boy.com",
+  "product_description": "The tear pad describes James as a reclining sectional with individually selected pieces, customizable arrangements, and optional power reclining.",
+  "catalog_model": {
+    "category": "La-Z-Time Modular Sectional",
+    "scale": "Not specified in tear pad",
+    "recommended_height": "Not specified in tear pad",
+    "weight_limit_lbs": null,
+    "recommendation_eligible": false,
+    "key_features": [
+      "Modular reclining sectional pieces",
+      "Manual and power reclining variants are listed",
+      "Customizable arrangements"
+    ],
+    "look_alikes": [],
+    "quick_spotter": "James tear pad MP0521 documents modular reclining pieces and optional power. It does not provide ergonomic height guidance, seat height/depth/width, or user-weight capacity."
+  },
+  "pieces": [
+    {
+      "key": "LA_recliner",
+      "name": "Left-Arm Sitting Recliner",
+      "variants": [
+        { "code": "44A", "label": "Non-power" },
+        { "code": "U4A", "label": "Power" },
+        { "code": "X4A", "label": "Power" }
+      ],
+      "dimensions_text": "41.5\" H × 33\" W × 39.5\" D",
+      "fully_extended_in": 64.5
+    },
+    {
+      "key": "RA_recliner",
+      "name": "Right-Arm Sitting Recliner",
+      "variants": [
+        { "code": "44B", "label": "Non-power" },
+        { "code": "U4B", "label": "Power" },
+        { "code": "X4B", "label": "Power" }
+      ],
+      "dimensions_text": "41.5\" H × 33\" W × 39.5\" D",
+      "fully_extended_in": 64.5
+    },
+    {
+      "key": "LA_reclining_loveseat",
+      "name": "Left-Arm Sitting Reclining Loveseat",
+      "variants": [
+        { "code": "44D", "label": "Non-power" },
+        { "code": "U4D", "label": "Power" },
+        { "code": "X4D", "label": "Power" }
+      ],
+      "dimensions_text": "41.5\" H × 56.5\" W × 39.5\" D",
+      "fully_extended_in": 64.5
+    },
+    {
+      "key": "RA_reclining_loveseat",
+      "name": "Right-Arm Sitting Reclining Loveseat",
+      "variants": [
+        { "code": "44E", "label": "Non-power" },
+        { "code": "U4E", "label": "Power" },
+        { "code": "X4E", "label": "Power" }
+      ],
+      "dimensions_text": "41.5\" H × 56.5\" W × 39.5\" D",
+      "fully_extended_in": 64.5
+    },
+    {
+      "key": "corner_wedge",
+      "name": "Corner",
+      "variants": [{ "code": "44C", "label": "Corner" }],
+      "dimensions_text": "41.5\" H × 61\" W × 39\" D"
+    },
+    {
+      "key": "armless_recliner",
+      "name": "Armless Recliner",
+      "variants": [
+        { "code": "44S", "label": "Non-power" },
+        { "code": "U4S", "label": "Power" },
+        { "code": "X4S", "label": "Power" }
+      ],
+      "dimensions_text": "41.5\" H × 23.5\" W × 39.5\" D",
+      "fully_extended_in": 64.5
+    },
+    {
+      "key": "armless_chair",
+      "name": "Armless Chair",
+      "variants": [{ "code": "M44", "label": "Chair" }],
+      "dimensions_text": "41.5\" H × 23.5\" W × 39.5\" D"
+    },
+    {
+      "key": "storage_console",
+      "name": "Storage Console",
+      "variants": [{ "code": "SC4", "label": "Console" }],
+      "dimensions_text": "38.5\" H × 14.5\" W × 37.5\" D"
+    },
+    {
+      "key": "LA_chaise",
+      "name": "Left-Arm Sitting Reclining Chaise",
+      "variants": [
+        { "code": "44Q", "label": "Non-power" },
+        { "code": "U4Q", "label": "Power" },
+        { "code": "X4Q", "label": "Power" }
+      ],
+      "dimensions_text": "41.5\" H × 37.5\" W × 68\" D",
+      "fully_extended_in": 77.5
+    },
+    {
+      "key": "RA_chaise",
+      "name": "Right-Arm Sitting Reclining Chaise",
+      "variants": [
+        { "code": "44V", "label": "Non-power" },
+        { "code": "U4V", "label": "Power" },
+        { "code": "X4V", "label": "Power" }
+      ],
+      "dimensions_text": "41.5\" H × 37.5\" W × 68\" D",
+      "fully_extended_in": 77.5
+    }
+  ],
+  "configuration_diagram_dimension_note": "The extracted tear-pad text includes additional arrangement diagrams, but does not preserve reliable mappings between the total footprint labels and specific layouts. No arrangement footprint is assigned.",
+  "product_guide_measurements": {
+    "source": "APRIL 2026 - PRODUCT INFORMATION GUIDE.xlsx",
+    "edition": "April 2026",
+    "columns": ["H", "W", "D", "SH", "SW", "SD", "AH", "EXT", "RD", "LH", "WT_LB", "SEAT_FACTOR", "WALL_SPACE"],
+    "note": "The guide provides Dimensions rows for modular sectional prefixes. These entries supplement this profile only where the exact SKU prefix maps to a known piece variant. WT_LB is product/unit weight, not user-weight capacity. Blank source cells remain null. Measurements belong to the listed SKU prefix and should not be generalized across variants unless their source rows agree.",
+    "rows": {
+      "44A521": [41.5, 33, 39.5, 20.5, 23, 21, 26, 64.5, 4.5, null, 77, 2, 33],
+      "44B521": [41.5, 33, 39.5, 20.5, 23, 21, 26, 64.5, 4.5, null, 77, 2, 33],
+      "44C521": [41.5, 61, 39.5, 22.5, null, 24, null, null, null, null, 65, 2, 88],
+      "44D521": [41.5, 56.5, 39.5, 20.5, 46.5, 21, 26, 64.5, 4.5, null, 122, 2, 56.5],
+      "44E521": [41.5, 56.5, 39.5, 20.5, 46.5, 21, 26, 64.5, 4.5, null, 122, 2, 56.5],
+      "44Q521": [41.5, 37.5, 68, 20.5, 27.5, 48.5, 26, 77.5, 9.5, null, 95, 2, 37.5],
+      "44S521": [41.5, 23.5, 39.5, 20.5, 23.5, 21, 26, 64.5, 4.5, null, 60, 1, 23.5],
+      "44V521": [41.5, 37.5, 68, 20.5, 27.5, 48.5, 26, 77.5, 9.5, null, 95, 2, 37.5],
+      "M44521": [41.5, 23.5, 39.5, 20.5, 23.5, 21, null, null, null, null, 45, 1, null],
+      "SC4521": [38.5, 14.5, 38.5, null, null, null, null, null, null, null, 56, 1, 15.5],
+      "U4A521": [41.5, 33, 39.5, 20.5, 23, 21, 26, 64.5, 4.5, null, 94, 2, 33],
+      "U4B521": [41.5, 33, 39.5, 20.5, 23, 21, 26, 64.5, 4.5, null, 94, 2, 33],
+      "U4D521": [41.5, 56.5, 39.5, 20.5, 46.5, 21, 26, 64.5, 4.5, null, 139, 2, 56.5],
+      "U4E521": [41.5, 56.5, 39.5, 20.5, 46.5, 21, 26, 64.5, 4.5, null, 139, 2, 56.5],
+      "U4Q521": [41.5, 37.5, 68, 20.5, 27.5, 48.5, 26, 77.5, 9.5, null, 95, 2, 37.5],
+      "U4S521": [41.5, 23.5, 39.5, 20.5, 23.5, 21, null, 64.5, 4.5, null, 75, 1, null],
+      "U4V521": [41.5, 37.5, 68, 20.5, 27.5, 48.5, 26, 77.5, 9.5, null, 95, 2, 37.5],
+      "X4A521": [41.5, 33, 39.5, 20.5, 23, 21, 26, 64.5, 4.5, null, 99, 2, 33],
+      "X4B521": [41.5, 33, 39.5, 20.5, 23, 21, 26, 64.5, 4.5, null, 99, 2, 33],
+      "X4D521": [41.5, 56.5, 39.5, 20.5, 46.5, 21, 26, 64.5, 4.5, null, 149, 2, 56.5],
+      "X4E521": [41.5, 56.5, 39.5, 20.5, 46.5, 21, 26, 64.5, 4.5, null, 149, 2, 56.5],
+      "X4Q521": [41.5, 37.5, 68, 20.5, 27.5, 48.5, 26, 77.5, 9.5, null, 100, 2, 37.5],
+      "X4S521": [41.5, 23.5, 39.5, 20.5, 23.5, 21, null, 64.5, 4.5, null, 80, 1, null],
+      "X4V521": [41.5, 37.5, 68, 20.5, 27.5, 48.5, 26, 77.5, 9.5, null, 100, 2, 37.5]
+    }
+  },
+  "fit_specs_verified": false
+}

@@ -1,0 +1,1572 @@
+{
+  "metadata": {
+    "title": "La-Z-Boy Sales Reference Library",
+    "edition": "2026 user-supplied reference set",
+    "status": "reference_only_not_an_authoritative_current_canadian_ordering_source",
+    "use_note": "These user-provided materials are indexed for staff lookup. Their market, effective date, publisher authority, and applicability vary by document. Validate current Canadian availability, configuration, order terms, warranties, and care instructions in the current official documents before relying on or repeating a claim.",
+    "documents": [
+      {
+        "name": "Product Directory & Availability.md",
+        "market": "not stated",
+        "type": "product prefix and style-number directory",
+        "status": "user-provided; current availability and ordering status unverified"
+      },
+      {
+        "name": "Dimensions, Finishes & Technical Specs.md",
+        "market": "not stated",
+        "type": "dimensions, finishes, and fabric cutting reference",
+        "status": "user-provided; verify against the exact current product and cover"
+      },
+      {
+        "name": "Warranty Policies & Terms of Sale.md",
+        "market": "not stated",
+        "type": "warranty and dealer terms reference",
+        "status": "user-provided; not a substitute for the warranty or accepted order terms"
+      },
+      {
+        "name": "April 2026 Cover Information List FINAL (v.5.15.2026) (1).xlsx",
+        "market": "April 2026 market, as titled in source",
+        "type": "cover and swatch information workbook",
+        "status": "user-provided; cover, color, status, collection, and swatch eligibility are row- and program-specific"
+      },
+      {
+        "name": "Leather, Renew and Urethane 1 pager.pdf",
+        "market": "not stated",
+        "type": "staff training and marketing reference",
+        "status": "user-provided; promotional, environmental, durability, and comparative claims are not independently verified here"
+      }
+    ],
+    "guardrails": [
+      "A product-directory entry is not proof that a model or prefix is currently available in Canada.",
+      "The directory does not establish customer fit, weight capacity, model-to-prefix compatibility, price, or inventory.",
+      "Unit shipping weight is not a person's supported weight capacity.",
+      "Warranty tables and dealer terms here are reference extracts; use the current applicable written warranty, price list, and accepted order documents.",
+      "The April 2026 cover workbook contains distinct master cover, color, swatch, collection, and ordering-program tables. A swatch-program entry does not alone establish that a cover is orderable on a particular model or in a particular Canadian market."
+    ]
+  },
+  "dimensions_key": [
+    {
+      "code": "W",
+      "name": "Width",
+      "definition": "Outside body width at the widest point; the source says this includes the handle."
+    },
+    {
+      "code": "H",
+      "name": "Height",
+      "definition": "Floor to the top center of the back."
+    },
+    {
+      "code": "D",
+      "name": "Depth",
+      "definition": "Source definition: wall to front edge when the unit is flush against the wall. Check the exact measurement convention for the cited product sheet."
+    },
+    {
+      "code": "SW",
+      "name": "Seat width",
+      "definition": "Inside width measured between arms."
+    },
+    {
+      "code": "SH",
+      "name": "Seat height",
+      "definition": "Floor to crown of the seat cushion."
+    },
+    {
+      "code": "SD",
+      "name": "Seat depth",
+      "definition": "Front face of the seat cushion to the lower inside back."
+    },
+    {
+      "code": "AH",
+      "name": "Arm height",
+      "definition": "Floor to top of arm."
+    },
+    {
+      "code": "RD",
+      "name": "Recline distance",
+      "definition": "Wall clearance required to recline, as defined in the supplied reference."
+    },
+    {
+      "code": "WT",
+      "name": "Unit weight",
+      "definition": "Total unit shipping weight; not user-weight capacity."
+    }
+  ],
+  "wood_finishes": [
+    {
+      "code": "007",
+      "name": "Brown Mahogany",
+      "description": "Classic medium-brown patina with red-brown undertones."
+    },
+    {
+      "code": "021",
+      "name": "Coffee",
+      "description": "Dark, deep brown finish."
+    },
+    {
+      "code": "041",
+      "name": "Graphite",
+      "description": "Deep finish with gray and dark-brown undertones."
+    },
+    {
+      "code": "071",
+      "name": "Driftwood",
+      "description": "Textured, lighter natural wood tone."
+    },
+    {
+      "code": "142",
+      "name": "Mesa",
+      "description": "Medium brown with rich red undertones.",
+      "restriction": "The supplied reference says available only on style numbers 295–423; verify exact style eligibility."
+    }
+  ],
+  "fabric_cutting_codes": [
+    {
+      "code": "UR",
+      "name": "Up the Roll",
+      "definition": "Vertical pattern direction is parallel to selvage; no pattern matching. Source says multi-seat front rails have vertical seams."
+    },
+    {
+      "code": "DR",
+      "name": "Directional Railroad",
+      "definition": "Cut perpendicular to selvage (railroaded); vertical pattern matching is not possible."
+    },
+    {
+      "code": "VS",
+      "name": "Vertical Stripe",
+      "definition": "Railroaded fabric matched vertically only."
+    },
+    {
+      "code": "PS",
+      "name": "Plaid Stripe",
+      "definition": "Railroaded and matched vertically and horizontally; source notes reversible seat cushions on mirrored patterns."
+    },
+    {
+      "code": "DP",
+      "name": "Directional Plaid",
+      "definition": "Upward directional plaid, matched vertically and horizontally with reversible cushions."
+    },
+    {
+      "code": "NP",
+      "name": "Non-Mirrored Plaid",
+      "definition": "Railroaded and matched vertically only; source says seat cushions are non-reversible."
+    },
+    {
+      "code": "HS",
+      "name": "Horizontal Stripe",
+      "definition": "Pattern pieces cut parallel to selvage and locked on the stripe line to flow horizontally across inside backs, arms, and seats."
+    },
+    {
+      "code": "UE",
+      "name": "Urethane",
+      "definition": "Synthetic railroaded cover. Source notes bottom venting or tan denim backing on units with loose seats/backs."
+    },
+    {
+      "code": "BU",
+      "name": "Breathable Urethane",
+      "definition": "Synthetic railroaded cover. Source notes bottom venting or tan denim backing on units with loose seats/backs."
+    },
+    {
+      "code": "LM",
+      "name": "Leather Match",
+      "definition": "Source definition: top-grain leather on body-touching areas (seat, back, inside arms), with matching vinyl or polyurethane on outer panels."
+    },
+    {
+      "code": "LL",
+      "name": "Full Leather",
+      "definition": "Source definition: 100% top-grain leather throughout the unit."
+    }
+  ],
+  "fabric_wearability_reference": [
+    {
+      "label": "Normal",
+      "source_marker": "Black dot",
+      "statement": "The supplied April 2026 workbook says recommended for all La-Z-Boy upholstered furniture."
+    },
+    {
+      "label": "Medium",
+      "source_marker": "Green dot",
+      "statement": "The supplied workbook says recommended for sofas, sleep sofas, duo, La-Z-Boy Classics, and occasional chairs, and not allowed for recliners, motion sofas, or motion modulars. Check the exact cover's current application flags."
+    },
+    {
+      "label": "Performance",
+      "source_marker": "P dot",
+      "statement": "The supplied workbook says recommended for all La-Z-Boy upholstered furniture and describes additional durability testing. Do not infer a stain warranty from this marker."
+    }
+  ],
+  "cover_specialty_markers": [
+    {
+      "code": "I",
+      "name": "iClean",
+      "source": "April 2026 cover workbook key"
+    },
+    {
+      "code": "C",
+      "name": "Conserve",
+      "source": "April 2026 cover workbook key"
+    },
+    {
+      "code": "A",
+      "name": "Antimicrobial",
+      "source": "April 2026 cover workbook key"
+    },
+    {
+      "code": "PF",
+      "name": "Pet Friendly",
+      "source": "April 2026 cover workbook key"
+    },
+    {
+      "code": "N",
+      "name": "Nanobionic",
+      "source": "April 2026 cover workbook key"
+    },
+    {
+      "code": "W*B",
+      "name": "Bleach Cleanable",
+      "source": "April 2026 cover workbook key; check the cover-specific care instructions"
+    }
+  ],
+  "cover_information_source": {
+    "source_document": "April 2026 Cover Information List FINAL (v.5.15.2026) (1).xlsx",
+    "edition": "April 2026 market, as titled in the workbook",
+    "source_scope": "The extracted workbook includes a master fabric SKU list, master leather SKU list, dealer swatch inventory, ring pages, Design Center, 6x6 and inline swatches, leather and fabric waterfall programs, Select Stationary and Select Reclining leather, test-store hangers, residual value packs, fringe and cord, invoicing breakdowns, swatch icon descriptions, support data, and swatch SKU numbering.",
+    "master_cover_table_fields": [
+      "series number",
+      "pattern name",
+      "colors",
+      "number of SKUs",
+      "product line",
+      "intro date",
+      "horizontal repeat",
+      "vertical repeat",
+      "CAP code",
+      "face contents",
+      "back contents",
+      "wearability",
+      "specialty fabric markers",
+      "welt pattern",
+      "slip-cover program",
+      "cleaning code",
+      "description"
+    ],
+    "pillow_program_exclusions_as_listed": [
+      "LL",
+      "LS",
+      "LM",
+      "RL",
+      "BU",
+      "UE"
+    ],
+    "status_note": "The workbook uses separate current-offering, phase-out, new-phase-out, immediate-drop, and April 2026 drop tables. Do not infer a cover is current from an old intro date, swatch appearance, or presence in a different collection table; check its exact row, program, color, and status.",
+    "application_note": "Cover selection is model-, product-line-, CAP-, color-, and program-dependent. The app's generic cap-code choices are not a per-model cover authorization list.",
+    "representative_rows": [
+      {
+        "series": "B1538",
+        "pattern": "Seamount",
+        "colors_as_listed": [
+          "76 Cappuccino",
+          "74 Sable",
+          "08 Burgundy",
+          "53 Silver",
+          "85 Indigo"
+        ],
+        "cap_code": "UR",
+        "face_contents": "100% Polyester",
+        "wearability_marker": "N",
+        "cleaning_code": "S",
+        "intro_date_as_listed": "2017-10-01",
+        "row_scope": "Master Fabrics example; not a statement of current availability for every color or product."
+      },
+      {
+        "series": "C2037",
+        "pattern": "Tennant",
+        "colors_as_listed": [
+          "51 Porcelain",
+          "62 Ceramic",
+          "66 Mushroom",
+          "75 Chestnut",
+          "78 Otter"
+        ],
+        "cap_code": "BU",
+        "face_contents": "100% Polyester",
+        "wearability_marker": "P",
+        "cleaning_code": "W",
+        "description_as_listed": "Woven micro-denier base cloth printed with natural leather imaging.",
+        "row_scope": "Master Fabrics example; validate current status and exact product application."
+      }
+    ],
+    "example_swatch_status": {
+      "source_section": "Dealer Swatch Inventory",
+      "cover_name": "Palance",
+      "color_name": "Steel",
+      "status_as_listed": "DROPPED",
+      "row_scope": "One dropped swatch row does not determine other colors or collections for the pattern."
+    },
+    "model_cover_evidence": [
+      {
+        "model_code": "512",
+        "model_name": "Pinnacle",
+        "records": [
+          {
+            "collection": "Select Leather Reclining",
+            "cover": "LB206474",
+            "pattern": "Opulence",
+            "color": "Stone",
+            "source_date": "2024-10-01",
+            "source_table": "Select Reclining Leather 12x12",
+            "model_application_as_listed": "512 Pinnacle; 709 Jasper"
+          },
+          {
+            "collection": "Select Leather Reclining",
+            "cover": "LB206477",
+            "pattern": "Opulence",
+            "color": "Umber",
+            "source_date": "2024-10-01",
+            "source_table": "Select Reclining Leather 12x12",
+            "model_application_as_listed": "512 Pinnacle; 709 Jasper"
+          }
+        ],
+        "does_not_establish": "current availability, all configurations, or fit"
+      },
+      {
+        "model_code": "519",
+        "model_name": "Astor",
+        "records": [
+          {
+            "collection": "Select Leather Reclining",
+            "cover": "LB159058",
+            "pattern": "Cranbrook",
+            "color": "Shitake",
+            "source_date": "2018-04-01",
+            "source_table": "Select Reclining Leather 12x12",
+            "model_application_as_listed": "519 Astor"
+          },
+          {
+            "collection": "Select Leather Reclining",
+            "cover": "LB159079",
+            "pattern": "Cranbrook",
+            "color": "Chestnut",
+            "source_date": "2018-04-01",
+            "source_table": "Select Reclining Leather 12x12",
+            "model_application_as_listed": "519 Astor"
+          }
+        ],
+        "does_not_establish": "current availability, all configurations, or fit"
+      },
+      {
+        "model_code": "530",
+        "model_name": "Greyson",
+        "records": [
+          {
+            "collection": "Select Leather Reclining",
+            "cover": "LB193032",
+            "pattern": "Salvo",
+            "color": "Ice",
+            "source_date": "2022-10-01",
+            "source_table": "Select Reclining Leather 12x12",
+            "model_application_as_listed": "530 Greyson"
+          },
+          {
+            "collection": "Select Leather Reclining",
+            "cover": "LB193056",
+            "pattern": "Salvo",
+            "color": "Blue Grey",
+            "source_date": "2022-10-01",
+            "source_table": "Select Reclining Leather 12x12",
+            "model_application_as_listed": "757 Apollo; 530 Greyson"
+          },
+          {
+            "collection": "Select Leather Reclining",
+            "cover": "LB193077",
+            "pattern": "Salvo",
+            "color": "Caramel",
+            "source_date": "2022-10-01",
+            "source_table": "Select Reclining Leather 12x12",
+            "model_application_as_listed": "757 Apollo; 530 Greyson"
+          },
+          {
+            "collection": "Select Leather Reclining",
+            "cover": "LB211331",
+            "pattern": "Roberto",
+            "color": "Ice",
+            "source_date": "2025-10-01",
+            "updated": "2026-04-01",
+            "source_table": "Select Reclining Leather 12x12",
+            "model_application_as_listed": "530 Greyson (heavy-gauge top stitching only)"
+          },
+          {
+            "collection": "Select Leather Reclining",
+            "cover": "LB211376",
+            "pattern": "Roberto",
+            "color": "Chocolate",
+            "source_date": "2025-10-01",
+            "updated": "2026-04-01",
+            "source_table": "Select Reclining Leather 12x12",
+            "model_application_as_listed": "530 Greyson and 805 Ace (heavy-gauge top stitching only)"
+          },
+          {
+            "collection": "Select Leather Reclining",
+            "cover": "LB211379",
+            "pattern": "Roberto",
+            "color": "Slate",
+            "source_date": "2025-10-01",
+            "updated": "2026-04-01",
+            "source_table": "Select Reclining Leather 12x12",
+            "model_application_as_listed": "530 Greyson and 805 Ace (heavy-gauge top stitching only)"
+          }
+        ],
+        "does_not_establish": "current availability, all configurations, or fit"
+      },
+      {
+        "model_code": "724",
+        "model_name": "Trouper",
+        "records": [
+          {
+            "collection": "Select Leather Reclining",
+            "cover": "LB172755",
+            "pattern": "Intermingle",
+            "color": "Grey",
+            "source_date": "2020-04-01",
+            "source_table": "Select Reclining Leather 12x12",
+            "model_application_as_listed": "724 Trouper; heavy-gauge stitching"
+          },
+          {
+            "collection": "Select Leather Reclining",
+            "cover": "LB172779",
+            "pattern": "Intermingle",
+            "color": "Walnut",
+            "source_date": "2019-10-01",
+            "source_table": "Select Reclining Leather 12x12",
+            "model_application_as_listed": "724 Trouper; heavy-gauge stitching"
+          }
+        ],
+        "does_not_establish": "current availability, all configurations, or fit"
+      },
+      {
+        "model_code": "805",
+        "model_name": "Ace",
+        "records": [
+          {
+            "collection": "Select Leather Reclining",
+            "cover": "LB211376",
+            "pattern": "Roberto",
+            "color": "Chocolate",
+            "source_date": "2025-10-01",
+            "updated": "2026-04-01",
+            "source_table": "Select Reclining Leather 12x12",
+            "model_application_as_listed": "530 Greyson and 805 Ace (heavy-gauge top stitching only)"
+          },
+          {
+            "collection": "Select Leather Reclining",
+            "cover": "LB211379",
+            "pattern": "Roberto",
+            "color": "Slate",
+            "source_date": "2025-10-01",
+            "updated": "2026-04-01",
+            "source_table": "Select Reclining Leather 12x12",
+            "model_application_as_listed": "530 Greyson and 805 Ace (heavy-gauge top stitching only)"
+          }
+        ],
+        "does_not_establish": "Canadian market availability or ergonomic fit"
+      }
+    ],
+    "model_cover_applications_file": "april-2026-model-cover-applications.json",
+    "model_application_note": "Separate extracted exact rows are stored in public/april-2026-model-cover-applications.json for Vail 403, Pinnacle 512, Astor 519, James 521, Greyson 530, Trouper 724, Rowan 765, Morrison 766, Harbor Town 799, and Randell 777. They are cover program references, not current order/Canada/fit authorization."
+  },
+  "warranty_matrix": [
+    {
+      "category": "Rocker Recliners, Wall Recliners & Gliders",
+      "one_year": [
+        "Motor",
+        "Electrical Components",
+        "Battery Pack",
+        "Cup Holders",
+        "AudioLuxe"
+      ],
+      "three_year": [
+        "Polyurethane Foam Cushioning"
+      ],
+      "five_year": [
+        "Ultra Plush Seat Cushioning"
+      ],
+      "limited_lifetime": [
+        "Frame",
+        "Mechanism",
+        "Springs & Swivels",
+        "Show Wood"
+      ]
+    },
+    {
+      "category": "La-Z-Time Motion & Modulars",
+      "one_year": [
+        "Cup Holders"
+      ],
+      "three_year": [
+        "Polyurethane Foam Cushioning"
+      ],
+      "five_year": [],
+      "limited_lifetime": [
+        "Frame",
+        "Mechanism",
+        "Mechanical Components",
+        "Springs",
+        "Show Wood"
+      ]
+    },
+    {
+      "category": "La-Z-Motion",
+      "one_year": [
+        "Motor",
+        "Electrical Components",
+        "Battery Pack",
+        "Cup Holders"
+      ],
+      "three_year": [
+        "Polyurethane Foam Cushioning"
+      ],
+      "five_year": [],
+      "limited_lifetime": [
+        "Frame",
+        "Mechanism",
+        "Springs",
+        "Show Wood"
+      ]
+    },
+    {
+      "category": "Classics",
+      "one_year": [
+        "Motor",
+        "Electrical Components",
+        "Battery Pack"
+      ],
+      "three_year": [
+        "Polyurethane Foam Cushioning"
+      ],
+      "five_year": [
+        "Wood Frame (styles 295–423)"
+      ],
+      "limited_lifetime": [
+        "Frame",
+        "Show Wood",
+        "Springs"
+      ]
+    },
+    {
+      "category": "Complements",
+      "one_year": [],
+      "three_year": [
+        "Polyurethane Foam Cushioning",
+        "ComfortDown (DC)"
+      ],
+      "five_year": [
+        "Wood Frame (styles 265, 245–408)"
+      ],
+      "limited_lifetime": [
+        "Frame",
+        "Mechanism",
+        "Springs",
+        "Swivels",
+        "Show Wood",
+        "ComfortCore"
+      ]
+    },
+    {
+      "category": "Gold / Platinum / Silver / Bronze Lift Chairs",
+      "one_year": [
+        "Motor",
+        "Electrical Components"
+      ],
+      "three_year": [
+        "Polyurethane Foam Cushioning"
+      ],
+      "five_year": [],
+      "limited_lifetime": [
+        "Lift Mechanism",
+        "Frame",
+        "Springs"
+      ]
+    },
+    {
+      "category": "duo Series",
+      "one_year": [
+        "Motor",
+        "Electrical Components",
+        "Battery Pack"
+      ],
+      "three_year": [
+        "Polyurethane Foam Cushioning",
+        "ComfortDown (DC)"
+      ],
+      "five_year": [],
+      "limited_lifetime": [
+        "Frame",
+        "Mechanism",
+        "Springs",
+        "Show Wood",
+        "ComfortCore"
+      ]
+    },
+    {
+      "category": "Stationary Sofas, Sleepers & Sectionals",
+      "one_year": [
+        "Supreme Comfort Mechanism/Mattress",
+        "Slumber Air System/Motor",
+        "Tempur Response Mattress"
+      ],
+      "three_year": [
+        "Polyurethane Foam Cushioning",
+        "ComfortDown (DC)"
+      ],
+      "five_year": [],
+      "limited_lifetime": [
+        "Frame",
+        "Springs",
+        "Show Wood",
+        "ComfortCore"
+      ]
+    },
+    {
+      "category": "Fabrics & Leather",
+      "one_year": [
+        "Standard Fabric",
+        "Standard Leather",
+        "iClean Labor"
+      ],
+      "three_year": [
+        "iClean Fabric Stain Coverage"
+      ],
+      "five_year": [],
+      "limited_lifetime": []
+    }
+  ],
+  "warranty_details": {
+    "source_document": "Warranty Policies & Terms of Sale.md",
+    "status": "user-provided summary; market, contract version, exclusions, and effective date not stated",
+    "standard_fabric": {
+      "source_claim": "Warranted against nap loss, seam slippage, and fabric separation.",
+      "exclusions_as_listed": [
+        "Pilling",
+        "Dye lot variation",
+        "Fading"
+      ]
+    },
+    "iclean": {
+      "source_claim": "Three-year coverage for listed household stains with one year of labor.",
+      "covered_stains_as_listed": [
+        "Beer",
+        "Chocolate syrup",
+        "Coffee",
+        "Washable marker",
+        "Dirt",
+        "Ice cream",
+        "Jelly",
+        "Juices",
+        "Ketchup",
+        "Milk",
+        "Salsa",
+        "Soda",
+        "Tea",
+        "Urine",
+        "Wine"
+      ],
+      "non_covered_stains_as_listed": [
+        "Oil-based products (salad dressing, lotion)",
+        "Wax-based products (candle wax, crayons)",
+        "Permanent ink",
+        "Mustard"
+      ]
+    },
+    "leather": {
+      "source_claim": "One-year coverage.",
+      "exclusions_as_listed": [
+        "Dye lot matching",
+        "Natural fading"
+      ]
+    },
+    "instruction": "Before quoting coverage, consult the current written limited warranty for the precise product, cover, purchase date, jurisdiction, and remedy terms."
+  },
+  "terms_of_sale": {
+    "source_document": "Warranty Policies & Terms of Sale.md",
+    "status": "user-provided dealer terms summary; contract and jurisdiction not verified",
+    "pricing_payment": [
+      "Prices governed by price list effective when La-Z-Boy accepts the purchase order.",
+      "Prices are FOB point of origin, as stated in the supplied summary.",
+      "Title passes to dealer upon delivery to common carrier, as stated in the supplied summary.",
+      "Past-due accounts: summary states 0.75% per month (9% per annum), plus collection/attorney fees."
+    ],
+    "stock_orders": "Summary states cancellation or changes require written notice at least four weeks before ETS (Expect-to-Ship), if production has not started.",
+    "custom_orders": "Summary states a 24-hour cancellation window from acknowledgement; after that custom orders cannot be cancelled or altered.",
+    "signature_leather": "Summary states cancellation is not permitted after an ETS date is assigned.",
+    "defects_and_returns": [
+      "Summary states defective goods or order errors must be reported in writing within 30 days of invoice date.",
+      "Returns require prior authorization and a Return Authorization Number; unapproved returns are rejected."
+    ],
+    "instruction": "This is an operational reference, not a legal interpretation or promise to a consumer. Confirm the accepted purchase order, current dealer policy, and applicable contract."
+  },
+  "material_education": {
+    "source_document": "Leather, Renew and Urethane 1 pager.pdf",
+    "status": "user-provided staff-training/marketing copy; not independently fact-checked; avoid presenting comparative, lifespan, environmental, or health statements as verified facts",
+    "concepts_as_listed": [
+      {
+        "topic": "Leather",
+        "summary": "Training page describes leather and faux leather as upholstery alternatives; says natural hide markings can be present and describes aniline as through-dyed with visible natural variation and semi-aniline as having a second pigmented layer and a more consistent appearance.",
+        "caution": "Confirm leather type, body-touching panels, finish, care, and warranties for the exact cover. Natural variation is not evidence of a defect or a specific performance guarantee."
+      },
+      {
+        "topic": "Renew",
+        "summary": "Training page describes Renew as a fabric intended to mimic leather and offer a lower-cost or non-leather alternative.",
+        "caution": "The supplied page's claims about washability, tumble drying, stain/fade resistance, durability, eco-friendliness, and cleaning with soap and water require cover-specific manufacturer instructions; do not generalize them."
+      },
+      {
+        "topic": "Urethane",
+        "summary": "Training page says urethane may be matched to outside arms/backs and inconspicuous areas.",
+        "caution": "Check exact cover construction and the current fabric/leather content disclosure; do not promise that the body never contacts urethane without exact product evidence."
+      },
+      {
+        "topic": "Natural leather variation",
+        "summary": "Source lists possible hide marks such as insect marks, scratches, brands, stretch marks, and fat wrinkles as natural variation.",
+        "caution": "Explain variation neutrally and refer to the current care and quality standards for the selected leather."
+      }
+    ],
+    "unverified_promotional_claims": [
+      "Leather lasts four times as long as fabric",
+      "An adult may purchase four cloth sofas for one leather sofa over a lifetime",
+      "Leather is tear- and flame-resistant",
+      "Leather is easier for people with allergies",
+      "Renew is eco-friendly",
+      "Renew can be washed and tumble dried",
+      "Renew cleans with soap and water",
+      "Body never touches urethane"
+    ],
+    "aniline_marker_note": "The training page says to look for a brown dot for authentic/aniline and a teal dot for performance/semi-aniline. Confirm the current swatch legend before use."
+  },
+  "product_directory": {
+    "source_document": "Product Directory & Availability.md",
+    "status": "names, categories, and prefix descriptions transcribed from supplied reference; no current Canada availability or SKU compatibility inferred",
+    "prefix_groups": [
+      {
+        "category": "Rocker Recliners / Wall Recliners / Gliders",
+        "prefixes": [
+          {
+            "code": "010",
+            "description": "Rocking Recliner"
+          },
+          {
+            "code": "P10",
+            "description": "Power Rocking Recliner"
+          },
+          {
+            "code": "100",
+            "description": "Power Rocking Recliner with Headrest"
+          },
+          {
+            "code": "10X",
+            "description": "Power Rocking Recliner with Headrest & Lumbar"
+          },
+          {
+            "code": "016",
+            "description": "Wall Recliner"
+          },
+          {
+            "code": "P16",
+            "description": "Power Wall Recliner"
+          },
+          {
+            "code": "16X",
+            "description": "Power Wall Recliner with Headrest & Lumbar"
+          },
+          {
+            "code": "017",
+            "description": "Swivel Gliding Recliner"
+          },
+          {
+            "code": "30L",
+            "description": "Left-Arm Sitting Rocking Recliner"
+          },
+          {
+            "code": "30R",
+            "description": "Right-Arm Sitting Rocking Recliner"
+          },
+          {
+            "code": "SC3",
+            "description": "Storage Console"
+          }
+        ]
+      },
+      {
+        "category": "Lift Chairs",
+        "prefixes": [
+          {
+            "code": "1HM",
+            "description": "Gold Power Lift Recliner with Massage & Heat"
+          },
+          {
+            "code": "1PH",
+            "description": "Platinum Power Lift Recliner with Headrest & Lumbar"
+          },
+          {
+            "code": "1PL",
+            "description": "Platinum Power Lift Recliner"
+          },
+          {
+            "code": "3BL",
+            "description": "Bronze Power Lift Recliner"
+          },
+          {
+            "code": "4LP",
+            "description": "Silver Power Lift Recliner"
+          }
+        ]
+      },
+      {
+        "category": "Motion / Reclina-Way / La-Z-Time",
+        "prefixes": [
+          {
+            "code": "330",
+            "description": "Wall Reclining Sofa"
+          },
+          {
+            "code": "33U",
+            "description": "Power Wall Reclining Sofa with Headrest"
+          },
+          {
+            "code": "33X",
+            "description": "Power Wall Reclining Sofa with Headrest & Lumbar"
+          },
+          {
+            "code": "360",
+            "description": "Wall Reclining Sofa with Drop Down Table"
+          },
+          {
+            "code": "36U",
+            "description": "Power Wall Reclining Sofa with Headrest & Drop Down Table"
+          },
+          {
+            "code": "36X",
+            "description": "Power Wall Reclining Sofa with Headrest, Lumbar & Drop Down Table"
+          },
+          {
+            "code": "320",
+            "description": "Wall Reclining Loveseat"
+          },
+          {
+            "code": "32U",
+            "description": "Power Wall Reclining Loveseat with Headrest"
+          },
+          {
+            "code": "32X",
+            "description": "Power Wall Reclining Loveseat with Headrest & Lumbar"
+          },
+          {
+            "code": "339",
+            "description": "Wall Reclining Loveseat with Console"
+          },
+          {
+            "code": "U39",
+            "description": "Power Wall Reclining Loveseat with Headrest & Console"
+          },
+          {
+            "code": "X39",
+            "description": "Power Wall Reclining Loveseat with Console, Headrest & Lumbar"
+          },
+          {
+            "code": "445",
+            "description": "Reclining Chair and a Half"
+          },
+          {
+            "code": "U45",
+            "description": "Power Reclining Chair and a Half with Headrest"
+          },
+          {
+            "code": "X45",
+            "description": "Power Reclining Chair and a Half with Headrest & Lumbar"
+          },
+          {
+            "code": "443",
+            "description": "Reclining 2-Seat Sofa"
+          },
+          {
+            "code": "U43",
+            "description": "Power Reclining 2-Seat Sofa with Headrest"
+          },
+          {
+            "code": "X43",
+            "description": "Power Reclining 2-Seat Sofa with Headrest & Lumbar"
+          },
+          {
+            "code": "444",
+            "description": "Reclining Sofa"
+          },
+          {
+            "code": "U44",
+            "description": "Power Reclining Sofa with Headrest"
+          },
+          {
+            "code": "X44",
+            "description": "Power Reclining Sofa with Headrest & Lumbar"
+          }
+        ]
+      },
+      {
+        "category": "Stationary Sofas, Sleepers & Sectionals",
+        "prefixes": [
+          {
+            "code": "510",
+            "description": "Queen Sleep Sofa"
+          },
+          {
+            "code": "515",
+            "description": "Queen Sleep Sofa with Chaise"
+          },
+          {
+            "code": "520",
+            "description": "Full Sleep Sofa"
+          },
+          {
+            "code": "610",
+            "description": "Sofa"
+          },
+          {
+            "code": "61S",
+            "description": "Sofa with Chaise"
+          },
+          {
+            "code": "620",
+            "description": "Apartment Size Sofa"
+          },
+          {
+            "code": "630",
+            "description": "Loveseat"
+          },
+          {
+            "code": "555",
+            "description": "Twin Sleep Chair"
+          },
+          {
+            "code": "855",
+            "description": "Chair and a Half"
+          },
+          {
+            "code": "230",
+            "description": "Chair"
+          },
+          {
+            "code": "240",
+            "description": "Ottoman"
+          }
+        ]
+      }
+    ],
+    "styles": [
+      [
+        "A86",
+        "Ovation",
+        "Recliner / Chair"
+      ],
+      [
+        "205",
+        "Cory",
+        "Chair"
+      ],
+      [
+        "225",
+        "Roundabout",
+        "Swivel Chair"
+      ],
+      [
+        "301",
+        "Oliver",
+        "Chair"
+      ],
+      [
+        "304",
+        "Scout",
+        "Chair"
+      ],
+      [
+        "30A",
+        "Leo",
+        "Chair / Recliner"
+      ],
+      [
+        "400",
+        "Dora / Midtown",
+        "Chair / Recliner"
+      ],
+      [
+        "401",
+        "Allegra",
+        "Chair"
+      ],
+      [
+        "402",
+        "Maeve",
+        "Chair"
+      ],
+      [
+        "403",
+        "Vail",
+        "Recliner"
+      ],
+      [
+        "405",
+        "Dante",
+        "Chair"
+      ],
+      [
+        "406",
+        "Gemma",
+        "Chair"
+      ],
+      [
+        "408",
+        "Ferndale",
+        "Recliner"
+      ],
+      [
+        "411",
+        "Laurel",
+        "Chair / Recliner"
+      ],
+      [
+        "416",
+        "Rae",
+        "Chair"
+      ],
+      [
+        "418",
+        "Leah",
+        "Chair"
+      ],
+      [
+        "421",
+        "Bellevue",
+        "Chair"
+      ],
+      [
+        "423",
+        "Eldorado",
+        "Chair"
+      ],
+      [
+        "424",
+        "Fletcher",
+        "Chair"
+      ],
+      [
+        "425",
+        "Alma",
+        "Chair"
+      ],
+      [
+        "430",
+        "Brentwood",
+        "Chair"
+      ],
+      [
+        "431",
+        "Scarlett",
+        "Chair"
+      ],
+      [
+        "435",
+        "Mackenzie",
+        "Chair / Recliner"
+      ],
+      [
+        "448",
+        "Riley",
+        "Reclining Loveseat"
+      ],
+      [
+        "450",
+        "Haven",
+        "Recliner"
+      ],
+      [
+        "456",
+        "Opal",
+        "Chair"
+      ],
+      [
+        "457",
+        "Audrey",
+        "Chair"
+      ],
+      [
+        "458",
+        "Rheeves",
+        "Chair"
+      ],
+      [
+        "460",
+        "Reegan",
+        "Chair"
+      ],
+      [
+        "462",
+        "Roxie",
+        "Chair"
+      ],
+      [
+        "471",
+        "Carleton",
+        "Chair"
+      ],
+      [
+        "479",
+        "Midtown",
+        "Chair"
+      ],
+      [
+        "491",
+        "Natalie",
+        "Chair"
+      ],
+      [
+        "494",
+        "Collins",
+        "Chair / Recliner"
+      ],
+      [
+        "502",
+        "Joshua",
+        "Recliner"
+      ],
+      [
+        "512",
+        "Pinnacle",
+        "Recliner / Lift Chair"
+      ],
+      [
+        "519",
+        "Astor",
+        "Recliner / Lift Chair"
+      ],
+      [
+        "521",
+        "James",
+        "Recliner / Lift Chair"
+      ],
+      [
+        "530",
+        "Greyson",
+        "Recliner"
+      ],
+      [
+        "562",
+        "Clayton",
+        "Lift Chair"
+      ],
+      [
+        "582",
+        "Maverick",
+        "Recliner"
+      ],
+      [
+        "593",
+        "Kennedy",
+        "Sofa / Chair"
+      ],
+      [
+        "603",
+        "Wilmette",
+        "Chair / Sofa"
+      ],
+      [
+        "606",
+        "Noah",
+        "Sofa / Chair"
+      ],
+      [
+        "613",
+        "Olson",
+        "Chair / Sofa"
+      ],
+      [
+        "620",
+        "Piper",
+        "Apartment Sofa"
+      ],
+      [
+        "632",
+        "Tahoe",
+        "Sofa / Chair"
+      ],
+      [
+        "636",
+        "Shiloh",
+        "Chair / Sofa"
+      ],
+      [
+        "638",
+        "Charlie",
+        "Chair / Sofa"
+      ],
+      [
+        "663",
+        "Paxton",
+        "Sofa / Sectional"
+      ],
+      [
+        "665",
+        "Fleetwood",
+        "Chair / Sofa"
+      ],
+      [
+        "677",
+        "Fulton",
+        "Chair"
+      ],
+      [
+        "678",
+        "Alani",
+        "Chair"
+      ],
+      [
+        "681",
+        "Bexley",
+        "Chair / Sofa"
+      ],
+      [
+        "694",
+        "Meyer",
+        "Sofa / Chair"
+      ],
+      [
+        "700",
+        "Wynne",
+        "Chair / Recliner"
+      ],
+      [
+        "704",
+        "Reed",
+        "Recliner"
+      ],
+      [
+        "706",
+        "Jay",
+        "Recliner"
+      ],
+      [
+        "709",
+        "Jasper",
+        "Recliner"
+      ],
+      [
+        "712",
+        "Sparrow",
+        "Recliner"
+      ],
+      [
+        "715",
+        "Kodie",
+        "Recliner"
+      ],
+      [
+        "717",
+        "Fulton",
+        "Recliner"
+      ],
+      [
+        "722",
+        "Roman",
+        "Recliner"
+      ],
+      [
+        "724",
+        "Trouper",
+        "Recliner"
+      ],
+      [
+        "725",
+        "Sherman",
+        "Recliner"
+      ],
+      [
+        "727",
+        "Brooks",
+        "Recliner"
+      ],
+      [
+        "734",
+        "Collage",
+        "Recliner"
+      ],
+      [
+        "747",
+        "Finley",
+        "Recliner"
+      ],
+      [
+        "755",
+        "Dorian",
+        "Recliner"
+      ],
+      [
+        "757",
+        "Apollo",
+        "Recliner"
+      ],
+      [
+        "759",
+        "Maddox",
+        "Recliner"
+      ],
+      [
+        "761",
+        "Joel",
+        "Recliner"
+      ],
+      [
+        "762",
+        "Neo",
+        "Recliner"
+      ],
+      [
+        "765",
+        "Rowan",
+        "Recliner"
+      ],
+      [
+        "766",
+        "Morrison",
+        "Recliner"
+      ],
+      [
+        "769",
+        "Ava",
+        "Recliner"
+      ],
+      [
+        "774",
+        "Robin",
+        "Recliner"
+      ],
+      [
+        "776",
+        "Redwood",
+        "Recliner"
+      ],
+      [
+        "777",
+        "Randell",
+        "Recliner"
+      ],
+      [
+        "781",
+        "Emmons",
+        "Recliner"
+      ],
+      [
+        "782",
+        "Kells",
+        "Recliner"
+      ],
+      [
+        "786",
+        "Liam",
+        "Recliner / Lift Chair"
+      ],
+      [
+        "787",
+        "Lennon",
+        "Recliner"
+      ],
+      [
+        "793",
+        "Jean",
+        "Recliner / Lift Chair"
+      ],
+      [
+        "794",
+        "Billie",
+        "Recliner / Lift Chair"
+      ],
+      [
+        "799",
+        "Harbor Town",
+        "Recliner"
+      ],
+      [
+        "800",
+        "Palmer",
+        "Recliner"
+      ],
+      [
+        "802",
+        "Cassian",
+        "Recliner"
+      ],
+      [
+        "803",
+        "Cade",
+        "Recliner"
+      ],
+      [
+        "804",
+        "Belmont",
+        "Recliner"
+      ],
+      [
+        "805",
+        "Ace",
+        "Recliner"
+      ],
+      [
+        "807",
+        "Baron",
+        "Recliner"
+      ],
+      [
+        "810",
+        "Quinault",
+        "Recliner"
+      ],
+      [
+        "811",
+        "Acadia",
+        "Recliner"
+      ],
+      [
+        "812",
+        "Armitage",
+        "Recliner"
+      ],
+      [
+        "813",
+        "Clybourn",
+        "Recliner"
+      ],
+      [
+        "820",
+        "Norton",
+        "Recliner"
+      ],
+      [
+        "826",
+        "Sammy",
+        "Recliner"
+      ],
+      [
+        "827",
+        "Parsens",
+        "Recliner"
+      ],
+      [
+        "828",
+        "Dutton",
+        "Recliner"
+      ],
+      [
+        "893",
+        "Colby",
+        "Recliner"
+      ],
+      [
+        "899",
+        "Bennett",
+        "Recliner"
+      ],
+      [
+        "916",
+        "Kimberly",
+        "Recliner"
+      ],
+      [
+        "931",
+        "Charlotte",
+        "Recliner"
+      ]
+    ],
+    "style_row_format": "[style number, style name, category]",
+    "directory_note": "Style rows are transcribed as supplied, including potential duplicate names and conflicts with other project data. Verify model identity against the current catalog before using a row to build an order or a recommendation. No fit, capacity, availability, or cover option is implied.",
+    "source_row_count": 104,
+    "style_code_duplicates": []
+  },
+  "search_index": [
+    {
+      "title": "Dimension abbreviations",
+      "section": "Dimensions & Technical Specs",
+      "keywords": "W H D SW SH SD AH RD WT width height depth seat seat width seat height seat depth arm recline clearance unit shipping weight",
+      "detail": "Use the supplied dimensions key. WT is unit shipping weight, not user-weight capacity; definitions are source-specific and must be checked against the exact product sheet."
+    },
+    {
+      "title": "Wood finish codes",
+      "section": "Dimensions & Technical Specs",
+      "keywords": "007 021 041 071 142 brown mahogany coffee graphite driftwood mesa finish",
+      "detail": "007 Brown Mahogany; 021 Coffee; 041 Graphite; 071 Driftwood; 142 Mesa. Source restricts Mesa to styles 295–423. Confirm style-level finish availability."
+    },
+    {
+      "title": "Fabric CAP and cutting codes",
+      "section": "Dimensions & Technical Specs",
+      "keywords": "CAP UR DR VS PS DP NP HS UE BU LM LL fabric leather railroaded plaid stripe leather match full",
+      "detail": "CAP describes cutting/layout conventions, not a product SKU or proof of model/cover compatibility. See the supplied CAP-code definitions."
+    },
+    {
+      "title": "Wearability and upholstery application",
+      "section": "April 2026 Cover Information List",
+      "keywords": "normal medium performance black green p dot recliner motion sofa modular",
+      "detail": "The source says Medium/Green-dot is not allowed on recliners, motion sofas, or motion modulars; Normal and Performance are described as all-upholstery. Check the exact cover row and product application flags."
+    },
+    {
+      "title": "Specialty cover markers",
+      "section": "April 2026 Cover Information List",
+      "keywords": "iClean Conserve antimicrobial pet friendly Nanobionic bleach cleanable I C A PF N W*B",
+      "detail": "Workbook markers: I iClean; C Conserve; A Antimicrobial; PF Pet Friendly; N Nanobionic; W*B Bleach Cleanable. A marker alone does not establish care, warranty, or exact product eligibility."
+    },
+    {
+      "title": "Cover and swatch status",
+      "section": "April 2026 Cover Information List",
+      "keywords": "active dropped phase out phase-out immediate drop April 2026 swatch ring pages Design Center 6x6 leather",
+      "detail": "The workbook separates master cover records from Dealer Swatch Inventory, ring pages, Design Center, size-specific swatch and waterfall programs, phase-outs, and drops. Check the matching row, color, collection, and program."
+    },
+    {
+      "title": "Warranty quick reference",
+      "section": "Warranty Policies & Terms of Sale",
+      "keywords": "warranty lifetime 5 year 3 year 1 year recliner lift chair classics stationary sleeper sectional duo fabric leather",
+      "detail": "The supplied category-specific warranty matrix is stored in warranty_matrix. Market and effective terms are unstated; consult the current written warranty before quoting coverage."
+    },
+    {
+      "title": "iClean stain coverage summary",
+      "section": "Warranty Policies & Terms of Sale",
+      "keywords": "iClean stains coffee wine urine ink mustard oil wax 3 year labor warranty",
+      "detail": "The supplied summary lists selected household stains as covered and oil-based products, wax-based products, permanent ink, and mustard as not covered; validate against current warranty terms."
+    },
+    {
+      "title": "Dealer order, cancellation, and return terms",
+      "section": "Warranty Policies & Terms of Sale",
+      "keywords": "price list FOB title payment 0.75% 9% stock order ETS cancellation custom 24 hours signature leather returns RA 30 days",
+      "detail": "The provided terms summary is for operational reference only. Verify the accepted purchase order, current dealer policy, and applicable contract before making a promise."
+    },
+    {
+      "title": "Leather, Renew, urethane and aniline",
+      "section": "Leather, Renew and Urethane 1 pager",
+      "keywords": "leather faux Renew urethane aniline semi-aniline natural grain hide markings brown dot teal dot",
+      "detail": "The source provides staff training and marketing descriptions. Comparative lifetime, eco-friendly, flame/tear, allergy, wash/tumble, soap-and-water, and body-contact claims are explicitly flagged in material_education as unverified; use exact-cover documentation."
+    },
+    {
+      "title": "Product style directory",
+      "section": "Product Directory & Availability",
+      "keywords": "A86 205 225 301 304 30A 400 401 402 403 405 406 408 411 416 418 421 423 424 425 430 431 435 448 450 456 457 458 460 462 471 479 491 494 502 512 519 521 530 562 582 593 603 606 613 620 632 636 638 663 665 677 678 681 694 700 704 706 709 712 715 717 722 724 725 727 734 747 755 757 759 761 762 765 766 769 774 776 777 781 782 786 787 793 794 799 800 802 803 804 805 807 810 811 812 813 820 826 827 828 893 899 916 931",
+      "detail": "The full style-number/name/category list and four prefix families are available in product_directory. It is a lookup index only—not a current Canadian assortment, fit guide, stock list, capacity table, or complete model-prefix matrix."
+    },
+    {
+      "title": "Model-specific leather cover applications",
+      "section": "April 2026 Cover Information List",
+      "keywords": "512 Pinnacle Opulence 519 Astor Cranbrook 530 Greyson Salvo Roberto 724 Trouper Intermingle 805 Ace leather top stitching",
+      "detail": "April 2026 workbook Select Leather Reclining rows include explicit cover/color/model pairings for Pinnacle, Astor, Greyson, Trouper, and Ace. These are cover-program examples only; they do not prove current orderability, all options, fit, or general Canada availability."
+    },
+    {
+      "title": "Product lookup limitations",
+      "section": "Product Directory & Availability",
+      "keywords": "style directory model number category alias duplicate verify",
+      "detail": "The supplied directory has repeated code/name rows and category descriptions that differ from current catalog nomenclature. Treat entries as search leads and verify the exact active SKU/configuration in the current product catalog."
+    },
+    {
+      "title": "Exact fabric and leather workbook rows by model",
+      "section": "April 2026 Cover Information List",
+      "keywords": "403 Vail 512 Pinnacle 519 Astor 521 James 530 Greyson 724 Trouper 765 Rowan 766 Morrison 799 Harbor Town 777 Randell 805 Ace cover waterfall leather active status",
+      "detail": "See the exact, source-section-labeled rows in april-2026-model-cover-applications.json for selected recliner styles. These are historical/program-specific cover associations, not current ordering authorization or fit evidence."
+    }
+  ]
+}

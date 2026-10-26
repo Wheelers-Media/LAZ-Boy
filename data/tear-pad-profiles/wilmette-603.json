@@ -1,0 +1,96 @@
+{
+  "model_code": "603",
+  "model_name": "Wilmette",
+  "sectional_family": "Stationary",
+  "source": "Wilmette TearPad MP0106 08-21-2025.pdf",
+  "source_document_code": "MP0106",
+  "source_document_footer_date": "08/01/25",
+  "source_document_market": "Not specified; tear-pad footer lists la-z-boy.com",
+  "additional_source": "LZB_Retail April 2026 Upholstery Pricebook.pdf",
+  "additional_source_edition": "26-04-AC-F",
+  "additional_source_issue_date": "April 23, 2026",
+  "product_description": "The tear pad describes Wilmette as a modern stationary collection with clean, tailored lines, loose back cushions, casual simplicity, and a modest footprint.",
+  "catalog_model": {
+    "category": "Stationary Sofa Suite",
+    "scale": "Not specified in supplied documents",
+    "recommended_height": "Not specified in supplied documents",
+    "weight_limit_lbs": null,
+    "recommendation_eligible": false,
+    "key_features": [
+      "Clean, tailored lines",
+      "Loose back cushions",
+      "Decorative wood legs"
+    ],
+    "look_alikes": [],
+    "quick_spotter": "Wilmette features clean tailored lines, loose back cushions, and decorative wood legs. The supplied tear pad and price book do not provide customer-height fit guidance or user-weight capacity."
+  },
+  "pieces": [
+    {
+      "code": "60W",
+      "key": "LA_sofa_attached_corner",
+      "name": "Left-Arm Sitting Sofa with Attached Corner",
+      "dimensions_text": "37\" H × 107\" W × 36\" D",
+      "pricebook_dimensions_text": "34\" H × 107\" W × 36\" D",
+      "dimensions_conflict_note": "The 2025 tear pad lists 37 inches high; the April 2026 manufacturer price book lists 34 inches high for the same 60W603 code. Width and depth agree. Height is retained source-by-source and should be visually verified against the documents before use."
+    },
+    {
+      "code": "60X",
+      "key": "RA_sofa_attached_corner",
+      "name": "Right-Arm Sitting Sofa with Attached Corner",
+      "dimensions_text": "37\" H × 107\" W × 36\" D",
+      "pricebook_dimensions_text": "34\" H × 107\" W × 36\" D",
+      "dimensions_conflict_note": "The 2025 tear pad lists 37 inches high; the April 2026 manufacturer price book lists 34 inches high for the same 60X603 code. Width and depth agree. Height is retained source-by-source and should be visually verified against the documents before use."
+    },
+    {
+      "code": "60Y",
+      "key": "LA_sofa",
+      "name": "Left-Arm Sitting Sofa",
+      "dimensions_text": "37\" H × 73.5\" W × 36\" D",
+      "pricebook_dimensions_text": "34\" H × 73.5\" W × 36\" D",
+      "dimensions_conflict_note": "The 2025 tear pad lists 37 inches high; the April 2026 manufacturer price book lists 34 inches high for the same 60Y603 code. Width and depth agree. Height is retained source-by-source and should be visually verified against the documents before use."
+    },
+    {
+      "code": "60Z",
+      "key": "RA_sofa",
+      "name": "Right-Arm Sitting Sofa",
+      "dimensions_text": "37\" H × 73.5\" W × 36\" D",
+      "pricebook_dimensions_text": "34\" H × 73.5\" W × 36\" D",
+      "dimensions_conflict_note": "The 2025 tear pad lists 37 inches high; the April 2026 manufacturer price book lists 34 inches high for the same 60Z603 code. Width and depth agree. Height is retained source-by-source and should be visually verified against the documents before use."
+    },
+    {
+      "code": "610",
+      "key": "sofa",
+      "name": "Sofa",
+      "dimensions_text": "34\" H × 75.5\" W × 36\" D"
+    },
+    {
+      "code": "655",
+      "key": "chair_and_a_half",
+      "name": "Chair and a Half",
+      "dimensions_text": "34\" H × 39\" W × 36\" D"
+    },
+    {
+      "code": "240",
+      "key": "ottoman",
+      "name": "Ottoman",
+      "dimensions_text": "18\" H × 37.5\" W × 24\" D"
+    }
+  ],
+  "pricebook_measurements_note": "The price-book dimension column legend defines H as height, W as width, D as depth, WT as unit weight, SH as seat height, SW as seat width, SD as seat depth, and AH as arm height. Values are cataloged as printed for each exact style prefix. The price book cautions that its general guidance may not apply to all prefixes and refers readers to the Product Information Guide for prefix-specific detail.",
+  "product_guide_measurements": {
+    "source": "APRIL 2026 - PRODUCT INFORMATION GUIDE.xlsx",
+    "edition": "April 2026",
+    "columns": ["H", "W", "D", "SH", "SW", "SD", "AH", "EXT", "RD", "LH", "WT_LB", "SEAT_FACTOR", "WALL_SPACE"],
+    "note": "Values are copied from the guide's Dimensions table for the exact style numbers. Linear measurements are inches; WT_LB is product/unit weight, not user-weight capacity. Blank source cells remain null. The guide gives matching 34-inch height for the 60W/60X/60Y/60Z entries, so those entries disagree with the tear pad's 37-inch height; both source values are retained in each profile piece.",
+    "rows": {
+      "60W603": [34, 107, 36, 20, 89, 20.5, 25, null, null, null, 144, 3, null],
+      "60X603": [34, 107, 36, 20, 89, 20.5, 25, null, null, null, 144, 3, null],
+      "60Y603": [34, 73.5, 36, 20, 67, 20.5, 25, null, null, null, 97, 3, null],
+      "60Z603": [34, 73.5, 36, 20, 67, 20.5, 25, null, null, null, 97, 3, null],
+      "240603": [18, 37.5, 24, 18, null, 36, null, null, null, null, 27, 0.5, null],
+      "610603": [34, 75.5, 36, 20, 67, 20.5, 25, null, null, null, 114, 3, null],
+      "655603": [34, 39, 36, 20, 30.5, 20.5, 25, null, null, null, 82, 2, null]
+    }
+  },
+  "fit_specs_verified": false
+}

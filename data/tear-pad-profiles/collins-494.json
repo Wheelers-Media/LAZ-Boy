@@ -1,0 +1,345 @@
+{
+  "model_code": "494",
+  "model_name": "Collins",
+  "sectional_family": "Stationary",
+  "source": "Collins TearPad MP0073 8-8-25.pdf",
+  "source_document_code": "MP0073",
+  "source_document_footer_date": "07/01/25",
+  "source_document_market": "Not specified in supplied tear-pad text",
+  "product_description": "The tear pad describes Collins as a casual-yet-classic, versatile sectional with simple lines, rolled arms, deep, wide seats, and a wide selection of pieces for custom room layouts.",
+  "catalog_model": {
+    "category": "Stationary Modular Sectional",
+    "scale": "Not specified in tear pad",
+    "recommended_height": "Not specified in tear pad",
+    "weight_limit_lbs": null,
+    "recommendation_eligible": false,
+    "key_features": [
+      "Simple lines and rolled arms",
+      "Deep, wide seats",
+      "Modular pieces for custom room layouts"
+    ],
+    "look_alikes": [],
+    "quick_spotter": "The Collins tear pad describes simple lines, rolled arms, and deep, wide seats. It does not provide ergonomic height guidance or user-weight capacity."
+  },
+  "pieces": [
+    {
+      "code": "6SR",
+      "key": "RA_storage_chaise",
+      "name": "Right-Arm Sitting Chaise with Storage",
+      "dimensions_text": "37.5\" H × 39\" W × 64\" D"
+    },
+    {
+      "code": "6SC",
+      "key": "storage_console",
+      "name": "Storage Console",
+      "dimensions_text": "25.5\" H × 10\" W × 38.5\" D"
+    },
+    {
+      "code": "6SL",
+      "key": "LA_storage_chaise",
+      "name": "Left-Arm Sitting Chaise with Storage",
+      "dimensions_text": "37.5\" H × 39\" W × 64\" D"
+    },
+    {
+      "code": "60A",
+      "key": "LA_chair",
+      "name": "Left-Arm Sitting Chair",
+      "dimensions_text": "37.5\" H × 32.5\" W × 39\" D"
+    },
+    {
+      "code": "60B",
+      "key": "RA_chair",
+      "name": "Right-Arm Sitting Chair",
+      "dimensions_text": "37.5\" H × 32.5\" W × 39\" D"
+    },
+    {
+      "code": "60C",
+      "key": "corner_wedge",
+      "name": "Corner",
+      "dimensions_text": "37.5\" H × 67\" W × 39\" D"
+    },
+    {
+      "code": "6CC",
+      "key": "corner_wedge_compact",
+      "name": "Corner",
+      "dimensions_text": "37.5\" H × 53\" W × 39\" D"
+    },
+    {
+      "code": "60M",
+      "key": "armless_chair",
+      "name": "Armless Chair",
+      "dimensions_text": "37.5\" H × 24\" W × 39\" D"
+    },
+    {
+      "code": "60D",
+      "key": "LA_loveseat",
+      "name": "Left-Arm Sitting Loveseat",
+      "dimensions_text": "37.5\" H × 56.5\" W × 39\" D"
+    },
+    {
+      "code": "60E",
+      "key": "RA_loveseat",
+      "name": "Right-Arm Sitting Loveseat",
+      "dimensions_text": "37.5\" H × 56.5\" W × 39\" D"
+    },
+    {
+      "code": "6SP",
+      "key": "armless_full_sleeper_sofa",
+      "name": "Armless Full Sleeper Sofa",
+      "dimensions_text": "37.5\" H × 63\" W × 39\" D",
+      "fully_extended_in": 90
+    },
+    {
+      "code": "6MM",
+      "key": "armless_loveseat",
+      "name": "Armless Loveseat",
+      "dimensions_text": "37.5\" H × 63\" W × 39\" D"
+    },
+    {
+      "code": "60L",
+      "key": "LA_chaise",
+      "name": "Left-Arm Sitting Chaise",
+      "dimensions_text": "37.5\" H × 32.5\" W × 64\" D"
+    },
+    {
+      "code": "60R",
+      "key": "RA_chaise",
+      "name": "Right-Arm Sitting Chaise",
+      "dimensions_text": "37.5\" H × 32.5\" W × 64\" D"
+    }
+  ],
+  "configuration_diagram_dimension_note": "The supplied text extraction contains sectional arrangement diagrams, but it does not preserve reliable mappings between the footprint labels and specific configurations. No arrangement footprint is assigned.",
+  "fit_specs_verified": false,
+  "product_guide_measurements": {
+    "source": "APRIL 2026 - PRODUCT INFORMATION GUIDE.xlsx",
+    "edition": "April 2026",
+    "columns": [
+      "H",
+      "W",
+      "D",
+      "SH",
+      "SW",
+      "SD",
+      "AH",
+      "EXT",
+      "RD",
+      "LH",
+      "WT_LB",
+      "SEAT_FACTOR",
+      "WALL_SPACE"
+    ],
+    "note": "Values are transcribed from the guide Dimensions table and keyed to exact printed style numbers. Linear measurements are inches. WT_LB is the product/unit weight, not a user-weight capacity. Blank source cells remain null. These dimensions do not establish recommended customer height or fit.",
+    "rows": {
+      "6SR494": [
+        37.5,
+        39,
+        64,
+        21,
+        30,
+        48,
+        26,
+        null,
+        null,
+        null,
+        148,
+        2,
+        39
+      ],
+      "6SC494": [
+        25.5,
+        10,
+        38.5,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        59,
+        1,
+        10
+      ],
+      "6SL494": [
+        37.5,
+        39,
+        64,
+        21,
+        30,
+        48,
+        26,
+        null,
+        null,
+        null,
+        148,
+        2,
+        39
+      ],
+      "60A494": [
+        37.5,
+        32.5,
+        39,
+        21,
+        24,
+        23.5,
+        26,
+        null,
+        null,
+        null,
+        60,
+        2,
+        32.5
+      ],
+      "60B494": [
+        37.5,
+        32.5,
+        39,
+        21,
+        24,
+        23.5,
+        26,
+        null,
+        null,
+        null,
+        60,
+        2,
+        32.5
+      ],
+      "60C494": [
+        37.5,
+        67,
+        39,
+        21,
+        null,
+        25,
+        null,
+        null,
+        null,
+        null,
+        79,
+        2,
+        98
+      ],
+      "6CC494": [
+        37.5,
+        53,
+        39,
+        21,
+        null,
+        23.5,
+        null,
+        null,
+        null,
+        null,
+        70,
+        1,
+        78
+      ],
+      "60M494": [
+        37.5,
+        24,
+        39,
+        21,
+        24,
+        23.5,
+        null,
+        null,
+        null,
+        null,
+        46,
+        1,
+        24
+      ],
+      "60D494": [
+        37.5,
+        56.5,
+        39,
+        21,
+        48,
+        23.5,
+        26,
+        null,
+        null,
+        null,
+        93,
+        2,
+        56.5
+      ],
+      "60E494": [
+        37.5,
+        56.5,
+        39,
+        21,
+        48,
+        23.5,
+        26,
+        null,
+        null,
+        null,
+        93,
+        2,
+        56.5
+      ],
+      "6SP494": [
+        37.5,
+        63,
+        39,
+        21,
+        63,
+        23.5,
+        null,
+        90,
+        null,
+        null,
+        142,
+        2,
+        63
+      ],
+      "6MM494": [
+        37.5,
+        63,
+        39,
+        21,
+        63,
+        23.5,
+        null,
+        null,
+        null,
+        null,
+        90,
+        2,
+        63
+      ],
+      "60L494": [
+        37.5,
+        32.5,
+        64,
+        21,
+        24,
+        48,
+        26,
+        null,
+        null,
+        null,
+        86,
+        2,
+        32.5
+      ],
+      "60R494": [
+        37.5,
+        32.5,
+        64,
+        21,
+        24,
+        48,
+        26,
+        null,
+        null,
+        null,
+        86,
+        2,
+        32.5
+      ]
+    }
+  }
+}

@@ -1,0 +1,1017 @@
+export function reclinerCatalogSearchEntries(reclinerCatalog) {
+  if (!reclinerCatalog) return [];
+  const collectionName = reclinerCatalog.title?.includes('Designer’s Choice') ? 'designers-choice' : reclinerCatalog.title?.includes('Motion') ? 'motion' : 'recliner';
+  const label = collectionName === 'motion' ? 'Motion' : collectionName === 'designers-choice' ? 'Designer’s Choice' : 'Recliner';
+  const entries = [
+    ...(collectionName === 'recliner' ? (reclinerCatalog.models || []).flatMap((model) => [
+      {
+        kind: `${label} catalog model`,
+        title: `${model.name} · ${model.code}`,
+        detail: `${reclinerCatalog.edition} recliner catalog · pages ${model.pages.join(', ')} · styles ${model.styles.map(([style]) => style).join(', ')} · covers ${(model.cover_collections || []).join(', ')}${model.notes?.length ? ` · ${model.notes.join(' ')}` : ''}. Catalog record only; fit and capacity claims are not inferred.`,
+        code: model.code,
+        modelCode: model.code,
+      },
+      ...model.styles.map(([style, dimensions, options]) => ({
+        kind: `${label} catalog style`,
+        title: `${model.name} ${style}-${model.code}`,
+        detail: `${style} ${model.name} style · dimensions H × W × D: ${dimensions} in · options ${options.join(', ')} · ${reclinerCatalog.edition} recliner catalog page ${model.pages.join('/')}.`,
+        code: style,
+        modelCode: model.code,
+      })),
+    ]) : []),
+    ...(reclinerCatalog.prefix_definitions || []).map(([code, description, family]) => ({
+      kind: `${label} prefix definition`,
+      title: `${code} · ${description}`,
+      detail: `${family}; prefix definition in the ${reclinerCatalog.edition} ${label} catalog.`,
+      code,
+    })),
+    ...(reclinerCatalog.title?.includes('Designer’s Choice') ? (reclinerCatalog.prefix_definitions_additional || []).map(([code, description, family]) => ({
+      kind: `${label} prefix definition`,
+      title: `${code} · ${description}`,
+      detail: `${family}; prefix definition in the ${reclinerCatalog.edition} Designer’s Choice catalog.`,
+      code,
+    })) : []),
+    ...((reclinerCatalog.universal_options || reclinerCatalog.options || [])).map(([code, description]) => ({
+      kind: `${label} catalog option`,
+      title: `${code} · ${description.split(';')[0]}`,
+      detail: description,
+      code,
+    })),
+    ...(reclinerCatalog.finishes || []).map((item) => ({
+      kind: `${label} catalog finish`,
+      title: `${item.code} · ${item.name}`,
+      detail: item.description,
+      code: item.code,
+    })),
+    ...(reclinerCatalog.cover_cap_choices || []).map((item) => ({
+      kind: `${label} cover cap choices`,
+      title: `${item.material} · ${item.codes.join(', ')}`,
+      detail: `Catalog cover-cap codes for ${item.material.toLowerCase()} upholstery. Check the individual model/style catalog entry for eligibility.`,
+      code: item.codes.join(', '),
+    })),
+    ...(reclinerCatalog.source_documents?.length ? [{
+      kind: `${label} catalog source`,
+      title: `${reclinerCatalog.edition} ${reclinerCatalog.title?.includes('Designer’s Choice') ? 'Designer’s Choice' : collectionName} catalog source documents`,
+      detail: `${reclinerCatalog.source_documents.map((source) => `${source.file}: ${source.pages}`).join(' · ')}${reclinerCatalog.publication_footer ? ` · ${reclinerCatalog.publication_footer}` : ''}`,
+      code: reclinerCatalog.edition,
+    }] : []),
+
+    ...(reclinerCatalog.title?.includes('Designer’s Choice') && reclinerCatalog.warranty_reference ? [{
+      kind: 'Designer’s Choice warranty reference',
+      title: `${reclinerCatalog.edition} Designer’s Choice warranty tables`,
+      detail: `${reclinerCatalog.warranty_reference.tables.map((table) => `${table.product_group}: terms shown ${table.terms_shown.join(', ')}`).join(' · ')} · ${(reclinerCatalog.warranty_reference.notes || []).join(' ')}`,
+      code: 'Warranty',
+    }] : []),
+    ...(reclinerCatalog.warranty_reference && !reclinerCatalog.title?.includes('Designer’s Choice') ? [{
+      kind: `${label} warranty reference`,
+      title: `${reclinerCatalog.edition} ${label} warranty tables`,
+      detail: `${reclinerCatalog.warranty_reference.tables
+        ? reclinerCatalog.warranty_reference.tables.map((table) => `${table.product_group}: terms shown ${table.terms_shown.join(', ')}; components include ${table.components_listed.join(', ')}`).join(' · ')
+        : `${JSON.stringify(reclinerCatalog.warranty_reference.terms_shown)} · groups: ${(reclinerCatalog.warranty_reference.groups || []).join(', ')} · components: ${(reclinerCatalog.warranty_reference.components || []).join(', ')}`}
+        ${(reclinerCatalog.warranty_reference.notes || []).join(' ')}`,
+      code: 'Warranty',
+    }] : []),
+    ...(reclinerCatalog.title?.includes('Designer’s Choice') ? (reclinerCatalog.models || []).flatMap((model) => [
+      {
+        kind: 'Designer’s Choice catalog model',
+        title: `${model.name} · ${model.code}`,
+        detail: `${reclinerCatalog.edition} Designer’s Choice catalog · pages ${model.pages.join(', ')}${model.coverage_status ? ` · coverage ${model.coverage_status}` : ''}${model.finishes ? ` · finishes standard ${model.finishes.standard.join(', ') || 'none'}, optional ${model.finishes.optional.join(', ') || 'none'}` : ''}${model.cover_cap_choices ? ` · cover cap choices ${Object.entries(model.cover_cap_choices).map(([material, caps]) => `${material}: ${caps.join(', ')}`).join('; ')}` : ''}${model.notes?.length ? ` · ${model.notes.join(' ')}` : ''}. Source catalog listing; it does not establish fit or user weight capacity.`,
+        code: model.code,
+        modelCode: model.code,
+        sourcePages: model.pages,
+      },
+      ...model.styles.map(([style, category, dimensions, options, sourceNote]) => ({
+        kind: 'Designer’s Choice catalog style',
+        title: `${model.name} ${style}-${model.code}`,
+        detail: `${category} · ${dimensions} in H × W × D · options ${options.join(', ')}${sourceNote ? ` · source note: ${sourceNote}` : ''} · ${reclinerCatalog.edition} Designer’s Choice catalog pages ${model.pages.join('/')}. Check the current price book for complete details.`,
+        code: style,
+        modelCode: model.code,
+        sourcePages: model.pages,
+      })),
+    ]) : []),
+    ...(collectionName === 'motion' ? (reclinerCatalog.models || []).flatMap((model) => [
+      {
+        kind: `${label} catalog model`,
+        title: `${model.name} · ${model.code}`,
+        detail: `${reclinerCatalog.edition} ${collectionName} catalog · pages ${model.pages.join(', ')} · groups ${model.product_groups.join(', ')}${model.notes?.length ? ` · ${model.notes.join(' ')}` : ''}. Source catalog listing; does not establish fit or user weight capacity.`,
+        code: model.code,
+        modelCode: model.code,
+        sourcePages: model.pages,
+      },
+      ...model.styles.map(([style, category, dimensions, options, sourceNote]) => ({
+        kind: `${label} catalog style`,
+        title: `${model.name} ${style}-${model.code}`,
+        detail: `${category} · ${dimensions} in H × W × D · options ${options.join(', ')}${sourceNote ? ` · source note: ${sourceNote}` : ''} · ${reclinerCatalog.edition} ${collectionName} catalog pages ${model.pages.join('/')}. Verify the current price book for complete details.`,
+        code: style,
+        modelCode: model.code,
+        sourcePages: model.pages,
+      })),
+      ...(reclinerCatalog.source_documents?.length ? [{
+        kind: `${label} catalog source`,
+        title: `${reclinerCatalog.edition} ${collectionName} catalog source documents`,
+        detail: `${reclinerCatalog.source_documents.map((source) => `${source.file}: ${source.pages}`).join(' · ')}${reclinerCatalog.publication_footer ? ` · ${reclinerCatalog.publication_footer}` : ''}`,
+        code: reclinerCatalog.edition,
+      }] : []),
+    ]) : []),
+    ...(reclinerCatalog.index || []).map((item) => ({
+      kind: `${label} index entry`,
+      title: `${item.name} · ${item.code}`,
+      detail: `${collectionName === 'motion' ? 'Motion Collection' : collectionName === 'designers-choice' ? 'Designer’s Choice Collection' : 'Supplemental recliner'} Summer/Fall 2026 index · pages ${item.pages.join(', ')} · index-category flags: ${Object.entries(item.categories).filter(([, listed]) => listed).map(([category]) => category.replaceAll('_', ' ')).join(', ')}${item.new_introduction ? ' · marked NEW' : ''}. ${reclinerCatalog.source_note}`,
+      code: item.code,
+      modelCode: item.code,
+      sourcePages: item.pages,
+    })),
+    ...(reclinerCatalog.prefix_definitions_additional || []).map(([code, description, family]) => ({
+      kind: `${label} prefix definition`,
+      title: `${code} · ${description}`,
+      detail: `${family}; additional prefix definition from the ${reclinerCatalog.title?.includes('Designer’s Choice') ? 'Designer’s Choice' : collectionName} Summer/Fall 2026 index page.`,
+      code,
+    })),
+    ...(reclinerCatalog.source_conflicts?.length ? [{
+      kind: `${label} index source note`,
+      title: `${label} catalog source differences`,
+      detail: reclinerCatalog.source_conflicts.join(' '),
+      code: 'Source note',
+    }] : []),
+    ...(reclinerCatalog.known_conflicts?.length ? [{
+      kind: `${label} index source note`,
+      title: `${label} catalog index discrepancies`,
+      detail: reclinerCatalog.known_conflicts.join(' '),
+      code: 'Source note',
+    }] : []),
+    ...((reclinerCatalog.pillow_collections || reclinerCatalog.pillow_styles || [])).map(([code, name, dimensions, options, quantity]) => ({
+      kind: `${label} pillow collection`,
+      title: `${code} · ${name}`,
+      detail: `${dimensions} inches · option ${options} · quantity ${quantity} · ${reclinerCatalog.edition} ${collectionName} catalog.`,
+      code,
+    })),
+  ];
+  return entries;
+}
+
+export const getRoomClearance = (clearance) => {
+  if (clearance.startsWith('Tight')) return 4;
+  if (clearance.startsWith('A little')) return 10;
+  return 18;
+};
+
+export function matchingPrefixes(catalog, answers) {
+  const category = answers.category.toLowerCase();
+  const mechanism = answers.mechanism.toLowerCase();
+  const lift = category.includes('lift');
+  const family = lift ? 'lift chair'
+    : category.includes('high-leg') ? 'designer choice'
+      : category.includes('motion sofas') ? 'motion sofa'
+        : category.includes('sectional') ? 'sectional'
+          : category.includes('stationary') ? 'stationary'
+            : category.includes('sleeper') ? 'sleeper'
+              : category.includes('recliner') ? 'recliner' : category;
+  const effectiveMechanism = answers.mechanism === 'Gold-series lift' ? 'gold-series lift' : answers.mechanism === 'Lift chair' ? 'lift chair' : answers.mechanism.toLowerCase();
+  const prefixes = catalog.style_prefixes.filter((item) => {
+    const itemCategory = item.category.toLowerCase();
+    const categoryMatches = family === 'designer choice' ? /high leg|designer choice/.test(itemCategory)
+      : family === 'motion sofa' ? /motion/.test(itemCategory)
+        : family === 'sectional' ? /sectional|duo/.test(itemCategory)
+          : family === 'stationary' ? /stationary/.test(itemCategory)
+            : family === 'sleeper' ? /sleeper/.test(itemCategory)
+              : family === 'recliner' ? /recliner/.test(itemCategory)
+                : itemCategory.includes(family);
+    const clearanceMatches = lift || answers.category.includes('Stationary') || answers.category.includes('Sleeper') || item.wall_clearance_inches <= getRoomClearance(answers.clearance);
+    if (!categoryMatches || !clearanceMatches) return false;
+    if (family === 'lift chair') {
+      if (effectiveMechanism.includes('gold')) return item.code === '1HM';
+      if (effectiveMechanism === 'lift chair') return item.code === '3BL';
+      return item.power_compatible;
+    }
+    if (mechanism.includes('power')) {
+      if (family === 'sectional' && item.code === '811') return true;
+      if (!item.power_compatible) return false;
+      if (mechanism.includes('headrest') && !/headrest/i.test(item.motion_type)) return false;
+      if (mechanism.includes('lumbar') && !/lumbar/i.test(item.motion_type)) return false;
+    }
+    if (family === 'designer choice') return mechanism.includes('power') ? item.power_compatible : !item.power_compatible;
+    if (family === 'motion sofa' || family === 'sectional') {
+      if (mechanism === 'manual') return !item.power_compatible;
+      if (mechanism.includes('power')) return item.power_compatible;
+      return true;
+    }
+    if (family === 'stationary' || family === 'sleeper') return mechanism === 'no reclining mechanism';
+    if (mechanism === 'manual') return !item.power_compatible;
+    if (mechanism.includes('power') || lift) return item.power_compatible;
+    return true;
+  });
+  return prefixes;
+}
+
+const heightValues = (value) => [...String(value).matchAll(/(\d+)\s*[′'’]\s*(\d+)/g)].map((match) => Number(match[1]) * 12 + Number(match[2]));
+const heightInches = (value) => /under/i.test(String(value)) ? 64 : heightValues(value)[0] ?? null;
+const modelHeightRange = (value) => {
+  const heights = heightValues(value);
+  if (/universal/i.test(String(value))) return [0, Infinity];
+  return heights.length ? [Math.min(...heights), /\+/.test(String(value)) ? Infinity : Math.max(...heights)] : null;
+};
+
+const researchFitBand = (research, height, scale) => {
+  if (research?.current_catalog_authority !== false || !Number.isFinite(height)) return null;
+  const expectedBand = scale?.includes('Petite') ? 'Petite'
+    : /extra|xl/i.test(scale || '') ? 'Extra Tall / XL'
+      : /small|average|mid/i.test(scale || '') ? 'Small to Medium'
+        : /tall/i.test(scale || '') ? 'Tall / Large'
+          : null;
+  const scaleMatch = !expectedBand || (research.fit_guidance_bands || []).find((band) => band.band === expectedBand)?.band === (research.fit_guidance_bands || []).find((band) => {
+    const max = band.height_max_inches ?? Infinity;
+    return height >= band.height_min_inches && height <= max;
+  })?.band;
+  if (!scaleMatch) return null;
+  return (research.fit_guidance_bands || []).find((band) => {
+    const max = band.height_max_inches ?? Infinity;
+    return height >= band.height_min_inches && height <= max
+      && band.verification_status === 'unverified_fit_guidance';
+  }) || null;
+};
+
+const modelFitEvidence = (research, modelCode) => {
+  const online = research?.model_fit_evidence?.[modelCode];
+  const supplied = research?.research_document?.model_evidence?.[modelCode];
+  if (!online && !supplied) return null;
+  return {
+    ...online,
+    research_document: supplied || null,
+    fit_claim: online?.fit_claim || (supplied?.explicit_fit_guidance ? {
+      statement: supplied.explicit_fit_guidance,
+      status: supplied.fit_status || supplied.secondary_fit_status || 'provisional_fit_guidance',
+      market: supplied.canadian_availability?.includes('Canada') ? 'Canada dealer secondary' : 'unknown',
+      source_url: supplied.fit_source_url,
+    } : null),
+    dimensions: online?.dimensions || supplied?.other_configuration_dimensions || supplied?.dimensions || null,
+    capacity: supplied?.capacity || null,
+    CanadianAvailability: supplied?.canadian_availability,
+  };
+};
+
+const guideCandidateResearchStatus = (research, modelCode) => {
+  const model = research?.research_document?.model_evidence?.[modelCode];
+  return model?.fit_status || model?.secondary_fit_status || null;
+};
+
+const guideCategoryMatches = (candidate, selectedCategory, research) => {
+  const categories = candidate.categories || [candidate.category];
+  const selected = selectedCategory.toLowerCase();
+  if (candidate.recommendation_status === 'conflicting_fit_guidance' || ['conflicting', 'conflicting_fit_guidance'].includes(guideCandidateResearchStatus(research, candidate.model_code))) return false;
+  if (selected.includes('lift')) return categories.some((category) => /lift/i.test(category));
+  if (selected.includes('sectional')) return categories.some((category) => /sectional/i.test(category));
+  if (selected.includes('motion sofas')) return categories.some((category) => /motion sofa/i.test(category));
+  if (selected.includes('stationary')) return categories.some((category) => /stationary/i.test(category));
+  if (selected.includes('sleeper')) return categories.some((category) => /sleeper/i.test(category));
+  if (selected.includes('high-leg')) return categories.some((category) => /high leg/i.test(category));
+  return categories.some((category) => /recliner/i.test(category));
+};
+
+const guideMechanismMatches = (candidate, mechanism) => {
+  const options = candidate.mechanism_options;
+  return options === null || options?.includes(mechanism) === true;
+};
+
+const guideCandidateEligible = (research, modelCode) => {
+  const onlineStatus = research?.model_fit_evidence?.[modelCode]?.fit_claim?.status;
+  const reportStatus = guideCandidateResearchStatus(research, modelCode);
+  return onlineStatus !== 'conflicting_fit_guidance' && !['conflicting', 'conflicting_fit_guidance'].includes(reportStatus);
+};
+
+const modelCapacity = (catalog, research, modelCode, mechanism) => {
+  const indexed = catalog.models_database.find((model) => model.model_code === modelCode);
+  if (modelCode === '512' && mechanism.toLowerCase().includes('lift')) {
+    const reportCapacity = research?.research_document?.model_evidence?.['512']?.capacity;
+    if (/1PL512/.test(reportCapacity?.configuration || '')) return reportCapacity.limit_lbs;
+  }
+  return indexed?.weight_limit_lbs ?? null;
+};
+
+const positiveMeasurement = (value) => {
+  if (value === '' || value == null) return null;
+  const number = Number(value);
+  return Number.isFinite(number) && number > 0 && number <= 40 ? number : null;
+};
+
+const widthMatchScore = (seatWidth, hipBreadth) => {
+  const clearance = seatWidth - hipBreadth;
+  if (clearance < 0 || clearance > 8) return 0;
+  if (clearance >= 2 && clearance <= 5) return 1;
+  return 0.7;
+};
+
+const depthMatchScore = (seatDepth, thighLength) => {
+  const kneeGap = thighLength - seatDepth;
+  if (kneeGap < 0 || kneeGap > 4.5) return 0;
+  if (kneeGap >= 1.5 && kneeGap <= 3) return 1;
+  return 0.6;
+};
+
+const heightMatchScore = (seatHeight, poplitealHeight) => {
+  const difference = Math.abs(seatHeight - (poplitealHeight + 1));
+  if (difference <= 1) return 1;
+  if (difference <= 2) return 0.5;
+  return 0;
+};
+
+/**
+ * Ranks exact manual-recliner configurations against measurements the shopper
+ * chose to provide. These are dimension screens, not fit or safety certifications.
+ */
+export function getDimensionBasedRecommendations(catalog, answers, research = null) {
+  if (answers.category?.toLowerCase() !== 'recliners' || answers.mechanism?.toLowerCase() !== 'manual') return [];
+  if (answers.weight !== '' && answers.weight != null) return [];
+
+  const hipBreadth = positiveMeasurement(answers.hip_breadth_inches);
+  const thighLength = positiveMeasurement(answers.thigh_length_inches);
+  const poplitealHeight = positiveMeasurement(answers.popliteal_height_inches);
+  if (hipBreadth === null && thighLength === null && poplitealHeight === null) return [];
+
+  const availableClearance = getRoomClearance(answers.clearance || '');
+  const manualPrefix = (catalog.style_prefixes || []).find((prefix) => prefix.code === '010');
+  if (!manualPrefix || manualPrefix.wall_clearance_inches > availableClearance) return [];
+
+  return Object.entries(research?.model_fit_evidence || []).flatMap(([modelCode, evidence]) => {
+    const dimensions = evidence.dimensions || {};
+    const configuration = dimensions.configuration || '';
+    const configurationMatch = configuration.match(/\b(\d{3})\s*(\d{3})\b/);
+    if (!configurationMatch || configurationMatch[1] !== '010') return [];
+
+    const publishedModel = (catalog.recliner_catalog_2026?.models || []).find((item) => String(item.code) === String(modelCode));
+    const publishedStyle = publishedModel?.styles?.some(([style]) => String(style) === configurationMatch[1]);
+    if (!publishedStyle) return [];
+
+    const measures = [
+      ['seat_width', hipBreadth, dimensions.seat_width_inches, widthMatchScore, 'inside seat width', 'hip breadth'],
+      ['seat_depth', thighLength, dimensions.seat_depth_inches, depthMatchScore, 'seat depth', 'thigh length'],
+      ['seat_height', poplitealHeight, dimensions.seat_height_inches, heightMatchScore, 'seat height', 'popliteal height'],
+    ];
+    const scored = measures.flatMap(([key, input, productValue, scorer]) => input !== null && Number.isFinite(productValue)
+      ? [[key, { customer_inches: input, chair_inches: productValue, score: scorer(productValue, input), ...(key === 'seat_width' ? { clearance_inches: Number((productValue - input).toFixed(2)) } : {}), ...(key === 'seat_depth' ? { knee_gap_inches: Number((input - productValue).toFixed(2)) } : {}), ...(key === 'seat_height' ? { target_with_shoes_inches: Number((input + 1).toFixed(2)), difference_inches: Number(Math.abs(productValue - (input + 1)).toFixed(2)) } : {}) }]]
+      : []);
+    if (!scored.length) return [];
+
+    if (hipBreadth !== null && Number.isFinite(dimensions.seat_width_inches) && dimensions.seat_width_inches < hipBreadth) return [];
+
+    const missingDimensions = measures.flatMap(([key, input, productValue, scorer, chairLabel]) => !Number.isFinite(productValue) ? [chairLabel] : []);
+    const missingCustomerMeasurements = measures.flatMap(([key, input, productValue, scorer, chairLabel, customerLabel]) => input === null && Number.isFinite(productValue) ? [customerLabel] : []);
+    const metrics = Object.fromEntries(scored);
+    const weights = { seat_width: 0.4, seat_depth: 0.35, seat_height: 0.25 };
+    const totalWeight = scored.reduce((sum, [key]) => sum + weights[key], 0);
+    const score = scored.reduce((sum, [key, value]) => sum + weights[key] * value.score, 0) / totalWeight;
+    const fitStatus = evidence.fit_claim?.status || research?.research_document?.model_evidence?.[modelCode]?.fit_status || null;
+    const tier = missingCustomerMeasurements.length || missingDimensions.length
+      ? `Partial comparison · ${missingCustomerMeasurements.length ? 'customer measurements' : ''}${missingCustomerMeasurements.length && missingDimensions.length ? ' and ' : ''}${missingDimensions.length ? 'chair dimensions' : ''} needed`
+      : score >= 0.8 ? 'Good dimensions to try'
+        : score >= 0.5 ? 'Possible dimensional alternative'
+          : 'Lower dimensional alignment';
+    const model = (catalog.models_database || []).find((item) => item.model_code === modelCode);
+    const catalogModel = (catalog.recliner_catalog_2026?.models || []).find((item) => String(item.code) === String(modelCode));
+
+    return [{
+      model_code: modelCode,
+      model_name: model?.model_name || catalogModel?.name || research?.research_document?.model_evidence?.[modelCode]?.name || modelCode,
+      category: 'Manual rocking recliner',
+      dimension_comparison: {
+        kind: 'dimension_screen_not_fit_confirmation',
+        tier,
+        score: Number(score.toFixed(3)),
+        score_method: 'Unvalidated screening heuristic from the supplied research; not an ergonomic standard or fit guarantee.',
+        metrics,
+        missing_dimensions: missingDimensions,
+        missing_customer_measurements: missingCustomerMeasurements,
+        configuration,
+        source_market: dimensions.source_market || 'Not specified',
+        source_kind: dimensions.source_kind || 'Unspecified source',
+        source_url: dimensions.source_url || null,
+        clearance_inches: manualPrefix.wall_clearance_inches,
+        fit_source_conflict: fitStatus === 'conflicting_fit_guidance' || ['conflicting', 'conflicting_fit_guidance'].includes(research?.research_document?.model_evidence?.[modelCode]?.fit_status),
+        availability_status: research?.research_document?.model_evidence?.[modelCode]?.canadian_availability || 'Not verified',
+        capacity_status: 'Not verified for this exact manual configuration',
+      },
+      fit_guidance: { provisional: true, weight_confirmation_required: true, clearance_confirmation_required: true },
+    }];
+  }).sort((left, right) => right.dimension_comparison.score - left.dimension_comparison.score || left.model_name.localeCompare(right.model_name));
+}
+
+export function getCatalogCapabilityLeads(catalog, answers, limit = 3) {
+  const matching = matchingPrefixes(catalog, answers);
+  const compatibleCodes = new Set(matching.map((item) => item.code));
+  if (!compatibleCodes.size) return [];
+  const category = answers.category.toLowerCase();
+  const notFit = 'Catalog capability only · not a fit recommendation';
+  const disclaimer = 'Catalog presence confirms a listed product/style only. It does not establish ergonomic fit, exact cover/option eligibility beyond the cited style row, current Canadian availability, capacity, or a completed sectional arrangement.';
+
+  if (category.includes('sectional')) {
+    const duo = /duo/i.test(answers.mechanism);
+    if (duo) return (catalog.motion_catalog_2026?.models || []).filter((model) => (model.product_groups || []).some((group) => /duo/i.test(group)))
+      .map((model) => ({ model_code: String(model.code), model_name: model.name, category: answers.category, tier: notFit, source: catalog.motion_catalog_2026.title, styles: model.styles.filter((style) => /^P9/.test(style[0])).map((style) => ({ code: style[0], name: style[1], options: style[3] || [], clearance_inches: null })), note: disclaimer }))
+      .filter((model) => model.styles.length).slice(0, limit);
+    return (catalog.product_profiles || []).filter((profile) => {
+      const familyMatch = /stationary/.test(category) ? profile.sectional_family === 'Stationary'
+        : profile.sectional_family === 'La-Z-Motion' ? /motion/i.test(category)
+          : /La-Z-Time/i.test(profile.sectional_family) && !/motion/i.test(category);
+      return familyMatch;
+    }).map((profile) => {
+      const motionModel = catalog.motion_catalog_2026?.models?.find((model) => String(model.code) === String(profile.model_code));
+      const profileCapacity = (catalog.models_database || []).find((entry) => String(entry.model_code) === String(profile.model_code))?.weight_limit_lbs;
+      const capacityStatus = Number.isFinite(profileCapacity) ? `Catalog index: ${profileCapacity} lb; confirm exact style` : 'Capacity not documented for this model/style';
+      const pieceRows = profile.pieces.flatMap((piece) => sectionalPieceCodes(piece).map((code) => ({
+        code,
+        name: piece.name,
+        options: motionModel?.styles?.find((style) => String(style[0]) === code)?.[3] || [],
+        clearance_inches: null,
+      })));
+      const compatible = pieceRows.filter((piece) => /power/i.test(answers.mechanism)
+        ? /^(U|X|8|P9)/.test(piece.code)
+        : /^(44|M44|60|6)/.test(piece.code));
+      if (!compatible.length) return null;
+      return { model_code: profile.model_code, model_name: profile.model_name, category: answers.category, tier: notFit, source: profile.source, capacity_lbs: Number.isFinite(profileCapacity) ? profileCapacity : null, capacity_status: capacityStatus, styles: compatible, note: disclaimer };
+    }).filter(Boolean).sort((left, right) => left.model_name.localeCompare(right.model_name)).slice(0, limit);
+  }
+
+  const source = category.includes('high-leg') ? catalog.designers_choice_catalog_2026
+    : category.includes('motion sofas') || category.includes('sectional') ? catalog.motion_catalog_2026
+      : category.includes('stationary') || category.includes('sleeper') ? catalog.stationary_catalog_2026
+        : catalog.recliner_catalog_2026;
+  const candidates = (source?.models || source?.products || []).flatMap((model) => {
+    const styles = (model.styles || []).map((style) => ({ code: String(style[0]), description: style[1], options: style[2] || [] }));
+    const catalogStyles = (model.catalog_groups || []).flatMap((group) => (group.styles || []).map((style) => ({
+      code: String(style.style_code || '').split('-')[0], description: `${group.name}: ${style.category}`, options: style.options || [],
+    })));
+    const relevantGroup = category.includes('motion sofas') ? (model.product_groups || []).some((group) => /sofa|loveseat/i.test(group))
+      : category.includes('stationary') ? (model.catalog_groups || []).some((group) => /sofa|sectional/i.test(group.name))
+        : category.includes('sleeper') ? (model.catalog_groups || []).some((group) => /sleeper/i.test(group.name))
+          : true;
+    if (!relevantGroup) return [];
+    const matches = [...styles, ...catalogStyles].filter((style) => compatibleCodes.has(style.code) || (category.includes('motion sofas') && /^P9/.test(style.code) && /duo/i.test(answers.mechanism)));
+    if (!matches.length) return [];
+    const code = String(model.code ?? model.model_code);
+    const catalogCapacity = (catalog.lift_chair_weight_tiers || []).find((entry) => String(entry.model_code) === code)?.limit_lbs;
+    const knownCapacity = catalogCapacity ?? (catalog.models_database || []).find((entry) => String(entry.model_code) === code)?.weight_limit_lbs;
+    const requestedWeight = Number(answers.weight);
+    if (Number.isFinite(requestedWeight) && requestedWeight > 0 && Number.isFinite(knownCapacity) && requestedWeight > knownCapacity) return [];
+    return [{
+      model_code: code,
+      model_name: model.name || model.model_name || code,
+      category: answers.category,
+      tier: notFit,
+      source: source.title || 'Supplied product catalog',
+      styles: matches.map((style) => ({ ...style, clearance_inches: matching.find((item) => item.code === style.code)?.wall_clearance_inches ?? null })),
+      capacity_lbs: Number.isFinite(knownCapacity) ? knownCapacity : null,
+      capacity_status: Number.isFinite(knownCapacity) ? `Catalog index: ${knownCapacity} lb; confirm exact style` : 'Capacity not documented for this model/style',
+      note: disclaimer,
+    }];
+  });
+  return candidates.sort((left, right) => left.model_name.localeCompare(right.model_name)).slice(0, limit);
+}
+
+export function getRecommendations(catalog, answers, research = null) {
+  const normalized = answers.category.toLowerCase();
+  const selectedHeight = heightInches(answers.height);
+  const fitBand = researchFitBand(research, selectedHeight, answers.scale);
+  const candidates = (fitBand?.candidates || []).filter((candidate) => guideCategoryMatches(candidate, answers.category, research)
+    && guideMechanismMatches(candidate, answers.mechanism)
+    && guideCandidateEligible(research, candidate.model_code));
+
+  return candidates.flatMap((candidate) => {
+    const indexed = catalog.models_database.find((model) => model.model_code === candidate.model_code);
+    const weightLimit = modelCapacity(catalog, research, candidate.model_code, answers.mechanism);
+    if (answers.weight && (!Number.isFinite(weightLimit) || Number(answers.weight) > weightLimit)) return [];
+
+    const category = candidate.category;
+    const mechanism = answers.mechanism.toLowerCase();
+    if (mechanism === 'no reclining mechanism') return [];
+    if (mechanism.includes('lift') && !candidate.categories?.some((item) => /lift/i.test(item))) return [];
+    if (!mechanism.includes('lift') && candidate.categories?.length && candidate.categories.every((item) => /lift/i.test(item))) return [];
+    if (answers.weight && candidate.model_code === '512' && mechanism.includes('lift') && !/1pl/i.test(mechanism)) return [];
+
+    return [{
+      ...(indexed || {}),
+      model_code: candidate.model_code,
+      model_name: candidate.model_name,
+      category,
+      scale: indexed?.scale && !/not specified/i.test(indexed.scale) ? indexed.scale : fitBand.band,
+      recommended_height: indexed?.recommended_height && !/not specified/i.test(indexed.recommended_height) ? indexed.recommended_height : fitBand.height_summary,
+      weight_limit_lbs: Number.isFinite(weightLimit) ? weightLimit : null,
+      fit_guidance: {
+        band: fitBand.band,
+        height_summary: fitBand.height_summary,
+        source: research.source_file,
+        verification_status: fitBand.verification_status,
+        note: fitBand.note,
+        provisional: true,
+        weight_confirmation_required: !Number.isFinite(weightLimit),
+        mechanism_confirmation_required: true,
+        clearance_confirmation_required: true,
+      },
+      fit_evidence: modelFitEvidence(research, candidate.model_code),
+    }];
+  }).slice(0, 4);
+}
+
+export function getSectionalPrefix(piece, family) {
+  const prefixes = piece.prefix.split('/').map((item) => item.trim());
+  if (family === 'Stationary') return prefixes.find((item) => item.startsWith('60')) || null;
+  if (family === 'La-Z-Motion') return prefixes.find((item) => item.startsWith('8')) || null;
+  return prefixes.find((item) => !item.startsWith('8') && !item.startsWith('60')) || null;
+}
+
+export function sectionalPiecesForFamily(catalog, family, modelCode) {
+  const profile = (catalog.product_profiles || []).find((item) => item.sectional_family === family && item.model_code === modelCode)
+    || (family === 'La-Z-Motion' && !modelCode ? (catalog.product_profiles || []).find((item) => item.sectional_family === family) : null);
+  if (profile) {
+    return profile.pieces.map((piece) => {
+      const codes = piece.code ? [piece.code] : (piece.variants || []).map((variant) => variant.code);
+      return {
+        family,
+        key: piece.key,
+        prefix: codes.join(' / '),
+        modelCode: profile.model_code,
+        variants: piece.variants || [],
+        name: piece.name,
+        type: piece.key.replaceAll('_', ' '),
+        connectionType: piece.key.startsWith('LA_') ? 'left-arm' : piece.key.startsWith('RA_') ? 'right-arm' : piece.key === 'corner_wedge' || piece.key === 'corner_wedge_compact' ? 'corner' : piece.key.includes('armless') ? 'armless' : piece.key.includes('console') ? 'console' : 'middle',
+        options: piece.options || piece.pricebook_options || [],
+        dimensionsLabel: piece.dimensions_text
+          ? `${profile.model_name}: ${piece.dimensions_text}${piece.fully_extended_in ? ` · fully extended ${piece.fully_extended_in}"` : ''}${piece.pricebook_dimensions_text ? ` · pricebook dimensions ${piece.pricebook_dimensions_text}` : ''}${piece.dimensions_conflict_note ? ` (${piece.dimensions_conflict_note})` : ''}${piece.dimensions_note ? ` (${piece.dimensions_note})` : ''} · ${profile.source}${piece.pricebook_dimensions_text ? `; ${profile.additional_source} (${profile.additional_source_edition})` : ''}${profile.product_guide_measurements ? `; Product Information Guide ${profile.product_guide_measurements.edition} · ${Object.entries(profile.product_guide_measurements.rows).filter(([style]) => codes.some((code) => style.startsWith(`${code}${profile.model_code}`))).map(([style, values]) => `${style} ${values.map((value, index) => value == null ? null : `${profile.product_guide_measurements.columns[index]} ${value}`).filter(Boolean).join(', ')}`).join('; ')}` : ''}`
+          : '',
+        footprintLabels: (profile.configuration_diagram_dimension_labels_in || []).join(' · '),
+        footprintNote: profile.configuration_diagram_dimension_note || '',
+      };
+    });
+  }
+
+  const name = family === 'Stationary' ? 'Stationary Modular' : family === 'La-Z-Motion' ? 'La-Z-Motion (e.g., Acadia 811)' : 'La-Z-Time Motion';
+  const listedPieces = Object.entries(catalog.modular_sectional_prefixes[name] || {});
+  const configuredPieces = (catalog.product_profiles || []).filter((item) => item.sectional_family === family && item.model_code === modelCode).flatMap((item) => item.pieces.map((piece) => {
+    const prefix = piece.code || (piece.variants || []).map((variant) => variant.code).join(' / ');
+    return [piece.key, prefix, item.model_code, item.model_name];
+  }));
+  const basePieces = listedPieces.map(([key, prefix]) => [key, { prefix, profileModelCode: modelCode, modelName: '' }]);
+  const mergedPieces = [...new Map([...basePieces, ...configuredPieces.map(([key, prefix, profileModelCode, modelName]) => [key, { prefix, profileModelCode, modelName }])]).entries()];
+  const selectedProfile = (catalog.product_profiles || []).find((item) => item.sectional_family === family && item.model_code === modelCode);
+  return mergedPieces.map(([key, details]) => {
+    const piece = selectedProfile?.pieces.find((item) => item.key === key);
+    return {
+      family,
+      key,
+      prefix: details.prefix,
+      modelCode: details.profileModelCode || modelCode,        name: piece?.name || key.replaceAll('_', ' ').replace(/\b\w/g, (letter) => letter.toUpperCase()),
+        type: key.replaceAll('_', ' '),
+        connectionType: key.startsWith('LA_') ? 'left-arm' : key.startsWith('RA_') ? 'right-arm' : key === 'corner_wedge' || key === 'corner_wedge_compact' ? 'corner' : key.includes('armless') ? 'armless' : key.includes('console') ? 'console' : 'middle',
+        options: piece?.options || piece?.pricebook_options || [],
+        dimensionsLabel: piece?.dimensions_text ? `${selectedProfile.model_name}: ${piece.dimensions_text}${piece.fully_extended_in ? ` · fully extended ${piece.fully_extended_in} inches` : ''} · ${selectedProfile.source}` : '',
+      footprintLabels: (selectedProfile?.configuration_diagram_dimension_labels_in || []).join(' · '),
+      footprintNote: selectedProfile?.configuration_diagram_dimension_note || '',
+    };
+  });
+}
+
+const RMS_CATALOGS = ['stationary_catalog_2026', 'motion_catalog_2026', 'designers_choice_catalog_2026', 'recliner_catalog_2026'];
+const splitRmsCodes = (value = '') => String(value).split('/').map((part) => part.trim()).filter(Boolean);
+
+export function getRmsModelStyleChoices(catalog, modelCode) {
+  const entries = new Map();
+  const add = (code, label) => {
+    if (code) entries.set(String(code), label || 'Catalog model/style');
+  };
+
+  for (const key of RMS_CATALOGS) {
+    const source = catalog[key];
+    for (const model of source?.models || source?.products || []) {
+      if (String(model.model_code ?? model.code) !== String(modelCode)) continue;
+      for (const style of model.styles || []) {
+        if (Array.isArray(style)) add(style[0], style[1]);
+      }
+      for (const group of model.catalog_groups || []) {
+        for (const style of group.styles || []) {
+          const match = String(style.style_code || '').match(/^([A-Z0-9]+)-/);
+          if (match) add(match[1], style.category || group.name);
+        }
+      }
+    }
+  }
+
+  if (!entries.size) {
+    for (const profile of catalog.product_profiles || []) {
+      if (String(profile.model_code) !== String(modelCode)) continue;
+      for (const piece of profile.pieces || []) {
+        for (const code of [...splitRmsCodes(piece.code), ...(piece.variants || []).flatMap((variant) => splitRmsCodes(variant.code))]) {
+          add(code, `${piece.name} · tear-pad piece`);
+        }
+      }
+    }
+  }
+
+  const descriptions = new Map((catalog.style_prefixes || []).map((item) => [item.code, item.motion_type]));
+  const profile = (catalog.product_profiles || []).find((entry) => String(entry.model_code) === String(modelCode));
+  for (const piece of profile?.pieces || []) {
+    for (const code of [...splitRmsCodes(piece.code), ...(piece.variants || []).flatMap((variant) => splitRmsCodes(variant.code))]) add(code, `${piece.name} · tear-pad piece`);
+  }
+  return [...entries].map(([code, label]) => ({ code, label: descriptions.get(code) || label }));
+}
+
+export function getRmsStyleOptions(catalog, modelCode, group) {
+  const options = new Set();
+  let documented = false;
+  let finishMarkerListed = false;
+
+  for (const key of RMS_CATALOGS) {
+    const source = catalog[key];
+    for (const model of source?.models || source?.products || []) {
+      if (String(model.model_code ?? model.code) !== String(modelCode)) continue;
+      for (const style of model.styles || []) {
+        if (Array.isArray(style) && String(style[0]) === String(group)) {
+          documented = true;
+          const list = [style[2], style[3]].find(Array.isArray) || [];
+          list.forEach((code) => options.add(String(code)));
+          finishMarkerListed ||= list.includes('FN');
+        }
+      }
+      for (const catalogGroup of model.catalog_groups || []) {
+        for (const style of catalogGroup.styles || []) {
+          const match = String(style.style_code || '').match(/^([A-Z0-9]+)-/);
+          if (match?.[1] === String(group)) {
+            documented = true;
+            (style.options || []).forEach((code) => options.add(String(code)));
+            finishMarkerListed ||= (style.options || []).includes('FN');
+          }
+        }
+      }
+    }
+  }
+
+  const profile = (catalog.product_profiles || []).find((entry) => String(entry.model_code) === String(modelCode));
+  const piece = profile?.pieces?.find((entry) => sectionalPieceCodes(entry).includes(String(group)));
+  if (piece) {
+    documented = true;
+    const catalogOptions = getSectionalPieceOptions(catalog, profile.sectional_family, modelCode, group);
+    for (const code of catalogOptions) options.add(String(code));
+    finishMarkerListed = options.has('FN');
+  }
+
+  return documented ? { options, finishMarkerListed } : null;
+}
+
+export function getModelCoverOptions(catalog, modelCode) {
+  const codes = new Map();
+  const addCodes = (values, source = 'Product catalog cover-cap table') => (values || []).forEach((code) => {
+    const key = String(code);
+    if (!codes.has(key)) codes.set(key, new Set());
+    codes.get(key).add(source);
+  });
+  const recliner = catalog.recliner_catalog_2026?.models?.find((item) => String(item.code) === String(modelCode));
+  const motion = catalog.motion_catalog_2026?.models?.find((item) => String(item.code) === String(modelCode));
+  const designer = catalog.designers_choice_catalog_2026?.models?.find((item) => String(item.code) === String(modelCode));
+  const stationary = catalog.stationary_catalog_2026?.products?.find((item) => String(item.model_code) === String(modelCode));
+  const application = catalog.april_2026_model_cover_applications?.model_applications?.find((entry) => String(entry.model_code) === String(modelCode));
+  if (application?.rows?.length) {
+    for (const row of application.rows) addCodes(row.cover_codes || (row.cover ? [row.cover] : []), `April 2026 cover application: ${row.program}`);
+  } else {
+    if (recliner) (catalog.recliner_catalog_2026.cover_cap_choices || []).forEach((entry) => addCodes(entry.codes, `${catalog.recliner_catalog_2026.title}: ${entry.material}`));
+    if (motion) (catalog.motion_catalog_2026.cover_cap_choices || []).forEach((entry) => addCodes(entry.codes, `${catalog.motion_catalog_2026.title}: ${entry.material}`));
+    if (designer) Object.entries(designer.cover_cap_choices || catalog.designers_choice_catalog_2026.model_cover_cap_choices?.[modelCode] || {}).forEach(([material, values]) => addCodes(values, `${catalog.designers_choice_catalog_2026.title}: ${material}`));
+    for (const group of stationary?.catalog_groups || []) Object.entries(group.cover_cap_choices || {}).forEach(([material, values]) => addCodes(values, `${catalog.stationary_catalog_2026.title}: ${group.name} ${material}`));
+  }
+  return [...codes].map(([code, sources]) => {
+    const details = (catalog.cover_cap_codes || []).find((item) => item.code === code);
+    const applicationRows = (application?.rows || []).filter((row) => (row.cover_codes || [row.cover]).filter(Boolean).includes(code));
+    return { code, name: details?.name || code, type: details?.type || 'Catalog application', grade: details?.grade || '', source: [...sources].join('; '), note: applicationRows.map((row) => `${row.program}: ${row.cover_pattern || row.cover || ''}${row.color ? ` · ${row.color}` : ''}`).filter(Boolean).join('; ') };
+  });
+}
+
+export function getFullProductIndex(catalog) {
+  const products = new Map();
+  const ensureProduct = (code, name, category = '') => {
+    if (!code) return null;
+    const key = String(code);
+    if (!products.has(key)) products.set(key, { modelCode: key, modelName: name || key, categories: new Set(), sources: new Set(), styles: new Map(), notes: new Set() });
+    const product = products.get(key);
+    if (category) product.categories.add(category);
+    if (name && product.modelName === key) product.modelName = name;
+    return product;
+  };
+  const addSource = (product, source, pages) => product.sources.add(`${source}${pages?.length ? ` · p. ${pages.join(', ')}` : ''}`);
+  const styleLabels = new Map([
+    ...(catalog.recliner_catalog_2026?.prefix_definitions || []).map(([code, label]) => [String(code), label]),
+    ...(catalog.recliner_catalog_2026?.prefix_definitions_additional || []).map(([code, label]) => [String(code), label]),
+    ...(catalog.motion_catalog_2026?.prefix_definitions || []).map(([code, label]) => [String(code), label]),
+    ...(catalog.designers_choice_catalog_2026?.prefix_definitions || []).map(([code, label]) => [String(code), label]),
+    ...(catalog.designers_choice_catalog_2026?.prefix_definitions_additional || []).map(([code, label]) => [String(code), label]),
+    ...(catalog.stationary_catalog_2026?.stationary_prefix_definitions || []).map((item) => [String(item.code), item.description]),
+  ]);
+  const addStyle = (product, style) => {
+    if (!style?.code) return;
+    const key = `${style.code}|${style.source || ''}`;
+    product.styles.set(key, { ...style, options: [...new Set(style.options || [])] });
+  };
+
+  const recliner = catalog.recliner_catalog_2026;
+  for (const model of recliner?.models || []) {
+    const product = ensureProduct(model.code, model.name, 'Recliners');
+    addSource(product, recliner.title, model.pages);
+    (model.cover_collections || []).forEach((item) => product.notes.add(`Cover collections listed: ${item}`));
+    for (const [code, dimensions, options] of model.styles || []) addStyle(product, { code, label: styleLabels.get(String(code)) || 'Recliner style', dimensions, options, source: recliner.title });
+  }
+  const motion = catalog.motion_catalog_2026;
+  for (const model of motion?.models || []) {
+    const product = ensureProduct(model.code, model.name, 'Motion');
+    addSource(product, motion.title, model.pages);
+    (model.product_groups || []).forEach((item) => product.categories.add(item));
+    for (const [code, label, dimensions, options, sourceNote] of model.styles || []) addStyle(product, { code, label, dimensions, options, sourceNote, source: motion.title });
+  }
+  const designers = catalog.designers_choice_catalog_2026;
+  for (const model of designers?.models || []) {
+    const product = ensureProduct(model.code, model.name, 'Designer’s Choice');
+    addSource(product, designers.title, model.pages);
+    for (const [code, label, dimensions, options, sourceNote] of model.styles || []) addStyle(product, { code, label, dimensions, options, sourceNote, source: designers.title });
+    (model.notes || []).forEach((item) => product.notes.add(item));
+  }
+  const stationary = catalog.stationary_catalog_2026;
+  for (const model of stationary?.products || []) {
+    const product = ensureProduct(model.model_code, model.model_name, 'Stationary');
+    addSource(product, stationary.title, model.pages);
+    for (const group of model.catalog_groups || []) {
+      product.categories.add(group.name);
+      for (const style of group.styles || []) addStyle(product, { code: style.style_code, label: style.category || group.name, dimensions: style.dimensions, options: style.options, source: stationary.title, group: group.name });
+    }
+  }
+  for (const index of [...(motion?.index || []), ...(designers?.index || []), ...(stationary?.index || [])]) {
+    const product = ensureProduct(index.code ?? index.model_code, index.name ?? index.model_name, index.catalog_categories?.join(', ') || 'Catalog index');
+    const source = index.catalog_categories ? stationary?.title : (motion?.index || []).includes(index) ? motion?.title : designers?.title;
+    addSource(product, source || '2026 product catalog index', index.pages);
+    for (const [category, listed] of Object.entries(index.categories || {})) if (listed) product.categories.add(category.replaceAll('_', ' '));
+  }
+  for (const entry of catalog.recliner_catalog_2026?.index || []) {
+    const product = ensureProduct(entry.code, entry.name, 'Recliners');
+    addSource(product, catalog.recliner_catalog_2026.title, entry.pages);
+    for (const [category, listed] of Object.entries(entry.categories || {})) if (listed) product.categories.add(category.replaceAll('_', ' '));
+    if (!product.styles.size) product.notes.add('Recliner catalog index row; this entry does not contain a model specification page in the supplied extraction.');
+  }
+  for (const entry of catalog.recliner_collection_index_supplement?.index || []) {
+    const product = ensureProduct(entry.code, entry.name, 'Recliner catalog index supplement');
+    addSource(product, catalog.recliner_collection_index_supplement.title, entry.pages);
+    for (const [category, listed] of Object.entries(entry.categories || {})) if (listed) product.categories.add(category.replaceAll('_', ' '));
+    if (!catalog.recliner_catalog_2026?.models?.some((model) => String(model.code) === String(entry.code))) product.notes.add('Supplemental table-of-contents entry only; specifications and style eligibility are not established by this index row.');
+  }
+  for (const entry of catalog.april_2026_model_cover_applications?.model_applications || []) {
+    const product = ensureProduct(entry.model_code, entry.model_name, 'April 2026 model-cover application');
+    addSource(product, catalog.april_2026_model_cover_applications.source?.document || 'April 2026 model-cover application', []);
+    for (const row of entry.rows || []) product.notes.add(`${row.program}: ${row.cover_pattern || row.cover || 'listed cover program'}${row.color ? ` · ${row.color}` : ''}; source row identifies ${row.source_model_list || 'model association only'}.`);
+  }
+  for (const model of catalog.models_database || []) {
+    const product = ensureProduct(model.model_code, model.model_name, model.category || 'Master catalog');
+    addSource(product, 'Master product catalog', []);
+    if (model.quick_spotter) product.notes.add(model.quick_spotter);
+  }
+  for (const model of [...(catalog.motion_catalog_2026?.models || []), ...(catalog.designers_choice_catalog_2026?.models || [])]) {
+    for (const group of model.catalog_groups || []) {
+      const product = ensureProduct(model.code, model.name, group.name);
+      for (const style of group.styles || []) addStyle(product, { code: style.style_code, label: style.category || group.name, dimensions: style.dimensions, options: style.options, source: catalog.motion_catalog_2026?.models?.includes(model) ? catalog.motion_catalog_2026.title : catalog.designers_choice_catalog_2026?.title, group: group.name });
+    }
+  }
+  for (const profile of catalog.product_profiles || []) {
+    const product = ensureProduct(profile.model_code, profile.model_name, profile.sectional_family || 'Tear-pad product');
+    addSource(product, profile.source, []);
+    product.notes.add(profile.product_description || 'Model-specific tear-pad profile.');
+    for (const piece of profile.pieces || []) {
+      const variants = [...(piece.code ? [piece.code] : []), ...(piece.variants || []).map((variant) => variant.code)].flatMap(splitRmsCodes);
+      for (const code of variants) addStyle(product, { code, label: piece.name, dimensions: piece.dimensions_text || '', options: piece.pricebook_options || piece.options || [], source: profile.source, kind: 'Sectional piece' });
+    }
+  }
+  return [...products.values()].map((product) => ({
+    ...product,
+    categories: [...product.categories],
+    sources: [...product.sources],
+    styles: [...product.styles.values()].sort((left, right) => left.code.localeCompare(right.code)),
+    notes: [...product.notes],
+  })).sort((left, right) => left.modelName.localeCompare(right.modelName));
+}
+
+export function buildRmsSkuPreview({ group = '', style = '', grade = '', pattern = '', color = '', finish = '', options = [], includeFinish = false }) {
+  const fields = [['Group', group], ['Style', style], ['Grade', grade], ['Pattern', pattern], ['Color', color]];
+  const digits = (value, length) => String(value).length === length && [...String(value)].every((digit) => digit >= '0' && digit <= '9');
+  const fabricSegment = grade && digits(pattern, 4) && digits(color, 2) ? `${grade}${pattern}${color}` : '';
+  const identifiers = group && style ? `${group}-${style}` : '';
+  const beforeFinish = options.filter((code) => code === 'ES');
+  const afterFinish = options.filter((code) => code !== 'ES');
+  const hasCore = Boolean(/^[A-Z0-9]{2,4}$/i.test(group) && /^[A-Z0-9]{2,4}$/i.test(style) && /^[A-Z]{1,3}$/.test(grade) && digits(pattern, 4) && digits(color, 2));
+  const hasRequiredFinish = !includeFinish || Boolean(finish);
+  const sku = hasCore && hasRequiredFinish ? [identifiers, fabricSegment, ...beforeFinish, ...(includeFinish ? ['FN', finish] : []), ...afterFinish].filter(Boolean).join(' ') : '';
+  return { group, style, grade, pattern, color, finish, options, fields, sku, complete: Boolean(sku) };
+}
+
+export function encodeRmsSku({ prefix, modelCode, cover, patternCode = '2035', colorFamily = '3', colorShade = '1', optionCodes = [], finish = '007', trimCode = '', pillowCover = '', includePillow = false }) {
+  const skuCover = cover === 'DP' ? 'D' : cover;
+  const patternValue = String(patternCode);
+  const patternAndColor = patternValue.length >= 6 ? patternValue : patternValue.length === 4 && patternValue.endsWith(`${colorFamily}${colorShade}`) ? patternValue : `${patternValue}${colorFamily}${colorShade}`;
+  const coverPart = `${skuCover}${patternAndColor}`;
+  const options = [...new Set([trimCode, ...optionCodes, ...(includePillow ? ['FP', 'P1'] : [])].filter(Boolean))];
+  const beforeFinish = options.filter((code) => code === 'ES');
+  const afterFinish = options.filter((code) => code !== 'ES');
+  const validPattern = /^[A-Z]{1,3}\d{6}$/.test(coverPart);
+  if (!prefix || !modelCode || !validPattern || (!finish && options.includes('FN'))) return '';
+  return [`${prefix}${modelCode}`, coverPart, ...beforeFinish, ...(finish ? ['FN', finish] : []), ...afterFinish].join(' ');
+}
+
+export function findLiftTier(catalog, weight, modelCode) {
+  if (!weight || Number(weight) <= 0) return null;
+  const tier = catalog.lift_chair_weight_tiers.find((item) => !modelCode || item.model_code === modelCode);
+  return tier && Number(weight) <= tier.limit_lbs ? tier : null;
+}
+
+export function findCompatibleBattery(catalog, prefix, code) {
+  const item = catalog.style_prefixes.find((entry) => entry.code === prefix);
+  const pack = catalog.battery_packs.find((entry) => entry.code === code);
+  if (!item || !pack) return false;
+  return item.battery_pack === code;
+}
+
+function catalogModelStyle(catalog, modelCode, styleCode) {
+  for (const key of ['recliner_catalog_2026', 'motion_catalog_2026', 'designers_choice_catalog_2026']) {
+    const model = catalog[key]?.models?.find((entry) => String(entry.code) === String(modelCode));
+    const style = model?.styles?.find((entry) => String(entry[0]) === String(styleCode));
+    if (style) return { model, style, source: catalog[key].title };
+  }
+  const product = catalog.stationary_catalog_2026?.products?.find((entry) => String(entry.model_code) === String(modelCode));
+  for (const group of product?.catalog_groups || []) {
+    const style = group.styles?.find((entry) => String(entry.style_code).split('-')[0] === String(styleCode));
+    if (style) return { model: product, style, source: catalog.stationary_catalog_2026.title, group };
+  }
+  return null;
+}
+
+function findCatalogStyleCode(catalog, modelCode, styleCode) {
+  const match = catalogModelStyle(catalog, modelCode, styleCode);
+  if (match) return { ...match, status: 'documented' };
+  const profile = (catalog.product_profiles || []).find((entry) => String(entry.model_code) === String(modelCode));
+  const piece = profile?.pieces?.find((entry) => [entry.code, ...(entry.variants || []).map((variant) => variant.code)].filter(Boolean).some((code) => String(code).split('/').map((part) => part.trim()).includes(styleCode)));
+  return piece ? { model: { code: modelCode, name: profile.model_name }, style: [styleCode, piece.name, []], source: profile.source, status: 'tear_pad_piece_only' } : null;
+}
+
+function optionDescription(catalog, code, source = '') {
+  const motion = (catalog.motion_catalog_2026?.options || []).find(([option]) => option === code);
+  if (/Motion Collection/i.test(source) && motion) return motion[1];
+  const recliner = catalog.recliner_catalog_2026?.options?.find?.(([option]) => option === code);
+  if (/Recliner Collection/i.test(source) && recliner) return recliner[1];
+  const suffix = catalog.option_suffixes?.find((entry) => entry.code === code);
+  if (suffix) return suffix.name;
+  if (motion) return motion[1];
+  const stationary = catalog.stationary_catalog_2026?.options?.find((entry) => entry.code === code);
+  if (stationary) return stationary.name;
+  return recliner?.[1] || null;
+}
+
+function catalogOptionIsSupported(found, code) {
+  if (!found) return false;
+  if (found.style?.[3] && Array.isArray(found.style[3])) return found.style[3].includes(code);
+  if (found.style?.[2] && Array.isArray(found.style[2])) return found.style[2].includes(code);
+  return found.style?.options?.includes?.(code) || false;
+}
+
+/** Decode only identifiers present in supplied catalogs; unresolved fields stay explicitly unresolved. */
+export function decodeRmsSku(input, catalog) {
+  const raw = String(input ?? '').trim();
+  const tokens = raw.split(/\s+/).filter(Boolean);
+  const head = tokens[0] || '';
+  const pair = head.match(/^([A-Z0-9]+)-([A-Z0-9]+)$/i);
+  const styleCode = pair?.[1]?.toUpperCase() || '';
+  const modelCode = pair?.[2]?.toUpperCase() || '';
+  const stylePrefix = catalog.style_prefixes?.find((entry) => entry.code === styleCode);
+  const found = modelCode && styleCode ? findCatalogStyleCode(catalog, modelCode, styleCode) : null;
+  const model = (catalog.models_database || []).find((entry) => String(entry.model_code) === modelCode)
+    || found?.model || null;
+  const modelName = found?.model?.name || found?.model?.model_name || model?.model_name || null;
+  const style = {
+    code: styleCode || null,
+    name: stylePrefix?.motion_type || found?.style?.[1] || null,
+    status: stylePrefix || found ? 'documented' : 'unresolved',
+    source: found?.source || (stylePrefix ? 'Catalog style-prefix reference' : null),
+  };
+  const modelResult = { code: modelCode || null, name: modelName, status: model ? 'documented' : 'unresolved', source: found?.source || (model ? 'Master product catalog' : null) };
+  const coverTokenIndex = tokens.findIndex((token, index) => index > 0 && /^[A-Z]{1,3}\d{6}$/i.test(token));
+  const coverToken = coverTokenIndex >= 0 ? tokens[coverTokenIndex].toUpperCase() : '';
+  const coverRecord = coverToken && (catalog.cover_cap_codes || []).find((entry) => entry.code === coverToken.match(/^[A-Z]{1,3}/)?.[0]);
+  const patternCode = coverToken.match(/^[A-Z]{1,3}(\d{4})(\d{2})$/)?.[1] || null;
+  const colorCode = coverToken.match(/^[A-Z]{1,3}(\d{4})(\d{2})$/)?.[2] || null;
+  const swatchCollections = (catalog.stationary_catalog_2026?.products || []).flatMap((product) => (product.catalog_groups || []).flatMap((group) => group.fabric_collections || []));
+  const matchedCollection = swatchCollections.find((collection) => (collection.swatches || []).some(([swatch]) => String(swatch) === patternCode + colorCode));
+  const colorMatch = patternCode && colorCode ? (matchedCollection?.swatches || []).find(([swatch]) => String(swatch) === patternCode + colorCode) : null;
+  const cover = coverToken ? {
+    raw: coverToken,
+    grade: coverToken.match(/^[A-Z]{1,3}/)?.[0] || null,
+    pattern: patternCode,
+    color: colorCode,
+    cap_name: coverRecord?.name || null,
+    swatch_name: colorMatch?.[1] ? colorMatch[1] : null,
+    swatch_source: colorMatch ? matchedCollection?.name || 'Stationary catalog swatch' : null,
+    status: colorMatch || coverRecord ? 'partially_resolved_from_catalog' : 'digits_parsed_name_unresolved',
+    note: colorMatch ? 'Pattern/color digits matched a supplied catalog swatch record; verify the source collection and exact model eligibility.' : 'Grade/pattern/color digits parsed from the SKU string. A pattern/color name was not confirmed in the supplied swatch data.',
+  } : { raw: null, grade: null, pattern: null, color: null, status: 'unresolved', note: 'No complete cover segment was found.' };
+  const claims = [];
+  const physicalFeatures = [];
+  if (style.name) physicalFeatures.push(style.name);
+  if (coverToken) physicalFeatures.push(`Cover identifier ${coverToken}${coverRecord?.name ? ` (${coverRecord.name})` : ''}${coverRecord ? ` · ${coverRecord.type || coverRecord.category || 'material type not specified'}` : ''}${colorMatch ? ` · swatch ${colorMatch[1]} from ${matchedCollection?.name || 'supplied Stationary catalog'}` : ' (pattern/color names not resolved)'}`);
+  for (let index = 1; index < tokens.length; index += 1) {
+    const code = tokens[index].toUpperCase();
+    if (index === coverTokenIndex) continue;
+    if (code === 'FN' && tokens[index + 1]) {
+      const finishCode = tokens[index + 1].toUpperCase();
+      const finish = catalog.wood_finishes?.find((entry) => entry.code === finishCode);
+      const supported = catalogOptionIsSupported(found, 'FN');
+      const status = !finish ? 'unresolved_finish_code' : supported ? 'documented' : 'not_listed_for_exact_style';
+      claims.push({ code: 'FN', value: finishCode, description: finish?.name || 'Finish name unresolved', status });
+      if (supported && finish) physicalFeatures.push(`${finish.name} finish`);
+      index += 1;
+      continue;
+    }
+    const description = optionDescription(catalog, code, found?.source || '');
+    if (!description) {
+      claims.push({ code, description: 'No option description in supplied catalogs', status: 'unresolved' });
+      continue;
+    }
+    const supported = catalogOptionIsSupported(found, code);
+    const status = !found ? 'style_not_resolved' : supported ? 'documented' : 'not_listed_for_exact_style';
+    claims.push({ code, description, status });
+    if (supported) physicalFeatures.push(description);
+  }
+  const warnings = [];
+  if (!pair) warnings.push('Expected a documented Group/Style pair in the form PREFIX-MODEL.');
+  if (!stylePrefix && !found) warnings.push(`Style ${styleCode || '(missing)'} is not resolved in the supplied references.`);
+  if (!model) warnings.push(`Model ${modelCode || '(missing)'} is not resolved in the supplied references.`);
+  if (claims.some((claim) => claim.status === 'not_listed_for_exact_style')) warnings.push('One or more options are not listed for this exact style; they are not included in the physical-feature summary.');
+  if (!coverToken) warnings.push('Cover material, pattern, and color have not been resolved.');
+  return {
+    input: raw,
+    style,
+    model: modelResult,
+    cover,
+    finish: claims.find((claim) => claim.code === 'FN') || null,
+    claims,
+    physicalFeatures,
+    warnings,
+    orderStatus: !raw ? 'incomplete' : found && stylePrefix ? 'requires_order_system_verification' : 'partially_unresolved',
+    orderable: false,
+    disclaimer: 'Reference decoder only. Confirm exact configuration, current availability, and orderability in the live ordering system.',
+  };
+}
+
+const sectionalPieceCodes = (piece) => [piece.code, ...(piece.variants || []).map((variant) => variant.code)]
+  .filter(Boolean).flatMap((value) => String(value).split('/').map((code) => code.trim()));
+
+export function getSectionalPieceOptions(catalog, family, modelCode, pieceCode) {
+  const profile = (catalog.product_profiles || []).find((entry) => String(entry.model_code) === String(modelCode) && entry.sectional_family === family);
+  if (!profile || !pieceCode || !sectionalPieceCodes(profile.pieces.find((piece) => sectionalPieceCodes(piece).includes(pieceCode)) || {}).includes(pieceCode)) return [];
+  const motion = catalog.motion_catalog_2026?.models?.find((entry) => String(entry.code) === String(modelCode));
+  const motionStyle = motion?.styles?.find((style) => String(style[0]) === pieceCode);
+  if (motionStyle) return [...new Set(motionStyle[3] || [])];
+  const stationary = catalog.stationary_catalog_2026?.products?.find((entry) => String(entry.model_code) === String(modelCode));
+  for (const group of stationary?.catalog_groups || []) {
+    const style = group.styles?.find((entry) => String(entry.style_code).split('-')[0] === pieceCode);
+    if (style) return [...new Set(style.options || [])];
+  }
+  const tearPadPiece = profile.pieces.find((piece) => sectionalPieceCodes(piece).includes(pieceCode));
+  return [...new Set(tearPadPiece?.pricebook_options || [])];
+}
+
+export function matchDocumentedSectionalLayout(items, catalog) {
+  if (!Array.isArray(items) || !items.length) return null;
+  const { modelCode } = items[0];
+  const profile = (catalog.product_profiles || []).find((entry) => String(entry.model_code) === String(modelCode));
+  return profile?.configuration_layouts?.find((layout) => layout.piece_callouts?.length === items.length && layout.piece_callouts.every((code, index) => code === items[index].code)) || null;
+}
+
+/** Validate only source-backed identity and the explicit armless-recliner adjacency rule. */
+export function validateSectionalConfiguration(items, catalog) {
+  const pieces = Array.isArray(items) ? items : [];
+  const errors = [];
+  const warnings = [];
+  if (!pieces.length) errors.push('Add at least one piece to the configuration.');
+  const models = new Set(pieces.map((piece) => String(piece.modelCode)));
+  const families = new Set(pieces.map((piece) => piece.family));
+  if (models.size > 1) errors.push('Every piece in one configuration must use the same model code.');
+  if (families.size > 1) errors.push('Every piece in one configuration must use the same sectional family.');
+  for (const [index, item] of pieces.entries()) {
+    const category = catalog.style_prefixes?.find((entry) => entry.code === item.code)?.category || '';
+    if (index === 0 && /right-arm/i.test(category)) errors.push('Start the sequence with a left-arm piece or compare the pieces with a published layout.');
+    if (index === pieces.length - 1 && /left-arm/i.test(category)) errors.push('Finish the sequence with a right-arm piece or compare the pieces with a published layout.');
+    if (index > 0) {
+      const previousCategory = catalog.style_prefixes?.find((entry) => entry.code === pieces[index - 1].code)?.category || '';
+      if (/left-arm/i.test(previousCategory) && /left-arm/i.test(category)) errors.push('Two left-arm end pieces are adjacent; confirm a published arrangement before proceeding.');
+      if (/right-arm/i.test(previousCategory) && /right-arm/i.test(category)) errors.push('Two right-arm end pieces are adjacent; confirm a published arrangement before proceeding.');
+    }
+  }
+  const profile = (catalog.product_profiles || []).find((entry) => String(entry.model_code) === String(pieces[0]?.modelCode) && entry.sectional_family === pieces[0]?.family);
+  if (!profile && pieces.length) errors.push('The selected model/family has no matching source profile.');
+  for (const [index, item] of pieces.entries()) {
+    const sourcePiece = profile?.pieces?.find((piece) => sectionalPieceCodes(piece).includes(item.code));
+    if (!sourcePiece) errors.push(`${item.code || 'Unknown piece'} is not listed for model ${item.modelCode || '(missing)'}.`);
+    if (/^(44S|U4S|X4S)$/.test(item.code) && (index === 0 || index === pieces.length - 1)) {
+      errors.push(`${item.code} armless recliner must be flanked by a piece on both sides.`);
+    }
+  }
+  if (profile?.configuration_layouts?.length) warnings.push('The source tear pad lists named layouts; this sequence is a draft, not a manufacturer-confirmed connection plan. Compare the finished arrangement with a documented layout or current dealer ordering guide.');
+  else warnings.push('No source-backed connector/topology rules are indexed for this model; the sequence is not certified as a compatible arrangement.');
+  return { valid: errors.length === 0, errors, warnings, pieceCount: pieces.length, profile, status: errors.length ? 'needs_changes' : 'draft_requires_order_guide_check' };
+}

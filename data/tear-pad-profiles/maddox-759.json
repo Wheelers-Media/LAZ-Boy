@@ -1,0 +1,121 @@
+{
+  "model_code": "759",
+  "model_name": "Maddox",
+  "sectional_family": "La-Z-Time",
+  "source": "Maddox Tearpad - MP0101 7-5-24.pdf",
+  "source_document_code": "MP0101",
+  "source_document_footer_date": "06/01/24",
+  "source_document_market": "Not specified; tear-pad footer lists la-z-boy.com",
+  "product_description": "Maddox is described as a modern reclining sectional with smooth lines, wide seats, deep waterfall seats, tall split backs, wide track arms, and flange welt trim. The tear pad lists mix-and-match pieces and fabric or leather choices.",
+  "source_text_extraction": "With its smooth, modern lines and wide seats, our Maddox sectional offers bold style and comfort. Mix and match Maddox pieces to create a versatile sectional that reflects your lifestyle and provides the ultimate reclining comfort. Deep waterfall seats, tall split backs and wide track arms give you tremendous support with a look you’ll love. Flange welt trim adds a pop of casual flair. Choose from an array of components and upgrades in your choice of fabrics or leathers. U4A/X4A-759 (Power) 44A-759 (Non-Power) Left-Arm Sitting Recliner U4B/X4B-759 (Power) 44B-759 (Non-Power) Right-Arm Sitting Recliner 44C-759 Corner U4S/X4S-759 (Power) 44S-759 (Non-Power) Armless Recliner M44-759 Armless Chair SC4-759 Storage Console U4Q/X4Q-759 (Power) 44Q-759 (Non-Power) Left-Arm Sitting Reclining Chaise U4V/X4V-759 (Power) 44V-759 (Non-Power) Right-Arm Sitting Reclining Chaise Maddox 44C M44 M44 44B 44C 44C 44C 44S M44 M44 M44 44Q 44B 44B 44A M44 M44 44B 44B 44A 44A 44C 44C 44S 44S M44 M44 M44 44Q 44B 44B 44A 44V M44 44A 118\" 134.5\" 134.5\" 132.5\" 114\" 134.5\" 150\" 118\" 132.5\" 42\" 42\"42\" 40\" 40\" 40\" 94.5\" 40\" 40\" 40\" 40\" 40\" 40\" 40\" 40\" 40\" 44Q 42\" 65.5\" 132.5\" 118\" 118\" 118\" 65.5\" 65.5\" SC4 SC4 SC4 SC4 SC4 SC4 SC4 150\" U4A/X4A-759 (Power) 44A-759 (Non-Power) Left-Arm Sitting Recliner 42\" H x 40\" W x 40\" D U4B/X4B-759 (Power) 44B-759 (Non-Power) Right-Arm Sitting Recliner 42\" H x 40\" W x 40\" D 46\" 46\" 04C 40D 40E 04M 40S 40B 04Q 04V 4CS 4CN 4CW 40A 9CC 90M 44C-759 Corner 42\" H X 62\" W X 37\" D SC4-759 Storage Console 38.5\" H X 14.5\" W X 37.5\" D M44-759 Armless Chair 42\" H X 32\" W X 40\" D 44S/U4S/X4S-759 Armless Recliner 42\" H x 32\" W x 40\" D U4Q/X4Q-759 (Power) 44Q-759 (Non-Power) Left-Arm Sitting Reclining Chaise 42\" H X 42\" W X 65.5\" D U4V/X4V-759 (Power) 44V-759 (Non-Power) Right-Arm Sitting Reclining Chaise 42\" H x 42\" W x 65.5\" D Choose an arrangement shown below, or create the one that suits your home. La-Z-Boy products are handcrafted and variations from standard dimensions and appearance can occur. MP0101 6/1/24© 2024 La-Z-Boy Incorporatedla-z-boy.com",
+  "catalog_model": {
+    "category": "La-Z-Time Modular Sectional",
+    "scale": "Not specified in tear pad",
+    "recommended_height": "Not specified in tear pad",
+    "weight_limit_lbs": null,
+    "recommendation_eligible": false,
+    "key_features": [
+      "Smooth modern lines and wide seats",
+      "Deep waterfall seats and tall split backs",
+      "Wide track arms with flange welt trim",
+      "Manual and power reclining variants are listed"
+    ],
+    "look_alikes": [],
+    "quick_spotter": "Maddox is described in the MP0101 tear pad with deep waterfall seats, tall split backs, and wide track arms with flange welt trim. The tear pad does not specify ergonomic fit guidance or user-weight capacity."
+  },
+  "pieces": [
+    {
+      "key": "LA_recliner",
+      "name": "Left-Arm Sitting Recliner",
+      "variants": [
+        { "code": "44A", "label": "Non-power" },
+        { "code": "U4A", "label": "Power" },
+        { "code": "X4A", "label": "Power" }
+      ],
+      "dimensions_text": "42\" H × 40\" W × 40\" D"
+    },
+    {
+      "key": "RA_recliner",
+      "name": "Right-Arm Sitting Recliner",
+      "variants": [
+        { "code": "44B", "label": "Non-power" },
+        { "code": "U4B", "label": "Power" },
+        { "code": "X4B", "label": "Power" }
+      ],
+      "dimensions_text": "42\" H × 40\" W × 40\" D"
+    },
+    {
+      "code": "44C",
+      "key": "corner_wedge",
+      "name": "Corner",
+      "dimensions_text": "42\" H × 62\" W × 37\" D"
+    },
+    {
+      "key": "armless_recliner",
+      "name": "Armless Recliner",
+      "variants": [
+        { "code": "44S", "label": "Non-power" },
+        { "code": "U4S", "label": "Power" },
+        { "code": "X4S", "label": "Power" }
+      ],
+      "dimensions_text": "42\" H × 32\" W × 40\" D"
+    },
+    {
+      "code": "M44",
+      "key": "armless_chair",
+      "name": "Armless Chair",
+      "dimensions_text": "42\" H × 32\" W × 40\" D"
+    },
+    {
+      "key": "storage_console",
+      "name": "Storage Console",
+      "variants": [{ "code": "SC4", "label": "Console" }],
+      "dimensions_text": "38.5\" H × 14.5\" W × 37.5\" D"
+    },
+    {
+      "key": "LA_reclining_chaise",
+      "name": "Left-Arm Sitting Reclining Chaise",
+      "variants": [
+        { "code": "44Q", "label": "Non-power" },
+        { "code": "U4Q", "label": "Power" },
+        { "code": "X4Q", "label": "Power" }
+      ],
+      "dimensions_text": "42\" H × 42\" W × 65.5\" D"
+    },
+    {
+      "key": "RA_reclining_chaise",
+      "name": "Right-Arm Sitting Reclining Chaise",
+      "variants": [
+        { "code": "44V", "label": "Non-power" },
+        { "code": "U4V", "label": "Power" },
+        { "code": "X4V", "label": "Power" }
+      ],
+      "dimensions_text": "42\" H × 42\" W × 65.5\" D"
+    }
+  ],
+  "configuration_diagram_dimension_labels_in": [
+    "118", "134.5", "134.5", "132.5", "114", "134.5", "150", "118", "132.5", "42", "42", "42", "40", "40", "40", "94.5", "40", "40", "40", "40", "40", "40", "40", "40", "40", "65.5", "132.5", "118", "118", "118", "65.5", "65.5", "150"
+  ],
+  "unmapped_printed_codes": ["04C", "40D", "40E", "04M", "40S", "40B", "04Q", "04V", "4CS", "4CN", "4CW", "40A", "9CC", "90M"],
+  "unmapped_printed_codes_note": "Codes are retained as extracted. Their meaning or exact applicability to all pictured configurations is not clear from the text extraction and is not assigned to piece attributes.",
+  "arrangement_piece_callout_sequence": ["44C", "M44", "M44", "44B", "44C", "44C", "44C", "44S", "M44", "M44", "M44", "44Q", "44B", "44B", "44A", "M44", "M44", "44B", "44B", "44A", "44A", "44C", "44C", "44S", "44S", "M44", "M44", "M44", "44Q", "44B", "44B", "44A", "44V", "M44", "44A"],
+  "configuration_layouts": [
+    { "layout_number": 1, "overall_width_inches": 134.5, "overall_depth_inches": 118, "piece_callouts": ["44C", "M44", "SC4", "44Q", "M44", "44B"] },
+    { "layout_number": 2, "overall_width_inches": 134.5, "overall_depth_inches": 150, "piece_callouts": ["44C", "M44", "SC4", "44Q", "44S", "M44", "44B"] },
+    { "layout_number": 3, "overall_width_inches": 118, "overall_depth_inches": 132.5, "piece_callouts": ["44C", "M44", "44A", "44S", "SC4", "44B"] },
+    { "layout_number": 4, "overall_width_inches": 134.5, "overall_depth_inches": 132.5, "piece_callouts": ["44C", "M44", "SC4", "44Q", "44S", "M44", "44B"] },
+    { "layout_number": 5, "overall_width_inches": 132.5, "overall_depth_inches": 118, "piece_callouts": ["44C", "M44", "SC4", "44A", "M44", "44B"] },
+    { "layout_number": 6, "overall_width_inches": 114, "overall_depth_inches": 65.5, "piece_callouts": ["44V", "M44", "44A"] },
+    { "layout_number": 7, "overall_width_inches": 118, "overall_depth_inches": 118, "piece_callouts": ["44C", "M44", "44A", "M44", "44B"] },
+    { "layout_number": 8, "overall_width_inches": 94.5, "overall_depth_inches": 40, "piece_callouts": ["44B", "SC4", "44A"] }
+  ],
+  "configuration_diagram_note": "The supplied diagram photo makes the eight overall layout footprints readable. Dimensions are stored as width × depth in inches and piece callouts are transcribed from each pictured arrangement; verify room measurements against the selected final layout.",
+  "visual_reference": {
+    "source": "User-attached Maddox tear-pad photos in this conversation",
+    "product_photo_description": "The marketing photo shows a brown leather-look sectional in a living-room setting, arranged in a large L-shaped grouping with a chaise/end seat and a visible console. The photo does not identify a cover code or exact configuration.",
+    "piece_photo_note": "Separate product views depict the eight listed component types. These visual references confirm piece presentation, not upholstery availability or SKU-specific options.",
+    "diagram_verification_note": "The second supplied photo was used to read the eight layout footprints and associate callout codes with each drawing; full zoomed image files are not stored alongside this local JSON catalog."
+  },
+  "handcrafted_variation_note": "La-Z-Boy products are handcrafted and variations from standard dimensions and appearance can occur.",
+  "fit_specs_verified": false
+}
