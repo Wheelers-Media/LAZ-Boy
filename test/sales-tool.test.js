@@ -11,6 +11,16 @@ catalog.stationary_catalog_2026 = await readJson('stationary-catalog-2026.json')
 catalog.designers_choice_catalog_2026 = await readJson('designers-choice-catalog-2026.json');
 catalog.april_2026_model_cover_applications = await readJson('april-2026-model-cover-applications.json');
 
+test('declares product cover options before deriving material preferences during app startup', async () => {
+  const appSource = await readFile(new URL('../src/main.jsx', import.meta.url), 'utf8');
+  const productCoversPosition = appSource.indexOf('const productCoverOptions =');
+  const materialPreferencesPosition = appSource.indexOf('const availableMaterialPreferences =');
+
+  assert.notEqual(productCoversPosition, -1, 'product cover options are declared');
+  assert.notEqual(materialPreferencesPosition, -1, 'material preferences are derived');
+  assert.ok(productCoversPosition < materialPreferencesPosition, 'avoid accessing a const before initialization during the first render');
+});
+
 test('decodes a catalog-listed recliner SKU into style, model, cover segment and finish without fabric-name guesses', () => {
   const result = decodeRmsSku('10X-759 D185559 FN 007', catalog);
 

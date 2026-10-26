@@ -147,6 +147,7 @@ function App() {
   const fitStyleOptionRecords = getContextualOptionRecords(catalog || {}, fitStyle?.options || []);
   const fitBatteryOptions = fitModel && fitStyle ? getContextualBatteryOptions(catalog, fitModelCode, fitStyleCode, answers) : [];
   const fitBatteryCode = fitBatteryOptions[0]?.code || '';
+  const productCoverOptions = useMemo(() => catalog && fitModelCode && fitStyleCode ? getModelCoverOptions(catalog, fitModelCode) : [], [catalog, fitModelCode, fitStyleCode]);
   const availableCushionPreferences = catalog ? getContextualPreferenceChoices(catalog, answers, 'cushion', fitModelCode, fitStyleCode) : [];
   const availableSupportPreferences = catalog ? getContextualPreferenceChoices(catalog, answers, 'support', fitModelCode, fitStyleCode) : [];
   const availableMaterialPreferences = getMaterialPreferenceChoices(productCoverOptions);
@@ -157,8 +158,7 @@ function App() {
   const currentCapabilityLeads = fitModelCode ? filteredCapabilityLeads : capabilityLeads;
   const currentRecommendationLeads = fitModelCode ? filteredRecommendations : recommendations;
   const currentVisibleCapabilityLeads = fitModelCode ? filteredCapabilityLeads : capabilityLeads;
-  const productCoverOptions = useMemo(() => catalog && fitModelCode && fitStyleCode ? getModelCoverOptions(catalog, fitModelCode) : [], [catalog, fitModelCode, fitStyleCode]);
-  const availableModelCovers = useMemo(() => filterCoverOptionsByMaterial(productCoverOptions, answers.material_preference), [productCoverOptions, answers.material_preference]);
+  const availableModelCovers = filterCoverOptionsByMaterial(productCoverOptions, answers.material_preference);
   const selectedHeightInches = /under/i.test(answers.height) ? 64 : (() => { const [, feet = '0', inches = '0'] = String(answers.height).match(/(\\d+)\s*[′'’](?:\s*(\\d+))?/) || []; return Number(feet) * 12 + Number(inches); })();
   const fitGuide = researchReference?.fit_guidance_bands?.find((band) => selectedHeightInches >= band.height_min_inches && selectedHeightInches <= (band.height_max_inches ?? Infinity));
   const batteryOption = optionCodes.find((code) => code === 'BP1' || code === 'BP2');
