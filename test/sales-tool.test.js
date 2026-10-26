@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
-import { decodeRmsSku, getCatalogCapabilityLeads, getSectionalPieceOptions, matchDocumentedSectionalLayout, validateSectionalConfiguration } from '../src/logic.js';
+import { decodeRmsSku, filterCoverOptionsByMaterial, getCatalogCapabilityLeads, getContextualBatteryOptions, getContextualModelOptions, getContextualPreferenceChoices, getContextualStyleChoices, getMaterialPreferenceChoices, getModelCoverOptions, getRmsStyleOptions, getSectionalPieceOptions, matchDocumentedSectionalLayout, matchingPrefixes, validateSectionalConfiguration } from '../src/logic.js';
 
 const readJson = (name) => readFile(new URL(`../public/${name}`, import.meta.url), 'utf8').then(JSON.parse);
 const catalog = await readJson('catalog_data-v2.json');
@@ -9,6 +9,7 @@ catalog.recliner_catalog_2026 = await readJson('recliner-catalog-2026.json');
 catalog.motion_catalog_2026 = await readJson('motion-catalog-2026.json');
 catalog.stationary_catalog_2026 = await readJson('stationary-catalog-2026.json');
 catalog.designers_choice_catalog_2026 = await readJson('designers-choice-catalog-2026.json');
+catalog.april_2026_model_cover_applications = await readJson('april-2026-model-cover-applications.json');
 
 test('decodes a catalog-listed recliner SKU into style, model, cover segment and finish without fabric-name guesses', () => {
   const result = decodeRmsSku('10X-759 D185559 FN 007', catalog);
@@ -52,6 +53,72 @@ test('reports unsupported identifiers and malformed codes as unresolved instead 
   assert.equal(result.model.status, 'unresolved');
   assert.ok(result.warnings.length > 0);
   assert.equal(decodeRmsSku('', catalog).orderStatus, 'incomplete');
+});
+
+test('narrows onboarding model and style choices to the selected category, mechanism and room clearance', () => {
+  const recliners = matchingPrefixes(catalog, { category: 'Recliners', mechanism: 'Manual', clearance: 'Tight fit · 4 in' });
+  assert.ok(recliners.length > 0);
+  assert.ok(recliners.every((prefix) => prefix.wall_clearance_inches <= 4));
+  assert.ok(recliners.every((prefix) => /recliner/i.test(prefix.category)));
+
+  const modelOptions = getContextualModelOptions(catalog, { category: 'Recliners', mechanism: 'Manual', clearance: 'Standard · 12–18 in' });
+  assert.ok(modelOptions.length > 0);
+  assert.ok(modelOptions.every((model) => model.styles.length > 0));
+  assert.ok(modelOptions.every((model) => model.styles.every((style) => ['010', '015', '016', '017'].includes(style.code))));
+  assert.ok(!modelOptions.some((model) => model.code === '603'), 'stationary products are not shown in the recliner path');
+  const stationary = getContextualModelOptions(catalog, { category: 'Stationary suites', mechanism: 'No reclining mechanism', clearance: 'Standard · 12–18 in' });
+  assert.ok(stationary.length > 0);
+  assert.ok(stationary.every((model) => model.styles.every((style) => !/recliner|lift/i.test(style.prefix.category))));
+
+  const tightPower = getContextualModelOptions(catalog, { category: 'Recliners', mechanism: 'Power + headrest', clearance: 'Tight fit · 4 in' });
+  assert.ok(tightPower.length > 0);
+  assert.ok(tightPower.every((model) => model.styles.every((style) => style.prefix.wall_clearance_inches <= 4)));
+});
+
+test('exact style choices and add-ons are limited to the selected product and style', () => {
+  const selection = { category: 'Motion sofas / loveseats', mechanism: 'Power + headrest', clearance: 'Tight fit · 4 in' };
+  const selectedModel = { code: '724', styles: getContextualStyleChoices(catalog, '724', selection) };
+  assert.ok(selectedModel.styles.length > 0);
+  assert.deepEqual(selectedModel.styles.map((style) => style.code).sort(), ['U44', 'U46', 'U48', 'U49', 'X44', 'X46', 'X48', 'X49']);
+  assert.ok(getRmsStyleOptions(catalog, '724', 'U44').options.has('FS'));
+  assert.ok(!getRmsStyleOptions(catalog, '724', 'U44').options.has('CB'));
+  const covers = getModelCoverOptions(catalog, '724');
+  assert.ok(covers.some((cover) => cover.code === 'LB172755' && cover.type === 'Leather'));
+  assert.ok(covers.some((cover) => cover.code === 'D126778' && cover.type === 'Fabric'));
+  assert.ok(!covers.some((cover) => cover.code === 'D211652'));
+  const morrisonCovers = getModelCoverOptions(catalog, '766');
+  assert.ok(morrisonCovers.some((cover) => cover.code === 'D211652'));
+  assert.ok(!morrisonCovers.some((cover) => cover.code === 'LB172755'), 'never carry Trouper’s cover rows over to Morrison');
+  assert.deepEqual(filterCoverOptionsByMaterial(covers, 'Fabric').map((item) => item.code), ['D126778']);
+  assert.deepEqual(filterCoverOptionsByMaterial(covers, 'Leather').map((item) => item.code), ['LB172755', 'LB172779']);
+  const materialPreferences = getMaterialPreferenceChoices(covers);
+  assert.ok(materialPreferences.some((item) => item.value === 'Fabric'));
+  assert.ok(materialPreferences.some((item) => item.value === 'Other / need to compare swatches'));
+  assert.ok(!materialPreferences.some((item) => item.value === 'Authentic leather (LL)'), 'show only material types represented in this product’s source rows');
+
+  const lumbarSelection = { ...selection, support_preference: 'Power lumbar support' };
+  const lumbarStyles = getContextualStyleChoices(catalog, '724', lumbarSelection);
+  assert.ok(lumbarStyles.length > 0);
+  assert.ok(lumbarStyles.every((style) => /lumbar/i.test(style.prefix.motion_type)));
+  const cushionPreferences = getContextualPreferenceChoices(catalog, selection, 'cushion');
+  assert.ok(cushionPreferences.length);
+  assert.ok(cushionPreferences.every((item) => item.code === 'Standard' || item.code === 'FS' || item.code === 'Z6' || item.code === 'DC'));
+  const headrestPreferences = getContextualPreferenceChoices(catalog, selection, 'support');
+  assert.ok(headrestPreferences.some((item) => item.value === 'Power headrest'));
+  assert.ok(headrestPreferences.some((item) => item.value === 'Power lumbar support'), 'show lumbar where a matching style in this category supports it');
+  const exactStylePreferences = getContextualPreferenceChoices(catalog, selection, 'support', '724', 'U44');
+  assert.ok(!exactStylePreferences.some((item) => item.value === 'Power lumbar support'), 'hide support choices that the selected style cannot provide');
+  const manualStyles = getContextualStyleChoices(catalog, '724', { ...selection, mechanism: 'Manual' });
+  assert.ok(manualStyles.length);
+  assert.ok(manualStyles.every((style) => !style.prefix.power_compatible));
+  const coverPreferences = getMaterialPreferenceChoices(covers);
+  assert.ok(coverPreferences.some((item) => item.value === 'Fabric'));
+  assert.ok(coverPreferences.some((item) => item.value === 'Authentic leather (LL)') === false);
+  assert.ok(filterCoverOptionsByMaterial(covers, 'Fabric').every((item) => item.type === 'Fabric'));
+  assert.ok(filterCoverOptionsByMaterial(covers, 'Leather match (LM)').every((item) => item.code.startsWith('LM')));
+  assert.ok(getContextualBatteryOptions(catalog, '724', 'U44', selection).length === 0, 'hide battery options not documented for this exact style');
+  assert.deepEqual(getContextualBatteryOptions(catalog, '521', '10U', { category: 'Recliners', mechanism: 'Power recline', clearance: 'Standard · 12–18 in' }).map((item) => item.code), ['BP1']);
+  assert.deepEqual(getContextualBatteryOptions(catalog, '521', '', { category: 'Recliners', mechanism: 'Power recline', clearance: 'Standard · 12–18 in' }), []);
 });
 
 test('offers limited category-compatible catalog capability leads for every onboarding category', () => {

@@ -1,0 +1,169 @@
+/* La-Z-Boy palette transcribed from the supplied Brand Book rulebook. */
+:root {
+  --brand-navy: #00334B;
+  --brand-cream: #E6E2D5;
+  --brand-blue: #244C5A;
+  --brand-sage: #9AB9AD;
+  --brand-rust: #BD472A;
+  --brand-forest: #00534C;
+  --brand-peach: #ECC3B2;
+  --navy: var(--brand-navy);
+  --blue: var(--brand-blue);
+  --brand-blue-dark: var(--brand-navy);
+  --brand-blue-soft: rgba(154, 185, 173, .2);
+  --ink: #1A1A1A;
+  --muted: #757575;
+  --text-secondary: #404040;
+  --text-tertiary: #757575;
+  --line: rgba(0, 51, 75, .14);
+  --paper: rgba(255, 255, 255, .92);
+  --surface: rgba(255, 255, 255, .92);
+  --surface-secondary: #F6F6F6;
+  --control: #fff;
+  --wash: #F6F6F6;
+  color: var(--ink);
+  background: var(--wash);
+}
+
+body,
+.app {
+  color: var(--ink);
+  background: var(--wash);
+}
+
+.rail,
+.topbar {
+  background: rgba(255, 255, 255, .96);
+  border-color: var(--line);
+}
+
+.card,
+.stepper,
+.session-chip,
+.mobile-tools-sheet,
+.info-modal {
+  border-color: var(--line);
+}
+
+.rail-link:hover,
+.rail-link.active {
+  color: var(--brand-navy);
+  background: rgba(230, 226, 213, .58);
+}
+
+.rail-link.active::before {
+  background: var(--brand-rust);
+}
+
+.primary-button,
+.copy-button {
+  color: #fff;
+  background: var(--brand-navy);
+  border-color: var(--brand-navy);
+}
+
+.primary-button:hover,
+.copy-button:hover {
+  background: var(--brand-forest);
+  border-color: var(--brand-forest);
+}
+
+.choice-card.selected,
+.category-card.selected,
+.cover-choice.selected,
+.piece-option.selected {
+  background: rgba(154, 185, 173, .18);
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 1px rgba(36, 76, 90, .08);
+}
+
+.choice-check,
+.category-card > svg,
+.cover-check {
+  color: var(--brand-blue);
+}
+
+.step-item.current .step-number {
+  background: var(--brand-navy);
+  border-color: var(--brand-navy);
+}
+
+.step-item.done .step-number {
+  background: var(--brand-forest);
+  border-color: var(--brand-forest);
+}
+
+.step-item.done .step-name,
+.welcome-row .eyebrow,
+.module-intro .eyebrow,
+.step-kicker {
+  color: var(--brand-blue);
+}
+
+.welcome-row h1 em,
+.module-intro h1 em {
+  color: var(--brand-blue);
+}
+
+.mode-toggle.is-on {
+  color: var(--brand-navy);
+  border-color: rgba(36, 76, 90, .38);
+  background: rgba(230, 226, 213, .5);
+}
+
+.is-on .mode-dot {
+  background: var(--brand-navy);
+  border-color: var(--brand-navy);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline-color: var(--brand-sage);
+}
+
+.mobile-tabbar {
+  background: rgba(246, 246, 246, .94);
+}
+
+.mobile-tab.active,
+.mobile-tool.active {
+  color: var(--brand-navy);
+  background: var(--brand-blue-soft);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --line: rgba(230, 226, 213, .18);
+    --surface: rgba(28, 28, 30, .94);
+    --surface-secondary: #1A1A1A;
+    --control: #2C2C2E;
+    --brand-blue-soft: rgba(154, 185, 173, .2);
+  }
+
+  body,
+  .app {
+    background: #1A1A1A;
+  }
+
+  .rail,
+  .topbar {
+    background: rgba(28, 28, 30, .96);
+  }
+
+  .primary-button,
+  .copy-button {
+    background: var(--brand-blue);
+    border-color: var(--brand-blue);
+  }
+
+  .primary-button:hover,
+  .copy-button:hover {
+    background: var(--brand-forest);
+    border-color: var(--brand-forest);
+  }
+
+  .mobile-tabbar {
+    background: rgba(28, 28, 30, .94);
+  }
+}
