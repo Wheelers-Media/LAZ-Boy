@@ -39,6 +39,7 @@ const modelPrefixOptions = (catalog, code) => {
 };
 const modelFor = (catalog, code) => catalog.models_database.find((model) => model.model_code === code);
 const initialAnswers = { scale: 'Small / Medium', height: "5′8″", weight: '', clearance: 'Standard · 12–18 in', category: 'Recliners', mechanism: 'Power recline', upgrades: [], fabric: '', kidsPets: false, seat_depth_preference: 'Not sure yet', back_support_preference: 'Not sure yet', cushion_preference: 'Standard Poly', support_preference: 'No preference yet', material_preference: 'No preference yet' };
+const colorList = (item) => item.colors.map((color) => (item.colorNames?.[color] ? `${color} ${item.colorNames[color]}` : color)).join(', ');
 const DEFAULT_COLOR_SHADE = '6';
 function App() {
   const [catalog, setCatalog] = useState(null);
@@ -201,13 +202,13 @@ function App() {
         const cleaningName = program.definitions?.cleaningCodes?.[item.cleaningCode] || item.cleaningCode;
         const wearability = program.definitions?.wearability?.[item.wearability];
         const attributes = (item.specialtyAttributes || []).map((code) => program.definitions?.specialtyAttributes?.[code] || code);
-        return { kind: 'Fabric program cover', title: `${item.coverCode} · ${item.patternName}`, detail: `Cap ${item.capCode} · colors ${item.colors.join(', ')} · ${wearability?.name || item.wearability} wearability${wearability?.description ? ` (${wearability.description})` : ''} · cleaning ${item.cleaningCode} (${cleaningName})${attributes.length ? ` · ${attributes.join(', ')}` : ''} · Confirm it is offered on the exact model first.`, code: item.coverCode };
+        return { kind: 'Fabric program cover', title: `${item.coverCode} · ${item.patternName}`, detail: `Cap ${item.capCode} · colors ${colorList(item)} · ${wearability?.name || item.wearability} wearability${wearability?.description ? ` (${wearability.description})` : ''} · cleaning ${item.cleaningCode} (${cleaningName})${attributes.length ? ` · ${attributes.join(', ')}` : ''} · Confirm it is offered on the exact model first.`, code: item.coverCode };
       }),
       ...(catalog.fabric_cover_program_a26?.leathers || []).map((item) => {
         const program = catalog.fabric_cover_program_a26;
         const attributes = (item.specialtyAttributes || []).map((code) => program.definitions?.specialtyAttributes?.[code] || code);
         const fits = item.models?.length ? ` · models ${item.models.join(', ')}` : '';
-        return { kind: 'Leather cover', title: `${item.coverCode} · ${item.patternName}`, detail: `${item.group} · ${item.leatherType} · cap ${item.capCode} · colors ${item.colors.join(', ')}${fits}${attributes.length ? ` · ${attributes.join(', ')}` : ''}${item.notes?.length ? ` · ${item.notes.join(' ')}` : ''} · Confirm it is offered on the exact model first.`, code: item.coverCode };
+        return { kind: 'Leather cover', title: `${item.coverCode} · ${item.patternName}`, detail: `${item.group} · ${item.leatherType} · cap ${item.capCode} · colors ${colorList(item)}${fits}${attributes.length ? ` · ${attributes.join(', ')}` : ''}${item.notes?.length ? ` · ${item.notes.join(' ')}` : ''} · Confirm it is offered on the exact model first.`, code: item.coverCode };
       }),
 
       ...catalog.option_suffixes.map((item) => ({ kind: 'Option suffix', title: `${item.code} · ${item.name}`, detail: item.description, code: item.code })),

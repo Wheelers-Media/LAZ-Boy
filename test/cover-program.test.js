@@ -47,3 +47,16 @@ test('every cap code used by a cover is documented', () => {
   const documented = new Set(catalog.cover_cap_codes.map((cap) => cap.code));
   for (const cover of [...program.fabrics, ...program.leathers]) assert.ok(documented.has(cover.capCode), `${cover.coverCode} ${cover.capCode}`);
 });
+
+test('color names only come from the catalog swatch list and match their codes', async () => {
+  const names = JSON.parse(await readFile(new URL('../data/source/catalog-swatch-names.json', import.meta.url), 'utf8'));
+  let named = 0;
+  for (const record of [...program.fabrics, ...program.leathers]) {
+    for (const [color, name] of Object.entries(record.colorNames || {})) {
+      assert.ok(record.colors.includes(color), `${record.coverCode} names color ${color} it does not list`);
+      assert.equal(name, names[record.coverCode + color]);
+      named += 1;
+    }
+  }
+  assert.ok(named > 250, `expected 250+ named colors, got ${named}`);
+});

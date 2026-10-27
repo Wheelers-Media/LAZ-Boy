@@ -72,6 +72,13 @@
       "coverCode": "B1538",
       "patternName": "Seamount",
       "colors": ["08", "53", "74", "76", "85"],
+      "colorNames": {
+        "53": "Silver",
+        "74": "Sable",
+        "76": "Cappuccino",
+        "85": "Indigo",
+        "08": "Burgundy"
+      },
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "S",
@@ -81,6 +88,13 @@
       "coverCode": "B1808",
       "patternName": "Social Club",
       "colors": ["52", "57", "68", "72", "76"],
+      "colorNames": {
+        "52": "Stone",
+        "57": "Charcoal",
+        "68": "Pewter",
+        "72": "Chalk",
+        "76": "Cocoa"
+      },
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "S",
@@ -99,6 +113,13 @@
       "coverCode": "C1525",
       "patternName": "Roma",
       "colors": ["34", "53", "74", "78", "86"],
+      "colorNames": {
+        "34": "Cream",
+        "53": "Storm",
+        "74": "Mocha",
+        "78": "Espresso",
+        "86": "Navy"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
@@ -117,6 +138,14 @@
       "coverCode": "C1625",
       "patternName": "Vance",
       "colors": ["08", "27", "32", "52", "76", "86"],
+      "colorNames": {
+        "27": "Sage",
+        "32": "Sand",
+        "52": "Ice",
+        "76": "Mocha",
+        "86": "Eclipse",
+        "08": "Garnet"
+      },
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "WS",
@@ -135,6 +164,11 @@
       "coverCode": "C1700",
       "patternName": "Nico",
       "colors": ["33", "53", "57"],
+      "colorNames": {
+        "33": "Oyster",
+        "53": "Ash",
+        "57": "Charcoal"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
@@ -144,6 +178,11 @@
       "coverCode": "C1754",
       "patternName": "Kemet",
       "colors": ["32", "74", "86"],
+      "colorNames": {
+        "32": "Sand",
+        "74": "Brownstone",
+        "86": "Slate"
+      },
       "capCode": "UR",
       "wearability": "P",
       "cleaningCode": "S",
@@ -153,6 +192,12 @@
       "coverCode": "C1757",
       "patternName": "Bartaloni",
       "colors": ["31", "33", "53", "73"],
+      "colorNames": {
+        "31": "Oatmeal",
+        "33": "Birch",
+        "53": "Flannel",
+        "73": "Twig"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
@@ -162,6 +207,12 @@
       "coverCode": "C1809",
       "patternName": "Donegal",
       "colors": ["64", "69", "74", "87"],
+      "colorNames": {
+        "64": "Linen",
+        "69": "Granite",
+        "74": "Mushroom",
+        "87": "Marine"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
@@ -171,6 +222,13 @@
       "coverCode": "C1812",
       "patternName": "Damon",
       "colors": ["33", "54", "57", "62", "86"],
+      "colorNames": {
+        "33": "Oyster",
+        "54": "Stone",
+        "57": "Charcoal",
+        "62": "Muslin",
+        "86": "Midnight"
+      },
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "S",
@@ -180,6 +238,13 @@
       "coverCode": "C1852",
       "patternName": "Tiago",
       "colors": ["52", "55", "65", "76", "86"],
+      "colorNames": {
+        "52": "Twilight",
+        "55": "Granite",
+        "65": "Fawn",
+        "76": "Mocha",
+        "86": "Navy"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
@@ -189,6 +254,13 @@
       "coverCode": "C1860",
       "patternName": "Persia",
       "colors": ["36", "86", "08", "54", "76"],
+      "colorNames": {
+        "36": "Desert",
+        "54": "Greystone",
+        "76": "Bark",
+        "86": "Lake",
+        "08": "Wine"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
@@ -216,6 +288,12 @@
       "coverCode": "C1882",
       "patternName": "Lukas",
       "colors": ["32", "73", "79", "86"],
+      "colorNames": {
+        "32": "Khaki",
+        "73": "Camel",
+        "79": "Fudge",
+        "86": "Navy"
+      },
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "S",
@@ -225,6 +303,12 @@
       "coverCode": "C1965",
       "patternName": "Nora",
       "colors": ["32", "52", "66", "84"],
+      "colorNames": {
+        "32": "Ivory",
+        "52": "Oyster",
+        "66": "Truffle",
+        "84": "Harbor"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
@@ -243,6 +327,13 @@
       "coverCode": "C2029",
       "patternName": "Easy",
       "colors": ["07", "31", "58", "64", "87"],
+      "colorNames": {
+        "31": "Linen",
+        "58": "Stone",
+        "64": "Pebble",
+        "87": "Midnight",
+        "07": "Brick"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
@@ -252,6 +343,13 @@
       "coverCode": "C2032",
       "patternName": "Reyson",
       "colors": ["60", "64", "74", "78", "85"],
+      "colorNames": {
+        "60": "Sand",
+        "64": "Taupe",
+        "74": "Sepia",
+        "78": "Bark",
+        "85": "Ocean"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
@@ -261,6 +359,12 @@
       "coverCode": "C2035",
       "patternName": "Thane",
       "colors": ["31", "54", "57", "78"],
+      "colorNames": {
+        "31": "Linen",
+        "54": "Smoke",
+        "57": "Charcoal",
+        "78": "Chocolate"
+      },
       "capCode": "UR",
       "wearability": "P",
       "cleaningCode": "WS",
@@ -270,6 +374,12 @@
       "coverCode": "C2042",
       "patternName": "Duffey",
       "colors": ["32", "53", "60", "74"],
+      "colorNames": {
+        "32": "Oat",
+        "53": "Fog",
+        "60": "Dove",
+        "74": "Hazel"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
@@ -279,6 +389,11 @@
       "coverCode": "C2043",
       "patternName": "Sheldon",
       "colors": ["57", "73", "76"],
+      "colorNames": {
+        "57": "Granite",
+        "73": "Fawn",
+        "76": "Stone"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
@@ -315,6 +430,12 @@
       "coverCode": "C2067",
       "patternName": "Axe",
       "colors": ["59", "64", "74", "86"],
+      "colorNames": {
+        "59": "Onyx",
+        "64": "Slate",
+        "74": "Mocha",
+        "86": "Midnight"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
@@ -378,6 +499,13 @@
       "coverCode": "D1564",
       "patternName": "i-Hallandale",
       "colors": ["31", "53", "58", "64", "87"],
+      "colorNames": {
+        "31": "Ivory",
+        "53": "Platinum",
+        "58": "Charcoal",
+        "64": "Wicker",
+        "87": "Admiral"
+      },
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "W",
@@ -387,6 +515,13 @@
       "coverCode": "D1604",
       "patternName": "i-Outlier",
       "colors": ["54", "58", "62", "76", "79"],
+      "colorNames": {
+        "54": "Charcoal",
+        "58": "Slate",
+        "62": "Mushroom",
+        "76": "Ash",
+        "79": "Godiva"
+      },
       "capCode": "UR",
       "wearability": "P",
       "cleaningCode": "W",
@@ -396,6 +531,13 @@
       "coverCode": "D1606",
       "patternName": "i-Halifax",
       "colors": ["32", "54", "62", "78", "86"],
+      "colorNames": {
+        "32": "Shell",
+        "54": "Dove",
+        "62": "Antique",
+        "78": "Java",
+        "86": "Denim"
+      },
       "capCode": "UR",
       "wearability": "P",
       "cleaningCode": "W",
@@ -423,6 +565,13 @@
       "coverCode": "D1759",
       "patternName": "i-Saxton",
       "colors": ["56", "64", "77", "78", "86"],
+      "colorNames": {
+        "56": "Graphite",
+        "64": "Marble",
+        "77": "Mink",
+        "78": "Espresso",
+        "86": "Navy"
+      },
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "W",
@@ -432,6 +581,12 @@
       "coverCode": "D1806",
       "patternName": "i-Catalyst",
       "colors": ["32", "54", "57", "78"],
+      "colorNames": {
+        "32": "Sand",
+        "54": "Platinum",
+        "57": "Ash",
+        "78": "Earth"
+      },
       "capCode": "UR",
       "wearability": "P",
       "cleaningCode": "W",
@@ -441,6 +596,14 @@
       "coverCode": "D1807",
       "patternName": "Fairfax",
       "colors": ["32", "53", "57", "64", "74", "86"],
+      "colorNames": {
+        "32": "Oyster",
+        "53": "Ash",
+        "57": "Iron",
+        "64": "Almond",
+        "74": "Mocha",
+        "86": "Eclipse"
+      },
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "WS",
@@ -450,6 +613,12 @@
       "coverCode": "D1825",
       "patternName": "i-Raven Crest",
       "colors": ["35", "58", "73", "74"],
+      "colorNames": {
+        "35": "Pebble",
+        "58": "Ash",
+        "73": "Mushroom",
+        "74": "Chestnut"
+      },
       "capCode": "BU",
       "wearability": "P",
       "cleaningCode": "W",
@@ -459,6 +628,12 @@
       "coverCode": "D1855",
       "patternName": "i-Rivers",
       "colors": ["52", "53", "58", "59", "64", "75"],
+      "colorNames": {
+        "53": "Fossil",
+        "59": "Smoke",
+        "64": "Sand",
+        "75": "Camel"
+      },
       "capCode": "BU",
       "wearability": "N",
       "cleaningCode": "W",
@@ -468,6 +643,13 @@
       "coverCode": "D1905",
       "patternName": "York",
       "colors": ["31", "54", "58", "72", "74"],
+      "colorNames": {
+        "31": "Cream",
+        "54": "Quarry",
+        "58": "Granite",
+        "72": "Barley",
+        "74": "Bisque"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
@@ -486,6 +668,13 @@
       "coverCode": "D1970",
       "patternName": "Marteon",
       "colors": ["34", "52", "56", "66", "96"],
+      "colorNames": {
+        "34": "Natural",
+        "52": "Whisper",
+        "56": "Onyx",
+        "66": "Porcini",
+        "96": "Ocean"
+      },
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "WS",
@@ -504,6 +693,14 @@
       "coverCode": "D2009",
       "patternName": "Promise",
       "colors": ["31", "46", "52", "59", "72", "83"],
+      "colorNames": {
+        "31": "Ecru",
+        "46": "Gold",
+        "52": "Oyster",
+        "59": "Thunder",
+        "72": "Khaki",
+        "83": "Powder"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
@@ -513,6 +710,15 @@
       "coverCode": "D2010",
       "patternName": "i-Rene",
       "colors": ["14", "19", "25", "32", "52", "65", "81"],
+      "colorNames": {
+        "14": "Nutmeg",
+        "19": "Spice",
+        "25": "Moss",
+        "32": "Oat",
+        "52": "Ash",
+        "65": "Mushroom",
+        "81": "Bluestone"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
@@ -540,6 +746,13 @@
       "coverCode": "D2027",
       "patternName": "i-Weekend",
       "colors": ["32", "51", "67", "75", "98"],
+      "colorNames": {
+        "32": "Buff",
+        "51": "Dove Grey",
+        "67": "Sable",
+        "75": "Chestnut",
+        "98": "Ocean"
+      },
       "capCode": "UR",
       "wearability": "P",
       "cleaningCode": "W",
@@ -549,6 +762,13 @@
       "coverCode": "D2034",
       "patternName": "Doritt",
       "colors": ["32", "36", "54", "75", "78"],
+      "colorNames": {
+        "32": "Sand",
+        "36": "Birch",
+        "54": "Charcoal",
+        "75": "Suede",
+        "78": "Teak"
+      },
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "W",
@@ -576,6 +796,13 @@
       "coverCode": "D2066",
       "patternName": "i-Kudos",
       "colors": ["59", "61", "67", "77", "80"],
+      "colorNames": {
+        "59": "Lead",
+        "61": "Oyster",
+        "67": "Tawny",
+        "77": "Mocha",
+        "80": "Powder"
+      },
       "capCode": "UR",
       "wearability": "P",
       "cleaningCode": "S",
@@ -585,6 +812,13 @@
       "coverCode": "D2068",
       "patternName": "i-Beverley",
       "colors": ["33", "60", "71", "76", "93"],
+      "colorNames": {
+        "33": "Bone",
+        "60": "Pebble",
+        "71": "Mineral",
+        "76": "Coffee",
+        "93": "Ocean"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
@@ -594,6 +828,13 @@
       "coverCode": "D2071",
       "patternName": "i-Rockport",
       "colors": ["19", "31", "52", "54", "78"],
+      "colorNames": {
+        "19": "Salsa",
+        "31": "Linen",
+        "52": "Mushroom",
+        "54": "Grey",
+        "78": "Brownstone"
+      },
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "WS",
@@ -603,6 +844,13 @@
       "coverCode": "D2072",
       "patternName": "i-Nolina",
       "colors": ["31", "51", "52", "57", "75"],
+      "colorNames": {
+        "31": "Natural",
+        "51": "Horizon",
+        "52": "Flint",
+        "57": "Graphite",
+        "75": "Toast"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
@@ -612,6 +860,14 @@
       "coverCode": "D2074",
       "patternName": "Gail",
       "colors": ["32", "51", "60", "78", "80", "86"],
+      "colorNames": {
+        "32": "Ecru",
+        "51": "Oyster",
+        "60": "Porcelain",
+        "78": "Fossil",
+        "80": "Lotus",
+        "86": "Navy"
+      },
       "capCode": "UR",
       "wearability": "P",
       "cleaningCode": "W*B",
@@ -621,6 +877,12 @@
       "coverCode": "D2075",
       "patternName": "Galloway",
       "colors": ["38", "65", "78", "86"],
+      "colorNames": {
+        "38": "Pebble",
+        "65": "Shitake",
+        "78": "Chocolate",
+        "86": "Navy"
+      },
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "WS",
@@ -657,6 +919,13 @@
       "coverCode": "D2092",
       "patternName": "Ross",
       "colors": ["25", "32", "52", "59", "61"],
+      "colorNames": {
+        "25": "Moss",
+        "32": "Natural",
+        "52": "Pebble",
+        "59": "Smoke",
+        "61": "Linen"
+      },
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "W*B",
@@ -666,6 +935,15 @@
       "coverCode": "D2093",
       "patternName": "Artisia",
       "colors": ["24", "31", "51", "55", "74", "75", "76"],
+      "colorNames": {
+        "24": "Leaf",
+        "31": "Vellum",
+        "51": "Silver",
+        "55": "Mushroom",
+        "74": "Dusty Rose",
+        "75": "Cappuccino",
+        "76": "Truffle"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
@@ -684,6 +962,13 @@
       "coverCode": "D2095",
       "patternName": "Crocker",
       "colors": ["51", "55", "62", "74", "86"],
+      "colorNames": {
+        "51": "Dove Grey",
+        "55": "Smoke",
+        "62": "Marble",
+        "74": "Hazel",
+        "86": "Midnight"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
@@ -693,6 +978,12 @@
       "coverCode": "D2096",
       "patternName": "Defender",
       "colors": ["31", "51", "64", "69"],
+      "colorNames": {
+        "31": "Bone",
+        "51": "Dove",
+        "64": "Linen",
+        "69": "Latte"
+      },
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "W*B",
@@ -720,6 +1011,12 @@
       "coverCode": "D2099",
       "patternName": "i-Favorite",
       "colors": ["31", "33", "53", "65"],
+      "colorNames": {
+        "31": "Parchment",
+        "33": "Oyster",
+        "53": "Pewter",
+        "65": "Driftwood"
+      },
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "S",
@@ -729,6 +1026,13 @@
       "coverCode": "D2100",
       "patternName": "i-George",
       "colors": ["31", "52", "54", "62", "70"],
+      "colorNames": {
+        "31": "Sugar",
+        "52": "Shadow",
+        "54": "Grey",
+        "62": "Taupe",
+        "70": "Sand"
+      },
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "WS",
@@ -738,6 +1042,12 @@
       "coverCode": "D2101",
       "patternName": "Novan",
       "colors": ["37", "55", "62", "74"],
+      "colorNames": {
+        "37": "Porcelain",
+        "55": "Pebble",
+        "62": "Flax",
+        "74": "Twine"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
@@ -774,6 +1084,12 @@
       "coverCode": "D2107",
       "patternName": "Westcott",
       "colors": ["31", "58", "65", "69"],
+      "colorNames": {
+        "31": "Natural",
+        "58": "Granite",
+        "65": "Quarry",
+        "69": "Brindle"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
@@ -801,6 +1117,12 @@
       "coverCode": "D2124",
       "patternName": "i-Westvale",
       "colors": ["32", "59", "75", "78"],
+      "colorNames": {
+        "32": "Antique",
+        "59": "Charcoal",
+        "75": "Oat",
+        "78": "Timber"
+      },
       "capCode": "UR",
       "wearability": "P",
       "cleaningCode": "W",
@@ -864,6 +1186,16 @@
       "coverCode": "E1537",
       "patternName": "i-Northwest",
       "colors": ["32", "52", "55", "58", "65", "67", "75", "73"],
+      "colorNames": {
+        "32": "Stucco",
+        "52": "Dove",
+        "55": "Charcoal",
+        "58": "Ink",
+        "65": "Sable",
+        "67": "Mink",
+        "73": "Camel",
+        "75": "Whiskey"
+      },
       "capCode": "BU",
       "wearability": "P",
       "cleaningCode": "W",
@@ -882,6 +1214,12 @@
       "coverCode": "E1652",
       "patternName": "i-Liv",
       "colors": ["31", "35", "52", "96"],
+      "colorNames": {
+        "31": "Pearl",
+        "35": "Wicker",
+        "52": "Dove",
+        "96": "Tropic"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
@@ -972,6 +1310,12 @@
       "coverCode": "E1917",
       "patternName": "i-Adario",
       "colors": ["34", "52", "53", "65"],
+      "colorNames": {
+        "34": "Basmati",
+        "52": "Fog",
+        "53": "Stone",
+        "65": "Taupe"
+      },
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
@@ -999,6 +1343,13 @@
       "coverCode": "E2036",
       "patternName": "Omni",
       "colors": ["59", "61", "75", "78", "80"],
+      "colorNames": {
+        "59": "Slate",
+        "61": "Taupe",
+        "75": "Cashew",
+        "78": "Otter",
+        "80": "Mist"
+      },
       "capCode": "UE",
       "wearability": "P",
       "cleaningCode": "W",
@@ -1527,7 +1878,11 @@
       "capCode": "LM",
       "leatherType": "Performance",
       "models": ["521 James"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "56": "Charcoal",
+        "78": "Walnut"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1537,7 +1892,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["519 Astor"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "58": "Shitake",
+        "79": "Chestnut"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1547,7 +1906,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["777 Randell"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "75": "Harvest",
+        "79": "Dark Chocolate"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1557,7 +1920,11 @@
       "capCode": "LM",
       "leatherType": "Performance",
       "models": ["776 Redwood"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "79": "Chocolate",
+        "09": "Wine"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1567,7 +1934,10 @@
       "capCode": "LM",
       "leatherType": "Performance",
       "models": ["722 Roman"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "79": "Chocolate"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1577,7 +1947,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["724 Trouper"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "55": "Grey",
+        "79": "Walnut"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1587,7 +1961,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["502 Joshua"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "56": "Grey",
+        "78": "Chestnut"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1597,7 +1975,11 @@
       "capCode": "LM",
       "leatherType": "Performance",
       "models": ["762 Neo"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "59": "Charcoal",
+        "74": "Cognac"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1607,7 +1989,11 @@
       "capCode": "LM",
       "leatherType": "Performance",
       "models": ["786 Liam"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "64": "Pebble",
+        "78": "Espresso"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1617,7 +2003,11 @@
       "capCode": "LM",
       "leatherType": "Performance",
       "models": ["781 Emmons"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "58": "Pewter",
+        "75": "Oak"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1627,7 +2017,12 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["757 Apollo"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "56": "Blue Gray",
+        "59": "Slate",
+        "77": "Caramel"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1637,7 +2032,12 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["530 Greyson"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Ice",
+        "56": "Blue Gray",
+        "77": "Caramel"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1647,7 +2047,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["769 Ava"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "35": "Ivory",
+        "79": "Mineral"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1657,7 +2061,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["759 Maddox"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "59": "Slate",
+        "76": "Camel"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1667,7 +2075,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["804 Belmont"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "76": "Camel",
+        "79": "Mineral"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1677,7 +2089,12 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["712 Sparrow"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "51": "Dove Grey",
+        "59": "Otter",
+        "75": "Chestnut"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1687,7 +2104,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["715 Kodie", "813 Clybourn"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "77": "Cognac",
+        "87": "Navy"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1697,7 +2118,12 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["812 Armitage"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Ivory",
+        "54": "Greystone",
+        "77": "Cognac"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1707,7 +2133,12 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["747 Finley"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "50": "Onyx",
+        "75": "Stone",
+        "78": "Otter"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1717,7 +2148,12 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["765 Rowan"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Oyster",
+        "59": "Graphite",
+        "78": "Otter"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1727,7 +2163,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["803 Cade"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Oyster",
+        "75": "Stone"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1737,7 +2177,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["582 Maverick", "717 Fulton", "802 Cassian"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "78": "Walnut",
+        "79": "Dark Chocolate"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1747,7 +2191,10 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["810 Quinault"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "79": "Dark Chocolate"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1757,7 +2204,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["811 Acadia", "782 Kells"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "76": "Chestnut",
+        "79": "Shitake"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1767,7 +2218,12 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["800 Palmer", "820 Norton"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Oyster",
+        "57": "Blue Grey",
+        "77": "Walnut"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1777,7 +2233,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["512 Pinnacle", "709 Jasper"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "74": "Stone",
+        "77": "Umber"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1787,7 +2247,12 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["807 Baron"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "58": "Blue Grey",
+        "75": "Mocha",
+        "78": "Mineral"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1797,7 +2262,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["755 Dorian"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "75": "Mocha",
+        "78": "Mineral"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1818,7 +2287,11 @@
       "leatherType": "Authentic",
       "models": ["805 Ace"],
       "specialtyAttributes": [],
-      "notes": ["The source gives this model as 805 Ace in one column and 805 Ignace in another."]
+      "notes": ["The source gives this model as 805 Ace in one column and 805 Ignace in another."],
+      "colorNames": {
+        "76": "Chocolate",
+        "79": "Slate"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1828,7 +2301,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["530 Greyson"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "76": "Chocolate",
+        "79": "Slate"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -1870,7 +2347,13 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["435 Mackenzie", "603 Wilmette", "613 Olson", "636 Shiloh", "638 Charlie"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Ivory",
+        "54": "Greystone",
+        "77": "Cognac",
+        "87": "Navy"
+      }
     },
     {
       "group": "Custom Leather Match",

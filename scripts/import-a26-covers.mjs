@@ -8,9 +8,16 @@ const read = (name) => fs.readFileSync(path.resolve('data/source', name), 'utf8'
 const list = (value) => (value ? value.split(' ').filter(Boolean) : []);
 const codes = (value) => (value ? value.split(',').filter(Boolean) : []);
 
+// Color names come from the swatch labels printed in the supplied catalogs (data/source/catalog-swatch-names.json).
+const swatchNames = JSON.parse(fs.readFileSync(path.resolve('data/source/catalog-swatch-names.json'), 'utf8'));
+const namesFor = (coverCode, colors) => {
+  const found = Object.fromEntries(colors.filter((color) => swatchNames[coverCode + color]).map((color) => [color, swatchNames[coverCode + color]]));
+  return Object.keys(found).length ? found : undefined;
+};
+
 const fabrics = read('a26-fabrics.txt').map((line) => {
   const [coverCode, patternName, colors, capCode, wearability, cleaningCode, specialty] = line.split('|');
-  return { coverCode, patternName, colors: list(colors), capCode, wearability, cleaningCode, specialtyAttributes: codes(specialty) };
+  return { coverCode, patternName, colors: list(colors), colorNames: namesFor(coverCode, list(colors)), capCode, wearability, cleaningCode, specialtyAttributes: codes(specialty) };
 });
 
 const leathers = [];
@@ -27,6 +34,7 @@ for (const line of read('a26-leathers.txt')) {
 }
 for (const record of leathers) {
   delete record.key;
+  record.colorNames = namesFor(record.coverCode, record.colors);
   if (!record.notes.length) delete record.notes;
 }
 
