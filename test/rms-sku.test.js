@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
-import { buildRmsSkuPreview, encodeRmsSku, getFullProductIndex, getModelCoverOptions, getRmsModelStyleChoices, getRmsStyleOptions } from '../src/logic.js';
+import { buildRmsSkuPreview, encodeRmsSku, getDefaultRmsGroup, getFullProductIndex, getModelCoverOptions, getRmsModelStyleChoices, getRmsStyleOptions } from '../src/logic.js';
 
 const catalog = JSON.parse(await readFile(new URL('../public/catalog_data-v2.json', import.meta.url), 'utf8'));
 catalog.recliner_catalog_2026 = JSON.parse(await readFile(new URL('../public/recliner-catalog-2026.json', import.meta.url), 'utf8'));
@@ -19,6 +19,18 @@ test('offers only group candidates listed for the selected Trouper model across 
   assert.ok(codes.includes('44A'));
   assert.ok(codes.includes('U4A'));
   assert.ok(!codes.includes('3BL'));
+});
+
+test('selects a documented default group for the chosen model instead of retaining a group from another model', () => {
+  for (const modelCode of ['724', '512', '519', '521', '402', '677', '811']) {
+    const group = getDefaultRmsGroup(catalog, modelCode);
+    assert.ok(group, `expected a default group for ${modelCode}`);
+    assert.ok(getRmsModelStyleChoices(catalog, modelCode).some((choice) => choice.code === group));
+    assert.ok(getRmsStyleOptions(catalog, modelCode, group), `expected an exact option record for ${modelCode}/${group}`);
+  }
+
+  assert.notEqual(getDefaultRmsGroup(catalog, '519'), '44A');
+  assert.notEqual(getDefaultRmsGroup(catalog, '521'), '3BL');
 });
 
 test('returns only suffixes documented for the exact model and group', () => {

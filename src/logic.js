@@ -918,6 +918,10 @@ export function getRmsModelStyleChoices(catalog, modelCode) {
   return [...entries].map(([code, label]) => ({ code, label: descriptions.get(code) || label }));
 }
 
+export function getDefaultRmsGroup(catalog, modelCode) {
+  return getRmsModelStyleChoices(catalog, modelCode)[0]?.code || '';
+}
+
 export function getRmsStyleOptions(catalog, modelCode, group) {
   const options = new Set();
   let documented = false;
