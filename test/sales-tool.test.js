@@ -31,13 +31,21 @@ test('validates a catalog-backed L layout and flags terminal orientation, corner
   const profile = catalog.product_profiles.find((entry) => entry.model_code === '769');
   const piece = (key, code, x, y, width, height, rotation = 0) => ({ key, code, modelCode: '769', family: profile.sectional_family, x, y, width, height, rotation });
   const validL = [
+    // Left/right is the sitter's: the right-arm piece turns down from the corner, the left-arm piece ends the run.
+    piece('RA_recliner', '44B', 100, 140, 40, 40, 270),
+    piece('corner_wedge', '44C', 100, 100, 40, 40),
+    piece('LA_recliner', '44A', 140, 100, 40, 40),
+  ];
+  assert.equal(validateSectionalStudioLayout(validL, { width: 400, height: 300 }, catalog).valid, true);
+
+  const mirrored = [
     piece('LA_recliner', '44A', 100, 140, 40, 40, 270),
     piece('corner_wedge', '44C', 100, 100, 40, 40),
     piece('RA_recliner', '44B', 140, 100, 40, 40),
   ];
-  assert.equal(validateSectionalStudioLayout(validL, { width: 400, height: 300 }, catalog).valid, true);
+  assert.ok(validateSectionalStudioLayout(mirrored, { width: 400, height: 300 }, catalog).errors.some((error) => /facing the wrong direction/i.test(error)));
 
-  const wrongEnd = validL.map((item) => item.key === 'LA_recliner' ? { ...item, rotation: 90 } : item);
+  const wrongEnd = validL.map((item) => item.key === 'RA_recliner' ? { ...item, rotation: 90 } : item);
   assert.ok(validateSectionalStudioLayout(wrongEnd, { width: 400, height: 300 }, catalog).errors.some((error) => /facing the wrong direction/i.test(error)));
 
   const straightCorner = [

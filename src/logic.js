@@ -1392,8 +1392,10 @@ export function validateSectionalStudioLayout(items, room, catalog) {
     if (role === 'left' || role === 'right') {
       if (neighbors.length > 1) errors.push(`${piece.code} is an end piece and cannot connect in the middle of a run.`);
       const rotation = ((piece.rotation || 0) % 360 + 360) % 360;
-      const leftConnection = { 0: 'right', 90: 'down', 180: 'left', 270: 'up' }[rotation];
-      const rightConnection = { 0: 'left', 90: 'up', 180: 'right', 270: 'down' }[rotation];
+      // "Left-arm" means the arm is on the left of the person sitting. Seen from above with the seat facing down,
+      // that arm is on the right of the drawing, so a left-arm piece joins its neighbour on the left of the drawing.
+      const leftConnection = { 0: 'left', 90: 'up', 180: 'right', 270: 'down' }[rotation];
+      const rightConnection = { 0: 'right', 90: 'down', 180: 'left', 270: 'up' }[rotation];
       const expected = role === 'left' ? leftConnection : rightConnection;
       if (neighbors.length === 1 && neighbors[0].direction !== expected) errors.push(`${piece.code} ${role === 'left' ? 'left-arm' : 'right-arm'} piece is facing the wrong direction for this end.`);
       if (role === 'left' && neighbors.some(({ index: n }) => category(pieces[n]) === 'left')) errors.push('Left-arm terminal pieces cannot join each other.');

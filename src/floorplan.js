@@ -213,22 +213,22 @@ export function presetItems(kind, profile, pieces, room) {
 
   if (kind === 'l-standard' || kind === 'l-console') {
     if (!left || !right || !corner || (kind === 'l-console' && !console)) return null;
-    const c = size(corner); const l = size(left, 270); const r = size(right); const s = kind === 'l-console' ? size(console) : null;
+    const c = size(corner); const l = size(right, 270); const r = size(left); const s = kind === 'l-console' ? size(console) : null;
     if (!c || !l || !r || (kind === 'l-console' && !s)) return null;
     const runWidth = c.width + (s ? s.width : 0) + r.width;
     const totalWidth = Math.max(runWidth, l.width);
     const originX = (room.width - totalWidth) / 2;
     const originY = (room.height - (c.height + l.height)) / 2;
     const cornerItem = make(corner, originX, originY);
-    const down = make(left, cornerItem.x + (cornerItem.width - l.width) / 2, cornerItem.y + cornerItem.height, 270);
+    const down = make(right, cornerItem.x + (cornerItem.width - l.width) / 2, cornerItem.y + cornerItem.height, 270);
     const runY = (high) => cornerItem.y + (cornerItem.height - high) / 2;
     items = [down, cornerItem];
     let cursor = cornerItem.x + cornerItem.width;
     if (s) { const consoleItem = make(console, cursor, runY(s.height)); items.push(consoleItem); cursor += consoleItem.width; }
-    items.push(make(right, cursor, runY(r.height)));
+    items.push(make(left, cursor, runY(r.height)));
   } else if (kind === 'u-shape') {
     if (!left || !right || !corner || !middle) return null;
-    const c = size(corner); const m = size(middle); const l = size(left, 270); const r = size(right, 90);
+    const c = size(corner); const m = size(middle); const l = size(right, 270); const r = size(left, 90);
     if (!c || !m || !l || !r) return null;
     const totalWidth = c.width * 2 + m.width;
     const originX = (room.width - totalWidth) / 2;
@@ -236,23 +236,25 @@ export function presetItems(kind, profile, pieces, room) {
     const cornerLeft = make(corner, originX, originY, 0);
     const mid = make(middle, cornerLeft.x + cornerLeft.width, cornerLeft.y + (cornerLeft.height - m.height) / 2, 0);
     const cornerRight = make(corner, mid.x + mid.width, originY, 0);
-    const leftSeat = make(left, cornerLeft.x + (cornerLeft.width - l.width) / 2, cornerLeft.y + cornerLeft.height, 270);
-    const rightSeat = make(right, cornerRight.x + (cornerRight.width - r.width) / 2, cornerRight.y + cornerRight.height, 90);
+    const leftSeat = make(right, cornerLeft.x + (cornerLeft.width - l.width) / 2, cornerLeft.y + cornerLeft.height, 270);
+    const rightSeat = make(left, cornerRight.x + (cornerRight.width - r.width) / 2, cornerRight.y + cornerRight.height, 90);
     items = [leftSeat, cornerLeft, mid, cornerRight, rightSeat];
   } else if (kind === 'straight-chaise') {
-    const chaise = chaiseLeft;
-    const end = chaiseRight || right;
-    if (!chaise || !end) return null;
-    const a = size(chaise); const m = middle ? size(middle) : null; const b = size(end);
+    // Left/right is the sitter's. Seen from above the right-arm end sits at the drawing's left.
+    const startPiece = chaiseRight || (chaiseLeft ? right : null);
+    const endPiece = chaiseRight ? left : chaiseLeft;
+    if (!startPiece || !endPiece) return null;
+    const a = size(startPiece); const m = middle ? size(middle) : null; const b = size(endPiece);
     if (!a || !b || (middle && !m)) return null;
     const totalWidth = a.width + (m ? m.width : 0) + b.width;
+    const tallest = Math.max(a.height, b.height);
     const originX = (room.width - totalWidth) / 2;
-    const originY = (room.height - a.height) / 2;
-    const first = make(chaise, originX, originY);
+    const originY = (room.height - tallest) / 2;
+    const first = make(startPiece, originX, originY + (tallest - a.height) / 2);
     items = [first];
     let cursor = first.x + first.width;
-    if (m) { const mid = make(middle, cursor, originY + (a.height - m.height) / 2); items.push(mid); cursor += mid.width; }
-    items.push(make(end, cursor, originY + (a.height - b.height) / 2));
+    if (m) { const mid = make(middle, cursor, originY + (tallest - m.height) / 2); items.push(mid); cursor += mid.width; }
+    items.push(make(endPiece, cursor, originY + (tallest - b.height) / 2));
   } else return null;
 
   if (items.some((item) => !item)) return null;

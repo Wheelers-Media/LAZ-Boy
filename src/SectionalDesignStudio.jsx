@@ -13,8 +13,11 @@ function PieceArt({ item }) {
   const kind = item.kind;
   const back = Math.min(9, d * 0.22);
   const arm = Math.min(8, w * 0.18);
-  const leftArm = ['seat', 'arm-left', 'chaise-left'].includes(kind);
-  const rightArm = ['seat', 'arm-right', 'chaise-right'].includes(kind);
+  // Left/right is the sitter's. Seen from above with the seat facing down, the sitter's left is the drawing's right.
+  const sitterLeftArm = ['seat', 'arm-left', 'chaise-left'].includes(kind);
+  const sitterRightArm = ['seat', 'arm-right', 'chaise-right'].includes(kind);
+  const leftArm = sitterRightArm; // arm drawn at the drawing's left edge
+  const rightArm = sitterLeftArm; // arm drawn at the drawing's right edge
   const from = leftArm ? arm : 0;
   const to = w - (rightArm ? arm : 0);
   const seatCount = Math.max(1, Math.round((to - from) / 24));
