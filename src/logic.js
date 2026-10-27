@@ -993,7 +993,7 @@ export function getRmsStyleOptions(catalog, modelCode, group) {
   if (catalog?.style_index_2026?.styles?.length && !getGuideStyleRows(catalog, modelCode).length) return getRmsModelStyleChoices(catalog, modelCode).some((item) => item.code === String(group)) ? { options: new Set(), finishMarkerListed: false } : null;
   if (getGuideStyleRows(catalog, modelCode).length) {
     const row = getGuideStyle(catalog, modelCode, group);
-    return row ? { options: new Set(row.options), finishMarkerListed: row.options.includes('FN') } : null;
+    return row ? { options: new Set(row.options), finishMarkerListed: row.options.includes('FN') && Boolean(row.standardFinish || row.optionalFinishes.length) } : null;
   }
   const options = new Set();
   let documented = false;
@@ -1619,4 +1619,29 @@ export function getModelCoverSwatches(catalog, modelCode, prefix) {
     fromRecord(record, 'cap code', 'Fabric');
   }
   return [...found.values()];
+}
+
+/**
+ * Which guide styles accept a fabric or leather record: its cap code must be on the style's row (leathers also need the style sold in
+ * that leather's price band, and a leather that names models is limited to them). Medium-duty fabrics are left off recliner, motion,
+ * modular and lift styles. Returns [{ model, name, styles }] sorted by name. Eligibility still has to be confirmed for the exact order.
+ */
+export function getCoverReach(catalog, record, isLeather = false) {
+  const rows = (catalog?.style_index_2026?.styles || []).filter((row) => row.kind === 'style');
+  const named = new Set(isLeather ? (record.models || []).filter((entry) => !/^any\b/i.test(String(entry).trim())).map((entry) => String(entry).trim().split(/\s+/)[0]) : []);
+  const anyCap = isLeather && (record.models || []).some((entry) => /^any\b/i.test(String(entry).trim()));
+  const byModel = new Map();
+  for (const row of rows) {
+    if (!row.capCodes.includes(record.capCode)) continue;
+    if (!isLeather && record.wearability === 'Medium' && GUIDE_RESTRICTED_FAMILY.test(row.family)) continue;
+    if (isLeather) {
+      if (!leatherBandOpen(record, [row])) continue;
+      if (named.size && !anyCap && !named.has(row.model)) continue;
+      if (!named.size && !anyCap) continue;
+    }
+    const entry = byModel.get(row.model) || { model: row.model, name: row.name ? row.name.charAt(0) + row.name.slice(1).toLowerCase() : row.model, styles: 0 };
+    entry.styles += 1;
+    byModel.set(row.model, entry);
+  }
+  return [...byModel.values()].sort((a, b) => a.name.localeCompare(b.name));
 }

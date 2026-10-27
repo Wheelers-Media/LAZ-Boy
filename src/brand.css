@@ -290,3 +290,36 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .cover-picker { display: grid; gap: 14px; grid-column: 1 / -1; }
 .cover-note, .cover-empty { margin: 0; padding: 10px 12px; border-radius: 10px; background: #f3f6f7; color: var(--text-secondary); font-size: 14px; line-height: 1.45; }
 .cover-note strong { color: var(--ink); }
+
+/* Fabrics & Care */
+.fabrics-index .chip-row { margin: 10px 0; }
+.fabric-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-top: 12px; align-items: start; }
+.fabric-card { padding: 0; overflow: hidden; }
+.fabric-card-head { display: flex; width: 100%; justify-content: space-between; align-items: flex-start; gap: 10px; padding: 14px 16px; background: none; border: 0; text-align: left; cursor: pointer; min-height: 44px; font: inherit; color: inherit; }
+.fabric-card-head strong { display: block; font-size: 1rem; }
+.fabric-card-head small { display: block; color: #4a4a4a; font-size: 0.8125rem; margin-top: 2px; }
+.fabric-badges { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; flex-shrink: 0; }
+.fabric-badge { font-size: 0.75rem; padding: 2px 8px; border-radius: 999px; border: 1px solid #c9c4bb; background: #f6f3ee; color: #2a2a2a; white-space: nowrap; }
+.fabric-badge.wear-P { background: #e8f1ea; border-color: #9fbfa6; }
+.fabric-badge.wear-Medium { background: #fbf0d9; border-color: #d9b96b; }
+.fabric-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0 16px 12px; }
+.fabric-tags span { font-size: 0.75rem; padding: 2px 8px; border-radius: 6px; background: #eef0f3; color: #2a2a2a; }
+.fabric-card-body { border-top: 1px solid #e4e0d8; padding: 12px 16px 16px; font-size: 0.875rem; }
+.fabric-card-body p { margin: 0 0 8px; }
+.fabric-colours { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 4px 12px; list-style: none; padding: 0; margin: 0 0 12px; }
+.fabric-colours code { font-size: 0.8125rem; }
+.fabric-reach p { margin: 0 0 6px; }
+.fabric-reach-models { color: #4a4a4a; line-height: 1.5; }
+.fabric-reach-empty { color: #4a4a4a; }
+.care-guide { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; margin-top: 12px; align-items: start; }
+.care-guide .card { padding: 16px 18px; }
+.care-guide h2 { display: flex; align-items: center; gap: 8px; font-size: 1.0625rem; margin: 0 0 10px; }
+.care-guide dl { margin: 0 0 8px; }
+.care-guide dl > div { display: grid; grid-template-columns: 72px 1fr; gap: 10px; padding: 7px 0; border-top: 1px solid #ece8e0; font-size: 0.875rem; }
+.care-guide dl > div:first-child { border-top: 0; }
+.care-guide dt { font-weight: 700; }
+.care-guide dd { margin: 0; }
+.care-rule { font-size: 0.875rem; color: #3a3a3a; margin: 8px 0 0; }
+@media (max-width: 640px) { .fabric-grid { grid-template-columns: 1fr; } .care-guide { grid-template-columns: 1fr; } .care-guide dl > div { grid-template-columns: 56px 1fr; } }
+.rms-two-col .rms-step, .rms-two-col .cover-picker, .rms-two-col .cover-empty { grid-column: 1 / -1; }
+.rms-two-col .rms-step { margin: 6px 0 -4px; }

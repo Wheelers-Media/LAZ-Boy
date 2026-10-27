@@ -108,3 +108,10 @@ test('models outside the guide (Lakewood 942, Cuyahoga 958) offer no covers or o
     for (const choice of getRmsModelStyleChoices(catalog, model)) assert.equal(getRmsStyleOptions(catalog, model, choice.code).options.size, 0);
   }
 });
+
+test('a style that lists FN but has no finishes in the guide offers no finish choice', () => {
+  for (const number of ['16X715', 'P16725', '16X776']) {
+    const row = styles.find((item) => item.styleNumber === number);
+    assert.equal(getRmsStyleOptions(catalog, row.model, row.prefix).finishMarkerListed, false, number);
+  }
+});
