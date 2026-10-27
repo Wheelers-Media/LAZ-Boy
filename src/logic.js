@@ -1459,3 +1459,23 @@ export function validateSectionalConfiguration(items, catalog) {
   else warnings.push('No source-backed connector/topology rules are indexed for this model; the sequence is not certified as a compatible arrangement.');
   return { valid: errors.length === 0, errors, warnings, pieceCount: pieces.length, profile, status: errors.length ? 'needs_changes' : 'draft_requires_order_guide_check' };
 }
+
+export const PRODUCT_INDEX_GROUPS = ['All', 'Recliners', 'Stationary', 'Sectionals', 'Motion', 'Lift chairs'];
+
+/** Categories worth showing a salesperson; drops bookkeeping labels such as catalog, index or supplement notes. */
+export function cleanIndexCategories(categories = []) {
+  const noise = /catalog|index|supplement|verify|april|summer|fall|winter|spring|designer.?s choice|^product$/i;
+  return [...new Set(categories.flatMap((entry) => String(entry).split('/')).map((part) => part.trim()).filter((part) => part && !noise.test(part)))];
+}
+
+/** Which browse groups a product belongs to, from its categories and style labels. */
+export function indexGroupsFor(product) {
+  const text = `${(product.categories || []).join(' ')} ${(product.styles || []).map((style) => style.label).join(' ')}`.toLowerCase();
+  const groups = [];
+  if (/recliner|rocker|swivel glider|wall.?hugger/.test(text)) groups.push('Recliners');
+  if (/stationary|sofa|loveseat|accent chair|ottoman/.test(text)) groups.push('Stationary');
+  if (/sectional|modular|corner|chaise|armless/.test(text)) groups.push('Sectionals');
+  if (/motion|power|reclining/.test(text)) groups.push('Motion');
+  if (/lift/.test(text)) groups.push('Lift chairs');
+  return groups;
+}
