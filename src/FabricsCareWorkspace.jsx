@@ -54,6 +54,15 @@ function CoverCard({ catalog, record, isLeather, definitions, priorLabel }) {
   </article>;
 }
 
+const sectionKinds = (catalog, items) => {
+  const counts = new Map();
+  for (const item of items) {
+    const name = (catalog.cover_cap_codes || []).find((entry) => entry.code === item.capCode && !/^[A-Z]{2} cap code$/.test(entry.name))?.name || `${item.capCode} cap code`;
+    counts.set(name, (counts.get(name) || 0) + 1);
+  }
+  return [...counts].sort((x, y) => y[1] - x[1]).map(([name, count]) => `${name} ${count}`).join(' · ');
+};
+
 function CareGuide({ catalog, definitions }) {
   const rules = catalog.fabric_cover_program_a26?.businessRules || {};
   const cleaning = catalog.cleaning_codes || [];
@@ -144,7 +153,7 @@ export function FabricsCareWorkspace({ catalog }) {
         <Pick label="Cap code" value={capFilter} onChange={setCapFilter} options={caps.map((item) => [item, `Cap ${item}`])} />
         {filtering && <button type="button" className="back-button" onClick={reset}>Clear filters</button>}
       </div>
-      <div className="fabric-sections">{sections.map((section, index) => <details key={`${tab}-${section.name}-${filtering}`} className="fabric-section" open={filtering || index === 0}><summary><strong>{section.name}</strong><span>{section.items.length} {section.items.length === 1 ? 'cover' : 'covers'}</span></summary><div className="fabric-grid">{section.items.map((record, itemIndex) => <CoverCard key={`${record.prior ? 'prior' : 'april'}-${record.coverCode}-${itemIndex}`} priorLabel={prior?.label} catalog={catalog} record={record} isLeather={isLeather} definitions={definitions} />)}</div></details>)}</div>
+      <div className="fabric-sections">{sections.map((section, index) => <details key={`${tab}-${section.name}-${filtering}`} className="fabric-section" open={filtering || index === 0}><summary><strong>{section.name}</strong>{!isLeather && <small className="fabric-section-kinds">{sectionKinds(catalog, section.items)}</small>}<span>{section.items.length} {section.items.length === 1 ? 'cover' : 'covers'}</span></summary><div className="fabric-grid">{section.items.map((record, itemIndex) => <CoverCard key={`${record.prior ? 'prior' : 'april'}-${record.coverCode}-${itemIndex}`} priorLabel={prior?.label} catalog={catalog} record={record} isLeather={isLeather} definitions={definitions} />)}</div></details>)}</div>
       {!shown.length && <p className="empty-state">Nothing matches. <button type="button" className="back-button" onClick={reset}>Clear filters</button></p>}
     </>}
   </section>;

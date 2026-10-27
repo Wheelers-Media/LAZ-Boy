@@ -1646,11 +1646,13 @@ export function getModelCoverSwatches(catalog, modelCode, prefix) {
   const parse = (full) => { const match = String(full).match(/^([A-Z]{1,3})(\d{4})(\d{2})$/); return match ? { grade: match[1], pattern: match[2], color: match[3] } : null; };
   const programByPattern = new Map();
   for (const record of [...(program?.fabrics || []), ...(program?.leathers || [])]) programByPattern.set(String(record.patternName || '').toLowerCase(), [...(programByPattern.get(String(record.patternName || '').toLowerCase()) || []), record]);
+  const capName = (cap) => (catalog?.cover_cap_codes || []).find((entry) => entry.code === cap && !/^[A-Z]{2} cap code$/.test(entry.name))?.name || `${cap} cap code`;
+  const kindOf = (record, material) => (record.leatherType ? `${record.leatherType} leather` : material === 'Leather' ? 'Leather' : capName(record.capCode));
   const fromRecord = (record, basis, material) => (record.colors || []).forEach((color) => {
     const full = `${record.coverCode}${color}`;
     const parts = parse(full);
     if (!parts) return;
-    add({ code: full, ...parts, patternName: record.patternName || '', colorName: record.colorNames?.[color] || '', name: `${record.patternName || record.coverCode}${record.colorNames?.[color] ? ` ${record.colorNames[color]}` : ''}`, capCode: record.capCode, material, wearability: record.wearability || '', cleaning: record.cleaningCode || '', basis, note: material });
+    add({ code: full, ...parts, patternName: record.patternName || '', colorName: record.colorNames?.[color] || '', name: `${record.patternName || record.coverCode}${record.colorNames?.[color] ? ` ${record.colorNames[color]}` : ''}`, capCode: record.capCode, kind: kindOf(record, material), material, wearability: record.wearability || '', cleaning: record.cleaningCode || '', basis, note: material });
   });
 
   // 1. Covers the model's own catalog page names, with colours.
@@ -1786,4 +1788,15 @@ export function getSectionalLeads(catalog, answers) {
     .filter((profile) => profile.pieces?.length && families.includes(profile.sectional_family))
     .map((profile) => ({ model_code: String(profile.model_code), model_name: profile.model_name, family: profile.sectional_family, pieceCount: profile.pieces.length, description: profile.product_description || '' }))
     .sort((a, b) => a.model_name.localeCompare(b.model_name));
+}
+
+// What a grade letter holds for one model. The letter is a price tier; the kind of cover is its cap code or leather type.
+export function summarizeGradeKinds(swatches, grade) {
+  const patternsByKind = new Map();
+  for (const swatch of swatches) {
+    if (swatch.grade !== grade) continue;
+    const kind = swatch.kind || swatch.material || 'Fabric';
+    patternsByKind.set(kind, new Set([...(patternsByKind.get(kind) || []), swatch.pattern]));
+  }
+  return [...patternsByKind].map(([kind, patterns]) => ({ kind, patterns: patterns.size })).sort((a, b) => b.patterns - a.patterns || a.kind.localeCompare(b.kind));
 }
