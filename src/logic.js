@@ -1479,3 +1479,54 @@ export function indexGroupsFor(product) {
   if (/lift/.test(text)) groups.push('Lift chairs');
   return groups;
 }
+
+const RESTRICTED_DUTY_CATEGORY = /recliner|motion|la-z-time/i;
+
+/**
+ * Every full cover (grade + pattern + colour) a model can be built with, from the supplied catalogs and the April 2026 cover program.
+ * `basis` says how each one was matched: "listed" (the model's own catalog page or leather list) or "cap code" (the model accepts that cap code).
+ * Eligibility for the exact style still has to be confirmed before it is promised.
+ */
+export function getModelCoverSwatches(catalog, modelCode) {
+  const code = String(modelCode);
+  const program = catalog?.fabric_cover_program_a26;
+  const found = new Map();
+  const add = (entry) => { if (entry?.code && !found.has(entry.code)) found.set(entry.code, entry); };
+  const parse = (full) => { const match = String(full).match(/^([A-Z]{1,3})(\d{4})(\d{2})$/); return match ? { grade: match[1], pattern: match[2], color: match[3] } : null; };
+  const programByPattern = new Map();
+  for (const record of [...(program?.fabrics || []), ...(program?.leathers || [])]) programByPattern.set(String(record.patternName || '').toLowerCase(), [...(programByPattern.get(String(record.patternName || '').toLowerCase()) || []), record]);
+  const fromRecord = (record, basis, material) => (record.colors || []).forEach((color) => {
+    const full = `${record.coverCode}${color}`;
+    const parts = parse(full);
+    if (!parts) return;
+    add({ code: full, ...parts, patternName: record.patternName || '', colorName: record.colorNames?.[color] || '', name: `${record.patternName || record.coverCode}${record.colorNames?.[color] ? ` ${record.colorNames[color]}` : ''}`, capCode: record.capCode, material, wearability: record.wearability || '', cleaning: record.cleaningCode || '', basis, note: material });
+  });
+
+  // 1. Covers the model's own catalog page names, with colours.
+  const stationary = catalog?.stationary_catalog_2026?.products?.find((item) => String(item.model_code) === code);
+  for (const group of stationary?.catalog_groups || []) for (const collection of group.fabric_collections || []) for (const [full, name] of collection.swatches || []) {
+    const parts = parse(full);
+    if (parts) add({ code: full, ...parts, patternName: collection.name, colorName: name, name: `${collection.name} ${name}`, material: 'Fabric', basis: 'listed', note: 'Fabric' });
+  }
+  const reclinerModel = catalog?.recliner_catalog_2026?.models?.find((item) => String(item.code) === code);
+  for (const name of reclinerModel?.cover_collections || []) for (const record of programByPattern.get(String(name).toLowerCase()) || []) fromRecord(record, 'listed', record.group ? 'Leather' : 'Fabric');
+  for (const record of program?.leathers || []) if ((record.models || []).some((entry) => String(entry).trim().split(/\s+/)[0] === code)) fromRecord(record, 'listed', 'Leather');
+
+  // 2. Fabrics the model accepts by cap code.
+  const caps = new Set();
+  const designer = catalog?.designers_choice_catalog_2026?.model_cover_cap_choices?.filter((entry) => String(entry.model_code) === code) || [];
+  designer.forEach((entry) => (entry.codes || []).forEach((cap) => caps.add(cap)));
+  for (const group of stationary?.catalog_groups || []) Object.values(group.cover_cap_choices || {}).flat().forEach((cap) => caps.add(cap));
+  const motionEntry = catalog?.motion_catalog_2026?.index?.find((item) => String(item.code) === code);
+  if (reclinerModel) (catalog.recliner_catalog_2026.cover_cap_choices || []).forEach((entry) => entry.codes.forEach((cap) => caps.add(cap)));
+  if (motionEntry) (catalog.motion_catalog_2026.cover_cap_choices || []).forEach((entry) => entry.codes.forEach((cap) => caps.add(cap)));
+  const category = catalog?.models_database?.find((item) => String(item.model_code) === code)?.category || '';
+  const flags = motionEntry?.categories || {};
+  const restrictedDuty = Boolean(reclinerModel) || flags.recliner || flags.power_recline || flags.modular || RESTRICTED_DUTY_CATEGORY.test(category);
+  for (const record of program?.fabrics || []) {
+    if (!caps.has(record.capCode)) continue;
+    if (restrictedDuty && record.wearability === 'Medium') continue;
+    fromRecord(record, 'cap code', 'Fabric');
+  }
+  return [...found.values()];
+}

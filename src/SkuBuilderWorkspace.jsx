@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Check, Copy, Info, Printer, Wrench } from 'lucide-react';
-import { buildRmsSkuPreview, decodeRmsSku, getModelCoverOptions, getRmsModelStyleChoices, getRmsStyleOptions } from './logic.js';
+import { CoverPicker } from './CoverPicker.jsx';
+import { buildRmsSkuPreview, decodeRmsSku, getModelCoverOptions, getModelCoverSwatches, getRmsModelStyleChoices, getRmsStyleOptions } from './logic.js';
 
 const MODEL_LINE_EXTRAS = [
   { model_code: '677', model_name: 'Lauren', category: 'Stationary Sofa', scale: 'Mid-Scale Classic' },
@@ -26,9 +27,6 @@ export function SkuBuilderWorkspace({ catalog, modelCode, setModelCode, prefix, 
   const [customStyle, setCustomStyle] = useState('');
   const [customActive, setCustomActive] = useState(false);
   const [selectedSwatchCode, setSelectedSwatchCode] = useState('');
-  const [selectedCoverGrade, setSelectedCoverGrade] = useState('');
-  const [selectedCoverPattern, setSelectedCoverPattern] = useState('');
-  const [selectedSwatchColor, setSelectedSwatchColor] = useState('');
   const [customFinishAllowed, setCustomFinishAllowed] = useState(false);
   const [decodeInput, setDecodeInput] = useState('');
   const [quoteContext, setQuoteContext] = useState('');
@@ -47,10 +45,15 @@ export function SkuBuilderWorkspace({ catalog, modelCode, setModelCode, prefix, 
   const options = customActive ? [] : [...new Set([...(trimCode !== 'NN' && allowedOptions.has(trimCode) ? [trimCode] : []), ...(cushionCode !== 'Standard' && allowedOptions.has(cushionCode) ? [cushionCode] : []), ...optionCodes.filter((code) => allowedOptions.has(code) && !['NB', 'NH', 'NS', 'FS', 'Z6', 'DC', 'FN', 'ES'].includes(code))])];
   const displayStyle = customActive ? customStyle : selectedModelCode;
   const applicableCovers = useMemo(() => getModelCoverOptions(catalog, selectedModelCode), [catalog, selectedModelCode]);
-  const modelSwatches = applicableCovers.flatMap((item) => {
-    const match = item.code.match(/^([A-Z]{1,3})(\d{4})(\d{2})$/);
-    return match ? [{ ...item, grade: match[1], pattern: match[2], color: match[3] }] : [];
-  });
+  const modelSwatches = useMemo(() => {
+    const merged = new Map();
+    getModelCoverSwatches(catalog, selectedModelCode).forEach((item) => merged.set(item.code, item));
+    applicableCovers.forEach((item) => {
+      const match = item.code.match(/^([A-Z]{1,3})(\d{4})(\d{2})$/);
+      if (match) merged.set(item.code, { ...merged.get(item.code), ...item, grade: match[1], pattern: match[2], color: match[3], material: merged.get(item.code)?.material || item.type || 'Fabric', basis: 'listed' });
+    });
+    return [...merged.values()];
+  }, [catalog, selectedModelCode, applicableCovers]);
   const selectedSwatch = modelSwatches.find((item) => item.code === selectedSwatchCode);
   const skuGrade = selectedSwatch?.grade || '';
   const swatchPattern = selectedSwatch?.pattern || '';
@@ -70,9 +73,6 @@ export function SkuBuilderWorkspace({ catalog, modelCode, setModelCode, prefix, 
     setCustomFinishAllowed(false);
     setModelCode(value, nextChoices[0]?.code || '');
     setSelectedSwatchCode('');
-    setSelectedCoverGrade('');
-    setSelectedCoverPattern('');
-    setSelectedSwatchColor('');
     setCustomStyle('');
     setTrimCode('NN');
     setCushionCode('Standard');
@@ -108,10 +108,7 @@ export function SkuBuilderWorkspace({ catalog, modelCode, setModelCode, prefix, 
         <label className="form-field"><span>Product / model</span><select value={selectedModel?.model_code || ''} onChange={(event) => changeModel(event.target.value)}>{models.map((item) => <option key={item.model_code} value={item.model_code}>{item.model_name} · {item.model_code}</option>)}</select><small>Selections below are narrowed to this model and its documented style.</small></label>
         <div className="rms-two-col">
           {choices.length > 0 && <label className="form-field"><span>Group / style prefix</span><select aria-label="RMS Group" value={activePrefix} onChange={(event) => changeGroup(event.target.value)}><option value="" disabled>Choose documented Group</option>{choices.map((item) => <option key={item.code} value={item.code}>{item.code} · {item.label}</option>)}</select></label>}
-          {modelSwatches.length > 0 && <label className="form-field"><span>Eligible cover grade</span><select aria-label="Eligible cover grade" value={selectedCoverGrade} onChange={(event) => { setSelectedCoverGrade(event.target.value); setSelectedCoverPattern(''); setSelectedSwatchColor(''); setSelectedSwatchCode(''); }}><option value="">Choose a model-listed grade…</option>{[...new Set(modelSwatches.map((item) => item.grade))].map((grade) => <option key={grade} value={grade}>{grade} · {modelSwatches.find((item) => item.grade === grade)?.note || modelSwatches.find((item) => item.grade === grade)?.name || grade}</option>)}</select></label>}
-          {selectedCoverGrade && <label className="form-field"><span>Pattern</span><select aria-label="Model-listed pattern" value={selectedCoverPattern} onChange={(event) => { setSelectedCoverPattern(event.target.value); setSelectedSwatchColor(''); setSelectedSwatchCode(''); }}><option value="">Choose a listed pattern…</option>{[...new Set(modelSwatches.filter((item) => item.grade === selectedCoverGrade).map((item) => item.pattern))].map((pattern) => <option key={pattern} value={pattern}>{pattern}</option>)}</select></label>}
-          {selectedCoverGrade && selectedCoverPattern && <label className="form-field"><span>Color</span><select aria-label="Model-listed color" value={selectedSwatchColor} onChange={(event) => { const color = event.target.value; setSelectedSwatchColor(color); const match = modelSwatches.find((item) => item.grade === selectedCoverGrade && item.pattern === selectedCoverPattern && item.color === color); setSelectedSwatchCode(match?.code || ''); }}><option value="">Choose a listed color…</option>{[...new Set(modelSwatches.filter((item) => item.grade === selectedCoverGrade && item.pattern === selectedCoverPattern).map((item) => item.color))].map((color) => <option key={color} value={color}>{color} · {modelSwatches.find((item) => item.color === color && item.pattern === selectedCoverPattern)?.note || 'listed cover color'}</option>)}</select><small>{selectedSwatch ? `SKU fields use Grade ${skuGrade}, Pattern ${swatchPattern}, Color ${swatchColor}.` : 'Only colors explicitly listed for this model, grade, and pattern are shown.'}</small></label>}
-          {!modelSwatches.length && <p className="rms-option-note">No exact grade, pattern, and color swatches are listed for this model in supplied sources; SKU generation stays disabled.</p>}
+          <CoverPicker key={selectedModelCode} swatches={modelSwatches} value={selectedSwatchCode} onChange={(code) => setSelectedSwatchCode(code)} />
           {finishAllowed && <label className="form-field"><span>Finish</span><select value={catalog.wood_finishes.some((item) => item.code === finish) ? finish : ''} onChange={(event) => setFinish(event.target.value)}><option value="">Choose a listed finish…</option>{catalog.wood_finishes.map((item) => <option key={item.code} value={item.code}>{item.code} · {item.name}</option>)}</select></label>}
           {allowedTrims.length > 1 && <label className="form-field"><span>Nailhead trim</span><select value={allowedTrims.some((item) => item.code === trimCode) ? trimCode : 'NN'} onChange={(event) => setTrimCode(event.target.value)}>{allowedTrims.map((item) => <option key={item.code} value={item.code}>{item.code} · {item.name}</option>)}</select></label>}
           {allowedCushions.length > 1 && <label className="form-field"><span>Cushion option</span><select value={allowedCushions.some((item) => item.code === cushionCode) ? cushionCode : 'Standard'} onChange={(event) => setCushionCode(event.target.value)}>{allowedCushions.map((item) => <option key={item.code} value={item.code}>{item.code} · {item.name}</option>)}</select></label>}

@@ -287,3 +287,6 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .product-index-entry[open] > summary::after { content: '\2212'; }
 .product-index-entry > summary { padding-right: 96px; }
 .product-index-entry > summary .product-index-style-count { position: absolute; right: 48px; top: 50%; transform: translateY(-50%); }
+.cover-picker { display: grid; gap: 14px; grid-column: 1 / -1; }
+.cover-note, .cover-empty { margin: 0; padding: 10px 12px; border-radius: 10px; background: #f3f6f7; color: var(--text-secondary); font-size: 14px; line-height: 1.45; }
+.cover-note strong { color: var(--ink); }
