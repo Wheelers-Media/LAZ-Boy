@@ -400,3 +400,8 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .fabric-section[open] > summary { border-bottom: 1px solid var(--line); }
 .fabric-section > .fabric-grid { padding: 14px; }
 .fabric-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; align-items: end; margin: 4px 0 18px; }
+@media (max-width: 860px) {
+  .index-jump { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -16px; padding-inline: 16px; }
+  .index-jump::-webkit-scrollbar { display: none; }
+  .index-jump a { flex: none; }
+}
