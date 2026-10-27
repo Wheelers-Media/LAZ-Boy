@@ -1827,8 +1827,8 @@ export function getSeatFit(catalog, research, { modelCode, answers, inches }) {
     basis = 'measurements';
     if (thigh !== null) checks.push({ key: 'depth', label: 'Seat depth', chair: dims.seatDepth, target: `thigh length ${thigh} in`, status: scoreStatus(depthMatchScore(dims.seatDepth, thigh)) });
     if (popliteal !== null && Number.isFinite(dims.seatHeight)) checks.push({ key: 'height', label: 'Seat height', chair: dims.seatHeight, target: `back of knee ${popliteal} in`, status: scoreStatus(heightMatchScore(dims.seatHeight, popliteal)) });
-    if (hip !== null && Number.isFinite(dims.seatWidth)) checks.push({ key: 'width', label: 'Seat width', chair: dims.seatWidth, target: `hips ${hip} in`, status: scoreStatus(widthMatchScore(dims.seatWidth, hip)) });
-  } else if (Number.isFinite(inches)) {
+    if (hip !== null && Number.isFinite(dims.seatWidth) && !(dims.seatFactor > 1)) checks.push({ key: 'width', label: 'Seat width', chair: dims.seatWidth, target: `hips ${hip} in`, status: scoreStatus(widthMatchScore(dims.seatWidth, hip)) });
+  } else if (Number.isFinite(inches) && /recliner|lift/i.test(String(answers.category || ''))) {
     const band = (research?.fit_guidance_bands || []).find((item) => inches >= item.height_min_inches && inches <= (item.height_max_inches ?? Infinity));
     if (!band) return unscored;
     basis = band.band;
@@ -1837,4 +1837,41 @@ export function getSeatFit(catalog, research, { modelCode, answers, inches }) {
   }
   if (!checks.length) return unscored;
   return { status: checks.reduce((worst, check) => (SEAT_RANK[check.status] > SEAT_RANK[worst] ? check.status : worst), 'in'), basis, checks };
+}
+
+export const SIT_VERDICTS = [
+  { key: 'good', label: 'Fits well' },
+  { key: 'too-deep', label: 'Seat too deep' },
+  { key: 'too-shallow', label: 'Seat too shallow' },
+  { key: 'too-high', label: 'Seat too high' },
+  { key: 'too-low', label: 'Seat too low' },
+  { key: 'too-tight', label: 'Too tight' },
+  { key: 'not-for-them', label: 'Not for them' },
+];
+
+/** One logged sit test. Returns null for an unknown verdict or a missing model so bad input is never stored. */
+export function buildSitEntry({ modelCode, modelName = '', inches, verdict, note = '', now = new Date() }) {
+  if (!modelCode || !SIT_VERDICTS.some((item) => item.key === verdict)) return null;
+  return {
+    id: `${now.getTime()}-${String(modelCode)}`,
+    date: now.toISOString().slice(0, 10),
+    modelCode: String(modelCode),
+    modelName,
+    heightInches: Number.isFinite(inches) ? inches : null,
+    verdict,
+    note: String(note).trim().slice(0, 200),
+  };
+}
+
+/** How sits went for a model overall, and for customers within two inches of this height. */
+export function summarizeSitLog(entries, modelCode, inches) {
+  const sits = entries.filter((item) => item.modelCode === String(modelCode));
+  const near = Number.isFinite(inches) ? sits.filter((item) => Number.isFinite(item.heightInches) && Math.abs(item.heightInches - inches) <= 2) : [];
+  const good = (list) => list.filter((item) => item.verdict === 'good').length;
+  return { total: sits.length, good: good(sits), similar: { total: near.length, good: good(near) } };
+}
+
+export function sitLogToText(entries) {
+  const label = (key) => SIT_VERDICTS.find((item) => item.key === key)?.label || key;
+  return ['date\tmodel code\tmodel\theight in\tverdict\tnote', ...entries.map((item) => [item.date, item.modelCode, item.modelName, item.heightInches ?? '', label(item.verdict), item.note].join('\t'))].join('\n');
 }

@@ -56,3 +56,16 @@ test('a model with no seat dimensions is unscored, not ranked low and not assume
 test('no height and no measurements is unscored', () => {
   assert.equal(fit('403', NaN).status, 'unscored');
 });
+
+test('the height bands are recliner research, so a sofa is not scored from height alone', () => {
+  const sofa = getSeatFit(catalog, research, { modelCode: '769', inches: 67, answers: { ...base, category: 'Motion sofas / loveseats', mechanism: 'Power recline' } });
+  assert.equal(sofa.status, 'unscored');
+});
+
+test('a sofa is still checked against measurements the customer gives, without a per-seat width check', () => {
+  const answers = { ...base, category: 'Motion sofas / loveseats', mechanism: 'Power recline', thigh_length_inches: '24', popliteal_height_inches: '17.5', hip_breadth_inches: '15' };
+  const sofa = getSeatFit(catalog, research, { modelCode: '769', inches: 67, answers });
+  assert.equal(sofa.basis, 'measurements');
+  assert.ok(sofa.checks.find((check) => check.key === 'depth'));
+  assert.equal(sofa.checks.find((check) => check.key === 'width'), undefined);
+});

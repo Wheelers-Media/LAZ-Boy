@@ -424,3 +424,5 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .fitq-seat .seat-near { background: #fbf3e0; }
 .fitq-seat .seat-out { background: #fbe9e7; }
 .fitq-seat-none { font-size: 13px; color: var(--muted, #5b6670); margin: 6px 0; }
+.fitq-sit { width: 100%; }
+.fitq-floor { font-size: 13px; font-weight: 600; color: var(--brand-blue, #00334B); margin: 6px 0; }

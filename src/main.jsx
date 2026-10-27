@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { Activity, ArrowRight, Armchair, BatteryCharging, BookOpen, Check, CheckCircle2, Info, Layers3, Menu, Search, ShieldCheck, Sparkles, SwatchBook, Wrench, X } from 'lucide-react';
 import './styles.css';
 import './brand.css';
-import { encodeRmsSku, findLiftTier, findCompatibleBattery, getDefaultRmsGroup } from './logic.js';
+import { buildSitEntry, encodeRmsSku, findLiftTier, findCompatibleBattery, getDefaultRmsGroup } from './logic.js';
 import { CustomizeFloorUnit } from './FloorWorkspaces.jsx';
 import { SectionalDesignStudio } from './SectionalDesignStudio.jsx';
 import { SkuBuilderWorkspace } from './SkuBuilderWorkspace.jsx';
@@ -43,6 +43,7 @@ function App() {
   const [liftModelCode, setLiftModelCode] = useState('562');
   const [batteryType, setBatteryType] = useState('10X');
   const [toast, setToast] = useState('');
+  const [sitLog, setSitLog] = useState(() => { try { const saved = JSON.parse(window.localStorage.getItem('sit-log') || '[]'); return Array.isArray(saved) ? saved : []; } catch { return []; } });
 
   useEffect(() => {
     const onFloorInfo = (event) => setInfo({ title: event.detail.title, technical: event.detail.text, pitch: event.detail.pitch });
@@ -127,6 +128,12 @@ function App() {
   const setLiveOption = (code) => setOptionCodes((prev) => prev.includes(code) ? prev.filter((item) => item !== code) : [...prev, code]);
   const clearLiveOptions = () => setOptionCodes([]);
   const copySku = async (value = sku) => { try { await navigator.clipboard.writeText(value); setCopied(true); notify('SKU copied to clipboard'); window.setTimeout(() => setCopied(false), 1800); } catch { notify('Clipboard unavailable: select and copy the SKU'); } };
+  const logSit = (details) => {
+    const entry = buildSitEntry(details);
+    if (!entry) return;
+    setSitLog((previous) => { const next = [...previous, entry]; try { window.localStorage.setItem('sit-log', JSON.stringify(next)); } catch { /* storage blocked: the log lasts until the page closes */ } return next; });
+    notify(`${entry.modelName || entry.modelCode} sit test saved`);
+  };
   const copyNote = async (text, label) => { try { await navigator.clipboard.writeText(text); notify(`${label} copied`); } catch { notify('Clipboard unavailable: select the note and copy it'); } };
   const matchedPrefixForBattery = catalog?.style_prefixes.find((item) => item.code === batteryType);
   const batteryCompatibility = matchedPrefixForBattery?.battery_pack === 'INCOMPATIBLE' ? `${batteryType} luxury lift chair is incompatible with battery packs` : matchedPrefixForBattery?.battery_pack ? `${matchedPrefixForBattery.battery_pack} compatible · ${matchedPrefixForBattery.motion_type}` : 'No battery pack required for this manual configuration';
@@ -160,7 +167,7 @@ function App() {
       {activeTab === 'Product Index' && <section className="module-page product-index-page"><div className="module-intro"><p className="eyebrow"><BookOpen size={13} /> CATALOG PRODUCT INDEX</p><h1>Every indexed model, <em>in one place.</em></h1><p>Every model with its styles and pieces. Open a model to see sizes and options.</p></div><div className="knowledge-search card"><Search size={19} /><input aria-label="Search product index" placeholder="Search model, style or option" value={indexSearch} onChange={(event) => setIndexSearch(event.target.value)} /><span className="product-index-count">{indexedProducts.length} models</span></div><div className="product-index-list">{sections.length > 1 && <nav className="index-jump" aria-label="Jump to section">{sections.map((section) => <a key={section.name} href={`#index-${section.name.replace(/\W+/g, '-')}`}>{section.name} <b>{section.items.length}</b></a>)}</nav>}{sections.map((section) => <section key={section.name} id={`index-${section.name.replace(/\W+/g, '-')}`} className="index-section"><h2 className="index-section-head">{section.name}<span>{section.items.length} {section.items.length === 1 ? 'model' : 'models'}</span></h2>{section.items.map((product) => <details className="product-index-entry card" key={product.modelCode}><summary><span><strong>{product.modelName}</strong><small>Model {product.modelCode}</small></span>{product.unverified && <span className="product-index-style-count">not in guide</span>}<span className="product-index-style-count">{product.styles.length} {product.styles.length === 1 ? 'style' : 'styles'}</span></summary><div className="product-index-detail"><p>{product.notes.join(' ')}</p><div className="product-index-actions"><button type="button" className="back-button" onClick={() => { updateModel(product.modelCode); setActiveTab('SKU Builder'); }}>Build a SKU</button>{catalog.product_profiles?.some((profile) => String(profile.model_code) === String(product.modelCode) && profile.pieces?.length) && <button type="button" className="back-button" onClick={() => { setBuildModelCode(String(product.modelCode)); setActiveTab('Sectional Studio'); }}>Design as a sectional</button>}</div><div className="product-index-styles">{product.styles.map((style) => <article key={`${style.code}-${style.source}`}><strong>{style.code} · {style.label}</strong>{style.dimensions && <span>{style.dimensions}</span>}{style.caps?.length > 0 && <span>Covers: {style.caps.join(' · ')}</span>}{style.finishes?.length > 0 && <span>Finishes: {style.finishes.join(', ')}</span>}{(style.select || []).map((line) => <span key={line}>{line}</span>)}{style.options.length > 0 && <span>Options: {style.options.join(', ')}</span>}{style.sourceNote && <small>{style.sourceNote}</small>}</article>)}</div></div></details>)}</section>)}{!indexedProducts.length && <p className="empty-state">No catalog product matches that search.</p>}</div></section>}
       {activeTab === 'Floor Unit' && <CustomizeFloorUnit key={floorWorkspaceModel} catalog={catalog} onCopy={copySku} initialModelCode={floorWorkspaceModel} onModelChange={setFloorWorkspaceModel} />}
       {activeTab === 'Sectional Studio' && <SectionalDesignStudio catalog={catalog} onCopy={copySku} initialModelCode={buildModelCode} onModelChange={setBuildModelCode} />}
-      {activeTab === 'Fit' && <FitDiscover catalog={catalog} research={researchReference} state={fitState} setState={setFitState} onInfo={showInfo} onCopyText={copyNote} onOpenTab={setActiveTab} onSectional={(code) => { setBuildModelCode(code); setActiveTab('Sectional Studio'); }} onIndex={(name) => { setIndexSearch(name); setIndexGroup('All'); setActiveTab('Product Index'); }} onBuild={(code) => { updateModel(code); setActiveTab('SKU Builder'); }} />}
+      {activeTab === 'Fit' && <FitDiscover catalog={catalog} research={researchReference} state={fitState} setState={setFitState} onInfo={showInfo} onCopyText={copyNote} sitLog={sitLog} onLogSit={logSit} onOpenTab={setActiveTab} onSectional={(code) => { setBuildModelCode(code); setActiveTab('Sectional Studio'); }} onIndex={(name) => { setIndexSearch(name); setIndexGroup('All'); setActiveTab('Product Index'); }} onBuild={(code) => { updateModel(code); setActiveTab('SKU Builder'); }} />}
 
 
       {activeTab === 'Fabrics & Care' && <FabricsCareWorkspace catalog={catalog} />}

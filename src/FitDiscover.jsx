@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { AlertTriangle, Armchair, ArrowLeft, ArrowRight, Check, ClipboardCheck, Copy, FileText, Info, MessageSquareText, Ruler, Sparkles } from 'lucide-react';
-import { buildDcgNotes, DCG_NOTE_LIMIT, FIT_NEEDS, getCatalogCapabilityLeads, getContextualModelOptions, getContextualPreferenceChoices, getDimensionBasedRecommendations, getRecommendations, getRoomClearance, getSeatFit, getSectionalLeads, heightInches } from './logic.js';
+import { buildDcgNotes, DCG_NOTE_LIMIT, FIT_NEEDS, SIT_VERDICTS, getCatalogCapabilityLeads, getContextualModelOptions, getContextualPreferenceChoices, getDimensionBasedRecommendations, getRecommendations, getRoomClearance, getSeatFit, getSectionalLeads, heightInches, sitLogToText, summarizeSitLog } from './logic.js';
 
 export const FIT_STEPS = ['Their fit', 'What they need', 'Room and comfort', 'Real life'];
 export const FIT_DEFAULTS = {
@@ -60,7 +60,19 @@ function Choices({ label, options, value, onChange }) {
   </div>;
 }
 
-function MatchCard({ match, weight, onIndex, onBuild, onSectional }) {
+function SitLogger({ match, inches, onLogSit }) {
+  const [open, setOpen] = React.useState(false);
+  const [note, setNote] = React.useState('');
+  if (!open) return <button type="button" className="back-button" onClick={() => setOpen(true)}>Log a sit test</button>;
+  return <div className="fitq-sit">
+    <p className="field-label">How did {match.name} sit?</p>
+    <div className="chip-row" role="group" aria-label="Sit test result">{SIT_VERDICTS.map((item) => <button key={item.key} type="button" className="chip" onClick={() => { onLogSit({ modelCode: match.code, modelName: match.name, inches, verdict: item.key, note }); setOpen(false); setNote(''); }}>{item.label}</button>)}</div>
+    <label className="form-field"><span>Note <span className="optional">optional</span></span><input value={note} maxLength={200} onChange={(event) => setNote(event.target.value)} /></label>
+  </div>;
+}
+
+function MatchCard({ match, weight, inches, sitLog, onLogSit, onIndex, onBuild, onSectional }) {
+  const floor = summarizeSitLog(sitLog, match.code, inches);
   const isResearch = match.tier === 'B';
   return <article className={`fitq-match card tier-${match.tier}`}>
     <header>
@@ -71,6 +83,7 @@ function MatchCard({ match, weight, onIndex, onBuild, onSectional }) {
     <ul className="fitq-why">{match.why.map((line) => <li key={line}>{line}</li>)}</ul>
     {match.seat?.checks.length > 0 && <ul className="fitq-seat" aria-label="Seat check">{match.seat.checks.map((check) => <li key={check.key} className={`seat-${check.status}`}><span>{check.label} {check.chair} in</span><small>{SEAT_TEXT[check.status]} · {check.target}</small></li>)}</ul>}
     {match.seat?.status === 'unscored' && !match.sectional && <p className="fitq-seat-none">Seat size not listed for this style. Sit-test it.</p>}
+    {floor.total > 0 && <p className="fitq-floor">Your floor: {floor.good} of {floor.total} sat well{floor.similar.total > 0 ? `. Near this height: ${floor.similar.good} of ${floor.similar.total}` : ''}.</p>}
     {match.flags.map((flag) => <p key={flag} className="fitq-flag"><AlertTriangle size={14} aria-hidden="true" /> {flag}</p>)}
     <dl className="fitq-facts">
       <div><dt>Capacity</dt><dd>{match.capacity}</dd></div>
@@ -78,6 +91,7 @@ function MatchCard({ match, weight, onIndex, onBuild, onSectional }) {
     </dl>
     {weight && !match.capacityKnown && <p className="fitq-flag"><AlertTriangle size={14} aria-hidden="true" /> Capacity is not listed. Confirm it for {weight} lb before offering this model.</p>}
     <footer>
+      <SitLogger match={match} inches={inches} onLogSit={onLogSit} />
       <button type="button" className="back-button" onClick={() => onIndex(match.name)}>See in Product Index</button>
       {match.sectional
         ? <button type="button" className="primary-button" onClick={() => onSectional(match.code)}>Design in Sectional Studio <ArrowRight size={14} /></button>
@@ -86,7 +100,7 @@ function MatchCard({ match, weight, onIndex, onBuild, onSectional }) {
   </article>;
 }
 
-export function FitDiscover({ catalog, research, state, setState, onIndex, onBuild, onOpenTab, onInfo, onCopyText, onSectional }) {
+export function FitDiscover({ catalog, research, state, setState, onIndex, onBuild, onOpenTab, onInfo, onCopyText, onSectional, sitLog = [], onLogSit = () => {} }) {
   const { step, answers } = state;
   const set = (patch) => setState((previous) => ({ ...previous, answers: { ...previous.answers, ...patch } }));
   const go = (next) => setState((previous) => ({ ...previous, step: next }));
@@ -182,7 +196,7 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
       {bandsDiffer && <p className="tip-strip"><Info size={16} /><span>La-Z-Boy's public guide calls {answers.height} <strong>{sizeName}</strong>. The Canada research file puts it in a neighbouring band. Try both sizes.</span></p>}
       <div className="fitq-layout">
         <div className="fitq-matches">
-          {results?.matches.length ? results.matches.map((match) => <MatchCard key={`${match.tier}-${match.code}`} match={match} weight={weightNumber > 0 ? String(weightNumber) : ''} onIndex={onIndex} onBuild={onBuild} onSectional={onSectional} />)
+          {results?.matches.length ? results.matches.map((match) => <MatchCard key={`${match.tier}-${match.code}`} match={match} weight={weightNumber > 0 ? String(weightNumber) : ''} onIndex={onIndex} onBuild={onBuild} onSectional={onSectional} inches={inches} sitLog={sitLog} onLogSit={onLogSit} />)
             : <section className="card fitq-empty"><h3>Nothing matches these answers.</h3><p>Nothing was loosened to fill the list. Change one answer above and look again, or browse the Product Index.</p><button type="button" className="primary-button" onClick={() => onOpenTab('Product Index')}>Open Product Index <ArrowRight size={14} /></button></section>}
           {results?.dimension.length > 0 && <section className="card fitq-dimension"><h3>Dimension screen · manual rocking recliners</h3><p>A screening comparison against published seat dimensions. It is not a fit confirmation.</p><ul>{results.dimension.map((item) => <li key={item.model_code}><strong>{item.model_name}</strong> · {item.dimension_comparison.tier}</li>)}</ul></section>}
         </div>
@@ -196,7 +210,9 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
             </div>)}
           </section>}
           <section className="card"><h3><MessageSquareText size={16} /> Greet to Discover</h3><ol>{GREET.map((line) => <li key={line}>{line}</li>)}</ol></section>
-          <section className="card"><h3><ClipboardCheck size={16} /> Sit-test checklist</h3><ul>{SIT_TEST.map((line) => <li key={line}>{line}</li>)}</ul></section>
+          <section className="card"><h3><ClipboardCheck size={16} /> Sit-test checklist</h3><ul>{SIT_TEST.map((line) => <li key={line}>{line}</li>)}</ul>
+            {sitLog.length > 0 && <><p className="fitq-floor">{sitLog.length} sit {sitLog.length === 1 ? 'test' : 'tests'} logged on this device.</p><button type="button" className="copy-button" onClick={() => onCopyText(sitLogToText(sitLog), 'Sit log')}><Copy size={15} /> Copy sit log</button></>}
+          </section>
           <section className="card"><h3><Armchair size={16} /> Cover direction</h3>
             <p>{answers.household.length ? `With ${answers.household.join(' and ').toLowerCase()} at home, start with performance-rated fabrics: ${performance} of ${fabricTotal} fabrics in the A26 program.` : 'No kids or pets mentioned. Start from their look and feel preference.'}</p>
             {answers.material_preference !== 'No preference yet' && <p>They lean toward {answers.material_preference.toLowerCase()}.</p>}
