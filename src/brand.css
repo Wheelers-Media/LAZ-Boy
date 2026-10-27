@@ -172,3 +172,56 @@ select:focus-visible {
 @media (prefers-color-scheme: dark) {
   img.rail-logo, img.brand-mark, img.brand-mark-small { content: url('/lazboy-logo-light.png'); }
 }
+
+/* Sectional Studio: true-scale SVG plan */
+.studio-board-wrap { position: relative; }
+.studio-svg { display: block; width: 100%; height: auto; max-height: 72vh; background: var(--surface-secondary, #f2f2f7); border-radius: 12px; touch-action: none; user-select: none; }
+.studio-svg:focus-visible { outline: 3px solid var(--brand-sage); outline-offset: 2px; }
+.fp-wall { fill: var(--brand-navy); }
+.fp-floor { fill: #fff; }
+.fp-grid { stroke: rgba(0, 51, 75, .09); stroke-width: .5; }
+.fp-grid-major { stroke: rgba(0, 51, 75, .22); stroke-width: .7; }
+.fp-dim { font-size: 8px; fill: var(--brand-navy); font-weight: 600; }
+.fp-body { fill: #d9d2c0; stroke: #8f8672; stroke-width: .8; }
+.fp-back { fill: #b8ae98; stroke: #8f8672; stroke-width: .5; }
+.fp-arm { fill: #c4bba5; stroke: #8f8672; stroke-width: .5; }
+.fp-cushion { fill: #ebe6d8; stroke: #a89f89; stroke-width: .5; }
+.fp-detail { fill: #8f8672; }
+.fp-stitch { fill: none; stroke: #8f8672; stroke-width: .6; stroke-linecap: round; stroke-linejoin: round; }
+.fp-outline { fill: transparent; stroke: transparent; stroke-width: 1.4; }
+.fp-piece { cursor: grab; }
+.fp-piece:active { cursor: grabbing; }
+.fp-piece.selected .fp-outline { stroke: var(--brand-rust); stroke-dasharray: 4 2; }
+.fp-piece:focus-visible .fp-outline { stroke: var(--brand-forest); }
+.fp-reach { fill: rgba(154, 185, 173, .28); stroke: var(--brand-forest); stroke-width: .7; stroke-dasharray: 3 2; pointer-events: none; }
+.fp-reach.blocked { fill: rgba(189, 71, 42, .2); stroke: var(--brand-rust); }
+.fp-code { fill: var(--brand-navy); font-weight: 700; paint-order: stroke; stroke: rgba(255, 255, 255, .75); stroke-width: 1.6px; }
+.fp-size { fill: var(--brand-blue); paint-order: stroke; stroke: rgba(255, 255, 255, .75); stroke-width: 1.2px; }
+.fp-scale rect { fill: var(--brand-navy); }
+.fp-scale text { fill: var(--brand-navy); }
+.studio-tools { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin: 8px 0 12px; font-size: 13px; }
+.studio-tools button { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--control); color: var(--brand-navy); }
+.studio-tools button:disabled { opacity: .45; cursor: default; }
+.studio-tools label { display: inline-flex; align-items: center; gap: 6px; }
+.studio-summary { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 10px; font-size: 13px; color: var(--text-secondary); }
+.studio-summary strong { color: var(--brand-navy); }
+.studio-board-empty { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 6px; text-align: center; color: var(--brand-navy); pointer-events: none; }
+@media (prefers-color-scheme: dark) {
+  .fp-floor { fill: #232325; }
+  .fp-grid { stroke: rgba(230, 226, 213, .1); }
+  .fp-grid-major { stroke: rgba(230, 226, 213, .24); }
+  .fp-dim, .fp-scale text { fill: var(--brand-cream); }
+  .fp-scale rect { fill: var(--brand-cream); }
+  .fp-code { fill: #1a1a1a; }
+  .studio-svg { background: #1a1a1a; }
+  .studio-board-empty { color: var(--brand-cream); }
+}
+@media print {
+  .rail, .topbar, .mobile-brand, .studio-toolbar, .studio-parts, .studio-tools, .studio-order-drawer, .module-intro, .bottom-nav { display: none !important; }
+  .studio-board-card { box-shadow: none; border: 0; }
+  .studio-svg { max-height: none; }
+}
+
+/* The RMS summary sits below the plan instead of covering it. */
+.design-studio .studio-order-drawer { position: static; left: auto; right: auto; bottom: auto; max-width: none; max-height: none; margin-top: 16px; border: 1px solid var(--line); border-radius: 14px; box-shadow: none; backdrop-filter: none; background: var(--surface, #fff); }
+.design-studio { padding-bottom: 32px; }

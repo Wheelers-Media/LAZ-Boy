@@ -1340,8 +1340,10 @@ export function validateSectionalStudioLayout(items, room, catalog) {
   if (!pieces.length) return { valid: false, errors: ['Add a piece to the floor plan.'], warnings };
   const bounds = room || { width: 900, height: 600 };
   const edges = pieces.map(() => []);
-  const gap = 22;
+  // Plans are drawn to true size, so connected pieces sit edge to edge; allow only 2 in of float.
+  const gap = 2;
   const near = (a, b) => Math.abs(a - b) <= gap;
+  const shared = (a1, a2, b1, b2) => Math.min(a2, b2) - Math.max(a1, b1) > gap;
 
   for (const [index, piece] of pieces.entries()) {
     if (piece.x < 0 || piece.y < 0 || piece.x + piece.width > bounds.width || piece.y + piece.height > bounds.height) {
@@ -1353,9 +1355,9 @@ export function validateSectionalStudioLayout(items, room, catalog) {
       const overlapY = Math.min(piece.y + piece.height, other.y + other.height) - Math.max(piece.y, other.y);
       if (overlapX > 2 && overlapY > 2) errors.push(`${piece.name || piece.code} overlaps ${other.name || other.code}.`);
       const verticalTouch = (near(piece.x + piece.width, other.x) || near(other.x + other.width, piece.x))
-        && Math.max(piece.y, other.y) < Math.min(piece.y + piece.height, other.y + other.height);
+        && shared(piece.y, piece.y + piece.height, other.y, other.y + other.height);
       const horizontalTouch = (near(piece.y + piece.height, other.y) || near(other.y + other.height, piece.y))
-        && Math.max(piece.x, other.x) < Math.min(piece.x + piece.width, other.x + other.width);
+        && shared(piece.x, piece.x + piece.width, other.x, other.x + other.width);
       if (verticalTouch || horizontalTouch) {
         const direction = verticalTouch ? (other.x > piece.x ? 'right' : 'left') : (other.y > piece.y ? 'down' : 'up');
         const opposite = { right: 'left', left: 'right', up: 'down', down: 'up' }[direction];
