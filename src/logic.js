@@ -1206,14 +1206,31 @@ function catalogOptionIsSupported(found, code) {
   return found.style?.options?.includes?.(code) || false;
 }
 
+/** Split a joined head such as "10X724" into style + model, only when exactly one split is documented. */
+function splitJoinedSkuHead(catalog, head) {
+  if (!/^[A-Z0-9]{5,8}$/.test(head)) return null;
+  const hits = [];
+  for (let index = 2; index <= 4 && index < head.length - 1; index += 1) {
+    const styleCode = head.slice(0, index);
+    const modelCode = head.slice(index);
+    const styleListed = (catalog.style_prefixes || []).some((entry) => entry.code === styleCode);
+    const modelListed = (catalog.models_database || []).some((entry) => String(entry.model_code) === modelCode);
+    if (findCatalogStyleCode(catalog, modelCode, styleCode) || (styleListed && modelListed)) hits.push({ styleCode, modelCode });
+  }
+  if (hits.length === 1) return hits[0];
+  return hits.length > 1 ? { ambiguous: hits } : null;
+}
+
 /** Decode only identifiers present in supplied catalogs; unresolved fields stay explicitly unresolved. */
 export function decodeRmsSku(input, catalog) {
   const raw = String(input ?? '').trim();
   const tokens = raw.split(/\s+/).filter(Boolean);
   const head = tokens[0] || '';
-  const pair = head.match(/^([A-Z0-9]+)-([A-Z0-9]+)$/i);
-  const styleCode = pair?.[1]?.toUpperCase() || '';
-  const modelCode = pair?.[2]?.toUpperCase() || '';
+  const hyphenPair = head.match(/^([A-Z0-9]+)-([A-Z0-9]+)$/i);
+  const joined = hyphenPair ? null : splitJoinedSkuHead(catalog, head.toUpperCase());
+  const pair = hyphenPair || (joined?.styleCode ? joined : null);
+  const styleCode = hyphenPair?.[1]?.toUpperCase() || joined?.styleCode || '';
+  const modelCode = hyphenPair?.[2]?.toUpperCase() || joined?.modelCode || '';
   const stylePrefix = catalog.style_prefixes?.find((entry) => entry.code === styleCode);
   const found = modelCode && styleCode ? findCatalogStyleCode(catalog, modelCode, styleCode) : null;
   const model = (catalog.models_database || []).find((entry) => String(entry.model_code) === modelCode)
@@ -1273,7 +1290,8 @@ export function decodeRmsSku(input, catalog) {
     if (supported) physicalFeatures.push(description);
   }
   const warnings = [];
-  if (!pair) warnings.push('Expected a documented Group/Style pair in the form PREFIX-MODEL.');
+  if (joined?.ambiguous) warnings.push(`The start of this SKU could be read more than one way (${joined.ambiguous.map((hit) => `${hit.styleCode}-${hit.modelCode}`).join(' or ')}). Enter it as PREFIX-MODEL to decode it.`);
+  else if (!pair) warnings.push('Expected a documented prefix and model, such as 10X724 or 10X-724.');
   if (!stylePrefix && !found) warnings.push(`Style ${styleCode || '(missing)'} is not resolved in the supplied references.`);
   if (!model) warnings.push(`Model ${modelCode || '(missing)'} is not resolved in the supplied references.`);
   if (claims.some((claim) => claim.status === 'not_listed_for_exact_style')) warnings.push('One or more options are not listed for this exact style; they are not included in the physical-feature summary.');
