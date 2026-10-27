@@ -1,6 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react';
+import { CoverPicker } from './CoverPicker.jsx';
 import { Armchair, Copy, Info, Layers3, Minus, Plus, Printer, Redo2, RotateCw, Sofa, Undo2 } from 'lucide-react';
-import { buildSectionalStudioRmsLine, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
+import { buildSectionalStudioRmsLine, getSharedCoverSwatches, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
 import { createItem, findFreeSpot, formatInches, layoutSummary, normalizeRotation, parsePieceDimensions, presetItems, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
 
 const WALL = 4;
@@ -83,10 +84,9 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
   const validation = validateSectionalStudioLayout(items, room, catalog);
   const reach = reachConflicts(items, room);
   const summary = layoutSummary(items, room);
+  const sharedSwatches = useMemo(() => getSharedCoverSwatches(catalog, items), [catalog, items]);
+  const coverReady = Boolean(cover) && pattern.length === 4 && color.length === 2 && sharedSwatches.some((item) => item.code === `${cover}${pattern}${color}`);
   const canCopy = items.length > 0 && validation.valid && coverReady;
-  const coverCodes = catalog.cover_cap_codes || [];
-  const activeCover = coverCodes.find((entry) => entry.code === cover);
-  const coverReady = Boolean(cover) && pattern.length === 4 && color.length === 2;
   const rmsRows = items.map((piece) => (coverReady ? buildSectionalStudioRmsLine(piece, cover, pattern, color) : `${piece.code}-${piece.modelCode}`));
   const rmsText = rmsRows.join('\n');
   const selectedItem = items.find((item) => item.id === selectedId);
@@ -231,7 +231,7 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
         <div className="studio-piece-detail"><Armchair size={19} /><span><strong>{selectedPiece?.name || 'Choose a piece'}</strong><small>{selectedSize ? `${formatInches(selectedSize.width)} W × ${formatInches(selectedSize.depth)} D${selectedSize.height ? ` × ${formatInches(selectedSize.height)} H` : ''}${selectedSource?.fully_extended_in ? ` · ${formatInches(selectedSource.fully_extended_in)} reclined` : ''}` : 'Size not in the supplied data.'}</small></span></div>
         <button type="button" className="primary-button studio-add" onClick={addPiece} disabled={!selectedSize}><Plus size={16} /> Add piece to floor plan</button>
         {items.length > 0 && <div className={`studio-check ${validation.valid && items.length ? 'valid' : validation.errors.length ? 'invalid' : ''}`} role="status"><strong>{!items.length ? 'Plan your room' : validation.valid ? 'Layout checks passed' : 'Review the layout'}</strong>{validation.errors.map((error) => <small key={error}>{error}</small>)}{reach.map((entry) => <small key={entry.id}>{entry.code} cannot fully recline: {entry.reason === 'wall' ? 'a wall is in the way.' : `${entry.blocker} is in the way.`}</small>)}{validation.warnings.map((warning) => <small key={warning}>{warning}</small>)}</div>}
-        <div className="studio-cover"><p className="eyebrow">COVER</p><label className="form-field"><span>Cover / grade</span><select value={cover} onChange={(event) => setCover(event.target.value)}><option value="">Choose a grade…</option><option value="D">D · type the cover below</option>{coverCodes.map((entry) => <option key={entry.code} value={entry.code}>{entry.code} · {entry.name}</option>)}</select></label><div className="studio-cover-digits"><label>Pattern <input placeholder="4 digits" maxLength="4" inputMode="numeric" value={pattern} onChange={(event) => setPattern(event.target.value.replace(/\D/g, '').slice(0, 4))} /></label><label>Colour <input placeholder="2 digits" maxLength="2" inputMode="numeric" value={color} onChange={(event) => setColor(event.target.value.replace(/\D/g, '').slice(0, 2))} /></label></div><small>Optional. Add the exact cover (grade, 4-digit pattern, 2-digit colour) to complete the entry string.</small></div>
+        <div className="studio-cover"><p className="eyebrow">COVER</p>{items.length ? <CoverPicker key={sharedSwatches.length} swatches={sharedSwatches} value={coverReady ? `${cover}${pattern}${color}` : ''} onChange={(code, match) => { setCover(match?.grade || ''); setPattern(match?.pattern || ''); setColor(match?.color || ''); }} /> : <small>Add a piece first. Covers shown are the ones every piece in the plan can be built in.</small>}</div>
       </aside>
     </div>
     <section className="studio-order-drawer" aria-live="polite"><div className="studio-drawer-head"><div><p className="eyebrow"><Layers3 size={12} /> RMS ORDER SUMMARY</p><strong>{items.length} configured {items.length === 1 ? 'piece' : 'pieces'}</strong></div><span className="studio-preview-badge">ENTRY PREVIEW · NOT ORDER-VALIDATED</span></div>{items.length ? <><div className="studio-order-list">{items.map((item, index) => { const supported = getSectionalPieceOptions(catalog, item.family, item.modelCode, item.code); return <article key={item.id}><span className="studio-order-num">{String(index + 1).padStart(2, '0')}</span><span><strong>{item.modelName} · {item.name}</strong><small>Prefix {item.code} · Model {item.modelCode} · {cover} {pattern} {color}</small></span><code>{rmsRows[index]}</code>{supported.length > 0 && <small className="studio-order-options">Indexed options: {supported.join(', ')}</small>}</article>; })}</div><div className="studio-copy-row"><pre>{rmsText}</pre><button type="button" className="copy-button" disabled={!canCopy} onClick={copy}><Copy size={14} /> Copy for RMS</button></div></> : <p className="studio-order-empty">Add a piece to see its model, prefix, cover and draft entry string here.</p>}<p className="studio-order-disclaimer"><Info size={14} /> These are catalog-derived entry references, not guaranteed order SKUs. Verify the exact-style cover, options, availability and assembly with the live RMS/order guide before promising or submitting.</p></section>

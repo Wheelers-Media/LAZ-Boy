@@ -877,6 +877,44 @@ export function sectionalPiecesForFamily(catalog, family, modelCode) {
 const RMS_CATALOGS = ['stationary_catalog_2026', 'motion_catalog_2026', 'designers_choice_catalog_2026', 'recliner_catalog_2026'];
 const splitRmsCodes = (value = '') => String(value).split('/').map((part) => part.trim()).filter(Boolean);
 
+/**
+ * Option-code names and descriptions from the April 2026 guide win over the older catalog entries
+ * (the older file had FS as a swivel base and Z6/SL as other things). Codes the guide does not define are kept as they were.
+ */
+export function applyGuideOptionDefinitions(catalog) {
+  const defs = new Map((catalog?.style_index_2026?.styles || []).filter((row) => row.kind === 'reference').map((row) => [row.styleNumber, { name: row.name.replace(/\s*\(Feature\)\s*$/, ''), description: row.special || '', standardFeature: row.model === 'FEATURES (STANDARD)' }]));
+  const merged = new Map((catalog.option_suffixes || []).map((item) => [item.code, item]));
+  defs.forEach((def, code) => merged.set(code, { ...(merged.get(code) || {}), code, ...def }));
+  const rename = (list) => (list || []).map((item) => (defs.has(item.code) ? { ...item, name: defs.get(item.code).name, description: defs.get(item.code).description || item.description } : item));
+  return { ...catalog, option_suffixes: [...merged.values()], cushion_upgrades: rename(catalog.cushion_upgrades), nailhead_trims: rename(catalog.nailhead_trims) };
+}
+
+const guideDims = (dims) => (dims?.height && dims?.width && dims?.depth ? `${dims.height} H × ${dims.width} W × ${dims.depth} D in` : '');
+/**
+ * Product Index entries rebuilt from the guide: for every model the guide lists, its styles are exactly the guide's rows
+ * (cap codes, finishes, options, dimensions). Models the guide does not list keep their old entries, marked unverified.
+ */
+export function getGuideProductIndex(catalog) {
+  const old = getFullProductIndex(catalog);
+  const rows = (catalog?.style_index_2026?.styles || []).filter((row) => row.kind === 'style');
+  const byModel = new Map();
+  rows.forEach((row) => byModel.set(row.model, [...(byModel.get(row.model) || []), row]));
+  const result = [];
+  const seen = new Set();
+  for (const [model, list] of byModel) {
+    seen.add(model);
+    const previous = old.find((item) => item.modelCode === model);
+    const name = list.find((row) => row.name)?.name;
+    result.push({
+      modelCode: model, modelName: previous?.modelName && previous.modelName !== model ? previous.modelName : name ? name.charAt(0) + name.slice(1).toLowerCase() : model,
+      categories: previous?.categories || [], sources: [], notes: [],
+      styles: list.map((row) => ({ code: row.prefix, label: `${row.category || row.name}${row.status === 'discontinued' ? ' · discontinued' : row.status === 'new' ? ' · new' : ''}`, dimensions: guideDims(row.dims), options: row.options, caps: row.capCodes, finishes: [row.standardFinish && `${row.standardFinish.name} ${row.standardFinish.code} (standard)`, ...row.optionalFinishes.map((f) => `${f.name} ${f.code}`)].filter(Boolean), status: row.status, source: 'guide' })),
+    });
+  }
+  for (const item of old) if (!seen.has(item.modelCode)) result.push({ ...item, unverified: true, notes: ['Not in the April 2026 guide. Nothing here is verified.', ...(item.notes || [])] });
+  return result.sort((a, b) => a.modelName.localeCompare(b.modelName));
+}
+
 /** April 2026 Product Information Guide rows (public/style-index-2026.json) for one model. Empty when the guide does not list the model. */
 export function getGuideStyleRows(catalog, modelCode) {
   return (catalog?.style_index_2026?.styles || []).filter((row) => row.kind === 'style' && String(row.model) === String(modelCode));
@@ -1348,6 +1386,14 @@ export function getSectionalPieceOptions(catalog, family, modelCode, pieceCode) 
   }
   const tearPadPiece = profile.pieces.find((piece) => sectionalPieceCodes(piece).includes(pieceCode));
   return [...new Set(tearPadPiece?.pricebook_options || [])];
+}
+
+/** Covers every placed piece can be built in: the swatches the guide allows for each piece's exact style, kept only where all pieces agree. */
+export function getSharedCoverSwatches(catalog, pieces) {
+  const keys = [...new Set((pieces || []).map((piece) => `${piece.code}|${piece.modelCode}`))];
+  if (!keys.length) return [];
+  const lists = keys.map((key) => { const [code, model] = key.split('|'); return getModelCoverSwatches(catalog, model, code); });
+  return lists[0].filter((cover) => lists.every((list) => list.some((item) => item.code === cover.code)));
 }
 
 export function buildSectionalStudioRmsLine(piece, cover, pattern, color, options = []) {

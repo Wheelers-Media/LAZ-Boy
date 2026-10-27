@@ -67,3 +67,25 @@ test('tag photos: Cade 448803, Bexley 610681, Apollo X49757 match the guide', ()
   assert.deepEqual(getGuideStyle(catalog, '681', '610').options, ['DC', 'FN', 'FP', 'NB', 'NH', 'NS', 'P1', 'Z6']);
   assert.deepEqual(getGuideStyle(catalog, '757', 'X49').options, ['CB', 'CC', 'CM', 'FS', 'W2']);
 });
+
+test('option codes use the guide\'s meanings (FS is the Contour Cushion, not a swivel base)', async () => {
+  const { applyGuideOptionDefinitions } = await import('../src/logic.js');
+  const fixed = applyGuideOptionDefinitions(catalog);
+  const name = (code) => fixed.option_suffixes.find((item) => item.code === code)?.name;
+  assert.equal(name('FS'), 'La-Z-Boy® Contour Cushion');
+  assert.equal(name('Z6'), 'ComfortCore® with Contour Cushion');
+  assert.equal(name('SL'), 'Swivel Base - Power Recliners');
+  assert.equal(name('T2'), 'Dual Control Panel');
+  assert.equal(fixed.cushion_upgrades.find((item) => item.code === 'FS').name, 'La-Z-Boy® Contour Cushion');
+});
+
+test('Product Index: every guide model is listed with exactly its guide styles; others are flagged unverified', async () => {
+  const { getGuideProductIndex } = await import('../src/logic.js');
+  const index = getGuideProductIndex(catalog);
+  for (const model of new Set(styles.map((row) => row.model))) {
+    const entry = index.find((item) => item.modelCode === model);
+    assert.ok(entry && !entry.unverified, model);
+    assert.deepEqual(entry.styles.map((item) => item.code).sort(), styles.filter((row) => row.model === model).map((row) => row.prefix).sort(), model);
+  }
+  assert.ok(index.filter((item) => item.unverified).every((item) => item.notes[0].startsWith('Not in the April 2026 guide')));
+});
