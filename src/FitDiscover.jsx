@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { AlertTriangle, Armchair, ArrowLeft, ArrowRight, Check, ClipboardCheck, Info, MessageSquareText, Ruler, Sparkles } from 'lucide-react';
-import { getCatalogCapabilityLeads, getContextualModelOptions, getContextualPreferenceChoices, getDimensionBasedRecommendations, getRecommendations, getRoomClearance, heightInches } from './logic.js';
+import { AlertTriangle, Armchair, ArrowLeft, ArrowRight, Check, ClipboardCheck, Copy, FileText, Info, MessageSquareText, Ruler, Sparkles } from 'lucide-react';
+import { buildDcgNotes, DCG_NOTE_LIMIT, getCatalogCapabilityLeads, getContextualModelOptions, getContextualPreferenceChoices, getDimensionBasedRecommendations, getRecommendations, getRoomClearance, heightInches } from './logic.js';
 
 export const FIT_STEPS = ['Their fit', 'Their room', 'How they unwind', 'Real life'];
 export const FIT_DEFAULTS = {
@@ -80,7 +80,7 @@ function MatchCard({ match, weight, onIndex, onBuild }) {
   </article>;
 }
 
-export function FitDiscover({ catalog, research, state, setState, onIndex, onBuild, onOpenTab, onInfo }) {
+export function FitDiscover({ catalog, research, state, setState, onIndex, onBuild, onOpenTab, onInfo, onCopyText }) {
   const { step, answers } = state;
   const set = (patch) => setState((previous) => ({ ...previous, answers: { ...previous.answers, ...patch } }));
   const go = (next) => setState((previous) => ({ ...previous, step: next }));
@@ -151,6 +151,7 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
       ['Height', answers.height || 'Not set', 0], ['Weight', answers.weight ? `${answers.weight} lb` : 'Not given', 0], ['Looking for', answers.category, 1], ['Room', roomName, 1], ['Recline', mechanism, 2],
       ['Household', answers.household.length ? answers.household.join(' + ') : 'No kids or pets', 3],
     ];
+    const notes = results ? buildDcgNotes({ answers, mechanism, roomName, sizeName, matches: results.matches }) : null;
     return <div className="fitq fitq-results">
       <h1 className="sr-only">Fit and discover results</h1>
       <section className="fitq-head">
@@ -167,6 +168,14 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
           {results?.dimension.length > 0 && <section className="card fitq-dimension"><h3>Dimension screen · manual rocking recliners</h3><p>A screening comparison against published seat dimensions. It is not a fit confirmation.</p><ul>{results.dimension.map((item) => <li key={item.model_code}><strong>{item.model_name}</strong> · {item.dimension_comparison.tier}</li>)}</ul></section>}
         </div>
         <aside className="fitq-side">
+          {notes && <section className="card fitq-notes"><h3><FileText size={16} /> Notes for DCG</h3>
+            <p>Paste into DCG after they leave.</p>
+            {[['Internal note', 'for Hidden Notes', notes.internal], ['Customer note', 'for Notes', notes.customer]].map(([title, where, text]) => <div className="fitq-notes-block" key={title}>
+              <div className="fitq-notes-head"><strong>{title}</strong><small>{where} · {text.length} / {DCG_NOTE_LIMIT}</small></div>
+              <pre className="fitq-note-text" tabIndex={0} aria-label={title}>{text}</pre>
+              <button type="button" className="copy-button" onClick={() => onCopyText(text, title)}><Copy size={15} /> Copy {title.toLowerCase()}</button>
+            </div>)}
+          </section>}
           <section className="card"><h3><MessageSquareText size={16} /> Greet to Discover</h3><ol>{GREET.map((line) => <li key={line}>{line}</li>)}</ol></section>
           <section className="card"><h3><ClipboardCheck size={16} /> Sit-test checklist</h3><ul>{SIT_TEST.map((line) => <li key={line}>{line}</li>)}</ul></section>
           <section className="card"><h3><Armchair size={16} /> Cover direction</h3>

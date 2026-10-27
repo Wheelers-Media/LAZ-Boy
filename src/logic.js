@@ -1700,3 +1700,50 @@ export function getCoverReach(catalog, record, isLeather = false) {
   }
   return [...byModel.values()].sort((a, b) => a.name.localeCompare(b.name));
 }
+
+// DCG notes: two short texts to paste into DCG after the customer leaves. DCG limits a note to 1,000 characters.
+export const DCG_NOTE_LIMIT = 1000;
+
+// Drops whole lines, highest `drop` number first (later lines first on a tie), until the note fits. Lines with drop 0 are never dropped.
+function fitDcgLines(lines, limit) {
+  const kept = [...lines];
+  const join = () => kept.map((line) => line.text).join('\n');
+  while (join().length > limit) {
+    const worst = Math.max(...kept.map((line) => line.drop));
+    if (worst === 0) break;
+    kept.splice(kept.map((line) => line.drop).lastIndexOf(worst), 1);
+  }
+  const text = join();
+  return text.length > limit ? `${text.slice(0, limit - 1)}…` : text;
+}
+
+export function buildDcgNotes({ answers, mechanism, roomName, sizeName, matches = [] }) {
+  const weight = Number(answers.weight) > 0 ? `${Number(answers.weight)} lb` : 'not given';
+  const household = answers.household || [];
+  const material = answers.material_preference && answers.material_preference !== 'No preference yet' ? answers.material_preference : '';
+  const capacityText = (match) => (match.capacityKnown ? match.capacity : 'Capacity not in the supplied data. Confirm before offering');
+  const matchLine = (match, index) => `${index + 1}. ${match.name} ${match.code} · ${capacityText(match)}${match.flags?.length ? ` — ${match.flags[0]}` : ''}`;
+  const internal = [
+    { text: 'FIT NOTES · Floor Assistant', drop: 0 },
+    { text: `Height: ${answers.height}${sizeName ? ` · ${sizeName}` : ''}`, drop: 0 },
+    { text: `Weight: ${weight}`, drop: 0 },
+    { text: `Wants: ${answers.category} · ${mechanism}`, drop: 0 },
+    { text: `Room behind: ${roomName}`, drop: 0 },
+    ...(household.length ? [{ text: `Household: ${household.join(' + ')}`, drop: 6 }] : []),
+    ...(material ? [{ text: `Material: ${material}`, drop: 6 }] : []),
+    { text: matches.length ? 'To sit in:' : 'No lead in the supplied data for these answers. Nothing was loosened to fill the list.', drop: 0 },
+    ...matches.map((match, index) => ({ text: matchLine(match, index), drop: 10 + index })),
+    { text: 'Sit-test result:', drop: 5 },
+    { text: 'Next: confirm the exact style, cover and options in RMS before promising anything.', drop: 1 },
+  ];
+  const customer = [
+    { text: 'Thank you for coming in. Here is what we talked about.', drop: 0 },
+    ...(sizeName ? [{ text: `Size: ${sizeName}`, drop: 0 }] : []),
+    { text: `Looking for: ${answers.category} · ${mechanism}`, drop: 0 },
+    { text: `Room behind it: ${roomName}`, drop: 0 },
+    ...(household.length ? [{ text: `With ${household.join(' and ').toLowerCase()} at home, we will start with performance-rated fabrics.`, drop: 6 }] : []),
+    ...(matches.length ? [{ text: `Worth sitting in: ${matches.slice(0, 3).map((match) => match.name).join(', ')}`, drop: 2 }] : []),
+    { text: 'Next step: sit in each one, then we will choose the cover, finish and options together.', drop: 1 },
+  ];
+  return { internal: fitDcgLines(internal, DCG_NOTE_LIMIT), customer: fitDcgLines(customer, DCG_NOTE_LIMIT) };
+}
