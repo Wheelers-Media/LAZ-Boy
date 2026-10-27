@@ -999,7 +999,11 @@ export function getRmsModelStyleChoices(catalog, modelCode) {
 }
 
 export function getDefaultRmsGroup(catalog, modelCode) {
-  return getRmsModelStyleChoices(catalog, modelCode)[0]?.code || '';
+  // A floor unit or quote starts from the whole piece, not one modular section of it.
+  const modular = new Set((catalog.product_profiles || []).filter((profile) => String(profile.model_code) === String(modelCode)).flatMap((profile) => profile.pieces.flatMap((piece) => [piece.code, ...(piece.variants || []).map((variant) => variant.code)])).filter(Boolean));
+  const choices = getRmsModelStyleChoices(catalog, modelCode);
+  const whole = choices.filter((choice) => !modular.has(choice.code));
+  return (whole[0] || choices[0])?.code || '';
 }
 
 export function getRmsStyleOptions(catalog, modelCode, group) {
@@ -1729,7 +1733,7 @@ export function buildDcgNotes({ answers, mechanism, roomName, sizeName, matches 
   const household = answers.household || [];
   const material = answers.material_preference && answers.material_preference !== 'No preference yet' ? answers.material_preference : '';
   const need = FIT_NEEDS.find((item) => item.key === answers.need && item.key !== 'unsure');
-  const capacityText = (match) => (match.capacityKnown ? match.capacity : 'Capacity not in the supplied data. Confirm before offering');
+  const capacityText = (match) => (match.capacityKnown ? match.capacity : 'Capacity not listed. Confirm before offering');
   const matchLine = (match, index) => `${index + 1}. ${match.name} ${match.code} · ${capacityText(match)}${match.flags?.length ? ` — ${match.flags[0]}` : ''}`;
   const internal = [
     { text: 'FIT NOTES · Floor Assistant', drop: 0 },
@@ -1737,10 +1741,10 @@ export function buildDcgNotes({ answers, mechanism, roomName, sizeName, matches 
     { text: `Weight: ${weight}`, drop: 0 },
     ...(need ? [{ text: `Needs: ${need.label}`, drop: 6 }] : []),
     { text: `Wants: ${answers.category} · ${mechanism}`, drop: 0 },
-    { text: `Room behind: ${roomName}`, drop: 0 },
+    ...(roomName ? [{ text: `Room behind: ${roomName}`, drop: 0 }] : []),
     ...(household.length ? [{ text: `Household: ${household.join(' + ')}`, drop: 6 }] : []),
     ...(material ? [{ text: `Material: ${material}`, drop: 6 }] : []),
-    { text: matches.length ? 'To sit in:' : 'No lead in the supplied data for these answers. Nothing was loosened to fill the list.', drop: 0 },
+    { text: matches.length ? 'To sit in:' : 'Nothing matches these answers. Nothing was loosened to fill the list.', drop: 0 },
     ...matches.map((match, index) => ({ text: matchLine(match, index), drop: 10 + index })),
     { text: 'Sit-test result:', drop: 5 },
     { text: 'Next: confirm the exact style, cover and options in RMS before promising anything.', drop: 1 },
@@ -1750,7 +1754,7 @@ export function buildDcgNotes({ answers, mechanism, roomName, sizeName, matches 
     ...(sizeName ? [{ text: `Size: ${sizeName}`, drop: 0 }] : []),
     ...(need ? [{ text: `What matters most: ${need.label}`, drop: 3 }] : []),
     { text: `Looking for: ${answers.category} · ${mechanism}`, drop: 0 },
-    { text: `Room behind it: ${roomName}`, drop: 0 },
+    ...(roomName ? [{ text: `Room behind it: ${roomName}`, drop: 0 }] : []),
     ...(household.length ? [{ text: `With ${household.join(' and ').toLowerCase()} at home, we will start with performance-rated fabrics.`, drop: 6 }] : []),
     ...(matches.length ? [{ text: `Worth sitting in: ${matches.slice(0, 3).map((match) => match.name).join(', ')}`, drop: 2 }] : []),
     { text: 'Next step: sit in each one, then we will choose the cover, finish and options together.', drop: 1 },
@@ -1770,3 +1774,16 @@ export const FIT_NEEDS = [
   { key: 'guests', label: 'Somewhere guests can sleep', hint: 'Sleepers have no reclining mechanism', patch: { category: 'Sleepers', mechanism: 'No reclining mechanism' } },
   { key: 'unsure', label: 'Not sure yet', hint: 'Browse the options on the next screens', patch: {} },
 ];
+
+// Modular sectionals come from the models the Sectional Studio has pieces for, grouped by family:
+// La-Z-Time lists non-power (44x), power (U4x) and power + lumbar (X4x) pieces, La-Z-Motion is power, Stationary has no mechanism.
+export function getSectionalLeads(catalog, answers) {
+  const mechanism = String(answers.mechanism || '');
+  const families = mechanism === 'No reclining mechanism' ? ['Stationary']
+    : mechanism === 'Manual' ? ['La-Z-Time']
+      : ['Power recline', 'Power + headrest', 'Power + lumbar'].includes(mechanism) ? ['La-Z-Time', 'La-Z-Motion'] : [];
+  return (catalog.product_profiles || [])
+    .filter((profile) => profile.pieces?.length && families.includes(profile.sectional_family))
+    .map((profile) => ({ model_code: String(profile.model_code), model_name: profile.model_name, family: profile.sectional_family, pieceCount: profile.pieces.length, description: profile.product_description || '' }))
+    .sort((a, b) => a.model_name.localeCompare(b.model_name));
+}

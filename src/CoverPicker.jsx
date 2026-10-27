@@ -22,7 +22,7 @@ export function CoverPicker({ swatches, value, onChange, label = 'Cover' }) {
   const colours = swatches.filter((item) => item.grade === grade && item.pattern === pattern).sort((a, b) => a.color.localeCompare(b.color));
   const pickGrade = (next) => { setPickedGrade(next); setPickedPattern(''); onChange(''); };
   const pickPattern = (next) => { setPickedPattern(next); onChange(''); };
-  if (!swatches.length) return <p className="cover-empty">No covers are in the supplied data for this model.</p>;
+  if (!swatches.length) return <p className="cover-empty">No covers are listed for this model.</p>;
   return <div className="cover-picker">
     <label className="form-field"><span>{label} grade</span><select aria-label={`${label} grade`} value={grade} onChange={(event) => pickGrade(event.target.value)}><option value="">Choose a grade…</option>{grades.map((item) => <option key={item.grade} value={item.grade}>{item.grade} · {item.material}</option>)}</select></label>
     {grade && <label className="form-field"><span>Pattern</span><select aria-label={`${label} pattern`} value={pattern} onChange={(event) => pickPattern(event.target.value)}><option value="">Choose a pattern…</option>{patterns.map(([code, name]) => <option key={code} value={code}>{name ? `${name} · ${code}` : code}</option>)}</select></label>}

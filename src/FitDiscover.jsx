@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { AlertTriangle, Armchair, ArrowLeft, ArrowRight, Check, ClipboardCheck, Copy, FileText, Info, MessageSquareText, Ruler, Sparkles } from 'lucide-react';
-import { buildDcgNotes, DCG_NOTE_LIMIT, FIT_NEEDS, getCatalogCapabilityLeads, getContextualModelOptions, getContextualPreferenceChoices, getDimensionBasedRecommendations, getRecommendations, getRoomClearance, heightInches } from './logic.js';
+import { buildDcgNotes, DCG_NOTE_LIMIT, FIT_NEEDS, getCatalogCapabilityLeads, getContextualModelOptions, getContextualPreferenceChoices, getDimensionBasedRecommendations, getRecommendations, getRoomClearance, getSectionalLeads, heightInches } from './logic.js';
 
 export const FIT_STEPS = ['Their fit', 'What they need', 'Room and comfort', 'Real life'];
 export const FIT_DEFAULTS = {
@@ -58,13 +58,13 @@ function Choices({ label, options, value, onChange }) {
   </div>;
 }
 
-function MatchCard({ match, weight, onIndex, onBuild }) {
+function MatchCard({ match, weight, onIndex, onBuild, onSectional }) {
   const isResearch = match.tier === 'B';
   return <article className={`fitq-match card tier-${match.tier}`}>
     <header>
       <span className="fitq-rank">{match.rank}</span>
       <div><h3>{match.name}</h3><p>{match.category}</p></div>
-      <span className="fitq-tier">{isResearch ? 'Tier B · provisional lead' : 'Tier C · catalog capability only'}</span>
+      <span className="fitq-tier">{match.sectional ? 'Modular' : isResearch ? 'Research match' : 'Catalog match'}</span>
     </header>
     <ul className="fitq-why">{match.why.map((line) => <li key={line}>{line}</li>)}</ul>
     {match.flags.map((flag) => <p key={flag} className="fitq-flag"><AlertTriangle size={14} aria-hidden="true" /> {flag}</p>)}
@@ -72,22 +72,25 @@ function MatchCard({ match, weight, onIndex, onBuild }) {
       <div><dt>Capacity</dt><dd>{match.capacity}</dd></div>
       <div><dt>{isResearch ? 'Fit basis' : 'Why it is listed'}</dt><dd>{match.basis}</dd></div>
     </dl>
-    {weight && !match.capacityKnown && <p className="fitq-flag"><AlertTriangle size={14} aria-hidden="true" /> Capacity is not in the supplied data. Confirm it for {weight} lb before offering this model.</p>}
+    {weight && !match.capacityKnown && <p className="fitq-flag"><AlertTriangle size={14} aria-hidden="true" /> Capacity is not listed. Confirm it for {weight} lb before offering this model.</p>}
     <footer>
       <button type="button" className="back-button" onClick={() => onIndex(match.name)}>See in Product Index</button>
-      <button type="button" className="primary-button" onClick={() => onBuild(match.code)}>Build a SKU <ArrowRight size={14} /></button>
+      {match.sectional
+        ? <button type="button" className="primary-button" onClick={() => onSectional(match.code)}>Design in Sectional Studio <ArrowRight size={14} /></button>
+        : <button type="button" className="primary-button" onClick={() => onBuild(match.code)}>Build a SKU <ArrowRight size={14} /></button>}
     </footer>
   </article>;
 }
 
-export function FitDiscover({ catalog, research, state, setState, onIndex, onBuild, onOpenTab, onInfo, onCopyText }) {
+export function FitDiscover({ catalog, research, state, setState, onIndex, onBuild, onOpenTab, onInfo, onCopyText, onSectional }) {
   const { step, answers } = state;
   const set = (patch) => setState((previous) => ({ ...previous, answers: { ...previous.answers, ...patch } }));
   const go = (next) => setState((previous) => ({ ...previous, step: next }));
   const inches = heightInches(answers.height);
   const hasHeight = Number.isFinite(inches);
 
-  const available = useMemo(() => MECHANISMS.filter(([name]) => getContextualModelOptions(catalog, { ...answers, mechanism: name, scale: '' }).length > 0), [catalog, answers.category, answers.clearance]);
+  const isSectional = answers.category === 'Modular sectionals';
+  const available = useMemo(() => MECHANISMS.filter(([name]) => (isSectional ? getSectionalLeads(catalog, { mechanism: name }).length > 0 : getContextualModelOptions(catalog, { ...answers, mechanism: name, scale: '' }).length > 0)), [catalog, answers.category, answers.clearance]);
   const mechanism = available.some(([name]) => name === answers.mechanism) ? answers.mechanism : available[0]?.[0] || answers.mechanism;
   const engine = useMemo(() => ({
     ...answers, mechanism, scale: hasHeight ? researchScale(inches) : '', upgrades: [], fabric: '', kidsPets: answers.household.length > 0,
@@ -98,6 +101,15 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
   const supports = useMemo(() => getContextualPreferenceChoices(catalog, engine, 'support'), [catalog, engine.category, engine.clearance, mechanism]);
   const results = useMemo(() => {
     if (step < 4 || !hasHeight) return null;
+    if (isSectional) {
+      const sectionals = getSectionalLeads(catalog, { mechanism }).map((lead, index) => ({
+        tier: 'S', code: lead.model_code, name: lead.model_name, category: `${lead.family} modular sectional`, sectional: true, rank: index + 1,
+        why: [`${lead.family} modular · ${lead.pieceCount} pieces in Sectional Studio`, mechanism],
+        flags: [], capacity: 'Not listed', capacityKnown: false,
+        basis: 'Lay out the pieces to size it to the room, then take the piece SKUs into RMS.',
+      }));
+      return { matches: sectionals, hidden: 0, dimension: [] };
+    }
     const recs = getRecommendations(catalog, engine, research);
     const withoutWeight = engine.weight ? getRecommendations(catalog, { ...engine, weight: '' }, research) : recs;
     const leads = getCatalogCapabilityLeads(catalog, engine, 8);
@@ -111,9 +123,9 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
           tier: 'B', code: model.model_code, name: model.model_name, category: model.category,
           why: [`Research lists it for ${model.fit_guidance.height_summary} (${model.fit_guidance.band})`, `${engine.category} · ${mechanism}`, `Room behind allows up to ${roomInches} in`],
           flags: conflict ? ['Fit sources disagree for this model. Sit-test it and read the Product Index note.'] : [],
-          capacity: known ? `${model.weight_limit_lbs} lb documented. Confirm the exact style.` : 'Not in the supplied data',
+          capacity: known ? `${model.weight_limit_lbs} lb documented. Confirm the exact style.` : 'Not listed',
           capacityKnown: known,
-          basis: `${model.fit_guidance.source}. Unverified, not manufacturer-confirmed.`,
+          basis: 'Listed for their height. Have them sit in it to confirm.',
         };
       }),
       ...leads.filter((lead) => !recs.some((model) => String(model.model_code) === String(lead.model_code))).map((lead) => {
@@ -122,7 +134,7 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
           tier: 'C', code: String(lead.model_code), name: lead.model_name, category: lead.category,
           why: [`${engine.category} · ${mechanism}`, `Room behind allows up to ${roomInches} in`, `${lead.styles.length} listed ${lead.styles.length === 1 ? 'style' : 'styles'}: ${lead.styles.slice(0, 4).map((style) => style.code).join(', ')}${lead.styles.length > 4 ? '…' : ''}`],
           flags: [], capacity: lead.capacity_status, capacityKnown: known,
-          basis: 'The model exists and its mechanism suits the answers. That says nothing about whether this guest fits it.',
+          basis: 'Matches the kind of piece and recline you picked. Have them sit in it to see if it suits them.',
         };
       }),
     ].slice(0, 3).map((match, index) => ({ ...match, rank: index + 1 }));
@@ -148,23 +160,23 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
 
   if (step === 4) {
     const summary = [
-      ['Height', answers.height || 'Not set', 0], ['Weight', answers.weight ? `${answers.weight} lb` : 'Not given', 0], ...(FIT_NEEDS.find((item) => item.key === answers.need && item.key !== 'unsure') ? [['Needs', FIT_NEEDS.find((item) => item.key === answers.need).label, 1]] : []), ['Looking for', answers.category, 1], ['Room', roomName, 1], ['Recline', mechanism, 2],
+      ['Height', answers.height || 'Not set', 0], ['Weight', answers.weight ? `${answers.weight} lb` : 'Not given', 0], ...(FIT_NEEDS.find((item) => item.key === answers.need && item.key !== 'unsure') ? [['Needs', FIT_NEEDS.find((item) => item.key === answers.need).label, 1]] : []), ['Looking for', answers.category, 1], ...(isSectional ? [] : [['Room', roomName, 2]]), ['Recline', mechanism, 2],
       ['Household', answers.household.length ? answers.household.join(' + ') : 'No kids or pets', 3],
     ];
-    const notes = results ? buildDcgNotes({ answers, mechanism, roomName, sizeName, matches: results.matches }) : null;
+    const notes = results ? buildDcgNotes({ answers, mechanism, roomName: isSectional ? '' : roomName, sizeName, matches: results.matches }) : null;
     return <div className="fitq fitq-results">
       <h1 className="sr-only">Fit and discover results</h1>
       <section className="fitq-head">
-        <div><p className="eyebrow"><Sparkles size={13} /> THREE TO SIT IN</p><h2>Worth sitting in, <em>not a final answer.</em></h2><p>A short list built from what they told you. It is deliberately broad so they try more than one.</p></div>
+        <div><p className="eyebrow"><Sparkles size={13} /> {isSectional ? 'MODULAR LINES' : 'THREE TO SIT IN'}</p><h2>{isSectional ? <>Lines to lay out, <em>then sit in.</em></> : <>Worth sitting in, <em>not a final answer.</em></>}</h2><p>{isSectional ? 'Every modular line that matches. Open one in Sectional Studio to size it to their room.' : 'A short list built from what they told you. It is deliberately broad so they try more than one.'}</p></div>
         <button type="button" className="back-button" onClick={() => setState({ ...FIT_DEFAULTS, answers: { ...FIT_DEFAULTS.answers } })}>Start over</button>
       </section>
       <div className="fitq-summary" role="list">{summary.map(([label, value, target]) => <button role="listitem" type="button" key={label} className="fitq-pill" onClick={() => go(target)}><span>{label}</span><strong>{value}</strong></button>)}</div>
-      {results?.hidden > 0 && <p className="tip-strip fitq-hold"><Info size={16} /><span><strong>{results.hidden} research {results.hidden === 1 ? 'lead is' : 'leads are'} hidden.</strong> Their documented capacity is below {answers.weight} lb or not in the supplied data. A weight limit is never relaxed to fill the list.</span></p>}
+      {results?.hidden > 0 && <p className="tip-strip fitq-hold"><Info size={16} /><span><strong>{results.hidden} match {results.hidden === 1 ? 'is' : 'es are'} hidden.</strong> Their listed capacity is below {answers.weight} lb or not listed. The weight limit is never relaxed to fill the list.</span></p>}
       {bandsDiffer && <p className="tip-strip"><Info size={16} /><span>La-Z-Boy's public guide calls {answers.height} <strong>{sizeName}</strong>. The Canada research file puts it in a neighbouring band. Try both sizes.</span></p>}
       <div className="fitq-layout">
         <div className="fitq-matches">
-          {results?.matches.length ? results.matches.map((match) => <MatchCard key={`${match.tier}-${match.code}`} match={match} weight={weightNumber > 0 ? String(weightNumber) : ''} onIndex={onIndex} onBuild={onBuild} />)
-            : <section className="card fitq-empty"><h3>No lead in the supplied data for these answers.</h3><p>Nothing was loosened to fill the list. Change one answer above and look again, or browse the Product Index.</p><button type="button" className="primary-button" onClick={() => onOpenTab('Product Index')}>Open Product Index <ArrowRight size={14} /></button></section>}
+          {results?.matches.length ? results.matches.map((match) => <MatchCard key={`${match.tier}-${match.code}`} match={match} weight={weightNumber > 0 ? String(weightNumber) : ''} onIndex={onIndex} onBuild={onBuild} onSectional={onSectional} />)
+            : <section className="card fitq-empty"><h3>Nothing matches these answers.</h3><p>Nothing was loosened to fill the list. Change one answer above and look again, or browse the Product Index.</p><button type="button" className="primary-button" onClick={() => onOpenTab('Product Index')}>Open Product Index <ArrowRight size={14} /></button></section>}
           {results?.dimension.length > 0 && <section className="card fitq-dimension"><h3>Dimension screen · manual rocking recliners</h3><p>A screening comparison against published seat dimensions. It is not a fit confirmation.</p><ul>{results.dimension.map((item) => <li key={item.model_code}><strong>{item.model_name}</strong> · {item.dimension_comparison.tier}</li>)}</ul></section>}
         </div>
         <aside className="fitq-side">
@@ -215,9 +227,12 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
           <p className="tip-strip"><Info size={16} /><span>A need only sets where the list starts. The exact style must list a feature before you promise it.</span></p>
         </>}
         {step === 2 && <>
-          <label className="field-label">How much space is behind it?</label>
-          <Choices label="Room behind" value={roomName} onChange={(name) => { const room = ROOMS.find(([key]) => key === name); set({ clearance: `${name} · ${room[3]} in` }); }} options={ROOMS.map(([name, amount, help]) => [name, name, `${amount} · ${help}`])} />
-          <p className="tip-strip"><Info size={16} /><span>Measure from the wall to the front of the chair, then check the exact model's clearance spec.</span></p>
+          {!isSectional && <>
+            <label className="field-label">How much space is behind it?</label>
+            <Choices label="Room behind" value={roomName} onChange={(name) => { const room = ROOMS.find(([key]) => key === name); set({ clearance: `${name} · ${room[3]} in` }); }} options={ROOMS.map(([name, amount, help]) => [name, name, `${amount} · ${help}`])} />
+            <p className="tip-strip"><Info size={16} /><span>Measure from the wall to the front of the chair, then check the exact model's clearance spec.</span></p>
+          </>}
+          {isSectional && <p className="tip-strip"><Info size={16} /><span>Room size is set in Sectional Studio, where pieces are drawn at true size.</span></p>}
           <label className="field-label">Which kind of comfort sounds right?</label>
           <Choices label="Recline type" value={mechanism} onChange={(name) => set({ mechanism: name })} options={available.map(([name, hint]) => [name, name, hint])} />
           {cushions.length > 1 && <><label className="field-label">Seat feel</label><div className="chip-row" role="group" aria-label="Seat feel">{cushions.map((item) => <button key={item.code} type="button" className={chip(answers.cushion_preference === item.name)} aria-pressed={answers.cushion_preference === item.name} onClick={() => set({ cushion_preference: item.name })}>{item.name} · {item.code}</button>)}</div></>}

@@ -21,7 +21,7 @@ function Pick({ label, options, value, onChange }) {
 function Reach({ catalog, record, isLeather }) {
   const reach = useMemo(() => getCoverReach(catalog, record, isLeather), [catalog, record, isLeather]);
   const styleCount = reach.reduce((sum, item) => sum + item.styles, 0);
-  if (!reach.length) return <p className="fabric-reach-empty">No style in the supplied data accepts this cover.</p>;
+  if (!reach.length) return <p className="fabric-reach-empty">No style accepts this cover.</p>;
   return <div className="fabric-reach">
     <p><strong>{reach.length} {reach.length === 1 ? 'model' : 'models'} · {styleCount} {styleCount === 1 ? 'style' : 'styles'}</strong> accept cap code {record.capCode}. Confirm the exact style before promising it.</p>
     <p className="fabric-reach-models">{reach.map((item) => `${item.name} ${item.model}`).join(' · ')}</p>

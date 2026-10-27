@@ -8,7 +8,7 @@ const input = (overrides = {}) => ({
   mechanism: 'Power recline',
   roomName: 'Standard room',
   sizeName: 'Small',
-  matches: [match(), match({ code: '494', name: 'Collins' }), match({ code: '759', name: 'Maddox', capacity: 'Not in supplied data', capacityKnown: false })],
+  matches: [match(), match({ code: '494', name: 'Collins' }), match({ code: '759', name: 'Maddox', capacity: 'Not listed', capacityKnown: false })],
   ...overrides,
 });
 
@@ -23,10 +23,10 @@ test('internal note carries the fit answers, the shortlist with model codes, and
   }
 });
 
-test('internal note says so when a capacity is not in the supplied data instead of implying it is fine', () => {
+test('internal note says so when a capacity is not listed instead of implying it is fine', () => {
   const { internal } = buildDcgNotes(input());
   const maddox = internal.split('\n').find((line) => line.includes('Maddox'));
-  assert.match(maddox, /not in the supplied data/i);
+  assert.match(maddox, /capacity not listed/i);
 });
 
 test('internal note keeps a fit-source disagreement flag next to its model', () => {
@@ -56,7 +56,7 @@ test('customer note never promises a fit', () => {
 
 test('with no leads the internal note says so and the customer note leaves the list out', () => {
   const { internal, customer } = buildDcgNotes(input({ matches: [] }));
-  assert.match(internal, /No lead in the supplied data/);
+  assert.match(internal, /Nothing matches these answers/);
   assert.doesNotMatch(customer, /Worth sitting in/);
 });
 
@@ -84,4 +84,10 @@ test('a stated need appears in both notes in the customer\'s terms, and nothing 
     assert.doesNotMatch(none.internal, /Needs:/);
     assert.doesNotMatch(none.customer, /What matters most/);
   }
+});
+
+test('no room line is written when there is no room-behind answer, as for a modular sectional', () => {
+  const { internal, customer } = buildDcgNotes(input({ roomName: '' }));
+  assert.doesNotMatch(internal, /Room behind/);
+  assert.doesNotMatch(customer, /Room behind/);
 });
