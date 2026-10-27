@@ -1728,12 +1728,14 @@ export function buildDcgNotes({ answers, mechanism, roomName, sizeName, matches 
   const weight = Number(answers.weight) > 0 ? `${Number(answers.weight)} lb` : 'not given';
   const household = answers.household || [];
   const material = answers.material_preference && answers.material_preference !== 'No preference yet' ? answers.material_preference : '';
+  const need = FIT_NEEDS.find((item) => item.key === answers.need && item.key !== 'unsure');
   const capacityText = (match) => (match.capacityKnown ? match.capacity : 'Capacity not in the supplied data. Confirm before offering');
   const matchLine = (match, index) => `${index + 1}. ${match.name} ${match.code} · ${capacityText(match)}${match.flags?.length ? ` — ${match.flags[0]}` : ''}`;
   const internal = [
     { text: 'FIT NOTES · Floor Assistant', drop: 0 },
     { text: `Height: ${answers.height}${sizeName ? ` · ${sizeName}` : ''}`, drop: 0 },
     { text: `Weight: ${weight}`, drop: 0 },
+    ...(need ? [{ text: `Needs: ${need.label}`, drop: 6 }] : []),
     { text: `Wants: ${answers.category} · ${mechanism}`, drop: 0 },
     { text: `Room behind: ${roomName}`, drop: 0 },
     ...(household.length ? [{ text: `Household: ${household.join(' + ')}`, drop: 6 }] : []),
@@ -1746,6 +1748,7 @@ export function buildDcgNotes({ answers, mechanism, roomName, sizeName, matches 
   const customer = [
     { text: 'Thank you for coming in. Here is what we talked about.', drop: 0 },
     ...(sizeName ? [{ text: `Size: ${sizeName}`, drop: 0 }] : []),
+    ...(need ? [{ text: `What matters most: ${need.label}`, drop: 3 }] : []),
     { text: `Looking for: ${answers.category} · ${mechanism}`, drop: 0 },
     { text: `Room behind it: ${roomName}`, drop: 0 },
     ...(household.length ? [{ text: `With ${household.join(' and ').toLowerCase()} at home, we will start with performance-rated fabrics.`, drop: 6 }] : []),
@@ -1754,3 +1757,16 @@ export function buildDcgNotes({ answers, mechanism, roomName, sizeName, matches 
   ];
   return { internal: fitDcgLines(internal, DCG_NOTE_LIMIT), customer: fitDcgLines(customer, DCG_NOTE_LIMIT) };
 }
+
+// What the customer says they need, mapped only to a category and recline type the wizard already filters on.
+// A need is a starting point for the shortlist. It never says a model fits the person.
+export const FIT_NEEDS = [
+  { key: 'simple', label: 'Simple and dependable', hint: 'A manual lever, nothing to plug in', patch: { category: 'Recliners', mechanism: 'Manual' } },
+  { key: 'effortless', label: 'Easy to adjust', hint: 'Power recline at the touch of a button', patch: { category: 'Recliners', mechanism: 'Power recline' } },
+  { key: 'neck', label: 'Head and neck support', hint: 'Power headrest to fine-tune while reclined', patch: { category: 'Recliners', mechanism: 'Power + headrest' } },
+  { key: 'back', label: 'Lower-back support', hint: 'Power lumbar', patch: { category: 'Recliners', mechanism: 'Power + lumbar' } },
+  { key: 'lift', label: 'Help getting up', hint: 'A lift chair raises the seat to standing', patch: { category: 'Lift chairs', mechanism: 'Lift chair' } },
+  { key: 'family', label: 'Seating for more than one', hint: 'Motion sofas and loveseats', patch: { category: 'Motion sofas / loveseats', mechanism: 'Power recline' } },
+  { key: 'guests', label: 'Somewhere guests can sleep', hint: 'Sleepers have no reclining mechanism', patch: { category: 'Sleepers', mechanism: 'No reclining mechanism' } },
+  { key: 'unsure', label: 'Not sure yet', hint: 'Browse the options on the next screens', patch: {} },
+];

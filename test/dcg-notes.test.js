@@ -74,3 +74,14 @@ test('household and material lines are omitted when there is nothing to say', ()
   const { internal } = buildDcgNotes(input({ answers: { ...input().answers, household: [], material_preference: 'No preference yet' } }));
   assert.doesNotMatch(internal, /Household|Material/);
 });
+
+test('a stated need appears in both notes in the customer\'s terms, and nothing is added when none was picked', () => {
+  const withNeed = buildDcgNotes(input({ answers: { ...input().answers, need: 'lift' } }));
+  assert.match(withNeed.internal, /Needs: Help getting up/);
+  assert.match(withNeed.customer, /What matters most: Help getting up/);
+  for (const need of ['', 'unsure', undefined]) {
+    const none = buildDcgNotes(input({ answers: { ...input().answers, need } }));
+    assert.doesNotMatch(none.internal, /Needs:/);
+    assert.doesNotMatch(none.customer, /What matters most/);
+  }
+});

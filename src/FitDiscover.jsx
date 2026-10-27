@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
 import { AlertTriangle, Armchair, ArrowLeft, ArrowRight, Check, ClipboardCheck, Copy, FileText, Info, MessageSquareText, Ruler, Sparkles } from 'lucide-react';
-import { buildDcgNotes, DCG_NOTE_LIMIT, getCatalogCapabilityLeads, getContextualModelOptions, getContextualPreferenceChoices, getDimensionBasedRecommendations, getRecommendations, getRoomClearance, heightInches } from './logic.js';
+import { buildDcgNotes, DCG_NOTE_LIMIT, FIT_NEEDS, getCatalogCapabilityLeads, getContextualModelOptions, getContextualPreferenceChoices, getDimensionBasedRecommendations, getRecommendations, getRoomClearance, heightInches } from './logic.js';
 
-export const FIT_STEPS = ['Their fit', 'Their room', 'How they unwind', 'Real life'];
+export const FIT_STEPS = ['Their fit', 'What they need', 'Room and comfort', 'Real life'];
 export const FIT_DEFAULTS = {
   step: 0,
-  answers: { height: '', weight: '', category: 'Recliners', clearance: 'Standard room · 18 in', mechanism: 'Power recline', cushion_preference: 'Standard Poly', support_preference: 'No preference yet', household: [], material_preference: 'No preference yet', hip_breadth_inches: '', thigh_length_inches: '', popliteal_height_inches: '' },
+  answers: { height: '', weight: '', need: '', category: 'Recliners', clearance: 'Standard room · 18 in', mechanism: 'Power recline', cushion_preference: 'Standard Poly', support_preference: 'No preference yet', household: [], material_preference: 'No preference yet', hip_breadth_inches: '', thigh_length_inches: '', popliteal_height_inches: '' },
 };
 
 const CATEGORIES = ['Recliners', 'High-leg designer', 'Motion sofas / loveseats', 'Modular sectionals', 'Stationary suites', 'Sleepers', 'Lift chairs'];
@@ -141,14 +141,14 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
   const toggleHousehold = (key) => set({ household: answers.household.includes(key) ? answers.household.filter((item) => item !== key) : [...answers.household, key] });
   const stepHeading = [
     ['A little about their fit', 'La-Z-Boy sizes recliners by the height of the person who sits in it most. Add weight now so it is never an afterthought.'],
-    ['Where will it live?', 'Pick the kind of piece, then how much room is behind it.'],
-    ['How do they like to unwind?', 'Only options that exist for this kind of piece are shown.'],
-    ['Made for real life', 'These shape the cover and cushion conversation. They do not filter models.'],
+    ['What do they need it to do?', 'Start with what they tell you, in their words. Pick the closest one. You can change the kind of piece below.'],
+    ['Where will it live, and how should it feel?', 'How much room is behind it, then the comfort options that exist for this kind of piece.'],
+    ['Made for real life', 'DCG already asks about kids, pets and material. Fill these in only if you did not ask there. They shape the cover conversation and do not filter models.'],
   ][step];
 
   if (step === 4) {
     const summary = [
-      ['Height', answers.height || 'Not set', 0], ['Weight', answers.weight ? `${answers.weight} lb` : 'Not given', 0], ['Looking for', answers.category, 1], ['Room', roomName, 1], ['Recline', mechanism, 2],
+      ['Height', answers.height || 'Not set', 0], ['Weight', answers.weight ? `${answers.weight} lb` : 'Not given', 0], ...(FIT_NEEDS.find((item) => item.key === answers.need && item.key !== 'unsure') ? [['Needs', FIT_NEEDS.find((item) => item.key === answers.need).label, 1]] : []), ['Looking for', answers.category, 1], ['Room', roomName, 1], ['Recline', mechanism, 2],
       ['Household', answers.household.length ? answers.household.join(' + ') : 'No kids or pets', 3],
     ];
     const notes = results ? buildDcgNotes({ answers, mechanism, roomName, sizeName, matches: results.matches }) : null;
@@ -208,13 +208,16 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
             <p>Used only for a manual rocking-recliner dimension screen.</p></details>
         </>}
         {step === 1 && <>
+          <label className="field-label">What matters most to them?</label>
+          <Choices label="What they need" value={answers.need} onChange={(key) => set({ need: key, ...FIT_NEEDS.find((item) => item.key === key).patch })} options={FIT_NEEDS.map((item) => [item.key, item.label, item.hint])} />
           <label className="field-label">What are they hoping to bring home?</label>
           <Choices label="Category" value={answers.category} onChange={setCategory} options={CATEGORIES.map((item) => [item, item])} />
+          <p className="tip-strip"><Info size={16} /><span>A need only sets where the list starts. The exact style must list a feature before you promise it.</span></p>
+        </>}
+        {step === 2 && <>
           <label className="field-label">How much space is behind it?</label>
           <Choices label="Room behind" value={roomName} onChange={(name) => { const room = ROOMS.find(([key]) => key === name); set({ clearance: `${name} · ${room[3]} in` }); }} options={ROOMS.map(([name, amount, help]) => [name, name, `${amount} · ${help}`])} />
           <p className="tip-strip"><Info size={16} /><span>Measure from the wall to the front of the chair, then check the exact model's clearance spec.</span></p>
-        </>}
-        {step === 2 && <>
           <label className="field-label">Which kind of comfort sounds right?</label>
           <Choices label="Recline type" value={mechanism} onChange={(name) => set({ mechanism: name })} options={available.map(([name, hint]) => [name, name, hint])} />
           {cushions.length > 1 && <><label className="field-label">Seat feel</label><div className="chip-row" role="group" aria-label="Seat feel">{cushions.map((item) => <button key={item.code} type="button" className={chip(answers.cushion_preference === item.name)} aria-pressed={answers.cushion_preference === item.name} onClick={() => set({ cushion_preference: item.name })}>{item.name} · {item.code}</button>)}</div></>}
