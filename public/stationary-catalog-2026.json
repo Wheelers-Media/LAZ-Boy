@@ -1445,7 +1445,7 @@
             {
               "style_code": "6MM-494",
               "category": "Sectional Armless Loveseat",
-              "dimensions": "37.5 in H × 63 in W × 39 in D",
+              "dimensions": "37 in H × 62 in W × 39 in D",
               "options": [
                 "DC",
                 "Z6"
@@ -1454,7 +1454,7 @@
             {
               "style_code": "60R-494",
               "category": "Right-Arm Sitting Chaise",
-              "dimensions": "37.5 in H × 32.5 in W × 64 in D",
+              "dimensions": "37 in H × 33.5 in W × 64 in D",
               "options": [
                 "DC",
                 "FP",
@@ -1489,7 +1489,7 @@
             {
               "style_code": "6SP-494",
               "category": "Armless Full Sleeper",
-              "dimensions": "37.5 in H × 63 in W × 39 in D",
+              "dimensions": "37 in H × 62 in W × 39 in D",
               "options": [
                 "DC",
                 "MA",
@@ -1757,7 +1757,7 @@
             {
               "style_code": "610-603",
               "category": "Sofa",
-              "dimensions": "34 in H × 75.5 in W × 36 in D",
+              "dimensions": "37 in H × 75.5 in W × 36 in D",
               "options": [
                 "DC",
                 "FN",
@@ -1769,7 +1769,7 @@
             {
               "style_code": "655-603",
               "category": "Chair & a Half",
-              "dimensions": "34 in H × 39 in W × 36 in D",
+              "dimensions": "37 in H × 39 in W × 36 in D",
               "options": [
                 "DC",
                 "FN",
@@ -1865,7 +1865,7 @@
             {
               "style_code": "60W-603",
               "category": "Left-Arm Sitting Sofa with Attached Corner",
-              "dimensions": "34 in H × 107 in W × 36 in D",
+              "dimensions": "37 in H × 107 in W × 36 in D",
               "options": [
                 "DC",
                 "FN",
@@ -1877,7 +1877,7 @@
             {
               "style_code": "60X-603",
               "category": "Right-Arm Sitting Sofa with Attached Corner",
-              "dimensions": "34 in H × 107 in W × 36 in D",
+              "dimensions": "37 in H × 107 in W × 36 in D",
               "options": [
                 "DC",
                 "FN",
@@ -1889,7 +1889,7 @@
             {
               "style_code": "60Y-603",
               "category": "Left-Arm Sitting Sofa",
-              "dimensions": "34 in H × 73.5 in W × 36 in D",
+              "dimensions": "37 in H × 73.5 in W × 36 in D",
               "options": [
                 "DC",
                 "FN",
@@ -1901,7 +1901,7 @@
             {
               "style_code": "60Z-603",
               "category": "Right-Arm Sitting Sofa",
-              "dimensions": "34 in H × 73.5 in W × 36 in D",
+              "dimensions": "37 in H × 73.5 in W × 36 in D",
               "options": [
                 "DC",
                 "FN",
@@ -2756,7 +2756,7 @@
             {
               "style_code": "655-636",
               "category": "Chair & a Half",
-              "dimensions": "37 in H × 52.5 in W × 39 in D",
+              "dimensions": "37 in H × 44 in W × 39 in D",
               "options": [
                 "DC",
                 "FN",
@@ -2768,7 +2768,7 @@
             {
               "style_code": "555-636",
               "category": "Twin Sleep Sofa",
-              "dimensions": "37 in H × 52.5 in W × 39 in D",
+              "dimensions": "37 in H × 44 in W × 39 in D",
               "options": [
                 "DC",
                 "FN",
@@ -3517,8 +3517,7 @@
               "dimensions": "38 in H × 40 in W × 42 in D",
               "options": [
                 "DC",
-                "FN",
-                "Z6"
+                "FN"
               ]
             },
             {
@@ -3663,7 +3662,7 @@
             {
               "style_code": "60L-665",
               "category": "Left-Arm Sitting Chaise",
-              "dimensions": "38 in H × 46 in W × 66 in D",
+              "dimensions": "38 in H × 46 in W × 64 in D",
               "options": [
                 "DC",
                 "FP",
@@ -3674,7 +3673,7 @@
             {
               "style_code": "60R-665",
               "category": "Right-Arm Sitting Chaise",
-              "dimensions": "38 in H × 46 in W × 66 in D",
+              "dimensions": "38 in H × 46 in W × 64 in D",
               "options": [
                 "DC",
                 "FP",
@@ -4277,6 +4276,7 @@
                 "DC",
                 "FN",
                 "FP",
+                "P1",
                 "Z6"
               ]
             },
@@ -4288,6 +4288,7 @@
                 "DC",
                 "FN",
                 "FP",
+                "P1",
                 "Z6"
               ]
             },

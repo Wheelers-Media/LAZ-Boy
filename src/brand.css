@@ -167,3 +167,8 @@ select:focus-visible {
     background: rgba(28, 28, 30, .94);
   }
 }
+
+/* Logo artwork is dark navy; use the light version on dark backgrounds. */
+@media (prefers-color-scheme: dark) {
+  img.rail-logo, img.brand-mark, img.brand-mark-small { content: url('/lazboy-logo-light.png'); }
+}

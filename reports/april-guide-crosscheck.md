@@ -50,7 +50,10 @@ Every style row in the Recliner, Stationary and Designer's Choice PDFs was compa
 
 - Added from the PDFs: Lennon 787 (5 styles), Laurel 411 and Natalie 491 (8 styles).
 - Corrected from the PDFs, each also confirmed by the April guide: 747 10U/10X (no FN), 803 10X (adds RW), 725 P16 (adds FN), 240-435 (no options).
-- Left as is, because the April guide agrees with the app and not the older catalog page: 22 dimension differences (for example 10U530 height, the 603 family height, 665 chaise depth) and 7 option differences.
-- Left as is, needs a decision: 60M694 and 6MM694 (catalog lists P1, guide and app do not).
+- Dimension and option differences where the catalog and the April guide disagree: the catalog was applied (22 dimensions, 7 option lists), since the catalogs are the source of truth. This includes 10U/10X/16X on 530, 727 and 781, the 603 family height, 665 and 494 chaise sizes, 60M694 and 6MM694 (P1).
 - Catalog typo, ignored: P91899 lists FN twice.
 - Swatch names: all 246 swatches in the app match the PDF labels.
+
+## Spot checks against la-z-boy.com (US site, not Canadian, so provisional only)
+
+Liam 16X786 (43 x 32 x 39) and 016786 (43 x 34 x 39) match the app. Wilmette 655603 shows 37 in tall, matching the catalog. Greyson 10X530 shows 43 in tall on one listing and 42 in on another, so the site is not consistent. The site lists only a few in-stock covers per style, so it cannot confirm the full swatch list.

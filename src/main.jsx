@@ -311,7 +311,7 @@ function App() {
   const floorWarranty = `${catalog?.warranty_matrix?.['3_Year']} ${catalog?.warranty_matrix?.['1_Year']}`;
 
   if (loadError) return <main className="load-error"><h1>Catalog could not be loaded</h1><p>Refresh the page to retry the local catalog.</p></main>;
-  if (!catalog) return <main className="loading"><img className="brand-mark" src="/lazboy-logo.svg" alt="La-Z-Boy" /><p>Opening the floor guide…</p></main>;
+  if (!catalog) return <main className="loading"><img className="brand-mark" src="/lazboy-logo.png" alt="La-Z-Boy" /><p>Opening the floor guide…</p></main>;
 
   const showInfo = (title, technical, pitch) => setInfo({ title, technical, pitch });
   const optionInfo = (option) => showInfo(option.name, option.description, `“${option.name} is a thoughtful detail designed to make everyday comfort feel a little more personal.”`);
@@ -319,14 +319,14 @@ function App() {
 
   return <div className={customerMode ? 'app customer-mode' : 'app'}>
     <aside className="rail">
-      <img className="rail-logo" src="/lazboy-logo.svg" alt="La-Z-Boy" />
+      <img className="rail-logo" src="/lazboy-logo.png" alt="La-Z-Boy" />
       <div className="rail-divider" />
       {NAV_ITEMS.map(([Icon, label]) => <button key={label} className={`rail-link ${activeTab === label ? 'active' : ''}`} onClick={() => setActiveTab(label)} title={label} aria-label={label} aria-current={activeTab === label ? 'page' : undefined}><Icon size={19} /><span>{label}</span></button>)}
       <div className="rail-bottom"><span className="online-dot" /><small>LOCAL<br />CATALOG</small></div>
     </aside>
 
     <header className="topbar">
-      <div className="mobile-brand"><img className="brand-mark-small" src="/lazboy-logo.svg" alt="La-Z-Boy" /><span>Floor Assistant</span></div>
+      <div className="mobile-brand"><img className="brand-mark-small" src="/lazboy-logo.png" alt="La-Z-Boy" /><span>Floor Assistant</span></div>
       <div className="breadcrumbs"><span>Sales floor</span><span className="crumb-slash">/</span><strong>{activeTab === 'Fit' ? 'Fit & discover' : activeTab}</strong></div>
       <div className="top-actions"><span className="catalog-status"><i /> Catalog ready</span><button className={`mode-toggle ${customerMode ? 'is-on' : ''}`} onClick={() => setCustomerMode((value) => !value)}><span className="mode-dot" />{customerMode ? 'Customer mode' : 'Rep view'}</button><button className="avatar" aria-label="Sales associate profile">JD</button></div>
     </header>
