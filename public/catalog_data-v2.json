@@ -7211,6 +7211,20 @@
       "type": "Specialty Fabric",
       "grade": "Specialty",
       "description": "High-pile luxury velvet and chenille weaves."
+    },
+    {
+      "code": "VS",
+      "type": "Fabric",
+      "name": "VS cap code",
+      "grade": "VS",
+      "description": "Listed as a fabric cap code. Grade and description are not in the supplied data."
+    },
+    {
+      "code": "UE",
+      "type": "Faux Leather",
+      "name": "UE cap code",
+      "grade": "UE",
+      "description": "Listed as a faux leather cap code. Grade and description are not in the supplied data."
     }
   ],
   "color_families": [

@@ -2,18 +2,63 @@
   "metadata": {
     "program": "April 2026 Fabric & Leather Program",
     "version": "A26",
-    "lastUpdated": "2026-05-19",
-    "source": "User-supplied cover export attachments",
-    "recordScope": "The following fabric records and attributes are transcribed from the supplied extract; they do not establish current availability or model eligibility."
+    "lastUpdated": "2026-05-25",
+    "source": "April 2026 Fabric & Leather List",
+    "recordScope": "Fabric and leather records and attributes as listed in the April 2026 program. They do not establish current availability or model eligibility."
   },
   "definitions": {
     "wearability": {
-      "N": { "name": "Normal", "description": "Recommended for use on all La-Z-Boy upholstered furniture." },
-      "P": { "name": "Performance", "description": "Excellent ratings for durability, abrasion, pilling and fraying." },
-      "Medium": { "name": "Medium Duty", "description": "Allowed on sofas, sleep sofas, duo products, classics and occasional chairs only." }
+      "N": {
+        "name": "Normal",
+        "description": "Recommended for use on all La-Z-Boy upholstered furniture."
+      },
+      "P": {
+        "name": "Performance",
+        "description": "Excellent ratings for durability, abrasion, pilling and fraying."
+      },
+      "Medium": {
+        "name": "Medium Duty",
+        "description": "Allowed on sofas, sleep sofas, duo products, classics and occasional chairs only."
+      }
     },
-    "cleaningCodes": { "S": "Solvent Clean", "W": "Water Clean", "WS": "Water or Solvent Clean", "W*B": "Bleach Cleanable" },
-    "specialtyAttributes": { "I": "i-Clean", "PF": "Pet Friendly", "C": "Conserve", "A": "Antimicrobial", "N": "Nanobionic", "W*B": "Bleach Cleanable" }
+    "cleaningCodes": {
+      "S": "Solvent Clean",
+      "W": "Water Clean",
+      "WS": "Water or Solvent Clean",
+      "W*B": "Bleach Cleanable"
+    },
+    "specialtyAttributes": {
+      "I": "i-Clean",
+      "PF": "Pet Friendly",
+      "C": "Conserve",
+      "A": "Antimicrobial",
+      "N": "Nanobionic",
+      "W*B": "Bleach Cleanable"
+    },
+    "leatherTypes": {
+      "Authentic": "Pure, transparent dyes show the natural markings in each hide: wrinkles, scars and brands. Every Authentic leather has a protective topcoat.",
+      "Performance": "Consistent color and subtle markings, made with embossing, corrective techniques and protective coatings that resist soil.",
+      "Nubuck": "Infused with transparent dyes for subtle color variation without hiding the natural character of the hide."
+    },
+    "leatherGroups": {
+      "Select Leather Reclining": "Married leather with a urethane or vinyl match on specific reclining frames.",
+      "Select Leather Stationary": "Married leather with a urethane or vinyl match on specific stationary frames.",
+      "Custom Leather Match": "Custom leather with a urethane match on select frames.",
+      "Custom Leather Plus": "Custom leather available on most frames.",
+      "Specialty Leather": "Custom leather on most frames. Swatch sets must be requested and purchased."
+    },
+    "capCodes": {
+      "UR": "UR",
+      "DR": "DR",
+      "BU": "BU",
+      "UE": "UE",
+      "PS": "PS",
+      "VS": "VS",
+      "NP": "NP",
+      "DP": "DP",
+      "LM": "LM",
+      "LL": "LL"
+    }
   },
   "businessRules": {
     "pillowsNotAllowedCapCodes": ["LL", "LS", "LM", "RL", "BU", "UE"],
@@ -23,86 +68,1960 @@
     }
   },
   "fabrics": [
-    { "coverCode": "B1538", "patternName": "Seamount", "colors": ["08", "53", "74", "76", "85"], "capCode": "UR", "wearability": "N", "cleaningCode": "S", "specialtyAttributes": [] },
-    { "coverCode": "B1808", "patternName": "Social Club", "colors": ["52", "57", "68", "72", "76"], "capCode": "DR", "wearability": "P", "cleaningCode": "S", "specialtyAttributes": [] },
-    { "coverCode": "B1827", "patternName": "Brink", "colors": ["86"], "capCode": "DR", "wearability": "N", "cleaningCode": "S", "specialtyAttributes": [] },
-    { "coverCode": "C1525", "patternName": "Roma", "colors": ["34", "53", "74", "78", "86"], "capCode": "DR", "wearability": "N", "cleaningCode": "S", "specialtyAttributes": [] },
-    { "coverCode": "C1584", "patternName": "Saxon", "colors": ["31", "48", "50", "87", "97"], "capCode": "DR", "wearability": "N", "cleaningCode": "WS", "specialtyAttributes": [] },
-    { "coverCode": "C1625", "patternName": "Vance", "colors": ["08", "27", "32", "52", "76", "86"], "capCode": "UR", "wearability": "N", "cleaningCode": "WS", "specialtyAttributes": [] },
-    { "coverCode": "C1670", "patternName": "Northern Exposure", "colors": ["76"], "capCode": "DR", "wearability": "N", "cleaningCode": "W", "specialtyAttributes": [] },
-    { "coverCode": "C1700", "patternName": "Nico", "colors": ["33", "53", "57"], "capCode": "DR", "wearability": "N", "cleaningCode": "S", "specialtyAttributes": [] },
-    { "coverCode": "C1754", "patternName": "Kemet", "colors": ["32", "74", "86"], "capCode": "UR", "wearability": "P", "cleaningCode": "S", "specialtyAttributes": [] },
-    { "coverCode": "C1757", "patternName": "Bartaloni", "colors": ["31", "33", "53", "73"], "capCode": "DR", "wearability": "N", "cleaningCode": "S", "specialtyAttributes": [] },
-    { "coverCode": "C1809", "patternName": "Donegal", "colors": ["64", "69", "74", "87"], "capCode": "DR", "wearability": "N", "cleaningCode": "S", "specialtyAttributes": [] },
-    { "coverCode": "C1812", "patternName": "Damon", "colors": ["33", "54", "57", "62", "86"], "capCode": "UR", "wearability": "N", "cleaningCode": "S", "specialtyAttributes": [] },
-    { "coverCode": "C1852", "patternName": "Tiago", "colors": ["52", "55", "65", "76", "86"], "capCode": "DR", "wearability": "N", "cleaningCode": "W", "specialtyAttributes": [] },
-    { "coverCode": "C1860", "patternName": "Persia", "colors": ["36", "86", "08", "54", "76"], "capCode": "DR", "wearability": "N", "cleaningCode": "WS", "specialtyAttributes": [] },
-    { "coverCode": "C1861", "patternName": "Sarah", "colors": ["86", "58", "53", "62"], "capCode": "DR", "wearability": "P", "cleaningCode": "WS", "specialtyAttributes": [] },
-    { "coverCode": "C1872", "patternName": "Lynx", "colors": ["33", "32", "52"], "capCode": "DR", "wearability": "N", "cleaningCode": "WS", "specialtyAttributes": [] },
-    { "coverCode": "C1882", "patternName": "Lukas", "colors": ["32", "73", "79", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "S", "specialtyAttributes": [] },
-    { "coverCode": "C1965", "patternName": "Nora", "colors": ["32", "52", "66", "84"], "capCode": "DR", "wearability": "N", "cleaningCode": "WS", "specialtyAttributes": [] },
-    { "coverCode": "C1967", "patternName": "Lunar", "colors": ["33", "55", "64", "68", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "WS", "specialtyAttributes": [] },
-    { "coverCode": "C2029", "patternName": "Easy", "colors": ["07", "31", "58", "64", "87"], "capCode": "DR", "wearability": "N", "cleaningCode": "WS", "specialtyAttributes": [] },
-    { "coverCode": "C2032", "patternName": "Reyson", "colors": ["60", "64", "74", "78", "85"], "capCode": "DR", "wearability": "N", "cleaningCode": "W", "specialtyAttributes": [] },
-    { "coverCode": "C2035", "patternName": "Thane", "colors": ["31", "54", "57", "78"], "capCode": "UR", "wearability": "P", "cleaningCode": "WS", "specialtyAttributes": [] },
-    { "coverCode": "C2042", "patternName": "Duffey", "colors": ["31", "42", "52", "76", "87"], "capCode": "DR", "wearability": "N", "cleaningCode": "WS", "specialtyAttributes": [] },
-    { "coverCode": "C2048", "patternName": "Crest", "colors": ["54", "58", "65", "76", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "WS", "specialtyAttributes": [] },
-    { "coverCode": "C2054", "patternName": "Tundra", "colors": ["54", "57", "64", "86"], "capCode": "UR", "wearability": "N", "cleaningCode": "S", "specialtyAttributes": [] },
-    { "coverCode": "C2065", "patternName": "Mica", "colors": ["52", "57", "74", "76"], "capCode": "DR", "wearability": "N", "cleaningCode": "WS", "specialtyAttributes": [] },
-    { "coverCode": "C2081", "patternName": "Brandon", "colors": ["53", "58", "68", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "WS", "specialtyAttributes": [] },
-    { "coverCode": "C2111", "patternName": "Monroe", "colors": ["32", "52", "55", "76"], "capCode": "UR", "wearability": "N", "cleaningCode": "WS", "specialtyAttributes": [] },
-    { "coverCode": "D1564", "patternName": "i-Hallandale", "colors": ["31", "53", "58", "64", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "PF"] },
-    { "coverCode": "D1604", "patternName": "i-Outlier", "colors": ["32", "54", "64", "76"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "PF"] },
-    { "coverCode": "D1606", "patternName": "i-Halifax", "colors": ["34", "53", "62", "78"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "D1759", "patternName": "i-Saxton", "colors": ["31", "55", "64", "76", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "D1806", "patternName": "i-Catalyst", "colors": ["36", "58", "64", "76"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "PF"] },
-    { "coverCode": "D1855", "patternName": "i-Rivers", "colors": ["32", "54", "74", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "D2010", "patternName": "i-Rene", "colors": ["31", "55", "64", "76", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "D2027", "patternName": "i-Weekend", "colors": ["52", "57", "64", "74", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "PF"] },
-    { "coverCode": "D2066", "patternName": "i-Kudos", "colors": ["31", "52", "58", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "PF"] },
-    { "coverCode": "D2068", "patternName": "i-Beverley", "colors": ["32", "57", "74", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "D2071", "patternName": "i-Rockport", "colors": ["31", "52", "68", "76"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "D2072", "patternName": "i-Nolina", "colors": ["36", "58", "64", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "D2074", "patternName": "Gail", "colors": ["31", "54", "58", "76", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W*B", "specialtyAttributes": ["W*B"] },
-    { "coverCode": "D2076", "patternName": "Kenly", "colors": ["32", "57", "68", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W*B", "specialtyAttributes": ["W*B"] },
-    { "coverCode": "D2092", "patternName": "Ross", "colors": ["31", "52", "58", "64", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W*B", "specialtyAttributes": ["W*B"] },
-    { "coverCode": "D2096", "patternName": "Defender", "colors": ["31", "55", "76", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W*B", "specialtyAttributes": ["W*B"] },
-    { "coverCode": "D2099", "patternName": "i-Favorite", "colors": ["32", "57", "64", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "PF"] },
-    { "coverCode": "D2100", "patternName": "i-George", "colors": ["31", "53", "58", "76"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "D2124", "patternName": "i-Westvale", "colors": ["32", "54", "68", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "D2140", "patternName": "i-Eugene", "colors": ["31", "52", "64", "74", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "E1537", "patternName": "i-Northwest", "colors": ["31", "53", "64", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "PF"] },
-    { "coverCode": "E1651", "patternName": "i-Broderick", "colors": ["32", "54", "58", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "C"] },
-    { "coverCode": "E1652", "patternName": "i-Liv", "colors": ["31", "52", "74", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "C"] },
-    { "coverCode": "E1714", "patternName": "i-Aryna", "colors": ["36", "54", "58", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "C"] },
-    { "coverCode": "E1763", "patternName": "i-Esma", "colors": ["31", "55", "68", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "PF", "C"] },
-    { "coverCode": "E1764", "patternName": "i-Leilani", "colors": ["32", "57", "64", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "PF", "C"] },
-    { "coverCode": "E1785", "patternName": "i-Machale", "colors": ["31", "53", "76", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "PF", "A"] },
-    { "coverCode": "E1790", "patternName": "i-Oshae", "colors": ["32", "55", "64", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "A"] },
-    { "coverCode": "E1815", "patternName": "i-Emarosa", "colors": ["31", "54", "58", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "C"] },
-    { "coverCode": "E1917", "patternName": "i-Adario", "colors": ["32", "57", "68", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "C"] },
-    { "coverCode": "E2040", "patternName": "i-Gellar", "colors": ["31", "53", "64", "76"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "F1574", "patternName": "i-Colantino", "colors": ["31", "53", "58", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "G1664", "patternName": "i-Barber", "colors": ["32", "54", "64", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "G1696", "patternName": "i-Shady Side", "colors": ["31", "55", "68", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "C"] },
-    { "coverCode": "G1715", "patternName": "i-Lockhart", "colors": ["32", "57", "74", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "H1571", "patternName": "i-Savane", "colors": ["31", "53", "64", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "H1572", "patternName": "i-Adril", "colors": ["32", "54", "68", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "J1986", "patternName": "i-Jace", "colors": ["31", "55", "76", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "J1995", "patternName": "Marlin", "colors": ["32", "57", "64", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W*B", "specialtyAttributes": ["W*B"] },
-    { "coverCode": "J2044", "patternName": "Triangular", "colors": ["31", "53", "58", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W*B", "specialtyAttributes": ["W*B"] },
-    { "coverCode": "J2046", "patternName": "Keeline", "colors": ["32", "54", "68", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W*B", "specialtyAttributes": ["W*B"] },
-    { "coverCode": "J2083", "patternName": "i-Kitsilano", "colors": ["31", "55", "64", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "J2085", "patternName": "Hassett", "colors": ["32", "57", "76", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W*B", "specialtyAttributes": ["W*B"] },
-    { "coverCode": "J2134", "patternName": "Sherwood", "colors": ["31", "53", "64", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W*B", "specialtyAttributes": ["W*B"] },
-    { "coverCode": "M1567", "patternName": "i-Fine Line", "colors": ["32", "54", "58", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I"] },
-    { "coverCode": "N1791", "patternName": "i-Pipers Brook", "colors": ["31", "55", "68", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "A"] },
-    { "coverCode": "Q1912", "patternName": "i-Blackhawk", "colors": ["32", "57", "64", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "PF", "N"] },
-    { "coverCode": "Q1941", "patternName": "i-Atherton", "colors": ["31", "53", "76", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["I", "PF", "N"] },
-    { "coverCode": "Q1977", "patternName": "Tinsley", "colors": ["32", "54", "64", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W*B", "specialtyAttributes": ["W*B"] },
-    { "coverCode": "Q1992", "patternName": "Fascinate", "colors": ["31", "55", "68", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W", "specialtyAttributes": ["C"] },
-    { "coverCode": "Q1993", "patternName": "Tickety-Boo", "colors": ["32", "57", "74", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W*B", "specialtyAttributes": ["W*B"] },
-    { "coverCode": "Q1994", "patternName": "Echo", "colors": ["31", "53", "64", "86"], "capCode": "DR", "wearability": "P", "cleaningCode": "W*B", "specialtyAttributes": ["W*B"] },
-    { "coverCode": "Q2139", "patternName": "Fetch", "colors": ["32", "54", "68", "87"], "capCode": "DR", "wearability": "P", "cleaningCode": "W*B", "specialtyAttributes": ["W*B"] }
+    {
+      "coverCode": "B1538",
+      "patternName": "Seamount",
+      "colors": ["08", "53", "74", "76", "85"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "B1808",
+      "patternName": "Social Club",
+      "colors": ["52", "57", "68", "72", "76"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "B1827",
+      "patternName": "Brink",
+      "colors": ["86"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1525",
+      "patternName": "Roma",
+      "colors": ["34", "53", "74", "78", "86"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1584",
+      "patternName": "Saxon",
+      "colors": ["31", "48", "50", "87", "97"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1625",
+      "patternName": "Vance",
+      "colors": ["08", "27", "32", "52", "76", "86"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1670",
+      "patternName": "Northern Exposure",
+      "colors": ["76"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1700",
+      "patternName": "Nico",
+      "colors": ["33", "53", "57"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1754",
+      "patternName": "Kemet",
+      "colors": ["32", "74", "86"],
+      "capCode": "UR",
+      "wearability": "P",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1757",
+      "patternName": "Bartaloni",
+      "colors": ["31", "33", "53", "73"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1809",
+      "patternName": "Donegal",
+      "colors": ["64", "69", "74", "87"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1812",
+      "patternName": "Damon",
+      "colors": ["33", "54", "57", "62", "86"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1852",
+      "patternName": "Tiago",
+      "colors": ["52", "55", "65", "76", "86"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1860",
+      "patternName": "Persia",
+      "colors": ["36", "86", "08", "54", "76"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1861",
+      "patternName": "Sarah",
+      "colors": ["86", "58", "53", "62"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1872",
+      "patternName": "Lynx",
+      "colors": ["33", "32", "52"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1882",
+      "patternName": "Lukas",
+      "colors": ["32", "73", "79", "86"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1965",
+      "patternName": "Nora",
+      "colors": ["32", "52", "66", "84"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C1967",
+      "patternName": "Lunar",
+      "colors": ["33", "55", "64", "68", "86"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C2029",
+      "patternName": "Easy",
+      "colors": ["07", "31", "58", "64", "87"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C2032",
+      "patternName": "Reyson",
+      "colors": ["60", "64", "74", "78", "85"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C2035",
+      "patternName": "Thane",
+      "colors": ["31", "54", "57", "78"],
+      "capCode": "UR",
+      "wearability": "P",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C2042",
+      "patternName": "Duffey",
+      "colors": ["32", "53", "60", "74"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C2043",
+      "patternName": "Sheldon",
+      "colors": ["57", "73", "76"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C2049",
+      "patternName": "Julien",
+      "colors": ["18", "48", "53", "54"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C2053",
+      "patternName": "Clarke",
+      "colors": ["14", "29", "76", "87"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C2056",
+      "patternName": "Seattle",
+      "colors": ["15", "31", "82"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C2067",
+      "patternName": "Axe",
+      "colors": ["59", "64", "74", "86"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C2118",
+      "patternName": "Cosdrew",
+      "colors": ["32", "52", "56", "64", "69"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C2119",
+      "patternName": "Longmont",
+      "colors": ["32", "52", "55", "62"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C2120",
+      "patternName": "San Marino",
+      "colors": ["29", "32", "53", "61", "86"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C2121",
+      "patternName": "Watari",
+      "colors": ["52", "67", "71", "74", "81"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "C2122",
+      "patternName": "Taber",
+      "colors": ["32", "52", "63", "67"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D1494",
+      "patternName": "Prospect",
+      "colors": ["15", "52"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D1564",
+      "patternName": "i-Hallandale",
+      "colors": ["31", "53", "58", "64", "87"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "PF"]
+    },
+    {
+      "coverCode": "D1604",
+      "patternName": "i-Outlier",
+      "colors": ["54", "58", "62", "76", "79"],
+      "capCode": "UR",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "PF"]
+    },
+    {
+      "coverCode": "D1606",
+      "patternName": "i-Halifax",
+      "colors": ["32", "54", "62", "78", "86"],
+      "capCode": "UR",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "D1693",
+      "patternName": "Milo",
+      "colors": ["03", "14", "46", "62", "98"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D1706",
+      "patternName": "Vector",
+      "colors": ["36", "55", "84"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D1759",
+      "patternName": "i-Saxton",
+      "colors": ["56", "64", "77", "78", "86"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "D1806",
+      "patternName": "i-Catalyst",
+      "colors": ["32", "54", "57", "78"],
+      "capCode": "UR",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "PF"]
+    },
+    {
+      "coverCode": "D1807",
+      "patternName": "Fairfax",
+      "colors": ["32", "53", "57", "64", "74", "86"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D1825",
+      "patternName": "i-Raven Crest",
+      "colors": ["35", "58", "73", "74"],
+      "capCode": "BU",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "PF"]
+    },
+    {
+      "coverCode": "D1855",
+      "patternName": "i-Rivers",
+      "colors": ["52", "53", "58", "59", "64", "75"],
+      "capCode": "BU",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "D1905",
+      "patternName": "York",
+      "colors": ["31", "54", "58", "72", "74"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D1919",
+      "patternName": "Florentino",
+      "colors": ["34", "57", "82"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D1970",
+      "patternName": "Marteon",
+      "colors": ["34", "52", "56", "66", "96"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D1988",
+      "patternName": "Copenhagen",
+      "colors": ["49", "54", "72"],
+      "capCode": "PS",
+      "wearability": "P",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2009",
+      "patternName": "Promise",
+      "colors": ["31", "46", "52", "59", "72", "83"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2010",
+      "patternName": "i-Rene",
+      "colors": ["14", "19", "25", "32", "52", "65", "81"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "D2013",
+      "patternName": "Kerr",
+      "colors": ["31", "54", "95"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2016",
+      "patternName": "Coast",
+      "colors": ["12", "52", "93"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2027",
+      "patternName": "i-Weekend",
+      "colors": ["32", "51", "67", "75", "98"],
+      "capCode": "UR",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "PF"]
+    },
+    {
+      "coverCode": "D2034",
+      "patternName": "Doritt",
+      "colors": ["32", "36", "54", "75", "78"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2054",
+      "patternName": "Amari",
+      "colors": ["18", "29", "31", "87"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2065",
+      "patternName": "Magnolia",
+      "colors": ["17", "24"],
+      "capCode": "UR",
+      "wearability": "P",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2066",
+      "patternName": "i-Kudos",
+      "colors": ["59", "61", "67", "77", "80"],
+      "capCode": "UR",
+      "wearability": "P",
+      "cleaningCode": "S",
+      "specialtyAttributes": ["I", "PF"]
+    },
+    {
+      "coverCode": "D2068",
+      "patternName": "i-Beverley",
+      "colors": ["33", "60", "71", "76", "93"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "D2071",
+      "patternName": "i-Rockport",
+      "colors": ["19", "31", "52", "54", "78"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "D2072",
+      "patternName": "i-Nolina",
+      "colors": ["31", "51", "52", "57", "75"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "D2074",
+      "patternName": "Gail",
+      "colors": ["32", "51", "60", "78", "80", "86"],
+      "capCode": "UR",
+      "wearability": "P",
+      "cleaningCode": "W*B",
+      "specialtyAttributes": ["W*B"]
+    },
+    {
+      "coverCode": "D2075",
+      "patternName": "Galloway",
+      "colors": ["38", "65", "78", "86"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2076",
+      "patternName": "Kenly",
+      "colors": ["38"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W*B",
+      "specialtyAttributes": ["W*B"]
+    },
+    {
+      "coverCode": "D2086",
+      "patternName": "Spring Valley",
+      "colors": ["06", "31", "75"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2090",
+      "patternName": "Penelope",
+      "colors": ["09"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2092",
+      "patternName": "Ross",
+      "colors": ["25", "32", "52", "59", "61"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "W*B",
+      "specialtyAttributes": ["W*B"]
+    },
+    {
+      "coverCode": "D2093",
+      "patternName": "Artisia",
+      "colors": ["24", "31", "51", "55", "74", "75", "76"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2094",
+      "patternName": "Crete",
+      "colors": ["48", "78"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2095",
+      "patternName": "Crocker",
+      "colors": ["51", "55", "62", "74", "86"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2096",
+      "patternName": "Defender",
+      "colors": ["31", "51", "64", "69"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "W*B",
+      "specialtyAttributes": ["W*B"]
+    },
+    {
+      "coverCode": "D2097",
+      "patternName": "Donatello",
+      "colors": ["12", "16", "27", "32", "85"],
+      "capCode": "DR",
+      "wearability": "Medium",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2098",
+      "patternName": "Gabby",
+      "colors": ["10", "31", "80"],
+      "capCode": "NP",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2099",
+      "patternName": "i-Favorite",
+      "colors": ["31", "33", "53", "65"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "S",
+      "specialtyAttributes": ["I", "PF"]
+    },
+    {
+      "coverCode": "D2100",
+      "patternName": "i-George",
+      "colors": ["31", "52", "54", "62", "70"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "WS",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "D2101",
+      "patternName": "Novan",
+      "colors": ["37", "55", "62", "74"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2102",
+      "patternName": "Picasso",
+      "colors": ["11", "61", "90"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2104",
+      "patternName": "Shoreline",
+      "colors": ["32", "46", "86", "90"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2106",
+      "patternName": "Tonda",
+      "colors": ["56", "59", "63", "77", "86"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2107",
+      "patternName": "Westcott",
+      "colors": ["31", "58", "65", "69"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2116",
+      "patternName": "Rome",
+      "colors": ["32", "52", "75", "86"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2123",
+      "patternName": "Ayla",
+      "colors": ["31", "51", "63", "73", "86"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2124",
+      "patternName": "i-Westvale",
+      "colors": ["32", "59", "75", "78"],
+      "capCode": "UR",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "D2125",
+      "patternName": "Playlist",
+      "colors": ["33", "58", "64", "73"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2126",
+      "patternName": "Prism",
+      "colors": ["33", "53", "74", "78"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2127",
+      "patternName": "Stir Crazy",
+      "colors": ["18", "65", "80"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2128",
+      "patternName": "Winslow",
+      "colors": ["56", "69", "75"],
+      "capCode": "BU",
+      "wearability": "P",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2129",
+      "patternName": "Zinnamon",
+      "colors": ["31", "34", "52", "54", "70"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "D2140",
+      "patternName": "i-Eugene",
+      "colors": ["32", "60", "63", "74", "83"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "E1537",
+      "patternName": "i-Northwest",
+      "colors": ["32", "52", "55", "58", "65", "67", "75", "73"],
+      "capCode": "BU",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "PF"]
+    },
+    {
+      "coverCode": "E1651",
+      "patternName": "i-Broderick",
+      "colors": ["33", "52", "63", "81"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "C"]
+    },
+    {
+      "coverCode": "E1652",
+      "patternName": "i-Liv",
+      "colors": ["31", "35", "52", "96"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "C"]
+    },
+    {
+      "coverCode": "E1714",
+      "patternName": "i-Aryna",
+      "colors": ["17", "24"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "C"]
+    },
+    {
+      "coverCode": "E1763",
+      "patternName": "i-Esma",
+      "colors": ["15"],
+      "capCode": "UR",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "C", "PF"]
+    },
+    {
+      "coverCode": "E1764",
+      "patternName": "i-Leilani",
+      "colors": ["53", "94"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "C", "PF"]
+    },
+    {
+      "coverCode": "E1785",
+      "patternName": "i-Machale",
+      "colors": ["30", "53", "62", "86"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "A", "PF"]
+    },
+    {
+      "coverCode": "E1790",
+      "patternName": "i-Oshae",
+      "colors": ["36", "85"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "A"]
+    },
+    {
+      "coverCode": "E1815",
+      "patternName": "i-Emarosa",
+      "colors": ["17", "66", "86"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "C"]
+    },
+    {
+      "coverCode": "E1820",
+      "patternName": "Wheelie",
+      "colors": ["14", "16", "23", "32", "59", "87"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "E1866",
+      "patternName": "Vitani",
+      "colors": ["08", "24", "50", "54", "72", "86"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "E1870",
+      "patternName": "Indian Trail",
+      "colors": ["59", "68"],
+      "capCode": "VS",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "E1917",
+      "patternName": "i-Adario",
+      "colors": ["34", "52", "53", "65"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "C"]
+    },
+    {
+      "coverCode": "E1972",
+      "patternName": "Depiction",
+      "colors": ["33", "50", "52", "86"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "E2014",
+      "patternName": "Tira",
+      "colors": ["52", "78", "98"],
+      "capCode": "PS",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "E2036",
+      "patternName": "Omni",
+      "colors": ["59", "61", "75", "78", "80"],
+      "capCode": "UE",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "E2040",
+      "patternName": "i-Gellar",
+      "colors": ["23", "31", "52", "62", "78"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "E2041",
+      "patternName": "Lionel",
+      "colors": ["19", "29", "32", "54", "69", "84"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "E2045",
+      "patternName": "Diary",
+      "colors": ["54", "59", "86"],
+      "capCode": "PS",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "E2052",
+      "patternName": "Manorwood",
+      "colors": ["20", "64", "84"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "E2058",
+      "patternName": "Vanya",
+      "colors": ["32"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "F1574",
+      "patternName": "i-Colantino",
+      "colors": ["73", "87", "94"],
+      "capCode": "VS",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "F1680",
+      "patternName": "Leuven",
+      "colors": ["86"],
+      "capCode": "DR",
+      "wearability": "Medium",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "G1664",
+      "patternName": "i-Barber",
+      "colors": ["64"],
+      "capCode": "NP",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "G1696",
+      "patternName": "i-Shady Side",
+      "colors": ["73", "92"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "C"]
+    },
+    {
+      "coverCode": "G1715",
+      "patternName": "i-Lockhart",
+      "colors": ["17", "34", "54"],
+      "capCode": "VS",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "G1773",
+      "patternName": "Skyscraper",
+      "colors": ["63", "65", "86"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "H1571",
+      "patternName": "i-Savane",
+      "colors": ["58"],
+      "capCode": "PS",
+      "wearability": "Medium",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "H1572",
+      "patternName": "i-Adril",
+      "colors": ["57", "86", "92"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "J1708",
+      "patternName": "Wisteria",
+      "colors": ["44", "65"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J1819",
+      "patternName": "Fringe",
+      "colors": ["85", "92"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J1821",
+      "patternName": "Houston",
+      "colors": ["18", "46", "85"],
+      "capCode": "DP",
+      "wearability": "P",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J1921",
+      "patternName": "Bala",
+      "colors": ["27", "23"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J1923",
+      "patternName": "Ellibee",
+      "colors": ["24", "44", "74", "86"],
+      "capCode": "PS",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J1925",
+      "patternName": "Lakota",
+      "colors": ["58", "87"],
+      "capCode": "PS",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J1959",
+      "patternName": "Jennifer",
+      "colors": ["92"],
+      "capCode": "PS",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J1974",
+      "patternName": "Parker",
+      "colors": ["17", "92", "96"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J1986",
+      "patternName": "i-Jace",
+      "colors": ["54", "72", "77"],
+      "capCode": "UR",
+      "wearability": "P",
+      "cleaningCode": "WS",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "J1990",
+      "patternName": "Ajay",
+      "colors": ["29", "70", "78", "87"],
+      "capCode": "PS",
+      "wearability": "P",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J1995",
+      "patternName": "Marlin",
+      "colors": ["19", "74", "85"],
+      "capCode": "NP",
+      "wearability": "Medium",
+      "cleaningCode": "W*B",
+      "specialtyAttributes": ["W*B"]
+    },
+    {
+      "coverCode": "J2017",
+      "patternName": "Haze",
+      "colors": ["05", "34", "58", "84"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J2044",
+      "patternName": "Triangular",
+      "colors": ["39", "59", "62", "87"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "W*B",
+      "specialtyAttributes": ["W*B"]
+    },
+    {
+      "coverCode": "J2046",
+      "patternName": "Keeline",
+      "colors": ["32", "58", "65", "74"],
+      "capCode": "PS",
+      "wearability": "N",
+      "cleaningCode": "W*B",
+      "specialtyAttributes": ["W*B"]
+    },
+    {
+      "coverCode": "J2047",
+      "patternName": "Tamarindo",
+      "colors": ["18", "52", "59"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J2048",
+      "patternName": "Montebello",
+      "colors": ["14", "20", "30", "34", "41", "82"],
+      "capCode": "PS",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J2050",
+      "patternName": "Benedict",
+      "colors": ["54", "69"],
+      "capCode": "PS",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J2083",
+      "patternName": "i-Kitsilano",
+      "colors": ["21", "33", "62", "86"],
+      "capCode": "VS",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "J2085",
+      "patternName": "Hassett",
+      "colors": ["17", "35", "59", "75", "83"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "W*B",
+      "specialtyAttributes": ["W*B"]
+    },
+    {
+      "coverCode": "J2088",
+      "patternName": "Faircrest",
+      "colors": ["02"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J2089",
+      "patternName": "Josephine",
+      "colors": ["07"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J2108",
+      "patternName": "Malala",
+      "colors": ["76", "90"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J2109",
+      "patternName": "Rosabel",
+      "colors": ["86", "90"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J2110",
+      "patternName": "Telluride",
+      "colors": ["31", "81", "19"],
+      "capCode": "VS",
+      "wearability": "Medium",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J2131",
+      "patternName": "Belfast",
+      "colors": ["32"],
+      "capCode": "DR",
+      "wearability": "Medium",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J2132",
+      "patternName": "Gillette",
+      "colors": ["25", "55"],
+      "capCode": "PS",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J2133",
+      "patternName": "McCoy",
+      "colors": ["08", "36", "84"],
+      "capCode": "PS",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J2134",
+      "patternName": "Sherwood",
+      "colors": ["22", "36", "67", "82"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W*B",
+      "specialtyAttributes": ["W*B"]
+    },
+    {
+      "coverCode": "J2135",
+      "patternName": "Anisette",
+      "colors": ["08", "84"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "J2138",
+      "patternName": "Cabana",
+      "colors": ["08", "27", "81"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "M1567",
+      "patternName": "i-Fine Line",
+      "colors": ["63"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "coverCode": "N1791",
+      "patternName": "i-Pipers Brook",
+      "colors": ["84"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "A"]
+    },
+    {
+      "coverCode": "Q1912",
+      "patternName": "i-Blackhawk",
+      "colors": ["32", "57", "73", "75"],
+      "capCode": "BU",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "PF", "N"]
+    },
+    {
+      "coverCode": "Q1941",
+      "patternName": "i-Atherton",
+      "colors": ["52", "54", "61", "64"],
+      "capCode": "DR",
+      "wearability": "P",
+      "cleaningCode": "W",
+      "specialtyAttributes": ["I", "PF", "N"]
+    },
+    {
+      "coverCode": "Q1977",
+      "patternName": "Tinsley",
+      "colors": ["15", "26"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W*B",
+      "specialtyAttributes": ["W*B"]
+    },
+    {
+      "coverCode": "Q1992",
+      "patternName": "Fascinate",
+      "colors": ["81"],
+      "capCode": "PS",
+      "wearability": "Medium",
+      "cleaningCode": "WS",
+      "specialtyAttributes": ["C"]
+    },
+    {
+      "coverCode": "Q1993",
+      "patternName": "Tickety-Boo",
+      "colors": ["49", "57", "64"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "W*B",
+      "specialtyAttributes": ["W*B"]
+    },
+    {
+      "coverCode": "Q1994",
+      "patternName": "Echo",
+      "colors": ["50", "73", "85"],
+      "capCode": "UR",
+      "wearability": "N",
+      "cleaningCode": "W*B",
+      "specialtyAttributes": ["W*B"]
+    },
+    {
+      "coverCode": "Q1996",
+      "patternName": "Alora",
+      "colors": ["16", "51", "74", "87"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "Q2059",
+      "patternName": "Trimbur",
+      "colors": ["32"],
+      "capCode": "NP",
+      "wearability": "N",
+      "cleaningCode": "WS",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "Q2080",
+      "patternName": "Creed",
+      "colors": ["32", "65"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "Q2087",
+      "patternName": "Liliana",
+      "colors": ["05", "19", "24", "58"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "Q2114",
+      "patternName": "Benedino",
+      "colors": ["44", "75"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "S",
+      "specialtyAttributes": []
+    },
+    {
+      "coverCode": "Q2139",
+      "patternName": "Fetch",
+      "colors": ["61", "86"],
+      "capCode": "DR",
+      "wearability": "N",
+      "cleaningCode": "W*B",
+      "specialtyAttributes": ["W*B"]
+    }
+  ],
+  "leathers": [
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1520",
+      "patternName": "Yellowstone",
+      "colors": ["56", "78"],
+      "capCode": "LM",
+      "leatherType": "Performance",
+      "models": ["521 James"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1590",
+      "patternName": "Cranbrook",
+      "colors": ["58", "79"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["519 Astor"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1601",
+      "patternName": "Delray",
+      "colors": ["75", "79"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["777 Randell"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1648",
+      "patternName": "Prestige",
+      "colors": ["09", "79"],
+      "capCode": "LM",
+      "leatherType": "Performance",
+      "models": ["776 Redwood"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1648",
+      "patternName": "Prestige",
+      "colors": ["54", "79"],
+      "capCode": "LM",
+      "leatherType": "Performance",
+      "models": ["722 Roman"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1727",
+      "patternName": "Intermingle",
+      "colors": ["55", "79"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["724 Trouper"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1728",
+      "patternName": "Goshen",
+      "colors": ["56", "78"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["502 Joshua"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1804",
+      "patternName": "Elite",
+      "colors": ["59", "74"],
+      "capCode": "LM",
+      "leatherType": "Performance",
+      "models": ["762 Neo"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1849",
+      "patternName": "Lota (WQL)",
+      "colors": ["64", "78"],
+      "capCode": "LM",
+      "leatherType": "Performance",
+      "models": ["786 Liam"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1851",
+      "patternName": "Camaraderie",
+      "colors": ["58", "75"],
+      "capCode": "LM",
+      "leatherType": "Performance",
+      "models": ["781 Emmons"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1930",
+      "patternName": "Salvo (WQL)",
+      "colors": ["56", "59", "77"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["757 Apollo"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1930",
+      "patternName": "Salvo (WQL)",
+      "colors": ["32", "56", "77"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["530 Greyson"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1929",
+      "patternName": "Topflight",
+      "colors": ["35", "79"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["769 Ava"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1929",
+      "patternName": "Topflight",
+      "colors": ["59", "76"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["759 Maddox"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB1929",
+      "patternName": "Topflight",
+      "colors": ["76", "79"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["804 Belmont"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2026",
+      "patternName": "Grandview",
+      "colors": ["51", "59", "75", "98"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["712 Sparrow"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2060",
+      "patternName": "Sutton",
+      "colors": ["77", "87"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["715 Kodie", "813 Clybourn"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2060",
+      "patternName": "Sutton",
+      "colors": ["32", "54", "77"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["812 Armitage"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2061",
+      "patternName": "Gambit",
+      "colors": ["50", "75", "78"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["747 Finley"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2061",
+      "patternName": "Gambit",
+      "colors": ["32", "59", "78"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["765 Rowan"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2061",
+      "patternName": "Gambit",
+      "colors": ["32", "75"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["803 Cade"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2062",
+      "patternName": "Clifton",
+      "colors": ["78", "79"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["582 Maverick", "717 Fulton", "802 Cassian"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2062",
+      "patternName": "Clifton",
+      "colors": ["19", "29", "79"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["810 Quinault"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2063",
+      "patternName": "Dean",
+      "colors": ["76", "79"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["811 Acadia", "782 Kells"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2063",
+      "patternName": "Dean",
+      "colors": ["32", "57", "77"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["800 Palmer", "820 Norton"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2064",
+      "patternName": "Opulence",
+      "colors": ["74", "77"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["512 Pinnacle", "709 Jasper"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2112",
+      "patternName": "Highbrow",
+      "colors": ["58", "75", "78"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["807 Baron"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2112",
+      "patternName": "Highbrow",
+      "colors": ["75", "78"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["755 Dorian"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2112",
+      "patternName": "Highbrow",
+      "colors": ["68", "76"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["757 Apollo"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2113",
+      "patternName": "Roberto",
+      "colors": ["76", "79"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["805 Ace"],
+      "specialtyAttributes": [],
+      "notes": ["The source gives this model as 805 Ace in one column and 805 Ignace in another."]
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2113",
+      "patternName": "Roberto",
+      "colors": ["31", "76", "79"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["530 Greyson"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2136",
+      "patternName": "Bellingham",
+      "colors": ["59", "79"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["826 Sammy"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2137",
+      "patternName": "Rythmic",
+      "colors": ["58", "77"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["828 Dutton"],
+      "specialtyAttributes": [],
+      "notes": ["The pattern name is spelled Rythmic in the master sheet and Rhythmic on the one-page list."]
+    },
+    {
+      "group": "Select Leather Reclining",
+      "coverCode": "LB2141",
+      "patternName": "Chic",
+      "colors": ["59", "76"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["A86 Ovation"],
+      "specialtyAttributes": [],
+      "notes": ["The model is written A86 Ovation in the source."]
+    },
+    {
+      "group": "Select Leather Stationary",
+      "coverCode": "LB2060",
+      "patternName": "Sutton",
+      "colors": ["32", "54", "77", "87"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["435 Mackenzie", "603 Wilmette", "613 Olson", "636 Shiloh", "638 Charlie"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Custom Leather Match",
+      "coverCode": "BL2117",
+      "patternName": "Majestic Match",
+      "colors": ["58", "63", "73", "78", "86"],
+      "capCode": "LM",
+      "leatherType": "Authentic",
+      "models": ["Any LM cap code"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Custom Leather Match",
+      "coverCode": "BL9810",
+      "patternName": "Cozy Match",
+      "colors": ["07", "09", "31", "36", "50", "51", "54"],
+      "capCode": "LM",
+      "leatherType": "Performance",
+      "models": ["Any LM cap code"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Custom Leather Match",
+      "coverCode": "BL9810",
+      "patternName": "Cozy Match",
+      "colors": ["56", "76", "78", "87", "90", "98"],
+      "capCode": "LM",
+      "leatherType": "Performance",
+      "models": ["Any LM cap code"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Custom Leather Plus",
+      "coverCode": "DL1595",
+      "patternName": "Montana",
+      "colors": ["57", "74"],
+      "capCode": "LL",
+      "leatherType": "Nubuck",
+      "models": ["Any LL cap code"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Custom Leather Plus",
+      "coverCode": "DL1596",
+      "patternName": "Titan",
+      "colors": ["51", "58", "65", "74", "75"],
+      "capCode": "LL",
+      "leatherType": "Authentic",
+      "models": ["Any LL cap code"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Custom Leather Plus",
+      "coverCode": "DL2130",
+      "patternName": "Atlantis",
+      "colors": ["59", "73", "77", "86"],
+      "capCode": "LL",
+      "leatherType": "Authentic",
+      "models": ["Any LL cap code"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Custom Leather Plus",
+      "coverCode": "FL2003",
+      "patternName": "Jesi",
+      "colors": ["07", "59", "63", "72", "75", "77"],
+      "capCode": "LL",
+      "leatherType": "Authentic",
+      "models": ["Any LL cap code"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Custom Leather Plus",
+      "coverCode": "FL2026",
+      "patternName": "Grandview",
+      "colors": ["51", "59", "75", "98"],
+      "capCode": "LL",
+      "leatherType": "Authentic",
+      "models": ["Any LL cap code"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Custom Leather Plus",
+      "coverCode": "FL9419",
+      "patternName": "Samba",
+      "colors": ["28", "30", "32", "50", "53", "65", "82"],
+      "capCode": "LL",
+      "leatherType": "Performance",
+      "models": ["Any LL cap code"],
+      "specialtyAttributes": []
+    },
+    {
+      "group": "Custom Leather Plus",
+      "coverCode": "FL9419",
+      "patternName": "Samba",
+      "colors": ["17", "26", "87", "96"],
+      "capCode": "LL",
+      "leatherType": "Performance",
+      "models": ["Any LL cap code"],
+      "specialtyAttributes": [],
+      "notes": ["The one-page list shows this Samba set as 08 17 26 42 62 87 96. The master sheet shows 17 26 87 96."]
+    },
+    {
+      "group": "Specialty Leather",
+      "coverCode": "DL1962",
+      "patternName": "Jazz",
+      "colors": ["36", "58", "75", "78", "86"],
+      "capCode": "LL",
+      "leatherType": "Performance",
+      "models": ["Any LL cap code"],
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "group": "Specialty Leather",
+      "coverCode": "FL1907",
+      "patternName": "Aline",
+      "colors": ["36", "54", "58", "77", "84", "87"],
+      "capCode": "LL",
+      "leatherType": "Authentic",
+      "models": ["Any LL cap code"],
+      "specialtyAttributes": ["A"]
+    },
+    {
+      "group": "Specialty Leather",
+      "coverCode": "FL1932",
+      "patternName": "Athena",
+      "colors": ["08", "55", "59", "63", "73", "77", "84"],
+      "capCode": "LL",
+      "leatherType": "Performance",
+      "models": ["Any LL cap code"],
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "group": "Specialty Leather",
+      "coverCode": "FL2078",
+      "patternName": "Manchester",
+      "colors": ["25", "29", "31", "49", "76", "86"],
+      "capCode": "LL",
+      "leatherType": "Authentic",
+      "models": ["Any LL cap code"],
+      "specialtyAttributes": ["I"]
+    },
+    {
+      "group": "Specialty Leather",
+      "coverCode": "HL1906",
+      "patternName": "Ankur",
+      "colors": ["73", "75", "77", "79"],
+      "capCode": "LL",
+      "leatherType": "Authentic",
+      "models": ["Any LL cap code"],
+      "specialtyAttributes": ["A"]
+    }
   ]
 }
