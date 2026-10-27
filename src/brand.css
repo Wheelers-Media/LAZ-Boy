@@ -1,3 +1,4 @@
+@import './brand-tokens.css';
 /* La-Z-Boy palette transcribed from the supplied Brand Book rulebook. */
 :root {
   --brand-navy: #00334B;

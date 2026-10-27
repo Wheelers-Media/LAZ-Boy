@@ -1,0 +1,34 @@
+/*
+  La-Z-Boy brand tokens: additions only.
+  Core colours (--brand-navy, --brand-cream, --brand-blue, --brand-sage, --brand-rust,
+  --brand-forest, --brand-peach) already live in brand.css and are NOT redefined here.
+  Source: La-Z-Boy digital brand guidelines (Color Palette, Typography, Primary Logo pages).
+  Values below are the published RGBA values, written as hex.
+  Full notes, contrast table and usage rules: docs/BRAND_KIT.md. Visual board: /brand-kit.html
+*/
+:root {
+  /* Tints: 80 / 60 / 40 / 20 %. Brand rule: not prominent; use for hover, disabled, quiet fills. */
+  --brand-navy-80: #335C6D;   --brand-navy-60: #668692;   --brand-navy-40: #99ADB6;   --brand-navy-20: #CDD6DB;
+  --brand-blue-80: #50717C;   --brand-blue-60: #7C949C;   --brand-blue-40: #A7B7BD;   --brand-blue-20: #D3DBDE;
+  --brand-sage-80: #AEC7BD;   --brand-sage-60: #C3D5CF;   --brand-sage-40: #D7E3DE;   --brand-sage-20: #EBF1EF;
+  --brand-forest-80: #337671; --brand-forest-60: #669894; --brand-forest-40: #9DBAB7; --brand-forest-20: #CDDDDB;
+  --brand-rust-80: #CB6C55;   --brand-rust-60: #D7917E;   --brand-rust-40: #E5B5AA;   --brand-rust-20: #F2DAD3;
+  --brand-peach-80: #F0CFC1;  --brand-peach-60: #F3DBD1;  --brand-peach-40: #F7E7DF;  --brand-peach-20: #FCF3F0;
+  --brand-cream-80: #EAE7DC;  --brand-cream-60: #F0EEE6;
+
+  /* Neutrals (published Gray1 to Gray6) */
+  --gray-1: #F6F6F6;
+  --gray-2: #CCCCCC;
+  --gray-3: #A6A6A6;   /* 2.4:1 on white. Decorative only, never text. */
+  --gray-4: #757575;   /* 4.6:1 on white. Smallest-text grey. */
+  --gray-5: #404040;
+  --gray-6: #1A1A1A;
+
+  /*
+    Typefaces. Bookmania (display) and Gotham (labels/body) are licensed fonts and are NOT bundled.
+    Georgia and Arial are the system fonts the guidelines name as the fallbacks.
+    Defined for opt-in use only; the app still renders in its current system stack until a rule uses these.
+  */
+  --font-brand-display: "Bookmania", Georgia, "Times New Roman", serif;
+  --font-brand-body: "Gotham", Arial, Helvetica, sans-serif;
+}
