@@ -89,3 +89,22 @@ test('Product Index: every guide model is listed with exactly its guide styles; 
   }
   assert.ok(index.filter((item) => item.unverified).every((item) => item.notes[0].startsWith('Not in the April 2026 guide')));
 });
+
+test('leathers are only offered in price bands the style is sold in', () => {
+  const bandOf = new Map(program.leathers.map((record) => [record.coverCode, record.coverCode.slice(0, 2) === 'LB' ? 'selectLeather' : record.coverCode.slice(0, 2)]));
+  for (const row of styles.filter((item) => item.bands?.length)) {
+    for (const cover of getModelCoverSwatches(catalog, row.model, row.prefix)) {
+      const band = bandOf.get(cover.code.slice(0, -2));
+      if (band) assert.ok(row.bands.includes(band), `${row.styleNumber} offers ${cover.code} but is not sold in band ${band}`);
+    }
+  }
+});
+
+test('models outside the guide (Lakewood 942, Cuyahoga 958) offer no covers or options', async () => {
+  const { isUnlistedModel } = await import('../src/logic.js');
+  for (const model of ['942', '958']) {
+    assert.ok(isUnlistedModel(catalog, model), model);
+    assert.deepEqual(getModelCoverSwatches(catalog, model), [], model);
+    for (const choice of getRmsModelStyleChoices(catalog, model)) assert.equal(getRmsStyleOptions(catalog, model, choice.code).options.size, 0);
+  }
+});

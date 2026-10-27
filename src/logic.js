@@ -915,6 +915,11 @@ export function getGuideProductIndex(catalog) {
   return result.sort((a, b) => a.modelName.localeCompare(b.modelName));
 }
 
+/** True when the April 2026 guide is loaded but does not list this model. Nothing about its covers, finishes or options is documented. */
+export function isUnlistedModel(catalog, modelCode) {
+  return Boolean(catalog?.style_index_2026?.styles?.length) && !getGuideStyleRows(catalog, modelCode).length;
+}
+
 /** April 2026 Product Information Guide rows (public/style-index-2026.json) for one model. Empty when the guide does not list the model. */
 export function getGuideStyleRows(catalog, modelCode) {
   return (catalog?.style_index_2026?.styles || []).filter((row) => row.kind === 'style' && String(row.model) === String(modelCode));
@@ -927,6 +932,13 @@ export function getGuideStyle(catalog, modelCode, prefix) {
 export function getStyleFinishes(catalog, modelCode, prefix) {
   const row = getGuideStyle(catalog, modelCode, prefix);
   return { standard: row?.standardFinish || null, optional: row?.optionalFinishes || [] };
+}
+/** Leather covers are sold in price bands (BL, DL, FL, HL, or Select leather for LB covers). A style that the price book shows no price for in that band cannot take the leather. Styles with no band data are not restricted. */
+function leatherBandOpen(record, rows) {
+  const band = String(record.coverCode || '').slice(0, 2);
+  const key = band === 'LB' ? 'selectLeather' : band;
+  const withBands = rows.filter((row) => row.bands?.length);
+  return !withBands.length || withBands.some((row) => row.bands.includes(key));
 }
 const GUIDE_RESTRICTED_FAMILY = /^(MOTION|RECLINER|MODULAR|LIFT)$/;
 
@@ -978,6 +990,7 @@ export function getDefaultRmsGroup(catalog, modelCode) {
 }
 
 export function getRmsStyleOptions(catalog, modelCode, group) {
+  if (catalog?.style_index_2026?.styles?.length && !getGuideStyleRows(catalog, modelCode).length) return getRmsModelStyleChoices(catalog, modelCode).some((item) => item.code === String(group)) ? { options: new Set(), finishMarkerListed: false } : null;
   if (getGuideStyleRows(catalog, modelCode).length) {
     const row = getGuideStyle(catalog, modelCode, group);
     return row ? { options: new Set(row.options), finishMarkerListed: row.options.includes('FN') } : null;
@@ -1560,6 +1573,7 @@ export function getModelCoverSwatches(catalog, modelCode, prefix) {
   const guideRow = prefix ? guideRows.find((row) => row.prefix === String(prefix)) : null;
   const guideCaps = new Set((guideRow ? [guideRow] : guideRows).flatMap((row) => row.capCodes));
   const guided = guideRows.length > 0;
+  if (!guided && catalog?.style_index_2026?.styles?.length) return [];
   const program = catalog?.fabric_cover_program_a26;
   const found = new Map();
   const add = (entry) => { if (entry?.code && !found.has(entry.code)) found.set(entry.code, entry); };
@@ -1584,6 +1598,7 @@ export function getModelCoverSwatches(catalog, modelCode, prefix) {
   for (const record of program?.leathers || []) {
     const named = (record.models || []).some((entry) => String(entry).trim().split(/\s+/)[0] === code);
     const anyCap = guided && (record.models || []).some((entry) => /^any\b/i.test(String(entry).trim()));
+    if (guided && !leatherBandOpen(record, guideRow ? [guideRow] : guideRows)) continue;
     if ((named && (!guided || guideCaps.has(record.capCode))) || (anyCap && guideCaps.has(record.capCode))) fromRecord(record, anyCap && !named ? 'cap code' : 'listed', 'Leather');
   }
 

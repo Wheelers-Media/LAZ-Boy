@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Check, Copy, Info, Printer, Wrench } from 'lucide-react';
 import { CoverPicker } from './CoverPicker.jsx';
-import { buildRmsSkuPreview, decodeRmsSku, getGuideStyle, getModelCoverOptions, getModelCoverSwatches, getRmsModelStyleChoices, getRmsStyleOptions, getStyleFinishes } from './logic.js';
+import { buildRmsSkuPreview, decodeRmsSku, getGuideStyle, isUnlistedModel, getModelCoverOptions, getModelCoverSwatches, getRmsModelStyleChoices, getRmsStyleOptions, getStyleFinishes } from './logic.js';
 
 const MODEL_LINE_EXTRAS = [
   { model_code: '677', model_name: 'Lauren', category: 'Stationary Sofa', scale: 'Mid-Scale Classic' },
@@ -47,7 +47,8 @@ export function SkuBuilderWorkspace({ catalog, modelCode, setModelCode, prefix, 
   const guideStyle = useMemo(() => getGuideStyle(catalog, selectedModelCode, activePrefix), [catalog, selectedModelCode, activePrefix]);
   const styleFinishes = useMemo(() => getStyleFinishes(catalog, selectedModelCode, activePrefix), [catalog, selectedModelCode, activePrefix]);
   const guideListsModel = choices.length > 0 && Boolean(catalog.style_index_2026?.styles?.some((row) => row.model === selectedModelCode));
-  const applicableCovers = useMemo(() => guideListsModel ? [] : getModelCoverOptions(catalog, selectedModelCode), [catalog, selectedModelCode, guideListsModel]);
+  const unlisted = isUnlistedModel(catalog, selectedModelCode);
+  const applicableCovers = useMemo(() => guideListsModel || unlisted ? [] : getModelCoverOptions(catalog, selectedModelCode), [catalog, selectedModelCode, guideListsModel, unlisted]);
   const modelSwatches = useMemo(() => {
     const merged = new Map();
     getModelCoverSwatches(catalog, selectedModelCode, guideListsModel ? activePrefix : undefined).forEach((item) => merged.set(item.code, item));
@@ -109,7 +110,7 @@ export function SkuBuilderWorkspace({ catalog, modelCode, setModelCode, prefix, 
     <div className="rms-layout">
       <section className="rms-builder-card card">
         <div className="rms-card-heading"><div><span className="eyebrow">MODEL FIRST</span><h2>Product details</h2></div><span className="rms-status">SKU preview</span></div>
-        <label className="form-field"><span>Product / model</span><select value={selectedModel?.model_code || ''} onChange={(event) => changeModel(event.target.value)}>{models.map((item) => <option key={item.model_code} value={item.model_code}>{item.model_name} · {item.model_code}</option>)}</select><small>Selections below are narrowed to this model and its documented style.</small></label>
+        <label className="form-field"><span>Product / model</span><select value={selectedModel?.model_code || ''} onChange={(event) => changeModel(event.target.value)}>{models.map((item) => <option key={item.model_code} value={item.model_code}>{item.model_name} · {item.model_code}</option>)}</select><small>{unlisted ? 'Not in the April 2026 guide or price book. Covers, finishes and options are not documented, so none are offered.' : 'Selections below are narrowed to this model and its documented style.'}</small></label>
         <div className="rms-two-col">
           {choices.length > 0 && <label className="form-field"><span>Group / style prefix</span><select aria-label="RMS Group" value={activePrefix} onChange={(event) => changeGroup(event.target.value)}><option value="" disabled>Choose documented Group</option>{choices.map((item) => <option key={item.code} value={item.code}>{item.code} · {item.label}</option>)}</select></label>}
           <CoverPicker key={selectedModelCode} swatches={modelSwatches} value={selectedSwatchCode} onChange={(code) => setSelectedSwatchCode(code)} />
