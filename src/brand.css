@@ -418,3 +418,9 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .product-index-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
 .fabric-section-kinds { display: block; flex: 1; margin-left: 12px; font-size: 12px; color: var(--muted, #5b6670); font-weight: 500; }
 .grade-kinds { margin: 4px 0 10px; }
+.fitq-seat { list-style: none; margin: 8px 0; padding: 0; display: grid; gap: 4px; }
+.fitq-seat li { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; padding: 6px 10px; border-radius: 8px; background: #f2f6f4; }
+.fitq-seat li small { color: var(--muted, #5b6670); }
+.fitq-seat .seat-near { background: #fbf3e0; }
+.fitq-seat .seat-out { background: #fbe9e7; }
+.fitq-seat-none { font-size: 13px; color: var(--muted, #5b6670); margin: 6px 0; }

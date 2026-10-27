@@ -91,3 +91,10 @@ test('no room line is written when there is no room-behind answer, as for a modu
   assert.doesNotMatch(internal, /Room behind/);
   assert.doesNotMatch(customer, /Room behind/);
 });
+
+test('the internal note says how each seat measured up, and says nothing when the seat was not scored', () => {
+  const { internal } = buildDcgNotes(input({ matches: [match({ seat: { status: 'in' } }), match({ code: '494', name: 'Collins', seat: { status: 'out' } }), match({ code: '759', name: 'Maddox', seat: { status: 'unscored' } })] }));
+  assert.match(internal.split('\n').find((line) => line.includes('Trouper')), /seat in range/);
+  assert.match(internal.split('\n').find((line) => line.includes('Collins')), /seat outside range/);
+  assert.doesNotMatch(internal.split('\n').find((line) => line.includes('Maddox')), /seat/);
+});

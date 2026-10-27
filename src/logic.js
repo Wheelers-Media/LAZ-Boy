@@ -1736,7 +1736,8 @@ export function buildDcgNotes({ answers, mechanism, roomName, sizeName, matches 
   const material = answers.material_preference && answers.material_preference !== 'No preference yet' ? answers.material_preference : '';
   const need = FIT_NEEDS.find((item) => item.key === answers.need && item.key !== 'unsure');
   const capacityText = (match) => (match.capacityKnown ? match.capacity : 'Capacity not listed. Confirm before offering');
-  const matchLine = (match, index) => `${index + 1}. ${match.name} ${match.code} · ${capacityText(match)}${match.flags?.length ? ` — ${match.flags[0]}` : ''}`;
+  const seatWords = { in: 'seat in range', near: 'seat close', out: 'seat outside range' };
+  const matchLine = (match, index) => `${index + 1}. ${match.name} ${match.code} · ${capacityText(match)}${seatWords[match.seat?.status] ? ` · ${seatWords[match.seat.status]}` : ''}${match.flags?.length ? ` — ${match.flags[0]}` : ''}`;
   const internal = [
     { text: 'FIT NOTES · Floor Assistant', drop: 0 },
     { text: `Height: ${answers.height}${sizeName ? ` · ${sizeName}` : ''}`, drop: 0 },
@@ -1799,4 +1800,41 @@ export function summarizeGradeKinds(swatches, grade) {
     patternsByKind.set(kind, new Set([...(patternsByKind.get(kind) || []), swatch.pattern]));
   }
   return [...patternsByKind].map(([kind, patterns]) => ({ kind, patterns: patterns.size })).sort((a, b) => b.patterns - a.patterns || a.kind.localeCompare(b.kind));
+}
+
+const SEAT_RANK = { in: 0, near: 1, out: 2 };
+const scoreStatus = (score) => (score >= 1 ? 'in' : score > 0 ? 'near' : 'out');
+const rangeStatus = (value, [low, high]) => (value >= low && value <= high ? 'in' : value >= low - 1 && value <= high + 1 ? 'near' : 'out');
+
+/**
+ * Screens one model's seat against the customer, using the seat dimensions in the April guide for the
+ * style that matches their recline choice. Measurements they give are checked directly (knee gap, seat
+ * height against the back of the knee, hip clearance); otherwise their height band sets the seat depth
+ * and seat height range. A model with no seat dimensions comes back unscored, never as a fit.
+ */
+export function getSeatFit(catalog, research, { modelCode, answers, inches }) {
+  // The first style, in the order the recline choice lists its prefixes (010 before 016, for example), that has seat dimensions.
+  const order = matchingPrefixes(catalog, answers).map((prefix) => prefix.code);
+  const dims = order.map((code) => getGuideStyleRows(catalog, modelCode).find((row) => row.prefix === code && Number.isFinite(row.dims?.seatDepth))).find(Boolean)?.dims;
+  const unscored = { status: 'unscored', basis: '', checks: [] };
+  if (!dims) return unscored;
+  const thigh = positiveMeasurement(answers.thigh_length_inches);
+  const popliteal = positiveMeasurement(answers.popliteal_height_inches);
+  const hip = positiveMeasurement(answers.hip_breadth_inches);
+  const checks = [];
+  let basis = '';
+  if (thigh !== null || popliteal !== null || hip !== null) {
+    basis = 'measurements';
+    if (thigh !== null) checks.push({ key: 'depth', label: 'Seat depth', chair: dims.seatDepth, target: `thigh length ${thigh} in`, status: scoreStatus(depthMatchScore(dims.seatDepth, thigh)) });
+    if (popliteal !== null && Number.isFinite(dims.seatHeight)) checks.push({ key: 'height', label: 'Seat height', chair: dims.seatHeight, target: `back of knee ${popliteal} in`, status: scoreStatus(heightMatchScore(dims.seatHeight, popliteal)) });
+    if (hip !== null && Number.isFinite(dims.seatWidth)) checks.push({ key: 'width', label: 'Seat width', chair: dims.seatWidth, target: `hips ${hip} in`, status: scoreStatus(widthMatchScore(dims.seatWidth, hip)) });
+  } else if (Number.isFinite(inches)) {
+    const band = (research?.fit_guidance_bands || []).find((item) => inches >= item.height_min_inches && inches <= (item.height_max_inches ?? Infinity));
+    if (!band) return unscored;
+    basis = band.band;
+    checks.push({ key: 'depth', label: 'Seat depth', chair: dims.seatDepth, target: `${band.seat_depth_inches[0]}–${band.seat_depth_inches[1]} in`, status: rangeStatus(dims.seatDepth, band.seat_depth_inches) });
+    if (Number.isFinite(dims.seatHeight)) checks.push({ key: 'height', label: 'Seat height', chair: dims.seatHeight, target: `${band.seat_height_inches[0]}–${band.seat_height_inches[1]} in`, status: rangeStatus(dims.seatHeight, band.seat_height_inches) });
+  }
+  if (!checks.length) return unscored;
+  return { status: checks.reduce((worst, check) => (SEAT_RANK[check.status] > SEAT_RANK[worst] ? check.status : worst), 'in'), basis, checks };
 }

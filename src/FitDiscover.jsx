@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { AlertTriangle, Armchair, ArrowLeft, ArrowRight, Check, ClipboardCheck, Copy, FileText, Info, MessageSquareText, Ruler, Sparkles } from 'lucide-react';
-import { buildDcgNotes, DCG_NOTE_LIMIT, FIT_NEEDS, getCatalogCapabilityLeads, getContextualModelOptions, getContextualPreferenceChoices, getDimensionBasedRecommendations, getRecommendations, getRoomClearance, getSectionalLeads, heightInches } from './logic.js';
+import { buildDcgNotes, DCG_NOTE_LIMIT, FIT_NEEDS, getCatalogCapabilityLeads, getContextualModelOptions, getContextualPreferenceChoices, getDimensionBasedRecommendations, getRecommendations, getRoomClearance, getSeatFit, getSectionalLeads, heightInches } from './logic.js';
 
 export const FIT_STEPS = ['Their fit', 'What they need', 'Room and comfort', 'Real life'];
 export const FIT_DEFAULTS = {
@@ -48,6 +48,8 @@ const GREET = [
   'Customization (cover, finish, options) is your conversation. This screen does not cover it.',
 ];
 
+const SEAT_ORDER = { in: 0, near: 1, unscored: 2, out: 3 };
+const SEAT_TEXT = { in: 'in range', near: 'close', out: 'outside range' };
 const chip = (selected) => `chip ${selected ? 'on' : ''}`;
 
 function Choices({ label, options, value, onChange }) {
@@ -67,6 +69,8 @@ function MatchCard({ match, weight, onIndex, onBuild, onSectional }) {
       <span className="fitq-tier">{match.sectional ? 'Modular' : isResearch ? 'Research match' : 'Catalog match'}</span>
     </header>
     <ul className="fitq-why">{match.why.map((line) => <li key={line}>{line}</li>)}</ul>
+    {match.seat?.checks.length > 0 && <ul className="fitq-seat" aria-label="Seat check">{match.seat.checks.map((check) => <li key={check.key} className={`seat-${check.status}`}><span>{check.label} {check.chair} in</span><small>{SEAT_TEXT[check.status]} · {check.target}</small></li>)}</ul>}
+    {match.seat?.status === 'unscored' && !match.sectional && <p className="fitq-seat-none">Seat size not listed for this style. Sit-test it.</p>}
     {match.flags.map((flag) => <p key={flag} className="fitq-flag"><AlertTriangle size={14} aria-hidden="true" /> {flag}</p>)}
     <dl className="fitq-facts">
       <div><dt>Capacity</dt><dd>{match.capacity}</dd></div>
@@ -137,7 +141,10 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
           basis: 'Matches the kind of piece and recline you picked. Have them sit in it to see if it suits them.',
         };
       }),
-    ].slice(0, 3).map((match, index) => ({ ...match, rank: index + 1 }));
+    ].map((match) => ({ ...match, seat: getSeatFit(catalog, research, { modelCode: match.code, answers: engine, inches }) }))
+      .map((match, index) => ({ match, index }))
+      .sort((a, b) => (SEAT_ORDER[a.match.seat.status] - SEAT_ORDER[b.match.seat.status]) || (a.index - b.index))
+      .map(({ match }) => match).slice(0, 3).map((match, index) => ({ ...match, rank: index + 1 }));
     return { matches, hidden: Math.max(0, withoutWeight.length - recs.length), dimension: dimension.slice(0, 3) };
   }, [step, catalog, engine, research, mechanism, hasHeight]);
 
