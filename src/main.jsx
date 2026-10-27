@@ -126,7 +126,12 @@ function App() {
         if (!response.ok) throw new Error('Fabric cover program unavailable');
         return response.json();
       }),
-    ]).then(([productCatalog, research, reclinerCatalog, reclinerIndexSupplement, motionCatalog, designersChoiceCatalog, stationaryCatalog, coverApplications, fabricCoverProgram]) => {
+      fetch('/style-index-2026.json').then((response) => {
+        if (!response.ok) throw new Error('Style index unavailable');
+        return response.json();
+      }),
+    ]).then(([productCatalog, research, reclinerCatalog, reclinerIndexSupplement, motionCatalog, designersChoiceCatalog, stationaryCatalog, coverApplications, fabricCoverProgram, styleIndex]) => {
+      productCatalog.style_index_2026 = styleIndex;
       productCatalog.recliner_catalog_2026 = reclinerCatalog;
       productCatalog.recliner_collection_index_supplement = reclinerIndexSupplement;
       productCatalog.motion_catalog_2026 = motionCatalog;

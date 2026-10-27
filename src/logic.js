@@ -877,7 +877,24 @@ export function sectionalPiecesForFamily(catalog, family, modelCode) {
 const RMS_CATALOGS = ['stationary_catalog_2026', 'motion_catalog_2026', 'designers_choice_catalog_2026', 'recliner_catalog_2026'];
 const splitRmsCodes = (value = '') => String(value).split('/').map((part) => part.trim()).filter(Boolean);
 
+/** April 2026 Product Information Guide rows (public/style-index-2026.json) for one model. Empty when the guide does not list the model. */
+export function getGuideStyleRows(catalog, modelCode) {
+  return (catalog?.style_index_2026?.styles || []).filter((row) => row.kind === 'style' && String(row.model) === String(modelCode));
+}
+/** The guide row for one exact style (prefix + model, e.g. 448 + 803), or null. */
+export function getGuideStyle(catalog, modelCode, prefix) {
+  return getGuideStyleRows(catalog, modelCode).find((row) => row.prefix === String(prefix)) || null;
+}
+/** Wood finishes the guide lists for one exact style: its standard finish and its optional finishes. */
+export function getStyleFinishes(catalog, modelCode, prefix) {
+  const row = getGuideStyle(catalog, modelCode, prefix);
+  return { standard: row?.standardFinish || null, optional: row?.optionalFinishes || [] };
+}
+const GUIDE_RESTRICTED_FAMILY = /^(MOTION|RECLINER|MODULAR|LIFT)$/;
+
 export function getRmsModelStyleChoices(catalog, modelCode) {
+  const guideRows = getGuideStyleRows(catalog, modelCode);
+  if (guideRows.length) return guideRows.map((row) => ({ code: row.prefix, label: `${row.category || row.name}${row.status === 'discontinued' ? ' (discontinued)' : row.status === 'new' ? ' (new)' : ''}` }));
   const entries = new Map();
   const add = (code, label) => {
     if (code) entries.set(String(code), label || 'Catalog model/style');
@@ -923,6 +940,10 @@ export function getDefaultRmsGroup(catalog, modelCode) {
 }
 
 export function getRmsStyleOptions(catalog, modelCode, group) {
+  if (getGuideStyleRows(catalog, modelCode).length) {
+    const row = getGuideStyle(catalog, modelCode, group);
+    return row ? { options: new Set(row.options), finishMarkerListed: row.options.includes('FN') } : null;
+  }
   const options = new Set();
   let documented = false;
   let finishMarkerListed = false;
@@ -1487,8 +1508,12 @@ const RESTRICTED_DUTY_CATEGORY = /recliner|motion|la-z-time/i;
  * `basis` says how each one was matched: "listed" (the model's own catalog page or leather list) or "cap code" (the model accepts that cap code).
  * Eligibility for the exact style still has to be confirmed before it is promised.
  */
-export function getModelCoverSwatches(catalog, modelCode) {
+export function getModelCoverSwatches(catalog, modelCode, prefix) {
   const code = String(modelCode);
+  const guideRows = getGuideStyleRows(catalog, modelCode);
+  const guideRow = prefix ? guideRows.find((row) => row.prefix === String(prefix)) : null;
+  const guideCaps = new Set((guideRow ? [guideRow] : guideRows).flatMap((row) => row.capCodes));
+  const guided = guideRows.length > 0;
   const program = catalog?.fabric_cover_program_a26;
   const found = new Map();
   const add = (entry) => { if (entry?.code && !found.has(entry.code)) found.set(entry.code, entry); };
@@ -1509,8 +1534,12 @@ export function getModelCoverSwatches(catalog, modelCode) {
     if (parts) add({ code: full, ...parts, patternName: collection.name, colorName: name, name: `${collection.name} ${name}`, material: 'Fabric', basis: 'listed', note: 'Fabric' });
   }
   const reclinerModel = catalog?.recliner_catalog_2026?.models?.find((item) => String(item.code) === code);
-  for (const name of reclinerModel?.cover_collections || []) for (const record of programByPattern.get(String(name).toLowerCase()) || []) fromRecord(record, 'listed', record.group ? 'Leather' : 'Fabric');
-  for (const record of program?.leathers || []) if ((record.models || []).some((entry) => String(entry).trim().split(/\s+/)[0] === code)) fromRecord(record, 'listed', 'Leather');
+  for (const name of reclinerModel?.cover_collections || []) for (const record of programByPattern.get(String(name).toLowerCase()) || []) if (!guided || guideCaps.has(record.capCode)) fromRecord(record, 'listed', record.group ? 'Leather' : 'Fabric');
+  for (const record of program?.leathers || []) {
+    const named = (record.models || []).some((entry) => String(entry).trim().split(/\s+/)[0] === code);
+    const anyCap = guided && (record.models || []).some((entry) => /^any\b/i.test(String(entry).trim()));
+    if ((named && (!guided || guideCaps.has(record.capCode))) || (anyCap && guideCaps.has(record.capCode))) fromRecord(record, anyCap && !named ? 'cap code' : 'listed', 'Leather');
+  }
 
   // 2. Fabrics the model accepts by cap code.
   const caps = new Set();
@@ -1522,9 +1551,9 @@ export function getModelCoverSwatches(catalog, modelCode) {
   if (motionEntry) (catalog.motion_catalog_2026.cover_cap_choices || []).forEach((entry) => entry.codes.forEach((cap) => caps.add(cap)));
   const category = catalog?.models_database?.find((item) => String(item.model_code) === code)?.category || '';
   const flags = motionEntry?.categories || {};
-  const restrictedDuty = Boolean(reclinerModel) || flags.recliner || flags.power_recline || flags.modular || RESTRICTED_DUTY_CATEGORY.test(category);
+  const restrictedDuty = guided ? guideRows.some((row) => GUIDE_RESTRICTED_FAMILY.test(row.family)) : Boolean(reclinerModel) || flags.recliner || flags.power_recline || flags.modular || RESTRICTED_DUTY_CATEGORY.test(category);
   for (const record of program?.fabrics || []) {
-    if (!caps.has(record.capCode)) continue;
+    if (!(guided ? guideCaps : caps).has(record.capCode)) continue;
     if (restrictedDuty && record.wearability === 'Medium') continue;
     fromRecord(record, 'cap code', 'Fabric');
   }

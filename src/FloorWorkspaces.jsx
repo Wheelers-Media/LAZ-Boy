@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Armchair, Check, Copy, Info, Layers3, Minus, Plus, ShieldCheck, Speaker, Sparkles } from 'lucide-react';
 import { CoverPicker } from './CoverPicker.jsx';
-import { encodeRmsSku, findCompatibleBattery, getModelCoverOptions, getModelCoverSwatches, getRmsModelStyleChoices, getRmsStyleOptions, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalConfiguration } from './logic.js';
+import { encodeRmsSku, findCompatibleBattery, getGuideStyle, getModelCoverOptions, getModelCoverSwatches, getRmsModelStyleChoices, getRmsStyleOptions, getStyleFinishes, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalConfiguration } from './logic.js';
 
 const FLOOR_LINES = [
   { model_code: '677', model_name: 'Lauren', prefix: '610', category: 'Stationary Sofa' },
@@ -35,19 +35,23 @@ export function CustomizeFloorUnit({ catalog, onCopy, initialModelCode = '724', 
   const selectedPrefixDocumented = modelStyleChoices.some((item) => item.code === prefix);
   const styleOptions = selectedPrefixDocumented ? getRmsStyleOptions(catalog, modelCode, prefix) : null;
   const allowedOptions = styleOptions?.options || new Set();
-  const productCoverOptions = useMemo(() => getModelCoverOptions(catalog, modelCode), [catalog, modelCode]);
+  const guideListsModel = Boolean(catalog.style_index_2026?.styles?.some((row) => row.kind === 'style' && row.model === modelCode));
+  const productCoverOptions = useMemo(() => guideListsModel ? [] : getModelCoverOptions(catalog, modelCode), [catalog, modelCode, guideListsModel]);
+  const styleFinishes = getStyleFinishes(catalog, modelCode, prefix);
+  const finishChoices = guideListsModel ? [...(styleFinishes.standard ? [{ ...styleFinishes.standard, standard: true }] : []), ...styleFinishes.optional] : catalog.wood_finishes.map((item) => ({ code: item.code, name: item.name }));
   const modelSwatches = useMemo(() => {
     const merged = new Map();
-    getModelCoverSwatches(catalog, modelCode).forEach((item) => merged.set(item.code, item));
+    getModelCoverSwatches(catalog, modelCode, guideListsModel ? prefix : undefined).forEach((item) => merged.set(item.code, item));
     productCoverOptions.forEach((item) => { const match = item.code.match(/^([A-Z]{1,3})(\d{4})(\d{2})$/); if (match) merged.set(item.code, { ...merged.get(item.code), ...item, grade: match[1], pattern: match[2], color: match[3], material: merged.get(item.code)?.material || item.type || 'Fabric', basis: 'listed' }); });
     return [...merged.values()];
-  }, [catalog, modelCode, productCoverOptions]);
+  }, [catalog, modelCode, productCoverOptions, guideListsModel, prefix]);
   const noPillowCaps = new Set(catalog.fabric_cover_program_a26?.businessRules?.pillowsNotAllowedCapCodes || []);
   const pillowSwatches = modelSwatches.filter((item) => item.code !== coverCode && !noPillowCaps.has(item.capCode));
   const coverRecord = modelSwatches.find((item) => item.code === coverCode) || productCoverOptions.find((item) => item.code === coverCode);
   const coverParts = coverCode.match(/^([A-Z]{1,3})([0-9]{6})$/);
   const prefixRecord = catalog.style_prefixes.find((entry) => entry.code === prefix);
-  const finishRecord = catalog.wood_finishes.find((item) => item.code === finish);
+  const activeFinish = finishChoices.some((item) => item.code === finish) ? finish : finishChoices[0]?.code || '';
+  const finishRecord = catalog.wood_finishes.find((item) => item.code === activeFinish);
   const availableTrims = catalog.nailhead_trims.filter((item) => item.code === 'NN' || allowedOptions.has(item.code));
   const availableCushions = catalog.cushion_upgrades.filter((item) => item.code === 'Standard' || allowedOptions.has(item.code));
   const availableBatteries = catalog.battery_packs.filter((item) => findCompatibleBattery(catalog, prefix, item.code));
@@ -55,7 +59,7 @@ export function CustomizeFloorUnit({ catalog, onCopy, initialModelCode = '724', 
   const skuGroup = prefix && /^P9_$/.test(prefix) ? `P9${modelCode.slice(0, 1)}` : prefix;
   const skuOptions = [trimCode !== 'NN' && allowedOptions.has(trimCode) ? trimCode : '', cushionCode !== 'Standard' && allowedOptions.has(cushionCode) ? cushionCode : '', batteryCode && allowedOptions.has(batteryCode) ? batteryCode : '', audio && allowedOptions.has('AL') ? 'AL' : '', featherlite && allowedOptions.has('FP') ? 'FP' : '', pillowCover && pillowCover !== coverCode && allowedOptions.has('P1') ? 'P1' : ''].filter(Boolean);
   const sku = skuGroup && selectedPrefixDocumented && coverParts
-    ? encodeRmsSku({ prefix: skuGroup, modelCode, cover: coverParts[1], patternCode: coverParts[2], finish: styleOptions?.finishMarkerListed ? finish : '', optionCodes: skuOptions })
+    ? encodeRmsSku({ prefix: skuGroup, modelCode, cover: coverParts[1], patternCode: coverParts[2], finish: styleOptions?.finishMarkerListed ? activeFinish : '', optionCodes: skuOptions })
     : 'Choose a model-listed cover and documented style for preview';
   const copy = async () => { if (!selectedPrefixDocumented || !coverParts || !sku || sku.startsWith('Choose ')) return; await onCopy(sku); setCopied(true); window.setTimeout(() => setCopied(false), 1600); };
   return <section className="module-page floor-workspace">
@@ -67,7 +71,7 @@ export function CustomizeFloorUnit({ catalog, onCopy, initialModelCode = '724', 
           <label className="form-field">{fieldLabel('Style / motion prefix', prefixRecord?.description, (title, text, pitch) => window.dispatchEvent(new CustomEvent('floor-info', { detail: { title, text, pitch } })))}<select value={prefix} onChange={(event) => { setPrefix(event.target.value); setBatteryCode(''); setAudio(false); setFeatherlite(false); setTrimCode('NN'); setCushionCode('Standard'); }}><option value="">Choose group / style prefix…</option>{modelStyleChoices.map((item) => <option key={item.code} value={item.code}>{item.code} · {item.label}</option>)}</select><small>{modelStyleChoices.length ? 'Only groups and styles listed for this model are shown.' : 'No RMS group/style mapping is in the supplied references for this model yet.'}</small></label>
           <div className="form-field cover-field">{fieldLabel('Body cover', coverRecord?.description, (title, text, pitch) => window.dispatchEvent(new CustomEvent('floor-info', { detail: { title, text, pitch } })))}<CoverPicker key={modelCode} label="Body cover" swatches={modelSwatches} value={coverCode} onChange={(code) => { setCoverCode(code); setPillowCover(''); }} /></div>
           {coverParts && coverRecord && <p className="floor-cover-source">Pattern and color are taken from the selected model-list code: <strong>{coverParts[2].slice(0, 4)} · {coverParts[2].slice(4)}</strong>.</p>}
-          {styleOptions?.finishMarkerListed && <label className="form-field">{fieldLabel('Wood finish', finishRecord?.description, (title, text, pitch) => window.dispatchEvent(new CustomEvent('floor-info', { detail: { title, text, pitch } })))}<select value={finish} onChange={(event) => setFinish(event.target.value)}>{catalog.wood_finishes.filter((item) => item.code !== '067').map((item) => <option key={item.code} value={item.code}>{item.code} · {item.name}</option>)}</select></label>}
+          {styleOptions?.finishMarkerListed && <label className="form-field">{fieldLabel('Wood finish', finishRecord?.description, (title, text, pitch) => window.dispatchEvent(new CustomEvent('floor-info', { detail: { title, text, pitch } })))}<select value={activeFinish} onChange={(event) => setFinish(event.target.value)}>{finishChoices.map((item) => <option key={item.code} value={item.code}>{item.name} · {item.code}{item.standard ? ' (standard)' : ''}</option>)}</select></label>}
           {availableTrims.length > 1 && <label className="form-field">{fieldLabel('Nailhead trim', 'Only trim options listed for this exact model style are shown.', (title, text, pitch) => window.dispatchEvent(new CustomEvent('floor-info', { detail: { title, text, pitch } })))}<select value={availableTrims.some((item) => item.code === trimCode) ? trimCode : 'NN'} onChange={(event) => setTrimCode(event.target.value)}>{availableTrims.map((item) => <option key={item.code} value={item.code}>{item.code} · {item.name}</option>)}</select></label>}
           {availableCushions.length > 1 && <label className="form-field">{fieldLabel('Cushion core', catalog.cushion_upgrades.find((item) => item.code === cushionCode)?.description, (title, text, pitch) => window.dispatchEvent(new CustomEvent('floor-info', { detail: { title, text, pitch } })))}<select value={availableCushions.some((item) => item.code === cushionCode) ? cushionCode : 'Standard'} onChange={(event) => setCushionCode(event.target.value)}>{availableCushions.map((item) => <option key={item.code} value={item.code}>{item.code} · {item.name} · {item.warranty_years} yr</option>)}</select></label>}
           {availableBatteries.length > 0 && <label className="form-field">{fieldLabel('Battery pack', selectedBattery?.description || 'Only packs compatible with the selected style are shown.', (title, text, pitch) => window.dispatchEvent(new CustomEvent('floor-info', { detail: { title, text, pitch } })))}<select value={batteryCode} onChange={(event) => setBatteryCode(event.target.value)}><option value="">No battery pack</option>{availableBatteries.map((item) => <option key={item.code} value={item.code}>{item.code} · {item.batteries} battery</option>)}</select></label>}</div>
