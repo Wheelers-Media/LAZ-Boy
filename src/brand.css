@@ -375,3 +375,14 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
   .fitq-facts div { grid-template-columns: 1fr; gap: 2px; }
   .fitq-match footer .primary-button, .fitq-match footer .back-button { flex: 1 1 100%; justify-content: center; }
 }
+
+/* Organisation: grouped index, jump bar, select-cover list */
+.index-jump { position: sticky; top: 0; z-index: 3; display: flex; gap: 8px; flex-wrap: wrap; padding: 10px 0; margin: 0 0 8px; background: var(--wash); }
+.index-jump a { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--ink); font-size: 14px; font-weight: 600; text-decoration: none; }
+.index-jump a b { color: var(--muted); font-weight: 600; }
+.index-jump a:hover { border-color: var(--brand-blue); }
+.index-section { display: grid; gap: 10px; margin-bottom: 28px; scroll-margin-top: 64px; }
+.index-section-head { display: flex; align-items: baseline; justify-content: space-between; margin: 8px 0 0; padding-bottom: 8px; border-bottom: 2px solid var(--brand-navy); font-size: 18px; color: var(--brand-navy); }
+.index-section-head span { font-size: 13px; font-weight: 600; color: var(--muted); }
+.select-list { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+.select-list b { display: block; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }

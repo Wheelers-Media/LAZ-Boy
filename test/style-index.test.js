@@ -161,3 +161,12 @@ test('decoder says plainly when a cover grade or pattern is not in the A26 progr
   assert.equal(known.cover.program_pattern_name, 'Seamount');
   assert.ok(!known.warnings.some((warning) => warning.includes('A26')));
 });
+
+test('every guide model lands in a named browse section, and grouping keeps every model once', async () => {
+  const { getModelSection, groupModelsBySection, MODEL_SECTIONS } = await import('../src/logic.js');
+  const models = [...new Set(styles.map((row) => row.model))];
+  for (const model of models) assert.notEqual(getModelSection(catalog, model), 'Other models', model);
+  const grouped = groupModelsBySection(catalog, models.map((code) => ({ model_code: code, model_name: code })));
+  assert.equal(grouped.flatMap((group) => group.items).length, models.length);
+  assert.ok(grouped.every((group) => MODEL_SECTIONS.includes(group.name)));
+});
