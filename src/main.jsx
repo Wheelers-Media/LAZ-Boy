@@ -1,58 +1,24 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Activity, ArrowDown, ArrowLeft, ArrowRight, Armchair, BatteryCharging, BookOpen, Check, CheckCircle2, Copy, Heart, Info, Layers3, Menu, Minus, Plus, Search, ShieldCheck, Sparkles, SwatchBook, Sofa, Wrench, X } from 'lucide-react';
+import { Activity, ArrowRight, Armchair, BatteryCharging, BookOpen, Check, CheckCircle2, Copy, Info, Layers3, Menu, Minus, Plus, Search, ShieldCheck, Sparkles, SwatchBook, Wrench, X } from 'lucide-react';
 import './styles.css';
 import './brand.css';
-import { encodeRmsSku, findLiftTier, findCompatibleBattery, getCatalogCapabilityLeads, getContextualBatteryOptions, getContextualModelOptions, getContextualOptionRecords, getContextualPreferenceChoices, getContextualStyleChoices, getDimensionBasedRecommendations, getFullProductIndex, getDefaultRmsGroup, filterCoverOptionsByMaterial, getMaterialPreferenceChoices, getModelCoverOptions, getRecommendations, getRoomClearance, getSectionalPrefix, matchingPrefixes, reclinerCatalogSearchEntries, sectionalPiecesForFamily } from './logic.js';
-import { CustomizeFloorUnit, SectionalStudio } from './FloorWorkspaces.jsx';
+import { encodeRmsSku, findLiftTier, findCompatibleBattery, getDefaultRmsGroup, getSectionalPrefix, sectionalPiecesForFamily } from './logic.js';
+import { CustomizeFloorUnit } from './FloorWorkspaces.jsx';
 import { SectionalDesignStudio } from './SectionalDesignStudio.jsx';
 import { SkuBuilderWorkspace } from './SkuBuilderWorkspace.jsx';
 import { FabricsCareWorkspace } from './FabricsCareWorkspace.jsx';
 import { FIT_DEFAULTS, FitDiscover } from './FitDiscover.jsx';
-import { applyGuideOptionDefinitions, getGuideProductIndex, heightInches, PRODUCT_INDEX_GROUPS, cleanIndexCategories, indexGroupsFor } from './logic.js';
+import { applyGuideOptionDefinitions, getGuideProductIndex, PRODUCT_INDEX_GROUPS, cleanIndexCategories, indexGroupsFor } from './logic.js';
 
-const STEPS = ['Ergonomics', 'Room clearance', 'Category', 'Mechanisms', 'Upholstery'];
 const NAV_ITEMS = [[Armchair, 'Fit'], [Wrench, 'SKU Builder'], [BookOpen, 'Product Index'], [Sparkles, 'Floor Unit'], [Layers3, 'Sectional Studio'], [SwatchBook, 'Fabrics & Care'], [ShieldCheck, 'Support']];
-const categories = ['Recliners', 'High-leg designer', 'Motion sofas / loveseats', 'Modular sectionals', 'Stationary suites', 'Sleepers', 'Lift chairs'];
-const mechanismOptions = [
-  ['Manual', 'Simple, dependable reclining'],
-  ['Power recline', 'Effortless adjustment at a touch'],
-  ['Power + headrest', 'Fine-tune head and foot support'],
-  ['Power + lumbar', 'Extra lower-back support'],
-  ['Lift chair', 'Bronze-series lift support'],
-  ['Gold-series lift', 'Gold-series power lift'],
-  ['No reclining mechanism', 'Stationary seating and sleepers'],
-];
-const modelPrefixOptions = (catalog, code) => {
-  const model = catalog.models_database.find((item) => item.model_code === code);
-  if (!model) return [];
-  const text = model.category.toLowerCase();
-  const family = /lift/.test(text) ? 'lift' : /sectional/.test(text) ? 'sectional' : /motion/.test(text) ? 'motion' : /sleeper/.test(text) ? 'sleeper' : /stationary/.test(text) ? 'stationary' : /accent|high leg/.test(text) ? 'accent' : 'recliner';
-  return catalog.style_prefixes.filter((prefix) => {
-    const category = prefix.category.toLowerCase();
-    return family === 'lift' ? /lift/.test(category)
-      : family === 'sectional' ? /sectional|duo/.test(category)
-        : family === 'motion' ? /motion/.test(category)
-          : family === 'sleeper' ? /sleeper/.test(category)
-            : family === 'stationary' ? /stationary/.test(category)
-              : family === 'accent' ? /accent|designer choice|high leg/.test(category)
-                : /recliner/.test(category) && !/high leg|lift/.test(category);
-  });
-};
 const modelFor = (catalog, code) => catalog.models_database.find((model) => model.model_code === code);
-const initialAnswers = { scale: 'Small / Medium', height: "5′8″", weight: '', clearance: 'Standard · 12–18 in', category: 'Recliners', mechanism: 'Power recline', upgrades: [], fabric: '', kidsPets: false, seat_depth_preference: 'Not sure yet', back_support_preference: 'Not sure yet', cushion_preference: 'Standard Poly', support_preference: 'No preference yet', material_preference: 'No preference yet' };
-const colorList = (item) => item.colors.map((color) => (item.colorNames?.[color] ? `${color} ${item.colorNames[color]}` : color)).join(', ');
-const DEFAULT_COLOR_SHADE = '6';
 function App() {
   const [catalog, setCatalog] = useState(null);
   const [researchReference, setResearchReference] = useState(null);
   const [loadError, setLoadError] = useState(false);
   const [fitState, setFitState] = useState(FIT_DEFAULTS);
-  const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState(initialAnswers);
   const [modelCode, setModelCode] = useState('724');
-  const [fitModelCode, setFitModelCode] = useState('');
-  const [fitStyleCode, setFitStyleCode] = useState('');
   const [prefix, setPrefix] = useState('10X');
   const [cover, setCover] = useState('DP');
   const [finish, setFinish] = useState('007');
@@ -72,7 +38,6 @@ function App() {
   const [floorWorkspaceModel, setFloorWorkspaceModel] = useState('724');
   const [indexSearch, setIndexSearch] = useState('');
   const [indexGroup, setIndexGroup] = useState('All');
-  const [fabricSearch, setFabricSearch] = useState('');
   const [piecePrefix, setPiecePrefix] = useState('44A / 8AU');
   const [sectionalFamily, setSectionalFamily] = useState('La-Z-Time');
   const [piecePillowCover, setPiecePillowCover] = useState('FL');
@@ -153,30 +118,6 @@ function App() {
   const currentPrefix = useMemo(() => catalog?.style_prefixes.find((item) => item.code === prefix), [catalog, prefix]);
   const selectedCover = catalog?.cover_cap_codes.find((item) => item.code === cover);
   const sku = useMemo(() => encodeRmsSku({ prefix, modelCode, cover, patternCode, colorFamily: colorShade, finish, trimCode: trimCode === 'NN' ? '' : trimCode, optionCodes: [...optionCodes.filter((code) => !['FP', 'P1', 'FS', 'Z6', 'DC', 'NB', 'NH', 'NS'].includes(code)), ...(cushionCode === 'Standard' ? [] : [cushionCode]), ...(pillowUpgrade ? ['FP'] : []), ...(pillowCover !== cover ? ['P1'] : [])] }), [prefix, modelCode, cover, patternCode, colorShade, finish, trimCode, optionCodes, cushionCode, pillowUpgrade, pillowCover]);
-  const recommendations = useMemo(() => catalog ? getRecommendations(catalog, answers, researchReference) : [], [catalog, answers, researchReference]);
-  const dimensionRecommendations = useMemo(() => catalog ? getDimensionBasedRecommendations(catalog, answers, researchReference) : [], [catalog, answers, researchReference]);
-  const capabilityLeads = useMemo(() => catalog ? getCatalogCapabilityLeads(catalog, answers, 3) : [], [catalog, answers]);
-  const fitModelOptions = useMemo(() => catalog ? getContextualModelOptions(catalog, answers) : [], [catalog, answers]);
-  const fitModel = fitModelOptions.find((model) => model.code === fitModelCode);
-  const fitStyleOptions = fitModel?.styles || [];
-  const fitStyle = fitStyleOptions.find((style) => style.code === fitStyleCode);
-  const fitStyleOptionRecords = getContextualOptionRecords(catalog || {}, fitStyle?.options || []);
-  const fitBatteryOptions = fitModel && fitStyle ? getContextualBatteryOptions(catalog, fitModelCode, fitStyleCode, answers) : [];
-  const fitBatteryCode = fitBatteryOptions[0]?.code || '';
-  const productCoverOptions = useMemo(() => catalog && fitModelCode && fitStyleCode ? getModelCoverOptions(catalog, fitModelCode) : [], [catalog, fitModelCode, fitStyleCode]);
-  const availableCushionPreferences = useMemo(() => catalog ? getContextualPreferenceChoices(catalog, answers, 'cushion', fitModelCode, fitStyleCode) : [], [catalog, answers.category, answers.clearance, answers.mechanism, answers.cushion_preference, fitModelCode, fitStyleCode]);
-  const availableSupportPreferences = useMemo(() => catalog ? getContextualPreferenceChoices(catalog, answers, 'support', fitModelCode, fitStyleCode) : [], [catalog, answers.category, answers.clearance, answers.mechanism, answers.support_preference, fitModelCode, fitStyleCode]);
-  const availableMaterialPreferences = useMemo(() => getMaterialPreferenceChoices(productCoverOptions), [productCoverOptions]);
-  const availableMechanisms = useMemo(() => catalog ? mechanismOptions.filter(([name]) => getContextualModelOptions(catalog, { ...answers, mechanism: name }).length > 0) : [], [catalog, answers]);
-  const filteredRecommendations = recommendations.filter((model) => !fitModelCode || model.model_code === fitModelCode);
-  const filteredCapabilityLeads = capabilityLeads.filter((model) => !fitModelCode || model.model_code === fitModelCode);
-  const currentFitLeads = fitModelCode ? filteredRecommendations : recommendations;
-  const currentCapabilityLeads = fitModelCode ? filteredCapabilityLeads : capabilityLeads;
-  const currentRecommendationLeads = fitModelCode ? filteredRecommendations : recommendations;
-  const currentVisibleCapabilityLeads = fitModelCode ? filteredCapabilityLeads : capabilityLeads;
-  const availableModelCovers = filterCoverOptionsByMaterial(productCoverOptions, answers.material_preference);
-  const selectedHeightInches = heightInches(answers.height);
-  const fitGuide = Number.isFinite(selectedHeightInches) ? researchReference?.fit_guidance_bands?.find((band) => selectedHeightInches >= band.height_min_inches && selectedHeightInches <= (band.height_max_inches ?? Infinity)) : undefined;
   const batteryOption = optionCodes.find((code) => code === 'BP1' || code === 'BP2');
   const batteryWarning = batteryOption && !findCompatibleBattery(catalog || { style_prefixes: [], battery_packs: [] }, prefix, batteryOption) ? `${batteryOption} is not compatible with ${currentPrefix?.motion_type || prefix} per the v2 rules. Check compatibility before adding this option.` : '';
 
@@ -186,133 +127,13 @@ function App() {
     return fullProductIndex.filter((product) => (indexGroup === 'All' || indexGroupsFor(product).includes(indexGroup)) && (!query || `${product.modelName} ${product.modelCode} ${product.categories.join(' ')} ${product.sources.join(' ')} ${product.notes.join(' ')} ${product.styles.map((style) => `${style.code} ${style.label} ${style.dimensions || ''} ${style.options.join(' ')} ${style.sourceNote || ''}`).join(' ')}`.toLowerCase().includes(query)));
   }, [fullProductIndex, indexSearch, indexGroup]);
 
-  const searchResults = useMemo(() => {
-    if (!catalog || !fabricSearch.trim()) return [];
-    const query = fabricSearch.toLowerCase();
-    const combined = [
-      ...(catalog.search_reference_entries || []).map((item) => ({ kind: `Reference · ${item.section}`, title: item.title, detail: item.detail, code: item.section })),
-      ...catalog.style_prefixes.map((item) => ({ kind: 'Style prefix', title: `${item.code} · ${item.motion_type}`, detail: `${item.wall_clearance_inches} in wall clearance · ${item.description}`, code: item.code })),
-      ...catalog.models_database.map((item) => ({ kind: 'Model', title: `${item.model_name} · ${item.model_code}`, detail: `${item.scale} · ${item.quick_spotter}`, code: item.model_code })),
-      ...(catalog.stationary_catalog_2026?.index || []).map((item) => ({ kind: 'Stationary catalog model', title: `${item.model_name} · ${item.model_code}`, detail: `Summer/Fall 2026 stationary catalog · pages ${item.pages.join(', ')} · ${item.catalog_categories.join(', ')} · indexed styles and cover details in manufacturer catalog.`, code: item.model_code })),
-      ...(catalog.stationary_catalog_2026?.products || []).flatMap((product) => product.catalog_groups.flatMap((group) => group.styles.map((style) => ({ kind: 'Stationary catalog style', title: `${product.model_name} ${style.category} · ${style.style_code}`, detail: `${style.dimensions} · Options: ${style.options.join(', ') || 'none listed'}${style.wall_space_required_inches ? ` · wall space ${style.wall_space_required_inches} in` : ''}.`, code: style.style_code, modelCode: product.model_code })))),
-      ...(catalog.stationary_catalog_2026?.options || []).map((item) => ({ kind: 'Stationary catalog option', title: `${item.code} · ${item.name}`, detail: item.details, code: item.code })),
-      ...(catalog.stationary_catalog_2026?.finishes || []).map((item) => ({ kind: 'Stationary catalog finish', title: `${item.code} · ${item.name}`, detail: item.details, code: item.code })),
-      ...(catalog.stationary_catalog_2026?.pillow_styles || []).map((item) => ({ kind: 'Stationary catalog pillow', title: `${item.code} · ${item.name}`, detail: `${item.dimensions} · quantity ${item.quantity} · options ${item.options.join(', ')}`, code: item.code })),
-      ...(catalog.stationary_catalog_2026?.stationary_prefix_definitions || []).map((item) => ({ kind: 'Stationary prefix definition', title: `${item.code} · ${item.description}`, detail: `Style prefix definition from the Summer/Fall 2026 stationary catalog.`, code: item.code })),
-      ...(catalog.stationary_catalog_2026?.warranty_reference ? [{ kind: 'Stationary warranty reference', title: 'Summer/Fall 2026 warranty coverage', detail: `${catalog.stationary_catalog_2026.warranty_reference.tiers_shown.join(', ')} coverage table; ${catalog.stationary_catalog_2026.warranty_reference.notes.join(' ')}`, code: 'Warranty' }] : []),
-      ...reclinerCatalogSearchEntries(catalog.recliner_catalog_2026),
-      ...reclinerCatalogSearchEntries(catalog.recliner_collection_index_supplement),
-      ...reclinerCatalogSearchEntries(catalog.motion_catalog_2026),
-      ...reclinerCatalogSearchEntries(catalog.designers_choice_catalog_2026),
-      ...(catalog.product_profiles || []).flatMap((profile) => profile.pieces.map((piece) => ({ kind: 'Product piece', title: `${profile.model_name} ${piece.name} · ${piece.code || piece.variants?.map((variant) => variant.code).join('/') || ''}-${profile.model_code}`, detail: `${profile.product_description} ${piece.dimensions_text || 'Dimensions need visual verification.'} ${piece.fully_extended_in ? `Fully extended: ${piece.fully_extended_in} inches. ` : ''}${piece.dimensions_note || ''}`, code: piece.code || piece.variants?.[0]?.code, modelCode: profile.model_code }))),
-      ...(catalog.inventory_model_examples || []).map((item) => ({ kind: 'Inventory example', title: `${item.model_name} · ${item.model_code} · ${item.inventory_prefix}`, detail: `${item.inventory_description} Example RMS SKU(s): ${item.sku_examples.join(' | ')} Fit specs are not provided for this item.`, code: item.model_code, skuExamples: item.sku_examples })),
-      ...((researchReference?.entries) || []).map((item) => ({ kind: 'Research note', title: `${item.title} · ${item.section}`, detail: `${item.claim} Not confirmed for Canadian availability or ordering.`, code: (item.codes || []).join(', ') })),
-      ...catalog.cover_cap_codes.map((item) => ({ kind: 'Cover', title: `${item.code} · ${item.name}`, detail: `${item.grade} · ${item.type} · ${item.description}`, code: item.code })),
-      ...(catalog.fabric_cover_program_a26?.fabrics || []).map((item) => {
-        const program = catalog.fabric_cover_program_a26;
-        const cleaningName = program.definitions?.cleaningCodes?.[item.cleaningCode] || item.cleaningCode;
-        const wearability = program.definitions?.wearability?.[item.wearability];
-        const attributes = (item.specialtyAttributes || []).map((code) => program.definitions?.specialtyAttributes?.[code] || code);
-        return { kind: 'Fabric program cover', title: `${item.coverCode} · ${item.patternName}`, detail: `Cap ${item.capCode} · colors ${colorList(item)} · ${wearability?.name || item.wearability} wearability${wearability?.description ? ` (${wearability.description})` : ''} · cleaning ${item.cleaningCode} (${cleaningName})${attributes.length ? ` · ${attributes.join(', ')}` : ''} · Confirm it is offered on the exact model first.`, code: item.coverCode };
-      }),
-      ...(catalog.fabric_cover_program_a26?.leathers || []).map((item) => {
-        const program = catalog.fabric_cover_program_a26;
-        const attributes = (item.specialtyAttributes || []).map((code) => program.definitions?.specialtyAttributes?.[code] || code);
-        const fits = item.models?.length ? ` · models ${item.models.join(', ')}` : '';
-        return { kind: 'Leather cover', title: `${item.coverCode} · ${item.patternName}`, detail: `${item.group} · ${item.leatherType} · cap ${item.capCode} · colors ${colorList(item)}${fits}${attributes.length ? ` · ${attributes.join(', ')}` : ''}${item.notes?.length ? ` · ${item.notes.join(' ')}` : ''} · Confirm it is offered on the exact model first.`, code: item.coverCode };
-      }),
-
-      ...catalog.option_suffixes.map((item) => ({ kind: 'Option suffix', title: `${item.code} · ${item.name}`, detail: item.description, code: item.code })),
-      ...[...new Set(catalog.cover_cap_codes.map((item) => item.grade))].map((grade) => ({ kind: 'Fabric grade', title: `Grade ${grade}`, detail: catalog.cover_cap_codes.filter((item) => item.grade === grade).map((item) => `${item.code} ${item.name}`).join(' · '), code: grade })),
-      ...catalog.color_families.map((item) => ({ kind: 'Color family', title: `${item.digit} · ${item.family}`, detail: item.examples, code: item.digit })),
-      ...catalog.cleaning_codes.map((item) => ({ kind: 'Cleaning code', title: `${item.code} · ${item.name}`, detail: item.instruction, code: item.code })),
-      ...catalog.pillows_and_accents.options.map((item) => ({ kind: 'Pillow option', title: `${item.code} · ${item.name}`, detail: item.description, code: item.code })),
-      { kind: 'AudioLuxe', title: `${catalog.audioluxe_sound_system.option_code} · Klipsch AudioLuxe`, detail: `${catalog.audioluxe_sound_system.description} ${catalog.audioluxe_sound_system.features.join(' ')}`, code: catalog.audioluxe_sound_system.option_code },
-      ...catalog.wood_finishes.map((item) => ({ kind: 'Wood finish', title: `${item.code} · ${item.name}`, detail: item.description, code: item.code })),
-      ...catalog.nailhead_trims.map((item) => ({ kind: 'Nailhead trim', title: `${item.code} · ${item.name}`, detail: item.description, code: item.code })),
-      ...catalog.cushion_upgrades.map((item) => ({ kind: 'Cushion core', title: `${item.code} · ${item.name}`, detail: `${item.warranty_years}-year warranty · ${item.description}`, code: item.code })),
-      ...catalog.battery_packs.map((item) => ({ kind: 'Battery pack', title: `${item.code} · ${item.batteries} battery`, detail: `Compatible with ${item.compatible_types.join(', ')}. Incompatible with ${item.incompatible_types.join(', ')}. ${item.charge_time_hours} hours to recharge; low-battery alert at ${item.low_battery_alert_percent}%.`, code: item.code })),
-    ];
-    return combined.filter((item) => `${item.title} ${item.detail} ${item.kind}`.toLowerCase().includes(query)).slice(0, 12);
-  }, [catalog, researchReference, fabricSearch]);
 
   const notify = (message) => { setToast(message); window.setTimeout(() => setToast(''), 2200); };
-  const setAnswer = (key, value) => setAnswers((prev) => ({ ...prev, [key]: value }));
-  const toggleUpgrade = (code) => setAnswers((prev) => ({ ...prev, upgrades: prev.upgrades.includes(code) ? prev.upgrades.filter((item) => item !== code) : [...prev.upgrades, code] }));
   const setLiveOption = (code) => setOptionCodes((prev) => prev.includes(code) ? prev.filter((item) => item !== code) : [...prev, code]);
   const clearLiveOptions = () => setOptionCodes([]);
   const copySku = async (value = sku) => { try { await navigator.clipboard.writeText(value); setCopied(true); notify('SKU copied to clipboard'); window.setTimeout(() => setCopied(false), 1800); } catch { notify('Clipboard unavailable: select and copy the SKU'); } };
   const addPiece = () => { const piece = sectionalPiecesForFamily(catalog, sectionalFamily).find((item) => item.key === piecePrefix); if (piece) setCart((prev) => [...prev, { ...piece, bodyCover: cover, pillowCover: piecePillowCover, featherlite: pieceFeatherlite, id: `${Date.now()}-${Math.random()}` }]); };
   const removePiece = (id) => setCart((prev) => prev.filter((item) => item.id !== id));
-  const fitIndex = (model) => { if (!model) return 'No match for these selections. Adjust the answers or browse the catalog.'; const evidence = model.fit_evidence; const dims = evidence?.dimensions; const fitStatement = evidence?.fit_claim?.statement || evidence?.research_document?.explicit_fit_guidance; const details = [fitStatement, dims?.seat_depth_inches ? `seat depth ${dims.seat_depth_inches}″` : '', dims?.seat_height_inches ? `seat height ${dims.seat_height_inches}″` : '', dims?.source_market && dims?.configuration ? `${dims.source_market} ${dims.configuration} dimensions` : '', Number.isFinite(model.weight_limit_lbs) ? `${model.weight_limit_lbs} lb capacity for indexed configuration` : 'capacity not listed']; const status = evidence?.fit_claim?.status === 'conflicting_fit_guidance' || evidence?.research_document?.fit_status === 'conflicting' ? 'Fit sources conflict; don’t treat this as a match.' : 'Preliminary research lead only.'; const caution = model.fit_guidance?.weight_confirmation_required ? 'No weight capacity indexed for this configuration.' : ''; return `${details.filter(Boolean).join(' · ')}. ${status} ${caution} Confirm exact configuration, weight capacity, clearance, and fit with current Canadian product literature and a sit test.`; };
-  const clearFitSelection = () => {
-    setFitModelCode('');
-    setFitStyleCode('');
-    setAnswer('fabric', '');
-    setAnswers((previous) => ({ ...previous, upgrades: previous.upgrades.filter((code) => code !== 'BP1' && code !== 'BP2') }));
-  };
-  const changeFitPreference = (key, value) => {
-    if (answers[key] === value) return;
-    setAnswer(key, value);
-    clearFitSelection();
-  };
-  const changeFitModel = (value) => {
-    setFitModelCode(value);
-    setFitStyleCode('');
-    setAnswer('fabric', '');
-    setAnswers((previous) => ({ ...previous, upgrades: previous.upgrades.filter((code) => code !== 'BP1' && code !== 'BP2') }));
-  };
-  const changeFitStyle = (value) => {
-    setFitStyleCode(value);
-    setAnswer('fabric', '');
-    setAnswers((previous) => ({ ...previous, upgrades: previous.upgrades.filter((code) => code !== 'BP1' && code !== 'BP2') }));
-  };
-  useEffect(() => {
-    if (!catalog) return;
-    const modelStillEligible = fitModelOptions.some((model) => model.code === fitModelCode);
-    const styleStillEligible = fitStyleOptions.some((style) => style.code === fitStyleCode);
-    if (!availableCushionPreferences.some((item) => item.name === answers.cushion_preference) && answers.cushion_preference !== 'Standard Poly') setAnswer('cushion_preference', 'Standard Poly');
-    if (!availableSupportPreferences.some((item) => item.value === answers.support_preference) && answers.support_preference !== 'No preference yet') setAnswer('support_preference', 'No preference yet');
-    if (fitModelCode && fitStyleCode && !availableMaterialPreferences.some((item) => item.value === answers.material_preference) && answers.material_preference !== 'No preference yet') setAnswer('material_preference', 'No preference yet');
-    if (fitModelCode && !modelStillEligible) {
-      setFitModelCode('');
-      setFitStyleCode('');
-      setAnswer('fabric', '');
-      setAnswers((previous) => ({ ...previous, upgrades: previous.upgrades.filter((code) => code !== 'BP1' && code !== 'BP2') }));
-    } else if (fitModelCode && fitStyleCode && !styleStillEligible) {
-      setFitStyleCode('');
-      setAnswer('fabric', '');
-      setAnswers((previous) => ({ ...previous, upgrades: previous.upgrades.filter((code) => code !== 'BP1' && code !== 'BP2') }));
-    }
-  }, [catalog, answers.category, answers.clearance, answers.mechanism, answers.support_preference, answers.cushion_preference, answers.weight, fitModelCode, fitStyleCode, fitModelOptions, fitStyleOptions, answers.material_preference, answers.fabric, availableCushionPreferences, availableSupportPreferences, availableMaterialPreferences]);
-  useEffect(() => {
-    if (!answers.upgrades.some((code) => code === 'BP1' || code === 'BP2')) return;
-    const selectedBattery = answers.upgrades.find((code) => code === 'BP1' || code === 'BP2');
-    if (!fitBatteryCode || selectedBattery !== fitBatteryCode) {
-      setAnswers((previous) => ({ ...previous, upgrades: previous.upgrades.filter((code) => code !== 'BP1' && code !== 'BP2') }));
-    }
-  }, [answers.upgrades, fitBatteryCode]);
-  useEffect(() => {
-    if (fitModelCode && answers.fabric && !availableModelCovers.some((item) => item.code === answers.fabric)) setAnswer('fabric', '');
-  }, [fitModelCode, answers.fabric, answers.material_preference, availableModelCovers]);
-  const availablePrefixes = useMemo(() => modelPrefixOptions(catalog || { models_database: [], style_prefixes: [] }, modelCode), [catalog, modelCode]);
-  // Single authority for `prefix`: keep the current code while it still satisfies either
-  // the answer-eligible family or the selected model's family; otherwise converge to a
-  // code that satisfies both, then the first answer-eligible code, then the first
-  // model-family code. Reconciling in one effect prevents the two former setters from
-  // fighting each other in an infinite state-update loop.
-  useEffect(() => {
-    if (!catalog) return;
-    const answerEligible = matchingPrefixes(catalog, answers);
-    const satisfiesAnswers = answerEligible.some((item) => item.code === prefix);
-    const satisfiesModel = availablePrefixes.some((item) => item.code === prefix);
-    if (satisfiesAnswers || satisfiesModel) return;
-    const both = answerEligible.find((item) => availablePrefixes.some((modelItem) => modelItem.code === item.code));
-    if (both) return setPrefix(both.code);
-    if (answerEligible.length) return setPrefix(answerEligible[0].code);
-    if (availablePrefixes.length) return setPrefix(availablePrefixes[0].code);
-  }, [catalog, answers.category, answers.clearance, answers.mechanism, answers.support_preference, answers.cushion_preference, answers.weight, answers.fabric, answers.material_preference, fitModelCode, fitStyleCode, prefix, availablePrefixes]);
-  const recommendationCover = productCoverOptions.find((item) => item.code === answers.fabric);
   const matchedPrefixForBattery = catalog?.style_prefixes.find((item) => item.code === batteryType);
   const batteryCompatibility = matchedPrefixForBattery?.battery_pack === 'INCOMPATIBLE' ? `${batteryType} luxury lift chair is incompatible with battery packs` : matchedPrefixForBattery?.battery_pack ? `${matchedPrefixForBattery.battery_pack} compatible · ${matchedPrefixForBattery.motion_type}` : 'No battery pack required for this manual configuration';
   const weightResult = findLiftTier(catalog || { lift_chair_weight_tiers: [] }, liftWeight, liftModelCode);
@@ -344,7 +165,7 @@ function App() {
 
     <main className="main-content">
       {activeTab === 'SKU Builder' && <SkuBuilderWorkspace catalog={catalog} modelCode={modelCode} setModelCode={updateModel} prefix={prefix} setPrefix={setPrefix} cover={cover} setCover={setCover} patternCode={patternCode} setPatternCode={setPatternCode} colorShade={colorShade} setColorShade={setColorShade} finish={finish} setFinish={setFinish} trimCode={trimCode} setTrimCode={setTrimCode} cushionCode={cushionCode} setCushionCode={setCushionCode} optionCodes={optionCodes} setLiveOption={setLiveOption} clearLiveOptions={clearLiveOptions} batteryWarning={batteryWarning} onCopy={copySku} notify={notify} />}
-      {activeTab === 'Product Index' && <section className="module-page product-index-page"><div className="module-intro"><p className="eyebrow"><BookOpen size={13} /> CATALOG PRODUCT INDEX</p><h1>Every indexed model, <em>in one place.</em></h1><p>Every model with its styles and pieces. Open a model to see sizes and options.</p></div><div className="knowledge-search card"><Search size={19} /><input aria-label="Search product index" placeholder="Search a model, style, piece or option" value={indexSearch} onChange={(event) => setIndexSearch(event.target.value)} /><span className="product-index-count">{indexedProducts.length} models</span></div><div className="chip-row" role="group" aria-label="Filter by type">{PRODUCT_INDEX_GROUPS.map((group) => <button key={group} type="button" className={`chip ${indexGroup === group ? 'on' : ''}`} aria-pressed={indexGroup === group} onClick={() => setIndexGroup(group)}>{group}</button>)}</div><div className="product-index-list">{indexedProducts.map((product) => <details className="product-index-entry card" key={product.modelCode}><summary><span><strong>{product.modelName}</strong><small>{product.modelCode}{cleanIndexCategories(product.categories).length ? ` · ${cleanIndexCategories(product.categories).slice(0, 3).join(' · ')}` : ''}</small></span>{product.unverified && <span className="product-index-style-count">not in guide</span>}<span className="product-index-style-count">{product.styles.length} {product.styles.length === 1 ? 'style' : 'styles'}</span></summary><div className="product-index-detail"><p>{product.notes.join(' ')}</p><div className="product-index-styles">{product.styles.map((style) => <article key={`${style.code}-${style.source}`}><strong>{style.code} · {style.label}</strong>{style.dimensions && <span>{style.dimensions}</span>}{style.caps?.length > 0 && <span>Covers: {style.caps.join(' · ')}</span>}{style.finishes?.length > 0 && <span>Finishes: {style.finishes.join(', ')}</span>}{style.options.length > 0 && <span>Options: {style.options.join(', ')}</span>}{style.sourceNote && <small>{style.sourceNote}</small>}</article>)}</div></div></details>)}{!indexedProducts.length && <p className="empty-state">No catalog product matches that search.</p>}</div></section>}
+      {activeTab === 'Product Index' && <section className="module-page product-index-page"><div className="module-intro"><p className="eyebrow"><BookOpen size={13} /> CATALOG PRODUCT INDEX</p><h1>Every indexed model, <em>in one place.</em></h1><p>Every model with its styles and pieces. Open a model to see sizes and options.</p></div><div className="knowledge-search card"><Search size={19} /><input aria-label="Search product index" placeholder="Search a model, style, piece or option" value={indexSearch} onChange={(event) => setIndexSearch(event.target.value)} /><span className="product-index-count">{indexedProducts.length} models</span></div><div className="chip-row" role="group" aria-label="Filter by type">{PRODUCT_INDEX_GROUPS.map((group) => <button key={group} type="button" className={`chip ${indexGroup === group ? 'on' : ''}`} aria-pressed={indexGroup === group} onClick={() => setIndexGroup(group)}>{group}</button>)}</div><div className="product-index-list">{indexedProducts.map((product) => <details className="product-index-entry card" key={product.modelCode}><summary><span><strong>{product.modelName}</strong><small>{product.modelCode}{cleanIndexCategories(product.categories).length ? ` · ${cleanIndexCategories(product.categories).slice(0, 3).join(' · ')}` : ''}</small></span>{product.unverified && <span className="product-index-style-count">not in guide</span>}<span className="product-index-style-count">{product.styles.length} {product.styles.length === 1 ? 'style' : 'styles'}</span></summary><div className="product-index-detail"><p>{product.notes.join(' ')}</p><div className="product-index-styles">{product.styles.map((style) => <article key={`${style.code}-${style.source}`}><strong>{style.code} · {style.label}</strong>{style.dimensions && <span>{style.dimensions}</span>}{style.caps?.length > 0 && <span>Covers: {style.caps.join(' · ')}</span>}{style.finishes?.length > 0 && <span>Finishes: {style.finishes.join(', ')}</span>}{(style.select || []).map((line) => <span key={line}>{line}</span>)}{style.options.length > 0 && <span>Options: {style.options.join(', ')}</span>}{style.sourceNote && <small>{style.sourceNote}</small>}</article>)}</div></div></details>)}{!indexedProducts.length && <p className="empty-state">No catalog product matches that search.</p>}</div></section>}
       {activeTab === 'Floor Unit' && <CustomizeFloorUnit key={floorWorkspaceModel} catalog={catalog} onCopy={copySku} initialModelCode={floorWorkspaceModel} onModelChange={setFloorWorkspaceModel} />}
       {activeTab === 'Sectional Studio' && <SectionalDesignStudio catalog={catalog} onCopy={copySku} initialModelCode={buildModelCode} onModelChange={setBuildModelCode} />}
       {activeTab === 'Fit' && <FitDiscover catalog={catalog} research={researchReference} state={fitState} setState={setFitState} onInfo={showInfo} onOpenTab={setActiveTab} onIndex={(name) => { setIndexSearch(name); setIndexGroup('All'); setActiveTab('Product Index'); }} onBuild={(code) => { updateModel(code); setActiveTab('SKU Builder'); }} />}

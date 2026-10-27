@@ -129,3 +129,35 @@ test('RMS custom-order options C1, F1, WL and Z4 are named; P1 and WL need a cov
   const decoded = decodeRmsSku('610681 D200952 FN 041 P1 Q199357 C1', fixed);
   assert.ok(decoded.claims.some((claim) => claim.code === 'C1'));
 });
+
+test('price-book select lists are per style, carry listed colours and never prices', async () => {
+  const { formatSelectCovers, getStyleSelectCovers } = await import('../src/logic.js');
+  const vail = getStyleSelectCovers(catalog, '403', '010');
+  assert.deepEqual(vail.fabric.map((cover) => cover.code), ['B1538', 'C1860']);
+  assert.ok(vail.fabric.every((cover) => cover.inA26));
+  const pinnacle = getStyleSelectCovers(catalog, '512', '10X');
+  assert.deepEqual(pinnacle.leather[0].colors, ['74', '77']);
+  assert.ok(formatSelectCovers(pinnacle).some((line) => line.startsWith('Select leather: LB2064 Opulence (74, 77)')));
+  assert.ok(!JSON.stringify(styles).match(/\$\d/), 'no prices in the style index');
+});
+
+test('select covers missing from the A26 program are marked, and the Liam 786 conflict is kept as published', async () => {
+  const { getStyleSelectCovers } = await import('../src/logic.js');
+  const flagged = styles.flatMap((row) => Object.values(getStyleSelectCovers(catalog, row.model, row.prefix)).flat()).filter((cover) => !cover.inA26);
+  assert.deepEqual([...new Set(flagged.map((cover) => cover.code))].sort(), ['C1659', 'D1490', 'D2038']);
+  const liam = styles.find((row) => row.styleNumber === '10X786');
+  assert.ok(liam.bands.includes('selectLeather'), 'price book shows a select-leather band');
+  assert.equal(liam.select.leather, undefined, 'but lists no select leather; the conflict is not papered over');
+});
+
+test('decoder says plainly when a cover grade or pattern is not in the A26 program', async () => {
+  const { decodeRmsSku } = await import('../src/logic.js');
+  for (const grade of ['S', 'JL', 'RD', 'RE', 'RF']) {
+    const decoded = decodeRmsSku(`10X724 ${grade}123456`, catalog);
+    assert.ok(decoded.warnings.some((warning) => warning.includes(`Grade ${grade} is not in the supplied A26 cover program`)), grade);
+    assert.equal(decoded.cover.program_pattern_name, null);
+  }
+  const known = decodeRmsSku('10X724 B153801', catalog);
+  assert.equal(known.cover.program_pattern_name, 'Seamount');
+  assert.ok(!known.warnings.some((warning) => warning.includes('A26')));
+});

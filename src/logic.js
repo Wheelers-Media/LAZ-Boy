@@ -910,7 +910,7 @@ export function getGuideProductIndex(catalog) {
     result.push({
       modelCode: model, modelName: previous?.modelName && previous.modelName !== model ? previous.modelName : name ? name.charAt(0) + name.slice(1).toLowerCase() : model,
       categories: previous?.categories || [], sources: [], notes: [],
-      styles: list.map((row) => ({ code: row.prefix, label: `${row.category || row.name}${row.status === 'discontinued' ? ' · discontinued' : row.status === 'new' ? ' · new' : ''}`, dimensions: guideDims(row.dims), options: row.options, caps: row.capCodes, finishes: [row.standardFinish && `${row.standardFinish.name} ${row.standardFinish.code} (standard)`, ...row.optionalFinishes.map((f) => `${f.name} ${f.code}`)].filter(Boolean), status: row.status, source: 'guide' })),
+      styles: list.map((row) => ({ code: row.prefix, label: `${row.category || row.name}${row.status === 'discontinued' ? ' · discontinued' : row.status === 'new' ? ' · new' : ''}`, dimensions: guideDims(row.dims), options: row.options, caps: row.capCodes, finishes: [row.standardFinish && `${row.standardFinish.name} ${row.standardFinish.code} (standard)`, ...row.optionalFinishes.map((f) => `${f.name} ${f.code}`)].filter(Boolean), status: row.status, select: formatSelectCovers(row.select), source: 'guide' })),
     });
   }
   for (const item of old) if (!seen.has(item.modelCode)) result.push({ ...item, unverified: true, notes: ['Not in the April 2026 guide. Nothing here is verified.', ...(item.notes || [])] });
@@ -929,6 +929,17 @@ export function getGuideStyleRows(catalog, modelCode) {
 /** The guide row for one exact style (prefix + model, e.g. 448 + 803), or null. */
 export function getGuideStyle(catalog, modelCode, prefix) {
   return getGuideStyleRows(catalog, modelCode).find((row) => row.prefix === String(prefix)) || null;
+}
+const SELECT_LABELS = { fabric: 'Select fabric', faux: 'Select faux leather', leather: 'Select leather' };
+/** Price-book select cover lists as display lines, e.g. "Select fabric: B1538 Seamount". Leather entries keep their listed colours. */
+export function formatSelectCovers(select) {
+  return Object.entries(select || {}).map(([kind, covers]) => `${SELECT_LABELS[kind]}: ${covers.map((cover) => `${cover.code} ${cover.name}${cover.colors?.length ? ` (${cover.colors.join(', ')})` : ''}`).join(', ')}`);
+}
+/** Select covers the price book lists for one exact style, each marked when the cover is absent from the A26 program. */
+export function getStyleSelectCovers(catalog, modelCode, prefix) {
+  const known = new Set([...(catalog.fabric_cover_program_a26?.fabrics || []), ...(catalog.fabric_cover_program_a26?.leathers || [])].map((record) => record.coverCode));
+  const select = getGuideStyle(catalog, modelCode, prefix)?.select || {};
+  return Object.fromEntries(Object.entries(select).map(([kind, covers]) => [kind, covers.map((cover) => ({ ...cover, inA26: known.has(cover.code) }))]));
 }
 /** Wood finishes the guide lists for one exact style: its standard finish and its optional finishes. */
 export function getStyleFinishes(catalog, modelCode, prefix) {
@@ -1325,7 +1336,14 @@ export function decodeRmsSku(input, catalog) {
   const swatchCollections = (catalog.stationary_catalog_2026?.products || []).flatMap((product) => (product.catalog_groups || []).flatMap((group) => group.fabric_collections || []));
   const matchedCollection = swatchCollections.find((collection) => (collection.swatches || []).some(([swatch]) => String(swatch) === patternCode + colorCode));
   const colorMatch = patternCode && colorCode ? (matchedCollection?.swatches || []).find(([swatch]) => String(swatch) === patternCode + colorCode) : null;
+  const programCovers = [...(catalog.fabric_cover_program_a26?.fabrics || []), ...(catalog.fabric_cover_program_a26?.leathers || [])];
+  const programGrade = coverToken.match(/^[A-Z]{1,3}/)?.[0] || null;
+  const programRecord = programGrade && patternCode ? programCovers.find((record) => record.coverCode === `${programGrade}${patternCode}`) : null;
+  const programGradeKnown = Boolean(programGrade) && programCovers.some((record) => record.coverCode.match(/^[A-Z]+/)?.[0] === programGrade);
   const cover = coverToken ? {
+    program_pattern_name: programRecord?.patternName || null,
+    program_color_name: programRecord?.colorNames?.[colorCode] || null,
+    program_cap_code: programRecord?.capCode || null,
     raw: coverToken,
     grade: coverToken.match(/^[A-Z]{1,3}/)?.[0] || null,
     pattern: patternCode,
@@ -1339,7 +1357,7 @@ export function decodeRmsSku(input, catalog) {
   const claims = [];
   const physicalFeatures = [];
   if (style.name) physicalFeatures.push(style.name);
-  if (coverToken) physicalFeatures.push(`Cover identifier ${coverToken}${coverRecord?.name ? ` (${coverRecord.name})` : ''}${coverRecord ? ` · ${coverRecord.type || coverRecord.category || 'material type not specified'}` : ''}${colorMatch ? ` · swatch ${colorMatch[1]} from ${matchedCollection?.name || 'supplied Stationary catalog'}` : ' (pattern/color names not resolved)'}`);
+  if (coverToken) physicalFeatures.push(`Cover identifier ${coverToken}${programRecord ? ` · ${programRecord.patternName}${programRecord.colorNames?.[colorCode] ? ` ${programRecord.colorNames[colorCode]}` : ''} (A26 program, cap ${programRecord.capCode})` : ''}${coverRecord?.name ? ` (${coverRecord.name})` : ''}${coverRecord ? ` · ${coverRecord.type || coverRecord.category || 'material type not specified'}` : ''}${colorMatch ? ` · swatch ${colorMatch[1]} from ${matchedCollection?.name || 'supplied Stationary catalog'}` : ' (pattern/color names not resolved)'}`);
   for (let index = 1; index < tokens.length; index += 1) {
     const code = tokens[index].toUpperCase();
     if (index === coverTokenIndex) continue;
@@ -1370,6 +1388,8 @@ export function decodeRmsSku(input, catalog) {
   if (!model) warnings.push(`Model ${modelCode || '(missing)'} is not resolved in the supplied references.`);
   if (claims.some((claim) => claim.status === 'not_listed_for_exact_style')) warnings.push('One or more options are not listed for this exact style; they are not included in the physical-feature summary.');
   if (!coverToken) warnings.push('Cover material, pattern, and color have not been resolved.');
+  else if (programCovers.length && !programGradeKnown) warnings.push(`Grade ${programGrade} is not in the supplied A26 cover program, so its name and cap code are unresolved. Confirm the cover in RMS.`);
+  else if (programCovers.length && !programRecord) warnings.push(`Pattern ${programGrade}${patternCode} is not in the supplied A26 cover program. Confirm the cover in RMS.`);
   return {
     input: raw,
     style,

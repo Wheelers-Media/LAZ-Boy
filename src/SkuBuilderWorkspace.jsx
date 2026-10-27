@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Check, Copy, Info, Printer, Wrench } from 'lucide-react';
 import { CoverPicker } from './CoverPicker.jsx';
-import { buildRmsSkuPreview, decodeRmsSku, getGuideStyle, isUnlistedModel, getModelCoverOptions, getModelCoverSwatches, getRmsModelStyleChoices, getRmsStyleOptions, getStyleFinishes } from './logic.js';
+import { buildRmsSkuPreview, decodeRmsSku, formatSelectCovers, getGuideStyle, isUnlistedModel, getModelCoverOptions, getModelCoverSwatches, getRmsModelStyleChoices, getRmsStyleOptions, getStyleFinishes } from './logic.js';
 
 const MODEL_LINE_EXTRAS = [
   { model_code: '677', model_name: 'Lauren', category: 'Stationary Sofa', scale: 'Mid-Scale Classic' },
@@ -45,6 +45,7 @@ export function SkuBuilderWorkspace({ catalog, modelCode, setModelCode, prefix, 
   const options = customActive ? [] : [...new Set([...(trimCode !== 'NN' && allowedOptions.has(trimCode) ? [trimCode] : []), ...(cushionCode !== 'Standard' && allowedOptions.has(cushionCode) ? [cushionCode] : []), ...optionCodes.filter((code) => allowedOptions.has(code) && !['NB', 'NH', 'NS', 'FS', 'Z6', 'DC', 'FN', 'ES'].includes(code))])];
   const displayStyle = customActive ? customStyle : selectedModelCode;
   const guideStyle = useMemo(() => getGuideStyle(catalog, selectedModelCode, activePrefix), [catalog, selectedModelCode, activePrefix]);
+  const styleSelect = useMemo(() => formatSelectCovers(guideStyle?.select), [guideStyle]);
   const styleFinishes = useMemo(() => getStyleFinishes(catalog, selectedModelCode, activePrefix), [catalog, selectedModelCode, activePrefix]);
   const guideListsModel = choices.length > 0 && Boolean(catalog.style_index_2026?.styles?.some((row) => row.model === selectedModelCode));
   const unlisted = isUnlistedModel(catalog, selectedModelCode);
@@ -113,7 +114,7 @@ export function SkuBuilderWorkspace({ catalog, modelCode, setModelCode, prefix, 
         <label className="form-field"><span>1 · Model (RMS Style)</span><select value={selectedModel?.model_code || ''} onChange={(event) => changeModel(event.target.value)}>{models.map((item) => <option key={item.model_code} value={item.model_code}>{item.model_name} · {item.model_code}</option>)}</select><small>{unlisted ? 'Not in the April 2026 guide or price book. Covers, finishes and options are not documented, so none are offered.' : 'Selections below are narrowed to this model and its documented style.'}</small></label>
         <div className="rms-two-col">
           {choices.length > 0 && <label className="form-field"><span>2 · Group (style prefix)</span><select aria-label="RMS Group" value={activePrefix} onChange={(event) => changeGroup(event.target.value)}><option value="" disabled>Choose documented Group</option>{choices.map((item) => <option key={item.code} value={item.code}>{item.code} · {item.label}</option>)}</select></label>}
-          <p className="field-label rms-step">3 · Cover (Grade, Pattern, Color)</p><CoverPicker key={selectedModelCode} swatches={modelSwatches} value={selectedSwatchCode} onChange={(code) => setSelectedSwatchCode(code)} />
+          <p className="field-label rms-step">3 · Cover (Grade, Pattern, Color)</p><CoverPicker key={selectedModelCode} swatches={modelSwatches} value={selectedSwatchCode} onChange={(code) => setSelectedSwatchCode(code)} />{styleSelect.length > 0 && <div className="tip-strip"><Info size={16} /><span><strong>Price-book select covers for this style.</strong> {styleSelect.join(' · ')}</span></div>}
           {finishAllowed && <label className="form-field"><span>4 · Finish (FN)</span><select value={finishChoices.some((item) => item.code === finish) ? finish : ''} onChange={(event) => setFinish(event.target.value)}><option value="">Choose a finish…</option>{finishChoices.map((item) => <option key={item.code} value={item.code}>{item.name} · {item.code}{item.standard ? ' (standard)' : ''}</option>)}</select></label>}
           {allowedTrims.length > 1 && <label className="form-field"><span>Nailhead trim</span><select value={allowedTrims.some((item) => item.code === trimCode) ? trimCode : 'NN'} onChange={(event) => setTrimCode(event.target.value)}>{allowedTrims.map((item) => <option key={item.code} value={item.code}>{item.code} · {item.name}</option>)}</select></label>}
           {allowedCushions.length > 1 && <label className="form-field"><span>Cushion option</span><select value={allowedCushions.some((item) => item.code === cushionCode) ? cushionCode : 'Standard'} onChange={(event) => setCushionCode(event.target.value)}>{allowedCushions.map((item) => <option key={item.code} value={item.code}>{item.code} · {item.name}</option>)}</select></label>}
