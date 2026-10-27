@@ -33,8 +33,16 @@ function PieceArt({ item }) {
     return <g><rect className="fp-body" width={w} height={d} rx="4" /><rect className="fp-cushion" x="1.5" y="1.5" width={w - 3} height={d - 3} rx="3" /><path className="fp-stitch" d={`M${w / 2} 4V${d - 4}M4 ${d / 2}H${w - 4}`} /></g>;
   }
   if (kind === 'corner') {
-    return <g><rect className="fp-body" width={w} height={d} rx="3" /><rect className="fp-back" width={w} height={back} rx="2" />
-      <rect className="fp-cushion" x="0.8" y={back + 0.8} width={w - 1.6} height={d - back - 1.6} rx="3" /></g>;
+    // Elbow: the back hugs the top and left walls with a rounded outer corner; the front edges are where the neighbours
+    // attach (attachIn long), joined by a diagonal. Extents are the published W on both axes; the corner radius is schematic.
+    const attach = Math.min(item.attachIn || w * 0.6, w);
+    const r = w * 0.3;
+    const thick = Math.max(8, back * 1.3);
+    const outline = `M${w} 0L${w} ${attach}L${attach} ${w}L0 ${w}L0 ${r}Q0 0 ${r} 0Z`;
+    const seat = `M${w} ${thick}L${w} ${attach}L${attach} ${w}L${thick} ${w}L${thick} ${r}Q${thick} ${thick} ${r} ${thick}Z`;
+    return <g><path className="fp-body" d={outline} />
+      <path className="fp-back" d={`M${w} ${thick / 2}L${r} ${thick / 2}Q${thick / 2} ${thick / 2} ${thick / 2} ${r}L${thick / 2} ${w}`} style={{ fill: 'none', stroke: '#b8ae98', strokeWidth: thick }} />
+      <path className="fp-cushion" d={seat} /></g>;
   }
   return <g><rect className="fp-body" width={w} height={d} rx="3" /><rect className="fp-back" width={w} height={back} rx="2" />
     {leftArm && <rect className="fp-arm" width={arm} height={d} rx="2" />}{rightArm && <rect className="fp-arm" x={w - arm} width={arm} height={d} rx="2" />}
@@ -42,9 +50,16 @@ function PieceArt({ item }) {
     {recliner && <path className="fp-stitch" d={`M${(from + to) / 2 - 5} ${d - 7}l5 4l5 -4`} />}</g>;
 }
 
+/** Published size: a corner's footprint is W along each wall, but its catalog label is W x D (D = the attach edge). */
+const publishedSize = (item) => ({ width: item.baseWidth, depth: item.attachIn || item.baseHeight });
+
 const pieceTransform = (item) => {
   const { x, y, baseWidth: w, baseHeight: d } = item;
-  switch (normalizeRotation(item.rotation)) {
+  const flip = item.mirror ? ` translate(${w} 0) scale(-1 1)` : '';
+  return `${rotationTransform(normalizeRotation(item.rotation), x, y, w, d)}${flip}`;
+};
+const rotationTransform = (rotation, x, y, w, d) => {
+  switch (rotation) {
     case 90: return `translate(${x} ${y}) translate(${d} 0) rotate(90)`;
     case 180: return `translate(${x} ${y}) translate(${w} ${d}) rotate(180)`;
     case 270: return `translate(${x} ${y}) translate(0 ${w}) rotate(270)`;
@@ -210,19 +225,19 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
             <text className="fp-dim" x={room.width / 2} y={-8} textAnchor="middle">{roomWidth}′</text>
             <text className="fp-dim" x={-9} y={room.height / 2} textAnchor="middle" transform={`rotate(-90 -9 ${room.height / 2})`}>{roomDepth}′</text>
             {showReach && items.map((item) => { const zone = reachRect(item); return zone ? <rect key={`r${item.id}`} className={`fp-reach ${reach.some((entry) => entry.id === item.id) ? 'blocked' : ''}`} x={zone.x} y={zone.y} width={zone.width} height={zone.height} /> : null; })}
-            {items.map((item) => <g key={item.id} className={`fp-piece ${selectedId === item.id ? 'selected' : ''}`} onPointerDown={(event) => startDrag(event, item)} role="button" tabIndex={0} aria-label={`${item.name}, ${item.code}, ${formatInches(item.baseWidth)} wide by ${formatInches(item.baseHeight)} deep. Select or drag.`} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelectedId(item.id); } }}>
+            {items.map((item) => <g key={item.id} className={`fp-piece ${selectedId === item.id ? 'selected' : ''}`} onPointerDown={(event) => startDrag(event, item)} role="button" tabIndex={0} aria-label={`${item.name}, ${item.code}, ${formatInches(publishedSize(item).width)} wide by ${formatInches(publishedSize(item).depth)} deep. Select or drag.`} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelectedId(item.id); } }}>
               <g transform={pieceTransform(item)}><PieceArt item={item} /></g>
               <rect className="fp-outline" x={item.x} y={item.y} width={item.width} height={item.height} />
             </g>)}
             {items.map((item) => <g key={`t${item.id}`} className="fp-labels" pointerEvents="none">
               <text className="fp-code" x={item.x + item.width / 2} y={item.y + item.height / 2} textAnchor="middle" dominantBaseline="central" fontSize={Math.max(5, Math.min(9, Math.min(item.width, item.height) * 0.22))}>{item.code}</text>
-              {showSizes && item.width >= 44 && item.height >= 30 && <text className="fp-size" x={item.x + item.width / 2} y={item.y + item.height / 2 + Math.max(5, Math.min(9, Math.min(item.width, item.height) * 0.22)) * 1.15} textAnchor="middle" dominantBaseline="central" fontSize="5">{formatInches(item.baseWidth)} × {formatInches(item.baseHeight)}</text>}
+              {showSizes && item.width >= 44 && item.height >= 30 && <text className="fp-size" x={item.x + item.width / 2} y={item.y + item.height / 2 + Math.max(5, Math.min(9, Math.min(item.width, item.height) * 0.22)) * 1.15} textAnchor="middle" dominantBaseline="central" fontSize="5">{formatInches(publishedSize(item).width)} × {formatInches(publishedSize(item).depth)}</text>}
             </g>)}
             <g className="fp-scale" pointerEvents="none"><rect x="0" y={room.height + 6} width="60" height="2.5" /><text x="0" y={room.height + 14} fontSize="5.5">5′ scale</text></g>
           </svg>
           {!items.length && <div className="studio-board-empty"><Sofa size={38} /><strong>Start with a layout or add a piece</strong><span>Pieces are drawn at their real size and cannot overlap</span></div>}
         </div>
-        <div className="studio-board-controls">{selectedItem ? <div className="studio-selected-actions"><strong>{selectedItem.name} · {selectedItem.code}</strong><span>{formatInches(selectedItem.baseWidth)} W × {formatInches(selectedItem.baseHeight)} D{selectedItem.heightIn ? ` × ${formatInches(selectedItem.heightIn)} H` : ''}{selectedItem.reachIn ? ` · ${formatInches(selectedItem.reachIn)} reclined` : ''}</span><button type="button" onClick={rotateSelected} aria-label="Rotate selected piece"><RotateCw size={15} /> Rotate 90°</button><button type="button" onClick={removeSelected} aria-label="Remove selected piece"><Minus size={15} /> Remove</button></div> : <span>Select a piece to see its size. Drag to move; arrow keys nudge 1″, Shift 6″.</span>}</div>
+        <div className="studio-board-controls">{selectedItem ? <div className="studio-selected-actions"><strong>{selectedItem.name} · {selectedItem.code}</strong><span>{formatInches(publishedSize(selectedItem).width)} W × {formatInches(publishedSize(selectedItem).depth)} D{selectedItem.heightIn ? ` × ${formatInches(selectedItem.heightIn)} H` : ''}{selectedItem.reachIn ? ` · ${formatInches(selectedItem.reachIn)} reclined` : ''}</span><button type="button" onClick={rotateSelected} aria-label="Rotate selected piece"><RotateCw size={15} /> Rotate 90°</button><button type="button" onClick={removeSelected} aria-label="Remove selected piece"><Minus size={15} /> Remove</button></div> : <span>Select a piece to see its size. Drag to move; arrow keys nudge 1″, Shift 6″.</span>}</div>
         {summary && <div className="studio-summary"><span><strong>{formatInches(summary.width)} × {formatInches(summary.depth)}</strong> overall footprint</span><span>Gap to walls: left {formatInches(summary.gaps.left)} · right {formatInches(summary.gaps.right)} · top {formatInches(summary.gaps.top)} · bottom {formatInches(summary.gaps.bottom)}</span></div>}
         {notice && <p className="studio-notice" role="status">{notice}</p>}
       </section>
