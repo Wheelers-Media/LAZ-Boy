@@ -15,13 +15,14 @@ const namesFor = (coverCode, colors) => {
   return Object.keys(found).length ? found : undefined;
 };
 
-const fabrics = read('a26-fabrics.txt').map((line) => {
+const parseFabrics = (file) => read(file).map((line) => {
   const [coverCode, patternName, colors, capCode, wearability, cleaningCode, specialty] = line.split('|');
   return { coverCode, patternName, colors: list(colors), colorNames: namesFor(coverCode, list(colors)), capCode, wearability, cleaningCode, specialtyAttributes: codes(specialty) };
 });
 
+const parseLeathers = (file) => {
 const leathers = [];
-for (const line of read('a26-leathers.txt')) {
+for (const line of read(file)) {
   const [group, coverCode, patternName, colors, capCode, leatherType, model, specialty, note] = line.split('|');
   const key = `${group}|${coverCode}|${colors}`;
   let record = leathers.find((item) => item.key === key);
@@ -36,6 +37,38 @@ for (const record of leathers) {
   delete record.key;
   record.colorNames = namesFor(record.coverCode, record.colors);
   if (!record.notes.length) delete record.notes;
+}
+return leathers;
+};
+const fabrics = parseFabrics('a26-fabrics.txt');
+const leathers = parseLeathers('a26-leathers.txt');
+
+// October 2025 records the April 2026 list no longer carries: whole covers, or colours dropped from a cover April still lists.
+// Leathers are compared per model number because a cover code can sit on several models.
+const modelNumber = (entry) => String(entry).trim().split(/\s+/)[0];
+const priorFabrics = [];
+for (const record of parseFabrics('o25-fabrics.txt')) {
+  const april = fabrics.find((item) => item.coverCode === record.coverCode);
+  const colors = record.colors.filter((color) => !april?.colors.includes(color));
+  if (!colors.length) continue;
+  const { colorNames, ...rest } = record;
+  priorFabrics.push({ ...rest, colors, colorNames: namesFor(record.coverCode, colors), ...(april ? { droppedColorsOnly: true } : {}) });
+}
+const priorLeathers = [];
+for (const record of parseLeathers('o25-leathers.txt')) {
+  const aprilFor = (model) => leathers.filter((item) => item.coverCode === record.coverCode && (!model || item.models.some((entry) => modelNumber(entry) === modelNumber(model)))).flatMap((item) => item.colors);
+  const units = record.models.length ? record.models.map((model) => ({ models: [model], taken: aprilFor(model) })) : [{ models: [], taken: aprilFor() }];
+  const buckets = new Map();
+  for (const unit of units) {
+    const colors = record.colors.filter((color) => !unit.taken.includes(color));
+    if (!colors.length) continue;
+    const key = colors.join(' ');
+    buckets.set(key, { colors, models: [...(buckets.get(key)?.models || []), ...unit.models], partial: unit.taken.length > 0 });
+  }
+  for (const { colors, models, partial } of buckets.values()) {
+    const { colorNames, ...rest } = record;
+    priorLeathers.push({ ...rest, colors, models, colorNames: namesFor(record.coverCode, colors), ...(partial ? { droppedColorsOnly: true } : {}) });
+  }
 }
 
 const existing = JSON.parse(fs.readFileSync(target, 'utf8'));
@@ -60,8 +93,14 @@ const next = {
   },
   fabrics,
   leathers,
+  priorSeason: {
+    label: 'October 2025',
+    note: 'Covers and colours in the October 2025 program that the April 2026 list does not carry. Whether they can still be ordered is not confirmed. Confirm before offering one.',
+    fabrics: priorFabrics,
+    leathers: priorLeathers,
+  },
 };
 // Keep arrays of plain strings on one line so the file stays readable.
 const text = JSON.stringify(next, null, 2).replace(/\[\s*((?:"[^"\n]*",?\s*)+)\]/g, (_, body) => `[${body.trim().replace(/,\s+/g, ', ')}]`);
 fs.writeFileSync(target, `${text}\n`);
-console.log(`fabrics ${fabrics.length}, leathers ${leathers.length}`);
+console.log(`fabrics ${fabrics.length}, leathers ${leathers.length}, prior fabrics ${priorFabrics.length}, prior leathers ${priorLeathers.length}`);

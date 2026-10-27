@@ -1338,12 +1338,18 @@ export function decodeRmsSku(input, catalog) {
   const colorMatch = patternCode && colorCode ? (matchedCollection?.swatches || []).find(([swatch]) => String(swatch) === patternCode + colorCode) : null;
   const programCovers = [...(catalog.fabric_cover_program_a26?.fabrics || []), ...(catalog.fabric_cover_program_a26?.leathers || [])];
   const programGrade = coverToken.match(/^[A-Z]{1,3}/)?.[0] || null;
-  const programRecord = programGrade && patternCode ? programCovers.find((record) => record.coverCode === `${programGrade}${patternCode}`) : null;
+  const aprilRecord = programGrade && patternCode ? programCovers.find((record) => record.coverCode === `${programGrade}${patternCode}`) : null;
+  const priorSeason = catalog.fabric_cover_program_a26?.priorSeason;
+  const priorRecord = programGrade && patternCode && !aprilRecord?.colors?.includes(colorCode) ? [...(priorSeason?.fabrics || []), ...(priorSeason?.leathers || [])].find((record) => record.coverCode === `${programGrade}${patternCode}` && record.colors.includes(colorCode)) : null;
+  const programRecord = priorRecord || aprilRecord;
+  const programSeason = programRecord ? (priorRecord ? priorSeason.label : 'April 2026') : null;
   const programGradeKnown = Boolean(programGrade) && programCovers.some((record) => record.coverCode.match(/^[A-Z]+/)?.[0] === programGrade);
   const cover = coverToken ? {
     program_pattern_name: programRecord?.patternName || null,
     program_color_name: programRecord?.colorNames?.[colorCode] || null,
     program_cap_code: programRecord?.capCode || null,
+    program_season: programSeason,
+    program_note: priorRecord ? `${priorSeason.label} program, not on the April 2026 list. Confirm it can still be ordered.` : null,
     raw: coverToken,
     grade: coverToken.match(/^[A-Z]{1,3}/)?.[0] || null,
     pattern: patternCode,
@@ -1357,7 +1363,7 @@ export function decodeRmsSku(input, catalog) {
   const claims = [];
   const physicalFeatures = [];
   if (style.name) physicalFeatures.push(style.name);
-  if (coverToken) physicalFeatures.push(`Cover identifier ${coverToken}${programRecord ? ` · ${programRecord.patternName}${programRecord.colorNames?.[colorCode] ? ` ${programRecord.colorNames[colorCode]}` : ''} (A26 program, cap ${programRecord.capCode})` : ''}${coverRecord?.name ? ` (${coverRecord.name})` : ''}${coverRecord ? ` · ${coverRecord.type || coverRecord.category || 'material type not specified'}` : ''}${colorMatch ? ` · swatch ${colorMatch[1]} from ${matchedCollection?.name || 'supplied Stationary catalog'}` : ' (pattern/color names not resolved)'}`);
+  if (coverToken) physicalFeatures.push(`Cover identifier ${coverToken}${programRecord ? ` · ${programRecord.patternName}${programRecord.colorNames?.[colorCode] ? ` ${programRecord.colorNames[colorCode]}` : ''} (${priorRecord ? `${priorSeason.label} program, not on the April 2026 list` : 'A26 program'}, cap ${programRecord.capCode})` : ''}${coverRecord?.name ? ` (${coverRecord.name})` : ''}${coverRecord ? ` · ${coverRecord.type || coverRecord.category || 'material type not specified'}` : ''}${colorMatch ? ` · swatch ${colorMatch[1]} from ${matchedCollection?.name || 'supplied Stationary catalog'}` : ' (pattern/color names not resolved)'}`);
   for (let index = 1; index < tokens.length; index += 1) {
     const code = tokens[index].toUpperCase();
     if (index === coverTokenIndex) continue;
@@ -1389,6 +1395,7 @@ export function decodeRmsSku(input, catalog) {
   if (claims.some((claim) => claim.status === 'not_listed_for_exact_style')) warnings.push('One or more options are not listed for this exact style; they are not included in the physical-feature summary.');
   if (!coverToken) warnings.push('Cover material, pattern, and color have not been resolved.');
   else if (programCovers.length && !programGradeKnown) warnings.push(`Grade ${programGrade} is not in the supplied A26 cover program, so its name and cap code are unresolved. Confirm the cover in RMS.`);
+  else if (priorRecord) warnings.push(`Cover ${coverToken} is from the ${priorSeason.label} program and is not on the April 2026 list. Confirm in RMS that it can still be ordered for this model.`);
   else if (programCovers.length && !programRecord) warnings.push(`Pattern ${programGrade}${patternCode} is not in the supplied A26 cover program. Confirm the cover in RMS.`);
   return {
     input: raw,

@@ -411,3 +411,7 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
   .index-jump::-webkit-scrollbar { display: none; }
   .index-jump a { flex: none; }
 }
+
+.fabric-prior-toggle { margin: 4px 0 14px; }
+.fabric-prior-toggle p { margin: 6px 0 0; font-size: 13px; color: var(--muted, #5b6670); }
+.fabric-prior-badge { display: block; margin: 2px 0; font-style: normal; font-size: 12px; font-weight: 700; color: #8a4b00; }
