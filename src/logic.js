@@ -510,7 +510,7 @@ function cushionPreferenceMatches(preference = '', options = new Set()) {
 }
 
 const heightValues = (value) => [...String(value).matchAll(/(\d+)\s*[′'’]\s*(\d+)/g)].map((match) => Number(match[1]) * 12 + Number(match[2]));
-const heightInches = (value) => /under/i.test(String(value)) ? 64 : heightValues(value)[0] ?? null;
+export const heightInches = (value) => /under/i.test(String(value)) ? 64 : heightValues(value)[0] ?? null;
 const modelHeightRange = (value) => {
   const heights = heightValues(value);
   if (/universal/i.test(String(value))) return [0, Infinity];

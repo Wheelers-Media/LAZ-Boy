@@ -7,6 +7,7 @@ import { encodeRmsSku, findLiftTier, findCompatibleBattery, getCatalogCapability
 import { CustomizeFloorUnit, SectionalStudio } from './FloorWorkspaces.jsx';
 import { SectionalDesignStudio } from './SectionalDesignStudio.jsx';
 import { SkuBuilderWorkspace } from './SkuBuilderWorkspace.jsx';
+import { heightInches } from './logic.js';
 
 const STEPS = ['Ergonomics', 'Room clearance', 'Category', 'Mechanisms', 'Upholstery'];
 const NAV_ITEMS = [[Armchair, 'Fit'], [Wrench, 'SKU Builder'], [BookOpen, 'Product Index'], [Sparkles, 'Floor Unit'], [Layers3, 'Sectional Studio'], [SwatchBook, 'Fabrics & Care'], [ShieldCheck, 'Support']];
@@ -166,8 +167,8 @@ function App() {
   const currentRecommendationLeads = fitModelCode ? filteredRecommendations : recommendations;
   const currentVisibleCapabilityLeads = fitModelCode ? filteredCapabilityLeads : capabilityLeads;
   const availableModelCovers = filterCoverOptionsByMaterial(productCoverOptions, answers.material_preference);
-  const selectedHeightInches = /under/i.test(answers.height) ? 64 : (() => { const [, feet = '0', inches = '0'] = String(answers.height).match(/(\\d+)\s*[′'’](?:\s*(\\d+))?/) || []; return Number(feet) * 12 + Number(inches); })();
-  const fitGuide = researchReference?.fit_guidance_bands?.find((band) => selectedHeightInches >= band.height_min_inches && selectedHeightInches <= (band.height_max_inches ?? Infinity));
+  const selectedHeightInches = heightInches(answers.height);
+  const fitGuide = Number.isFinite(selectedHeightInches) ? researchReference?.fit_guidance_bands?.find((band) => selectedHeightInches >= band.height_min_inches && selectedHeightInches <= (band.height_max_inches ?? Infinity)) : undefined;
   const batteryOption = optionCodes.find((code) => code === 'BP1' || code === 'BP2');
   const batteryWarning = batteryOption && !findCompatibleBattery(catalog || { style_prefixes: [], battery_packs: [] }, prefix, batteryOption) ? `${batteryOption} is not compatible with ${currentPrefix?.motion_type || prefix} per the v2 rules. Check compatibility before adding this option.` : '';
 
