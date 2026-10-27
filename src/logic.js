@@ -886,6 +886,8 @@ export function applyGuideOptionDefinitions(catalog) {
   const merged = new Map((catalog.option_suffixes || []).map((item) => [item.code, item]));
   defs.forEach((def, code) => merged.set(code, { ...(merged.get(code) || {}), code, ...def }));
   const rename = (list) => (list || []).map((item) => (defs.has(item.code) ? { ...item, name: defs.get(item.code).name, description: defs.get(item.code).description || item.description } : item));
+  // Options the RMS custom-order screen shows that the guide's option list does not name (C1, F1, WL, Z4). The guide's wording wins where both define a code.
+  for (const item of catalog?.rms_option_codes?.options || []) merged.set(item.code, { ...item, ...(merged.get(item.code) || {}), entry: item.entry });
   return { ...catalog, option_suffixes: [...merged.values()], cushion_upgrades: rename(catalog.cushion_upgrades), nailhead_trims: rename(catalog.nailhead_trims) };
 }
 

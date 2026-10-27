@@ -115,3 +115,17 @@ test('a style that lists FN but has no finishes in the guide offers no finish ch
     assert.equal(getRmsStyleOptions(catalog, row.model, row.prefix).finishMarkerListed, false, number);
   }
 });
+
+test('RMS custom-order options C1, F1, WL and Z4 are named; P1 and WL need a cover', async () => {
+  const { applyGuideOptionDefinitions, decodeRmsSku } = await import('../src/logic.js');
+  const fixed = applyGuideOptionDefinitions({ ...catalog, rms_option_codes: await read('option-codes-rms.json') });
+  const find = (code) => fixed.option_suffixes.find((item) => item.code === code);
+  assert.equal(find('C1').name, 'Cord Option');
+  assert.equal(find('F1').name, 'Fringe Option');
+  assert.equal(find('WL').name, 'Contrasting Welt');
+  assert.equal(find('WL').entry, 'cover');
+  assert.equal(find('P1').entry, 'cover');
+  assert.equal(find('FS').name, 'La-Z-Boy® Contour Cushion');
+  const decoded = decodeRmsSku('610681 D200952 FN 041 P1 Q199357 C1', fixed);
+  assert.ok(decoded.claims.some((claim) => claim.code === 'C1'));
+});
