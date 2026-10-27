@@ -11,10 +11,6 @@ import { heightInches } from './logic.js';
 
 const STEPS = ['Ergonomics', 'Room clearance', 'Category', 'Mechanisms', 'Upholstery'];
 const NAV_ITEMS = [[Armchair, 'Fit'], [Wrench, 'SKU Builder'], [BookOpen, 'Product Index'], [Sparkles, 'Floor Unit'], [Layers3, 'Sectional Studio'], [SwatchBook, 'Fabrics & Care'], [ShieldCheck, 'Support']];
-const MODEL_LINES = [
-  { code: '677', name: 'Lauren', prefix: '610', category: 'Stationary Sofa', scale: 'Mid-Scale Classic', recommended_height: '5′5″–5′11″', weight_limit_lbs: 300, quick_spotter: 'Rolled arms with welt trim and boxed cushions.' },
-  { code: '811', name: 'Acadia', prefix: '811', category: 'Motion Sectional', scale: 'Contemporary', recommended_height: '5′6″–6′1″', weight_limit_lbs: 300, quick_spotter: 'Elevated exposed wood legs with power motion.' },
-];
 const categories = ['Recliners', 'High-leg designer', 'Motion sofas / loveseats', 'Modular sectionals', 'Stationary suites', 'Sleepers', 'Lift chairs'];
 const mechanismOptions = [
   ['Manual', 'Simple, dependable reclining'],
@@ -41,8 +37,8 @@ const modelPrefixOptions = (catalog, code) => {
                 : /recliner/.test(category) && !/high leg|lift/.test(category);
   });
 };
-const modelFor = (catalog, code) => catalog.models_database.find((model) => model.model_code === code) || MODEL_LINES.find((model) => model.model_code === code);
-const initialAnswers = { scale: 'Average / Mid-Scale', height: "5′8″", weight: '', clearance: 'Standard · 12–18 in', category: 'Recliners', mechanism: 'Power recline', upgrades: [], fabric: '', kidsPets: false, seat_depth_preference: 'Not sure yet', back_support_preference: 'Not sure yet', cushion_preference: 'Standard Poly', support_preference: 'No preference yet', material_preference: 'No preference yet' };
+const modelFor = (catalog, code) => catalog.models_database.find((model) => model.model_code === code);
+const initialAnswers = { scale: 'Small / Medium', height: "5′8″", weight: '', clearance: 'Standard · 12–18 in', category: 'Recliners', mechanism: 'Power recline', upgrades: [], fabric: '', kidsPets: false, seat_depth_preference: 'Not sure yet', back_support_preference: 'Not sure yet', cushion_preference: 'Standard Poly', support_preference: 'No preference yet', material_preference: 'No preference yet' };
 const DEFAULT_COLOR_SHADE = '6';
 function App() {
   const [catalog, setCatalog] = useState(null);
@@ -303,7 +299,7 @@ function App() {
   const batteryCompatibility = matchedPrefixForBattery?.battery_pack === 'INCOMPATIBLE' ? `${batteryType} luxury lift chair is incompatible with battery packs` : matchedPrefixForBattery?.battery_pack ? `${matchedPrefixForBattery.battery_pack} compatible · ${matchedPrefixForBattery.motion_type}` : 'No battery pack required for this manual configuration';
   const weightResult = findLiftTier(catalog || { lift_chair_weight_tiers: [] }, liftWeight, liftModelCode);
   const warranty = catalog?.warranty_rules;
-  const floorModelRecord = catalog?.models_database.find((item) => item.model_code === floorModel) || MODEL_LINES.find((item) => item.model_code === floorModel);
+  const floorModelRecord = catalog?.models_database.find((item) => item.model_code === floorModel);
   const floorPrefix = catalog?.style_prefixes.find((item) => item.code === floorModelRecord?.prefix);
   const floorWarranty = `${catalog?.warranty_matrix?.['3_Year']} ${catalog?.warranty_matrix?.['1_Year']}`;
 
