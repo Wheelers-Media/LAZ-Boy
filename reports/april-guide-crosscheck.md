@@ -43,3 +43,14 @@ Nothing here has been changed in the data. The guide and the app's catalogs may 
 ## Label to check
 
 The app's text calls its catalogs "Summer/Fall 2026" (26 places). The recliner and stationary catalogs in the project are labelled Winter/Spring 2025. Confirm which edition the JSON was built from.
+
+## Checked against the catalog PDFs (project source of truth)
+
+Every style row in the Recliner, Stationary and Designer's Choice PDFs was compared with the app data (378 styles).
+
+- Added from the PDFs: Lennon 787 (5 styles), Laurel 411 and Natalie 491 (8 styles).
+- Corrected from the PDFs, each also confirmed by the April guide: 747 10U/10X (no FN), 803 10X (adds RW), 725 P16 (adds FN), 240-435 (no options).
+- Left as is, because the April guide agrees with the app and not the older catalog page: 22 dimension differences (for example 10U530 height, the 603 family height, 665 chaise depth) and 7 option differences.
+- Left as is, needs a decision: 60M694 and 6MM694 (catalog lists P1, guide and app do not).
+- Catalog typo, ignored: P91899 lists FN twice.
+- Swatch names: all 246 swatches in the app match the PDF labels.

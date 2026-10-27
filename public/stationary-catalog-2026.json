@@ -35,6 +35,19 @@
   "source_note": "Catalog facts below are transcribed from the supplied Summer/Fall 2026 stationary catalog text extraction. The catalog says to refer to current price books for complete details. Measurements are listed as H × W × D in inches unless the source itself uses another order. Availability and options remain style-specific.",
   "index": [
     {
+      "model_code": "411",
+      "model_name": "Laurel",
+      "pages": [
+        1
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Chair & Ottoman"
+      ],
+      "fabric": true,
+      "leather": false
+    },
+    {
       "model_code": "418",
       "model_name": "Leah",
       "pages": [
@@ -60,6 +73,21 @@
       ],
       "fabric": true,
       "leather": true
+    },
+    {
+      "model_code": "491",
+      "model_name": "Natalie",
+      "pages": [
+        4
+      ],
+      "catalog_categories": [
+        "Sofa",
+        "Sleeper",
+        "Loveseat",
+        "Chair & Ottoman"
+      ],
+      "fabric": true,
+      "leather": false
     },
     {
       "model_code": "494",
@@ -648,6 +676,113 @@
   },
   "products": [
     {
+      "model_code": "411",
+      "model_name": "Laurel",
+      "pages": [
+        1
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sofa",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR"
+            ]
+          },
+          "finishes": [
+            "021",
+            "007",
+            "041"
+          ],
+          "fabric_collections": [
+            {
+              "name": "McKittrick",
+              "prefix": "C1659",
+              "swatches": [
+                [
+                  "C165962",
+                  "Smoke"
+                ],
+                [
+                  "C165967",
+                  "Charcoal"
+                ],
+                [
+                  "C165972",
+                  "Taupe"
+                ],
+                [
+                  "C165986",
+                  "Indigo"
+                ],
+                [
+                  "C165992",
+                  "Mist"
+                ]
+              ]
+            },
+            {
+              "name": "Duffey",
+              "prefix": "C2042",
+              "swatches": [
+                [
+                  "C204232",
+                  "Oat"
+                ],
+                [
+                  "C204253",
+                  "Fog"
+                ],
+                [
+                  "C204260",
+                  "Dove"
+                ],
+                [
+                  "C204274",
+                  "Hazel"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "610-411",
+              "category": "Sofa",
+              "dimensions": "39 in H × 80 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "655-411",
+              "category": "Chair & a Half",
+              "dimensions": "39 in H × 52 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "240-411",
+              "category": "Ottoman",
+              "dimensions": "19 in H × 41 in W × 23.5 in D",
+              "options": [
+                "N/A"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "model_code": "418",
       "model_name": "Leah",
       "pages": [
@@ -922,6 +1057,116 @@
               "style_code": "240-435",
               "category": "Ottoman",
               "dimensions": "19.5 in H × 32 in W × 24 in D",
+              "options": [
+                "N/A"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_code": "491",
+      "model_name": "Natalie",
+      "pages": [
+        4
+      ],
+      "catalog_groups": [
+        {
+          "name": "Sofa",
+          "cover_cap_choices": {
+            "fabric": [
+              "DR",
+              "UR"
+            ]
+          },
+          "finishes": [
+            "007",
+            "021",
+            "041",
+            "071"
+          ],
+          "fabric_collections": [
+            {
+              "name": "Damon",
+              "prefix": "C1812",
+              "swatches": [
+                [
+                  "C181233",
+                  "Oyster"
+                ],
+                [
+                  "C181254",
+                  "Stone"
+                ],
+                [
+                  "C181257",
+                  "Charcoal"
+                ],
+                [
+                  "C181262",
+                  "Muslin"
+                ],
+                [
+                  "C181286",
+                  "Midnight"
+                ]
+              ]
+            }
+          ],
+          "styles": [
+            {
+              "style_code": "610-491",
+              "category": "Sofa",
+              "dimensions": "39 in H × 89 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "510-491",
+              "category": "Queen Sleep Sofa",
+              "dimensions": "39 in H × 86 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "MA",
+                "MT",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "630-491",
+              "category": "Loveseat",
+              "dimensions": "39 in H × 65 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "FP",
+                "P1",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "230-491",
+              "category": "Chair",
+              "dimensions": "39 in H × 41 in W × 38 in D",
+              "options": [
+                "DC",
+                "FN",
+                "Z6"
+              ]
+            },
+            {
+              "style_code": "240-491",
+              "category": "Ottoman",
+              "dimensions": "19 in H × 31.5 in W × 23 in D",
               "options": [
                 "FN"
               ]
