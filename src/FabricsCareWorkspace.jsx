@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Droplets, Search, Shield, Sparkles } from 'lucide-react';
+import { Droplets, Search, Shield, Sparkles } from './icons.jsx';
 import { getCoverReach, swatchImageFor } from './logic.js';
 import { SwatchTile } from './CoverPicker.jsx';
 

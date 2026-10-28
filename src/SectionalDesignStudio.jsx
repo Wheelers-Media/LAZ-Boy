@@ -1,6 +1,6 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { CoverPicker } from './CoverPicker.jsx';
-import { ChevronUp, Copy, Info, Layers3, Printer, Redo2, RotateCw, Scan, Sofa, Trash2, Undo2 } from 'lucide-react';
+import { ChevronUp, Copy, Info, Layers3, Printer, Redo2, RotateCw, Scan, Sofa, Trash2, Undo2 } from './icons.jsx';
 import { buildSectionalStudioRmsLine, getSharedCoverSwatches, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
 import { createItem, findFreeSpot, formatInches, layoutSummary, normalizeRotation, parsePieceDimensions, presetItems, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
 

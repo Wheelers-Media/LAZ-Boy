@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Check, Copy, Info, Printer } from 'lucide-react';
+import { Check, Copy, Info, Printer } from './icons.jsx';
 import { CoverPicker } from './CoverPicker.jsx';
 import { buildRmsSkuPreview, decodeRmsSku, describeCoverEligibility, formatSelectCovers, getGuideStyle, groupModelsBySection, isUnlistedModel, getModelCoverOptions, getModelCoverSwatches, getRmsModelStyleChoices, getRmsStyleOptions, getStyleFinishes } from './logic.js';
 

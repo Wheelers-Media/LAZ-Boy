@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Activity, ArrowRight, Armchair, BatteryCharging, BookOpen, Check, CheckCircle2, Info, Layers3, Menu, Search, ShieldCheck, Sparkles, SwatchBook, Wrench, X } from 'lucide-react';
+import { Activity, ArrowRight, Armchair, BatteryCharging, BookOpen, Check, CheckCircle2, Info, Layers3, Menu, Search, ShieldCheck, Shop, Sparkles, SwatchBook, Wrench, X } from './icons.jsx';
 import './styles.css';
 import './brand.css';
+import './brand-dark.css';
 import { buildSitEntry, buildSwatchIndex, encodeRmsSku, findLiftTier, findCompatibleBattery, getDefaultRmsGroup } from './logic.js';
 import { CustomizeFloorUnit } from './FloorWorkspaces.jsx';
 import { SectionalDesignStudio } from './SectionalDesignStudio.jsx';
@@ -12,7 +13,7 @@ import { FabricsCareWorkspace } from './FabricsCareWorkspace.jsx';
 import { FIT_DEFAULTS, FitDiscover } from './FitDiscover.jsx';
 import { applyGuideOptionDefinitions, formatWallProximity, getGuideProductIndex, getLiftSeriesRatings, getMechanismsForModel, groupModelsBySection, PRODUCT_INDEX_GROUPS, cleanIndexCategories, indexGroupsFor } from './logic.js';
 
-const NAV_ITEMS = [[Armchair, 'Fit'], [Wrench, 'SKU Builder'], [BookOpen, 'Product Index'], [Sparkles, 'Floor Unit'], [Layers3, 'Sectional Studio'], [SwatchBook, 'Fabrics & Care'], [ShieldCheck, 'Support']];
+const NAV_ITEMS = [[Armchair, 'Fit'], [Wrench, 'SKU Builder'], [BookOpen, 'Product Index'], [Shop, 'Floor Unit'], [Layers3, 'Sectional Studio'], [SwatchBook, 'Fabrics & Care'], [ShieldCheck, 'Support']];
 function MechanismPanel({ mechanisms }) {
   if (!mechanisms.length) return null;
   return <details className="mechanism-group"><summary>How {mechanisms.length === 1 ? 'it works' : 'each version works'} · wall space, weight, features</summary><div className="mechanism-panel">{mechanisms.map((mechanism) => <details className="mechanism-entry" key={mechanism.id}><summary><strong>{mechanism.name}</strong><span>{mechanism.modelPrefixes.join(' · ')}</span>{formatWallProximity(mechanism.wallProximityIn) && <span className="mechanism-chip">Wall space {formatWallProximity(mechanism.wallProximityIn)}</span>}{mechanism.weightTestedLbs && <span className="mechanism-chip">Tested to {mechanism.weightTestedLbs} lb</span>}</summary><ul>{mechanism.featureList.map((feature) => <li key={feature.id}><b>{feature.name}.</b> {feature.benefit}</li>)}</ul>{mechanism.alsoStandard && <p>Also standard: {mechanism.alsoStandard.join('; ')}.</p>}{mechanism.warranty && <p>{mechanism.warranty.join(' ')}</p>}{(mechanism.notes || []).map((note) => <p key={note}>{note}</p>)}</details>)}</div></details>;

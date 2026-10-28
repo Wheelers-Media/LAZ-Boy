@@ -1,0 +1,49 @@
+/*
+  La-Z-Boy brand tokens (additions only).
+  Source: La-Z-Boy Incorporated "Brand Standards 2026", pp. 9-14 (colour palette, tints, typography).
+  The legacy colours still used by the app (--brand-blue, --brand-sage, --brand-rust, --brand-peach)
+  are defined in brand.css and are NOT part of that document. See docs/BRAND_KIT.md.
+  Visual board: /brand-kit.html
+*/
+:root {
+  /* Palette. Hierarchy per p.9: primary navy; secondary forest, cream; tertiary sky, sea, storm, claret.
+     --brand-navy, --brand-forest and --brand-cream live in brand.css. Repeated here as comments only. */
+  --brand-sky:    #B2E2ED;   /* PMS 290 C,  RGB 178 226 237 */
+  --brand-sea:    #4FBCCA;   /* PMS 631 C,  RGB 79 188 202  */
+  --brand-storm:  #D5CFC7;   /* PMS 7534 C, RGB 213 207 199 */
+  --brand-claret: #5F2528;   /* PMS 202 C,  RGB 95 37 40    */
+
+  /* Tints, 80 / 60 / 40 / 20 %, exactly as printed on p.10.
+     Per the standards: not for prominent use; for colour-blocking and for the readability of tables, charts and graphs. */
+  --brand-navy-80:   #335C6D; --brand-navy-60:   #668592; --brand-navy-40:   #99ADB6; --brand-navy-20:   #CCD6DB;
+  --brand-forest-80: #337570; --brand-forest-60: #669894; --brand-forest-40: #9CBAB7; --brand-forest-20: #CCDDDB;
+  --brand-cream-80:  #EBE8DD; --brand-cream-60:  #F0EEE6; --brand-cream-40:  #F5F3EE; --brand-cream-20:  #FAF9F7;
+  --brand-sky-80:    #C1E8F1; --brand-sky-60:    #D1EEF4; --brand-sky-40:    #E0F3F8; --brand-sky-20:    #F0F9FB;
+  --brand-sea-80:    #72C9D5; --brand-sea-60:    #95D7DF; --brand-sea-40:    #B9E4EA; --brand-sea-20:    #DCF2F4;
+  --brand-storm-80:  #DDD9D2; --brand-storm-60:  #E6E2DD; --brand-storm-40:  #EFECE9; --brand-storm-20:  #F7F5F4;
+  --brand-claret-80: #7F5153; --brand-claret-60: #9F7C7E; --brand-claret-40: #BFA8A9; --brand-claret-20: #DFD3D4;
+
+  /* Neutrals. Not in the 2026 PDF; carried over from the web brand guidelines (Gray 1 to Gray 6). */
+  --gray-1: #F6F6F6;
+  --gray-2: #CCCCCC;
+  --gray-3: #A6A6A6;   /* 2.4:1 on white. Decoration only, never text. */
+  --gray-4: #757575;   /* 4.6:1 on white. Lightest grey allowed for text. */
+  --gray-5: #404040;
+  --gray-6: #1A1A1A;
+
+  /*
+    Typography, DIGITAL set (p.13). This is the set for screens, including this app.
+    Georgia and Arial are system fonts, so nothing needs licensing or bundling.
+    Roles: headline primary = Georgia Bold; headline secondary = Georgia Regular; subhead = Arial Regular;
+    special call-out = Georgia Bold Italic; label / CTA = Arial Bold, UPPERCASE, +100 tracking (0.1em);
+    body = Arial Regular; legal = Arial Narrow Regular.
+  */
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-legal: "Arial Narrow", Arial, Helvetica, sans-serif;
+  --label-tracking: 0.1em;
+
+  /* PRINT set (p.14): signage, banners, advertising only. Licensed fonts, not bundled. Never use Bookmania's flourished glyphs. */
+  --font-print-display: "Bookmania", Georgia, serif;
+  --font-print-body: "Gotham", Arial, sans-serif;
+}

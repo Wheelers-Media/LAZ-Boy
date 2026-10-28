@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Armchair, Check, Copy, Info, Layers3, Minus, Plus, ShieldCheck, Speaker, Sparkles } from 'lucide-react';
+import { Armchair, Check, Copy, Info, Layers3, Minus, Plus, ShieldCheck, Speaker, Sparkles } from './icons.jsx';
 import { CoverPicker } from './CoverPicker.jsx';
 import { describeCoverEligibility, describeMechanism, getMechanismForPrefix, getOptionBenefit, encodeRmsSku, findCompatibleBattery, getDefaultRmsGroup, getGuideStyle, groupModelsBySection, isUnlistedModel, getModelCoverOptions, getModelCoverSwatches, getRmsModelStyleChoices, getRmsStyleOptions, getStyleFinishes, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalConfiguration } from './logic.js';
 

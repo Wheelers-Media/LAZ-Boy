@@ -1,0 +1,164 @@
+/*
+  Dark mode for the 2026 brand palette. Cream is the text colour on dark backgrounds, sea the accent.
+  The first rule is generated: every selector in styles.css whose text colour became #404040, #1A1A1A or navy
+  during the palette migration is lightened here so it stays readable on dark surfaces.
+*/
+@media (prefers-color-scheme: dark) {
+  :root { --text-secondary: var(--brand-cream-80); --text-tertiary: var(--brand-cream-80); --muted: var(--brand-cream-80); --navy: var(--brand-cream); --brand-blue: var(--brand-sea); --brand-blue-soft: rgba(79, 188, 202, .22); }
+  .app .warranty-term,
+  .avatar,
+  .battery-result>div strong,
+  .blue-tip button,
+  .breadcrumbs strong,
+  .cart-head h2,
+  .cart-item-info strong,
+  .cart-package code,
+  .category-card,
+  .chair-art,
+  .checkbox-row,
+  .choice-symbol,
+  .choice-title,
+  .cleaning-result strong,
+  .clearance-amount,
+  .code-badge,
+  .cover-choice strong,
+  .customer-pitch p,
+  .customer-priorities strong,
+  .decoded-identifiers strong,
+  .decoded-options>strong,
+  .dimension-candidate-top>div strong,
+  .dimension-candidate>a,
+  .dimension-inputs input,
+  .dimension-inputs legend,
+  .discovery-preferences legend,
+  .field-label,
+  .fit-guidance h3,
+  .fit-note h3,
+  .fit-note>button,
+  .form-field input,
+  .form-field select,
+  .form-field>span,
+  .grade-row button,
+  .grade-row strong,
+  .info-modal h2,
+  .internal-code code,
+  .knowledge-card h2,
+  .knowledge-search input,
+  .mechanism-entry>summary strong,
+  .mechanism-group > summary,
+  .mobile-brand,
+  .mobile-tool,
+  .mode-toggle,
+  .model-capacity strong,
+  .model-info strong,
+  .module-head h2,
+  .note-icon,
+  .option-chip,
+  .panel-heading h2,
+  .piece-option strong,
+  .product-index-count,
+  .product-index-entry>summary strong,
+  .product-index-entry>summary:after,
+  .product-index-sources strong,
+  .quote-item,
+  .quote-sheet h3,
+  .quote-sheet-heading h2,
+  .rail,
+  .recommend-copy h3,
+  .recommend-details strong,
+  .result-main strong,
+  .rms-code-output code,
+  .rms-field-cell strong,
+  .rms-option-row strong,
+  .section-heading h3,
+  .sectional-canvas-piece,
+  .sectional-canvas-piece code,
+  .sectional-cover-fields legend,
+  .sectional-options legend,
+  .sectional-options strong,
+  .sectional-piece-option-toggles label,
+  .sectional-piece-sku,
+  .session-chip strong,
+  .sku-decoder-result h3,
+  .sku-fields select,
+  .sku-heading h3,
+  .sku-output code,
+  .sku-style-context,
+  .spotter-strip strong,
+  .spotter-strip>button,
+  .step-item.current .step-name,
+  .studio-check strong,
+  .studio-copy-row pre,
+  .studio-cover-digits input,
+  .studio-drawer-head>div>strong,
+  .studio-live,
+  .studio-order-list article code,
+  .studio-order-list article strong,
+  .studio-parts select,
+  .studio-piece,
+  .studio-piece-detail,
+  .studio-piece-detail strong,
+  .studio-room-fields input,
+  .studio-section-head h2,
+  .studio-selected-actions button,
+  .studio-selected-actions strong,
+  .studio-toolbar select,
+  .text-button,
+  .tier-list strong,
+  .warranty-row strong,
+  .warranty-term { color: var(--brand-cream-80); }
+  .rail-link svg, .module-icon, .session-icon, .note-icon, .clearance-icon, .mechanism-dot, .piece-sketch, .spotter-icon, .modal-symbol { color: var(--brand-sea); }
+  .module-icon, .session-icon, .note-icon, .clearance-icon, .modal-symbol { background: rgba(230, 226, 213, .1); }
+  .chair-art { background: rgba(230, 226, 213, .1); color: var(--brand-sea); }
+  .fit-note { background: rgba(28, 28, 30, .9); }
+  .rail-link:hover, .rail-link.active { background: rgba(230, 226, 213, .14); color: var(--brand-cream); }
+  .rail-link.active::before { background: var(--brand-sea); }
+  h1, h2, h3, .app :is(h1, h2, h3) { color: var(--brand-cream); }
+  h1 em, .welcome-row h1 em, .module-intro h1 em, .design-studio .module-intro h1 em,
+  .eyebrow, .step-kicker, .welcome-row .eyebrow, .module-intro .eyebrow, .step-item.done .step-name,
+  .text-button, .fit-note > button, .blue-tip button, .dimension-candidate > a, .grade-row button, .spotter-strip > button { color: var(--brand-sea); }
+  .choice-card.selected, .category-card.selected, .cover-choice.selected, .piece-option.selected { background: rgba(79, 188, 202, .16); border-color: var(--brand-sea); box-shadow: 0 0 0 1px var(--brand-sea); }
+  .choice-check, .category-card > svg, .cover-check { color: var(--brand-sea); }
+  .step-item.current .step-number { background: var(--brand-cream); border-color: var(--brand-cream); color: var(--brand-navy) !important; }
+  .step-item.current .step-number, .step-item.current span:first-child { color: var(--brand-navy) !important; }
+  .back-button { color: var(--brand-cream); border-color: var(--brand-cream-60); }
+  .system-tabs button.active { color: var(--brand-sea); border-bottom-color: var(--brand-sea); }
+  .match-pill, .live-pill, .lookup-result.good, .battery-result.good, .studio-check.valid { background: rgba(79, 188, 202, .16); color: var(--brand-sea); border-color: rgba(79, 188, 202, .4); }
+  .studio-check.valid strong { color: var(--brand-sea); }
+  .lookup-result.warning, .battery-result.warning, .studio-check.invalid, .rms-warning { background: rgba(191, 168, 169, .14); color: var(--brand-claret-40); border-color: rgba(191, 168, 169, .4); }
+  .studio-check.invalid strong { color: var(--brand-claret-40); }
+  .chip { background: var(--control); color: var(--brand-cream); }
+  .chip.on { background: var(--brand-cream); border-color: var(--brand-cream); color: var(--brand-navy); }
+  .fp-size { fill: var(--brand-cream); }
+  .fp-piece.selected .fp-outline { stroke: var(--brand-claret-40); }
+  input[type="checkbox"] { accent-color: var(--brand-sea); }
+  :root { --ink: #F6F6F6; }
+  .decoded-options em,
+  .quote-disclaimer,
+  .rms-warning,
+  .sectional-validation,
+  .sectional-validation.invalid,
+  .sku-generation-status,
+  .studio-check.invalid strong { color: var(--brand-claret-40); }
+  .rail-link, .rail-link span { color: var(--brand-cream-80); }
+  .rail-link:hover, .rail-link.active, .rail-link.active span { color: var(--brand-cream); }
+  .mode-toggle, .avatar { background: var(--control); color: var(--brand-cream); border-color: rgba(230, 226, 213, .3); }
+  .mode-toggle.is-on { color: var(--brand-cream); background: rgba(79, 188, 202, .16); border-color: var(--brand-sea); }
+  .is-on .mode-dot { background: var(--brand-sea); border-color: var(--brand-sea); }
+  .app .primary-button, .app .copy-button, .app .customer-card-button { color: var(--brand-navy); background: var(--brand-sea); border-color: var(--brand-sea); }
+  .app .primary-button:hover, .app .copy-button:hover, .app .customer-card-button:hover { color: var(--brand-navy); background: var(--brand-sky); border-color: var(--brand-sky); }
+  .studio-tools button { color: var(--brand-cream); }
+  .sku-style-context, .studio-live, kbd, .studio-preview-badge, .rms-status, .floor-warranty, .floor-summary .sku-output,
+  .cover-note, .cover-empty, .sku-output, .cart-package, .rms-code-output, .internal-code, .tip-strip, .rms-disclaimer,
+  .dimension-metrics p, .dimension-empty, .customer-priorities, .modal-section, .customer-pitch, .cleaning-result,
+  .code-badge, .result-count, .cart-count, .warranty-term, .rms-field-cell, .category-number, .model-rank { background: rgba(230, 226, 213, .08); color: var(--brand-cream-80); border-color: rgba(230, 226, 213, .18); }
+  .app :is(.step-name, .step-kicker, .step-kicker span, .optional, .privacy-note, small, .product-index-style-count, .rms-status, .warranty-term) { color: var(--brand-cream-80) !important; }
+  .knowledge-search kbd { background: rgba(230, 226, 213, .08); color: var(--brand-cream-80); border-color: rgba(230, 226, 213, .18); }
+  .quote-disclaimer, .sectional-validation, .sectional-validation.invalid { background: rgba(191, 168, 169, .14); border-color: rgba(191, 168, 169, .4); }
+  .mobile-tab, .mobile-tool { color: var(--brand-cream-80); }
+  .mobile-tab.active, .mobile-tool.active { color: var(--brand-sea); background: rgba(79, 188, 202, .16); }
+  .app :is(.mobile-tab, .mobile-tool) { color: var(--brand-cream-80) !important; }
+  .app :is(.mobile-tab.active, .mobile-tool.active) { color: var(--brand-sea) !important; }
+  .app .rail-link, .app .rail-link span { color: var(--brand-cream-80) !important; }
+  .app .rail-link:hover, .app .rail-link.active, .app .rail-link:hover span, .app .rail-link.active span { color: var(--brand-cream) !important; }
+}

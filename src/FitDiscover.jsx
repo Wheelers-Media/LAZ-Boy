@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { AlertTriangle, Armchair, ArrowLeft, ArrowRight, Check, ClipboardCheck, Copy, FileText, Info, MessageSquareText, Ruler, Sparkles } from 'lucide-react';
+import { AlertTriangle, Armchair, ArrowLeft, ArrowRight, Check, ClipboardCheck, Copy, FileText, Info, MessageSquareText, Ruler, Sparkles } from './icons.jsx';
 import { buildDcgNotes, DCG_NOTE_LIMIT, FIT_NEEDS, SIT_VERDICTS, getCatalogCapabilityLeads, getContextualModelOptions, getContextualPreferenceChoices, getDimensionBasedRecommendations, getRecommendations, getRoomClearance, getSeatFit, getSectionalLeads, heightInches, sitLogToText, summarizeSitLog } from './logic.js';
 
 export const FIT_STEPS = ['Their fit', 'What they need', 'Room and comfort', 'Real life'];
