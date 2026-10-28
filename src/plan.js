@@ -44,10 +44,10 @@ export function coverNameFor(swatchIndex, coverCode = '') {
 }
 
 /** A plan line from the SKU Builder: one RMS entry the rep has fully specified. */
-export function lineFromSku({ swatchIndex, modelCode, modelName, styleCode, category, sku, coverCode }) {
+export function lineFromSku({ swatchIndex, modelCode, modelName, styleCode, category, sku, coverCode, note = '' }) {
   return makeLine({
     kind: 'sku', source: 'sku', type: pieceType(category), modelCode: String(modelCode), modelName, styleCode: String(styleCode || ''),
-    title: `${modelName} ${styleCode || ''}`.trim(), detail: category || '', coverCode: coverCode || '', coverName: coverNameFor(swatchIndex, coverCode), rms: sku ? [sku] : [],
+    title: `${modelName} ${styleCode || ''}`.trim(), detail: category || '', coverCode: coverCode || '', coverName: coverNameFor(swatchIndex, coverCode), rms: sku ? [sku] : [], note,
   });
 }
 
