@@ -183,3 +183,13 @@ test('describeCoverEligibility confirms cover against the exact style row', asyn
   assert.match(text, new RegExp(`Cap code ${swatches[0].capCode} is on the ${row.prefix} style list`));
   assert.doesNotMatch(text, /Confirm for this exact style/);
 });
+
+test('describeGrade names the price band without inventing one', async () => {
+  const { describeGrade } = await import('../src/logic.js');
+  assert.equal(describeGrade('D', 'Fabric').short, 'D · Fabric · price band D–F');
+  assert.equal(describeGrade('B', 'Fabric').short, 'B · Fabric · price band B–C');
+  assert.equal(describeGrade('Q', 'Fabric').short, 'Q · Fabric · price band P–Q');
+  assert.equal(describeGrade('DL', 'Leather').short, 'DL · Leather · price band DL');
+  assert.equal(describeGrade('LB', 'Leather').short, 'LB · Select leather');
+  assert.match(describeGrade('A', 'Fabric').line, /not in a price band/);
+});

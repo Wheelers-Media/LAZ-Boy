@@ -1844,6 +1844,27 @@ export function getSectionalLeads(catalog, answers) {
 }
 
 // What a grade letter holds for one model. The letter is a price tier; the kind of cover is its cap code or leather type.
+// Price-book price columns (April 2026 Upholstery Pricebook): fabric B-C, D-F, G-N, P-Q; leather BL, DL, FL, HL. Each band is priced above the one before it.
+const FABRIC_BANDS = [['B', 'C'], ['D', 'F'], ['G', 'N'], ['P', 'Q']];
+const LEATHER_BANDS = ['BL', 'DL', 'FL', 'HL'];
+
+/** Short plain-language title for a cover grade letter, e.g. { short: 'D · Fabric · price band D–F', line: '...' }. Only what the price book documents; a letter outside its bands gets no price claim. */
+export function describeGrade(grade, material = 'Fabric') {
+  const g = String(grade || '').toUpperCase();
+  if (!g) return { short: '', line: '' };
+  if (g === 'LB') return { short: 'LB · Select leather', line: 'LB covers are Select leather, priced in the Select leather column of the price book.' };
+  if (LEATHER_BANDS.includes(g)) {
+    const rank = LEATHER_BANDS.indexOf(g);
+    return { short: `${g} · Leather · price band ${g}`, line: `${g} is a leather price band. Leather bands run BL, DL, FL, HL, each priced above the one before${rank === 0 ? ' (BL is the lowest)' : rank === LEATHER_BANDS.length - 1 ? ' (HL is the highest)' : ''}.` };
+  }
+  const band = FABRIC_BANDS.find(([lo, hi]) => g.length === 1 && g >= lo && g <= hi);
+  if (band) {
+    const range = `${band[0]}–${band[1]}`;
+    return { short: `${g} · ${material === 'Leather' ? 'Leather' : 'Fabric'} · price band ${range}`, line: `Grade ${g} is in the ${range} fabric price band. Fabrics price in four bands (B–C, D–F, G–N, P–Q), each above the one before.` };
+  }
+  return { short: `${g} · ${material}`, line: `Grade ${g} is not in a price band in the supplied price book.` };
+}
+
 export function summarizeGradeKinds(swatches, grade) {
   const patternsByKind = new Map();
   for (const swatch of swatches) {
