@@ -1,6 +1,7 @@
 # La-Z-Boy brand kit for the Floor Assistant
 
 Visual board: `/brand-kit.html` (source `public/brand-kit.html`).
+Assets: logos in `public/brand/logos/` (navy, cream, black, white PNG, 900 px wide) and 44 icons in `public/brand/icons/` (SVG, stroke 1.3, navy).
 Code tokens: `src/brand-tokens.css` (new) on top of `src/brand.css` (core colours).
 
 ## Sources and evidence
@@ -123,6 +124,7 @@ Not done: Bookmania and Gotham are print-only and not used. Tints (80/60/40/20) 
 
 ## What this kit does not contain
 
-- The white logo from the brand site, the INCORPORATED lockup files and the badges. The black, navy and cream logos you supplied are in hand; only cream is wired into the app (`public/lazboy-logo-cream.png`).
+- The "INCORPORATED" lockup, the Joybird and England marks and the badges (PDF pp.4 to 8 and 18). Only the plain La-Z-Boy wordmark was supplied, in navy, cream and black; white is the file already in the app.
+- Exact icon names: the 44 icons in `public/brand/icons/` are the closest Iconoir (MIT) matches to PDF p.15, matched by eye. A few are approximate (restart, hospital-circle, strategy).
 - The web pages' Verbal Identity page and the retail website: neither could be opened.
 - Anything specific to Canada or to dealer stores. The PDF is the corporate edition.
