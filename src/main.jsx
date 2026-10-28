@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { Activity, ArrowDown, ArrowLeft, ArrowRight, Armchair, BatteryCharging, BookOpen, Check, CheckCircle2, Copy, Heart, Info, Layers3, Menu, Minus, Plus, Search, ShieldCheck, Sparkles, SwatchBook, Sofa, Wrench, X } from 'lucide-react';
 import './styles.css';
 import './brand.css';
+import './brand-dark.css';
 import { encodeRmsSku, findLiftTier, findCompatibleBattery, getCatalogCapabilityLeads, getContextualBatteryOptions, getContextualModelOptions, getContextualOptionRecords, getContextualPreferenceChoices, getContextualStyleChoices, getDimensionBasedRecommendations, getFullProductIndex, getDefaultRmsGroup, filterCoverOptionsByMaterial, getMaterialPreferenceChoices, getModelCoverOptions, getRecommendations, getRoomClearance, getSectionalPrefix, matchingPrefixes, reclinerCatalogSearchEntries, sectionalPiecesForFamily } from './logic.js';
 import { CustomizeFloorUnit, SectionalStudio } from './FloorWorkspaces.jsx';
 import { SectionalDesignStudio } from './SectionalDesignStudio.jsx';

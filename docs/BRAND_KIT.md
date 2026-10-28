@@ -106,11 +106,20 @@ Visible in the "How it comes together" examples: large arched or curved colour-b
 
 Corporate Communications Team, La-Z-Boy Incorporated: marielle.rodeheffer@la-z-boy.com and lzbinc@identitypr.com, for questions about using the brand assets or guidelines.
 
-## 7. Where the app stands and a proposed mapping
+## 7. How the app applies the standards
 
-Already on-standard: navy primary buttons, forest hover and "done" steps, cream hover wash, Gray 1 page background, Gray 6 text. Navy is now #003349 everywhere (it was #00334B, 2 steps off); the three rgba lines and `--studio-blue` were updated to match.
+Applied in `src/styles.css`, `src/brand.css` and `src/brand-dark.css`:
 
-Not on-standard (legacy, 35 lines): rust (active marker, selected-piece outline, blocked reach), sage (focus ring, selected-card fill, reach fill), blue (selected border, checks, kickers, chips, dark-mode primary button), peach. Proposed mapping, **not applied**: rust to claret, sage to sea (or sky for light fills), blue to navy or forest. Caveats: claret is dark (#5F2528), so the selected-piece dashed outline will read heavier; sea fails as text on light backgrounds, so it can only be used for fills, rings and outlines; and the "blocked" and "selected" states currently differ by hue, which needs a check against the "do not" pairings.
+- **Colour:** every blue, slate, green and amber in the stylesheet was mapped to the 2026 palette (about 230 colour values). Navy is primary text and selected states; forest is for accents and links on light backgrounds; sea fills the CTA and focus ring in dark mode; claret replaces rust and amber for cautions; cream and storm replace the blue-grey fills. Blue, sage, rust and peach no longer exist in the app (`--brand-blue` and `--blue` remain only as aliases of navy). Fabric swatch gradients and the floor-plan furniture beiges are product colours, not brand colours, and were left alone.
+- **Typography (digital set):** Arial for body, Georgia Bold for headlines, Georgia Bold Italic for the call-out words in headlines, Arial Bold uppercase +0.1em for labels, buttons and tags, Arial Narrow for disclaimers and fine print. No font files are bundled.
+- **CTA:** primary buttons are pills with a sea background and a navy bold uppercase label, as on p.17. Hover is sky.
+- **Pairings:** step "done" is sea (was forest next to a navy "current", which p.11 forbids). Selected cards are navy on sky. No navy-forest, navy-claret or forest-claret neighbours.
+- **Contrast:** an automated check of every text element on all seven workspaces, in light and dark mode at desktop width, found no pair below 4.5:1 (3:1 for large text). Sea is never used as text on a light background.
+- **Logo:** navy on light, the official cream logo on dark. The sidebar was widened from 76 to 124 px so the logo can be 100 px wide (the stated minimum); the mobile bar logo is 100 px and the "Floor Assistant" caption is hidden below 520 px to make room.
+- **Icons:** palette colours only. Stroke weight is 1.3 as the standards specify for Iconoir, applied to the existing lucide icons. The library itself was not swapped (needs your approval to add a dependency).
+- **Layout language:** circular icon chips, an arched top on the recommendation illustration, cream as the supporting fill.
+
+Not done: Bookmania and Gotham are print-only and not used. Tints (80/60/40/20) are used only for the status and selected-state fills, as the standards intend.
 
 ## What this kit does not contain
 
