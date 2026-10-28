@@ -56,7 +56,7 @@
 .rms-code-output .copy-button{margin-top:12px}
 .rms-details dl{margin:10px 0 0}.rms-details dl div{display:flex;gap:12px;padding:6px 0;border-top:1px solid #eef1f5}.rms-details dt{min-width:80px;font-weight:700}.rms-details dd{margin:0;color:var(--slate-muted)}
 .rms-disclaimer{display:flex;gap:8px;margin-top:15px;padding:11px;background:#f8fafc;border-radius:6px;color:var(--slate-muted);font-size:12px;line-height:1.5}.rms-disclaimer svg{color:var(--slate-muted)}.rms-disclaimer p{margin:0}.support-reference{margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
-@media(max-width:900px){.rms-layout{grid-template-columns:1fr}.rail-link{width:68px}.rms-entry-card{order:-1}}
+@media(max-width:900px){.rms-layout{grid-template-columns:1fr}.rail-link{width:68px}}
 @media(max-width:600px){.rms-builder-card,.rms-entry-card{padding:14px}.rms-two-col{grid-template-columns:1fr}.rms-field-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.rms-custom-row{grid-template-columns:1fr 1fr}.rms-custom-row .back-button{grid-column:1/-1;margin:0}.rail-link{font-size:12px;min-height:57px}}
 
 /* La-Z-Boy white and signature-blue brand treatments */

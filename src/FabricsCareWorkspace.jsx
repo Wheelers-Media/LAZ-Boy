@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Droplets, Search, Shield, Sparkles } from 'lucide-react';
 import { getCoverReach, swatchImageFor } from './logic.js';
+import { SwatchTile } from './CoverPicker.jsx';
 
 const TABS = ['Fabrics', 'Leather', 'Care guide'];
 const WEAR = { N: 'Normal', P: 'Performance', Medium: 'Medium duty' };
@@ -22,46 +23,38 @@ function Reach({ catalog, record, isLeather }) {
   const reach = useMemo(() => getCoverReach(catalog, record, isLeather), [catalog, record, isLeather]);
   const styleCount = reach.reduce((sum, item) => sum + item.styles, 0);
   if (!reach.length) return <p className="fabric-reach-empty">No style accepts this cover.</p>;
-  return <div className="fabric-reach">
-    <p><strong>{reach.length} {reach.length === 1 ? 'model' : 'models'} · {styleCount} {styleCount === 1 ? 'style' : 'styles'}</strong> accept cap code {record.capCode}. Confirm the exact style before promising it.</p>
+  return <details className="fabric-reach"><summary>{reach.length} {reach.length === 1 ? 'model' : 'models'} · {styleCount} {styleCount === 1 ? 'style' : 'styles'} accept cap {record.capCode}</summary>
     <p className="fabric-reach-models">{reach.map((item) => `${item.name} ${item.model}`).join(' · ')}</p>
-  </div>;
+    <p className="fabric-reach-note">Confirm the exact style before promising it.</p>
+  </details>;
 }
 
 function CoverCard({ catalog, record, isLeather, definitions, priorLabel }) {
   const [open, setOpen] = useState(false);
   const wear = WEAR[record.wearability] || '';
   const cleaning = record.cleaningCode ? definitions.cleaningCodes?.[record.cleaningCode] || record.cleaningCode : '';
+  const tones = catalog?.color_tones;
   const tags = (record.specialtyAttributes || []).map((code) => definitions.specialtyAttributes?.[code] || code);
-  return <article className="fabric-card card">
+  return <article className={`fabric-card card${open ? ' open' : ''}`}>
     <button type="button" className="fabric-card-head" aria-expanded={open} onClick={() => setOpen(!open)}>
-      <span><strong>{record.patternName}</strong>{record.prior && <em className="fabric-prior-badge">{priorLabel} · not on the April 2026 list</em>}<small>{record.coverCode} · {isLeather ? record.leatherType : `Grade ${grade(record)}`} · cap {record.capCode}</small></span>
+      <span className="fabric-card-title"><strong>{record.patternName}</strong>{record.prior && <em className="fabric-prior-badge">{priorLabel} · not on the April 2026 list</em>}<small>{record.coverCode}</small></span>
       <span className="fabric-badges">
         {wear && <span className={`fabric-badge wear-${record.wearability}`}>{wear}</span>}
         {cleaning && <span className="fabric-badge">{cleaning}</span>}
       </span>
     </button>
+    <div className="fabric-strip" aria-hidden="true">{colourList(record).slice(0, 10).map((item) => <span key={item.code} className="strip-tile"><SwatchTile photo={swatchImageFor(catalog?.swatch_index, record.coverCode, item.code, 'thumb')} tone={tones?.[item.name]} /></span>)}{record.colors.length > 10 && <span className="strip-more">+{record.colors.length - 10}</span>}</div>
     {tags.length > 0 && <p className="fabric-tags">{tags.map((tag) => <span key={tag}>{tag}</span>)}</p>}
     {open && <div className="fabric-card-body">
       {isLeather && <p><strong>{record.group}.</strong> {definitions.leatherGroups?.[record.group]}</p>}
       {isLeather && definitions.leatherTypes?.[record.leatherType] && <p><strong>{record.leatherType}.</strong> {definitions.leatherTypes[record.leatherType]}</p>}
-      <p className="field-label">Colours · full cover code</p>
-      <ul className="fabric-colours">{colourList(record).map((item) => <li key={item.code}>{swatchImageFor(catalog?.swatch_index, record.coverCode, item.code, 'thumb') && <img className="fabric-swatch-img" src={swatchImageFor(catalog?.swatch_index, record.coverCode, item.code, 'thumb')} alt="" loading="lazy" width="28" height="28" />}<code>{record.coverCode}{item.code}</code>{item.name ? ` ${item.name}` : ''}</li>)}</ul>
+            <ul className="fabric-colours">{colourList(record).map((item) => <li key={item.code}><SwatchTile photo={swatchImageFor(catalog?.swatch_index, record.coverCode, item.code, 'zoom')} tone={tones?.[item.name]} /><span className="tile-name">{item.name || `Colour ${item.code}`}</span><small>{record.coverCode}{item.code}</small></li>)}</ul>
       {record.prior
         ? <p className="fabric-reach-empty">{record.droppedColorsOnly ? 'The April 2026 list still carries this cover but not these colours.' : 'The April 2026 list does not carry this cover.'} Confirm it can still be ordered for the model before offering it.</p>
         : <Reach catalog={catalog} record={record} isLeather={isLeather} />}
     </div>}
   </article>;
 }
-
-const sectionKinds = (catalog, items) => {
-  const counts = new Map();
-  for (const item of items) {
-    const name = (catalog.cover_cap_codes || []).find((entry) => entry.code === item.capCode && !/^[A-Z]{2} cap code$/.test(entry.name))?.name || `${item.capCode} cap code`;
-    counts.set(name, (counts.get(name) || 0) + 1);
-  }
-  return [...counts].sort((x, y) => y[1] - x[1]).map(([name, count]) => `${name} ${count}`).join(' · ');
-};
 
 function CareGuide({ catalog, definitions }) {
   const rules = catalog.fabric_cover_program_a26?.businessRules || {};
@@ -108,10 +101,6 @@ export function FabricsCareWorkspace({ catalog }) {
   const isLeather = tab === 'Leather';
   const priorOf = (list) => (includePrior && prior ? (list || []).map((record) => ({ ...record, prior: true })) : []);
   const records = isLeather ? [...program.leathers, ...priorOf(prior?.leathers)] : [...program.fabrics, ...priorOf(prior?.fabrics)];
-  const colourCount = [...program.fabrics, ...program.leathers].reduce((sum, record) => sum + record.colors.length, 0);
-  const coverCount = new Set([...program.fabrics, ...program.leathers].map((record) => record.coverCode)).size;
-  const priorColourCount = [...(prior?.fabrics || []), ...(prior?.leathers || [])].reduce((sum, record) => sum + record.colors.length, 0);
-  const priorCoverCount = new Set([...(prior?.fabrics || []), ...(prior?.leathers || [])].filter((record) => !record.droppedColorsOnly).map((record) => record.coverCode)).size;
   const matches = (record) => {
     const text = `${record.patternName} ${record.coverCode} ${Object.values(record.colorNames || {}).join(' ')} ${(record.models || []).join(' ')}`.toLowerCase();
     if (query.trim() && !text.includes(query.trim().toLowerCase())) return false;
@@ -131,17 +120,18 @@ export function FabricsCareWorkspace({ catalog }) {
   }, [shown, isLeather]);
   const grades = [...new Set(program.fabrics.map(grade))].sort();
   const caps = [...new Set(records.map((record) => record.capCode))].sort();
+  const activeFilters = [gradeFilter, wearFilter, cleanFilter, featureFilter, capFilter, typeFilter].filter(Boolean).length;
   const reset = () => { setQuery(''); setGradeFilter(''); setWearFilter(''); setCleanFilter(''); setFeatureFilter(''); setCapFilter(''); setTypeFilter(''); };
   const changeTab = (next) => { setTab(next); reset(); };
   return <section className="module-page fabrics-index">
-    <div className="module-intro"><p className="eyebrow">FABRICS, LEATHER &amp; CARE</p><h1>Every cover, <em>with how to care for it.</em></h1><p>{coverCount} covers and {colourCount} colour options on the April 2026 list. Open a card to see its colours, full cover codes and the styles that accept it.</p></div>
+    <div className="module-intro"><h1>Fabrics &amp; leather</h1></div>
     <div className="chip-row" role="tablist" aria-label="Fabrics and care sections">{TABS.map((name) => <button key={name} type="button" role="tab" aria-selected={tab === name} className={`chip ${tab === name ? 'on' : ''}`} onClick={() => changeTab(name)}>{name}{name === 'Fabrics' ? ` · ${program.fabrics.length}` : name === 'Leather' ? ` · ${program.leathers.length}` : ''}</button>)}</div>
     {prior && tab !== 'Care guide' && <div className="fabric-prior-toggle">
-      <button type="button" className={`chip ${includePrior ? 'on' : ''}`} aria-pressed={includePrior} onClick={() => setIncludePrior(!includePrior)}>Include {prior.label} covers · {priorCoverCount} covers, {priorColourCount} colours</button>
-      {includePrior && <p>{prior.note}</p>}
+      <button type="button" className={`chip ${includePrior ? 'on' : ''}`} aria-pressed={includePrior} onClick={() => setIncludePrior(!includePrior)}>Include {prior.label}</button>
     </div>}
     {tab === 'Care guide' ? <CareGuide catalog={catalog} definitions={definitions} /> : <>
       <div className="knowledge-search card"><Search size={19} /><input aria-label={`Search ${tab.toLowerCase()}`} placeholder="Search a pattern, cover code or colour" value={query} onChange={(event) => setQuery(event.target.value)} /><span className="product-index-count">{shown.length} shown</span></div>
+      <details className="fabric-filter-panel" open={activeFilters > 0}><summary>Filters{activeFilters > 0 ? ` · ${activeFilters}` : ''}</summary>
       <div className="fabric-filters">
         {!isLeather && <>
           <Pick label="Grade" value={gradeFilter} onChange={setGradeFilter} options={grades.map((item) => [item, `Grade ${item}`])} />
@@ -152,8 +142,8 @@ export function FabricsCareWorkspace({ catalog }) {
         {isLeather && <Pick label="Leather type" value={typeFilter} onChange={setTypeFilter} options={Object.keys(definitions.leatherTypes || {}).map((name) => [name, name])} />}
         <Pick label="Cap code" value={capFilter} onChange={setCapFilter} options={caps.map((item) => [item, `Cap ${item}`])} />
         {filtering && <button type="button" className="back-button" onClick={reset}>Clear filters</button>}
-      </div>
-      <div className="fabric-sections">{sections.map((section, index) => <details key={`${tab}-${section.name}-${filtering}`} className="fabric-section" open={filtering || index === 0}><summary><strong>{section.name}</strong>{!isLeather && <small className="fabric-section-kinds">{sectionKinds(catalog, section.items)}</small>}<span>{section.items.length} {section.items.length === 1 ? 'cover' : 'covers'}</span></summary><div className="fabric-grid">{section.items.map((record, itemIndex) => <CoverCard key={`${record.prior ? 'prior' : 'april'}-${record.coverCode}-${itemIndex}`} priorLabel={prior?.label} catalog={catalog} record={record} isLeather={isLeather} definitions={definitions} />)}</div></details>)}</div>
+      </div></details>
+      <div className="fabric-sections">{sections.map((section, index) => <details key={`${tab}-${section.name}-${filtering}`} className="fabric-section" open={filtering || index === 0}><summary><strong>{section.name}</strong><span>{section.items.length} {section.items.length === 1 ? 'cover' : 'covers'}</span></summary><div className="fabric-grid">{section.items.map((record, itemIndex) => <CoverCard key={`${record.prior ? 'prior' : 'april'}-${record.coverCode}-${itemIndex}`} priorLabel={prior?.label} catalog={catalog} record={record} isLeather={isLeather} definitions={definitions} />)}</div></details>)}</div>
       {!shown.length && <p className="empty-state">Nothing matches. <button type="button" className="back-button" onClick={reset}>Clear filters</button></p>}
     </>}
   </section>;
