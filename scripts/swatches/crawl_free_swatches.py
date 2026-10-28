@@ -18,7 +18,7 @@ from common import ROOT, norm, load_targets
 URL = 'https://www.la-z-boy.com/content/free-swatches'
 OUT = ROOT / 'data' / 'free-swatches-page.json'
 COMPARE = ROOT / 'reports' / 'free-swatches-compare.json'
-ID_IN_URL = re.compile(r'/Images/Fabrics/[^/]+/([A-Z]{1,3}\d{6})\.(?:jpe?g|png|webp)', re.I)
+ID_IN_URL = re.compile(r'/Images/Fabrics/[^/\\s]+/([A-Z]{1,3}\d{6})\.(?:jpe?g|png|webp)', re.I)
 MORE = re.compile(r'show more|load more|view more|see more', re.I)
 
 EXTRACT = """() => {
@@ -31,6 +31,12 @@ EXTRACT = """() => {
     const attrs = {};
     for (const a of tile.attributes) if (a.name.startsWith('data-') && !/price|stock|hold/i.test(a.name)) attrs[a.name] = a.value;
     out.push({ src, alt: img.alt || '', title: img.title || tile.title || '', text: text.slice(0, 200), attrs });
+  }
+  for (const el of document.querySelectorAll('[style*="Images/Fabrics"], [data-src*="Images/Fabrics"], [data-bg*="Images/Fabrics"]')) {
+    const src = [el.getAttribute('style'), el.dataset.src, el.dataset.bg].filter(Boolean).join(' ');
+    let tile = el, text = (el.innerText || '').trim();
+    for (let i = 0; i < 3 && !text && tile.parentElement; i++) { tile = tile.parentElement; text = (tile.innerText || '').trim(); }
+    out.push({ src, alt: el.getAttribute('aria-label') || '', title: el.title || '', text: text.slice(0, 200), attrs: {} });
   }
   return out;
 }"""
@@ -50,8 +56,18 @@ def main():
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
         page = browser.new_page(viewport={'width': 1400, 'height': 1000})
-        page.goto(URL, wait_until='domcontentloaded', timeout=60000)
+        response = page.goto(URL, wait_until='domcontentloaded', timeout=60000)
+        try:
+            page.wait_for_load_state('networkidle', timeout=20000)
+        except Exception:
+            pass
         page.wait_for_timeout(3000)
+        diag = page.evaluate("""() => ({ title: document.title, url: location.href, imgCount: document.images.length,
+          bodyText: (document.body.innerText || '').slice(0, 400),
+          imgSrcSample: [...document.images].map(i => i.currentSrc || i.src).filter(Boolean).slice(0, 12),
+          fabricsRefs: document.documentElement.outerHTML.split('Images/Fabrics').length - 1,
+          buttons: [...document.querySelectorAll('button, a')].map(b => (b.innerText || '').trim()).filter(t => /more|swatch|load/i.test(t)).slice(0, 10) })""")
+        diag['http_status'] = response.status if response else None
         found, clicks, stale = collect(page), 0, 0
         while clicks < 200 and stale < 3:
             button = page.get_by_role('button', name=MORE).first
@@ -88,10 +104,10 @@ def main():
     COMPARE.parent.mkdir(parents=True, exist_ok=True)
     COMPARE.write_text(json.dumps({
         'swatches_on_page': len(on_page), 'show_more_clicks': clicks, 'app_ids': len(ours),
-        'app_ids_on_page': len(on_page & ours), 'app_ids_not_on_page': sorted(ours - on_page),
+        'app_ids_on_page': len(on_page & ours), 'app_ids_not_on_page': sorted(ours - on_page) if on_page else 'all (nothing read from the page)',
         'page_ids_not_in_app': sorted(on_page - ours), 'names_confirmed': len(name_ok),
         'names_disagree_or_unreadable': name_off,
-        'sample_text': {k: found[k]['text'][:80] for k in sorted(found)[:5]}}, indent=1), encoding='utf-8')
+        'diagnostics': diag, 'sample_text': {k: found[k]['text'][:80] for k in sorted(found)[:5]}}, indent=1), encoding='utf-8')
     print(f'{len(on_page)} swatches on page after {clicks} clicks; {len(on_page & ours)} of {len(ours)} app ids found there.')
 
 
