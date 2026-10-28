@@ -1,0 +1,1475 @@
+{
+ "_meta": {
+  "title": "Mechanism guide 2026",
+  "source": "La-Z-Boy Product Knowledge Library (Nov 2025 – Jun 2026 issues)",
+  "evidenceTier": "A",
+  "about": "Per-mechanism features and benefits, wall proximity, weight tested, warranty tiers, option benefits and cross-source notes. A prefix not listed here has no mechanism entry; nothing is inferred for it."
+ },
+ "features": {
+  "slouch": {
+   "name": "Independent reclining back & seat",
+   "benefit": "Recline without raising the legrest, with continuous lower-lumbar support. Stretch your back and find the right position at any legrest level. This is the La-Z-Boy “Slouch” position."
+  },
+  "slouch-rock": {
+   "name": "Independent reclining back & seat, while rocking",
+   "benefit": "Recline while rocking without raising the legrest, with continuous lower-lumbar support. Stretch your back, rock a baby, and find the right position at any legrest level."
+  },
+  "slouch-glide": {
+   "name": "Independent reclining back & seat, while gliding",
+   "benefit": "Recline while gliding without raising the legrest, with continuous lower-lumbar support. Soothe a baby and find the right position at any legrest level."
+  },
+  "legrest-3pos": {
+   "name": "3-position dual-locking legrest",
+   "benefit": "Three legrest heights to choose from. The dual lock prevents “foot droop”, is safe around kids and pets, and will not collapse under pressure. Use the comfort selector to raise the legrest to the third position before lowering it."
+  },
+  "legrest-1pos-glider": {
+   "name": "1-position dual-locking legrest",
+   "benefit": "Dual-locking, so it is safe around kids and pets and will not collapse under pressure. Using the comfort selector to raise and lower it prevents foot droop. The quiet-closing legrest makes it a popular nursery chair."
+  },
+  "ratchet16": {
+   "name": "16-position ratchet tilt",
+   "benefit": "With the 3-position legrest and independent back and seat, it gives almost limitless reclining positions, including feet above the heart for circulation and relief for the lower back."
+  },
+  "wingnut": {
+   "name": "Wingnut back-tension adjustment",
+   "benefit": "Tunes the chair to the guest’s height and strength. Flip the chair forward and tighten the wingnuts (one per side) for more tension for taller people, or loosen them for less tension for shorter people."
+  },
+  "speednut": {
+   "name": "Speed-nut back-tension adjustment",
+   "benefit": "Tunes the chair to the guest’s height and strength. Tighten the speed nut for more tension for taller people, loosen it for less for shorter people."
+  },
+  "unibody": {
+   "name": "Four-sided unibody frame",
+   "benefit": "La-Z-Boy’s four-sided unibody frame adds a fourth, front side for greater stability and durability. The steel back allows a shorter wall distance with a full recline, and the box frame stops the arms splaying apart when getting in and out."
+  },
+  "unibody-levelers": {
+   "name": "Four-sided unibody frame with levelers",
+   "benefit": "Same stable four-sided frame, plus levelers that level the unit on hard floors and carpet and add up to an inch of height so the legrest can open and close without obstruction."
+  },
+  "track-wheel": {
+   "name": "Track & wheel reclining mechanism",
+   "benefit": "A metal track-and-wheel system moves the chair away from the wall as it reclines while keeping the stability of a non-rocker, so a full recline fits a tight space."
+  },
+  "safety-legrest": {
+   "name": "Safety springs: legrest",
+   "benefit": "Safety springs on the power legrest keep kids and pets from being hurt, because the motors are so quiet."
+  },
+  "safety-head-leg": {
+   "name": "Safety springs: headrest & legrest",
+   "benefit": "Safety springs on the power headrest and legrest keep kids and pets from being hurt, because the motors are so quiet."
+  },
+  "control-4btn": {
+   "name": "4-button control + USB",
+   "benefit": "Reclines through power within 6 seconds. The control raises and lowers the legrest and backrest together or separately, and the USB-A port charges devices."
+  },
+  "remote-memory": {
+   "name": "Wireless remote with memory & home buttons + USB",
+   "benefit": "Two memory settings for favourite positions and a 1-touch Home button on both the cradle and the remote. USB-A port in the cradle to charge devices."
+  },
+  "headrest": {
+   "name": "Adjustable headrest",
+   "benefit": "Raises up to 55 degrees at the touch of a button, so there is no need for a pillow and the neck and head stay supported in almost unlimited positions."
+  },
+  "headrest-lumbar": {
+   "name": "Adjustable headrest & lumbar",
+   "benefit": "Headrest raises up to 55 degrees. The steel scissor-jack lumbar support has a pivoting plate that moves with the guest and can add about 3 inches of lumbar support."
+  },
+  "motors-2": {
+   "name": "2 motors",
+   "benefit": "Independent motors for each function mean less wear on each motor and easy servicing. Emergency battery backup (9-volt batteries not included). 3-year warranty on power components."
+  },
+  "motors-3": {
+   "name": "3 motors",
+   "benefit": "Independent motors for each function mean less wear on each motor and easy servicing. Emergency battery backup (9-volt batteries not included). 3-year warranty on power components."
+  },
+  "motors-4": {
+   "name": "4 motors",
+   "benefit": "Independent motors for each function mean less wear on each motor and easy servicing. Emergency battery backup (9-volt batteries not included). 3-year warranty on power components."
+  },
+  "battery-backup": {
+   "name": "Emergency battery backup",
+   "benefit": "Lets the guest get out of the furniture with one rotation down during a power outage. Replace two 9-volt batteries (not included) once a year, like a smoke detector."
+  },
+  "toggle-3": {
+   "name": "3-toggle control with memory & home + USB",
+   "benefit": "Headrest, backrest and legrest toggles with two memory settings and a 1-touch Home button. USB-A port charges devices."
+  },
+  "toggle-4": {
+   "name": "4-toggle control with memory & home + USB",
+   "benefit": "Backrest, legrest, headrest and lumbar toggles with two memory settings and a 1-touch Home button. USB-A port charges devices."
+  },
+  "levelers": {
+   "name": "Levelers",
+   "benefit": "Level the unit on hard floors and carpet."
+  },
+  "motion-independent-motors": {
+   "name": "Independent motors for each function",
+   "benefit": "Less wear on each motor and easy to service."
+  },
+  "drop-table": {
+   "name": "Drop-down table & lower drawer (360 / 36U / 36X sofas)",
+   "benefit": "Drop-down table with a wireless charger, two USB-C ports and two stainless cup holders, plus a soft-close lower drawer under the centre seat. Plug-in required. Order the 360 / 36U / 36X number instead of the standard 330 / 33U / 33X. Available on the styles listed only, and only in Sable (067)."
+  },
+  "console-bundle": {
+   "name": "Power console bundle (CB / CC / CM)",
+   "benefit": "Adds a wireless charging tray, two electrical outlets and two USB ports inside the storage tub, two table ports and a choice of tray: black laminate (CB), Coffee 021 wood (CC) or Mahogany 007 wood (CM). The standard console has a lower drawer, two cup holders and a flip-top storage tub. No battery packs on a console."
+  },
+  "spring-release": {
+   "name": "Spring-release footrest",
+   "benefit": "Easy to reach, easy to use and discreet. Gently press the footrest down with the legs until it latches. One legrest position."
+  },
+  "legrest-tension": {
+   "name": "Legrest tension adjustment",
+   "benefit": "Three tension settings, set under each legrest, fit each person’s height and strength."
+  },
+  "front-levelers": {
+   "name": "Front foot levelers",
+   "benefit": "Adjust the height up to an inch for rugs, carpet or hard floors so the legrest raises and lowers without obstruction."
+  },
+  "one-button": {
+   "name": "1-button reclining",
+   "benefit": "Press to recline the legrest, keep pressing to recline the backrest."
+  },
+  "power-recline-head": {
+   "name": "Power recline & adjustable headrest",
+   "benefit": "Press to recline the legrest and keep pressing to recline the backrest. 15-second recline and 15-second return. Adjustable headrest in place of a pillow."
+  },
+  "zero-gravity": {
+   "name": "Zero-gravity layout",
+   "benefit": "The position can help circulation, and may help reduce back pain and improve posture by decompressing the spine and easing pressure points."
+  },
+  "inside-arm-control": {
+   "name": "Inside-arm control with Home button + USB",
+   "benefit": "Two-button rocker switch with a press-and-hold Home button. Quiet motors with USB-A and USB-C ports."
+  },
+  "lazmotion-poly": {
+   "name": "La-Z-Motion seat poly construction",
+   "benefit": "27 lb core with a 44 lb foundation layer under the seat and a 27 lb foundation under the legrest for a supportive yet cosy sit."
+  },
+  "interlock-ce": {
+   "name": "Interlocking frame",
+   "benefit": "Overlapping-joint frame of OSB, hardwood solids and laminated hardwood. Extra padding on the front base and arm posts only. Limited lifetime warranty on frame and springs."
+  },
+  "interlock-padded": {
+   "name": "Fully padded interlocking frame",
+   "benefit": "Padding all round protects people and the upholstery and lets the piece float freely in the room. Limited lifetime warranty on frame, springs and mechanism."
+  },
+  "nosag": {
+   "name": "No-sag springs",
+   "benefit": "Springs run front to back so there is no “hammock” effect. Each person gets their own seat system, for a supportive wear-in, not a wear-out."
+  },
+  "core-single": {
+   "name": "Single-core seat cushion with logo decking",
+   "benefit": "One solid supportive layer with a contour-cut comfort layer, stuffed to 120% so it starts crowned and breaks in flat. Self-healing zippers. Logo decking keeps cushions in place and lined up. Seats rotate but are not reversible."
+  },
+  "core-comfort": {
+   "name": "Comfort Core seat cushion with logo decking",
+   "benefit": "Four zones: firmer in the back two-thirds for back support and softer at the front so the circulation behind the knees is not cut off. Self-healing zippers. Logo decking keeps cushions in place and lined up."
+  },
+  "corkscrew": {
+   "name": "Double-picked corkscrew poly fill",
+   "benefit": "Standard fill for toss pillows and back cushions (tight backs excepted). Keeps its shape with easy upkeep. To fluff, remove one insert at a time and tumble-dry with no heat."
+  },
+  "saddle-seat": {
+   "name": "Saddle seat construction",
+   "benefit": "Sits like a sofa, not a sleeper. The bed frame is recessed so there is no bar felt when sitting next to an arm."
+  },
+  "tubular-steel": {
+   "name": "Tubular steel sleep mechanism",
+   "benefit": "The lightest, most durable shape. It will not scratch floors, collapse or injure guests."
+  },
+  "cross-wire": {
+   "name": "Cross-wire mattress support",
+   "benefit": "Holds the mattress above the support bars, so there are no bars in the back and guests sleep better."
+  },
+  "dual-lock-headrest": {
+   "name": "Dual-locking headrest with mattress retainer",
+   "benefit": "Reachable from either side of the mattress. Tilts the head up for reading or TV, or to raise the head for sleeping. The retainer keeps the mattress from sliding to the floor."
+  },
+  "duo-one-touch": {
+   "name": "One-touch recline button with USB-A",
+   "benefit": "Front button raises the legrest and stops it anywhere. Back button closes or lowers it. USB-A port with each recliner."
+  },
+  "duo-inside-recline": {
+   "name": "Reclining inside back & seat",
+   "benefit": "The legrest comes out of the sofa like a hidden ottoman, giving the look of a stationary sofa that puts your feet up. The inside recline raises and tilts the seat with continuous back support. La-Z-Boy’s only true zero-wall-clearance recliner."
+  },
+  "duo-pivot": {
+   "name": "Pivoting legrest",
+   "benefit": "Angle the legrest to suit leg length and how the guest sits."
+  },
+  "dc-extended-legrest": {
+   "name": "Extended legrest",
+   "benefit": "An extra legrest panel tucks under the seat for more leg support."
+  },
+  "dc-2pos": {
+   "name": "2-position reclining",
+   "benefit": "A 2-position tilt-back mechanism for reading, TV or relaxing, in the look of a stationary chair with a hidden recline."
+  },
+  "dc-full-ext": {
+   "name": "Full-extension reclining",
+   "benefit": "A counter-balance recline gives multiple positions, in the look of a stationary chair that hides a recline."
+  },
+  "dc-cross-supports": {
+   "name": "Frame cross supports",
+   "benefit": "Two solid-wood cross supports with steel brackets tie the arms to the rest of the chair so they do not splay apart. This is why La-Z-Boy can give a limited lifetime warranty on frame, springs and mechanism parts."
+  },
+  "dc-remote": {
+   "name": "Wireless remote with 2 memories, Home button & USB-A",
+   "benefit": "Remote sits in a magnetic cradle with USB-A, has a remote-locking feature, and returns the guest to upright with the Home button."
+  },
+  "dc-1btn": {
+   "name": "1-button reclining",
+   "benefit": "One button raises and lowers the legrest. Stop anywhere."
+  },
+  "dc-swivel-high": {
+   "name": "High-leg swivel base",
+   "benefit": "Swivel-only high-grade steel plate (no rocking) on 360-degree ball bearings, on high legs for an open look."
+  },
+  "dc-swivel-track": {
+   "name": "Swivel base (track & wheel)",
+   "benefit": "Circular swivel mechanism (no rocking) with a 360-degree track and wheels for smooth swivel."
+  },
+  "dc-swivel-glide": {
+   "name": "Swivel glider base",
+   "benefit": "Front-to-back swing mechanism on a 360-degree ball-bearing circular base."
+  },
+  "dc-press-back": {
+   "name": "Press-back reclining",
+   "benefit": "Recline with fluid movement and keep continuous lower-lumbar support. Pairs with an ottoman."
+  },
+  "ottoman-features": {
+   "name": "Ottoman features",
+   "benefit": "Contour-cut foam for the legs. Selected styles add storage, trays, casters or vents."
+  },
+  "lift-2btn": {
+   "name": "2-button control (Bronze)",
+   "benefit": "Simple up and down buttons, LED back-lit on Bronze, so the guest can stop anywhere."
+  },
+  "lift-1motor": {
+   "name": "1-motor lift through full recline",
+   "benefit": "One motor runs a smooth lift through full recline. Battery backup (two 9-volt batteries, not included) brings the user back to upright for one rotation in a power outage, then the batteries need replacing."
+  },
+  "lift-storage": {
+   "name": "Storage pocket",
+   "benefit": "Extra storage and a place to keep the remote."
+  },
+  "lift-articulating": {
+   "name": "Articulating backrest",
+   "benefit": "The backrest begins to straighten as the seat lifts, which helps the guest and caregiver with standing."
+  },
+  "lift-heat-massage": {
+   "name": "Vibration with heat & massage",
+   "benefit": "Three vibration patterns at three intensities. Heat in the seat and back at two intensities. Shuts off after 15 minutes, runs two cycles, then needs an hour to cool down."
+  },
+  "lift-independent": {
+   "name": "Independently reclining back & legrest",
+   "benefit": "Sit and recline without raising the legrest. Separate motors per function mean less wear."
+  },
+  "lift-zero-g": {
+   "name": "Legrest elevates to zero gravity",
+   "benefit": "The zero-gravity position can help with swelling and circulation."
+  },
+  "lift-box-cover": {
+   "name": "Box mechanism cover",
+   "benefit": "A finished look from all angles that keeps dust out of the motors."
+  },
+  "lift-backup": {
+   "name": "Emergency battery back-up",
+   "benefit": "Brings the guest back to upright if power fails."
+  }
+ },
+ "mechanisms": [
+  {
+   "id": "recliner-010",
+   "name": "Rocking recliner",
+   "group": "Recliners",
+   "prefixes": [
+    "010"
+   ],
+   "wallProximityIn": [
+    12,
+    18
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "slouch-rock",
+    "legrest-3pos",
+    "ratchet16",
+    "wingnut",
+    "unibody"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "1 year on foam, fabric and leather."
+   ],
+   "issued": "2025-11"
+  },
+  {
+   "id": "recliner-p10",
+   "name": "Power rocking recliner",
+   "group": "Recliners",
+   "prefixes": [
+    "P10"
+   ],
+   "wallProximityIn": [
+    12,
+    18
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "slouch-rock",
+    "control-4btn",
+    "safety-legrest",
+    "motors-2"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "3 years on motor and electrical components.",
+    "1 year on foam, fabric and leather."
+   ],
+   "issued": "2025-11"
+  },
+  {
+   "id": "recliner-10u",
+   "name": "Power rocking recliner with headrest",
+   "group": "Recliners",
+   "prefixes": [
+    "10U"
+   ],
+   "wallProximityIn": [
+    12,
+    18
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "slouch-rock",
+    "headrest",
+    "remote-memory",
+    "safety-head-leg",
+    "motors-3"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "3 years on motor and electrical components.",
+    "1 year on foam, fabric and leather."
+   ],
+   "issued": "2026-01"
+  },
+  {
+   "id": "recliner-10x",
+   "name": "Power rocking recliner with headrest & lumbar",
+   "group": "Recliners",
+   "prefixes": [
+    "10X"
+   ],
+   "wallProximityIn": [
+    12,
+    18
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "slouch-rock",
+    "headrest-lumbar",
+    "remote-memory",
+    "safety-head-leg",
+    "motors-4"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "3 years on motor and electrical components.",
+    "1 year on foam, fabric and leather."
+   ],
+   "issued": "2026-01"
+  },
+  {
+   "id": "recliner-016",
+   "name": "Wall recliner",
+   "group": "Recliners",
+   "prefixes": [
+    "016"
+   ],
+   "wallProximityIn": [
+    4,
+    8
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "slouch",
+    "legrest-3pos",
+    "track-wheel",
+    "wingnut",
+    "unibody"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "1 year on foam, fabric and leather."
+   ],
+   "notes": [
+    "Swivel bases are not available on wall recliners."
+   ],
+   "issued": "2025-11"
+  },
+  {
+   "id": "recliner-p16",
+   "name": "Power wall recliner",
+   "group": "Recliners",
+   "prefixes": [
+    "P16"
+   ],
+   "wallProximityIn": [
+    4,
+    8
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "slouch",
+    "control-4btn",
+    "safety-legrest",
+    "motors-2"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam",
+    "Track and wheel reclining mechanism"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "3 years on motor and electrical components.",
+    "1 year on foam, fabric and leather."
+   ],
+   "notes": [
+    "Swivel bases are not available on wall recliners."
+   ],
+   "issued": "2025-11"
+  },
+  {
+   "id": "recliner-16x",
+   "name": "Power wall recliner with headrest & lumbar",
+   "group": "Recliners",
+   "prefixes": [
+    "16X"
+   ],
+   "wallProximityIn": [
+    4,
+    8
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "slouch",
+    "headrest-lumbar",
+    "remote-memory",
+    "safety-head-leg",
+    "motors-4"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam",
+    "Track and wheel reclining mechanism"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "3 years on motor and electrical components.",
+    "1 year on foam, fabric and leather."
+   ],
+   "notes": [
+    "Swivel bases are not available on wall recliners or the Summit Series."
+   ],
+   "issued": "2026-01"
+  },
+  {
+   "id": "recliner-017",
+   "name": "Gliding recliner",
+   "group": "Recliners",
+   "prefixes": [
+    "017"
+   ],
+   "wallProximityIn": [
+    12,
+    14
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "slouch-glide",
+    "legrest-1pos-glider",
+    "speednut",
+    "unibody"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam",
+    "360-degree ball-bearing swivel base is standard on select styles"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "1 year on foam, fabric and leather."
+   ],
+   "notes": [
+    "Not available in power.",
+    "No base option: swivel base only."
+   ],
+   "issued": "2025-11"
+  },
+  {
+   "id": "lift-bronze",
+   "name": "Bronze lift recliner",
+   "group": "Lift chairs",
+   "prefixes": [
+    "3BL"
+   ],
+   "wallProximityIn": [
+    13.5,
+    14.5
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "lift-2btn",
+    "lift-1motor",
+    "lift-storage",
+    "safety-legrest"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for frame; 1 year on labor.",
+    "3 years on recline & lift mechanism, springs and spring systems, and electrical components.",
+    "1 year on foam and fabric."
+   ],
+   "notes": [
+    "No battery packs on any lift recliner.",
+    "The same page also prints a 13\" wall-proximity figure for Bronze, and prints the weight both as “Weight Tested” and “Weight Limit” at 300 lbs."
+   ],
+   "issued": "2026"
+  },
+  {
+   "id": "lift-gold",
+   "name": "Gold lift recliner",
+   "group": "Lift chairs",
+   "prefixes": [
+    "1HM"
+   ],
+   "wallProximityIn": [
+    13.5,
+    13.5
+   ],
+   "weightTestedLbs": 500,
+   "features": [
+    "lift-articulating",
+    "lift-storage",
+    "lift-independent",
+    "lift-heat-massage",
+    "safety-legrest"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam",
+    "Emergency battery back-up",
+    "Box mechanism cover"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for frame; 1 year on labor.",
+    "3 years on recline & lift mechanism, springs and spring systems, and electrical components.",
+    "1 year on foam and fabric."
+   ],
+   "notes": [
+    "No battery packs on any lift recliner."
+   ],
+   "issued": "2026"
+  },
+  {
+   "id": "lift-platinum",
+   "name": "Platinum lift recliner",
+   "group": "Lift chairs",
+   "prefixes": [
+    "1PL",
+    "1PH"
+   ],
+   "wallProximityIn": [
+    12.5,
+    12.5
+   ],
+   "weightTestedLbs": 350,
+   "features": [
+    "lift-box-cover",
+    "lift-storage",
+    "lift-independent",
+    "lift-zero-g",
+    "safety-head-leg"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam",
+    "Emergency battery back-up",
+    "Articulating backrest"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for frame; 1 year on labor.",
+    "3 years on recline & lift mechanism, springs and spring systems, and electrical components.",
+    "1 year on foam and fabric."
+   ],
+   "notes": [
+    "1PL has a lift remote; 1PH adds headrest and lumbar controls on the remote.",
+    "The page header prints two wall-proximity figures for Platinum (12.5\" and 11\"). Both are kept here; confirm the figure before promising placement.",
+    "No battery packs on any lift recliner."
+   ],
+   "issued": "2026"
+  },
+  {
+   "id": "motion-manual",
+   "name": "Reclina-Way manual motion",
+   "group": "Motion",
+   "prefixes": [
+    "320",
+    "330",
+    "360",
+    "339"
+   ],
+   "wallProximityIn": [
+    4,
+    12
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "slouch",
+    "legrest-3pos",
+    "track-wheel",
+    "wingnut",
+    "unibody-levelers",
+    "drop-table",
+    "console-bundle"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "1 year on foam, fabric and leather."
+   ],
+   "notes": [
+    "The drop-down table (360) is only on 804 Belmont, 807 Baron and A86 Ovation (no wireless charger on A86), in Sable (067) only.",
+    "The power console bundle is for 339, U39, X39 and SC3 only. No battery packs on a console."
+   ],
+   "issued": "2026-06"
+  },
+  {
+   "id": "motion-power-headrest",
+   "name": "Power Reclina-Way with headrest",
+   "group": "Motion",
+   "prefixes": [
+    "32U",
+    "33U",
+    "36U",
+    "U39"
+   ],
+   "wallProximityIn": [
+    4,
+    12
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "slouch",
+    "headrest",
+    "toggle-3",
+    "safety-head-leg",
+    "battery-backup"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam",
+    "Levelers",
+    "Independent motors for each function"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "3 years on motor and electrical components.",
+    "1 year on foam, fabric and leather."
+   ],
+   "notes": [
+    "The drop-down table (36U) is only on 804 Belmont, 807 Baron and A86 Ovation, in Sable (067) only.",
+    "No battery packs on a console unit."
+   ],
+   "issued": "2026-06"
+  },
+  {
+   "id": "motion-power-lumbar",
+   "name": "Power Reclina-Way with headrest & lumbar",
+   "group": "Motion",
+   "prefixes": [
+    "32X",
+    "33X",
+    "36X",
+    "X39"
+   ],
+   "wallProximityIn": [
+    4,
+    12
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "slouch",
+    "headrest-lumbar",
+    "toggle-4",
+    "safety-head-leg",
+    "battery-backup"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam",
+    "Levelers",
+    "Independent motors for each function"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "3 years on motor and electrical components.",
+    "1 year on foam, fabric and leather."
+   ],
+   "notes": [
+    "The drop-down table (36X) is only on 804 Belmont, 807 Baron and A86 Ovation, in Sable (067) only.",
+    "No battery packs on a console unit."
+   ],
+   "issued": "2026-06"
+  },
+  {
+   "id": "motion-lazTime",
+   "name": "La-Z-Time manual motion",
+   "group": "Motion",
+   "prefixes": [
+    "443",
+    "444",
+    "445",
+    "446",
+    "448",
+    "449",
+    "44A",
+    "44B",
+    "44C",
+    "44D",
+    "44E",
+    "44Q",
+    "44S",
+    "44V"
+   ],
+   "wallProximityIn": [
+    4,
+    12
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "slouch-rock",
+    "spring-release",
+    "legrest-tension",
+    "wingnut",
+    "front-levelers"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "1 year on foam, fabric and leather."
+   ],
+   "notes": [
+    "The drop-down table (446) replaces the standard 444 sofa number.",
+    "The source page lists these as 443–449 “& Modulars”."
+   ],
+   "issued": "2026-06"
+  },
+  {
+   "id": "motion-lazTime-u",
+   "name": "Power La-Z-Time with headrest",
+   "group": "Motion",
+   "prefixes": [
+    "U43",
+    "U44",
+    "U45",
+    "U46",
+    "U48",
+    "U49",
+    "U4A",
+    "U4B",
+    "U4D",
+    "U4E",
+    "U4Q",
+    "U4S",
+    "U4V"
+   ],
+   "wallProximityIn": [
+    4,
+    12
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "one-button",
+    "headrest",
+    "safety-head-leg",
+    "battery-backup"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "3 years on motor and electrical components.",
+    "1 year on foam, fabric and leather."
+   ],
+   "notes": [
+    "U46 is the drop-down-table sofa."
+   ],
+   "issued": "2026-06"
+  },
+  {
+   "id": "motion-lazTime-x",
+   "name": "Power La-Z-Time with headrest & lumbar",
+   "group": "Motion",
+   "prefixes": [
+    "X43",
+    "X44",
+    "X45",
+    "X46",
+    "X48",
+    "X49",
+    "X4A",
+    "X4B",
+    "X4D",
+    "X4E",
+    "X4Q",
+    "X4S",
+    "X4V"
+   ],
+   "wallProximityIn": [
+    4,
+    12
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "one-button",
+    "headrest-lumbar",
+    "safety-head-leg",
+    "battery-backup"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "3 years on motor and electrical components.",
+    "1 year on foam, fabric and leather."
+   ],
+   "notes": [
+    "X46 is the drop-down-table sofa."
+   ],
+   "issued": "2026-06"
+  },
+  {
+   "id": "motion-lazMotion",
+   "name": "Power La-Z-Motion with headrest",
+   "group": "Motion",
+   "prefixes": [
+    "81U",
+    "84U",
+    "85U",
+    "88U",
+    "8AU",
+    "8BU",
+    "8SU"
+   ],
+   "wallProximityIn": [
+    9,
+    9
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "power-recline-head",
+    "zero-gravity",
+    "inside-arm-control",
+    "lazmotion-poly",
+    "safety-head-leg"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Independent motors for each function",
+    "Emergency battery back-up"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "3 years on motor and electrical components.",
+    "1 year on foam, fabric and leather."
+   ],
+   "notes": [
+    "Armitage 812 does not have a safety-spring headrest; its lay-flat headrest leaves clearance when fully closed and meets industry safety standards.",
+    "The 8SU power armless middle recliner has right-side-sitting controls only, no memory settings and no USB ports."
+   ],
+   "issued": "2025-11"
+  },
+  {
+   "id": "stationary-ce",
+   "name": "Comfort Essentials stationary",
+   "group": "Stationary",
+   "prefixes": [
+    "061",
+    "063",
+    "023"
+   ],
+   "wallProximityIn": null,
+   "weightTestedLbs": 300,
+   "features": [
+    "interlock-ce",
+    "nosag",
+    "core-single",
+    "corkscrew"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs and frame.",
+    "1 year on single-core seat cushion, back cushions, and foam, fabric and leather."
+   ],
+   "notes": [
+    "Wall proximity is not stated for this section on the source page."
+   ],
+   "issued": "2026"
+  },
+  {
+   "id": "stationary-premier",
+   "name": "Premier stationary",
+   "group": "Stationary",
+   "prefixes": [
+    "610",
+    "620",
+    "630",
+    "655",
+    "230",
+    "235"
+   ],
+   "wallProximityIn": null,
+   "weightTestedLbs": 300,
+   "features": [
+    "interlock-padded",
+    "core-comfort",
+    "nosag",
+    "corkscrew"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "3 years on individually pocketed coil Comfort Core seat cushion.",
+    "1 year on all other foam, fabric and leather.",
+    "Z6 and FP upgrades raise the foam warranty from 3 to 5 years."
+   ],
+   "notes": [
+    "Wall proximity is not stated for this section on the source page."
+   ],
+   "issued": "2026"
+  },
+  {
+   "id": "stationary-sleeper",
+   "name": "Sleepers",
+   "group": "Stationary",
+   "prefixes": [
+    "510",
+    "520",
+    "555"
+   ],
+   "wallProximityIn": null,
+   "weightTestedLbs": 300,
+   "features": [
+    "saddle-seat",
+    "tubular-steel",
+    "cross-wire",
+    "dual-lock-headrest"
+   ],
+   "alsoStandard": [
+    "Fully padded interlocking frame",
+    "Comfort Core seat cushion",
+    "Double-picked corkscrew fill (tight backs excluded)",
+    "Quilted damask mattress topper",
+    "Mattress sizes: Twin 32\" W, Full 50\" W, Queen 60\" W, all 71.5\" long"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs and mechanism.",
+    "1 year on all other foam, fabric and leather.",
+    "3 years on Comfort Core seat cushion.",
+    "5 years on the Supreme Comfort mattress."
+   ],
+   "notes": [
+    "SlumberAir (MA) is a 5-year-warranty mattress with a motorised air pump and a 10-inch total height; Tempur-Response (MT) has a 3-year warranty and is 5 inches tall."
+   ],
+   "issued": "2026"
+  },
+  {
+   "id": "stationary-duo",
+   "name": "DUO",
+   "group": "Stationary",
+   "prefixes": [
+    "P91",
+    "P93",
+    "P94"
+   ],
+   "wallProximityIn": [
+    0,
+    0
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "duo-one-touch",
+    "duo-inside-recline",
+    "duo-pivot",
+    "nosag"
+   ],
+   "alsoStandard": [
+    "Fully padded interlocking frame",
+    "Comfort Core seat cushion",
+    "Double-picked corkscrew fill (tight backs excluded)"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs and mechanism.",
+    "3 years on motor and electrical components.",
+    "3 years on Comfort Core seat cushion.",
+    "1 year on all other foam, fabric and leather."
+   ],
+   "notes": [
+    "Sits flush to the wall or floats free with a floor outlet or the optional battery pack (extra charge)."
+   ],
+   "issued": "2026-06"
+  },
+  {
+   "id": "dc-028",
+   "name": "2-position high-leg recliner",
+   "group": "Designer's Choice",
+   "prefixes": [
+    "028"
+   ],
+   "wallProximityIn": [
+    12,
+    18
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "dc-extended-legrest",
+    "dc-2pos",
+    "dc-cross-supports"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam",
+    "No-sag front-to-back seat and back springs"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "1 year on foam, fabric and leather."
+   ],
+   "issued": "2025-11"
+  },
+  {
+   "id": "dc-295",
+   "name": "High-leg recliner",
+   "group": "Designer's Choice",
+   "prefixes": [
+    "295"
+   ],
+   "wallProximityIn": [
+    12,
+    18
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "dc-extended-legrest",
+    "dc-full-ext",
+    "dc-cross-supports"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam",
+    "No-sag front-to-back seat and back springs"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "1 year on foam, fabric and leather."
+   ],
+   "issued": "2026-06"
+  },
+  {
+   "id": "dc-29u",
+   "name": "Power high-leg recliner with headrest",
+   "group": "Designer's Choice",
+   "prefixes": [
+    "29U"
+   ],
+   "wallProximityIn": [
+    12,
+    18
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "dc-remote",
+    "dc-1btn",
+    "headrest",
+    "safety-head-leg",
+    "motors-2"
+   ],
+   "alsoStandard": [
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam",
+    "No-sag front-to-back springs",
+    "Frame cross supports covered by fabric",
+    "Extended legrest",
+    "Power supply shelf"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "1 year on foam, fabric and leather.",
+    "3 years on motor and electrical components."
+   ],
+   "issued": "2026-01"
+  },
+  {
+   "id": "dc-210",
+   "name": "High-leg swivel chair",
+   "group": "Designer's Choice",
+   "prefixes": [
+    "210"
+   ],
+   "wallProximityIn": [
+    6,
+    12
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "interlock-padded",
+    "core-comfort",
+    "nosag",
+    "dc-swivel-high"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "3 years on Comfort Core seat cushion.",
+    "1 year on all other foam, fabric and leather."
+   ],
+   "issued": "2026-06"
+  },
+  {
+   "id": "dc-215",
+   "name": "Swivel chair",
+   "group": "Designer's Choice",
+   "prefixes": [
+    "215"
+   ],
+   "wallProximityIn": [
+    6,
+    12
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "interlock-padded",
+    "core-comfort",
+    "nosag",
+    "dc-swivel-track"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "3 years on Comfort Core seat cushion.",
+    "1 year on all other foam, fabric and leather."
+   ],
+   "issued": "2026-06"
+  },
+  {
+   "id": "dc-225",
+   "name": "Swivel glider",
+   "group": "Designer's Choice",
+   "prefixes": [
+    "225"
+   ],
+   "wallProximityIn": [
+    6,
+    12
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "interlock-padded",
+    "core-comfort",
+    "nosag",
+    "dc-swivel-glide"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "3 years on Comfort Core seat cushion.",
+    "1 year on all other foam, fabric and leather."
+   ],
+   "issued": "2026-06"
+  },
+  {
+   "id": "dc-265",
+   "name": "Press-back reclining chair",
+   "group": "Designer's Choice",
+   "prefixes": [
+    "265"
+   ],
+   "wallProximityIn": [
+    10,
+    12
+   ],
+   "weightTestedLbs": 300,
+   "features": [
+    "dc-press-back",
+    "wingnut",
+    "nosag"
+   ],
+   "alsoStandard": [
+    "OSB, hardwood solids and laminated hardwood frame",
+    "Removable back with cam-locking mechanism",
+    "Contoured-cut polyurethane foam"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "1 year on foam, fabric and leather."
+   ],
+   "issued": "2025-11"
+  },
+  {
+   "id": "dc-ottoman",
+   "name": "Ottomans",
+   "group": "Designer's Choice",
+   "prefixes": [
+    "024",
+    "240",
+    "245"
+   ],
+   "wallProximityIn": [
+    0,
+    0
+   ],
+   "weightTestedLbs": null,
+   "features": [
+    "interlock-padded",
+    "ottoman-features"
+   ],
+   "warranty": [
+    "Limited lifetime on parts for springs, mechanism and frame; 1 year on labor.",
+    "1 year on all foam, fabric and leather."
+   ],
+   "issued": "2026-06"
+  }
+ ],
+ "options": {
+  "ES": {
+   "name": "Elongated comfort selector",
+   "benefit": "Adds 2 inches to the standard comfort-selector handle for better leverage.",
+   "pitch": "“This longer handle gives you more leverage, so raising and lowering the legrest takes less effort.”"
+  },
+  "H1": {
+   "name": "Arc comfort selector",
+   "benefit": "Replaces the standard comfort selector with a brushed-nickel Arc handle. The finish changes the comfort selector.",
+   "pitch": "“A brushed-nickel handle is a small upgrade you will see and feel every time you recline.”"
+  },
+  "H3": {
+   "name": "Black Arc comfort selector",
+   "benefit": "Replaces the standard comfort selector with a matte-black Arc handle.",
+   "pitch": "“A matte-black handle gives the chair a modern, finished look.”"
+  },
+  "1H": {
+   "name": "Arc comfort selector",
+   "benefit": "Replaces the standard handles with a brushed-nickel Arc handle.",
+   "pitch": "“A brushed-nickel handle is a small upgrade you will see and feel every time you recline.”"
+  },
+  "3H": {
+   "name": "Black Arc comfort selector",
+   "benefit": "Replaces the standard handles with a matte-black Arc handle.",
+   "pitch": "“A matte-black handle gives the chair a modern, finished look.”"
+  },
+  "2E": {
+   "name": "Elongated comfort selector",
+   "benefit": "Adds 2 inches to the standard handles for better leverage and an easier recline.",
+   "pitch": "“This longer handle gives you more leverage, so reclining takes less effort.”"
+  },
+  "LS": {
+   "name": "Left-hand comfort selector",
+   "benefit": "Moves the comfort selector to the left side.",
+   "pitch": "“If you sit on the left side, the handle moves to where your hand naturally falls.”"
+  },
+  "LE": {
+   "name": "Left elongated comfort selector",
+   "benefit": "Left-side handle with 2 extra inches of length.",
+   "pitch": "“The handle moves to the left side and is longer for easier leverage.”"
+  },
+  "L1": {
+   "name": "Left-hand Arc comfort selector",
+   "benefit": "Left-side handle, replaced with the brushed-nickel Arc handle.",
+   "pitch": "“The handle moves to the left side, in a brushed-nickel Arc style.”"
+  },
+  "L3": {
+   "name": "Left-hand black Arc comfort selector",
+   "benefit": "Left-side handle, replaced with the matte-black Arc handle.",
+   "pitch": "“The handle moves to the left side, in a matte-black Arc style.”"
+  },
+  "FS": {
+   "name": "La-Z-Boy Contour Cushion",
+   "benefit": "Adds a Contour Cushion foam layer over a high-resiliency foam base for the seat and legrest. The special foam has millions of air capsules that mold to the body for a soothing hug on the back and hips. Raises the foam warranty from 1 year to 3 years.",
+   "pitch": "“The Contour Cushion molds to your body and relieves pressure points, and it carries a longer foam warranty.”"
+  },
+  "Z6": {
+   "name": "ComfortCore Plus with Contour Cushion",
+   "benefit": "Upgrades the Comfort Core seat cushion to ComfortCore Plus with Contour Cushion, a temperature-resistant foam that contours to the body. Raises the foam warranty from 3 years to 5 years.",
+   "pitch": "“This is the most personal seat we make: it contours to you and carries a 5-year foam warranty.”"
+  },
+  "FP": {
+   "name": "Featherlite pillows",
+   "benefit": "Upgrades accent pillows to 95% duck feathers and 5% duck down in a down-proof ticking fabric. Raises the foam warranty from 3 years to 5 years on styles where that applies.",
+   "pitch": "“Featherlite pillows feel plush and hold a softer, more relaxed shape.”"
+  },
+  "P1": {
+   "name": "Contrasting pillows",
+   "benefit": "Changes the cover on the accent pillows. Enter the code followed by the contrasting fabric number.",
+   "pitch": "“Contrasting pillows let you add colour or pattern without changing the whole piece.”"
+  },
+  "P2": {
+   "name": "Contrasting pillows",
+   "benefit": "Changes the cover on the accent pillows. Enter the code followed by the contrasting fabric number.",
+   "pitch": "“Contrasting pillows let you add colour or pattern without changing the whole piece.”"
+  },
+  "SW": {
+   "name": "Swivel base, manual recliners",
+   "benefit": "360-degree, full-race ball-bearing circular base. Available on select styles. Not available on wall recliners or the Summit Series.",
+   "pitch": "“A swivel base lets you turn toward the TV, the window or the conversation without getting up.”"
+  },
+  "SL": {
+   "name": "Power swivel base",
+   "benefit": "145-degree turn with stoppers for safety on a ball-bearing circular base. Adds 1 inch to overall height. Not available on wall recliners or the Summit Series.",
+   "pitch": "“It turns part of the way for conversation or the TV, and the stoppers keep it safe.”"
+  },
+  "LT": {
+   "name": "Left-side sitting control panel",
+   "benefit": "Moves the mounted controls from right to left side sitting.",
+   "pitch": "“The controls move to the left side, where you sit.”"
+  },
+  "LW": {
+   "name": "Left-side wireless remote",
+   "benefit": "Switches to a left-side sitting mounted cradle with the wireless remote. The cradle includes a remote finder.",
+   "pitch": "“The remote cradle moves to the left side, with a remote finder in the cradle.”"
+  },
+  "HW": {
+   "name": "Hand wand",
+   "benefit": "Replaces the side control panel with a corded hand wand. The cord runs through the centre so either hand can use it. No USB charging with the hand wand.",
+   "pitch": "“A simple corded hand wand is easy to hold and works with either hand.”"
+  },
+  "W2": {
+   "name": "Dual wireless remotes",
+   "benefit": "Replaces the outside toggle controls with two sitting-mounted cradles with wireless remotes. Remote finder in the cradle, both memory settings on the remote and the cradle.",
+   "pitch": "“Two seats means two remotes, each with its own memory settings.”"
+  },
+  "T2": {
+   "name": "Dual control panel",
+   "benefit": "Both sitting positions get a control panel.",
+   "pitch": "“Each side of the sofa has its own controls.”"
+  },
+  "CB": {
+   "name": "Power console bundle, black laminate tray",
+   "benefit": "Adds a wireless charging tray, two outlets and two USB ports inside the storage tub and two table ports, with a black laminate tray. For 339, U39, X39 and SC3. No battery packs.",
+   "pitch": "“The console charges your phone and keeps drinks and remotes in reach.”"
+  },
+  "CC": {
+   "name": "Power console bundle, Coffee 021 wood tray",
+   "benefit": "Adds a wireless charging tray, two outlets and two USB ports inside the storage tub and two table ports, with a Coffee finish 021 wood tray. For 339, U39, X39 and SC3. No battery packs.",
+   "pitch": "“The console charges your phone and keeps drinks and remotes in reach.”"
+  },
+  "CM": {
+   "name": "Power console bundle, Mahogany 007 wood tray",
+   "benefit": "Adds a wireless charging tray, two outlets and two USB ports inside the storage tub and two table ports, with a Mahogany finish 007 wood tray. For 339, U39, X39 and SC3. No battery packs.",
+   "pitch": "“The console charges your phone and keeps drinks and remotes in reach.”"
+  },
+  "MA": {
+   "name": "SlumberAir mattress",
+   "benefit": "Replaces the standard sleeper mattress with an inflatable air-cushioned top mattress. The motorised pump inflates it in 45 seconds and a button adjusts firm to soft. 10 inches total height, 5-year warranty.",
+   "pitch": "“Guests can set their own firmness at the touch of a button.”"
+  },
+  "MT": {
+   "name": "Tempur-Response mattress",
+   "benefit": "Replaces the standard sleeper mattress with Tempur-Response memory foam over an individually pocketed coil core. 5 inches total height, 3-year warranty.",
+   "pitch": "“Tempur-Response memory foam relieves pressure points and gives guests a better night’s sleep.”"
+  },
+  "NB": {
+   "name": "Hammered black nailhead trim",
+   "benefit": "Adds hammered black nailhead trim. Locations vary by style.",
+   "pitch": "“Black nailhead trim adds a tailored detail to the piece.”"
+  },
+  "NH": {
+   "name": "Brass nailhead trim",
+   "benefit": "Adds brass nailhead trim. Locations vary by style.",
+   "pitch": "“Brass nailhead trim adds a tailored, warm detail to the piece.”"
+  },
+  "NS": {
+   "name": "Platinum nailhead trim",
+   "benefit": "Adds platinum nailhead trim. Locations vary by style.",
+   "pitch": "“Platinum nailhead trim adds a tailored, cool-toned detail to the piece.”"
+  },
+  "0881YC": {
+   "name": "Battery pack, DUO",
+   "benefit": "Order code for a DUO battery pack. A rechargeable lithium-ion battery pack lets the DUO operate cordless anywhere in the room. 1-year warranty on the battery pack.",
+   "pitch": "“A battery pack lets the DUO sit anywhere in the room, with no cord.”"
+  }
+ },
+ "warrantyTiers": [
+  {
+   "term": "Limited lifetime",
+   "covers": "Parts for springs, mechanism and frame (on lifts: frame only), plus 1 year on labor."
+  },
+  {
+   "term": "3 years",
+   "covers": "Motor and electrical components on power recliners and motion; recline & lift mechanism, springs and electrical on lift chairs; Comfort Core seat cushion on Premier stationary and Designer's Choice swivels; foam on Contour Cushion (FS) styles."
+  },
+  {
+   "term": "5 years",
+   "covers": "Foam on Z6 / FP upgrades on Premier stationary; Supreme Comfort and SlumberAir sleeper mattresses."
+  },
+  {
+   "term": "1 year",
+   "covers": "Foam, fabric and leather (lifts: foam and fabric); battery packs."
+  }
+ ],
+ "crossSourceNotes": [
+  {
+   "topic": "Lift capacity",
+   "note": "This guide gives lift chairs by series: Bronze (3BL) 300 lb, Gold (1HM) 500 lb, Platinum (1PL/1PH) 350 lb. The app’s lift capacity table is by model (e.g. Clayton 562 at 500 lb, Pinnacle 512 at 350 lb, Liam 786 at 300 lb). The two are different cuts of the data and neither names which series a model is. Fit logic keeps using the lower documented limit; confirm the style’s rating before promising it."
+  },
+  {
+   "topic": "Tall Series Astor 519",
+   "note": "The recliner Tall Series (Astor 519, Kodie 715) is weight tested to 300 lb. The app’s lift table lists Astor 519 at 350 lb. Different documents, possibly different styles: confirm the exact style."
+  },
+  {
+   "topic": "Platinum lift wall proximity",
+   "note": "The Platinum page prints both 12.5\" and 11\". Bronze prints 13.5–14.5\" and 13\"."
+  }
+ ],
+ "seriesNotes": [
+  {
+   "series": "Tall Series (Astor 519, Kodie 715)",
+   "note": "Tall base included. Deep seat and taller back. Weight tested to 300 lb. Available in 010, 10U, 10X, 016 and 16X."
+  },
+  {
+   "series": "Summit Series (Redwood 776, Randell 777, Ace 805)",
+   "note": "Elongated handle and tall base included. Wider-scale frame, taller back, extra seat and back springs, bolstered rocker blocks and springs, extra-deep seat with full chaise legrest. No swivel bases allowed. Weight tested to 300 lb. Available in 010, 10U, 10X, 016 and 16X."
+  }
+ ]
+}

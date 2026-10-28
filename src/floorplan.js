@@ -36,19 +36,25 @@ export function rotatedSize(baseWidth, baseDepth, rotation) {
 }
 
 /** Build a placed item from a catalog piece. Returns null when the catalog gives no width and depth. */
-export function createItem(piece, profile, x, y, rotation = 0, code) {
+export function createItem(piece, profile, x, y, rotation = 0, code, options = {}) {
   const source = profile.pieces.find((entry) => entry.key === piece.key);
   const size = parsePieceDimensions(source?.dimensions_text);
   if (!size) return null;
   const turn = normalizeRotation(rotation);
-  const box = rotatedSize(size.width, size.depth, turn);
-  const reach = Number(source?.fully_extended_in) > size.depth ? Number(source.fully_extended_in) : null;
+  const kind = pieceKind(piece.key);
+  // A corner piece's published W is its reach along EACH wall (tear-pad arrangements: e.g. 49 + 69 = 118 along a wall), and
+  // its published D is the width of the edge where the next piece attaches. So its footprint is W x W, not W x D.
+  const corner = kind === 'corner' && size.width >= size.depth;
+  const footprint = corner ? { width: size.width, depth: size.width } : size;
+  const box = rotatedSize(footprint.width, footprint.depth, turn);
+  const reach = Number(source?.fully_extended_in) > footprint.depth ? Number(source.fully_extended_in) : null;
   return {
     id: `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
     modelCode: String(profile.model_code), modelName: profile.model_name, family: profile.sectional_family,
     key: piece.key, name: piece.name, code: code || piece.variants?.[0]?.code || String(piece.prefix || '').split('/')[0].trim(),
-    x, y, width: box.width, height: box.height, baseWidth: size.width, baseHeight: size.depth, heightIn: size.height,
-    rotation: turn, dimensionsLabel: source?.dimensions_text || '', reachIn: reach, kind: pieceKind(piece.key),
+    x, y, width: box.width, height: box.height, baseWidth: footprint.width, baseHeight: footprint.depth, heightIn: size.height,
+    attachIn: corner ? size.depth : null, mirror: Boolean(options.mirror),
+    rotation: turn, dimensionsLabel: source?.dimensions_text || '', reachIn: reach, kind,
   };
 }
 
@@ -207,7 +213,7 @@ export function presetItems(kind, profile, pieces, room) {
   const console = pick(pieces, /console/i);
   const chaiseLeft = pick(pieces, /^LA_chaise/i);
   const chaiseRight = pick(pieces, /^RA_chaise/i);
-  const make = (piece, x, y, rotation = 0) => (piece ? createItem(piece, profile, x, y, rotation) : null);
+  const make = (piece, x, y, rotation = 0, options = {}) => (piece ? createItem(piece, profile, x, y, rotation, undefined, options) : null);
   const size = (piece, rotation = 0) => { const item = make(piece, 0, 0, rotation); return item && { width: item.width, height: item.height }; };
   let items;
 
@@ -220,12 +226,12 @@ export function presetItems(kind, profile, pieces, room) {
     const originX = (room.width - totalWidth) / 2;
     const originY = (room.height - (c.height + l.height)) / 2;
     const cornerItem = make(corner, originX, originY);
-    const down = make(right, cornerItem.x + (cornerItem.width - l.width) / 2, cornerItem.y + cornerItem.height, 270);
-    const runY = (high) => cornerItem.y + (cornerItem.height - high) / 2;
+    const down = make(right, cornerItem.x, cornerItem.y + cornerItem.height, 270);
+    const runY = () => cornerItem.y; // run pieces sit flush against the same wall as the corner's back
     items = [down, cornerItem];
     let cursor = cornerItem.x + cornerItem.width;
-    if (s) { const consoleItem = make(console, cursor, runY(s.height)); items.push(consoleItem); cursor += consoleItem.width; }
-    items.push(make(left, cursor, runY(r.height)));
+    if (s) { const consoleItem = make(console, cursor, runY()); items.push(consoleItem); cursor += consoleItem.width; }
+    items.push(make(left, cursor, runY()));
   } else if (kind === 'u-shape') {
     if (!left || !right || !corner || !middle) return null;
     const c = size(corner); const m = size(middle); const l = size(right, 270); const r = size(left, 90);
@@ -234,10 +240,10 @@ export function presetItems(kind, profile, pieces, room) {
     const originX = (room.width - totalWidth) / 2;
     const originY = (room.height - (c.height + Math.max(l.height, r.height))) / 2;
     const cornerLeft = make(corner, originX, originY, 0);
-    const mid = make(middle, cornerLeft.x + cornerLeft.width, cornerLeft.y + (cornerLeft.height - m.height) / 2, 0);
-    const cornerRight = make(corner, mid.x + mid.width, originY, 0);
-    const leftSeat = make(right, cornerLeft.x + (cornerLeft.width - l.width) / 2, cornerLeft.y + cornerLeft.height, 270);
-    const rightSeat = make(left, cornerRight.x + (cornerRight.width - r.width) / 2, cornerRight.y + cornerRight.height, 90);
+    const mid = make(middle, cornerLeft.x + cornerLeft.width, cornerLeft.y, 0);
+    const cornerRight = make(corner, mid.x + mid.width, originY, 0, { mirror: true });
+    const leftSeat = make(right, cornerLeft.x, cornerLeft.y + cornerLeft.height, 270);
+    const rightSeat = make(left, cornerRight.x + cornerRight.width - r.width, cornerRight.y + cornerRight.height, 90);
     items = [leftSeat, cornerLeft, mid, cornerRight, rightSeat];
   } else if (kind === 'straight-chaise') {
     // Left/right is the sitter's. Seen from above the right-arm end sits at the drawing's left.

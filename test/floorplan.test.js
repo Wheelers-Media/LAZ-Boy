@@ -113,3 +113,12 @@ test('formats inches as feet and inches', () => {
   assert.equal(formatInches(96), '8′');
   assert.equal(formatInches(9.5), '9.5″');
 });
+
+test('a corner piece occupies its published width along both walls and keeps the published depth as its attach edge', () => {
+  const item = createItem(piece('corner_wedge'), profile, 0, 0, 0, '44C');
+  const published = parsePieceDimensions(profile.pieces.find((entry) => entry.key === 'corner_wedge').dimensions_text);
+  assert.equal(item.baseWidth, published.width);
+  assert.equal(item.baseHeight, published.width);
+  assert.equal(item.attachIn, published.depth);
+  assert.equal(item.width, item.height);
+});

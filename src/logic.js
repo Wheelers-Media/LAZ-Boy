@@ -877,7 +877,131 @@ export function sectionalPiecesForFamily(catalog, family, modelCode) {
 const RMS_CATALOGS = ['stationary_catalog_2026', 'motion_catalog_2026', 'designers_choice_catalog_2026', 'recliner_catalog_2026'];
 const splitRmsCodes = (value = '') => String(value).split('/').map((part) => part.trim()).filter(Boolean);
 
+/**
+ * Option-code names and descriptions from the April 2026 guide win over the older catalog entries
+ * (the older file had FS as a swivel base and Z6/SL as other things). Codes the guide does not define are kept as they were.
+ */
+export function applyGuideOptionDefinitions(catalog) {
+  const defs = new Map((catalog?.style_index_2026?.styles || []).filter((row) => row.kind === 'reference').map((row) => [row.styleNumber, { name: row.name.replace(/\s*\(Feature\)\s*$/, ''), description: row.special || '', standardFeature: row.model === 'FEATURES (STANDARD)' }]));
+  const merged = new Map((catalog.option_suffixes || []).map((item) => [item.code, item]));
+  defs.forEach((def, code) => merged.set(code, { ...(merged.get(code) || {}), code, ...def }));
+  const rename = (list) => (list || []).map((item) => (defs.has(item.code) ? { ...item, name: defs.get(item.code).name, description: defs.get(item.code).description || item.description } : item));
+  // Options the RMS custom-order screen shows that the guide's option list does not name (C1, F1, WL, Z4). The guide's wording wins where both define a code.
+  for (const item of catalog?.rms_option_codes?.options || []) merged.set(item.code, { ...item, ...(merged.get(item.code) || {}), entry: item.entry });
+  return { ...catalog, option_suffixes: [...merged.values()], cushion_upgrades: rename(catalog.cushion_upgrades), nailhead_trims: rename(catalog.nailhead_trims) };
+}
+
+const guideDims = (dims) => (dims?.height && dims?.width && dims?.depth ? `${dims.height} H × ${dims.width} W × ${dims.depth} D in` : '');
+/**
+ * Product Index entries rebuilt from the guide: for every model the guide lists, its styles are exactly the guide's rows
+ * (cap codes, finishes, options, dimensions). Models the guide does not list keep their old entries, marked unverified.
+ */
+export function getGuideProductIndex(catalog) {
+  const old = getFullProductIndex(catalog);
+  const rows = (catalog?.style_index_2026?.styles || []).filter((row) => row.kind === 'style');
+  const byModel = new Map();
+  rows.forEach((row) => byModel.set(row.model, [...(byModel.get(row.model) || []), row]));
+  const result = [];
+  const seen = new Set();
+  for (const [model, list] of byModel) {
+    seen.add(model);
+    const previous = old.find((item) => item.modelCode === model);
+    const name = list.find((row) => row.name)?.name;
+    result.push({
+      modelCode: model, modelName: previous?.modelName && previous.modelName !== model ? previous.modelName : name ? name.charAt(0) + name.slice(1).toLowerCase() : model,
+      categories: previous?.categories || [], sources: [], notes: [],
+      styles: list.map((row) => ({ code: row.prefix, label: `${row.category || row.name}${row.status === 'discontinued' ? ' · discontinued' : row.status === 'new' ? ' · new' : ''}`, dimensions: guideDims(row.dims), options: row.options, caps: row.capCodes, finishes: [row.standardFinish && `${row.standardFinish.name} ${row.standardFinish.code} (standard)`, ...row.optionalFinishes.map((f) => `${f.name} ${f.code}`)].filter(Boolean), status: row.status, select: formatSelectCovers(row.select), source: 'guide' })),
+    });
+  }
+  for (const item of old) if (!seen.has(item.modelCode)) result.push({ ...item, unverified: true, notes: ['Not in the April 2026 guide. Nothing here is verified.', ...(item.notes || [])] });
+  return result.sort((a, b) => a.modelName.localeCompare(b.modelName));
+}
+
+/** True when the April 2026 guide is loaded but does not list this model. Nothing about its covers, finishes or options is documented. */
+export function isUnlistedModel(catalog, modelCode) {
+  return Boolean(catalog?.style_index_2026?.styles?.length) && !getGuideStyleRows(catalog, modelCode).length;
+}
+
+/** April 2026 Product Information Guide rows (public/style-index-2026.json) for one model. Empty when the guide does not list the model. */
+export function getGuideStyleRows(catalog, modelCode) {
+  return (catalog?.style_index_2026?.styles || []).filter((row) => row.kind === 'style' && String(row.model) === String(modelCode));
+}
+/** The guide row for one exact style (prefix + model, e.g. 448 + 803), or null. */
+export function getGuideStyle(catalog, modelCode, prefix) {
+  return getGuideStyleRows(catalog, modelCode).find((row) => row.prefix === String(prefix)) || null;
+}
+/** Mechanism entries (public/mechanism-guide-2026.json) that cover one style prefix, or null. A prefix the guide does not list gets no entry; nothing is inferred. */
+export function getMechanismForPrefix(catalog, prefix) {
+  const guide = catalog?.mechanism_guide_2026;
+  if (!guide) return null;
+  const mechanism = (guide.mechanisms || []).find((item) => item.prefixes.includes(String(prefix)));
+  return mechanism ? resolveMechanism(guide, mechanism) : null;
+}
+function resolveMechanism(guide, mechanism) {
+  return { ...mechanism, featureList: mechanism.features.map((id) => ({ id, ...guide.features[id] })) };
+}
+/** Mechanisms for the exact styles the April guide lists for one model, one entry each, with the prefixes of this model that use it. */
+export function getMechanismsForModel(catalog, modelCode) {
+  const found = new Map();
+  for (const row of getGuideStyleRows(catalog, modelCode)) {
+    const mechanism = getMechanismForPrefix(catalog, row.prefix);
+    if (!mechanism) continue;
+    const entry = found.get(mechanism.id) || { ...mechanism, modelPrefixes: [] };
+    entry.modelPrefixes.push(row.prefix);
+    found.set(mechanism.id, entry);
+  }
+  return [...found.values()];
+}
+/** "12–18"", "0"" or "" when the guide does not state wall proximity. */
+export function formatWallProximity(range) {
+  if (!Array.isArray(range)) return '';
+  const [low, high] = range;
+  return low === high ? `${low}"` : `${low}–${high}"`;
+}
+/** Plain-text summary and one talking point for a mechanism. */
+export function describeMechanism(mechanism) {
+  if (!mechanism) return null;
+  const wall = formatWallProximity(mechanism.wallProximityIn);
+  const facts = [mechanism.name, wall && `wall space ${wall}`, mechanism.weightTestedLbs && `weight tested to ${mechanism.weightTestedLbs} lb`].filter(Boolean).join(' · ');
+  const lead = mechanism.featureList?.[0];
+  return { text: `${facts}. ${(mechanism.featureList || []).map((feature) => feature.name).join(', ')}.`, pitch: lead ? `“${lead.benefit}”` : '' };
+}
+/** Benefit text and talking point for one option code, or null when the guide has none. */
+export function getOptionBenefit(catalog, code) {
+  return catalog?.mechanism_guide_2026?.options?.[String(code)] || null;
+}
+/** Lift chair series ratings from the guide (series, prefixes, tested limit in lb). Kept separate from the per-model capacity table. */
+export function getLiftSeriesRatings(catalog) {
+  return (catalog?.mechanism_guide_2026?.mechanisms || []).filter((item) => item.group === 'Lift chairs').map((item) => ({ name: item.name, prefixes: item.prefixes, limitLbs: item.weightTestedLbs }));
+}
+const SELECT_LABELS = { fabric: 'Select fabric', faux: 'Select faux leather', leather: 'Select leather' };
+/** Price-book select cover lists as display lines, e.g. "Select fabric: B1538 Seamount". Leather entries keep their listed colours. */
+export function formatSelectCovers(select) {
+  return Object.entries(select || {}).map(([kind, covers]) => `${SELECT_LABELS[kind]}: ${covers.map((cover) => `${cover.code} ${cover.name}${cover.colors?.length ? ` (${cover.colors.join(', ')})` : ''}`).join(', ')}`);
+}
+/** Select covers the price book lists for one exact style, each marked when the cover is absent from the A26 program. */
+export function getStyleSelectCovers(catalog, modelCode, prefix) {
+  const known = new Set([...(catalog.fabric_cover_program_a26?.fabrics || []), ...(catalog.fabric_cover_program_a26?.leathers || [])].map((record) => record.coverCode));
+  const select = getGuideStyle(catalog, modelCode, prefix)?.select || {};
+  return Object.fromEntries(Object.entries(select).map(([kind, covers]) => [kind, covers.map((cover) => ({ ...cover, inA26: known.has(cover.code) }))]));
+}
+/** Wood finishes the guide lists for one exact style: its standard finish and its optional finishes. */
+export function getStyleFinishes(catalog, modelCode, prefix) {
+  const row = getGuideStyle(catalog, modelCode, prefix);
+  return { standard: row?.standardFinish || null, optional: row?.optionalFinishes || [] };
+}
+/** Leather covers are sold in price bands (BL, DL, FL, HL, or Select leather for LB covers). A style that the price book shows no price for in that band cannot take the leather. Styles with no band data are not restricted. */
+function leatherBandOpen(record, rows) {
+  const band = String(record.coverCode || '').slice(0, 2);
+  const key = band === 'LB' ? 'selectLeather' : band;
+  const withBands = rows.filter((row) => row.bands?.length);
+  return !withBands.length || withBands.some((row) => row.bands.includes(key));
+}
+const GUIDE_RESTRICTED_FAMILY = /^(MOTION|RECLINER|MODULAR|LIFT)$/;
+
 export function getRmsModelStyleChoices(catalog, modelCode) {
+  const guideRows = getGuideStyleRows(catalog, modelCode);
+  if (guideRows.length) return guideRows.map((row) => ({ code: row.prefix, label: `${row.category || row.name}${row.status === 'discontinued' ? ' (discontinued)' : row.status === 'new' ? ' (new)' : ''}` }));
   const entries = new Map();
   const add = (code, label) => {
     if (code) entries.set(String(code), label || 'Catalog model/style');
@@ -919,10 +1043,19 @@ export function getRmsModelStyleChoices(catalog, modelCode) {
 }
 
 export function getDefaultRmsGroup(catalog, modelCode) {
-  return getRmsModelStyleChoices(catalog, modelCode)[0]?.code || '';
+  // A floor unit or quote starts from the whole piece, not one modular section of it.
+  const modular = new Set((catalog.product_profiles || []).filter((profile) => String(profile.model_code) === String(modelCode)).flatMap((profile) => profile.pieces.flatMap((piece) => [piece.code, ...(piece.variants || []).map((variant) => variant.code)])).filter(Boolean));
+  const choices = getRmsModelStyleChoices(catalog, modelCode);
+  const whole = choices.filter((choice) => !modular.has(choice.code));
+  return (whole[0] || choices[0])?.code || '';
 }
 
 export function getRmsStyleOptions(catalog, modelCode, group) {
+  if (catalog?.style_index_2026?.styles?.length && !getGuideStyleRows(catalog, modelCode).length) return getRmsModelStyleChoices(catalog, modelCode).some((item) => item.code === String(group)) ? { options: new Set(), finishMarkerListed: false } : null;
+  if (getGuideStyleRows(catalog, modelCode).length) {
+    const row = getGuideStyle(catalog, modelCode, group);
+    return row ? { options: new Set(row.options), finishMarkerListed: row.options.includes('FN') && Boolean(row.standardFinish || row.optionalFinishes.length) } : null;
+  }
   const options = new Set();
   let documented = false;
   let finishMarkerListed = false;
@@ -1251,7 +1384,20 @@ export function decodeRmsSku(input, catalog) {
   const swatchCollections = (catalog.stationary_catalog_2026?.products || []).flatMap((product) => (product.catalog_groups || []).flatMap((group) => group.fabric_collections || []));
   const matchedCollection = swatchCollections.find((collection) => (collection.swatches || []).some(([swatch]) => String(swatch) === patternCode + colorCode));
   const colorMatch = patternCode && colorCode ? (matchedCollection?.swatches || []).find(([swatch]) => String(swatch) === patternCode + colorCode) : null;
+  const programCovers = [...(catalog.fabric_cover_program_a26?.fabrics || []), ...(catalog.fabric_cover_program_a26?.leathers || [])];
+  const programGrade = coverToken.match(/^[A-Z]{1,3}/)?.[0] || null;
+  const aprilRecord = programGrade && patternCode ? programCovers.find((record) => record.coverCode === `${programGrade}${patternCode}`) : null;
+  const priorSeason = catalog.fabric_cover_program_a26?.priorSeason;
+  const priorRecord = programGrade && patternCode && !aprilRecord?.colors?.includes(colorCode) ? [...(priorSeason?.fabrics || []), ...(priorSeason?.leathers || [])].find((record) => record.coverCode === `${programGrade}${patternCode}` && record.colors.includes(colorCode)) : null;
+  const programRecord = priorRecord || aprilRecord;
+  const programSeason = programRecord ? (priorRecord ? priorSeason.label : 'April 2026') : null;
+  const programGradeKnown = Boolean(programGrade) && programCovers.some((record) => record.coverCode.match(/^[A-Z]+/)?.[0] === programGrade);
   const cover = coverToken ? {
+    program_pattern_name: programRecord?.patternName || null,
+    program_color_name: programRecord?.colorNames?.[colorCode] || null,
+    program_cap_code: programRecord?.capCode || null,
+    program_season: programSeason,
+    program_note: priorRecord ? `${priorSeason.label} program, not on the April 2026 list. Confirm it can still be ordered.` : null,
     raw: coverToken,
     grade: coverToken.match(/^[A-Z]{1,3}/)?.[0] || null,
     pattern: patternCode,
@@ -1260,12 +1406,12 @@ export function decodeRmsSku(input, catalog) {
     swatch_name: colorMatch?.[1] ? colorMatch[1] : null,
     swatch_source: colorMatch ? matchedCollection?.name || 'Stationary catalog swatch' : null,
     status: colorMatch || coverRecord ? 'partially_resolved_from_catalog' : 'digits_parsed_name_unresolved',
-    note: colorMatch ? 'Pattern/color digits matched a supplied catalog swatch record; verify the source collection and exact model eligibility.' : 'Grade/pattern/color digits parsed from the SKU string. A pattern/color name was not confirmed in the supplied swatch data.',
+    note: colorMatch ? 'Pattern and color matched a known swatch. Confirm the exact model can be ordered in it.' : 'Grade/pattern/color digits parsed from the SKU string. The pattern and color name could not be confirmed.',
   } : { raw: null, grade: null, pattern: null, color: null, status: 'unresolved', note: 'No complete cover segment was found.' };
   const claims = [];
   const physicalFeatures = [];
   if (style.name) physicalFeatures.push(style.name);
-  if (coverToken) physicalFeatures.push(`Cover identifier ${coverToken}${coverRecord?.name ? ` (${coverRecord.name})` : ''}${coverRecord ? ` · ${coverRecord.type || coverRecord.category || 'material type not specified'}` : ''}${colorMatch ? ` · swatch ${colorMatch[1]} from ${matchedCollection?.name || 'supplied Stationary catalog'}` : ' (pattern/color names not resolved)'}`);
+  if (coverToken) physicalFeatures.push(`Cover identifier ${coverToken}${programRecord ? ` · ${programRecord.patternName}${programRecord.colorNames?.[colorCode] ? ` ${programRecord.colorNames[colorCode]}` : ''} (${priorRecord ? `${priorSeason.label} program, not on the April 2026 list` : 'A26 program'}, cap ${programRecord.capCode})` : ''}${coverRecord?.name ? ` (${coverRecord.name})` : ''}${coverRecord ? ` · ${coverRecord.type || coverRecord.category || 'material type not specified'}` : ''}${colorMatch ? ` · swatch ${colorMatch[1]} from ${matchedCollection?.name || 'supplied Stationary catalog'}` : ' (pattern/color names not resolved)'}`);
   for (let index = 1; index < tokens.length; index += 1) {
     const code = tokens[index].toUpperCase();
     if (index === coverTokenIndex) continue;
@@ -1281,7 +1427,7 @@ export function decodeRmsSku(input, catalog) {
     }
     const description = optionDescription(catalog, code, found?.source || '');
     if (!description) {
-      claims.push({ code, description: 'No option description in supplied catalogs', status: 'unresolved' });
+      claims.push({ code, description: 'No description for this option', status: 'unresolved' });
       continue;
     }
     const supported = catalogOptionIsSupported(found, code);
@@ -1292,10 +1438,13 @@ export function decodeRmsSku(input, catalog) {
   const warnings = [];
   if (joined?.ambiguous) warnings.push(`The start of this SKU could be read more than one way (${joined.ambiguous.map((hit) => `${hit.styleCode}-${hit.modelCode}`).join(' or ')}). Enter it as PREFIX-MODEL to decode it.`);
   else if (!pair) warnings.push('Expected a documented prefix and model, such as 10X724 or 10X-724.');
-  if (!stylePrefix && !found) warnings.push(`Style ${styleCode || '(missing)'} is not resolved in the supplied references.`);
-  if (!model) warnings.push(`Model ${modelCode || '(missing)'} is not resolved in the supplied references.`);
+  if (!stylePrefix && !found) warnings.push(`Style ${styleCode || '(missing)'} could not be matched.`);
+  if (!model) warnings.push(`Model ${modelCode || '(missing)'} could not be matched.`);
   if (claims.some((claim) => claim.status === 'not_listed_for_exact_style')) warnings.push('One or more options are not listed for this exact style; they are not included in the physical-feature summary.');
   if (!coverToken) warnings.push('Cover material, pattern, and color have not been resolved.');
+  else if (programCovers.length && !programGradeKnown) warnings.push(`Grade ${programGrade} is not in the supplied A26 cover program, so its name and cap code are unresolved. Confirm the cover in RMS.`);
+  else if (priorRecord) warnings.push(`Cover ${coverToken} is from the ${priorSeason.label} program and is not on the April 2026 list. Confirm in RMS that it can still be ordered for this model.`);
+  else if (programCovers.length && !programRecord) warnings.push(`Pattern ${programGrade}${patternCode} is not in the supplied A26 cover program. Confirm the cover in RMS.`);
   return {
     input: raw,
     style,
@@ -1327,6 +1476,14 @@ export function getSectionalPieceOptions(catalog, family, modelCode, pieceCode) 
   }
   const tearPadPiece = profile.pieces.find((piece) => sectionalPieceCodes(piece).includes(pieceCode));
   return [...new Set(tearPadPiece?.pricebook_options || [])];
+}
+
+/** Covers every placed piece can be built in: the swatches the guide allows for each piece's exact style, kept only where all pieces agree. */
+export function getSharedCoverSwatches(catalog, pieces) {
+  const keys = [...new Set((pieces || []).map((piece) => `${piece.code}|${piece.modelCode}`))];
+  if (!keys.length) return [];
+  const lists = keys.map((key) => { const [code, model] = key.split('|'); return getModelCoverSwatches(catalog, model, code); });
+  return lists[0].filter((cover) => lists.every((list) => list.some((item) => item.code === cover.code)));
 }
 
 export function buildSectionalStudioRmsLine(piece, cover, pattern, color, options = []) {
@@ -1480,6 +1637,39 @@ export function indexGroupsFor(product) {
   return groups;
 }
 
+export const MODEL_SECTIONS = ['Recliners', 'Motion sofas & loveseats', 'Lift chairs', 'High-leg designer', 'Sectionals & modulars', 'Stationary seating', 'Other models'];
+const sectionOfCategory = (category = '', family = '') => {
+  if (/lift/i.test(category) || family === 'LIFT') return 'Lift chairs';
+  if (/high leg/i.test(category)) return 'High-leg designer';
+  if (/reclining (wall )?(sofa|loveseat)|reclining.*(sofa|loveseat)/i.test(category)) return 'Motion sofas & loveseats';
+  if (/sectional|corner unit|armless|wedge|chaise|sitting|console/i.test(category) || family === 'MODULAR' || family === 'SECTIONAL') return 'Sectionals & modulars';
+  if (/recliner|rocking|glid|swivel/i.test(category)) return 'Recliners';
+  if (/sofa|loveseat|chair|sleep|ottoman|table|bench/i.test(category)) return 'Stationary seating';
+  return 'Other models';
+};
+const sectionCache = new WeakMap();
+/** One browse section per model, taken from the guide's own style categories (the section most of its styles fall in). Models the guide does not list use their catalog category text. */
+export function getModelSection(catalog, modelCode, fallbackCategory = '') {
+  if (!sectionCache.has(catalog)) {
+    const byModel = new Map();
+    for (const row of catalog.style_index_2026?.styles || []) {
+      if (row.kind !== 'style') continue;
+      const tally = byModel.get(row.model) || {};
+      const section = sectionOfCategory(row.category, row.family);
+      tally[section] = (tally[section] || 0) + 1;
+      byModel.set(row.model, tally);
+    }
+    sectionCache.set(catalog, new Map([...byModel].map(([model, tally]) => [model, MODEL_SECTIONS.filter((name) => tally[name]).sort((a, b) => tally[b] - tally[a] || MODEL_SECTIONS.indexOf(a) - MODEL_SECTIONS.indexOf(b))[0]])));
+  }
+  return sectionCache.get(catalog).get(String(modelCode)) || sectionOfCategory(fallbackCategory);
+}
+/** Groups a list of models into MODEL_SECTIONS order, each section sorted by name. */
+export function groupModelsBySection(catalog, models, nameOf = (item) => item.model_name, codeOf = (item) => item.model_code, categoryOf = (item) => item.category) {
+  const groups = new Map(MODEL_SECTIONS.map((name) => [name, []]));
+  for (const item of models) groups.get(getModelSection(catalog, codeOf(item), categoryOf(item) || ''))?.push(item);
+  return MODEL_SECTIONS.map((name) => ({ name, items: groups.get(name).sort((a, b) => String(nameOf(a)).localeCompare(String(nameOf(b)))) })).filter((group) => group.items.length);
+}
+
 const RESTRICTED_DUTY_CATEGORY = /recliner|motion|la-z-time/i;
 
 /**
@@ -1487,19 +1677,26 @@ const RESTRICTED_DUTY_CATEGORY = /recliner|motion|la-z-time/i;
  * `basis` says how each one was matched: "listed" (the model's own catalog page or leather list) or "cap code" (the model accepts that cap code).
  * Eligibility for the exact style still has to be confirmed before it is promised.
  */
-export function getModelCoverSwatches(catalog, modelCode) {
+export function getModelCoverSwatches(catalog, modelCode, prefix) {
   const code = String(modelCode);
+  const guideRows = getGuideStyleRows(catalog, modelCode);
+  const guideRow = prefix ? guideRows.find((row) => row.prefix === String(prefix)) : null;
+  const guideCaps = new Set((guideRow ? [guideRow] : guideRows).flatMap((row) => row.capCodes));
+  const guided = guideRows.length > 0;
+  if (!guided && catalog?.style_index_2026?.styles?.length) return [];
   const program = catalog?.fabric_cover_program_a26;
   const found = new Map();
   const add = (entry) => { if (entry?.code && !found.has(entry.code)) found.set(entry.code, entry); };
   const parse = (full) => { const match = String(full).match(/^([A-Z]{1,3})(\d{4})(\d{2})$/); return match ? { grade: match[1], pattern: match[2], color: match[3] } : null; };
   const programByPattern = new Map();
   for (const record of [...(program?.fabrics || []), ...(program?.leathers || [])]) programByPattern.set(String(record.patternName || '').toLowerCase(), [...(programByPattern.get(String(record.patternName || '').toLowerCase()) || []), record]);
+  const capName = (cap) => (catalog?.cover_cap_codes || []).find((entry) => entry.code === cap && !/^[A-Z]{2} cap code$/.test(entry.name))?.name || `${cap} cap code`;
+  const kindOf = (record, material) => (record.leatherType ? `${record.leatherType} leather` : material === 'Leather' ? 'Leather' : capName(record.capCode));
   const fromRecord = (record, basis, material) => (record.colors || []).forEach((color) => {
     const full = `${record.coverCode}${color}`;
     const parts = parse(full);
     if (!parts) return;
-    add({ code: full, ...parts, patternName: record.patternName || '', colorName: record.colorNames?.[color] || '', name: `${record.patternName || record.coverCode}${record.colorNames?.[color] ? ` ${record.colorNames[color]}` : ''}`, capCode: record.capCode, material, wearability: record.wearability || '', cleaning: record.cleaningCode || '', basis, note: material });
+    add({ code: full, ...parts, patternName: record.patternName || '', colorName: record.colorNames?.[color] || '', name: `${record.patternName || record.coverCode}${record.colorNames?.[color] ? ` ${record.colorNames[color]}` : ''}`, capCode: record.capCode, kind: kindOf(record, material), material, wearability: record.wearability || '', cleaning: record.cleaningCode || '', basis, note: material });
   });
 
   // 1. Covers the model's own catalog page names, with colours.
@@ -1509,8 +1706,13 @@ export function getModelCoverSwatches(catalog, modelCode) {
     if (parts) add({ code: full, ...parts, patternName: collection.name, colorName: name, name: `${collection.name} ${name}`, material: 'Fabric', basis: 'listed', note: 'Fabric' });
   }
   const reclinerModel = catalog?.recliner_catalog_2026?.models?.find((item) => String(item.code) === code);
-  for (const name of reclinerModel?.cover_collections || []) for (const record of programByPattern.get(String(name).toLowerCase()) || []) fromRecord(record, 'listed', record.group ? 'Leather' : 'Fabric');
-  for (const record of program?.leathers || []) if ((record.models || []).some((entry) => String(entry).trim().split(/\s+/)[0] === code)) fromRecord(record, 'listed', 'Leather');
+  for (const name of reclinerModel?.cover_collections || []) for (const record of programByPattern.get(String(name).toLowerCase()) || []) if (!guided || guideCaps.has(record.capCode)) fromRecord(record, 'listed', record.group ? 'Leather' : 'Fabric');
+  for (const record of program?.leathers || []) {
+    const named = (record.models || []).some((entry) => String(entry).trim().split(/\s+/)[0] === code);
+    const anyCap = guided && (record.models || []).some((entry) => /^any\b/i.test(String(entry).trim()));
+    if (guided && !leatherBandOpen(record, guideRow ? [guideRow] : guideRows)) continue;
+    if ((named && (!guided || guideCaps.has(record.capCode))) || (anyCap && guideCaps.has(record.capCode))) fromRecord(record, anyCap && !named ? 'cap code' : 'listed', 'Leather');
+  }
 
   // 2. Fabrics the model accepts by cap code.
   const caps = new Set();
@@ -1522,11 +1724,244 @@ export function getModelCoverSwatches(catalog, modelCode) {
   if (motionEntry) (catalog.motion_catalog_2026.cover_cap_choices || []).forEach((entry) => entry.codes.forEach((cap) => caps.add(cap)));
   const category = catalog?.models_database?.find((item) => String(item.model_code) === code)?.category || '';
   const flags = motionEntry?.categories || {};
-  const restrictedDuty = Boolean(reclinerModel) || flags.recliner || flags.power_recline || flags.modular || RESTRICTED_DUTY_CATEGORY.test(category);
+  const restrictedDuty = guided ? guideRows.some((row) => GUIDE_RESTRICTED_FAMILY.test(row.family)) : Boolean(reclinerModel) || flags.recliner || flags.power_recline || flags.modular || RESTRICTED_DUTY_CATEGORY.test(category);
   for (const record of program?.fabrics || []) {
-    if (!caps.has(record.capCode)) continue;
+    if (!(guided ? guideCaps : caps).has(record.capCode)) continue;
     if (restrictedDuty && record.wearability === 'Medium') continue;
     fromRecord(record, 'cap code', 'Fabric');
   }
   return [...found.values()];
+}
+
+/** One plain line on why a cover is offered for an exact style: its cap code is on that style's row in the April guide, or it is on the model's own list. */
+export function describeCoverEligibility(catalog, modelCode, prefix, swatch) {
+  if (!swatch) return '';
+  const row = prefix ? getGuideStyle(catalog, modelCode, prefix) : null;
+  if (row && swatch.capCode && row.capCodes.includes(swatch.capCode)) return `Cap code ${swatch.capCode} is on the ${prefix} style list for this model.`;
+  if (swatch.basis === 'listed') return 'Listed for this model.';
+  return 'Not confirmed for this style. Check it in RMS before offering it.';
+}
+/**
+ * Which guide styles accept a fabric or leather record: its cap code must be on the style's row (leathers also need the style sold in
+ * that leather's price band, and a leather that names models is limited to them). Medium-duty fabrics are left off recliner, motion,
+ * modular and lift styles. Returns [{ model, name, styles }] sorted by name. Eligibility still has to be confirmed for the exact order.
+ */
+export function getCoverReach(catalog, record, isLeather = false) {
+  const rows = (catalog?.style_index_2026?.styles || []).filter((row) => row.kind === 'style');
+  const named = new Set(isLeather ? (record.models || []).filter((entry) => !/^any\b/i.test(String(entry).trim())).map((entry) => String(entry).trim().split(/\s+/)[0]) : []);
+  const anyCap = isLeather && (record.models || []).some((entry) => /^any\b/i.test(String(entry).trim()));
+  const byModel = new Map();
+  for (const row of rows) {
+    if (!row.capCodes.includes(record.capCode)) continue;
+    if (!isLeather && record.wearability === 'Medium' && GUIDE_RESTRICTED_FAMILY.test(row.family)) continue;
+    if (isLeather) {
+      if (!leatherBandOpen(record, [row])) continue;
+      if (named.size && !anyCap && !named.has(row.model)) continue;
+      if (!named.size && !anyCap) continue;
+    }
+    const entry = byModel.get(row.model) || { model: row.model, name: row.name ? row.name.charAt(0) + row.name.slice(1).toLowerCase() : row.model, styles: 0 };
+    entry.styles += 1;
+    byModel.set(row.model, entry);
+  }
+  return [...byModel.values()].sort((a, b) => a.name.localeCompare(b.name));
+}
+
+// DCG notes: two short texts to paste into DCG after the customer leaves. DCG limits a note to 1,000 characters.
+export const DCG_NOTE_LIMIT = 1000;
+
+// Drops whole lines, highest `drop` number first (later lines first on a tie), until the note fits. Lines with drop 0 are never dropped.
+function fitDcgLines(lines, limit) {
+  const kept = [...lines];
+  const join = () => kept.map((line) => line.text).join('\n');
+  while (join().length > limit) {
+    const worst = Math.max(...kept.map((line) => line.drop));
+    if (worst === 0) break;
+    kept.splice(kept.map((line) => line.drop).lastIndexOf(worst), 1);
+  }
+  const text = join();
+  return text.length > limit ? `${text.slice(0, limit - 1)}…` : text;
+}
+
+export function buildDcgNotes({ answers, mechanism, roomName, sizeName, matches = [] }) {
+  const weight = Number(answers.weight) > 0 ? `${Number(answers.weight)} lb` : 'not given';
+  const household = answers.household || [];
+  const material = answers.material_preference && answers.material_preference !== 'No preference yet' ? answers.material_preference : '';
+  const need = FIT_NEEDS.find((item) => item.key === answers.need && item.key !== 'unsure');
+  const capacityText = (match) => (match.capacityKnown ? match.capacity : 'Capacity not listed. Confirm before offering');
+  const seatWords = { in: 'seat in range', near: 'seat close', out: 'seat outside range' };
+  const matchLine = (match, index) => `${index + 1}. ${match.name} ${match.code} · ${capacityText(match)}${seatWords[match.seat?.status] ? ` · ${seatWords[match.seat.status]}` : ''}${match.flags?.length ? ` — ${match.flags[0]}` : ''}`;
+  const internal = [
+    { text: 'FIT NOTES · Floor Assistant', drop: 0 },
+    { text: `Height: ${answers.height}${sizeName ? ` · ${sizeName}` : ''}`, drop: 0 },
+    { text: `Weight: ${weight}`, drop: 0 },
+    ...(need ? [{ text: `Needs: ${need.label}`, drop: 6 }] : []),
+    { text: `Wants: ${answers.category} · ${mechanism}`, drop: 0 },
+    ...(roomName ? [{ text: `Room behind: ${roomName}`, drop: 0 }] : []),
+    ...(household.length ? [{ text: `Household: ${household.join(' + ')}`, drop: 6 }] : []),
+    ...(material ? [{ text: `Material: ${material}`, drop: 6 }] : []),
+    { text: matches.length ? 'To sit in:' : 'Nothing matches these answers. Nothing was loosened to fill the list.', drop: 0 },
+    ...matches.map((match, index) => ({ text: matchLine(match, index), drop: 10 + index })),
+    { text: 'Sit-test result:', drop: 5 },
+    { text: 'Next: confirm the exact style, cover and options in RMS before promising anything.', drop: 1 },
+  ];
+  const customer = [
+    { text: 'Thank you for coming in. Here is what we talked about.', drop: 0 },
+    ...(sizeName ? [{ text: `Size: ${sizeName}`, drop: 0 }] : []),
+    ...(need ? [{ text: `What matters most: ${need.label}`, drop: 3 }] : []),
+    { text: `Looking for: ${answers.category} · ${mechanism}`, drop: 0 },
+    ...(roomName ? [{ text: `Room behind it: ${roomName}`, drop: 0 }] : []),
+    ...(household.length ? [{ text: `With ${household.join(' and ').toLowerCase()} at home, we will start with performance-rated fabrics.`, drop: 6 }] : []),
+    ...(matches.length ? [{ text: `Worth sitting in: ${matches.slice(0, 3).map((match) => match.name).join(', ')}`, drop: 2 }] : []),
+    { text: 'Next step: sit in each one, then we will choose the cover, finish and options together.', drop: 1 },
+  ];
+  return { internal: fitDcgLines(internal, DCG_NOTE_LIMIT), customer: fitDcgLines(customer, DCG_NOTE_LIMIT) };
+}
+
+// What the customer says they need, mapped only to a category and recline type the wizard already filters on.
+// A need is a starting point for the shortlist. It never says a model fits the person.
+export const FIT_NEEDS = [
+  { key: 'simple', label: 'Simple and dependable', hint: 'A manual lever, nothing to plug in', patch: { category: 'Recliners', mechanism: 'Manual' } },
+  { key: 'effortless', label: 'Easy to adjust', hint: 'Power recline at the touch of a button', patch: { category: 'Recliners', mechanism: 'Power recline' } },
+  { key: 'neck', label: 'Head and neck support', hint: 'Power headrest to fine-tune while reclined', patch: { category: 'Recliners', mechanism: 'Power + headrest' } },
+  { key: 'back', label: 'Lower-back support', hint: 'Power lumbar', patch: { category: 'Recliners', mechanism: 'Power + lumbar' } },
+  { key: 'lift', label: 'Help getting up', hint: 'A lift chair raises the seat to standing', patch: { category: 'Lift chairs', mechanism: 'Lift chair' } },
+  { key: 'family', label: 'Seating for more than one', hint: 'Motion sofas and loveseats', patch: { category: 'Motion sofas / loveseats', mechanism: 'Power recline' } },
+  { key: 'guests', label: 'Somewhere guests can sleep', hint: 'Sleepers have no reclining mechanism', patch: { category: 'Sleepers', mechanism: 'No reclining mechanism' } },
+  { key: 'unsure', label: 'Not sure yet', hint: 'Browse the options on the next screens', patch: {} },
+];
+
+// Modular sectionals come from the models the Sectional Studio has pieces for, grouped by family:
+// La-Z-Time lists non-power (44x), power (U4x) and power + lumbar (X4x) pieces, La-Z-Motion is power, Stationary has no mechanism.
+export function getSectionalLeads(catalog, answers) {
+  const mechanism = String(answers.mechanism || '');
+  const families = mechanism === 'No reclining mechanism' ? ['Stationary']
+    : mechanism === 'Manual' ? ['La-Z-Time']
+      : ['Power recline', 'Power + headrest', 'Power + lumbar'].includes(mechanism) ? ['La-Z-Time', 'La-Z-Motion'] : [];
+  return (catalog.product_profiles || [])
+    .filter((profile) => profile.pieces?.length && families.includes(profile.sectional_family))
+    .map((profile) => ({ model_code: String(profile.model_code), model_name: profile.model_name, family: profile.sectional_family, pieceCount: profile.pieces.length, description: profile.product_description || '' }))
+    .sort((a, b) => a.model_name.localeCompare(b.model_name));
+}
+
+// What a grade letter holds for one model. The letter is a price tier; the kind of cover is its cap code or leather type.
+// Price-book price columns (April 2026 Upholstery Pricebook): fabric B-C, D-F, G-N, P-Q; leather BL, DL, FL, HL. Each band is priced above the one before it.
+const FABRIC_BANDS = [['B', 'C'], ['D', 'F'], ['G', 'N'], ['P', 'Q']];
+const LEATHER_BANDS = ['BL', 'DL', 'FL', 'HL'];
+
+/** Short plain-language title for a cover grade letter, e.g. { short: 'D · Fabric · price band D–F', line: '...' }. Only what the price book documents; a letter outside its bands gets no price claim. */
+export function describeGrade(grade, material = 'Fabric') {
+  const g = String(grade || '').toUpperCase();
+  if (!g) return { short: '', line: '' };
+  if (g === 'LB') return { short: 'LB · Select leather', line: 'LB covers are Select leather, priced in the Select leather column of the price book.' };
+  if (LEATHER_BANDS.includes(g)) {
+    const rank = LEATHER_BANDS.indexOf(g);
+    return { short: `${g} · Leather · price band ${g}`, line: `${g} is a leather price band. Leather bands run BL, DL, FL, HL, each priced above the one before${rank === 0 ? ' (BL is the lowest)' : rank === LEATHER_BANDS.length - 1 ? ' (HL is the highest)' : ''}.` };
+  }
+  const band = FABRIC_BANDS.find(([lo, hi]) => g.length === 1 && g >= lo && g <= hi);
+  if (band) {
+    const range = `${band[0]}–${band[1]}`;
+    return { short: `${g} · ${material === 'Leather' ? 'Leather' : 'Fabric'} · price band ${range}`, line: `Grade ${g} is in the ${range} fabric price band. Fabrics price in four bands (B–C, D–F, G–N, P–Q), each above the one before.` };
+  }
+  return { short: `${g} · ${material}`, line: `Grade ${g} is not in a price band in the supplied price book.` };
+}
+
+export function summarizeGradeKinds(swatches, grade) {
+  const patternsByKind = new Map();
+  for (const swatch of swatches) {
+    if (swatch.grade !== grade) continue;
+    const kind = swatch.kind || swatch.material || 'Fabric';
+    patternsByKind.set(kind, new Set([...(patternsByKind.get(kind) || []), swatch.pattern]));
+  }
+  return [...patternsByKind].map(([kind, patterns]) => ({ kind, patterns: patterns.size })).sort((a, b) => b.patterns - a.patterns || a.kind.localeCompare(b.kind));
+}
+
+const SEAT_RANK = { in: 0, near: 1, out: 2 };
+const scoreStatus = (score) => (score >= 1 ? 'in' : score > 0 ? 'near' : 'out');
+const rangeStatus = (value, [low, high]) => (value >= low && value <= high ? 'in' : value >= low - 1 && value <= high + 1 ? 'near' : 'out');
+
+/**
+ * Screens one model's seat against the customer, using the seat dimensions in the April guide for the
+ * style that matches their recline choice. Measurements they give are checked directly (knee gap, seat
+ * height against the back of the knee, hip clearance); otherwise their height band sets the seat depth
+ * and seat height range. A model with no seat dimensions comes back unscored, never as a fit.
+ */
+export function getSeatFit(catalog, research, { modelCode, answers, inches }) {
+  // The first style, in the order the recline choice lists its prefixes (010 before 016, for example), that has seat dimensions.
+  const order = matchingPrefixes(catalog, answers).map((prefix) => prefix.code);
+  const dims = order.map((code) => getGuideStyleRows(catalog, modelCode).find((row) => row.prefix === code && Number.isFinite(row.dims?.seatDepth))).find(Boolean)?.dims;
+  const unscored = { status: 'unscored', basis: '', checks: [] };
+  if (!dims) return unscored;
+  const thigh = positiveMeasurement(answers.thigh_length_inches);
+  const popliteal = positiveMeasurement(answers.popliteal_height_inches);
+  const hip = positiveMeasurement(answers.hip_breadth_inches);
+  const checks = [];
+  let basis = '';
+  if (thigh !== null || popliteal !== null || hip !== null) {
+    basis = 'measurements';
+    if (thigh !== null) checks.push({ key: 'depth', label: 'Seat depth', chair: dims.seatDepth, target: `thigh length ${thigh} in`, status: scoreStatus(depthMatchScore(dims.seatDepth, thigh)) });
+    if (popliteal !== null && Number.isFinite(dims.seatHeight)) checks.push({ key: 'height', label: 'Seat height', chair: dims.seatHeight, target: `back of knee ${popliteal} in`, status: scoreStatus(heightMatchScore(dims.seatHeight, popliteal)) });
+    if (hip !== null && Number.isFinite(dims.seatWidth) && !(dims.seatFactor > 1)) checks.push({ key: 'width', label: 'Seat width', chair: dims.seatWidth, target: `hips ${hip} in`, status: scoreStatus(widthMatchScore(dims.seatWidth, hip)) });
+  } else if (Number.isFinite(inches) && /recliner|lift/i.test(String(answers.category || ''))) {
+    const band = (research?.fit_guidance_bands || []).find((item) => inches >= item.height_min_inches && inches <= (item.height_max_inches ?? Infinity));
+    if (!band) return unscored;
+    basis = band.band;
+    checks.push({ key: 'depth', label: 'Seat depth', chair: dims.seatDepth, target: `${band.seat_depth_inches[0]}–${band.seat_depth_inches[1]} in`, status: rangeStatus(dims.seatDepth, band.seat_depth_inches) });
+    if (Number.isFinite(dims.seatHeight)) checks.push({ key: 'height', label: 'Seat height', chair: dims.seatHeight, target: `${band.seat_height_inches[0]}–${band.seat_height_inches[1]} in`, status: rangeStatus(dims.seatHeight, band.seat_height_inches) });
+  }
+  if (!checks.length) return unscored;
+  return { status: checks.reduce((worst, check) => (SEAT_RANK[check.status] > SEAT_RANK[worst] ? check.status : worst), 'in'), basis, checks };
+}
+
+export const SIT_VERDICTS = [
+  { key: 'good', label: 'Fits well' },
+  { key: 'too-deep', label: 'Seat too deep' },
+  { key: 'too-shallow', label: 'Seat too shallow' },
+  { key: 'too-high', label: 'Seat too high' },
+  { key: 'too-low', label: 'Seat too low' },
+  { key: 'too-tight', label: 'Too tight' },
+  { key: 'not-for-them', label: 'Not for them' },
+];
+
+/** One logged sit test. Returns null for an unknown verdict or a missing model so bad input is never stored. */
+export function buildSitEntry({ modelCode, modelName = '', inches, verdict, note = '', now = new Date() }) {
+  if (!modelCode || !SIT_VERDICTS.some((item) => item.key === verdict)) return null;
+  return {
+    id: `${now.getTime()}-${String(modelCode)}`,
+    date: now.toISOString().slice(0, 10),
+    modelCode: String(modelCode),
+    modelName,
+    heightInches: Number.isFinite(inches) ? inches : null,
+    verdict,
+    note: String(note).trim().slice(0, 200),
+  };
+}
+
+/** How sits went for a model overall, and for customers within two inches of this height. */
+export function summarizeSitLog(entries, modelCode, inches) {
+  const sits = entries.filter((item) => item.modelCode === String(modelCode));
+  const near = Number.isFinite(inches) ? sits.filter((item) => Number.isFinite(item.heightInches) && Math.abs(item.heightInches - inches) <= 2) : [];
+  const good = (list) => list.filter((item) => item.verdict === 'good').length;
+  return { total: sits.length, good: good(sits), similar: { total: near.length, good: good(near) } };
+}
+
+export function sitLogToText(entries) {
+  const label = (key) => SIT_VERDICTS.find((item) => item.key === key)?.label || key;
+  return ['date\tmodel code\tmodel\theight in\tverdict\tnote', ...entries.map((item) => [item.date, item.modelCode, item.modelName, item.heightInches ?? '', label(item.verdict), item.note].join('\t'))].join('\n');
+}
+
+/** Index public/swatch-manifest.json by 8-character cover id (cover code + colour code). Entries whose names disagree with the website are left out. */
+export function buildSwatchIndex(manifest) {
+  const index = {};
+  for (const item of manifest?.swatches || []) {
+    if (item.name_check === 'mismatch') continue;
+    index[`${item.cover_code}${item.color_code}`] = item;
+  }
+  return index;
+}
+
+/** Local swatch image path for a cover + colour, or null when there is no verified image. `size` is 'thumb' (240px) or 'zoom' (450px). Pass the full 8-character code as `coverCode` or the cover code and colour code separately. */
+export function swatchImageFor(index, coverCode, colorCode = '', size = 'zoom') {
+  const entry = index?.[`${coverCode}${colorCode}`];
+  if (!entry) return null;
+  return (size === 'thumb' ? entry.local_thumb || entry.local_zoom : entry.local_zoom || entry.local_thumb) || null;
 }

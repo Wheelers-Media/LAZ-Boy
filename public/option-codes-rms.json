@@ -1,0 +1,11 @@
+{
+  "source": "Point of Sale Basics RMS 101 (FY23), custom order upholstery screen, page 27",
+  "options": [
+    { "code": "C1", "name": "Cord Option", "entry": "choice" },
+    { "code": "F1", "name": "Fringe Option", "entry": "choice" },
+    { "code": "FP", "name": "FeatherLite Comfort Pillows", "entry": "choice" },
+    { "code": "P1", "name": "Contrasting Pillows", "entry": "cover" },
+    { "code": "WL", "name": "Contrasting Welt", "entry": "cover" },
+    { "code": "Z4", "name": "ComfortCore GEL Seat Cushion", "entry": "choice" }
+  ]
+}

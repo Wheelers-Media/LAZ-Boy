@@ -1,0 +1,58 @@
+# October 2025 Leather Manual (O25 Master Leathers sheet). group|code|pattern|colors|cap|type|model|specialty|note
+Select Leather Reclining|LB1520|Yellowstone|56 78|LM|Performance|521 James||
+Select Leather Reclining|LB1590|Cranbrook|58 79|LM|Authentic|519 Astor||
+Select Leather Reclining|LB1601|Delray|75 79|LM|Authentic|777 Randell||
+Select Leather Reclining|LB1646|Vacation|63 77|LM|Performance|704 Reed||
+Select Leather Reclining|LB1648|Prestige|09 79|LM|Performance|776 Redwood||
+Select Leather Reclining|LB1648|Prestige|54 79|LM|Performance|722 Roman||
+Select Leather Reclining|LB1727|Intermingle|55 79|LM|Authentic|724 Trouper||
+Select Leather Reclining|LB1728|Goshen|56 78|LM|Authentic|502 Joshua||
+Select Leather Reclining|LB1804|Elite|59 74|LM|Performance|762 Neo||
+Select Leather Reclining|LB1804|Elite|32 59|LM|Performance|787 Lennon||
+Select Leather Reclining|LB1849|Lota|64 78|LM|Performance|786 Liam||
+Select Leather Reclining|LB1851|Camaraderie|58 75|LM|Performance|781 Emmons||
+Select Leather Reclining|LB1929|Topflight|35 79|LM|Authentic|769 Ava||
+Select Leather Reclining|LB1929|Topflight|59 76|LM|Authentic|759 Maddox||
+Select Leather Reclining|LB1929|Topflight|76 79|LM|Authentic|804 Belmont||
+Select Leather Reclining|LB1930|Salvo|56 59 77|LM|Authentic|757 Apollo||
+Select Leather Reclining|LB1930|Salvo|32 56 77|LM|Authentic|530 Greyson||
+Select Leather Reclining|LB2026|Grandview|51 59 75 98|LM|Authentic|712 Sparrow||
+Select Leather Reclining|LB2060|Sutton|77 87|LM|Authentic|715 Kodie||
+Select Leather Reclining|LB2060|Sutton|77 87|LM|Authentic|813 Clybourn||
+Select Leather Reclining|LB2060|Sutton|32 54 77|LM|Authentic|812 Armitage||
+Select Leather Reclining|LB2061|Gambit|50 75 78|LM|Authentic|747 Finley||
+Select Leather Reclining|LB2061|Gambit|32 59 78|LM|Authentic|765 Rowan||
+Select Leather Reclining|LB2061|Gambit|32 75|LM|Authentic|803 Cade||
+Select Leather Reclining|LB2062|Clifton|78 79|LM|Authentic|582 Maverick||
+Select Leather Reclining|LB2062|Clifton|78 79|LM|Authentic|717 Fulton||
+Select Leather Reclining|LB2062|Clifton|78 79|LM|Authentic|802 Cassian||
+Select Leather Reclining|LB2062|Clifton|19 29 79|LM|Authentic|810 Quinault||
+Select Leather Reclining|LB2063|Dean|76 79|LM|Authentic|811 Acadia||
+Select Leather Reclining|LB2063|Dean|76 79|LM|Authentic|782 Kells||
+Select Leather Reclining|LB2063|Dean|32 57 77|LM|Authentic|800 Palmer||
+Select Leather Reclining|LB2063|Dean|32 57 77|LM|Authentic|820 Norton||
+Select Leather Reclining|LB2064|Opulence|74 77|LM|Authentic|512 Pinnacle||
+Select Leather Reclining|LB2064|Opulence|74 77|LM|Authentic|709 Jasper||
+Select Leather Reclining|LB2112|Highbrow|58 75 78|LM|Authentic|807 Baron||
+Select Leather Reclining|LB2112|Highbrow|75 78|LM|Authentic|755 Dorian||
+Select Leather Reclining|LB2113|Roberto|76 79|LM|Authentic|805 Ignace||
+Select Leather Stationary|LB2060|Sutton|32 54 77 87|LM|Authentic|435 Mackenzie||
+Select Leather Stationary|LB2060|Sutton|32 54 77 87|LM|Authentic|603 Wilmette||
+Select Leather Stationary|LB2060|Sutton|32 54 77 87|LM|Authentic|613 Olson||
+Select Leather Stationary|LB2060|Sutton|32 54 77 87|LM|Authentic|636 Shiloh||
+Select Leather Stationary|LB2060|Sutton|32 54 77 87|LM|Authentic|638 Charlie||
+Custom Leather Match|BL9810|Cozy Match|07 09 31 36 50 51 54|LM|Performance|Any LM cap code||
+Custom Leather Match|BL9810|Cozy Match|56 76 78 87 90 98|LM|Performance|Any LM cap code||
+Custom Leather Plus|DL1595|Montana|57 74|LL|Nubuck|Any LL cap code||
+Custom Leather Plus|DL1596|Titan|51 58 65 74 75|LL|Authentic|Any LL cap code||
+Custom Leather Plus|FL1523|Great Smokies (WQL)|52 57 73 75 79|LL|Authentic|Any LL cap code||
+Custom Leather Plus|FL1963|Gramado (WQL)|57 73 76 79|LL|Authentic|Any LL cap code||
+Custom Leather Plus|FL2003|Jesi|07 59 63 72 75 77|LL|Authentic|Any LL cap code||
+Custom Leather Plus|FL2026|Grandview|51 59 75 98|LL|Authentic|Any LL cap code||
+Custom Leather Plus|FL9419|Samba|28 30 32 50 53 65 82|LL|Authentic|Any LL cap code||
+Custom Leather Plus|FL9419|Samba|08 17 26 42 62 87 96|LL|Authentic|Any LL cap code||
+Specialty Leather|DL1962|Jazz|39 58 75 78 86|LL|Performance|Any LL cap code|I|
+Specialty Leather|FL1907|Aline|36 54 58 77 84 87|LL|Authentic|Any LL cap code|A|
+Specialty Leather|FL1932|Athena|08 55 59 63 73 77 84|LL|Performance|Any LL cap code|I|
+Specialty Leather|FL2078|Manchester|25 29 31 49 76 86|LL|Authentic|Any LL cap code|I|
+Specialty Leather|HL1906|Ankur|73 75 77 79|LL|Authentic|Any LL cap code|A|

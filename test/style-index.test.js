@@ -1,0 +1,195 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { getGuideStyle, getGuideStyleRows, getModelCoverSwatches, getRmsModelStyleChoices, getRmsStyleOptions, getStyleFinishes } from '../src/logic.js';
+
+const read = async (name) => JSON.parse(await readFile(new URL(`../public/${name}`, import.meta.url), 'utf8'));
+const catalog = await read('catalog_data-v2.json');
+for (const [key, file] of [['recliner_catalog_2026', 'recliner-catalog-2026.json'], ['motion_catalog_2026', 'motion-catalog-2026.json'], ['designers_choice_catalog_2026', 'designers-choice-catalog-2026.json'], ['stationary_catalog_2026', 'stationary-catalog-2026.json'], ['fabric_cover_program_a26', 'fabric-cover-program-a26.json'], ['style_index_2026', 'style-index-2026.json']]) catalog[key] = await read(file);
+const styles = catalog.style_index_2026.styles.filter((row) => row.kind === 'style');
+const program = catalog.fabric_cover_program_a26;
+const capOf = new Map([...program.fabrics, ...program.leathers].map((record) => [record.coverCode, record.capCode]));
+
+test('guide holds 765 styles across 105 models', () => {
+  assert.equal(styles.length, 765);
+  assert.equal(new Set(styles.map((row) => row.model)).size, 105);
+});
+
+test('every offered cover is accepted by that exact style\'s cap codes', () => {
+  for (const row of styles) {
+    const caps = new Set(row.capCodes);
+    for (const cover of getModelCoverSwatches(catalog, row.model, row.prefix)) {
+      const cap = cover.capCode || capOf.get(cover.code.slice(0, -2));
+      if (cap) assert.ok(caps.has(cap), `${row.styleNumber} offers ${cover.code} (cap ${cap}) but guide caps are ${row.capCodes.join('|')}`);
+    }
+  }
+});
+
+test('styles without a cap code offer no covers', () => {
+  for (const row of styles.filter((item) => !item.capCodes.length)) assert.deepEqual(getModelCoverSwatches(catalog, row.model, row.prefix), [], row.styleNumber);
+});
+
+test('no leather is offered where the style has neither LL, LM nor LS', () => {
+  for (const row of styles) {
+    if (row.capCodes.some((cap) => ['LL', 'LM', 'LS'].includes(cap))) continue;
+    assert.ok(!getModelCoverSwatches(catalog, row.model, row.prefix).some((cover) => cover.material === 'Leather'), row.styleNumber);
+  }
+});
+
+test('Cade 803 offers LL/LM leather but never DP, NP, PS or VS fabrics', () => {
+  const row = getGuideStyle(catalog, '803', '448');
+  assert.deepEqual(row.capCodes, ['DR', 'UR', 'UE', 'BU', 'RL', 'LL', 'LM']);
+  const covers = getModelCoverSwatches(catalog, '803', '448');
+  assert.ok(covers.some((cover) => cover.material === 'Leather'));
+  assert.ok(!covers.some((cover) => ['DP', 'NP', 'PS', 'VS'].includes(cover.capCode)));
+});
+
+test('options and finishes come only from the style row', () => {
+  for (const row of styles) {
+    const options = getRmsStyleOptions(catalog, row.model, row.prefix);
+    assert.deepEqual([...options.options].sort(), [...row.options].sort(), row.styleNumber);
+    const finishes = getStyleFinishes(catalog, row.model, row.prefix);
+    assert.deepEqual(finishes.optional, row.optionalFinishes);
+    assert.deepEqual(finishes.standard, row.standardFinish);
+    assert.ok(!row.options.includes('N/A'));
+  }
+  assert.deepEqual(getStyleFinishes(catalog, '681', '610').standard, { name: 'Brown Mahogany', code: '007' });
+});
+
+test('style choices for a model are exactly its guide rows', () => {
+  for (const model of new Set(styles.map((row) => row.model))) {
+    assert.deepEqual(getRmsModelStyleChoices(catalog, model).map((item) => item.code), getGuideStyleRows(catalog, model).map((row) => row.prefix), model);
+  }
+});
+
+test('tag photos: Cade 448803, Bexley 610681, Apollo X49757 match the guide', () => {
+  assert.deepEqual(getGuideStyle(catalog, '803', '448').dims, { height: 42, width: 60, depth: 39, seatHeight: 20.5, seatWidth: 46, seatDepth: 22.5, armHeight: 25.5, fullyExtended: 67.5, reclineDistance: 6, weight: 157, seatFactor: 2 });
+  assert.deepEqual(getGuideStyle(catalog, '681', '610').options, ['DC', 'FN', 'FP', 'NB', 'NH', 'NS', 'P1', 'Z6']);
+  assert.deepEqual(getGuideStyle(catalog, '757', 'X49').options, ['CB', 'CC', 'CM', 'FS', 'W2']);
+});
+
+test('option codes use the guide\'s meanings (FS is the Contour Cushion, not a swivel base)', async () => {
+  const { applyGuideOptionDefinitions } = await import('../src/logic.js');
+  const fixed = applyGuideOptionDefinitions(catalog);
+  const name = (code) => fixed.option_suffixes.find((item) => item.code === code)?.name;
+  assert.equal(name('FS'), 'La-Z-Boy® Contour Cushion');
+  assert.equal(name('Z6'), 'ComfortCore® with Contour Cushion');
+  assert.equal(name('SL'), 'Swivel Base - Power Recliners');
+  assert.equal(name('T2'), 'Dual Control Panel');
+  assert.equal(fixed.cushion_upgrades.find((item) => item.code === 'FS').name, 'La-Z-Boy® Contour Cushion');
+});
+
+test('Product Index: every guide model is listed with exactly its guide styles; others are flagged unverified', async () => {
+  const { getGuideProductIndex } = await import('../src/logic.js');
+  const index = getGuideProductIndex(catalog);
+  for (const model of new Set(styles.map((row) => row.model))) {
+    const entry = index.find((item) => item.modelCode === model);
+    assert.ok(entry && !entry.unverified, model);
+    assert.deepEqual(entry.styles.map((item) => item.code).sort(), styles.filter((row) => row.model === model).map((row) => row.prefix).sort(), model);
+  }
+  assert.ok(index.filter((item) => item.unverified).every((item) => item.notes[0].startsWith('Not in the April 2026 guide')));
+});
+
+test('leathers are only offered in price bands the style is sold in', () => {
+  const bandOf = new Map(program.leathers.map((record) => [record.coverCode, record.coverCode.slice(0, 2) === 'LB' ? 'selectLeather' : record.coverCode.slice(0, 2)]));
+  for (const row of styles.filter((item) => item.bands?.length)) {
+    for (const cover of getModelCoverSwatches(catalog, row.model, row.prefix)) {
+      const band = bandOf.get(cover.code.slice(0, -2));
+      if (band) assert.ok(row.bands.includes(band), `${row.styleNumber} offers ${cover.code} but is not sold in band ${band}`);
+    }
+  }
+});
+
+test('models outside the guide (Lakewood 942, Cuyahoga 958) offer no covers or options', async () => {
+  const { isUnlistedModel } = await import('../src/logic.js');
+  for (const model of ['942', '958']) {
+    assert.ok(isUnlistedModel(catalog, model), model);
+    assert.deepEqual(getModelCoverSwatches(catalog, model), [], model);
+    for (const choice of getRmsModelStyleChoices(catalog, model)) assert.equal(getRmsStyleOptions(catalog, model, choice.code).options.size, 0);
+  }
+});
+
+test('a style that lists FN but has no finishes in the guide offers no finish choice', () => {
+  for (const number of ['16X715', 'P16725', '16X776']) {
+    const row = styles.find((item) => item.styleNumber === number);
+    assert.equal(getRmsStyleOptions(catalog, row.model, row.prefix).finishMarkerListed, false, number);
+  }
+});
+
+test('RMS custom-order options C1, F1, WL and Z4 are named; P1 and WL need a cover', async () => {
+  const { applyGuideOptionDefinitions, decodeRmsSku } = await import('../src/logic.js');
+  const fixed = applyGuideOptionDefinitions({ ...catalog, rms_option_codes: await read('option-codes-rms.json') });
+  const find = (code) => fixed.option_suffixes.find((item) => item.code === code);
+  assert.equal(find('C1').name, 'Cord Option');
+  assert.equal(find('F1').name, 'Fringe Option');
+  assert.equal(find('WL').name, 'Contrasting Welt');
+  assert.equal(find('WL').entry, 'cover');
+  assert.equal(find('P1').entry, 'cover');
+  assert.equal(find('FS').name, 'La-Z-Boy® Contour Cushion');
+  const decoded = decodeRmsSku('610681 D200952 FN 041 P1 Q199357 C1', fixed);
+  assert.ok(decoded.claims.some((claim) => claim.code === 'C1'));
+});
+
+test('price-book select lists are per style, carry listed colours and never prices', async () => {
+  const { formatSelectCovers, getStyleSelectCovers } = await import('../src/logic.js');
+  const vail = getStyleSelectCovers(catalog, '403', '010');
+  assert.deepEqual(vail.fabric.map((cover) => cover.code), ['B1538', 'C1860']);
+  assert.ok(vail.fabric.every((cover) => cover.inA26));
+  const pinnacle = getStyleSelectCovers(catalog, '512', '10X');
+  assert.deepEqual(pinnacle.leather[0].colors, ['74', '77']);
+  assert.ok(formatSelectCovers(pinnacle).some((line) => line.startsWith('Select leather: LB2064 Opulence (74, 77)')));
+  assert.ok(!JSON.stringify(styles).match(/\$\d/), 'no prices in the style index');
+});
+
+test('select covers missing from the A26 program are marked, and the Liam 786 conflict is kept as published', async () => {
+  const { getStyleSelectCovers } = await import('../src/logic.js');
+  const flagged = styles.flatMap((row) => Object.values(getStyleSelectCovers(catalog, row.model, row.prefix)).flat()).filter((cover) => !cover.inA26);
+  assert.deepEqual([...new Set(flagged.map((cover) => cover.code))].sort(), ['C1659', 'D1490', 'D2038']);
+  const liam = styles.find((row) => row.styleNumber === '10X786');
+  assert.ok(liam.bands.includes('selectLeather'), 'price book shows a select-leather band');
+  assert.equal(liam.select.leather, undefined, 'but lists no select leather; the conflict is not papered over');
+});
+
+test('decoder says plainly when a cover grade or pattern is not in the A26 program', async () => {
+  const { decodeRmsSku } = await import('../src/logic.js');
+  for (const grade of ['S', 'JL', 'RD', 'RE', 'RF']) {
+    const decoded = decodeRmsSku(`10X724 ${grade}123456`, catalog);
+    assert.ok(decoded.warnings.some((warning) => warning.includes(`Grade ${grade} is not in the supplied A26 cover program`)), grade);
+    assert.equal(decoded.cover.program_pattern_name, null);
+  }
+  const known = decodeRmsSku('10X724 B153801', catalog);
+  assert.equal(known.cover.program_pattern_name, 'Seamount');
+  assert.ok(!known.warnings.some((warning) => warning.includes('A26')));
+});
+
+test('every guide model lands in a named browse section, and grouping keeps every model once', async () => {
+  const { getModelSection, groupModelsBySection, MODEL_SECTIONS } = await import('../src/logic.js');
+  const models = [...new Set(styles.map((row) => row.model))];
+  for (const model of models) assert.notEqual(getModelSection(catalog, model), 'Other models', model);
+  const grouped = groupModelsBySection(catalog, models.map((code) => ({ model_code: code, model_name: code })));
+  assert.equal(grouped.flatMap((group) => group.items).length, models.length);
+  assert.ok(grouped.every((group) => MODEL_SECTIONS.includes(group.name)));
+});
+
+test('describeCoverEligibility confirms cover against the exact style row', async () => {
+  const { describeCoverEligibility, getModelCoverSwatches, getGuideStyleRows } = await import('../src/logic.js');
+  const { readFileSync } = await import('node:fs');
+  const read = (f) => JSON.parse(readFileSync(new URL(`../public/${f}`, import.meta.url), 'utf8'));
+  const catalog = { style_index_2026: read('style-index-2026.json'), fabric_cover_program_a26: read('fabric-cover-program-a26.json') };
+  const row = getGuideStyleRows(catalog, '727').find((r) => r.capCodes?.length);
+  const swatches = getModelCoverSwatches(catalog, '727', row.prefix).filter((s) => s.basis === 'cap code');
+  if (!swatches.length) return;
+  const text = describeCoverEligibility(catalog, '727', row.prefix, swatches[0]);
+  assert.match(text, new RegExp(`Cap code ${swatches[0].capCode} is on the ${row.prefix} style list`));
+  assert.doesNotMatch(text, /Confirm for this exact style/);
+});
+
+test('describeGrade names the price band without inventing one', async () => {
+  const { describeGrade } = await import('../src/logic.js');
+  assert.equal(describeGrade('D', 'Fabric').short, 'D · Fabric · price band D–F');
+  assert.equal(describeGrade('B', 'Fabric').short, 'B · Fabric · price band B–C');
+  assert.equal(describeGrade('Q', 'Fabric').short, 'Q · Fabric · price band P–Q');
+  assert.equal(describeGrade('DL', 'Leather').short, 'DL · Leather · price band DL');
+  assert.equal(describeGrade('LB', 'Leather').short, 'LB · Select leather');
+  assert.match(describeGrade('A', 'Fabric').line, /not in a price band/);
+});

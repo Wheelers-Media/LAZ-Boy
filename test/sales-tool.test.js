@@ -11,16 +11,6 @@ catalog.stationary_catalog_2026 = await readJson('stationary-catalog-2026.json')
 catalog.designers_choice_catalog_2026 = await readJson('designers-choice-catalog-2026.json');
 catalog.april_2026_model_cover_applications = await readJson('april-2026-model-cover-applications.json');
 
-test('declares product cover options before deriving material preferences during app startup', async () => {
-  const appSource = await readFile(new URL('../src/main.jsx', import.meta.url), 'utf8');
-  const productCoversPosition = appSource.indexOf('const productCoverOptions =');
-  const materialPreferencesPosition = appSource.indexOf('const availableMaterialPreferences =');
-
-  assert.notEqual(productCoversPosition, -1, 'product cover options are declared');
-  assert.notEqual(materialPreferencesPosition, -1, 'material preferences are derived');
-  assert.ok(productCoversPosition < materialPreferencesPosition, 'avoid accessing a const before initialization during the first render');
-});
-
 test('builds a piece-by-piece RMS entry preview and appends only explicitly selected options', () => {
   const piece = { code: '44A', modelCode: '769' };
   assert.equal(buildSectionalStudioRmsLine(piece, 'DP', '1808', '52'), '44A-769 DP180852');

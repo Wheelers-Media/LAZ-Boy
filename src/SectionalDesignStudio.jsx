@@ -1,6 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react';
+import { CoverPicker } from './CoverPicker.jsx';
 import { Armchair, Copy, Info, Layers3, Minus, Plus, Printer, Redo2, RotateCw, Sofa, Undo2 } from './icons.jsx';
-import { buildSectionalStudioRmsLine, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
+import { buildSectionalStudioRmsLine, getSharedCoverSwatches, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
 import { createItem, findFreeSpot, formatInches, layoutSummary, normalizeRotation, parsePieceDimensions, presetItems, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
 
 const WALL = 4;
@@ -32,8 +33,16 @@ function PieceArt({ item }) {
     return <g><rect className="fp-body" width={w} height={d} rx="4" /><rect className="fp-cushion" x="1.5" y="1.5" width={w - 3} height={d - 3} rx="3" /><path className="fp-stitch" d={`M${w / 2} 4V${d - 4}M4 ${d / 2}H${w - 4}`} /></g>;
   }
   if (kind === 'corner') {
-    return <g><rect className="fp-body" width={w} height={d} rx="3" /><rect className="fp-back" width={w} height={back} rx="2" />
-      <rect className="fp-cushion" x="0.8" y={back + 0.8} width={w - 1.6} height={d - back - 1.6} rx="3" /></g>;
+    // Elbow: the back hugs the top and left walls with a rounded outer corner; the front edges are where the neighbours
+    // attach (attachIn long), joined by a diagonal. Extents are the published W on both axes; the corner radius is schematic.
+    const attach = Math.min(item.attachIn || w * 0.6, w);
+    const r = w * 0.3;
+    const thick = Math.max(8, back * 1.3);
+    const outline = `M${w} 0L${w} ${attach}L${attach} ${w}L0 ${w}L0 ${r}Q0 0 ${r} 0Z`;
+    const seat = `M${w} ${thick}L${w} ${attach}L${attach} ${w}L${thick} ${w}L${thick} ${r}Q${thick} ${thick} ${r} ${thick}Z`;
+    return <g><path className="fp-body" d={outline} />
+      <path className="fp-back" d={`M${w} ${thick / 2}L${r} ${thick / 2}Q${thick / 2} ${thick / 2} ${thick / 2} ${r}L${thick / 2} ${w}`} style={{ fill: 'none', stroke: '#b8ae98', strokeWidth: thick }} />
+      <path className="fp-cushion" d={seat} /></g>;
   }
   return <g><rect className="fp-body" width={w} height={d} rx="3" /><rect className="fp-back" width={w} height={back} rx="2" />
     {leftArm && <rect className="fp-arm" width={arm} height={d} rx="2" />}{rightArm && <rect className="fp-arm" x={w - arm} width={arm} height={d} rx="2" />}
@@ -41,9 +50,16 @@ function PieceArt({ item }) {
     {recliner && <path className="fp-stitch" d={`M${(from + to) / 2 - 5} ${d - 7}l5 4l5 -4`} />}</g>;
 }
 
+/** Published size: a corner's footprint is W along each wall, but its catalog label is W x D (D = the attach edge). */
+const publishedSize = (item) => ({ width: item.baseWidth, depth: item.attachIn || item.baseHeight });
+
 const pieceTransform = (item) => {
   const { x, y, baseWidth: w, baseHeight: d } = item;
-  switch (normalizeRotation(item.rotation)) {
+  const flip = item.mirror ? ` translate(${w} 0) scale(-1 1)` : '';
+  return `${rotationTransform(normalizeRotation(item.rotation), x, y, w, d)}${flip}`;
+};
+const rotationTransform = (rotation, x, y, w, d) => {
+  switch (rotation) {
     case 90: return `translate(${x} ${y}) translate(${d} 0) rotate(90)`;
     case 180: return `translate(${x} ${y}) translate(${w} ${d}) rotate(180)`;
     case 270: return `translate(${x} ${y}) translate(0 ${w}) rotate(270)`;
@@ -83,10 +99,9 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
   const validation = validateSectionalStudioLayout(items, room, catalog);
   const reach = reachConflicts(items, room);
   const summary = layoutSummary(items, room);
+  const sharedSwatches = useMemo(() => getSharedCoverSwatches(catalog, items), [catalog, items]);
+  const coverReady = Boolean(cover) && pattern.length === 4 && color.length === 2 && sharedSwatches.some((item) => item.code === `${cover}${pattern}${color}`);
   const canCopy = items.length > 0 && validation.valid && coverReady;
-  const coverCodes = catalog.cover_cap_codes || [];
-  const activeCover = coverCodes.find((entry) => entry.code === cover);
-  const coverReady = Boolean(cover) && pattern.length === 4 && color.length === 2;
   const rmsRows = items.map((piece) => (coverReady ? buildSectionalStudioRmsLine(piece, cover, pattern, color) : `${piece.code}-${piece.modelCode}`));
   const rmsText = rmsRows.join('\n');
   const selectedItem = items.find((item) => item.id === selectedId);
@@ -184,14 +199,14 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
   const gridLines = (length, step) => Array.from({ length: Math.floor(length / step) - 1 }, (_, index) => (index + 1) * step);
 
   return <section className="module-page design-studio">
-    <div className="module-intro"><p className="eyebrow"><Layers3 size={13} /> FLOOR-PLAN CONFIGURATOR</p><h1>Sectional &amp; Modular <em>Design Studio</em></h1><p>Place pieces at true size in your customer&rsquo;s room, then review a piece-by-piece RMS entry preview.</p></div>
+    <div className="module-intro"><h1>Sectional <em>Studio</em></h1></div>
     <div className="studio-toolbar card">
-      <label className="form-field"><span>Style / collection</span><select value={profile?.model_code || ''} onChange={(event) => setProfile(event.target.value)}>{profiles.map((entry) => <option key={entry.model_code} value={entry.model_code}>{entry.model_name} · {entry.model_code} · {entry.sectional_family}</option>)}</select></label>
+      <label className="form-field"><span>Style / collection</span><select value={profile?.model_code || ''} onChange={(event) => setProfile(event.target.value)}>{[...new Set(profiles.map((entry) => entry.sectional_family))].map((family) => <optgroup key={family} label={family}>{profiles.filter((entry) => entry.sectional_family === family).map((entry) => <option key={entry.model_code} value={entry.model_code}>{entry.model_name} · {entry.model_code}</option>)}</optgroup>)}</select></label>
       <div className="form-field"><span>Starting layouts</span><div className="chip-row tight" role="group" aria-label="Starting layouts">{[['l-standard', 'L-shape'], ['l-console', 'L with console'], ['u-shape', 'U-shape'], ['straight-chaise', 'Sofa with chaise']].map(([key, label]) => <button key={key} type="button" className="chip" onClick={() => applyPreset(key)}>{label}</button>)}</div></div>
       <fieldset className="studio-room-fields"><legend>Room size · feet</legend><label>Width <input type="number" min="8" max="40" value={roomWidth} onChange={(event) => setRoomWidth(Math.max(8, Math.min(40, Number(event.target.value) || 8)))} /></label><label>Depth <input type="number" min="8" max="40" value={roomDepth} onChange={(event) => setRoomDepth(Math.max(8, Math.min(40, Number(event.target.value) || 8)))} /></label></fieldset>
     </div>
     <div className="studio-workspace">
-      <section className="studio-board-card card"><div className="studio-section-head"><div><p className="eyebrow">TOP-DOWN PLAN · TRUE SCALE</p><h2>{profile?.model_name || 'Collection'} · {roomWidth}′ × {roomDepth}′ room</h2></div><span className="studio-live"><i /> 1 FT GRID</span></div>
+      <section className="studio-board-card card"><div className="studio-section-head"><div><h2>{profile?.model_name || 'Collection'} · {roomWidth}′ × {roomDepth}′ room</h2></div><span className="studio-live"><i /> 1 FT GRID</span></div>
         <div className="studio-tools" role="toolbar" aria-label="Plan tools">
           <button type="button" onClick={undo} disabled={!history.past.length} aria-label="Undo"><Undo2 size={15} /> Undo</button>
           <button type="button" onClick={redo} disabled={!history.future.length} aria-label="Redo"><Redo2 size={15} /> Redo</button>
@@ -210,19 +225,19 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
             <text className="fp-dim" x={room.width / 2} y={-8} textAnchor="middle">{roomWidth}′</text>
             <text className="fp-dim" x={-9} y={room.height / 2} textAnchor="middle" transform={`rotate(-90 -9 ${room.height / 2})`}>{roomDepth}′</text>
             {showReach && items.map((item) => { const zone = reachRect(item); return zone ? <rect key={`r${item.id}`} className={`fp-reach ${reach.some((entry) => entry.id === item.id) ? 'blocked' : ''}`} x={zone.x} y={zone.y} width={zone.width} height={zone.height} /> : null; })}
-            {items.map((item) => <g key={item.id} className={`fp-piece ${selectedId === item.id ? 'selected' : ''}`} onPointerDown={(event) => startDrag(event, item)} role="button" tabIndex={0} aria-label={`${item.name}, ${item.code}, ${formatInches(item.baseWidth)} wide by ${formatInches(item.baseHeight)} deep. Select or drag.`} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelectedId(item.id); } }}>
+            {items.map((item) => <g key={item.id} className={`fp-piece ${selectedId === item.id ? 'selected' : ''}`} onPointerDown={(event) => startDrag(event, item)} role="button" tabIndex={0} aria-label={`${item.name}, ${item.code}, ${formatInches(publishedSize(item).width)} wide by ${formatInches(publishedSize(item).depth)} deep. Select or drag.`} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelectedId(item.id); } }}>
               <g transform={pieceTransform(item)}><PieceArt item={item} /></g>
               <rect className="fp-outline" x={item.x} y={item.y} width={item.width} height={item.height} />
             </g>)}
             {items.map((item) => <g key={`t${item.id}`} className="fp-labels" pointerEvents="none">
               <text className="fp-code" x={item.x + item.width / 2} y={item.y + item.height / 2} textAnchor="middle" dominantBaseline="central" fontSize={Math.max(5, Math.min(9, Math.min(item.width, item.height) * 0.22))}>{item.code}</text>
-              {showSizes && item.width >= 44 && item.height >= 30 && <text className="fp-size" x={item.x + item.width / 2} y={item.y + item.height / 2 + Math.max(5, Math.min(9, Math.min(item.width, item.height) * 0.22)) * 1.15} textAnchor="middle" dominantBaseline="central" fontSize="5">{formatInches(item.baseWidth)} × {formatInches(item.baseHeight)}</text>}
+              {showSizes && item.width >= 44 && item.height >= 30 && <text className="fp-size" x={item.x + item.width / 2} y={item.y + item.height / 2 + Math.max(5, Math.min(9, Math.min(item.width, item.height) * 0.22)) * 1.15} textAnchor="middle" dominantBaseline="central" fontSize="5">{formatInches(publishedSize(item).width)} × {formatInches(publishedSize(item).depth)}</text>}
             </g>)}
             <g className="fp-scale" pointerEvents="none"><rect x="0" y={room.height + 6} width="60" height="2.5" /><text x="0" y={room.height + 14} fontSize="5.5">5′ scale</text></g>
           </svg>
           {!items.length && <div className="studio-board-empty"><Sofa size={38} /><strong>Start with a layout or add a piece</strong><span>Pieces are drawn at their real size and cannot overlap</span></div>}
         </div>
-        <div className="studio-board-controls">{selectedItem ? <div className="studio-selected-actions"><strong>{selectedItem.name} · {selectedItem.code}</strong><span>{formatInches(selectedItem.baseWidth)} W × {formatInches(selectedItem.baseHeight)} D{selectedItem.heightIn ? ` × ${formatInches(selectedItem.heightIn)} H` : ''}{selectedItem.reachIn ? ` · ${formatInches(selectedItem.reachIn)} reclined` : ''}</span><button type="button" onClick={rotateSelected} aria-label="Rotate selected piece"><RotateCw size={15} /> Rotate 90°</button><button type="button" onClick={removeSelected} aria-label="Remove selected piece"><Minus size={15} /> Remove</button></div> : <span>Select a piece to see its size. Drag to move; arrow keys nudge 1″, Shift 6″.</span>}</div>
+        <div className="studio-board-controls">{selectedItem ? <div className="studio-selected-actions"><strong>{selectedItem.name} · {selectedItem.code}</strong><span>{formatInches(publishedSize(selectedItem).width)} W × {formatInches(publishedSize(selectedItem).depth)} D{selectedItem.heightIn ? ` × ${formatInches(selectedItem.heightIn)} H` : ''}{selectedItem.reachIn ? ` · ${formatInches(selectedItem.reachIn)} reclined` : ''}</span><button type="button" onClick={rotateSelected} aria-label="Rotate selected piece"><RotateCw size={15} /> Rotate 90°</button><button type="button" onClick={removeSelected} aria-label="Remove selected piece"><Minus size={15} /> Remove</button></div> : <span>Select a piece to see its size. Drag to move; arrow keys nudge 1″, Shift 6″.</span>}</div>
         {summary && <div className="studio-summary"><span><strong>{formatInches(summary.width)} × {formatInches(summary.depth)}</strong> overall footprint</span><span>Gap to walls: left {formatInches(summary.gaps.left)} · right {formatInches(summary.gaps.right)} · top {formatInches(summary.gaps.top)} · bottom {formatInches(summary.gaps.bottom)}</span></div>}
         {notice && <p className="studio-notice" role="status">{notice}</p>}
       </section>
@@ -231,7 +246,7 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
         <div className="studio-piece-detail"><Armchair size={19} /><span><strong>{selectedPiece?.name || 'Choose a piece'}</strong><small>{selectedSize ? `${formatInches(selectedSize.width)} W × ${formatInches(selectedSize.depth)} D${selectedSize.height ? ` × ${formatInches(selectedSize.height)} H` : ''}${selectedSource?.fully_extended_in ? ` · ${formatInches(selectedSource.fully_extended_in)} reclined` : ''}` : 'Size not in the supplied data.'}</small></span></div>
         <button type="button" className="primary-button studio-add" onClick={addPiece} disabled={!selectedSize}><Plus size={16} /> Add piece to floor plan</button>
         {items.length > 0 && <div className={`studio-check ${validation.valid && items.length ? 'valid' : validation.errors.length ? 'invalid' : ''}`} role="status"><strong>{!items.length ? 'Plan your room' : validation.valid ? 'Layout checks passed' : 'Review the layout'}</strong>{validation.errors.map((error) => <small key={error}>{error}</small>)}{reach.map((entry) => <small key={entry.id}>{entry.code} cannot fully recline: {entry.reason === 'wall' ? 'a wall is in the way.' : `${entry.blocker} is in the way.`}</small>)}{validation.warnings.map((warning) => <small key={warning}>{warning}</small>)}</div>}
-        <div className="studio-cover"><p className="eyebrow">COVER</p><label className="form-field"><span>Cover / grade</span><select value={cover} onChange={(event) => setCover(event.target.value)}><option value="">Choose a grade…</option><option value="D">D · type the cover below</option>{coverCodes.map((entry) => <option key={entry.code} value={entry.code}>{entry.code} · {entry.name}</option>)}</select></label><div className="studio-cover-digits"><label>Pattern <input placeholder="4 digits" maxLength="4" inputMode="numeric" value={pattern} onChange={(event) => setPattern(event.target.value.replace(/\D/g, '').slice(0, 4))} /></label><label>Colour <input placeholder="2 digits" maxLength="2" inputMode="numeric" value={color} onChange={(event) => setColor(event.target.value.replace(/\D/g, '').slice(0, 2))} /></label></div><small>Optional. Add the exact cover (grade, 4-digit pattern, 2-digit colour) to complete the entry string.</small></div>
+        <div className="studio-cover">{items.length ? <CoverPicker key={sharedSwatches.length} swatches={sharedSwatches} value={coverReady ? `${cover}${pattern}${color}` : ''} onChange={(code, match) => { setCover(match?.grade || ''); setPattern(match?.pattern || ''); setColor(match?.color || ''); }} /> : <small>Add a piece first. Covers shown are the ones every piece in the plan can be built in.</small>}</div>
       </aside>
     </div>
     <section className="studio-order-drawer" aria-live="polite"><div className="studio-drawer-head"><div><p className="eyebrow"><Layers3 size={12} /> RMS ORDER SUMMARY</p><strong>{items.length} configured {items.length === 1 ? 'piece' : 'pieces'}</strong></div><span className="studio-preview-badge">ENTRY PREVIEW · NOT ORDER-VALIDATED</span></div>{items.length ? <><div className="studio-order-list">{items.map((item, index) => { const supported = getSectionalPieceOptions(catalog, item.family, item.modelCode, item.code); return <article key={item.id}><span className="studio-order-num">{String(index + 1).padStart(2, '0')}</span><span><strong>{item.modelName} · {item.name}</strong><small>Prefix {item.code} · Model {item.modelCode} · {cover} {pattern} {color}</small></span><code>{rmsRows[index]}</code>{supported.length > 0 && <small className="studio-order-options">Indexed options: {supported.join(', ')}</small>}</article>; })}</div><div className="studio-copy-row"><pre>{rmsText}</pre><button type="button" className="copy-button" disabled={!canCopy} onClick={copy}><Copy size={14} /> Copy for RMS</button></div></> : <p className="studio-order-empty">Add a piece to see its model, prefix, cover and draft entry string here.</p>}<p className="studio-order-disclaimer"><Info size={14} /> These are catalog-derived entry references, not guaranteed order SKUs. Verify the exact-style cover, options, availability and assembly with the live RMS/order guide before promising or submitting.</p></section>
