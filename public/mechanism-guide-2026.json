@@ -3,7 +3,7 @@
   "title": "Mechanism guide 2026",
   "source": "La-Z-Boy Product Knowledge Library (Nov 2025 – Jun 2026 issues)",
   "evidenceTier": "A",
-  "about": "Per-mechanism features and benefits, wall proximity, weight tested, warranty tiers, option benefits and cross-source notes. A prefix not listed here has no mechanism entry; nothing is inferred for it."
+  "about": "Per-mechanism features and benefits, wall proximity, weight tested, warranty tiers, option benefits and cross-source notes. A prefix not listed here has no mechanism entry; nothing is inferred for it. Added from the Wall, Gliding and Rocking Recliner Resource Guides: 006 and P06 mechanisms, specialty recliners (Neo, Ace, Sammy), and support topics (power safety, remote help, battery pack handling, seat builds, frame and air quality). Styles named in those guides are examples, not a full availability list."
  },
  "features": {
   "slouch": {
@@ -426,7 +426,8 @@
     "1 year on foam, fabric and leather."
    ],
    "notes": [
-    "Swivel bases are not available on wall recliners."
+    "Swivel bases are not available on wall recliners.",
+    "Tall base adds 1.5 inches to overall height. Handle choices: standard or elongated arc. Source: Wall Recliner Resource Guide (006/016/P06/P16/16X)."
    ],
    "issued": "2025-11"
   },
@@ -459,7 +460,9 @@
     "1 year on foam, fabric and leather."
    ],
    "notes": [
-    "Swivel bases are not available on wall recliners."
+    "Swivel bases are not available on wall recliners.",
+    "Styles listed in the guide: Vail 403, Sherman 725, Harbor Town 799. Corded hand wand (HW) available; no USB charging with the hand wand. Tall base adds 1.5 inches.",
+    "Source: Wall Recliner Resource Guide (006/016/P06/P16/16X)."
    ],
    "issued": "2025-11"
   },
@@ -526,7 +529,11 @@
    ],
    "notes": [
     "Not available in power.",
-    "No base option: swivel base only."
+    "No base option: swivel base only.",
+    "Styles listed in the guide: Pinnacle 512, Wynne 700, Sparrow 712, Finley 747, Harbor Town 799.",
+    "Not available in the Tall Series or the Summit Series; no rocker, tall or tall swivel bases. Alternative for a swivel or tall base: a rocker recliner with the Tall Swivel base option. Alternative for power: a power rocker with a power swivel base.",
+    "Gliders made before 2023 have wingnuts; the current build uses speed nuts to protect the seat swing.",
+    "Source: Gliding Recliner Resource Guide (017)."
    ],
    "issued": "2025-11"
   },
@@ -1470,6 +1477,214 @@
   {
    "series": "Summit Series (Redwood 776, Randell 777, Ace 805)",
    "note": "Elongated handle and tall base included. Wider-scale frame, taller back, extra seat and back springs, bolstered rocker blocks and springs, extra-deep seat with full chaise legrest. No swivel bases allowed. Weight tested to 300 lb. Available in 010, 10U, 10X, 016 and 16X."
+  }
+ ],
+ "specialtyRecliners": [
+  {
+   "model": "Neo",
+   "code": "762",
+   "nickname": "The Gadget chair",
+   "availableOn": [
+    "10X",
+    "16X"
+   ],
+   "standard": [
+    "Power headrest and lumbar",
+    "Wireless charging tray",
+    "Accessory grommet with detachable tablet/device holder (device not included)",
+    "2 push-to-open storage bins on the outside arms",
+    "Right-side wireless remote and cradle with 2 memory functions, home button and USB-A",
+    "Cup holder and accessory grommet on the same side as the remote"
+   ],
+   "options": [
+    "FS Contour Cushion",
+    "LW left-side wireless remote (moves cup holder and grommet left)",
+    "FN 021 Coffee finish (10X only)"
+   ],
+   "pitch": "“It is a power recliner with headrest and lumbar, plus the charging tray, device holder and storage for the tech lover.”",
+   "source": "Wall Recliner Resource Guide (006/016/P06/P16/16X)",
+   "tier": "A"
+  },
+  {
+   "model": "Ace",
+   "code": "805",
+   "series": "Summit",
+   "availableOn": [
+    "010",
+    "10U",
+    "10X",
+    "016",
+    "16X"
+   ],
+   "standard": [
+    "2 tilt-out cup holders plus 2 removable stainless steel cup holders in brushed nickel (4 total; the 2 black ones are non-removable)",
+    "Stainless steel cup holders are dishwasher safe"
+   ],
+   "service": "Tilt-out tension: flip the chair over, unzip under each arm and turn the wingnut right to tighten or left to loosen.",
+   "source": "Wall Recliner Resource Guide (006/016/P06/P16/16X)",
+   "tier": "A"
+  },
+  {
+   "model": "Sammy",
+   "code": "826",
+   "availableOn": [
+    "010",
+    "10U",
+    "10X",
+    "016",
+    "16X"
+   ],
+   "standard": [
+    "2 tilt-out cup holders plus 2 removable stainless steel cup holders in brushed nickel (4 total)",
+    "Stainless steel cup holders are dishwasher safe"
+   ],
+   "service": "Same wingnut tension adjustment under each cup holder as the Ace.",
+   "source": "Wall Recliner Resource Guide (006/016/P06/P16/16X)",
+   "tier": "A"
+  }
+ ],
+ "supportTopics": [
+  {
+   "id": "power-safety",
+   "title": "Power recliner safety questions",
+   "items": [
+    {
+     "q": "Pacemaker or medical device?",
+     "a": "The actuators and massage motors contain unshielded magnets. The guide says the 16X headrest and lumbar actuators sit in the back of the chair, close to the user, and may interfere with a pacemaker or other medical device. It also says P06, P16 and 16X have actuators mounted under the seat, which may be a safe distance for a pacemaker user; those two statements overlap for the 16X, so treat the 16X as the cautious case. The guide says every customer must check with their health care provider first. Do not tell a customer a chair is safe for a pacemaker."
+    },
+    {
+     "q": "Oxygen in the room?",
+     "a": "La-Z-Boy does not recommend using a power chair in a room where oxygen is being administered. UL standards require that advice because a spark from an electrical product and a leaking oxygen tank can ignite."
+    },
+    {
+     "q": "Power outage?",
+     "a": "The power supply holds an emergency battery backup that needs two fresh, name-brand 9V alkaline batteries (not included). It returns the chair from reclined to seated one time. It does not recline the chair or run heat and massage. Replace the batteries after one use. Lithium and rechargeable batteries should not go in the power supply; La-Z-Boy has not tested them."
+    },
+    {
+     "q": "Where can the transformer plug in?",
+     "a": "Directly into a wall outlet. It is not tested with power strips, surge protectors or extension cords, which can affect power delivery and may contribute to electrical component failures."
+    }
+   ],
+   "source": "Wall Recliner Resource Guide (006/016/P06/P16/16X)",
+   "tier": "A"
+  },
+  {
+   "id": "remote-help",
+   "title": "Wireless remote not working",
+   "items": [
+    {
+     "q": "Steps in order",
+     "a": "1) Turn Do Not Disturb off on the remote cradle. 2) Replace all three AAA batteries in the remote with new name-brand batteries. 3) Unplug the chair for at least 30 seconds, plug back in, and test."
+    },
+    {
+     "q": "Pairing",
+     "a": "Never pair a remote unless the remote or the master control module was replaced. Remotes are paired at the factory. If a working remote seems unpaired, do the reset in the steps above. Replacement remotes and control units are ordered through ComfortCare."
+    }
+   ],
+   "source": "Wall Recliner Resource Guide (006/016/P06/P16/16X)",
+   "tier": "A"
+  },
+  {
+   "id": "battery-pack",
+   "title": "Rechargeable battery pack handling",
+   "items": [
+    {
+     "q": "Facts",
+     "a": "Lithium-ion pack for cordless operation. Codes 088 BP1 (1 pack), 088 BP2 (2 packs) and 088 1YC (2 packs with extra shelf for DUO). UL recognized; the guide says it meets US and Canadian safety requirements. Check the price book for the packs a style needs. Not available on AudioLuxe, lift chairs and consoles (CB, CC, CM option)."
+    },
+    {
+     "q": "Charging",
+     "a": "About 5 to 7 hours for a full charge, using the furniture's power supply. The pack can charge while the chair is in use (the guide calls it the Daisy Chain method). LED flashes amber/red while charging and turns steady green when full."
+    },
+    {
+     "q": "Runtime",
+     "a": "About 5 days of cordless use at 10 cycles a day when fully charged. Shorter with a USB port in use, a wireless remote (it communicates even when idle), room temperature above 104 F or below 32 F, or a larger user. Low-battery alert below 30% capacity; output stops below 20%."
+    },
+    {
+     "q": "Placement and storage",
+     "a": "Keep the pack behind the recliner, never under or inside it. It loses charge even when idle. Charge it before use after 2 months or more in storage."
+    }
+   ],
+   "source": "Wall Recliner Resource Guide (006/016/P06/P16/16X)",
+   "tier": "A"
+  },
+  {
+   "id": "seat-construction",
+   "title": "Standard seat cushion builds",
+   "note": "Every standard seat carries a 1 year warranty on the cushion and 1 year on labor. The FS Contour Cushion raises the cushion warranty to 3 years. To find a style's standard seat: style in the price book, check its seat type, match it to the price book definition.",
+   "items": [
+    {
+     "q": "Standard seat",
+     "a": "Chaise seating, pillow tops, box borders and bullnose. 27 lb / 1.8 density polyurethane foam core with a 13.5 oz polyester pad. Example in the guide: Pinnacle 512."
+    },
+    {
+     "q": "Ultra Plush (UP)",
+     "a": "Standard core plus a 12 lb / 1.1 density foam topper for a softer seat. Examples: Joshua 502, Sparrow 712."
+    },
+    {
+     "q": "Faux box border",
+     "a": "A completely square 27 lb foam core that resembles a stationary seat. Examples: Ava 769, Wynne 700."
+    },
+    {
+     "q": "Original bucket",
+     "a": "36 lb / 2.5 density core with thin wedge-shaped 27 lb side fillers that make a soft bucket shape. Example: Maverick 582."
+    },
+    {
+     "q": "Sculpted bucket",
+     "a": "27 lb core with top and bottom 36 lb fillers and 27 lb side fillers; the top fillers do not reach the front of the seat. Deep sculpted seat. Example: Trouper 724."
+    },
+    {
+     "q": "Hybrid bucket",
+     "a": "27 lb top fillers that extend to the front, 36 lb bottom fillers and 27 lb side fillers. Example: Fulton 717."
+    },
+    {
+     "q": "Summit",
+     "a": "Five seat springs and a 36 lb / 2.5 density foam core. Example: Redwood 776."
+    },
+    {
+     "q": "Contour Cushion (FS)",
+     "a": "2.55 density high-resilience core, 2.50 density Contour Cushion foam layer, 1.85 density conventional core wedges to relieve pressure behind the thighs, and a 3/4 oz batting top. Sits on the seat through the legrest. Selling points: forms to the body, durable, holds a steady temperature, 3 year warranty."
+    }
+   ],
+   "source": "Wall Recliner Resource Guide (006/016/P06/P16/16X); Gliding Recliner Resource Guide (017)",
+   "tier": "A"
+  },
+  {
+   "id": "frame-quality",
+   "title": "Frame, springs and air quality",
+   "items": [
+    {
+     "q": "Frame",
+     "a": "North American kiln-dried hardwood and engineered OSB, mortise-and-tenon or lap-jointed and glued, hardwood corner blocks at stress points. Seat and rocker frames use hardwoods such as maple, elm and ash. OSB is furniture grade, about 11% more material than building grade. Limited lifetime on parts, 1 year on labor."
+    },
+    {
+     "q": "Springs",
+     "a": "Sinuous wire springs with a paper-wrapped crosswire brace, anchor wire, helicoil shock absorber, and a swing clip or dimpled swing anchor (dimpled is used with Ultra Plush and bucket seats). The 006/P06 Value Series spring system does not have the swing clip part."
+    },
+    {
+     "q": "GREENGUARD Gold",
+     "a": "All La-Z-Boy branded upholstery is GREENGUARD Gold certified: low-emitting, screened for more than 15,000 VOCs."
+    }
+   ],
+   "source": "Wall Recliner Resource Guide (006/016/P06/P16/16X); Gliding Recliner Resource Guide (017)",
+   "tier": "A"
+  },
+  {
+   "id": "value-wall",
+   "title": "Value wall recliners 006 and P06",
+   "note": "These prefixes are not in the April 2026 Product Information Guide, so they have no mechanism entry on a model. Check the price book before quoting them.",
+   "items": [
+    {
+     "q": "006 manual",
+     "a": "Wall proximity 4 to 8 inches, weight tested to 300 lb. 1-position dual-locking legrest (comfort selector raises and lowers it), independent back and seat, track and wheel mechanism, wingnut back tension, four-sided unibody frame. Value Series examples: Larkin 822, Lyla 860. Tall base is the only base option listed. Spring system has no swing clip."
+    },
+    {
+     "q": "P06 power",
+     "a": "Same features as the P16 (4-button control with USB-A, 2 motors, safety springs on the legrest). Limited options; the guide marks some options not available. Lyla 860 and Larkin 822 are the examples shown."
+    }
+   ],
+   "source": "Wall Recliner Resource Guide (006/016/P06/P16/16X)",
+   "tier": "A"
   }
  ]
 }

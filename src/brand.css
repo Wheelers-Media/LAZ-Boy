@@ -802,3 +802,12 @@ img.rail-logo { width: 100px; }
 .dc-head em{font-style:normal;font-size:12px;font-weight:700;color:var(--text-secondary,#6b6b70)}
 .dc-ok .dc-head em{color:var(--brand-forest,#4e7d6b)}.dc-none .dc-head em{color:var(--brand-rust,#bd472a)}
 .data-confidence small{font-size:12px;line-height:1.35;color:var(--text-secondary,#6b6b70);overflow-wrap:anywhere}
+
+.support-topic{border-top:1px solid var(--line,#e3ddd2);padding:10px 0}
+.support-topic summary{font-weight:600;cursor:pointer}
+.support-topic dt{font-weight:600;margin-top:10px}
+.support-topic dd{margin:2px 0 0;line-height:1.45}
+.support-topic small,.specialty-note small{display:block;margin-top:8px;opacity:.7}
+.specialty-note{margin:12px 0;padding:12px 14px;border-left:3px solid var(--forest,#2f5d46);background:rgba(47,93,70,.06);border-radius:8px}
+.specialty-note h4{margin:0 0 6px}
+.specialty-note ul{margin:6px 0;padding-left:18px}
