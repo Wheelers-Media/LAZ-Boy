@@ -1,6 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { CoverPicker } from './CoverPicker.jsx';
-import { ChevronUp, Copy, Info, Layers3, Printer, Redo2, RotateCw, Scan, Sofa, Trash2, Undo2 } from './icons.jsx';
+import { lineFromSectional } from './plan.js';
+import { ChevronUp, Copy, Plus, Info, Layers3, Printer, Redo2, RotateCw, Scan, Sofa, Trash2, Undo2 } from './icons.jsx';
 import { buildSectionalStudioRmsLine, getSharedCoverSwatches, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
 import { createItem, applyPlacement, findFreeSpot, formatInches, placementCandidates, rankPlacements, layoutSummary, normalizeRotation, parsePieceDimensions, presetItems, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
 
@@ -82,7 +83,7 @@ const labelPoint = (item) => {
   }
 };
 
-export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724', onModelChange }) {
+export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {}, initialModelCode = '724', onModelChange }) {
   const profiles = (catalog.product_profiles || []).filter((profile) => profile.pieces?.length);
   const [modelCode, setModelCode] = useState(String(initialModelCode));
   const profile = profiles.find((item) => String(item.model_code) === modelCode) || profiles[0];
@@ -241,6 +242,7 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
     else if (event.key.toLowerCase() === 'r') { event.preventDefault(); rotateSelected(); }
     else if (event.key === 'Delete' || event.key === 'Backspace') { event.preventDefault(); removeSelected(); }
   };
+  const addSectionalToPlan = () => { if (!items.length) return; onAddToPlan(lineFromSectional({ swatchIndex: catalog.swatch_index, modelCode: profile.model_code, modelName: profile.model_name, family: profile.sectional_family, detail: `${items.length} ${items.length === 1 ? 'piece' : 'pieces'}${summary ? `, ${formatInches(summary.width)} × ${formatInches(summary.depth)}` : ''}`, pieces: items.map((item) => item.code), rms: rmsRows, coverCode: coverReady ? `${cover}${pattern}${color}` : '' }), `${profile.model_name} sectional`); };
   const copy = () => { if (canCopy) { onCopy(rmsText); setNotice('RMS entry preview copied. Verify the style, cover, color, and orderability before entry.'); } };
 
   const bounds = items.length ? { x0: Math.min(...items.map((i) => i.x)), y0: Math.min(...items.map((i) => i.y)), x1: Math.max(...items.map((i) => i.x + i.width)), y1: Math.max(...items.map((i) => i.y + i.height)) } : null;
@@ -341,7 +343,7 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
     <section className={`studio-dock ${dockOpen ? 'open' : ''}`} aria-live="polite">
       <div className="studio-dock-bar">
         <button type="button" className="studio-dock-toggle" onClick={() => setDockOpen(!dockOpen)} aria-expanded={dockOpen}><Layers3 size={16} /><span>{items.length} {items.length === 1 ? 'piece' : 'pieces'}</span><ChevronUp size={16} className="chev" /></button>
-        <button type="button" className="copy-button" disabled={!canCopy} onClick={copy}><Copy size={16} /> Copy for RMS</button>
+        <div className="studio-dock-actions"><button type="button" className="back-button" disabled={!items.length} onClick={addSectionalToPlan}><Plus size={16} /> Add to plan</button><button type="button" className="copy-button" disabled={!canCopy} onClick={copy}><Copy size={16} /> Copy for RMS</button></div>
       </div>
       {dockOpen && <div className="studio-dock-body">{items.length ? <><div className="studio-order-list">{items.map((item, index) => { const supported = getSectionalPieceOptions(catalog, item.family, item.modelCode, item.code); return <article key={item.id}><span><strong>{item.name}</strong><small>{item.code}-{item.modelCode}{coverReady ? ` · ${cover} ${pattern} ${color}` : ' · cover not chosen'}</small></span><code>{rmsRows[index]}</code>{supported.length > 0 && <small className="studio-order-options">Options: {supported.join(', ')}</small>}</article>; })}</div>
         <p className="studio-order-disclaimer"><Info size={14} /> Entry preview only. Confirm style, cover, options and availability in RMS before promising it.</p></> : <p className="studio-order-empty">Add a piece to see its RMS entry here.</p>}</div>}

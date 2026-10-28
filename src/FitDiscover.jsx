@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
-import { AlertTriangle, Armchair, ArrowLeft, ArrowRight, Check, ClipboardCheck, Copy, FileText, Info, MessageSquareText, Ruler, Sparkles } from './icons.jsx';
-import { buildDcgNotes, DCG_NOTE_LIMIT, FIT_NEEDS, SIT_VERDICTS, getCatalogCapabilityLeads, getContextualModelOptions, getContextualPreferenceChoices, getDimensionBasedRecommendations, getRecommendations, getRoomClearance, getSeatFit, getSectionalLeads, heightInches, sitLogToText, summarizeSitLog } from './logic.js';
+import { AlertTriangle, Armchair, ArrowLeft, ArrowRight, Check, ClipboardCheck, Copy, Info, MessageSquareText, Plus, Ruler, Sparkles } from './icons.jsx';
+import { lineFromLead } from './plan.js';
+import { FIT_NEEDS, SIT_VERDICTS, getCatalogCapabilityLeads, getContextualModelOptions, getContextualPreferenceChoices, getDimensionBasedRecommendations, getRecommendations, getRoomClearance, getSeatFit, getSectionalLeads, heightInches, sitLogToText, summarizeSitLog } from './logic.js';
 
 export const FIT_STEPS = ['Their fit', 'What they need', 'Room and comfort', 'Real life'];
 export const FIT_DEFAULTS = {
@@ -71,7 +72,7 @@ function SitLogger({ match, inches, onLogSit }) {
   </div>;
 }
 
-function MatchCard({ match, weight, inches, sitLog, onLogSit, onIndex, onBuild, onSectional }) {
+function MatchCard({ onAddToPlan, match, weight, inches, sitLog, onLogSit, onIndex, onBuild, onSectional }) {
   const floor = summarizeSitLog(sitLog, match.code, inches);
   const isResearch = match.tier === 'B';
   return <article className={`fitq-match card tier-${match.tier}`}>
@@ -92,6 +93,7 @@ function MatchCard({ match, weight, inches, sitLog, onLogSit, onIndex, onBuild, 
     {weight && !match.capacityKnown && <p className="fitq-flag"><AlertTriangle size={14} aria-hidden="true" /> Capacity is not listed. Confirm it for {weight} lb before offering this model.</p>}
     <footer>
       <SitLogger match={match} inches={inches} onLogSit={onLogSit} />
+      <button type="button" className="back-button" onClick={() => onAddToPlan(lineFromLead({ source: 'fit', modelCode: match.code, modelName: match.name, category: match.category, sectional: Boolean(match.sectional) }))}><Plus size={15} /> Add to plan</button>
       <button type="button" className="back-button" onClick={() => onIndex(match.name)}>See in Product Index</button>
       {match.sectional
         ? <button type="button" className="primary-button" onClick={() => onSectional(match.code)}>Design in Sectional Studio <ArrowRight size={14} /></button>
@@ -100,7 +102,7 @@ function MatchCard({ match, weight, inches, sitLog, onLogSit, onIndex, onBuild, 
   </article>;
 }
 
-export function FitDiscover({ catalog, research, state, setState, onIndex, onBuild, onOpenTab, onInfo, onCopyText, onSectional, sitLog = [], onLogSit = () => {} }) {
+export function FitDiscover({ onAddToPlan = () => {}, catalog, research, state, setState, onIndex, onBuild, onOpenTab, onInfo, onCopyText, onSectional, sitLog = [], onLogSit = () => {} }) {
   const { step, answers } = state;
   const set = (patch) => setState((previous) => ({ ...previous, answers: { ...previous.answers, ...patch } }));
   const go = (next) => setState((previous) => ({ ...previous, step: next }));
@@ -179,7 +181,6 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
       ['Height', answers.height || 'Not set', 0], ['Weight', answers.weight ? `${answers.weight} lb` : 'Not given', 0], ...(FIT_NEEDS.find((item) => item.key === answers.need && item.key !== 'unsure') ? [['Needs', FIT_NEEDS.find((item) => item.key === answers.need).label, 1]] : []), ['Looking for', answers.category, 1], ...(isSectional ? [] : [['Room', roomName, 2]]), ['Recline', mechanism, 2],
       ['Household', answers.household.length ? answers.household.join(' + ') : 'No kids or pets', 3],
     ];
-    const notes = results ? buildDcgNotes({ answers, mechanism, roomName: isSectional ? '' : roomName, sizeName, matches: results.matches }) : null;
     return <div className="fitq fitq-results">
       <h1 className="sr-only">Fit and discover results</h1>
       <section className="fitq-head">
@@ -191,18 +192,15 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
       {bandsDiffer && <p className="tip-strip"><Info size={16} /><span>La-Z-Boy's public guide calls {answers.height} <strong>{sizeName}</strong>. The Canada research file puts it in a neighbouring band. Try both sizes.</span></p>}
       <div className="fitq-layout">
         <div className="fitq-matches">
-          {results?.matches.length ? results.matches.map((match) => <MatchCard key={`${match.tier}-${match.code}`} match={match} weight={weightNumber > 0 ? String(weightNumber) : ''} onIndex={onIndex} onBuild={onBuild} onSectional={onSectional} inches={inches} sitLog={sitLog} onLogSit={onLogSit} />)
+          {results?.matches.length ? results.matches.map((match) => <MatchCard onAddToPlan={onAddToPlan} key={`${match.tier}-${match.code}`} match={match} weight={weightNumber > 0 ? String(weightNumber) : ''} onIndex={onIndex} onBuild={onBuild} onSectional={onSectional} inches={inches} sitLog={sitLog} onLogSit={onLogSit} />)
             : <section className="card fitq-empty"><h3>Nothing matches these answers.</h3><p>Nothing was loosened to fill the list. Change one answer above and look again, or browse the Product Index.</p><button type="button" className="primary-button" onClick={() => onOpenTab('Product Index')}>Open Product Index <ArrowRight size={14} /></button></section>}
           {results?.dimension.length > 0 && <section className="card fitq-dimension"><h3>Dimension screen · manual rocking recliners</h3><p>A screening comparison against published seat dimensions. It is not a fit confirmation.</p><ul>{results.dimension.map((item) => <li key={item.model_code}><strong>{item.model_name}</strong> · {item.dimension_comparison.tier}</li>)}</ul></section>}
         </div>
         <aside className="fitq-side">
-          {notes && <section className="card fitq-notes"><h3><FileText size={16} /> Notes for DCG</h3>
-            <p>Paste into DCG after they leave.</p>
-            {[['Internal note', 'for Hidden Notes', notes.internal], ['Customer note', 'for Notes', notes.customer]].map(([title, where, text]) => <div className="fitq-notes-block" key={title}>
-              <div className="fitq-notes-head"><strong>{title}</strong><small>{where} · {text.length} / {DCG_NOTE_LIMIT}</small></div>
-              <pre className="fitq-note-text" tabIndex={0} aria-label={title}>{text}</pre>
-              <button type="button" className="copy-button" onClick={() => onCopyText(text, title)}><Copy size={15} /> Copy {title.toLowerCase()}</button>
-            </div>)}
+          {results?.matches.length > 0 && <section className="card fitq-plan"><h3><ClipboardCheck size={16} /> Customer plan</h3>
+            <p>Collect everything they want in one plan, then copy the notes for the store system.</p>
+            <button type="button" className="primary-button" onClick={() => results.matches.forEach((match) => onAddToPlan(lineFromLead({ source: 'fit', modelCode: match.code, modelName: match.name, category: match.category, sectional: Boolean(match.sectional) })))}><Plus size={15} /> Add all {results.matches.length} to plan</button>
+            <button type="button" className="back-button" onClick={() => onOpenTab('Plan')}>Open plan <ArrowRight size={14} /></button>
           </section>}
           <section className="card"><h3><MessageSquareText size={16} /> Greet to Discover</h3><ol>{GREET.map((line) => <li key={line}>{line}</li>)}</ol></section>
           <section className="card"><h3><ClipboardCheck size={16} /> Sit-test checklist</h3><ul>{SIT_TEST.map((line) => <li key={line}>{line}</li>)}</ul>
