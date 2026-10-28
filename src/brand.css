@@ -426,3 +426,13 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .fitq-seat-none { font-size: 13px; color: var(--muted, #5b6670); margin: 6px 0; }
 .fitq-sit { width: 100%; }
 .fitq-floor { font-size: 13px; font-weight: 600; color: var(--brand-blue, #00334B); margin: 6px 0; }
+
+/* Fit pass: tap targets, minimum text size, narrow-screen hint wrapping */
+.field-info, .warranty-row button { position: relative; }
+.field-info::after, .warranty-row button::after { content: ''; position: absolute; inset: -10px; }
+.fabric-badge { font-size: max(12px, 0.75rem); }
+.studio-board-empty span { max-width: min(30ch, 86%); line-height: 1.4; overflow-wrap: anywhere; }
+.mechanism-group > summary { cursor: pointer; padding: 8px 2px; font-size: 12px; font-weight: 700; color: #29465b; }
+@media (prefers-color-scheme: dark) { .app .mechanism-group > summary { color: #f2f2f7; } }
+.fabric-tags span { font-size: max(12px, 0.75rem); }
+.app .rms-screen-note { font-size: max(12px, 0.75rem); }
