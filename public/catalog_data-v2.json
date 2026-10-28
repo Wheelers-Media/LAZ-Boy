@@ -7180,7 +7180,7 @@
       "type": "Recycled Leather",
       "name": "Recycled Bonded Leather",
       "grade": "D",
-      "description": "Eco-friendly smooth leather finish."
+      "description": "A composite of recycled leather scraps with a cellular polyurethane face; cut perpendicular to the selvage (railroad). No after-treatment on RL covers; units with loose seats or backs have venting and/or tan denim on one side. Source: April 2026 price book."
     },
     {
       "code": "LL",
@@ -7217,14 +7217,14 @@
       "type": "Fabric",
       "name": "VS cap code",
       "grade": "VS",
-      "description": "Listed as a fabric cap code. Grade and description are not in the supplied data."
+      "description": "Vertical Stripe. Fabric is railroaded (cut perpendicular to the selvage) and matched vertically only; seat cushions are reversible on mirror-image designs. Source: April 2026 price book, cover availability (cap) codes. Grade is not in the supplied data."
     },
     {
       "code": "UE",
       "type": "Faux Leather",
       "name": "UE cap code",
       "grade": "UE",
-      "description": "Listed as a faux leather cap code. Grade and description are not in the supplied data."
+      "description": "Urethane. Pattern pieces are cut perpendicular to the selvage (railroad) with no vertical pattern match; units with loose seats or backs have venting and/or tan denim on one side. Source: April 2026 price book, cover availability (cap) codes. Grade is not in the supplied data."
     }
   ],
   "color_families": [

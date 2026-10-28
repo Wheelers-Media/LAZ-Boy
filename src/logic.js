@@ -1965,3 +1965,52 @@ export function swatchImageFor(index, coverCode, colorCode = '', size = 'zoom') 
   if (!entry) return null;
   return (size === 'thumb' ? entry.local_thumb || entry.local_zoom : entry.local_zoom || entry.local_thumb) || null;
 }
+
+/**
+ * What the app does and does not know about one model, as short chips for the Product Index.
+ * state: 'ok' (documented), 'partial' (provisional or basis-only), 'none' (no data). Nothing is inferred.
+ */
+export function modelDataConfidence(catalog, research, modelCode, pricebookCheck) {
+  const code = String(modelCode);
+  const rows = getGuideStyleRows(catalog, code).filter((row) => row.status !== 'discontinued');
+  const out = [];
+  const dimmed = rows.filter((row) => row.dims);
+  const check = pricebookCheck?.models?.[code];
+  const conflicts = check?.conflicts || [];
+  out.push({
+    key: 'dimensions', label: 'Dimensions',
+    state: dimmed.length ? (conflicts.length ? 'partial' : 'ok') : 'none',
+    detail: !dimmed.length ? 'No dimensions in the supplied data.'
+      : conflicts.length ? `Guide and price book differ: ${conflicts.map((c) => `${c.style} ${c.field} ${c.pricebook} vs ${c.guide}`).join('; ')}. Check the tear pad.`
+      : check?.stylesChecked ? `${dimmed.length} style${dimmed.length === 1 ? '' : 's'} on file; ${check.dimsMatching} of ${check.stylesChecked} checked against the April 2026 price book.` : `${dimmed.length} style${dimmed.length === 1 ? '' : 's'} on file from the product guide.`,
+  });
+  const caps = new Set(rows.flatMap((row) => row.capCodes || []));
+  const named = (catalog?.recliner_catalog_2026?.models || []).some((m) => String(m.code) === code && m.cover_collections?.length)
+    || (catalog?.april_2026_model_cover_applications?.model_applications || []).some((m) => String(m.model_code) === code)
+    || (catalog?.stationary_catalog_2026?.products || []).some((m) => String(m.model_code) === code);
+  out.push({
+    key: 'covers', label: 'Covers',
+    state: named ? 'ok' : caps.size ? 'partial' : 'none',
+    detail: named ? 'Named cover collections are listed for this model.' : caps.size ? `Grade level only (cap codes ${[...caps].join(', ')}). No named patterns for this model in the supplied data.` : 'No cover information in the supplied data.',
+  });
+  const profile = (catalog?.models_database || []).find((m) => String(m.model_code) === code);
+  const claim = research?.model_fit_evidence?.[code]?.fit_claim;
+  out.push({
+    key: 'fit', label: 'Fit data',
+    state: profile?.recommended_height ? 'ok' : claim ? 'partial' : 'none',
+    detail: profile?.recommended_height ? `Scale ${profile.scale || 'not stated'}, height range ${profile.recommended_height}. Weight limit ${profile.weight_limit_lbs ? `${profile.weight_limit_lbs} lb` : 'not in the supplied data'}.`
+      : claim ? 'Provisional fit guidance only (dealer source). Not a verified fit.' : 'No height or weight guidance. Do not describe this as a fit match.',
+  });
+  const hasSpotter = Boolean(profile?.quick_spotter || (catalog?.product_profiles || []).some((p) => String(p.model_code) === code && p.quick_spotter));
+  out.push({ key: 'spotter', label: 'Spotter', state: hasSpotter ? 'ok' : 'none', detail: hasSpotter ? 'Look-alikes and a quick giveaway are on file.' : 'No look-alike or giveaway line on file.' });
+  const pieces = (catalog?.product_profiles || []).some((p) => String(p.model_code) === code && p.pieces?.length);
+  out.push({ key: 'pieces', label: 'Pieces', state: pieces ? 'ok' : 'none', detail: pieces ? 'Piece list from the tear pad.' : 'No tear-pad piece list.' });
+  const statuses = rows.map((row) => row.status);
+  const listed = check?.listed;
+  out.push({
+    key: 'pricebook', label: 'Price book',
+    state: listed ? 'ok' : (pricebookCheck ? 'none' : 'none'),
+    detail: !pricebookCheck ? 'Price book check not loaded.' : listed ? `Listed in the April 2026 Canadian price book${statuses.includes('new') ? ' (new)' : ''}. Confirm availability in RMS.` : 'Not found in the April 2026 price book. Do not treat as orderable until confirmed.',
+  });
+  return out;
+}

@@ -789,3 +789,16 @@ img.rail-logo { width: 100px; }
 .plan-add-sku{display:inline-flex;align-items:center;justify-content:center;gap:6px;width:100%;min-height:48px}
 .rms-two-col>*,.sku-fields>*{min-width:0}
 .form-field select,.form-field input:not([type=checkbox]):not([type=radio]){width:100%;max-width:100%}
+
+/* ===== Data on file (Product Index) ===== */
+.data-confidence{margin:12px 0;padding:12px;border-radius:14px;background:var(--surface-secondary,#f2f2f7)}
+.data-confidence h4{margin:0 0 8px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-secondary,#6b6b70)}
+.data-confidence ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.data-confidence li{display:grid;gap:3px;padding:10px 12px;border-radius:12px;background:var(--control,#fff);border-left:4px solid var(--line,#ccc);min-width:0}
+.data-confidence li.dc-ok{border-left-color:var(--brand-forest,#4e7d6b)}
+.data-confidence li.dc-partial{border-left-color:#c58b1a}
+.data-confidence li.dc-none{border-left-color:var(--brand-rust,#bd472a)}
+.dc-head{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.dc-head em{font-style:normal;font-size:12px;font-weight:700;color:var(--text-secondary,#6b6b70)}
+.dc-ok .dc-head em{color:var(--brand-forest,#4e7d6b)}.dc-none .dc-head em{color:var(--brand-rust,#bd472a)}
+.data-confidence small{font-size:12px;line-height:1.35;color:var(--text-secondary,#6b6b70);overflow-wrap:anywhere}
