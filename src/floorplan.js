@@ -281,3 +281,140 @@ export function presetItems(kind, profile, pieces, room) {
   const fits = items.every((item, index) => isFree(item, items.slice(0, index), room));
   return fits ? items.map((item) => ({ ...item, x: round(item.x), y: round(item.y) })) : null;
 }
+
+/* ---------------------------------------------------------------------------------------------------------------
+ * Connection prediction. Every piece has connection faces: the two ends of a seat piece (an end with an arm is not a
+ * face), and the two attach faces of a corner. A new piece can only go where one of its faces meets an open face of a
+ * placed piece, with the back-ends touching (so backs run along one line), and it must face the same side of the run,
+ * never away from its neighbour. Everything below is plain geometry on the catalog sizes.
+ * ------------------------------------------------------------------------------------------------------------- */
+const SITTER_LEFT_ARM = ['seat', 'arm-left', 'chaise-left'];
+const SITTER_RIGHT_ARM = ['seat', 'arm-right', 'chaise-right'];
+const turnVector = (rotation, [x, y]) => {
+  switch (normalizeRotation(rotation)) {
+    case 90: return [-y, x];
+    case 180: return [-x, -y];
+    case 270: return [y, -x];
+    default: return [x, y];
+  }
+};
+/** Where a point in a piece's own drawing frame (back on top, seat facing down) lands on the plan. */
+function toWorld(item, [lx, ly]) {
+  const { x, y, baseWidth: w, baseHeight: d } = item;
+  switch (normalizeRotation(item.rotation)) {
+    case 90: return [x + d - ly, y + lx];
+    case 180: return [x + w - lx, y + d - ly];
+    case 270: return [x + ly, y + w - lx];
+    default: return [x + lx, y + ly];
+  }
+}
+/** Connection faces in the piece's own frame: outward normal, the end of the face that sits against the back, and its length. */
+export function connectionFaces(item) {
+  const w = item.baseWidth; const d = item.baseHeight;
+  if (item.kind === 'ottoman') return [];
+  if (item.kind === 'corner') {
+    const f = item.attachIn || w;
+    return [{ side: 'right', normal: [1, 0], backEnd: [w, 0], span: f }, { side: 'bottom', normal: [0, 1], backEnd: [0, w], span: f }];
+  }
+  const faces = [];
+  if (!SITTER_RIGHT_ARM.includes(item.kind)) faces.push({ side: 'left', normal: [-1, 0], backEnd: [0, 0], span: d });
+  if (!SITTER_LEFT_ARM.includes(item.kind)) faces.push({ side: 'right', normal: [1, 0], backEnd: [w, 0], span: d });
+  return faces;
+}
+const facingOf = (item) => (item.kind === 'corner' ? [1, 1] : [0, 1]);
+const dot = (a, b) => a[0] * b[0] + a[1] * b[1];
+
+const touching = (a, b) => {
+  const gap = 2;
+  const alongX = Math.min(a.y + a.height, b.y + b.height) - Math.max(a.y, b.y) > gap;
+  const alongY = Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x) > gap;
+  return (alongX && (Math.abs(a.x + a.width - b.x) <= gap || Math.abs(b.x + b.width - a.x) <= gap))
+    || (alongY && (Math.abs(a.y + a.height - b.y) <= gap || Math.abs(b.y + b.height - a.y) <= gap));
+};
+
+/** Slide the pieces beyond `anchor`'s face along the run by the new piece's length. Returns { ids, dx, dy } or null if they do not fit. */
+function insertionShift(placed, anchor, outward, items, room) {
+  const blockers = items.filter((other) => other.id !== anchor.id && overlaps(placed, other));
+  if (!blockers.length) return null;
+  const queue = [...blockers]; const moving = new Map(blockers.map((entry) => [entry.id, entry]));
+  while (queue.length) {
+    const current = queue.shift();
+    for (const other of items) {
+      if (other.id === anchor.id || moving.has(other.id) || !touching(current, other)) continue;
+      moving.set(other.id, other); queue.push(other);
+    }
+  }
+  const length = outward[0] ? placed.width : placed.height;
+  const dx = outward[0] * length; const dy = outward[1] * length;
+  const moved = items.map((entry) => (moving.has(entry.id) ? { ...entry, x: entry.x + dx, y: entry.y + dy } : entry));
+  const everything = [...moved, placed];
+  if (!everything.every((entry) => insideRoom(entry, room))) return null;
+  if (everything.some((entry, index) => everything.some((other, at) => at > index && overlaps(entry, other)))) return null;
+  return { ids: [...moving.keys()], dx, dy };
+}
+
+/** The plan after putting `draft` at `spot`, sliding the pieces beyond it if the spot is an insertion. */
+export function applyPlacement(items, draft, spot) {
+  const moved = items.map((entry) => (spot.shift?.ids.includes(entry.id) ? { ...entry, x: entry.x + spot.shift.dx, y: entry.y + spot.shift.dy } : entry));
+  const box = rotatedSize(draft.baseWidth, draft.baseHeight, spot.rotation);
+  return [...moved, { ...draft, x: spot.x, y: spot.y, rotation: spot.rotation, width: box.width, height: box.height }];
+}
+
+/**
+ * Every spot where `draft` (a piece made with createItem) can connect to the plan, as { x, y, rotation, anchorId, anchorSide, side }.
+ * Spots outside the room or overlapping a piece are left out. An empty plan returns [].
+ */
+export function placementCandidates(draft, items, room) {
+  const found = [];
+  const seen = new Set();
+  for (const anchor of items) {
+    const anchorTurn = normalizeRotation(anchor.rotation);
+    for (const face of connectionFaces(anchor)) {
+      const target = toWorld(anchor, face.backEnd);
+      const outward = turnVector(anchorTurn, face.normal);
+      for (const rotation of [0, 90, 180, 270]) {
+        const box = rotatedSize(draft.baseWidth, draft.baseHeight, rotation);
+        const probe = { ...draft, x: 0, y: 0, rotation };
+        for (const own of connectionFaces(draft)) {
+          const inward = turnVector(rotation, own.normal);
+          if (inward[0] !== -outward[0] || inward[1] !== -outward[1]) continue;
+          if (dot(turnVector(rotation, facingOf(draft)), turnVector(anchorTurn, facingOf(anchor))) < 0) continue;
+          const [ox, oy] = toWorld(probe, own.backEnd);
+          const spot = { x: Math.round((target[0] - ox) * 2) / 2, y: Math.round((target[1] - oy) * 2) / 2, rotation };
+          const placed = { ...draft, ...spot, width: box.width, height: box.height };
+          const key = `${spot.x}|${spot.y}|${rotation}`;
+          if (seen.has(key)) continue;
+          if (isFree(placed, items, room)) {
+            seen.add(key);
+            found.push({ ...spot, anchorId: anchor.id, anchorSide: face.side, side: own.side });
+            continue;
+          }
+          // Occupied: the piece can still go in if everything beyond this connection slides along the run to make room.
+          const shift = insertionShift(placed, anchor, outward, items, room);
+          if (!shift) continue;
+          seen.add(key);
+          found.push({ ...spot, anchorId: anchor.id, anchorSide: face.side, side: own.side, shift });
+        }
+      }
+    }
+  }
+  return found;
+}
+
+/**
+ * Order candidate spots best first. `validate(items)` returns the layout checks (errors/warnings) for a trial plan; spots that
+ * break a layout rule sort last. Reach conflicts, then closeness to the selected or newest piece, then wall contact, break ties.
+ */
+export function rankPlacements(draft, candidates, items, room, { validate, selectedId } = {}) {
+  const newest = items[items.length - 1]?.id;
+  return candidates.map((spot) => {
+    const box = rotatedSize(draft.baseWidth, draft.baseHeight, spot.rotation);
+    const trial = { ...draft, ...spot, width: box.width, height: box.height };
+    const plan = applyPlacement(items, draft, spot);
+    const checks = validate ? validate(plan) : { errors: [] };
+    const blocked = reachConflicts(plan, room).length;
+    const wall = [trial.x, trial.y, room.width - (trial.x + trial.width), room.height - (trial.y + trial.height)].some((gap) => gap <= 1) ? 0 : 1;
+    const anchorRank = spot.anchorId === selectedId ? 0 : spot.anchorId === newest ? 1 : 2;
+    return { ...spot, width: box.width, height: box.height, errors: checks.errors, score: checks.errors.length * 100 + blocked * 10 + anchorRank * 3 + wall + (spot.shift ? 2 : 0) };
+  }).sort((a, b) => a.score - b.score);
+}

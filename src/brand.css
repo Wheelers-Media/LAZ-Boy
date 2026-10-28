@@ -712,3 +712,9 @@ img.rail-logo { width: 100px; }
 .design-studio .studio-dock .copy-button{flex:0 0 auto;width:auto;min-width:0;max-width:62%;margin:0;padding:0 18px;white-space:nowrap}
 .design-studio .studio-dock-bar{flex-wrap:nowrap}
 .design-studio .studio-dock-toggle{flex:1 1 auto;justify-content:flex-start;min-width:0}
+.fp-ghost{cursor:pointer}
+.fp-ghost rect{fill:rgba(0,51,75,.06);stroke:var(--brand-navy,#00334b);stroke-width:.9;stroke-dasharray:4 3}
+.fp-ghost text{fill:var(--brand-navy,#00334b);font-weight:700}
+.fp-ghost:hover rect,.fp-ghost:focus-visible rect{fill:rgba(0,51,75,.16)}
+.studio-tile.nofit{opacity:.55}
+.studio-selected{flex-wrap:wrap}

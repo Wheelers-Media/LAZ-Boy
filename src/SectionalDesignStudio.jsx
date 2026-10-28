@@ -2,7 +2,7 @@ import React, { useMemo, useRef, useState } from 'react';
 import { CoverPicker } from './CoverPicker.jsx';
 import { ChevronUp, Copy, Info, Layers3, Printer, Redo2, RotateCw, Scan, Sofa, Trash2, Undo2 } from './icons.jsx';
 import { buildSectionalStudioRmsLine, getSharedCoverSwatches, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
-import { createItem, findFreeSpot, formatInches, layoutSummary, normalizeRotation, parsePieceDimensions, presetItems, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
+import { createItem, applyPlacement, findFreeSpot, formatInches, placementCandidates, rankPlacements, layoutSummary, normalizeRotation, parsePieceDimensions, presetItems, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
 
 const narrowScreen = () => typeof window !== 'undefined' && window.matchMedia?.('(max-width: 800px)').matches;
 const WALL = 4;
@@ -90,6 +90,7 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
   const [variantByKey, setVariantByKey] = useState({});
   const [focus, setFocus] = useState(false);
   const [dockOpen, setDockOpen] = useState(false);
+  const [alt, setAlt] = useState(null); // other connection spots for the piece that was just placed
   const [items, setItems] = useState([]);
   const [selectedId, setSelectedId] = useState('');
   const [roomWidth, setRoomWidth] = useState(20);
@@ -128,32 +129,57 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
     setItems(next);
   };
   const undo = () => setHistory((current) => {
+    setAlt(null);
     if (!current.past.length) return current;
     const previous = current.past[current.past.length - 1];
     setItems(previous);
     return { past: current.past.slice(0, -1), future: [itemsRef.current, ...current.future] };
   });
   const redo = () => setHistory((current) => {
+    setAlt(null);
     if (!current.future.length) return current;
     const [next, ...rest] = current.future;
     setItems(next);
     return { past: [...current.past, itemsRef.current], future: rest };
   });
   const setProfile = (code) => {
+    setAlt(null);
     setModelCode(code);
     setItems([]); setHistory({ past: [], future: [] }); setSelectedId(''); setSelectedKey(''); setVariantByKey({}); setNotice('');
     onModelChange?.(code);
   };
+  const validateTrial = (list) => validateSectionalStudioLayout(list, room, catalog);
+  const spotsFor = (draft, list = items) => (list.length ? rankPlacements(draft, placementCandidates(draft, list, room), list, room, { validate: validateTrial, selectedId }) : []);
   const addPiece = (piece) => {
     if (!profile || !piece) return;
     const code = variants.length && selectedPiece?.key === piece.key ? selectedCode : (variantByKey[piece.key] || '');
     const draft = createItem(piece, profile, 0, 0, 0, code || undefined);
     if (!draft) { setNotice('This piece has no width and depth in the catalog, so it cannot be drawn to scale.'); return; }
-    const spot = findFreeSpot(draft, items, room);
-    if (!spot) { setNotice('There is no free space left in this room for that piece. Make the room larger or remove a piece.'); return; }
     setSelectedKey(piece.key);
-    commit([...items, { ...draft, ...spot }]); setSelectedId(draft.id); setNotice('');
+    const spots = spotsFor(draft);
+    if (spots.length) {
+      const best = spots[0];
+      const anchor = items.find((entry) => entry.id === best.anchorId);
+      commit(applyPlacement(items, draft, best));
+      setSelectedId(draft.id);
+      setAlt(spots.length > 1 ? { id: draft.id, draft, base: items, spots, index: 0 } : null);
+      setNotice(`${best.shift ? 'Slotted in at' : 'Joined to'} the ${best.anchorSide} side of ${anchor?.code || 'the last piece'}.${best.shift ? ' The pieces beyond it slid along to make room.' : ''}${spots.length > 1 ? ` ${spots.length - 1} other spot${spots.length > 2 ? 's' : ''} fit.` : ''}${best.errors.length ? ` ${best.errors[0]}` : ''}`);
+    } else {
+      const spot = findFreeSpot(draft, items, room);
+      if (!spot) { setNotice('There is no free space left in this room for that piece. Make the room larger or remove a piece.'); return; }
+      commit([...items, { ...draft, ...spot }]); setSelectedId(draft.id); setAlt(null);
+      setNotice(items.length ? 'No open connection fits this piece, so it was placed loose. Move it against a piece, or turn or remove a neighbour.' : '');
+    }
     if (narrowScreen()) setFocus(true);
+  };
+  const useSpot = (index) => {
+    if (!alt) return;
+    const spot = alt.spots[index];
+    if (!spot) return;
+    commit(applyPlacement(alt.base, alt.draft, spot));
+    setAlt({ ...alt, index });
+    const anchor = items.find((entry) => entry.id === spot.anchorId);
+    setNotice(`${spot.shift ? 'Slotted in at' : 'Joined to'} the ${spot.anchorSide} side of ${anchor?.code || 'a piece'}.${spot.errors.length ? ` ${spot.errors[0]}` : ''}`);
   };
   const applyPreset = (kind) => {
     const next = presetItems(kind, profile, pieces, room);
@@ -162,7 +188,7 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
       setNotice(fitsBigRoom ? 'That layout is bigger than this room. Make the room larger to use it.' : 'This collection does not list every piece that layout needs. Choose another layout or collection.');
       return;
     }
-    commit(next); setSelectedId(next[0]?.id || '');
+    commit(next); setAlt(null); setSelectedId(next[0]?.id || '');
     if (narrowScreen()) setFocus(true);
     setNotice('Layout loaded to scale. Check every connection against the collection tear pad before ordering.');
   };
@@ -173,6 +199,7 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
     return point.matrixTransform(svg.getScreenCTM().inverse());
   };
   const startDrag = (event, piece) => {
+    if (alt && alt.id !== piece.id) setAlt(null);
     event.preventDefault();
     event.stopPropagation();
     svgRef.current.focus({ preventScroll: true });
@@ -197,9 +224,9 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
     if (!selectedItem) return;
     const next = rotateItem(items, selectedId, room);
     if (!next) { setNotice('There is no free space to turn that piece here.'); return; }
-    commit(next); setNotice('');
+    commit(next); setNotice(''); setAlt(null);
   };
-  const removeSelected = () => { if (!selectedItem) return; commit(items.filter((item) => item.id !== selectedId)); setSelectedId(''); };
+  const removeSelected = () => { if (!selectedItem) return; setAlt(null); commit(items.filter((item) => item.id !== selectedId)); setSelectedId(''); };
   const nudge = (dx, dy) => {
     if (!selectedItem) return;
     commit(resolveMove(items, selectedId, { x: selectedItem.x + dx, y: selectedItem.y + dy }, room, { snap: false }));
@@ -236,6 +263,7 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
   const dimX = bounds ? (dimLeft ? bounds.x0 - 7 : bounds.x1 + 7) : 0;
   const tick = 2.5;
   const label = Math.max(4, 6.5 * Math.max(unit, 0.55));
+  const fitsNow = useMemo(() => Object.fromEntries(items.length ? pieces.map((piece) => { const draft = createItem(piece, profile, 0, 0, 0, variantByKey[piece.key]); return [piece.key, draft ? placementCandidates(draft, items, room).length > 0 : false]; }) : []), [items, pieces, profile, room, variantByKey]);
   const trayDraft = (piece) => createItem(piece, profile, 0, 0, 0, variantByKey[piece.key]);
   const variantsOfSelected = variants.length > 1 ? variants : [];
 
@@ -249,9 +277,9 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
     <div className="studio-workspace">
       <section className="studio-board-card card">
         <div className="studio-tray" role="group" aria-label={`${profile?.model_name || 'Collection'} pieces. Tap one to add it.`}>
-          {pieces.map((piece) => { const draft = trayDraft(piece); return <button key={piece.key} type="button" className={`studio-tile ${selectedKey === piece.key ? 'on' : ''}`} disabled={!draft} onClick={() => addPiece(piece)}>
+          {pieces.map((piece) => { const draft = trayDraft(piece); return <button key={piece.key} type="button" className={`studio-tile ${selectedKey === piece.key ? 'on' : ''} ${items.length && fitsNow[piece.key] === false ? 'nofit' : ''}`} disabled={!draft} onClick={() => addPiece(piece)}>
             <svg viewBox={draft ? `-3 -3 ${draft.baseWidth + 6} ${draft.baseHeight + 6}` : '0 0 10 10'} aria-hidden="true" focusable="false">{draft && <PieceArt item={draft} />}</svg>
-            <strong>{piece.name}</strong><small>{draft ? `${formatInches(publishedSize(draft).width)} × ${formatInches(publishedSize(draft).depth)}` : 'No size listed'}</small>
+            <strong>{piece.name}</strong><small>{!draft ? 'No size listed' : items.length && fitsNow[piece.key] === false ? 'No open spot' : `${formatInches(publishedSize(draft).width)} × ${formatInches(publishedSize(draft).depth)}`}</small>
           </button>; })}
         </div>
         {variantsOfSelected.length > 0 && <div className="studio-variants" role="group" aria-label={`${selectedPiece?.name} version`}><span>{selectedPiece?.name}</span>{variantsOfSelected.map((entry) => <button key={entry.code} type="button" className={`chip ${selectedCode === entry.code ? 'on' : ''}`} aria-pressed={selectedCode === entry.code} onClick={() => setVariantByKey((current) => ({ ...current, [selectedPiece.key]: entry.code }))}>{entry.code}{entry.label ? ` · ${entry.label}` : ''}</button>)}</div>}
@@ -275,6 +303,9 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
             {!focus && <><text className="fp-dim" x={room.width / 2} y={-8} textAnchor="middle">{roomWidth}′</text>
             <text className="fp-dim" x={-9} y={room.height / 2} textAnchor="middle" transform={`rotate(-90 -9 ${room.height / 2})`}>{roomDepth}′</text></>}
             {showReach && items.map((item) => { const zone = reachRect(item); return zone ? <rect key={`r${item.id}`} className={`fp-reach ${reach.some((entry) => entry.id === item.id) ? 'blocked' : ''}`} x={zone.x} y={zone.y} width={zone.width} height={zone.height} /> : null; })}
+            {alt && alt.spots.slice(0, 8).map((spot, index) => index === alt.index ? null : <g key={`ghost${index}`} className="fp-ghost" role="button" tabIndex={0} aria-label={`Move to spot ${index + 1}: ${spot.anchorSide} side of a neighbour`} onPointerDown={(event) => { event.stopPropagation(); useSpot(index); }} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); useSpot(index); } }}>
+              <rect x={spot.x} y={spot.y} width={spot.width} height={spot.height} rx="3" /><text x={spot.x + spot.width / 2} y={spot.y + spot.height / 2} textAnchor="middle" dominantBaseline="central" fontSize="9">+</text>
+            </g>)}
             {items.map((item) => <g key={item.id} className={`fp-piece ${selectedId === item.id ? 'selected' : ''}`} onPointerDown={(event) => startDrag(event, item)} role="button" tabIndex={0} aria-label={`${item.name}, ${item.code}, ${formatInches(publishedSize(item).width)} wide by ${formatInches(publishedSize(item).depth)} deep. Select or drag.`} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelectedId(item.id); } }}>
               <g transform={pieceTransform(item)}><PieceArt item={item} /></g>
               <rect className="fp-outline" x={item.x} y={item.y} width={item.width} height={item.height} />
@@ -295,6 +326,7 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
         </div>
         <div className="studio-selected" aria-live="polite">{selectedItem ? <>
           <div><strong>{selectedItem.name} · {selectedItem.code}</strong><span>{formatInches(publishedSize(selectedItem).width)} W × {formatInches(publishedSize(selectedItem).depth)} D{selectedItem.heightIn ? ` × ${formatInches(selectedItem.heightIn)} H` : ''}{selectedItem.reachIn ? ` · ${formatInches(selectedItem.reachIn)} reclined` : ''}{selectedItem.kind === 'corner' ? ` · ${formatInches(selectedItem.baseWidth)} along each wall${selectedItem.reachSource === 'estimated' ? ' (estimated)' : ''}` : ''}</span></div>
+          {alt && alt.id === selectedId && alt.spots.length > 1 && <button type="button" onClick={() => useSpot((alt.index + 1) % alt.spots.length)} aria-label="Try the next connection spot"><Scan size={18} /> Next spot {alt.index + 1}/{Math.min(alt.spots.length, 99)}</button>}
           <button type="button" onClick={rotateSelected} aria-label="Rotate selected piece 90 degrees"><RotateCw size={18} /> Rotate</button>
           <button type="button" className="danger" onClick={removeSelected} aria-label="Remove selected piece"><Trash2 size={18} /> Remove</button>
         </> : <span className="studio-hint">{items.length ? 'Tap a piece to turn or remove it. Drag to move.' : 'Pieces you add appear in the room at real size.'}</span>}</div>

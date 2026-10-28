@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
-import { createItem, findFreeSpot, formatInches, isFree, layoutSummary, overlaps, parsePieceDimensions, pieceKind, presetItems, reachConflicts, reachRect, resolveMove, rotateItem } from '../src/floorplan.js';
+import { applyPlacement, createItem, findFreeSpot, placementCandidates, rankPlacements, formatInches, isFree, layoutSummary, overlaps, parsePieceDimensions, pieceKind, presetItems, reachConflicts, reachRect, resolveMove, rotateItem } from '../src/floorplan.js';
 import { sectionalPiecesForFamily, validateSectionalStudioLayout } from '../src/logic.js';
 
 const catalog = JSON.parse(await readFile(new URL('../public/catalog_data-v2.json', import.meta.url), 'utf8'));
@@ -126,4 +126,50 @@ test('a corner unit runs half of its price-book wall space along each wall, and 
   assert.equal(item.publishedWidth, published.width);
   assert.equal(item.attachIn, published.depth);
   assert.equal(item.width, item.height);
+});
+
+test('connection prediction puts the next piece edge to edge with its neighbour, facing the same way, arm side out', () => {
+  const corner = { ...createItem(piece('corner_wedge'), profile, 100, 100, 0, '44C'), id: 'c' };
+  const left = createItem(piece('LA_recliner'), profile, 0, 0, 0, '44A');
+  const spots = placementCandidates(left, [corner], { width: 600, height: 500 });
+  const right = spots.find((spot) => spot.anchorSide === 'right');
+  assert.ok(right, 'a left-arm piece can join the corner right face');
+  assert.deepEqual([right.x, right.y, right.rotation], [corner.x + corner.width, corner.y, 0]);
+  assert.ok(!spots.some((spot) => spot.anchorSide === 'bottom'), 'a left-arm piece cannot go below the corner: its open end would face the wrong way');
+  const rightArm = createItem(piece('RA_recliner'), profile, 0, 0, 0, '44B');
+  const below = placementCandidates(rightArm, [corner], { width: 600, height: 500 }).find((spot) => spot.anchorSide === 'bottom');
+  assert.ok(below, 'a right-arm piece can');
+  assert.equal(below.rotation, 270);
+  assert.equal(below.x, corner.x);
+  assert.equal(below.y, corner.y + corner.height);
+  assert.ok(spots.every((spot) => spot.rotation !== 180 && spot.rotation !== 90), 'never turned to face away from the corner');
+});
+
+test('a piece is never joined by its arm side, and spots outside the room or on top of a piece are dropped', () => {
+  const run = { ...createItem(piece('LA_recliner'), profile, 200, 100, 0, '44A'), id: 'a' };
+  const another = createItem(piece('LA_recliner'), profile, 0, 0, 0, '44A');
+  const spots = placementCandidates(another, [run], { width: 600, height: 500 });
+  // The run's left-arm end is its drawing-right face, so nothing may attach there.
+  assert.ok(spots.every((spot) => spot.anchorSide !== 'right'));
+  assert.ok(spots.every((spot) => spot.x + (spot.rotation % 180 ? another.baseHeight : another.baseWidth) <= 600 && spot.x >= 0));
+  const tight = placementCandidates(another, [run], { width: 100, height: 100 });
+  assert.deepEqual(tight, []);
+});
+
+test('an armless piece can be slotted into a finished L: the run beyond slides along and nothing overlaps', () => {
+  const big = { width: 600, height: 500 };
+  const corner = { ...createItem(piece('corner_wedge'), profile, 100, 100, 0, '44C'), id: 'c' };
+  const left = { ...createItem(piece('LA_recliner'), profile, corner.x + corner.width, 100, 0, '44A'), id: 'l' };
+  const right = { ...createItem(piece('RA_recliner'), profile, 100, corner.y + corner.height, 270, '44B'), id: 'r' };
+  const plan = [corner, left, right];
+  const armless = createItem(piece('armless_chair'), profile, 0, 0, 0, '44S');
+  const spots = placementCandidates(armless, plan, big);
+  const slot = spots.find((spot) => spot.anchorId === 'c' && spot.anchorSide === 'right' && spot.shift);
+  assert.ok(slot, 'an insertion spot exists on the corner right face');
+  assert.deepEqual(slot.shift.ids, ['l']);
+  const next = applyPlacement(plan, armless, slot);
+  assert.equal(next.find((entry) => entry.id === 'l').x, left.x + armless.baseWidth);
+  assert.ok(next.every((entry, i) => next.every((other, j) => j <= i || !overlaps(entry, other))));
+  const tight = placementCandidates(armless, plan, { width: 190, height: 500 });
+  assert.ok(!tight.some((spot) => spot.shift && spot.anchorId === 'c' && spot.anchorSide === 'right'), 'no insertion when the run would leave the room');
 });
