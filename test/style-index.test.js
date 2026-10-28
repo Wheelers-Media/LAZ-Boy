@@ -170,3 +170,16 @@ test('every guide model lands in a named browse section, and grouping keeps ever
   assert.equal(grouped.flatMap((group) => group.items).length, models.length);
   assert.ok(grouped.every((group) => MODEL_SECTIONS.includes(group.name)));
 });
+
+test('describeCoverEligibility confirms cover against the exact style row', async () => {
+  const { describeCoverEligibility, getModelCoverSwatches, getGuideStyleRows } = await import('../src/logic.js');
+  const { readFileSync } = await import('node:fs');
+  const read = (f) => JSON.parse(readFileSync(new URL(`../public/${f}`, import.meta.url), 'utf8'));
+  const catalog = { style_index_2026: read('style-index-2026.json'), fabric_cover_program_a26: read('fabric-cover-program-a26.json') };
+  const row = getGuideStyleRows(catalog, '727').find((r) => r.capCodes?.length);
+  const swatches = getModelCoverSwatches(catalog, '727', row.prefix).filter((s) => s.basis === 'cap code');
+  if (!swatches.length) return;
+  const text = describeCoverEligibility(catalog, '727', row.prefix, swatches[0]);
+  assert.match(text, new RegExp(`Cap code ${swatches[0].capCode} is on the ${row.prefix} style list`));
+  assert.doesNotMatch(text, /Confirm for this exact style/);
+});

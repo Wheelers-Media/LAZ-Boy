@@ -1733,6 +1733,14 @@ export function getModelCoverSwatches(catalog, modelCode, prefix) {
   return [...found.values()];
 }
 
+/** One plain line on why a cover is offered for an exact style: its cap code is on that style's row in the April guide, or it is on the model's own list. */
+export function describeCoverEligibility(catalog, modelCode, prefix, swatch) {
+  if (!swatch) return '';
+  const row = prefix ? getGuideStyle(catalog, modelCode, prefix) : null;
+  if (row && swatch.capCode && row.capCodes.includes(swatch.capCode)) return `Cap code ${swatch.capCode} is on the ${prefix} style list for this model.`;
+  if (swatch.basis === 'listed') return 'Listed for this model.';
+  return 'Not confirmed for this style. Check it in RMS before offering it.';
+}
 /**
  * Which guide styles accept a fabric or leather record: its cap code must be on the style's row (leathers also need the style sold in
  * that leather's price band, and a leather that names models is limited to them). Medium-duty fabrics are left off recliner, motion,
