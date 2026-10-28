@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { CoverPicker } from './CoverPicker.jsx';
 import { lineFromSectional } from './plan.js';
-import { ChevronUp, Copy, Plus, Info, Layers3, Printer, Redo2, RotateCw, Scan, Sofa, Trash2, Undo2 } from './icons.jsx';
+import { ChevronDown, ChevronLeft, ChevronUp, ClipboardCheck, X, Copy, Plus, Info, Layers3, Printer, Redo2, RotateCw, Scan, Sofa, Trash2, Undo2 } from './icons.jsx';
 import { buildSectionalStudioRmsLine, getSharedCoverSwatches, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
 import { createItem, applyPlacement, findFreeSpot, formatInches, placementCandidates, rankPlacements, layoutSummary, normalizeRotation, parsePieceDimensions, presetItems, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
 
@@ -83,14 +83,14 @@ const labelPoint = (item) => {
   }
 };
 
-export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {}, initialModelCode = '724', onModelChange }) {
+export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {}, initialModelCode = '724', onModelChange, onExit }) {
   const profiles = (catalog.product_profiles || []).filter((profile) => profile.pieces?.length);
   const [modelCode, setModelCode] = useState(String(initialModelCode));
   const profile = profiles.find((item) => String(item.model_code) === modelCode) || profiles[0];
   const [selectedKey, setSelectedKey] = useState('');
   const [variantByKey, setVariantByKey] = useState({});
   const [focus, setFocus] = useState(false);
-  const [dockOpen, setDockOpen] = useState(false);
+  const [panel, setPanel] = useState(() => (narrowScreen() ? '' : 'pieces'));
   const [alt, setAlt] = useState(null); // other connection spots for the piece that was just placed
   const [items, setItems] = useState([]);
   const [selectedId, setSelectedId] = useState('');
@@ -269,32 +269,21 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
   const trayDraft = (piece) => createItem(piece, profile, 0, 0, 0, variantByKey[piece.key]);
   const variantsOfSelected = variants.length > 1 ? variants : [];
 
-  return <section className="module-page design-studio">
-    <div className="module-intro"><h1>Sectional <em>Studio</em></h1></div>
-    <div className="studio-toolbar card">
-      <label className="form-field"><span>Collection</span><select value={profile?.model_code || ''} onChange={(event) => setProfile(event.target.value)}>{[...new Set(profiles.map((entry) => entry.sectional_family))].map((family) => <optgroup key={family} label={family}>{profiles.filter((entry) => entry.sectional_family === family).map((entry) => <option key={entry.model_code} value={entry.model_code}>{entry.model_name} · {entry.model_code}</option>)}</optgroup>)}</select></label>
-      <fieldset className="studio-room-fields"><legend>Room, feet</legend><label>Width <input type="number" inputMode="numeric" min="8" max="40" value={roomWidth} onChange={(event) => setRoomWidth(Math.max(8, Math.min(40, Number(event.target.value) || 8)))} /></label><span aria-hidden="true">×</span><label>Depth <input type="number" inputMode="numeric" min="8" max="40" value={roomDepth} onChange={(event) => setRoomDepth(Math.max(8, Math.min(40, Number(event.target.value) || 8)))} /></label></fieldset>
-      <div className="studio-layouts" role="group" aria-label="Starting layouts"><span>Start from</span>{[['l-standard', 'L-shape'], ['l-console', 'L with console'], ['u-shape', 'U-shape'], ['straight-chaise', 'Sofa with chaise']].map(([key, text]) => <button key={key} type="button" className="chip" onClick={() => applyPreset(key)}>{text}</button>)}</div>
-    </div>
-    <div className="studio-workspace">
-      <section className="studio-board-card card">
-        <div className="studio-tray" role="group" aria-label={`${profile?.model_name || 'Collection'} pieces. Tap one to add it.`}>
-          {pieces.map((piece) => { const draft = trayDraft(piece); return <button key={piece.key} type="button" className={`studio-tile ${selectedKey === piece.key ? 'on' : ''} ${items.length && fitsNow[piece.key] === false ? 'nofit' : ''}`} disabled={!draft} onClick={() => addPiece(piece)}>
-            <svg viewBox={draft ? `-3 -3 ${draft.baseWidth + 6} ${draft.baseHeight + 6}` : '0 0 10 10'} aria-hidden="true" focusable="false">{draft && <PieceArt item={draft} />}</svg>
-            <strong>{piece.name}</strong><small>{!draft ? 'No size listed' : items.length && fitsNow[piece.key] === false ? 'No open spot' : `${formatInches(publishedSize(draft).width)} × ${formatInches(publishedSize(draft).depth)}`}</small>
-          </button>; })}
-        </div>
-        {variantsOfSelected.length > 0 && <div className="studio-variants" role="group" aria-label={`${selectedPiece?.name} version`}><span>{selectedPiece?.name}</span>{variantsOfSelected.map((entry) => <button key={entry.code} type="button" className={`chip ${selectedCode === entry.code ? 'on' : ''}`} aria-pressed={selectedCode === entry.code} onClick={() => setVariantByKey((current) => ({ ...current, [selectedPiece.key]: entry.code }))}>{entry.code}{entry.label ? ` · ${entry.label}` : ''}</button>)}</div>}
-        <div className="studio-tools" role="toolbar" aria-label="Plan tools">
-          <button type="button" onClick={undo} disabled={!history.past.length} aria-label="Undo"><Undo2 size={16} /><span>Undo</span></button>
-          <button type="button" onClick={redo} disabled={!history.future.length} aria-label="Redo"><Redo2 size={16} /><span>Redo</span></button>
-          <i aria-hidden="true" />
-          <button type="button" className={snapEdges ? 'on' : ''} aria-pressed={snapEdges} onClick={() => setSnapEdges(!snapEdges)}>Snap</button>
-          <button type="button" className={showReach ? 'on' : ''} aria-pressed={showReach} onClick={() => setShowReach(!showReach)}>Reach</button>
-          <button type="button" className={showSizes ? 'on' : ''} aria-pressed={showSizes} onClick={() => setShowSizes(!showSizes)}>Sizes</button>
-          <button type="button" className={focus ? 'on' : ''} aria-pressed={focus} onClick={() => setFocus(!focus)} disabled={!items.length}><Scan size={15} /> Zoom to fit</button>
-          <button type="button" className="studio-print" onClick={() => window.print()} aria-label="Print plan"><Printer size={16} /><span>Print</span></button>
-        </div>
+  const togglePanel = (name) => setPanel((current) => (current === name ? '' : name));
+  const closePanel = () => setPanel('');
+  const drawerHead = (title) => <div className="studio-drawer-head"><h2>{title}</h2><button type="button" className="studio-icon-btn" onClick={closePanel} aria-label="Close"><X size={18} /></button></div>;
+  return <section className="design-studio studio-full" aria-label="Sectional Studio">
+    <header className="studio-topbar">
+      <button type="button" className="studio-icon-btn" onClick={() => onExit?.()} aria-label="Leave Sectional Studio"><ChevronLeft size={20} /></button>
+      <button type="button" className="studio-title" onClick={() => togglePanel('setup')} aria-expanded={panel === 'setup'}><strong>{profile?.model_name || 'Sectional'} · {profile?.model_code}</strong><small>{roomWidth} × {roomDepth} ft room</small><ChevronDown size={15} /></button>
+      <div className="studio-top-actions">
+        <button type="button" className="studio-icon-btn" onClick={undo} disabled={!history.past.length} aria-label="Undo"><Undo2 size={18} /></button>
+        <button type="button" className="studio-icon-btn" onClick={redo} disabled={!history.future.length} aria-label="Redo"><Redo2 size={18} /></button>
+        <button type="button" className={`studio-icon-btn ${focus ? 'on' : ''}`} aria-pressed={focus} onClick={() => setFocus(!focus)} disabled={!items.length} aria-label="Zoom to fit"><Scan size={18} /></button>
+        <button type="button" className={`studio-icon-btn ${panel === 'view' ? 'on' : ''}`} onClick={() => togglePanel('view')} aria-expanded={panel === 'view'} aria-label="View options"><Layers3 size={18} /></button>
+      </div>
+    </header>
+    <div className="studio-stage">
         <div className="studio-board-wrap">
           <svg ref={svgRef} className="studio-svg" viewBox={viewBox} tabIndex={0} role="application" aria-label={`${roomWidth} by ${roomDepth} foot floor plan. Arrow keys move the selected piece, R turns it, Delete removes it.`}
             onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag} onKeyDown={onKeyDown} onPointerDown={(event) => { if (event.target === event.currentTarget || event.target.classList?.contains('fp-floor')) setSelectedId(''); }}>
@@ -324,29 +313,59 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
             </g>}
             {!focus && <g className="fp-scale" pointerEvents="none"><rect x="0" y={room.height + 6} width="60" height="2.5" /><text x="0" y={room.height + 14} fontSize="5.5">5′ scale</text></g>}
           </svg>
-          {!items.length && <div className="studio-board-empty"><Sofa size={38} /><strong>Tap a piece above, or start from a layout</strong><span>Pieces are drawn at real size and can’t overlap.</span></div>}
+          {!items.length && <div className="studio-board-empty"><Sofa size={38} /><strong>Open Pieces to add one, or start from a layout in the title menu</strong><span>Pieces are drawn at real size and can’t overlap.</span></div>}
         </div>
+      <div className="studio-float">
         <div className="studio-selected" aria-live="polite">{selectedItem ? <>
           <div><strong>{selectedItem.name} · {selectedItem.code}</strong><span>{formatInches(publishedSize(selectedItem).width)} W × {formatInches(publishedSize(selectedItem).depth)} D{selectedItem.heightIn ? ` × ${formatInches(selectedItem.heightIn)} H` : ''}{selectedItem.reachIn ? ` · ${formatInches(selectedItem.reachIn)} reclined` : ''}{selectedItem.kind === 'corner' ? ` · ${formatInches(selectedItem.baseWidth)} along each wall${selectedItem.reachSource === 'estimated' ? ' (estimated)' : ''}` : ''}</span></div>
           {alt && alt.id === selectedId && alt.spots.length > 1 && <button type="button" onClick={() => useSpot((alt.index + 1) % alt.spots.length)} aria-label="Try the next connection spot"><Scan size={18} /> Next spot {alt.index + 1}/{Math.min(alt.spots.length, 99)}</button>}
           <button type="button" onClick={rotateSelected} aria-label="Rotate selected piece 90 degrees"><RotateCw size={18} /> Rotate</button>
           <button type="button" className="danger" onClick={removeSelected} aria-label="Remove selected piece"><Trash2 size={18} /> Remove</button>
         </> : <span className="studio-hint">{items.length ? 'Tap a piece to turn or remove it. Drag to move.' : 'Pieces you add appear in the room at real size.'}</span>}</div>
-        {summary && <details className="studio-summary"><summary><strong>{formatInches(summary.width)} × {formatInches(summary.depth)}</strong> overall · gaps to walls</summary><span>Left {formatInches(summary.gaps.left)} · right {formatInches(summary.gaps.right)} · top {formatInches(summary.gaps.top)} · bottom {formatInches(summary.gaps.bottom)}</span></details>}
         {notice && <p className="studio-notice" role="status">{notice}</p>}
-      </section>
-      <aside className="studio-parts card">
+      </div>
+      {panel && <button type="button" className="studio-scrim" aria-label="Close panel" onClick={closePanel} />}
+      <aside className={`studio-drawer studio-drawer-left ${panel === 'pieces' ? 'open' : ''}`} aria-hidden={panel !== 'pieces'} aria-label="Add a piece">
+        {drawerHead('Add a piece')}
+        <div className="studio-tray" role="group" aria-label={`${profile?.model_name || 'Collection'} pieces. Tap one to add it.`}>
+          {pieces.map((piece) => { const draft = trayDraft(piece); return <button key={piece.key} type="button" className={`studio-tile ${selectedKey === piece.key ? 'on' : ''} ${items.length && fitsNow[piece.key] === false ? 'nofit' : ''}`} disabled={!draft} onClick={() => addPiece(piece)}>
+            <svg viewBox={draft ? `-3 -3 ${draft.baseWidth + 6} ${draft.baseHeight + 6}` : '0 0 10 10'} aria-hidden="true" focusable="false">{draft && <PieceArt item={draft} />}</svg>
+            <strong>{piece.name}</strong><small>{!draft ? 'No size listed' : items.length && fitsNow[piece.key] === false ? 'No open spot' : `${formatInches(publishedSize(draft).width)} × ${formatInches(publishedSize(draft).depth)}`}</small>
+          </button>; })}
+        </div>
+        {variantsOfSelected.length > 0 && <div className="studio-variants" role="group" aria-label={`${selectedPiece?.name} version`}><span>{selectedPiece?.name}</span>{variantsOfSelected.map((entry) => <button key={entry.code} type="button" className={`chip ${selectedCode === entry.code ? 'on' : ''}`} aria-pressed={selectedCode === entry.code} onClick={() => setVariantByKey((current) => ({ ...current, [selectedPiece.key]: entry.code }))}>{entry.code}{entry.label ? ` · ${entry.label}` : ''}</button>)}</div>}
+      </aside>
+      <aside className={`studio-drawer studio-drawer-left ${panel === 'setup' ? 'open' : ''}`} aria-hidden={panel !== 'setup'} aria-label="Collection and room">
+        {drawerHead('Collection and room')}
+        <div className="studio-toolbar">
+      <label className="form-field"><span>Collection</span><select value={profile?.model_code || ''} onChange={(event) => setProfile(event.target.value)}>{[...new Set(profiles.map((entry) => entry.sectional_family))].map((family) => <optgroup key={family} label={family}>{profiles.filter((entry) => entry.sectional_family === family).map((entry) => <option key={entry.model_code} value={entry.model_code}>{entry.model_name} · {entry.model_code}</option>)}</optgroup>)}</select></label>
+      <fieldset className="studio-room-fields"><legend>Room, feet</legend><label>Width <input type="number" inputMode="numeric" min="8" max="40" value={roomWidth} onChange={(event) => setRoomWidth(Math.max(8, Math.min(40, Number(event.target.value) || 8)))} /></label><span aria-hidden="true">×</span><label>Depth <input type="number" inputMode="numeric" min="8" max="40" value={roomDepth} onChange={(event) => setRoomDepth(Math.max(8, Math.min(40, Number(event.target.value) || 8)))} /></label></fieldset>
+      <div className="studio-layouts" role="group" aria-label="Starting layouts"><span>Start from</span>{[['l-standard', 'L-shape'], ['l-console', 'L with console'], ['u-shape', 'U-shape'], ['straight-chaise', 'Sofa with chaise']].map(([key, text]) => <button key={key} type="button" className="chip" onClick={() => applyPreset(key)}>{text}</button>)}</div>
+        </div>
+      </aside>
+      <aside className={`studio-drawer studio-drawer-left ${panel === 'view' ? 'open' : ''}`} aria-hidden={panel !== 'view'} aria-label="View options">
+        {drawerHead('View')}
+        <div className="studio-switches">
+          <label><input type="checkbox" checked={snapEdges} onChange={() => setSnapEdges(!snapEdges)} /><span>Snap to edges</span></label>
+          <label><input type="checkbox" checked={showReach} onChange={() => setShowReach(!showReach)} /><span>Show recline reach</span></label>
+          <label><input type="checkbox" checked={showSizes} onChange={() => setShowSizes(!showSizes)} /><span>Show piece sizes</span></label>
+        </div>
+        <button type="button" className="back-button" onClick={() => window.print()}><Printer size={16} /> Print plan</button>
+        {summary && <details className="studio-summary"><summary><strong>{formatInches(summary.width)} × {formatInches(summary.depth)}</strong> overall · gaps to walls</summary><span>Left {formatInches(summary.gaps.left)} · right {formatInches(summary.gaps.right)} · top {formatInches(summary.gaps.top)} · bottom {formatInches(summary.gaps.bottom)}</span></details>}
+      </aside>
+      <aside className={`studio-drawer studio-drawer-right ${panel === 'review' ? 'open' : ''}`} aria-hidden={panel !== 'review'} aria-label="Review and order">
+        {drawerHead('Review and order')}
         {items.length > 0 && <div className={`studio-check ${validation.valid && items.length ? 'valid' : validation.errors.length ? 'invalid' : ''}`} role="status"><strong>{validation.valid ? 'Layout checks passed' : 'Review the layout'}</strong>{validation.errors.map((error) => <small key={error}>{error}</small>)}{reach.map((entry) => <small key={entry.id}>{entry.code} cannot fully recline: {entry.reason === 'wall' ? 'a wall is in the way.' : `${entry.blocker} is in the way.`}</small>)}{validation.warnings.map((warning) => <small key={warning}>{warning}</small>)}</div>}
         <div className="studio-cover">{items.length ? <CoverPicker key={sharedSwatches.length} swatches={sharedSwatches} value={coverReady ? `${cover}${pattern}${color}` : ''} onChange={(code, match) => { setCover(match?.grade || ''); setPattern(match?.pattern || ''); setColor(match?.color || ''); }} /> : <p className="studio-hint">Add a piece, then choose one cover that every piece can be built in.</p>}</div>
+        <div className="studio-dock-body">{items.length ? <><div className="studio-order-list">{items.map((item, index) => { const supported = getSectionalPieceOptions(catalog, item.family, item.modelCode, item.code); return <article key={item.id}><span><strong>{item.name}</strong><small>{item.code}-{item.modelCode}{coverReady ? ` · ${cover} ${pattern} ${color}` : ' · cover not chosen'}</small></span><code>{rmsRows[index]}</code>{supported.length > 0 && <small className="studio-order-options">Options: {supported.join(', ')}</small>}</article>; })}</div>
+        <p className="studio-order-disclaimer"><Info size={14} /> Entry preview only. Confirm style, cover, options and availability in RMS before promising it.</p></> : <p className="studio-order-empty">Add a piece to see its RMS entry here.</p>}</div>
       </aside>
     </div>
-    <section className={`studio-dock ${dockOpen ? 'open' : ''}`} aria-live="polite">
-      <div className="studio-dock-bar">
-        <button type="button" className="studio-dock-toggle" onClick={() => setDockOpen(!dockOpen)} aria-expanded={dockOpen}><Layers3 size={16} /><span>{items.length} {items.length === 1 ? 'piece' : 'pieces'}</span><ChevronUp size={16} className="chev" /></button>
-        <div className="studio-dock-actions"><button type="button" className="back-button" disabled={!items.length} onClick={addSectionalToPlan}><Plus size={16} /> Add to plan</button><button type="button" className="copy-button" disabled={!canCopy} onClick={copy}><Copy size={16} /> Copy for RMS</button></div>
-      </div>
-      {dockOpen && <div className="studio-dock-body">{items.length ? <><div className="studio-order-list">{items.map((item, index) => { const supported = getSectionalPieceOptions(catalog, item.family, item.modelCode, item.code); return <article key={item.id}><span><strong>{item.name}</strong><small>{item.code}-{item.modelCode}{coverReady ? ` · ${cover} ${pattern} ${color}` : ' · cover not chosen'}</small></span><code>{rmsRows[index]}</code>{supported.length > 0 && <small className="studio-order-options">Options: {supported.join(', ')}</small>}</article>; })}</div>
-        <p className="studio-order-disclaimer"><Info size={14} /> Entry preview only. Confirm style, cover, options and availability in RMS before promising it.</p></> : <p className="studio-order-empty">Add a piece to see its RMS entry here.</p>}</div>}
-    </section>
+    <nav className="studio-dockbar" aria-label="Studio actions">
+      <button type="button" className={`studio-dock-btn ${panel === 'pieces' ? 'on' : ''}`} onClick={() => togglePanel('pieces')} aria-expanded={panel === 'pieces'}><Plus size={18} /><span>Pieces</span></button>
+      <button type="button" className={`studio-dock-btn ${panel === 'review' ? 'on' : ''}`} onClick={() => togglePanel('review')} aria-expanded={panel === 'review'}><Layers3 size={18} /><span>Review{items.length ? ` · ${items.length}` : ''}</span>{items.length > 0 && !validation.valid && <i className="studio-dot" aria-label="Needs review" />}</button>
+      <button type="button" className="studio-dock-btn" disabled={!items.length} onClick={addSectionalToPlan}><ClipboardCheck size={18} /><span>Add to plan</span></button>
+      <button type="button" className="studio-dock-btn primary" disabled={!canCopy} onClick={copy}><Copy size={18} /><span>Copy for RMS</span></button>
+    </nav>
   </section>;
 }
