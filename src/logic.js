@@ -930,6 +930,50 @@ export function getGuideStyleRows(catalog, modelCode) {
 export function getGuideStyle(catalog, modelCode, prefix) {
   return getGuideStyleRows(catalog, modelCode).find((row) => row.prefix === String(prefix)) || null;
 }
+/** Mechanism entries (public/mechanism-guide-2026.json) that cover one style prefix, or null. A prefix the guide does not list gets no entry; nothing is inferred. */
+export function getMechanismForPrefix(catalog, prefix) {
+  const guide = catalog?.mechanism_guide_2026;
+  if (!guide) return null;
+  const mechanism = (guide.mechanisms || []).find((item) => item.prefixes.includes(String(prefix)));
+  return mechanism ? resolveMechanism(guide, mechanism) : null;
+}
+function resolveMechanism(guide, mechanism) {
+  return { ...mechanism, featureList: mechanism.features.map((id) => ({ id, ...guide.features[id] })) };
+}
+/** Mechanisms for the exact styles the April guide lists for one model, one entry each, with the prefixes of this model that use it. */
+export function getMechanismsForModel(catalog, modelCode) {
+  const found = new Map();
+  for (const row of getGuideStyleRows(catalog, modelCode)) {
+    const mechanism = getMechanismForPrefix(catalog, row.prefix);
+    if (!mechanism) continue;
+    const entry = found.get(mechanism.id) || { ...mechanism, modelPrefixes: [] };
+    entry.modelPrefixes.push(row.prefix);
+    found.set(mechanism.id, entry);
+  }
+  return [...found.values()];
+}
+/** "12–18"", "0"" or "" when the guide does not state wall proximity. */
+export function formatWallProximity(range) {
+  if (!Array.isArray(range)) return '';
+  const [low, high] = range;
+  return low === high ? `${low}"` : `${low}–${high}"`;
+}
+/** Plain-text summary and one talking point for a mechanism. */
+export function describeMechanism(mechanism) {
+  if (!mechanism) return null;
+  const wall = formatWallProximity(mechanism.wallProximityIn);
+  const facts = [mechanism.name, wall && `wall space ${wall}`, mechanism.weightTestedLbs && `weight tested to ${mechanism.weightTestedLbs} lb`].filter(Boolean).join(' · ');
+  const lead = mechanism.featureList?.[0];
+  return { text: `${facts}. ${(mechanism.featureList || []).map((feature) => feature.name).join(', ')}.`, pitch: lead ? `“${lead.benefit}”` : '' };
+}
+/** Benefit text and talking point for one option code, or null when the guide has none. */
+export function getOptionBenefit(catalog, code) {
+  return catalog?.mechanism_guide_2026?.options?.[String(code)] || null;
+}
+/** Lift chair series ratings from the guide (series, prefixes, tested limit in lb). Kept separate from the per-model capacity table. */
+export function getLiftSeriesRatings(catalog) {
+  return (catalog?.mechanism_guide_2026?.mechanisms || []).filter((item) => item.group === 'Lift chairs').map((item) => ({ name: item.name, prefixes: item.prefixes, limitLbs: item.weightTestedLbs }));
+}
 const SELECT_LABELS = { fabric: 'Select fabric', faux: 'Select faux leather', leather: 'Select leather' };
 /** Price-book select cover lists as display lines, e.g. "Select fabric: B1538 Seamount". Leather entries keep their listed colours. */
 export function formatSelectCovers(select) {
