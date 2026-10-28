@@ -3,11 +3,11 @@ import { createRoot } from 'react-dom/client';
 import { Activity, ArrowRight, Armchair, BatteryCharging, BookOpen, Check, CheckCircle2, Info, Layers3, Menu, Search, ShieldCheck, Sparkles, SwatchBook, Wrench, X } from 'lucide-react';
 import './styles.css';
 import './brand.css';
-import { buildSitEntry, encodeRmsSku, findLiftTier, findCompatibleBattery, getDefaultRmsGroup } from './logic.js';
+import { buildSitEntry, buildSwatchIndex, encodeRmsSku, findLiftTier, findCompatibleBattery, getDefaultRmsGroup } from './logic.js';
 import { CustomizeFloorUnit } from './FloorWorkspaces.jsx';
 import { SectionalDesignStudio } from './SectionalDesignStudio.jsx';
 import { SkuBuilderWorkspace } from './SkuBuilderWorkspace.jsx';
-import { ColorTonesContext } from './CoverPicker.jsx';
+import { ColorTonesContext, SwatchIndexContext } from './CoverPicker.jsx';
 import { FabricsCareWorkspace } from './FabricsCareWorkspace.jsx';
 import { FIT_DEFAULTS, FitDiscover } from './FitDiscover.jsx';
 import { applyGuideOptionDefinitions, formatWallProximity, getGuideProductIndex, getLiftSeriesRatings, getMechanismsForModel, groupModelsBySection, PRODUCT_INDEX_GROUPS, cleanIndexCategories, indexGroupsFor } from './logic.js';
@@ -108,11 +108,13 @@ function App() {
       fetch('/option-codes-rms.json').then((response) => (response.ok ? response.json() : { options: [] })),
       fetch('/mechanism-guide-2026.json').then((response) => (response.ok ? response.json() : null)),
       fetch('/color-tones.json').then((response) => (response.ok ? response.json() : null)),
-    ]).then(([productCatalog, research, reclinerCatalog, reclinerIndexSupplement, motionCatalog, designersChoiceCatalog, stationaryCatalog, coverApplications, fabricCoverProgram, styleIndex, rmsOptionCodes, mechanismGuide, colorTones]) => {
+      fetch('/swatch-manifest.json').then((response) => (response.ok ? response.json() : null)).catch(() => null),
+    ]).then(([productCatalog, research, reclinerCatalog, reclinerIndexSupplement, motionCatalog, designersChoiceCatalog, stationaryCatalog, coverApplications, fabricCoverProgram, styleIndex, rmsOptionCodes, mechanismGuide, colorTones, swatchManifest]) => {
       productCatalog.style_index_2026 = styleIndex;
       productCatalog.rms_option_codes = rmsOptionCodes;
       productCatalog.mechanism_guide_2026 = mechanismGuide;
       productCatalog.color_tones = colorTones?.tones || null;
+      productCatalog.swatch_index = buildSwatchIndex(swatchManifest);
       productCatalog.recliner_catalog_2026 = reclinerCatalog;
       productCatalog.recliner_collection_index_supplement = reclinerIndexSupplement;
       productCatalog.motion_catalog_2026 = motionCatalog;
@@ -166,7 +168,7 @@ function App() {
   const optionInfo = (option) => showInfo(option.name, option.description, `“${option.name} is a thoughtful detail designed to make everyday comfort feel a little more personal.”`);
   const updateModel = (code, group) => { setModelCode(code); setPrefix(group || (catalog ? getDefaultRmsGroup(catalog, code) : '')); setTrimCode('NN'); setCushionCode('Standard'); clearLiveOptions(); setFinish(''); };
 
-  return <ColorTonesContext.Provider value={catalog?.color_tones || null}><div className="app">
+  return <ColorTonesContext.Provider value={catalog?.color_tones || null}><SwatchIndexContext.Provider value={catalog?.swatch_index || null}><div className="app">
     <aside className="rail">
       <img className="rail-logo" src="/lazboy-logo.png" alt="La-Z-Boy" />
       <div className="rail-divider" />
@@ -200,7 +202,7 @@ function App() {
 
     {info && <div className="modal-backdrop" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setInfo(null)}><section className="info-modal" role="dialog" aria-modal="true" aria-labelledby="info-title"><button className="modal-close" onClick={() => setInfo(null)} aria-label="Close information"><X size={19} /></button><span className="modal-symbol"><Info size={20} /></span><p className="eyebrow">OPTION DETAILS</p><h2 id="info-title">{info.title}</h2><div className="modal-section"><span>TECHNICAL SPEC</span><p>{info.technical}</p></div><div className="customer-pitch"><span>CUSTOMER PITCH</span><p>{info.pitch}</p></div><button className="primary-button modal-done" onClick={() => setInfo(null)}>Got it <Check size={15} /></button></section></div>}
     {toast && <div className="toast"><CheckCircle2 size={16} />{toast}</div>}
-  </div></ColorTonesContext.Provider>;
+  </div></SwatchIndexContext.Provider></ColorTonesContext.Provider>;
 }
 
 createRoot(document.getElementById('root')).render(<App />);

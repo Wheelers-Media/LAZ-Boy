@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Droplets, Search, Shield, Sparkles } from 'lucide-react';
-import { getCoverReach } from './logic.js';
+import { getCoverReach, swatchImageFor } from './logic.js';
 
 const TABS = ['Fabrics', 'Leather', 'Care guide'];
 const WEAR = { N: 'Normal', P: 'Performance', Medium: 'Medium duty' };
@@ -46,7 +46,7 @@ function CoverCard({ catalog, record, isLeather, definitions, priorLabel }) {
       {isLeather && <p><strong>{record.group}.</strong> {definitions.leatherGroups?.[record.group]}</p>}
       {isLeather && definitions.leatherTypes?.[record.leatherType] && <p><strong>{record.leatherType}.</strong> {definitions.leatherTypes[record.leatherType]}</p>}
       <p className="field-label">Colours · full cover code</p>
-      <ul className="fabric-colours">{colourList(record).map((item) => <li key={item.code}><code>{record.coverCode}{item.code}</code>{item.name ? ` ${item.name}` : ''}</li>)}</ul>
+      <ul className="fabric-colours">{colourList(record).map((item) => <li key={item.code}>{swatchImageFor(catalog?.swatch_index, record.coverCode, item.code, 'thumb') && <img className="fabric-swatch-img" src={swatchImageFor(catalog?.swatch_index, record.coverCode, item.code, 'thumb')} alt="" loading="lazy" width="28" height="28" />}<code>{record.coverCode}{item.code}</code>{item.name ? ` ${item.name}` : ''}</li>)}</ul>
       {record.prior
         ? <p className="fabric-reach-empty">{record.droppedColorsOnly ? 'The April 2026 list still carries this cover but not these colours.' : 'The April 2026 list does not carry this cover.'} Confirm it can still be ordered for the model before offering it.</p>
         : <Reach catalog={catalog} record={record} isLeather={isLeather} />}

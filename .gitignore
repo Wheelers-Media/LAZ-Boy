@@ -10,3 +10,6 @@ dist/
 .preview-response.html
 .vite-preview.*
 .wrangler-preview.*
+
+__pycache__/
+data/.swatch-crawl-state.json

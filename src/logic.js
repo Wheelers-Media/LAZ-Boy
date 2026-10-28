@@ -1948,3 +1948,20 @@ export function sitLogToText(entries) {
   const label = (key) => SIT_VERDICTS.find((item) => item.key === key)?.label || key;
   return ['date\tmodel code\tmodel\theight in\tverdict\tnote', ...entries.map((item) => [item.date, item.modelCode, item.modelName, item.heightInches ?? '', label(item.verdict), item.note].join('\t'))].join('\n');
 }
+
+/** Index public/swatch-manifest.json by 8-character cover id (cover code + colour code). Entries whose names disagree with the website are left out. */
+export function buildSwatchIndex(manifest) {
+  const index = {};
+  for (const item of manifest?.swatches || []) {
+    if (item.name_check === 'mismatch') continue;
+    index[`${item.cover_code}${item.color_code}`] = item;
+  }
+  return index;
+}
+
+/** Local swatch image path for a cover + colour, or null when there is no verified image. `size` is 'thumb' (240px) or 'zoom' (450px). Pass the full 8-character code as `coverCode` or the cover code and colour code separately. */
+export function swatchImageFor(index, coverCode, colorCode = '', size = 'zoom') {
+  const entry = index?.[`${coverCode}${colorCode}`];
+  if (!entry) return null;
+  return (size === 'thumb' ? entry.local_thumb || entry.local_zoom : entry.local_zoom || entry.local_thumb) || null;
+}
