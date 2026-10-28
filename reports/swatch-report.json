@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T20:39:00Z",
+ "generated": "2026-10-28T20:55:59Z",
  "targets": 840,
  "with_image": 837,
  "no_image_on_site_or_not_yet_fetched": [
@@ -13,7 +13,7 @@
  ],
  "errors_this_run": {
   "LB172856": {
-   "thumb": "error:http 503",
+   "thumb": "error:TimeoutError",
    "zoom": "error:TimeoutError"
   }
  },
