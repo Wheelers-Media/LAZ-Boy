@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#003857"/>
+  <g fill="none" stroke="#F4EFE3" stroke-width="44" stroke-linecap="round" stroke-linejoin="round">
+    <!-- reclined back -->
+    <path d="M318 270 L452 600"/>
+    <!-- seat -->
+    <path d="M452 600 H640"/>
+    <!-- raised legrest -->
+    <path d="M640 600 L770 456"/>
+    <!-- base -->
+    <path d="M430 700 V760 M650 700 V760"/>
+  </g>
+  <rect x="352" y="640" width="376" height="56" rx="28" fill="#F4EFE3"/>
+  <rect x="352" y="808" width="376" height="14" rx="7" fill="#4FBCCA"/>
+</svg>
