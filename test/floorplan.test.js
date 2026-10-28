@@ -114,11 +114,16 @@ test('formats inches as feet and inches', () => {
   assert.equal(formatInches(9.5), '9.5″');
 });
 
-test('a corner piece occupies its published width along both walls and keeps the published depth as its attach edge', () => {
+test('a corner unit runs half of its price-book wall space along each wall, and keeps the published depth as its attach edge', () => {
   const item = createItem(piece('corner_wedge'), profile, 0, 0, 0, '44C');
   const published = parsePieceDimensions(profile.pieces.find((entry) => entry.key === 'corner_wedge').dimensions_text);
-  assert.equal(item.baseWidth, published.width);
-  assert.equal(item.baseHeight, published.width);
+  const row = profile.product_guide_measurements.rows['44C724'];
+  const wallSpace = row[profile.product_guide_measurements.columns.indexOf('WALL_SPACE')];
+  assert.equal(wallSpace, 92);
+  assert.equal(item.baseWidth, wallSpace / 2);
+  assert.equal(item.baseHeight, wallSpace / 2);
+  assert.equal(item.reachSource, 'wall-space');
+  assert.equal(item.publishedWidth, published.width);
   assert.equal(item.attachIn, published.depth);
   assert.equal(item.width, item.height);
 });

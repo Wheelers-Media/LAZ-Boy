@@ -52,7 +52,7 @@ function PieceArt({ item }) {
 }
 
 /** Published size: a corner's footprint is W along each wall, but its catalog label is W x D (D = the attach edge). */
-const publishedSize = (item) => ({ width: item.baseWidth, depth: item.attachIn || item.baseHeight });
+const publishedSize = (item) => ({ width: item.publishedWidth || item.baseWidth, depth: item.attachIn || item.baseHeight });
 
 const pieceTransform = (item) => {
   const { x, y, baseWidth: w, baseHeight: d } = item;
@@ -294,7 +294,7 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
           {!items.length && <div className="studio-board-empty"><Sofa size={38} /><strong>Tap a piece above, or start from a layout</strong><span>Pieces are drawn at real size and can’t overlap.</span></div>}
         </div>
         <div className="studio-selected" aria-live="polite">{selectedItem ? <>
-          <div><strong>{selectedItem.name} · {selectedItem.code}</strong><span>{formatInches(publishedSize(selectedItem).width)} W × {formatInches(publishedSize(selectedItem).depth)} D{selectedItem.heightIn ? ` × ${formatInches(selectedItem.heightIn)} H` : ''}{selectedItem.reachIn ? ` · ${formatInches(selectedItem.reachIn)} reclined` : ''}</span></div>
+          <div><strong>{selectedItem.name} · {selectedItem.code}</strong><span>{formatInches(publishedSize(selectedItem).width)} W × {formatInches(publishedSize(selectedItem).depth)} D{selectedItem.heightIn ? ` × ${formatInches(selectedItem.heightIn)} H` : ''}{selectedItem.reachIn ? ` · ${formatInches(selectedItem.reachIn)} reclined` : ''}{selectedItem.kind === 'corner' ? ` · ${formatInches(selectedItem.baseWidth)} along each wall${selectedItem.reachSource === 'estimated' ? ' (estimated)' : ''}` : ''}</span></div>
           <button type="button" onClick={rotateSelected} aria-label="Rotate selected piece 90 degrees"><RotateCw size={18} /> Rotate</button>
           <button type="button" className="danger" onClick={removeSelected} aria-label="Remove selected piece"><Trash2 size={18} /> Remove</button>
         </> : <span className="studio-hint">{items.length ? 'Tap a piece to turn or remove it. Drag to move.' : 'Pieces you add appear in the room at real size.'}</span>}</div>

@@ -36,16 +36,30 @@ export function rotatedSize(baseWidth, baseDepth, rotation) {
 }
 
 /** Build a placed item from a catalog piece. Returns null when the catalog gives no width and depth. */
+/** "Wall Space Required" for a corner style from the April 2026 Product Information Guide rows kept in the profile, or null. */
+function guideWallSpace(profile, code) {
+  const guide = profile?.product_guide_measurements;
+  const column = guide?.columns?.indexOf('WALL_SPACE');
+  const row = guide?.rows?.[`${code}${profile.model_code}`];
+  const value = row && column >= 0 ? Number(row[column]) : NaN;
+  return value > 0 ? value : null;
+}
+
 export function createItem(piece, profile, x, y, rotation = 0, code, options = {}) {
   const source = profile.pieces.find((entry) => entry.key === piece.key);
   const size = parsePieceDimensions(source?.dimensions_text);
   if (!size) return null;
   const turn = normalizeRotation(rotation);
   const kind = pieceKind(piece.key);
-  // A corner piece's published W is its reach along EACH wall (tear-pad arrangements: e.g. 49 + 69 = 118 along a wall), and
-  // its published D is the width of the edge where the next piece attaches. So its footprint is W x W, not W x D.
+  // A corner unit is drawn as a square L x L, where L is how far it runs along EACH wall. The April 2026 price book defines
+  // "Wall Space Required" as the wall used on both sides of a corner unit, so L = that figure / 2 (Trouper 44C: 92 -> 46).
+  // The published W is the widest measurement across the corner (about L x 1.41), not the run along a wall. Without a
+  // wall-space figure we estimate L from W and mark it, rather than guess silently.
+  const codeUsed = code || piece.variants?.[0]?.code || String(piece.prefix || '').split('/')[0].trim();
   const corner = kind === 'corner' && size.width >= size.depth;
-  const footprint = corner ? { width: size.width, depth: size.width } : size;
+  const wallSpace = corner ? guideWallSpace(profile, codeUsed) : null;
+  const cornerReach = corner ? Math.max(size.depth, wallSpace ? wallSpace / 2 : Math.round((size.width / Math.SQRT2) * 2) / 2) : null;
+  const footprint = corner ? { width: cornerReach, depth: cornerReach } : size;
   const box = rotatedSize(footprint.width, footprint.depth, turn);
   const reach = Number(source?.fully_extended_in) > footprint.depth ? Number(source.fully_extended_in) : null;
   return {
@@ -53,7 +67,7 @@ export function createItem(piece, profile, x, y, rotation = 0, code, options = {
     modelCode: String(profile.model_code), modelName: profile.model_name, family: profile.sectional_family,
     key: piece.key, name: piece.name, code: code || piece.variants?.[0]?.code || String(piece.prefix || '').split('/')[0].trim(),
     x, y, width: box.width, height: box.height, baseWidth: footprint.width, baseHeight: footprint.depth, heightIn: size.height,
-    attachIn: corner ? size.depth : null, mirror: Boolean(options.mirror),
+    attachIn: corner ? Math.min(size.depth, cornerReach) : null, publishedWidth: size.width, reachSource: corner ? (wallSpace ? 'wall-space' : 'estimated') : null, mirror: Boolean(options.mirror),
     rotation: turn, dimensionsLabel: source?.dimensions_text || '', reachIn: reach, kind,
   };
 }
