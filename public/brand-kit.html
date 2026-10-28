@@ -18,7 +18,7 @@ body{margin:0;background:var(--navy);color:var(--navy);font:16px/1.5 var(--sans)
 h2{font-family:var(--serif);font-weight:700;margin:0 0 10px;font-size:28px;line-height:1.15}
 p{margin:0 0 10px}.note{font-size:13px;line-height:1.45}
 .logo{display:block;width:100%;max-width:440px;height:auto}
-.rev{width:100%;max-width:440px;aspect-ratio:900/314;background:var(--cream);-webkit-mask:url(/lazboy-logo-light.png) center/contain no-repeat;mask:url(/lazboy-logo-light.png) center/contain no-repeat}
+.rev{display:block;width:100%;max-width:440px;height:auto}
 .center{display:grid;place-items:center;min-height:200px}
 .sw{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
 .chip{border-radius:12px;padding:12px 10px;min-height:190px;display:flex;flex-direction:column;justify-content:flex-end;font-size:12px;line-height:1.45;overflow-wrap:anywhere}
@@ -42,7 +42,7 @@ ul{margin:0;padding-left:18px}li{margin-bottom:6px}.dont li::marker{color:var(--
 .arch .top b{font:700 26px/1.15 var(--serif)}
 .arch .bot{padding:56px 24px 22px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .cta{background:var(--sea);color:var(--navy);font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:11px 20px;border-radius:99px}
-.rev-sm{width:120px;aspect-ratio:900/314;background:var(--cream);-webkit-mask:url(/lazboy-logo-light.png) center/contain no-repeat;mask:url(/lazboy-logo-light.png) center/contain no-repeat}
+.rev-sm{display:block;width:120px;height:auto}
 .leg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}
 .leg div{border-radius:10px;padding:26px 8px 8px;font-size:11px;border:2px dashed rgba(0,51,73,.5)}
 .hero{font:700 clamp(30px,4.4vw,46px)/1.1 var(--serif)}
@@ -57,7 +57,7 @@ ul{margin:0;padding-left:18px}li{margin-bottom:6px}.dont li::marker{color:var(--
 <p class="note">Navy on light backgrounds. Source: Brand Standards 2026, p.4.</p><span class="pg">01</span></section>
 
 <section class="p navyp s2"><p class="label">02 · Logo, reverse</p>
-<div class="center"><div class="rev" role="img" aria-label="La-Z-Boy logo in cream"></div></div>
+<div class="center"><img class="rev" src="/lazboy-logo-cream.png" alt="La-Z-Boy logo in cream"></div>
 <p class="note">Cream on dark. Shown here as a render-time tint of the white file. The app's dark mode currently uses the white file; the standards reserve white for black-and-white use.</p><span class="pg">02</span></section>
 
 <section class="p white s3"><p class="label">03 · Logo rules</p>
@@ -111,7 +111,7 @@ ul{margin:0;padding-left:18px}li{margin-bottom:6px}.dont li::marker{color:var(--
 
 <section class="p white s3"><p class="label">12 · Layout language</p>
 <div class="arch"><div class="top"><b>Arched colour blocks, Georgia headlines</b></div>
-<div class="bot"><div class="rev-sm" role="img" aria-label="La-Z-Boy"></div><span class="cta">Pill CTA</span></div></div>
+<div class="bot"><img class="rev-sm" src="/lazboy-logo-cream.png" alt="La-Z-Boy"><span class="cta">Pill CTA</span></div></div>
 <p class="note" style="margin-top:12px">Curved colour-block shapes, navy base with the logo low-left, pill-shaped CTA in sea with a navy label (pp.16 to 17).</p><span class="pg">12</span></section>
 
 <section class="p white s3"><p class="label">13 · In the app, legacy colours</p>

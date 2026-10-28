@@ -173,7 +173,7 @@ select:focus-visible {
 
 /* Logo artwork is dark navy; use the light version on dark backgrounds. */
 @media (prefers-color-scheme: dark) {
-  img.rail-logo, img.brand-mark, img.brand-mark-small { content: url('/lazboy-logo-light.png'); }
+  img.rail-logo, img.brand-mark, img.brand-mark-small { content: url('/lazboy-logo-cream.png'); }
 }
 
 /* Sectional Studio: true-scale SVG plan */

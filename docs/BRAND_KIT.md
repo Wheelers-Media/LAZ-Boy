@@ -35,7 +35,7 @@ Rules (PDF pp.4 to 8):
 
 Extra rules from the older web pages (not in the PDF, still sensible): don't isolate a single letter, don't add taglines or store names to the lockup, don't put it over busy imagery. Naming per the web pages: "La-Z-Boy" or "La-Z-Boy + City"; not "Furniture Galleries".
 
-**Issue in the app:** dark mode swaps in `public/lazboy-logo-light.png`, which is the **white** logo. The PDF reserves white for black-and-white use and says to use **cream** on dark backgrounds. I did not recolour the artwork. Download the official cream PNG from the brand site (the link I was given has expired) and I will swap it in.
+**Dark mode (fixed):** the app now swaps in `public/lazboy-logo-cream.png`, the official cream logo you supplied (resized from 2000 to 900 px wide, no recolouring). It replaces the white `lazboy-logo-light.png`, which is now unused. Note the supplied files are not exactly the PDF swatches: the navy logo's pixels are #00314A (PDF navy #003349) and the cream logo's are #ECE3D0 (PDF cream #E6E2D5). They are the official artwork, so they are used as-is. The cream file's edges also look soft, as if it was upscaled from a smaller original; ask for a vector or larger cream file if it looks fuzzy on a big display.
 
 ## 2. Colour (PDF p.9)
 
@@ -114,6 +114,6 @@ Not on-standard (legacy, 35 lines): rust (active marker, selected-piece outline,
 
 ## What this kit does not contain
 
-- Official cream, black and white logo files, the lockup files and badges (the download links I saw had expired).
+- The white logo from the brand site, the INCORPORATED lockup files and the badges. The black, navy and cream logos you supplied are in hand; only cream is wired into the app (`public/lazboy-logo-cream.png`).
 - The web pages' Verbal Identity page and the retail website: neither could be opened.
 - Anything specific to Canada or to dealer stores. The PDF is the corporate edition.
