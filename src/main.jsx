@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Activity, ArrowDown, ArrowLeft, ArrowRight, Armchair, BatteryCharging, BookOpen, Check, CheckCircle2, Copy, Heart, Info, Layers3, Menu, Minus, Plus, Search, ShieldCheck, Sparkles, SwatchBook, Sofa, Wrench, X } from 'lucide-react';
+import { Activity, ArrowDown, ArrowLeft, ArrowRight, Armchair, BatteryCharging, BookOpen, Check, CheckCircle2, Copy, Heart, Info, Layers3, Menu, Minus, Plus, Search, ShieldCheck, Shop, Sparkles, SwatchBook, Sofa, Wrench, X } from './icons.jsx';
 import './styles.css';
 import './brand.css';
 import './brand-dark.css';
@@ -11,7 +11,7 @@ import { SkuBuilderWorkspace } from './SkuBuilderWorkspace.jsx';
 import { heightInches, PRODUCT_INDEX_GROUPS, cleanIndexCategories, indexGroupsFor } from './logic.js';
 
 const STEPS = ['Ergonomics', 'Room clearance', 'Category', 'Mechanisms', 'Upholstery'];
-const NAV_ITEMS = [[Armchair, 'Fit'], [Wrench, 'SKU Builder'], [BookOpen, 'Product Index'], [Sparkles, 'Floor Unit'], [Layers3, 'Sectional Studio'], [SwatchBook, 'Fabrics & Care'], [ShieldCheck, 'Support']];
+const NAV_ITEMS = [[Armchair, 'Fit'], [Wrench, 'SKU Builder'], [BookOpen, 'Product Index'], [Shop, 'Floor Unit'], [Layers3, 'Sectional Studio'], [SwatchBook, 'Fabrics & Care'], [ShieldCheck, 'Support']];
 const categories = ['Recliners', 'High-leg designer', 'Motion sofas / loveseats', 'Modular sectionals', 'Stationary suites', 'Sleepers', 'Lift chairs'];
 const mechanismOptions = [
   ['Manual', 'Simple, dependable reclining'],

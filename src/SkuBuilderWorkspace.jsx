@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Check, Copy, Info, Printer, Wrench } from 'lucide-react';
+import { Check, Copy, Info, Printer, Wrench } from './icons.jsx';
 import { CoverPicker } from './CoverPicker.jsx';
 import { buildRmsSkuPreview, decodeRmsSku, getModelCoverOptions, getModelCoverSwatches, getRmsModelStyleChoices, getRmsStyleOptions } from './logic.js';
 

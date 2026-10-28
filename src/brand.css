@@ -372,7 +372,7 @@ h1 em, .welcome-row h1 em, .module-intro h1 em, .design-studio .module-intro h1 
 .step-item.current .step-number { color: #fff; }
 
 /* Icons (p.15): palette colours only, 1.3 stroke. */
-svg.lucide { stroke-width: 1.3; }
+svg.icon { stroke-width: 1.3; }
 .rail-link svg, .module-icon, .session-icon, .note-icon, .clearance-icon, .mechanism-dot, .piece-sketch, .spotter-icon, .modal-symbol { color: var(--brand-navy); }
 
 /* Layout language (pp.16 to 17): arches, circles and pills; cream as the supporting colour. */

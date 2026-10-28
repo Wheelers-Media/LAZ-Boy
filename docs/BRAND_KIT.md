@@ -117,7 +117,7 @@ Applied in `src/styles.css`, `src/brand.css` and `src/brand-dark.css`:
 - **Pairings:** step "done" is sea (was forest next to a navy "current", which p.11 forbids). Selected cards are navy on sky. No navy-forest, navy-claret or forest-claret neighbours.
 - **Contrast:** an automated check of every text element on all seven workspaces, in light and dark mode at desktop width, found no pair below 4.5:1 (3:1 for large text). Sea is never used as text on a light background.
 - **Logo:** navy on light, the official cream logo on dark. The sidebar was widened from 76 to 124 px so the logo can be 100 px wide (the stated minimum); the mobile bar logo is 100 px and the "Floor Assistant" caption is hidden below 520 px to make room.
-- **Icons:** palette colours only. Stroke weight is 1.3 as the standards specify for Iconoir, applied to the existing lucide icons. The library itself was not swapped (needs your approval to add a dependency).
+- **Icons:** the app now draws every icon from Iconoir, the library the standards name (p.15), at stroke weight 1.3 in palette colours. The 28 icons it uses are in `src/icons.jsx`, copied from Iconoir (MIT licence, no npm dependency); `lucide-react` was removed. The sidebar uses the armchair, wrench, book, shop, floor-plan, palette and shield icons. Where the PDF set has the right icon (sofa, armchair, shop, info, check-circle) that is the one used.
 - **Layout language:** circular icon chips, an arched top on the recommendation illustration, cream as the supporting fill.
 
 Not done: Bookmania and Gotham are print-only and not used. Tints (80/60/40/20) are used only for the status and selected-state fills, as the standards intend.

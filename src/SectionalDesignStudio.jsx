@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { Armchair, Copy, Info, Layers3, Minus, Plus, Printer, Redo2, RotateCw, Sofa, Undo2 } from 'lucide-react';
+import { Armchair, Copy, Info, Layers3, Minus, Plus, Printer, Redo2, RotateCw, Sofa, Undo2 } from './icons.jsx';
 import { buildSectionalStudioRmsLine, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
 import { createItem, findFreeSpot, formatInches, layoutSummary, normalizeRotation, parsePieceDimensions, presetItems, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
 
