@@ -172,12 +172,7 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
 
   const setCategory = (category) => set({ category });
   const toggleHousehold = (key) => set({ household: answers.household.includes(key) ? answers.household.filter((item) => item !== key) : [...answers.household, key] });
-  const stepHeading = [
-    ['A little about their fit', 'La-Z-Boy sizes recliners by the height of the person who sits in it most. Add weight now so it is never an afterthought.'],
-    ['What do they need it to do?', 'Start with what they tell you, in their words. Pick the closest one. You can change the kind of piece below.'],
-    ['Where will it live, and how should it feel?', 'How much room is behind it, then the comfort options that exist for this kind of piece.'],
-    ['Made for real life', 'DCG already asks about kids, pets and material. Fill these in only if you did not ask there. They shape the cover conversation and do not filter models.'],
-  ][step];
+  const stepHeading = ['About the person', 'What do they need?', 'Where, and how should it feel?', 'Real life'][step];
 
   if (step === 4) {
     const summary = [
@@ -192,7 +187,7 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
         <button type="button" className="back-button" onClick={() => setState({ ...FIT_DEFAULTS, answers: { ...FIT_DEFAULTS.answers } })}>Start over</button>
       </section>
       <div className="fitq-summary" role="list">{summary.map(([label, value, target]) => <button role="listitem" type="button" key={label} className="fitq-pill" onClick={() => go(target)}><span>{label}</span><strong>{value}</strong></button>)}</div>
-      {results?.hidden > 0 && <p className="tip-strip fitq-hold"><Info size={16} /><span><strong>{results.hidden} match {results.hidden === 1 ? 'is' : 'es are'} hidden.</strong> Their listed capacity is below {answers.weight} lb or not listed. The weight limit is never relaxed to fill the list.</span></p>}
+      {results?.hidden > 0 && <p className="tip-strip fitq-hold"><Info size={16} /><span><strong>{results.hidden} match {results.hidden === 1 ? 'is' : 'es are'} hidden.</strong> Capacity is under {answers.weight} lb or not listed.</span></p>}
       {bandsDiffer && <p className="tip-strip"><Info size={16} /><span>La-Z-Boy's public guide calls {answers.height} <strong>{sizeName}</strong>. The Canada research file puts it in a neighbouring band. Try both sizes.</span></p>}
       <div className="fitq-layout">
         <div className="fitq-matches">
@@ -227,7 +222,7 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
     <h1 className="sr-only">Fit and discover</h1>
     <nav className="stepper" aria-label="Customer fit steps">{FIT_STEPS.map((name, index) => <button key={name} type="button" className={`step-item ${index === step ? 'current' : ''} ${index < step ? 'done' : ''}`} onClick={() => (index <= step || hasHeight) && go(index)} aria-current={index === step ? 'step' : undefined}><span className="step-number">{index < step ? <Check size={13} /> : `0${index + 1}`}</span><span className="step-name">{name}</span>{index < FIT_STEPS.length - 1 && <span className="step-track" />}</button>)}</nav>
     <section className="wizard-panel card fitq-panel">
-      <div className="panel-heading"><div><span className="step-kicker">QUESTION 0{step + 1} <span>OF 04</span></span><h2>{stepHeading[0]}</h2><p>{stepHeading[1]}</p></div>
+      <div className="panel-heading"><div><h2>{stepHeading}</h2></div>
         <button type="button" className="icon-help" aria-label="More about this question" onClick={() => onInfo(FIT_STEPS[step], 'These answers build a short list to sit-test. They never confirm fit, capacity or clearance for a specific model.', '“I am just learning what matters most so I can put the right ones in front of you.”')}><Info size={16} /></button></div>
       <div className="wizard-body">
         {step === 0 && <>
@@ -237,7 +232,6 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
             <label className="form-field"><span>Exact height</span><select value={answers.height} onChange={(event) => set({ height: event.target.value })}><option value="">Choose…</option>{HEIGHT_CHOICES.map((item) => <option key={item}>{item}</option>)}</select></label>
             <label className="form-field"><span>Heaviest person who will use it <span className="optional">optional · lb</span></span><input inputMode="numeric" placeholder="e.g. 240" value={answers.weight} onChange={(event) => set({ weight: event.target.value.replace(/[^\d]/g, '').slice(0, 3) })} /></label>
           </div>
-          <p className="tip-strip"><Ruler size={16} /><span>A weight limit is never relaxed. A model with a documented capacity below it is removed. An unknown capacity is flagged, never assumed to be enough.</span></p>
           <details className="fitq-more"><summary>More detail · seated measurements <span className="optional">optional</span></summary>
             <div className="inline-fields">{[['hip_breadth_inches', 'Hip breadth (in)'], ['thigh_length_inches', 'Thigh length (in)'], ['popliteal_height_inches', 'Floor to back of knee (in)']].map(([key, label]) => <label className="form-field" key={key}><span>{label}</span><input inputMode="decimal" value={answers[key]} onChange={(event) => set({ [key]: event.target.value.replace(/[^\d.]/g, '').slice(0, 5) })} /></label>)}</div>
             <p>Used only for a manual rocking-recliner dimension screen.</p></details>
@@ -247,20 +241,17 @@ export function FitDiscover({ catalog, research, state, setState, onIndex, onBui
           <Choices label="What they need" value={answers.need} onChange={(key) => set({ need: key, ...FIT_NEEDS.find((item) => item.key === key).patch })} options={FIT_NEEDS.map((item) => [item.key, item.label, item.hint])} />
           <label className="field-label">What are they hoping to bring home?</label>
           <Choices label="Category" value={answers.category} onChange={setCategory} options={CATEGORIES.map((item) => [item, item])} />
-          <p className="tip-strip"><Info size={16} /><span>A need only sets where the list starts. The exact style must list a feature before you promise it.</span></p>
         </>}
         {step === 2 && <>
           {!isSectional && <>
             <label className="field-label">How much space is behind it?</label>
             <Choices label="Room behind" value={roomName} onChange={(name) => { const room = ROOMS.find(([key]) => key === name); set({ clearance: `${name} · ${room[3]} in` }); }} options={ROOMS.map(([name, amount, help]) => [name, name, `${amount} · ${help}`])} />
-            <p className="tip-strip"><Info size={16} /><span>Measure from the wall to the front of the chair, then check the exact model's clearance spec.</span></p>
           </>}
           {isSectional && <p className="tip-strip"><Info size={16} /><span>Room size is set in Sectional Studio, where pieces are drawn at true size.</span></p>}
           <label className="field-label">Which kind of comfort sounds right?</label>
           <Choices label="Recline type" value={mechanism} onChange={(name) => set({ mechanism: name })} options={available.map(([name, hint]) => [name, name, hint])} />
           {cushions.length > 1 && <><label className="field-label">Seat feel</label><div className="chip-row" role="group" aria-label="Seat feel">{cushions.map((item) => <button key={item.code} type="button" className={chip(answers.cushion_preference === item.name)} aria-pressed={answers.cushion_preference === item.name} onClick={() => set({ cushion_preference: item.name })}>{item.name} · {item.code}</button>)}</div></>}
           {supports.length > 1 && <><label className="field-label">Back and lumbar support</label><div className="chip-row" role="group" aria-label="Back support">{supports.map((item) => <button key={item.value} type="button" className={chip(answers.support_preference === item.value)} aria-pressed={answers.support_preference === item.value} onClick={() => set({ support_preference: item.value })}>{item.label}</button>)}</div></>}
-          <p className="tip-strip"><Info size={16} /><span>A preference is not compatibility. The exact style must list a feature before you promise it.</span></p>
         </>}
         {step === 3 && <>
           <label className="field-label">Who else lives with it?</label>
