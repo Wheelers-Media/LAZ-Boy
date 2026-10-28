@@ -898,3 +898,26 @@ img.rail-logo { width: 100px; }
 @media print{.studio-topbar,.studio-dockbar,.studio-drawer,.studio-float,.studio-scrim{display:none!important}.design-studio.studio-full{position:static}}
 .studio-title{flex:0 1 auto;max-width:60%}
 .studio-top-actions{margin-left:auto}
+
+/* Collapsible blocks: one line when closed */
+.fold-card>summary,.fold-block>summary{display:flex;align-items:baseline;justify-content:space-between;gap:12px;min-height:48px;padding:12px 4px;cursor:pointer;list-style:none}
+.fold-card>summary::-webkit-details-marker,.fold-block>summary::-webkit-details-marker{display:none}
+.fold-card>summary::after,.fold-block>summary::after{content:"+";flex:none;align-self:center;font-size:20px;color:var(--text-secondary,#6b6b70)}
+.fold-card[open]>summary::after,.fold-block[open]>summary::after{content:"\2212"}
+.fold-card>summary small,.fold-block>summary small{margin-left:auto;color:var(--text-secondary,#6b6b70);font-size:13px;text-align:right}
+.fold-card:not([open]){padding-top:0;padding-bottom:0}
+.fold-block{border-top:1px solid var(--line,rgba(0,0,0,.1));margin-top:6px}
+.fold-card[open]>summary,.fold-block[open]>summary{margin-bottom:6px}
+
+/* Product Index launcher */
+.index-launcher{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.index-launch{display:grid;grid-template-columns:1fr auto;grid-template-areas:"n c" "s s";gap:6px 12px;align-items:baseline;text-align:left;min-height:88px;padding:16px 18px;border:1px solid var(--line,rgba(0,0,0,.1));border-radius:18px;background:var(--paper,#fff);color:inherit;cursor:pointer}
+.index-launch strong{grid-area:n;font-size:17px}
+.index-launch b{grid-area:c;font-size:15px;color:var(--text-secondary,#6b6b70)}
+.index-launch small{grid-area:s;color:var(--text-secondary,#6b6b70);font-size:13px;line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.index-launch:hover{border-color:var(--brand-navy,#00334b)}
+.index-launch-all{background:rgba(0,51,75,.06)}
+@media (max-width:600px){.index-launcher{grid-template-columns:1fr 1fr}.index-launch{min-height:92px;padding:14px}}
+@media (prefers-color-scheme:dark){.app .index-launch{background:#2c2c2e;border-color:rgba(230,226,213,.18)}}
+.support-card.fold-card>summary .module-head{margin:0;flex:1}
+.support-card.fold-card>summary::after{align-self:center}

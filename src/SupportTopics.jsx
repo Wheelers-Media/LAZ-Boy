@@ -5,8 +5,8 @@ export function SupportTopics({ guide }) {
   const topics = guide?.supportTopics || [];
   if (!topics.length) return null;
   return (
-    <section className="support-card card support-topics">
-      <div className="module-head"><div><h2>Product facts</h2><p>From the manufacturer resource guides. Confirm anything safety-related with the customer’s own provider.</p></div></div>
+    <details className="support-card card fold-card support-topics">
+      <summary><div className="module-head"><div><h2>Product facts</h2><p>Power safety, batteries, seat builds. From the manufacturer guides.</p></div></div></summary>
       {topics.map((topic) => (
         <details className="support-topic" key={topic.id}>
           <summary>{topic.title}</summary>
@@ -17,7 +17,7 @@ export function SupportTopics({ guide }) {
           <small>Source: {topic.source}</small>
         </details>
       ))}
-    </section>
+    </details>
   );
 }
 
