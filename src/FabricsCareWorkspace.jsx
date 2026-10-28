@@ -1,3 +1,4 @@
+import { TileSelect } from './StepFlow.jsx';
 import React, { useMemo, useState } from 'react';
 import { Droplets, Search, Shield, Sparkles } from './icons.jsx';
 import { getCoverReach, swatchImageFor } from './logic.js';
@@ -16,7 +17,7 @@ function Chips({ label, options, value, onChange }) {
 }
 
 function Pick({ label, options, value, onChange }) {
-  return <label className="form-field fabric-pick"><span>{label}</span><select value={value} onChange={(event) => onChange(event.target.value)}><option value="">All</option>{options.map(([key, text]) => <option key={key} value={key}>{text}</option>)}</select></label>;
+  return <div className="sf-group fabric-pick"><h3>{label}</h3><TileSelect label={label} columns={2} options={[{ value: '', title: 'All' }, ...options.map(([key, text]) => ({ value: key, title: text }))]} value={value} onChange={onChange} /></div>;
 }
 
 function Reach({ catalog, record, isLeather }) {

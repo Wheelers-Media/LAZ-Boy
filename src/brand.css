@@ -1022,3 +1022,17 @@ img.rail-logo { width: 100px; }
 .sf-todo h3{margin:0;font-size:18px}
 .sf-todo-row{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:0 16px;border-radius:12px;border:0;background:var(--paper,#fff);color:inherit;font:inherit;font-size:17px;cursor:pointer}
 .sf-todo-row span{color:var(--brand-navy,#003349);font-weight:700}
+
+/* Readability floor: nothing in the working screens below 14px; body copy 16px */
+.main-content small,.main-content .fine-print,.main-content .warranty-term,.main-content .optional,.main-content .field-label,.main-content .product-index-count,.main-content .step-number,.main-content dt,.main-content dd,.main-content summary{font-size:max(14px,1em)}
+.main-content small,.main-content .fine-print,.main-content .field-label{font-size:14px!important}
+.main-content .fabric-badge,.main-content .tile-badge{font-size:13px;padding:4px 10px}
+.main-content p,.main-content li{font-size:max(16px,1em)}
+.main-content .button,.main-content button.primary-button,.main-content button.back-button{font-size:15px;min-height:48px}
+.main-content details>summary{min-height:52px;display:flex;align-items:center}
+.main-content dt{font-weight:700}
+.main-content dl{display:grid;gap:10px}
+.main-content .form-field>span,.main-content .step-count,.main-content .plan-count,.main-content .fabric-tags span,.main-content .fabric-tags>*{font-size:14px!important}
+.main-content .form-field input,.main-content .form-field select,.main-content .form-field textarea{font-size:16px;min-height:52px}
+.scroll-box{max-height:min(52vh,420px);overflow-y:auto;padding:4px;border-radius:14px;border:1px solid var(--line,#d9d6cc);-webkit-overflow-scrolling:touch}
+.main-content .sf-group>h3{margin:0 0 10px;font-size:18px}
