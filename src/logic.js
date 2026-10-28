@@ -1667,7 +1667,7 @@ export function getModelSection(catalog, modelCode, fallbackCategory = '') {
 export function groupModelsBySection(catalog, models, nameOf = (item) => item.model_name, codeOf = (item) => item.model_code, categoryOf = (item) => item.category) {
   const groups = new Map(MODEL_SECTIONS.map((name) => [name, []]));
   for (const item of models) groups.get(getModelSection(catalog, codeOf(item), categoryOf(item) || ''))?.push(item);
-  return MODEL_SECTIONS.map((name) => ({ name, items: groups.get(name).sort((a, b) => String(nameOf(a)).localeCompare(String(nameOf(b)))) })).filter((group) => group.items.length);
+  return MODEL_SECTIONS.map((name) => ({ name, items: groups.get(name).sort((a, b) => (/^\d+$/.test(String(nameOf(a))) - /^\d+$/.test(String(nameOf(b)))) || String(nameOf(a)).localeCompare(String(nameOf(b)))) })).filter((group) => group.items.length);
 }
 
 const RESTRICTED_DUTY_CATEGORY = /recliner|motion|la-z-time/i;

@@ -811,3 +811,28 @@ img.rail-logo { width: 100px; }
 .specialty-note{margin:12px 0;padding:12px 14px;border-left:3px solid var(--forest,#2f5d46);background:rgba(47,93,70,.06);border-radius:8px}
 .specialty-note h4{margin:0 0 6px}
 .specialty-note ul{margin:6px 0;padding-left:18px}
+
+/* Product Index: filter chips + card grid */
+.index-filter{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;margin:0 0 4px;scrollbar-width:none;position:sticky;top:0;z-index:3;background:var(--wash)}
+.index-filter::-webkit-scrollbar{display:none}
+.index-filter button{flex:none;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:600 14px/1 inherit;cursor:pointer}
+.index-filter button b{color:var(--muted);font-weight:600}
+.index-filter button.active{background:var(--brand-navy);border-color:var(--brand-navy);color:#fff}
+.index-filter button.active b{color:rgba(255,255,255,.75)}
+.index-section{display:block;margin-bottom:26px}
+.index-section-head{display:flex;align-items:baseline;justify-content:space-between;margin:6px 0 12px;padding:0 0 8px;border-bottom:2px solid var(--brand-navy);font-size:19px;color:var(--navy-text)}
+.index-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.index-card[open]{grid-column:1/-1}
+.index-card>summary{display:grid!important;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"tile text" "tile chips";gap:2px 14px;align-items:center;padding:14px 44px 14px 14px!important;cursor:pointer}
+.index-card>summary::after{right:16px!important}
+.index-card>summary .index-card-chips{position:static!important;transform:none!important}
+.index-tile{grid-area:tile;display:grid;place-items:center;width:54px;height:54px;border-radius:14px;background:rgba(0,56,86,.08);color:var(--brand-navy);font:700 15px/1 inherit;letter-spacing:.02em}
+.index-card-text{grid-area:text;display:grid;gap:2px;min-width:0}
+.index-card-text strong{font-size:16px}
+.index-card-text small{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.index-card-chips{grid-area:chips;display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.index-card-chips em{font-style:normal;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;background:rgba(0,0,0,.06);color:var(--text-secondary)}
+.index-card-chips .chip-new{background:rgba(47,93,70,.14);color:var(--forest,#2f5d46)}
+.index-card-chips .chip-warn{background:rgba(197,139,26,.16);color:#8a5d00}
+@media (prefers-color-scheme:dark){.app .index-filter button{background:#2c2c2e;color:var(--ink);border-color:rgba(230,226,213,.18)}.app .index-filter button.active{background:var(--brand-sea,#7fb4c8);color:#10202a}.app .index-tile{background:rgba(255,255,255,.1);color:var(--ink)}.app .index-card-chips em{background:rgba(255,255,255,.1)}}
+@media(max-width:600px){.index-grid{grid-template-columns:1fr}}
