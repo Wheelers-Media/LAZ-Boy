@@ -5,164 +5,119 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La-Z-Boy Brand Kit</title>
 <style>
-:root{--navy:#00334B;--cream:#E6E2D5;--blue:#244C5A;--sage:#9AB9AD;--rust:#BD472A;--forest:#00534C;--peach:#ECC3B2;--g1:#F6F6F6;--g6:#1A1A1A;
---serif:"Bookmania",Georgia,"Times New Roman",serif;--sans:"Gotham",Arial,Helvetica,sans-serif}
+:root{--navy:#003349;--forest:#00534C;--cream:#E6E2D5;--sky:#B2E2ED;--sea:#4FBCCA;--storm:#D5CFC7;--claret:#5F2528;
+--serif:Georgia,"Times New Roman",serif;--sans:Arial,Helvetica,sans-serif}
 *{box-sizing:border-box}
-body{margin:0;background:var(--navy);color:var(--g6);font:16px/1.5 var(--sans)}
+body{margin:0;background:var(--navy);color:var(--navy);font:16px/1.5 var(--sans)}
 .board{max-width:1200px;margin:0 auto;padding:16px;display:grid;gap:16px;grid-template-columns:repeat(6,1fr)}
 .p{border-radius:16px;padding:28px;overflow:hidden;position:relative;min-width:0}
 .s2{grid-column:span 2}.s3{grid-column:span 3}.s4{grid-column:span 4}.s6{grid-column:span 6}
-.cream{background:var(--cream)}.navy{background:var(--navy);color:var(--cream);outline:1px solid rgba(230,226,213,.18)}.white{background:#fff}.forest{background:var(--forest);color:#fff}.peach{background:var(--peach)}
-.label{font:700 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;margin:0 0 18px;opacity:.75}
-.pg{position:absolute;right:20px;bottom:14px;font:12px var(--sans);opacity:.55}
-h1,h2{font-family:var(--serif);font-weight:600;margin:0;line-height:1.1}
-h1{font-size:clamp(34px,6vw,64px)}h2{font-size:28px}
-p{margin:0 0 10px}
-.logo{display:block;width:100%;max-width:460px;height:auto}
-.logo-sm{max-width:220px}
-.center{display:grid;place-items:center;min-height:220px}
+.cream{background:var(--cream)}.navyp{background:var(--navy);color:var(--cream);outline:1px solid rgba(230,226,213,.2)}.white{background:#fff}.forestp{background:var(--forest);color:var(--cream)}.stormp{background:var(--storm)}.skyp{background:var(--sky)}
+.label{font:700 12px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;margin:0 0 18px}
+.pg{position:absolute;right:20px;bottom:14px;font:12px var(--sans);opacity:.6}
+h2{font-family:var(--serif);font-weight:700;margin:0 0 10px;font-size:28px;line-height:1.15}
+p{margin:0 0 10px}.note{font-size:13px;line-height:1.45}
+.logo{display:block;width:100%;max-width:440px;height:auto}
+.rev{width:100%;max-width:440px;aspect-ratio:900/314;background:var(--cream);-webkit-mask:url(/lazboy-logo-light.png) center/contain no-repeat;mask:url(/lazboy-logo-light.png) center/contain no-repeat}
+.center{display:grid;place-items:center;min-height:200px}
 .sw{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
-.chip{border-radius:12px;padding:12px 10px;min-height:150px;display:flex;flex-direction:column;justify-content:flex-end;font-size:12px;line-height:1.35;word-break:break-all}
-.chip b{font:600 15px var(--serif);display:block;margin-bottom:2px}
-.tints{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:12px}
-.tints div{display:grid;gap:4px}.tints i{height:26px;border-radius:6px;display:block;border:1px solid rgba(0,0,0,.06)}
-.tints small{font-size:11px;opacity:.7}
-.bar{display:flex;height:20px;border-radius:10px;overflow:hidden;margin:14px 0 6px}
-.pairs{display:grid;gap:8px}
-.pair{display:grid;grid-template-columns:1fr auto;align-items:center;border-radius:10px;padding:10px 14px;font-weight:700}
-.pair span{font:12px var(--sans);font-weight:400}
-.ok{font-size:11px;font-weight:700;padding:3px 8px;border-radius:99px;background:rgba(255,255,255,.85);color:#1a1a1a}
-.type-d{font:600 40px/1.1 var(--serif)}.type-l{font:700 12px var(--sans);letter-spacing:.2em;text-transform:uppercase}
-ul{margin:0;padding-left:18px}li{margin-bottom:6px}
-.dont li::marker{color:var(--rust)}.do li::marker{color:var(--forest)}
-.note{font-size:13px;opacity:.8}
-.quote{font:600 clamp(28px,4vw,44px)/1.1 var(--serif)}
-@media(max-width:820px){.board{grid-template-columns:1fr}.p,.s2,.s3,.s4,.s6{grid-column:1/-1}.sw,.tints{grid-template-columns:repeat(4,1fr)}}
+.chip{border-radius:12px;padding:12px 10px;min-height:190px;display:flex;flex-direction:column;justify-content:flex-end;font-size:12px;line-height:1.45;overflow-wrap:anywhere}
+.chip b{font:700 17px var(--serif);display:block;margin-bottom:4px}.chip .role{font:700 10px var(--sans);letter-spacing:.1em;text-transform:uppercase;margin-bottom:auto;opacity:.8}
+.bar{display:flex;height:22px;border-radius:11px;overflow:hidden;margin:16px 0 6px;outline:1px solid rgba(0,51,73,.2)}
+.tg{display:grid;grid-template-columns:90px repeat(5,1fr);gap:6px;align-items:stretch}
+.tg em{font:700 12px var(--sans);font-style:normal;text-align:center;letter-spacing:.1em}
+.tg strong{font-size:13px;align-self:center}.tg span{border-radius:8px;padding:14px 6px;font-size:11px;text-align:center}
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.tile{aspect-ratio:1;border-radius:6px;display:grid;place-items:center;outline:1px solid rgba(0,51,73,.12)}.tile i{width:42%;aspect-ratio:1;border-radius:50%;display:block}
+.am{display:grid;grid-template-columns:90px repeat(4,1fr);gap:10px;align-items:center}
+.am em{font:700 12px var(--sans);font-style:normal;text-align:center;letter-spacing:.1em}.am strong{font-size:12px;letter-spacing:.1em}
+.cell{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(0,51,73,.35)}
+.cell span{font:700 26px/1 var(--sans);padding:12px 6px;text-align:center}.cell small{grid-column:1/-1;font-size:11px;text-align:center;padding:3px;background:#fff}
+.pairs{display:grid;gap:8px}.pair{display:flex;justify-content:space-between;gap:8px;border-radius:10px;padding:10px 14px;font-weight:700;font-size:14px}.pair span{font-weight:400;font-size:12px}
+.spec{display:grid;gap:14px}.spec>div{display:grid;grid-template-columns:130px 1fr;gap:12px;align-items:baseline;border-bottom:1px solid rgba(0,51,73,.2);padding-bottom:10px}
+.spec small{font:700 10px var(--sans);letter-spacing:.06em;text-transform:uppercase;line-height:1.3}
+ul{margin:0;padding-left:18px}li{margin-bottom:6px}.dont li::marker{color:var(--claret)}.do li::marker{color:var(--forest)}
+.arch{background:var(--navy);color:var(--cream);border-radius:14px;overflow:hidden;position:relative;min-height:230px;padding:0}
+.arch .top{background:var(--cream);color:var(--navy);padding:26px 24px 56px;border-bottom-right-radius:60% 40px;border-bottom-left-radius:60% 40px;margin-bottom:-30px}
+.arch .top b{font:700 26px/1.15 var(--serif)}
+.arch .bot{padding:56px 24px 22px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.cta{background:var(--sea);color:var(--navy);font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:11px 20px;border-radius:99px}
+.rev-sm{width:120px;aspect-ratio:900/314;background:var(--cream);-webkit-mask:url(/lazboy-logo-light.png) center/contain no-repeat;mask:url(/lazboy-logo-light.png) center/contain no-repeat}
+.leg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}
+.leg div{border-radius:10px;padding:26px 8px 8px;font-size:11px;border:2px dashed rgba(0,51,73,.5)}
+.hero{font:700 clamp(30px,4.4vw,46px)/1.1 var(--serif)}
+@media(max-width:820px){.board{grid-template-columns:1fr}.p,.s2,.s3,.s4,.s6{grid-column:1/-1}.sw{grid-template-columns:repeat(2,1fr)}.tg{grid-template-columns:70px repeat(5,1fr)}.tg span{font-size:9px;padding:12px 2px}.tiles{grid-template-columns:repeat(4,1fr)}.am{grid-template-columns:60px repeat(4,1fr);gap:4px}.cell span{font-size:18px}.spec>div{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <main class="board">
 
-<section class="p cream s4">
-  <p class="label">01 Logo, primary</p>
-  <div class="center"><img class="logo" src="/lazboy-logo.png" alt="La-Z-Boy"></div>
-  <p class="note">Navy on light backgrounds. Used exactly as supplied, registered symbol included.</p>
-  <span class="pg">01</span>
-</section>
+<section class="p cream s4"><p class="label">01 · Logo, primary</p>
+<div class="center"><img class="logo" src="/lazboy-logo.png" alt="La-Z-Boy"></div>
+<p class="note">Navy on light backgrounds. Source: Brand Standards 2026, p.4.</p><span class="pg">01</span></section>
 
-<section class="p navy s2">
-  <p class="label">02 Logo, reverse</p>
-  <div class="center"><img class="logo logo-sm" src="/lazboy-logo-light.png" alt="La-Z-Boy"></div>
-  <p class="note">Cream on dark per the guidelines. The app ships the white version (also approved) in dark mode.</p>
-  <span class="pg">02</span>
-</section>
+<section class="p navyp s2"><p class="label">02 · Logo, reverse</p>
+<div class="center"><div class="rev" role="img" aria-label="La-Z-Boy logo in cream"></div></div>
+<p class="note">Cream on dark. Shown here as a render-time tint of the white file. The app's dark mode currently uses the white file; the standards reserve white for black-and-white use.</p><span class="pg">02</span></section>
 
-<section class="p white s3">
-  <p class="label">03 Logo, never</p>
-  <ul class="dont">
-    <li>Stretch or condense it</li>
-    <li>Recolour it beyond navy, cream, black or white</li>
-    <li>Outline it or add a drop shadow</li>
-    <li>Remove the registered symbol</li>
-    <li>Pull out one letter, such as a lone Z in a circle</li>
-    <li>Add taglines or store names to the lockup</li>
-    <li>Place it over busy imagery or motion</li>
-  </ul>
-  <span class="pg">03</span>
-</section>
+<section class="p white s3"><p class="label">03 · Logo rules</p>
+<ul class="do"><li>Minimum width <b>100 px</b> / 1.39 in / 35.3 mm</li><li>Clear space = the height of the “o”, on every side</li><li>Black logo on light, white logo on dark, only when colour isn't available</li></ul>
+<ul class="dont" style="margin-top:12px"><li>Stretch or condense it</li><li>Use any colour but navy, cream, black or white</li><li>Outline it, or add a drop shadow</li><li>Remove the registered trademark symbol</li></ul>
+<span class="pg">03</span></section>
 
-<section class="p peach s3">
-  <p class="label">04 Naming</p>
-  <h2>La-Z-Boy</h2>
-  <p style="margin-top:10px">or <b>La-Z-Boy + City</b></p>
-  <p class="note" style="margin-top:14px">Do not use "Furniture Galleries" or legacy galleries lockups. Dealer co-branding: both logos in navy, black or white, same scale.</p>
-  <span class="pg">04</span>
-</section>
+<section class="p forestp s3"><p class="label">04 · Purpose</p>
+<div class="hero">To inspire the future of comfort.</div>
+<p class="note" style="margin-top:16px">Why the company exists, per the Brand Standards 2026 (p.2). Identity designed and relaunched in 2025.</p><span class="pg">04</span></section>
 
-<section class="p cream s6">
-  <p class="label">05 Colour</p>
-  <div class="sw">
-    <div class="chip" style="background:var(--navy);color:var(--cream)"><b>Navy</b>#00334B<br>PMS 2189 C<br>Primary</div>
-    <div class="chip" style="background:var(--cream);outline:1px solid rgba(0,51,75,.2)"><b>Cream</b>#E6E2D5<br>PMS 9080 C<br>Primary</div>
-    <div class="chip" style="background:var(--blue);color:#fff"><b>Blue</b>#244C5A<br>PMS 7477 C<br>Secondary</div>
-    <div class="chip" style="background:var(--sage);color:var(--navy)"><b>Sage</b>#9AB9AD<br>PMS 623 C<br>Secondary</div>
-    <div class="chip" style="background:var(--rust);color:#fff"><b>Rust</b>#BD472A<br>PMS 7598 C<br>Secondary</div>
-    <div class="chip" style="background:var(--forest);color:#fff"><b>Forest</b>#00534C<br>PMS 330 C<br>Tertiary</div>
-    <div class="chip" style="background:var(--peach);color:var(--navy)"><b>Peach</b>#ECC3B2<br>PMS 489 C<br>Tertiary</div>
-  </div>
-  <div class="tints">
-    <div><i style="background:#335C6D"></i><i style="background:#668692"></i><i style="background:#99ADB6"></i><i style="background:#CDD6DB"></i><small>Navy 80 / 60 / 40 / 20</small></div>
-    <div><i style="background:#EAE7DC"></i><i style="background:#F0EEE6"></i><small>Cream 80 / 60</small></div>
-    <div><i style="background:#50717C"></i><i style="background:#7C949C"></i><i style="background:#A7B7BD"></i><i style="background:#D3DBDE"></i><small>Blue 80 / 60 / 40 / 20</small></div>
-    <div><i style="background:#AEC7BD"></i><i style="background:#C3D5CF"></i><i style="background:#D7E3DE"></i><i style="background:#EBF1EF"></i><small>Sage 80 / 60 / 40 / 20</small></div>
-    <div><i style="background:#CB6C55"></i><i style="background:#D7917E"></i><i style="background:#E5B5AA"></i><i style="background:#F2DAD3"></i><small>Rust 80 / 60 / 40 / 20</small></div>
-    <div><i style="background:#337671"></i><i style="background:#669894"></i><i style="background:#9DBAB7"></i><i style="background:#CDDDDB"></i><small>Forest 80 / 60 / 40 / 20</small></div>
-    <div><i style="background:#F0CFC1"></i><i style="background:#F3DBD1"></i><i style="background:#F7E7DF"></i><i style="background:#FCF3F0"></i><small>Peach 80 / 60 / 40 / 20</small></div>
-  </div>
-  <p class="note" style="margin-top:14px">Tints are for hover and disabled states and should not be prominent. Neutrals: #F6F6F6, #CCCCCC, #A6A6A6, #757575, #404040, #1A1A1A.</p>
-  <span class="pg">05</span>
-</section>
+<section class="p cream s6"><p class="label">05 · Colour palette</p>
+<div class="sw"><div class="chip" style="background:#003349;color:#E6E2D5"><span class="role">Primary</span><b>Navy</b>#003349<br>RGB 0, 51, 73<br>PMS 2189 C<br>CMYK 100, 70, 30, 65</div><div class="chip" style="background:#00534C;color:#E6E2D5"><span class="role">Secondary</span><b>Forest</b>#00534C<br>RGB 0, 83, 76<br>PMS 330 C<br>CMYK 93, 23, 65, 57</div><div class="chip" style="background:#E6E2D5;color:#003349;outline:1px solid rgba(0,51,73,.25)"><span class="role">Secondary</span><b>Cream</b>#E6E2D5<br>RGB 230, 226, 213<br>PMS 9080 C<br>CMYK 6, 8, 12, 0</div><div class="chip" style="background:#B2E2ED;color:#003349"><span class="role">Tertiary</span><b>Sky</b>#B2E2ED<br>RGB 178, 226, 237<br>PMS 290 C<br>CMYK 28, 0, 6, 0</div><div class="chip" style="background:#4FBCCA;color:#003349"><span class="role">Tertiary</span><b>Sea</b>#4FBCCA<br>RGB 79, 188, 202<br>PMS 631 C<br>CMYK 63, 4, 20, 0</div><div class="chip" style="background:#D5CFC7;color:#003349"><span class="role">Tertiary</span><b>Storm</b>#D5CFC7<br>RGB 213, 207, 199<br>PMS 7534 C<br>CMYK 16, 14, 19, 0</div><div class="chip" style="background:#5F2528;color:#E6E2D5"><span class="role">Tertiary</span><b>Claret</b>#5F2528<br>RGB 95, 37, 40<br>PMS 202 C<br>CMYK 39, 84, 71, 52</div></div>
+<div class="bar"><span style="flex:34;background:#003349" title="navy"></span><span style="flex:20;background:#00534C" title="forest"></span><span style="flex:20;background:#E6E2D5" title="cream"></span><span style="flex:6;background:#B2E2ED" title="sky"></span><span style="flex:7;background:#4FBCCA" title="sea"></span><span style="flex:7;background:#D5CFC7" title="storm"></span><span style="flex:6;background:#5F2528" title="claret"></span></div>
+<p class="note">Primary navy · secondary forest, cream · tertiary sky, sea, storm, claret. Keep this relative balance (bar is illustrative of p.9). Source: Brand Standards 2026, p.9.</p><span class="pg">05</span></section>
 
-<section class="p navy s3">
-  <p class="label">06 Balance</p>
-  <p>Navy and cream lead. Secondary colours support. Tertiary colours are accents.</p>
-  <div class="bar"><span style="flex:34;background:#00334B;outline:1px solid rgba(230,226,213,.4)"></span><span style="flex:34;background:#E6E2D5"></span><span style="flex:8;background:#244C5A"></span><span style="flex:8;background:#9AB9AD"></span><span style="flex:6;background:#BD472A"></span><span style="flex:5;background:#00534C"></span><span style="flex:5;background:#ECC3B2"></span></div>
-  <p class="note">Illustrative proportion for the app, not a published ratio.</p>
-  <span class="pg">06</span>
-</section>
+<section class="p white s6"><p class="label">06 · Tints</p>
+<div class="tg"><i></i><em>100%</em><em>80%</em><em>60%</em><em>40%</em><em>20%</em><strong>Navy</strong><span style="background:#003349;color:#E6E2D5">#003349</span><span style="background:#335C6D;color:#E6E2D5">#335C6D</span><span style="background:#668592;color:#E6E2D5">#668592</span><span style="background:#99ADB6;color:#003349">#99ADB6</span><span style="background:#CCD6DB;color:#003349">#CCD6DB</span><strong>Forest</strong><span style="background:#00534C;color:#E6E2D5">#00534C</span><span style="background:#337570;color:#E6E2D5">#337570</span><span style="background:#669894;color:#E6E2D5">#669894</span><span style="background:#9CBAB7;color:#003349">#9CBAB7</span><span style="background:#CCDDDB;color:#003349">#CCDDDB</span><strong>Cream</strong><span style="background:#E6E2D5;color:#003349">#E6E2D5</span><span style="background:#EBE8DD;color:#003349">#EBE8DD</span><span style="background:#F0EEE6;color:#003349">#F0EEE6</span><span style="background:#F5F3EE;color:#003349">#F5F3EE</span><span style="background:#FAF9F7;color:#003349">#FAF9F7</span><strong>Sky</strong><span style="background:#B2E2ED;color:#003349">#B2E2ED</span><span style="background:#C1E8F1;color:#003349">#C1E8F1</span><span style="background:#D1EEF4;color:#003349">#D1EEF4</span><span style="background:#E0F3F8;color:#003349">#E0F3F8</span><span style="background:#F0F9FB;color:#003349">#F0F9FB</span><strong>Sea</strong><span style="background:#4FBCCA;color:#003349">#4FBCCA</span><span style="background:#72C9D5;color:#003349">#72C9D5</span><span style="background:#95D7DF;color:#003349">#95D7DF</span><span style="background:#B9E4EA;color:#003349">#B9E4EA</span><span style="background:#DCF2F4;color:#003349">#DCF2F4</span><strong>Storm</strong><span style="background:#D5CFC7;color:#003349">#D5CFC7</span><span style="background:#DDD9D2;color:#003349">#DDD9D2</span><span style="background:#E6E2DD;color:#003349">#E6E2DD</span><span style="background:#EFECE9;color:#003349">#EFECE9</span><span style="background:#F7F5F4;color:#003349">#F7F5F4</span><strong>Claret</strong><span style="background:#5F2528;color:#E6E2D5">#5F2528</span><span style="background:#7F5153;color:#E6E2D5">#7F5153</span><span style="background:#9F7C7E;color:#E6E2D5">#9F7C7E</span><span style="background:#BFA8A9;color:#003349">#BFA8A9</span><span style="background:#DFD3D4;color:#003349">#DFD3D4</span></div>
+<p class="note" style="margin-top:12px">As printed on p.10. For colour-blocking (especially print) and for the readability of tables, charts and graphs. Not for prominent use.</p><span class="pg">06</span></section>
 
-<section class="p white s3">
-  <p class="label">07 Text contrast (computed)</p>
-  <div class="pairs">
-    <div class="pair" style="background:var(--cream);color:var(--navy)">Navy on cream <span>10.3 <em class="ok">AAA</em></span></div>
-    <div class="pair" style="background:var(--navy);color:var(--cream)">Cream on navy <span>10.3 <em class="ok">AAA</em></span></div>
-    <div class="pair" style="background:var(--forest);color:#fff">White on forest <span>9.0 <em class="ok">AAA</em></span></div>
-    <div class="pair" style="background:var(--sage);color:var(--navy)">Navy on sage <span>6.3 <em class="ok">AA</em></span></div>
-    <div class="pair" style="background:var(--rust);color:#fff">White on rust <span>5.1 <em class="ok">AA</em></span></div>
-    <div class="pair" style="background:var(--cream);color:var(--rust)">Rust on cream <span>3.95 <em class="ok">Large only</em></span></div>
-    <div class="pair" style="background:var(--rust);color:var(--navy)">Navy on rust <span>2.6 <em class="ok" style="background:#1a1a1a;color:#fff">Fails</em></span></div>
-  </div>
-  <p class="note" style="margin-top:10px">Ratios computed from the published RGB values, not the manufacturer's chart.</p>
-  <span class="pg">07</span>
-</section>
+<section class="p cream s3"><p class="label">07 · Pairings, do</p>
+<div class="tiles"><div class="tile" style="background:#003349"><i style="background:#E6E2D5"></i></div><div class="tile" style="background:#003349"><i style="background:#B2E2ED"></i></div><div class="tile" style="background:#003349"><i style="background:#4FBCCA"></i></div><div class="tile" style="background:#003349"><i style="background:#D5CFC7"></i></div><div class="tile" style="background:#00534C"><i style="background:#E6E2D5"></i></div><div class="tile" style="background:#00534C"><i style="background:#B2E2ED"></i></div><div class="tile" style="background:#00534C"><i style="background:#4FBCCA"></i></div><div class="tile" style="background:#E6E2D5"><i style="background:#003349"></i></div><div class="tile" style="background:#E6E2D5"><i style="background:#00534C"></i></div><div class="tile" style="background:#E6E2D5"><i style="background:#5F2528"></i></div><div class="tile" style="background:#5F2528"><i style="background:#D5CFC7"></i></div><div class="tile" style="background:#5F2528"><i style="background:#B2E2ED"></i></div></div>
+<p class="note" style="margin-top:12px">Go-to combinations when colour-blocking or layering shapes (p.11).</p><span class="pg">07</span></section>
 
-<section class="p forest s3">
-  <p class="label">08 Type</p>
-  <div class="type-d">Comfort starts with great design.</div>
-  <p class="type-l" style="margin-top:22px">Bold, loosely tracked label</p>
-  <p style="margin-top:10px">Body copy is set in a plain, legible weight so it stays easy to read on a showroom tablet.</p>
-  <p class="note">Shown in Georgia and Arial, the named system fallbacks. Bookmania (Semibold headlines) and Gotham (Bold labels, Book body) are licensed and not bundled.</p>
-  <span class="pg">08</span>
-</section>
+<section class="p cream s3"><p class="label">08 · Pairings, do not</p>
+<div class="tiles"><div class="tile" style="background:#003349"><i style="background:#00534C"></i></div><div class="tile" style="background:#003349"><i style="background:#5F2528"></i></div><div class="tile" style="background:#00534C"><i style="background:#003349"></i></div><div class="tile" style="background:#00534C"><i style="background:#5F2528"></i></div><div class="tile" style="background:#5F2528"><i style="background:#003349"></i></div><div class="tile" style="background:#5F2528"><i style="background:#00534C"></i></div><div class="tile" style="background:#E6E2D5"><i style="background:#D5CFC7"></i></div><div class="tile" style="background:#E6E2D5"><i style="background:#B2E2ED"></i></div><div class="tile" style="background:#D5CFC7"><i style="background:#D1EEF4"></i></div><div class="tile" style="background:#669894"><i style="background:#9F7C7E"></i></div></div>
+<p class="note" style="margin-top:12px">Dark on dark across hues, light on light, and mixed tint families. The last two tiles are read from the page as storm with a sky tint, and a forest tint with a claret tint.</p><span class="pg">08</span></section>
 
-<section class="p cream s3">
-  <p class="label">09 Type rules</p>
-  <ul class="do">
-    <li>Sentence case for full thoughts, title case for short thematic lines</li>
-    <li>Full stop only on full sentences</li>
-    <li>Digital system fonts in email</li>
-  </ul>
-  <ul class="dont" style="margin-top:12px">
-    <li>Flourished Bookmania glyphs</li>
-    <li>Bookmania in all caps</li>
-    <li>Weights outside the approved set</li>
-    <li>Italics where grammar doesn't call for them</li>
-  </ul>
-  <span class="pg">09</span>
-</section>
+<section class="p white s6"><p class="label">09 · Text accessibility</p>
+<div class="am"><i></i><em>WHITE</em><em>CREAM</em><em>SKY</em><em>STORM</em><strong>BLACK</strong><div class="cell"><span style="background:#000000;color:#FFFFFF">Bb</span><span style="background:#FFFFFF;color:#000000">Bb</span><small>21.0 AAA</small></div><div class="cell"><span style="background:#000000;color:#E6E2D5">Bb</span><span style="background:#E6E2D5;color:#000000">Bb</span><small>16.2 AAA</small></div><div class="cell"><span style="background:#000000;color:#B2E2ED">Bb</span><span style="background:#B2E2ED;color:#000000">Bb</span><small>15.0 AAA</small></div><div class="cell"><span style="background:#000000;color:#D5CFC7">Bb</span><span style="background:#D5CFC7;color:#000000">Bb</span><small>13.6 AAA</small></div><strong>NAVY</strong><div class="cell"><span style="background:#003349;color:#FFFFFF">Bb</span><span style="background:#FFFFFF;color:#003349">Bb</span><small>13.4 AAA</small></div><div class="cell"><span style="background:#003349;color:#E6E2D5">Bb</span><span style="background:#E6E2D5;color:#003349">Bb</span><small>10.3 AAA</small></div><div class="cell"><span style="background:#003349;color:#B2E2ED">Bb</span><span style="background:#B2E2ED;color:#003349">Bb</span><small>9.6 AAA</small></div><div class="cell"><span style="background:#003349;color:#D5CFC7">Bb</span><span style="background:#D5CFC7;color:#003349">Bb</span><small>8.7 AAA</small></div><strong>FOREST</strong><div class="cell"><span style="background:#00534C;color:#FFFFFF">Bb</span><span style="background:#FFFFFF;color:#00534C">Bb</span><small>9.0 AAA</small></div><div class="cell"><span style="background:#00534C;color:#E6E2D5">Bb</span><span style="background:#E6E2D5;color:#00534C">Bb</span><small>6.9 AA</small></div><div class="cell"><span style="background:#00534C;color:#B2E2ED">Bb</span><span style="background:#B2E2ED;color:#00534C">Bb*</span><small>6.4 AA</small></div><div class="cell"><span style="background:#00534C;color:#D5CFC7">Bb*</span><span style="background:#D5CFC7;color:#00534C">Bb*</span><small>5.8 AA</small></div><strong>CLARET</strong><div class="cell"><span style="background:#5F2528;color:#FFFFFF">Bb</span><span style="background:#FFFFFF;color:#5F2528">Bb</span><small>11.8 AAA</small></div><div class="cell"><span style="background:#5F2528;color:#E6E2D5">Bb</span><span style="background:#E6E2D5;color:#5F2528">Bb</span><small>9.1 AAA</small></div><div class="cell"><span style="background:#5F2528;color:#B2E2ED">Bb</span><span style="background:#B2E2ED;color:#5F2528">Bb</span><small>8.4 AAA</small></div><div class="cell"><span style="background:#5F2528;color:#D5CFC7">Bb</span><span style="background:#D5CFC7;color:#5F2528">Bb</span><small>7.6 AAA</small></div></div>
+<p class="note" style="margin-top:12px">* Per the standards: not for body copy; large text, graphics and UI components only. Ratios computed here (WCAG 2.x). The chart's asterisks are stricter than the maths for forest with sky or storm; follow the chart.</p>
+<div class="pairs" style="margin-top:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"><div class="pair" style="background:#4FBCCA;color:#003349;">Navy on sea <span>6.0 · body OK</span></div><div class="pair" style="background:#4FBCCA;color:#5F2528;">Claret on sea <span>5.3 · body OK</span></div><div class="pair" style="background:#4FBCCA;color:#00534C;">Forest on sea <span>4.0 · not for body</span></div><div class="pair" style="background:#FFFFFF;color:#4FBCCA;outline:1px solid #ccc;">Sea on white <span>2.2 · never as text</span></div><div class="pair" style="background:#E6E2D5;color:#4FBCCA;">Sea on cream <span>1.7 · never as text</span></div></div>
+<p class="note" style="margin-top:8px">Sea is not on the chart. Computed by me: sea is a background or graphic colour, never text on light.</p><span class="pg">09</span></section>
 
-<section class="p peach s4">
-  <p class="label">10 Voice (provisional, press-reported)</p>
-  <div class="quote">Long Live The Lazy</div>
-  <p class="note" style="margin-top:16px">Warm, playful and comfort-first rather than corporate. In this app: plain, short, no hype. Evidence rules still outrank tone.</p>
-  <span class="pg">10</span>
-</section>
+<section class="p stormp s3"><p class="label">10 · Type, digital (use this)</p>
+<div class="spec">
+<div><small>Headline primary<br>Georgia Bold</small><span style="font:700 34px/1.1 Georgia,serif">Headline</span></div>
+<div><small>Headline secondary<br>Georgia Regular</small><span style="font:400 28px/1.1 Georgia,serif">Headline</span></div>
+<div><small>Subhead<br>Arial Regular</small><span style="font:400 20px Arial,sans-serif">Subhead text</span></div>
+<div><small>Special call-out<br>Georgia Bold Italic</small><span style="font:italic 700 24px Georgia,serif">Call-out</span></div>
+<div><small>Label or CTA<br>Arial Bold, +100</small><span style="font:700 14px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase">Label text</span></div>
+<div><small>Body<br>Arial Regular</small><span style="font:400 16px Arial,sans-serif">Body copy stays plain and easy to read.</span></div>
+<div><small>Legal<br>Arial Narrow</small><span style="font:400 13px 'Arial Narrow',Arial,sans-serif">Legal copy, fine print.</span></div>
+</div>
+<p class="note" style="margin-top:12px">Georgia and Arial are system fonts. p.13.</p><span class="pg">10</span></section>
 
-<section class="p white s2">
-  <p class="label">11 In the app</p>
-  <p><b>Navy</b> buttons, <b>forest</b> hover, <b>rust</b> active marker, <b>sage</b> focus ring, <b>cream</b> hover wash, #F6F6F6 page.</p>
-  <span class="pg">11</span>
-</section>
+<section class="p skyp s3"><p class="label">11 · Type, print · icons</p>
+<p><b>Print set</b> (signage, banners, ads): Bookmania Semibold / Regular / Semibold Italic for headlines and call-outs; Gotham Book, Bold (+100) and Narrow Book for subhead, label, body and legal. Licensed; never use Bookmania's flourished glyphs. Not used in this app (p.14).</p>
+<p style="margin-top:18px"><b>Icons</b> come from <b>Iconoir</b>: optical size 45, stroke weight 1.3, and only in palette colours (p.15). The app currently uses lucide-react; draw its icons in navy or another palette colour.</p>
+<span class="pg">11</span></section>
+
+<section class="p white s3"><p class="label">12 · Layout language</p>
+<div class="arch"><div class="top"><b>Arched colour blocks, Georgia headlines</b></div>
+<div class="bot"><div class="rev-sm" role="img" aria-label="La-Z-Boy"></div><span class="cta">Pill CTA</span></div></div>
+<p class="note" style="margin-top:12px">Curved colour-block shapes, navy base with the logo low-left, pill-shaped CTA in sea with a navy label (pp.16 to 17).</p><span class="pg">12</span></section>
+
+<section class="p white s3"><p class="label">13 · In the app, legacy colours</p>
+<p class="note">Still used by the app, <b>not in the 2026 standards</b> (older web guidelines):</p>
+<div class="leg"><div style="background:#244C5A;color:#fff">Blue<br>#244C5A</div><div style="background:#9AB9AD;color:#003349">Sage<br>#9AB9AD</div><div style="background:#BD472A;color:#fff">Rust<br>#BD472A</div><div style="background:#ECC3B2;color:#003349">Peach<br>#ECC3B2</div></div>
+<p class="note">Proposed, not applied: rust → claret, sage → sea (or sky for light fills), blue → navy or forest. See docs/BRAND_KIT.md.</p><span class="pg">13</span></section>
 
 </main>
 </body>

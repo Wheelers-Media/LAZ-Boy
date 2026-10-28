@@ -1,111 +1,119 @@
 # La-Z-Boy brand kit for the Floor Assistant
 
-Visual version: open `/brand-kit.html` (served from `public/brand-kit.html`).
-Code tokens: `src/brand-tokens.css` (additions) on top of `src/brand.css` (core colours, already in the app).
+Visual board: `/brand-kit.html` (source `public/brand-kit.html`).
+Code tokens: `src/brand-tokens.css` (new) on top of `src/brand.css` (core colours).
 
-## Evidence
+## Sources and evidence
 
-| Item | Source | Tier |
+| Source | What it is | Tier |
 |---|---|---|
-| Colours, tints, neutrals, pairing and tint rules | La-Z-Boy brand guidelines, Color Palette page | A (manufacturer) |
-| Logo versions and misuse rules, naming rules | Brand guidelines, Primary Logo page | A |
-| Typeface names, case rules | Brand guidelines, Typography page | A |
-| Voice and "why the logo looks like this" | Fast Company, 29 Jul 2025 (reported by a journalist, with brand quotes) | B, provisional |
-| Contrast ratios | Computed here from the published RGB values | Not a manufacturer figure |
+| **La-Z-Boy Incorporated, Brand Standards 2026** (18-page PDF, supplied by Nathan) | Corporate brand standards. Primary source for this kit. Not specific to Canada or to Furniture Galleries stores. | A (manufacturer) |
+| La-Z-Boy brand guidelines web pages (brandguidelines.la-z-boy.com: Primary Logo, Color Palette, Typography) | Older web guidelines. Used only where the PDF is silent, and labelled as such. | A (manufacturer), but conflicts with the PDF, see below |
+| Fast Company, 29 Jul 2025 | Press report on the 2025 refresh. Voice and design intent only. | B, provisional |
+| Contrast ratios | Computed here from the published RGB values. | Not a manufacturer figure |
 
-Not covered, see the gaps list at the bottom.
+The brand purpose, from PDF p.2: **"To inspire the future of comfort."** The identity was "designed and relaunched in 2025".
+
+## The two sources disagree about the palette
+
+The PDF palette is navy, forest, cream, sky, sea, storm, claret. The older web guidelines list navy, cream, forest plus **blue, sage, rust, peach**. Those four are not in the PDF anywhere. Neither source says which one supersedes the other. This kit follows the PDF, because that is the document you pointed me to and it is the one that includes colour pairings and accessibility rules. Please confirm it is also the standard your store is expected to follow, because the PDF is the Incorporated (corporate) edition.
+
+What this means for the app: `brand.css` still uses blue, sage and rust on 35 lines (selected cards, focus ring, active marker, chips, floor-plan outlines). They are now marked LEGACY in `brand.css` and left working. A proposed mapping is at the end. Nothing was changed there without your say-so.
+
+The web page's printed hex codes were wrong (green and blue bytes swapped). The PDF's hex codes are correct and agree with the RGB values on the web page for navy, cream and forest. Use the hex below.
 
 ## 1. Logo
 
-The mark is a custom script wordmark, "La-Z-Boy" with the registered symbol. Files in the app:
+Rules (PDF pp.4 to 8):
 
-- `public/lazboy-logo.png`: navy artwork (measured ink colour #01344B)
-- `public/lazboy-logo-light.png`: white artwork, used automatically in dark mode (`brand.css:171-174`)
+- Navy logo on light backgrounds (primary). **Cream** logo on dark backgrounds (reverse).
+- Black logo on light and white logo on dark are for when colour printing is not available.
+- Never: stretch or condense; use any colour other than navy, cream, black or white; outline it; add a drop shadow; remove the registered trademark symbol.
+- Minimum size: **100 px / 1.39 in / 35.3 mm wide**.
+- Clear space: **the height of the "o" on every side**.
+- The plain "La-Z-Boy" wordmark is the consumer-brand logo. The "INCORPORATED" lockup is for the corporate entity and the full portfolio (La-Z-Boy, Joybird, England). The app correctly uses the plain wordmark.
 
-Rules from the guidelines:
+Extra rules from the older web pages (not in the PDF, still sensible): don't isolate a single letter, don't add taglines or store names to the lockup, don't put it over busy imagery. Naming per the web pages: "La-Z-Boy" or "La-Z-Boy + City"; not "Furniture Galleries".
 
-- Navy logo on light backgrounds. Cream logo on dark backgrounds. Black or white only when colour printing is not available (black on light, white on dark).
-- Never: stretch or condense, recolour outside navy / cream / black / white, outline, add a drop shadow, remove the registered symbol, or isolate a single letter (a lone Z or L in a circle).
-- Never add taglines or store names to the lockup, and never place it over busy imagery or moving elements.
-- Naming: "La-Z-Boy" or "La-Z-Boy + City". The guidelines say not to use "Furniture Galleries" or the legacy galleries logos. The app currently contains no "Furniture Galleries" text.
-- Official files come in EPS, JPG and PNG in navy, cream, black and white, plus shorthand badges. Download them from the brand site rather than recolouring the PNG.
+**Issue in the app:** dark mode swaps in `public/lazboy-logo-light.png`, which is the **white** logo. The PDF reserves white for black-and-white use and says to use **cream** on dark backgrounds. I did not recolour the artwork. Download the official cream PNG from the brand site (the link I was given has expired) and I will swap it in.
 
-## 2. Colour
+## 2. Colour (PDF p.9)
 
-Core colours are in `src/brand.css:3-9`. Keep the balance the guidelines ask for: navy and cream dominate, secondary colours support, tertiary colours are accents.
+Hierarchy: **primary** navy; **secondary** forest, cream; **tertiary** sky, sea, storm, claret. "Maintain the relative colour balance shown on the page": navy dominant, forest and cream large, the four tertiary colours small.
 
 | Role | Name | Hex | RGB | Pantone | CMYK |
 |---|---|---|---|---|---|
-| Primary | Navy | #00334B (app) / #003349 (published) | 0, 51, 73 | 2189 C | 100, 70, 30, 65 |
-| Primary | Cream | #E6E2D5 | 230, 226, 213 | 9080 C | 6, 8, 12, 0 |
-| Secondary | Blue | #244C5A | 36, 76, 90 | 7477 C | 85, 42, 29, 50 |
-| Secondary | Sage | #9AB9AD | 154, 185, 173 | 623 C | 40, 10, 31, 0 |
-| Secondary | Rust | #BD472A | 189, 71, 42 | 7598 C | 5, 80, 88, 10 |
-| Tertiary | Forest | #00534C | 0, 83, 76 | 330 C | 93, 23, 65, 57 |
-| Tertiary | Peach | #ECC3B2 | 236, 195, 178 | 489 C | 0, 26, 30, 0 |
+| Primary | Navy | #003349 | 0, 51, 73 | 2189 C | 100, 70, 30, 65 |
+| Secondary | Forest | #00534C | 0, 83, 76 | 330 C | 93, 23, 65, 57 |
+| Secondary | Cream | #E6E2D5 | 230, 226, 213 | 9080 C | 6, 8, 12, 0 |
+| Tertiary | Sky | #B2E2ED | 178, 226, 237 | 290 C | 28, 0, 6, 0 |
+| Tertiary | Sea | #4FBCCA | 79, 188, 202 | 631 C | 63, 4, 20, 0 |
+| Tertiary | Storm | #D5CFC7 | 213, 207, 199 | 7534 C | 16, 14, 19, 0 |
+| Tertiary | Claret | #5F2528 | 95, 37, 40 | 202 C | 39, 84, 71, 52 |
 
-Neutrals: Gray 1 #F6F6F6, Gray 2 #CCCCCC, Gray 3 #A6A6A6, Gray 4 #757575, Gray 5 #404040, Gray 6 #1A1A1A.
+Tints (p.10) at 80 / 60 / 40 / 20 % exist for all seven and are in `brand-tokens.css`, exactly as printed. Their stated purpose is **colour-blocking (especially print) and the readability of tables, charts and graphs**, not prominent use. (My first version said hover and disabled states; that came from the older web page and was wrong for this document.) The printed CMYK for the lightest cream, sky, sea and storm tints says "Do not use" because presses can't print a dot under 3%; that is a print warning, the hex values are fine on screen. One tint, Forest 40%, is #9CBAB7, which is 3 steps from a straight mix; kept as printed.
 
-Tints (80 / 60 / 40 / 20 %) exist for every colour except cream, which only has 80 and 60. The guidelines say tints are for digital states such as hover and disabled and must not be prominent. Values are in `brand-tokens.css`.
+Neutrals (Gray 1 #F6F6F6, Gray 2 #CCCCCC, Gray 3 #A6A6A6, Gray 4 #757575, Gray 5 #404040, Gray 6 #1A1A1A) are from the web page. The PDF has no neutrals.
 
-### Contradictions found in the source, and what was decided
+### Colour pairings (p.11), for colour-blocking and shapes over layouts
 
-1. **The published Hex strings are wrong.** On the Color Palette page every Hex value has its green and blue bytes swapped relative to the RGBA beside it (Navy shows #004933, its RGBA 0, 51, 73 is #003349; Cream shows #E6D5E2, a lilac, while its RGBA is #E6E2D5). All seven base colours and every tint show the same swap. The RGBA values match the colour names, the Pantone references, the logo artwork and the values already in `brand.css`, so this kit uses RGBA and ignores the printed Hex. If anyone copies hex from that page, they get the wrong colour.
-2. **Navy differs by 2 in the blue channel.** Published RGBA is 0, 51, 73 (#003349). The app uses #00334B (`brand.css:3`). The official navy logo PNG's ink measures #01344B. All three are visually identical. The kit keeps #00334B so UI navy sits exactly beside the logo. Switching to #003349 is a one-line change if you want the written spec.
-3. **Forest 40% tint** is published as #9DBAB7; a straight 40% mix of forest into white gives #99BAB7. Four steps on one channel, kept as published.
+Do (12): navy with cream, sky, sea or storm; forest with cream, sky or sea; cream with navy, forest or claret; claret with storm or sky.
 
-### Contrast (computed here, WCAG 2.x)
+Do not (10) place on or beside each other: navy with forest; navy with claret; forest with navy; forest with claret; claret with navy; claret with forest; cream with storm; cream with sky; storm with sky; and a tint of forest with a tint of claret. In short: no dark on dark across different hues, no light on light, and no mixing tints from different families.
 
-| Text on background | Ratio | Result |
+### Text contrast (p.12 and computed)
+
+The PDF chart covers text in black, navy, forest or claret on white, cream, sky or storm (and the reverse). Computed ratios, with the chart's asterisk (large text, graphics and UI only, not body copy) marked:
+
+| Text / background | White | Cream | Sky | Storm |
+|---|---|---|---|---|
+| Black | 21.0 | 16.2 | 15.0 | 13.6 |
+| Navy | 13.4 | 10.3 | 9.6 | 8.7 |
+| Forest | 9.0 | 6.9 | 6.4 \* | 5.8 \* |
+| Claret | 11.8 | 9.1 | 8.4 | 7.6 |
+
+The chart's asterisks don't follow the maths. Forest text on sky (6.4) is starred but sky text on a forest background (the same 6.4) is not; forest and storm (5.8) are starred both ways; forest and cream (6.9) are not. All of these compute above the 4.5 needed for body text. Treat the chart as the rule, since it is stricter: no forest-and-sky or forest-and-storm for body copy.
+
+Not covered by the chart, computed by me: navy on sea 6.0 and claret on sea 5.3 pass for body text; forest on sea 4.0 does not. Sea on white is 2.2 and sea on cream is 1.7, so sea is a **background or graphic colour, never a text colour on light backgrounds**. In the PDF's own examples, sea holds navy text.
+
+## 3. Typography (PDF pp.13 and 14)
+
+The standards define **two sets**. This app is digital, so it uses the **digital set**: Georgia and Arial, both system fonts, no licence needed.
+
+| Role | Digital (use this) | Print (signage, banners, ads) |
 |---|---|---|
-| Navy on cream | 10.3 | AAA |
-| Navy on white | 13.4 | AAA |
-| Navy on Gray 1 | 12.4 | AAA |
-| Navy on peach | 8.3 | AAA |
-| Navy on sage | 6.3 | AA |
-| Cream on navy | 10.3 | AAA |
-| Blue on cream | 7.2 | AAA |
-| White on blue | 9.3 | AAA |
-| White on forest | 9.0 | AAA |
-| Cream on forest | 6.9 | AA |
-| Forest on cream | 6.9 | AA |
-| White on rust | 5.1 | AA |
-| Rust on cream | 3.95 | Large text only |
-| Forest on sage | 4.2 | Large text only |
-| Navy on rust | 2.6 | Fails |
-| Sage on white | 2.1 | Fails |
-| Gray 3 on white | 2.4 | Fails, decoration only |
-| Gray 4 on white | 4.6 | AA |
-| Gray 4 on Gray 1 | 4.3 | Large text only |
+| Headline primary | Georgia Bold | Bookmania Semibold |
+| Headline secondary | Georgia Regular | Bookmania Regular |
+| Subhead | Arial Regular | Gotham Book |
+| Special call-out | Georgia Bold Italic | Bookmania Semibold Italic |
+| Label or CTA | Arial Bold, uppercase, +100 tracking | Gotham Bold, uppercase, +100 tracking |
+| Body | Arial Regular | Gotham Book |
+| Legal | Arial Narrow Regular | Gotham Narrow Book |
 
-Practical rules for the app: rust is for markers, strokes and fills (it is used that way today, `brand.css:55,194,197`), and white text on a rust fill is fine. Never put navy text on rust. Gray 4 is the lightest grey allowed for body text and only on white. Do not use sage for text on white.
+"+100 tracking" is 0.1 em (`--label-tracking`). For PowerPoint and Word use Arial; for web tools such as Canva use Montserrat. Bookmania and Gotham are licensed (ensure licences are in place) and must not use Bookmania's flourished glyphs. My first version had this backwards, calling Bookmania and Gotham the digital fonts.
 
-The guidelines also publish an accessibility chart as an image. It could not be read here, so the table above is independently computed, not the manufacturer's chart.
+Tokens: `--font-display`, `--font-body`, `--font-legal`, `--label-tracking`; print equivalents `--font-print-display`, `--font-print-body`. The app still renders in the Apple system font stack. No rule uses these tokens yet.
 
-## 3. Typography
+## 4. Icons (PDF p.15)
 
-- **Bookmania** (display): serif that signals craft and trust; Semibold is the headline weight. Licensed via Adobe Fonts or Mark Simonson Studio.
-- **Gotham** (labels and body): Bold with loose tracking for small labels, Book weight for body copy. Licensed via MyFonts.
-- **Georgia and Arial** are named as the pre-installed system fonts.
+The library is sourced from **Iconoir** (iconoir.com). When downloading extra icons use **optical size 45 and stroke weight 1.3**, and only in colours from the palette. The app uses `lucide-react`, a different set. That is not a defect to fix now (a new dependency needs your approval), but icons should at least be drawn in navy or another palette colour.
 
-Rules: no flourished Bookmania glyphs, no all-caps Bookmania, no weights outside the authorised set, italics only where grammar calls for them, and use digital (system) fonts in email for accessibility.
+## 5. Layout language (PDF pp.16 and 17)
 
-Headline case: sentence case for full thoughts ("Comfort starts with great design."), title case for short thematic lines ("Long Live The Lazy"). Website banners and email use title case. Print and posters use sentence case when the headline is a sentence. Full stop only on full sentences.
+Visible in the "How it comes together" examples: large arched or curved colour-block shapes, a navy base with the logo bottom-left, circular and arched photo crops, Georgia headlines, big Georgia statistics with a small icon above, and a pill-shaped CTA (sea background, navy bold uppercase label). The "Additional assets" page (Courage, Compassion, Curiosity badges, Century Vision, live life well, Power of Comfort, cares, CONNECT) are corporate programme marks and are not for this app.
 
-The app uses an Apple system stack today (`styles.css`). Tokens `--font-brand-display` and `--font-brand-body` exist in `brand-tokens.css` but nothing uses them, because the fonts are licensed and I could not verify which face the guidelines assign to "website and digital primary" (that is shown as an image). Decide before switching the app's fonts.
+## 6. Who to ask (PDF p.18)
 
-## 4. Voice (provisional, Tier B)
+Corporate Communications Team, La-Z-Boy Incorporated: marielle.rodeheffer@la-z-boy.com and lzbinc@identitypr.com, for questions about using the brand assets or guidelines.
 
-Per Fast Company's report of the 2025 refresh, the brand moved from functional to emotional: comfort first, peace over perfection, playful and warm rather than corporate. The headline example "Long Live The Lazy" also appears in the Typography page. The exact wording of the official tagline lockup is not in the pages that were readable, so none is quoted here.
+## 7. Where the app stands and a proposed mapping
 
-For the Floor Assistant (an internal rep tool, not customer advertising) that means: plain, warm, short sentences; no hype; and the evidence rules still outrank tone.
+Already on-standard: navy primary buttons, forest hover and "done" steps, cream hover wash, Gray 1 page background, Gray 6 text. Navy is now #003349 everywhere (it was #00334B, 2 steps off); the three rgba lines and `--studio-blue` were updated to match.
 
-## 5. Where the brand is already applied in the app
+Not on-standard (legacy, 35 lines): rust (active marker, selected-piece outline, blocked reach), sage (focus ring, selected-card fill, reach fill), blue (selected border, checks, kickers, chips, dark-mode primary button), peach. Proposed mapping, **not applied**: rust to claret, sage to sea (or sky for light fills), blue to navy or forest. Caveats: claret is dark (#5F2528), so the selected-piece dashed outline will read heavier; sea fails as text on light backgrounds, so it can only be used for fills, rings and outlines; and the "blocked" and "selected" states currently differ by hue, which needs a check against the "do not" pairings.
 
-Navy primary buttons, forest hover, rust active marker, sage focus and selection, cream hover wash, grey 1 page background, grey 6 text, dark mode with the light logo. The floor-plan SVG uses navy walls and rust selection. No changes were needed there.
+## What this kit does not contain
 
-## Gaps (what this kit does not contain)
-
-- **Brand site pages not read:** the Verbal Identity page and the retail website (la-z-boy.com / la-z-boy.ca) could not be opened from this session, so live buttons, imagery style and photography direction are not documented.
-- **Logo downloads:** the official cream, black and white logos, the tagline lockups and the badges sit behind expired signed links. Only the navy PNG you attached was available.
-- **Image-only guidance:** the colour pairing do/don't diagram, the accessibility chart and the type specimen images could not be read, so approved and forbidden colour pairings are not listed. Check that diagram on the brand site before building colour-blocked layouts.
+- Official cream, black and white logo files, the lockup files and badges (the download links I saw had expired).
+- The web pages' Verbal Identity page and the retail website: neither could be opened.
+- Anything specific to Canada or to dealer stores. The PDF is the corporate edition.

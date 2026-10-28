@@ -1,13 +1,15 @@
 @import './brand-tokens.css';
-/* La-Z-Boy palette transcribed from the supplied Brand Book rulebook. */
+/* Core palette: navy, cream, forest match La-Z-Boy Incorporated Brand Standards 2026 (p.9). Sky, sea, storm, claret and all tints are in brand-tokens.css.
+   LEGACY: blue, sage, rust, peach come from the older web brand guidelines and are NOT in the 2026 standards.
+   The app still uses them (see docs/BRAND_KIT.md for the proposed mapping); do not use them in new work. */
 :root {
-  --brand-navy: #00334B;
+  --brand-navy: #003349;
   --brand-cream: #E6E2D5;
-  --brand-blue: #244C5A;
-  --brand-sage: #9AB9AD;
-  --brand-rust: #BD472A;
   --brand-forest: #00534C;
-  --brand-peach: #ECC3B2;
+  --brand-blue: #244C5A;   /* legacy */
+  --brand-sage: #9AB9AD;   /* legacy */
+  --brand-rust: #BD472A;   /* legacy */
+  --brand-peach: #ECC3B2;  /* legacy */
   --navy: var(--brand-navy);
   --blue: var(--brand-blue);
   --brand-blue-dark: var(--brand-navy);
@@ -16,7 +18,7 @@
   --muted: #4f5b69;
   --text-secondary: #3d4752;
   --text-tertiary: #4f5b69;
-  --line: rgba(0, 51, 75, .14);
+  --line: rgba(0, 51, 73, .14);
   --paper: rgba(255, 255, 255, .92);
   --surface: rgba(255, 255, 255, .92);
   --surface-secondary: #F6F6F6;
@@ -180,8 +182,8 @@ select:focus-visible {
 .studio-svg:focus-visible { outline: 3px solid var(--brand-sage); outline-offset: 2px; }
 .fp-wall { fill: var(--brand-navy); }
 .fp-floor { fill: #fff; }
-.fp-grid { stroke: rgba(0, 51, 75, .09); stroke-width: .5; }
-.fp-grid-major { stroke: rgba(0, 51, 75, .22); stroke-width: .7; }
+.fp-grid { stroke: rgba(0, 51, 73, .09); stroke-width: .5; }
+.fp-grid-major { stroke: rgba(0, 51, 73, .22); stroke-width: .7; }
 .fp-dim { font-size: 8px; fill: var(--brand-navy); font-weight: 600; }
 .fp-body { fill: #d9d2c0; stroke: #8f8672; stroke-width: .8; }
 .fp-back { fill: #b8ae98; stroke: #8f8672; stroke-width: .5; }
