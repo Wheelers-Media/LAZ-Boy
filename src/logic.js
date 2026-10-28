@@ -1406,7 +1406,7 @@ export function decodeRmsSku(input, catalog) {
     swatch_name: colorMatch?.[1] ? colorMatch[1] : null,
     swatch_source: colorMatch ? matchedCollection?.name || 'Stationary catalog swatch' : null,
     status: colorMatch || coverRecord ? 'partially_resolved_from_catalog' : 'digits_parsed_name_unresolved',
-    note: colorMatch ? 'Pattern/color digits matched a supplied catalog swatch record; verify the source collection and exact model eligibility.' : 'Grade/pattern/color digits parsed from the SKU string. A pattern/color name was not confirmed in the supplied swatch data.',
+    note: colorMatch ? 'Pattern and color matched a known swatch. Confirm the exact model can be ordered in it.' : 'Grade/pattern/color digits parsed from the SKU string. The pattern and color name could not be confirmed.',
   } : { raw: null, grade: null, pattern: null, color: null, status: 'unresolved', note: 'No complete cover segment was found.' };
   const claims = [];
   const physicalFeatures = [];
@@ -1427,7 +1427,7 @@ export function decodeRmsSku(input, catalog) {
     }
     const description = optionDescription(catalog, code, found?.source || '');
     if (!description) {
-      claims.push({ code, description: 'No option description in supplied catalogs', status: 'unresolved' });
+      claims.push({ code, description: 'No description for this option', status: 'unresolved' });
       continue;
     }
     const supported = catalogOptionIsSupported(found, code);
@@ -1438,8 +1438,8 @@ export function decodeRmsSku(input, catalog) {
   const warnings = [];
   if (joined?.ambiguous) warnings.push(`The start of this SKU could be read more than one way (${joined.ambiguous.map((hit) => `${hit.styleCode}-${hit.modelCode}`).join(' or ')}). Enter it as PREFIX-MODEL to decode it.`);
   else if (!pair) warnings.push('Expected a documented prefix and model, such as 10X724 or 10X-724.');
-  if (!stylePrefix && !found) warnings.push(`Style ${styleCode || '(missing)'} is not resolved in the supplied references.`);
-  if (!model) warnings.push(`Model ${modelCode || '(missing)'} is not resolved in the supplied references.`);
+  if (!stylePrefix && !found) warnings.push(`Style ${styleCode || '(missing)'} could not be matched.`);
+  if (!model) warnings.push(`Model ${modelCode || '(missing)'} could not be matched.`);
   if (claims.some((claim) => claim.status === 'not_listed_for_exact_style')) warnings.push('One or more options are not listed for this exact style; they are not included in the physical-feature summary.');
   if (!coverToken) warnings.push('Cover material, pattern, and color have not been resolved.');
   else if (programCovers.length && !programGradeKnown) warnings.push(`Grade ${programGrade} is not in the supplied A26 cover program, so its name and cap code are unresolved. Confirm the cover in RMS.`);
