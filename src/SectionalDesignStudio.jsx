@@ -1,9 +1,10 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { CoverPicker } from './CoverPicker.jsx';
-import { Armchair, Copy, Info, Layers3, Minus, Plus, Printer, Redo2, RotateCw, Sofa, Undo2 } from 'lucide-react';
+import { ChevronUp, Copy, Info, Layers3, Printer, Redo2, RotateCw, Scan, Sofa, Trash2, Undo2 } from 'lucide-react';
 import { buildSectionalStudioRmsLine, getSharedCoverSwatches, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
 import { createItem, findFreeSpot, formatInches, layoutSummary, normalizeRotation, parsePieceDimensions, presetItems, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
 
+const narrowScreen = () => typeof window !== 'undefined' && window.matchMedia?.('(max-width: 800px)').matches;
 const WALL = 4;
 const MARGIN = 18;
 
@@ -33,16 +34,16 @@ function PieceArt({ item }) {
     return <g><rect className="fp-body" width={w} height={d} rx="4" /><rect className="fp-cushion" x="1.5" y="1.5" width={w - 3} height={d - 3} rx="3" /><path className="fp-stitch" d={`M${w / 2} 4V${d - 4}M4 ${d / 2}H${w - 4}`} /></g>;
   }
   if (kind === 'corner') {
-    // Elbow: the back hugs the top and left walls with a rounded outer corner; the front edges are where the neighbours
-    // attach (attachIn long), joined by a diagonal. Extents are the published W on both axes; the corner radius is schematic.
+    // Wedge corner: square outer corner with the back running along two walls, and a 45 degree front. The two faces
+    // where neighbours attach are `attach` long (published D); the footprint is the published W on both axes.
     const attach = Math.min(item.attachIn || w * 0.6, w);
-    const r = w * 0.3;
-    const thick = Math.max(8, back * 1.3);
-    const outline = `M${w} 0L${w} ${attach}L${attach} ${w}L0 ${w}L0 ${r}Q0 0 ${r} 0Z`;
-    const seat = `M${w} ${thick}L${w} ${attach}L${attach} ${w}L${thick} ${w}L${thick} ${r}Q${thick} ${thick} ${r} ${thick}Z`;
-    return <g><path className="fp-body" d={outline} />
-      <path className="fp-back" d={`M${w} ${thick / 2}L${r} ${thick / 2}Q${thick / 2} ${thick / 2} ${thick / 2} ${r}L${thick / 2} ${w}`} style={{ fill: 'none', stroke: '#b8ae98', strokeWidth: thick }} />
-      <path className="fp-cushion" d={seat} /></g>;
+    const t = back;
+    const m = (w + attach) / 2;
+    const outline = `M0 0H${w}V${attach}L${attach} ${w}H0Z`;
+    const halfA = `M${t} ${t}H${w}V${attach}L${m} ${m}Z`;
+    const halfB = `M${t} ${t}L${m} ${m}L${attach} ${w}H${t}Z`;
+    return <g><path className="fp-body fp-corner" d={outline} /><path className="fp-back" d={outline} />
+      <path className="fp-cushion fp-corner" d={halfA} /><path className="fp-cushion fp-corner" d={halfB} /></g>;
   }
   return <g><rect className="fp-body" width={w} height={d} rx="3" /><rect className="fp-back" width={w} height={back} rx="2" />
     {leftArm && <rect className="fp-arm" width={arm} height={d} rx="2" />}{rightArm && <rect className="fp-arm" x={w - arm} width={arm} height={d} rx="2" />}
@@ -67,12 +68,28 @@ const rotationTransform = (rotation, x, y, w, d) => {
   }
 };
 
+/** Where a piece's label sits on the plan. A corner's box centre is the empty void in front of the wedge, so use its seat. */
+const labelPoint = (item) => {
+  const { x, y, baseWidth: w, baseHeight: d } = item;
+  let lx = w / 2; let ly = d / 2;
+  if (item.kind === 'corner') { lx = w * 0.42; ly = w * 0.42; }
+  if (item.mirror) lx = w - lx;
+  switch (normalizeRotation(item.rotation)) {
+    case 90: return { x: x + d - ly, y: y + lx };
+    case 180: return { x: x + w - lx, y: y + d - ly };
+    case 270: return { x: x + ly, y: y + w - lx };
+    default: return { x: x + lx, y: y + ly };
+  }
+};
+
 export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724', onModelChange }) {
   const profiles = (catalog.product_profiles || []).filter((profile) => profile.pieces?.length);
   const [modelCode, setModelCode] = useState(String(initialModelCode));
   const profile = profiles.find((item) => String(item.model_code) === modelCode) || profiles[0];
   const [selectedKey, setSelectedKey] = useState('');
-  const [selectedVariant, setSelectedVariant] = useState('');
+  const [variantByKey, setVariantByKey] = useState({});
+  const [focus, setFocus] = useState(false);
+  const [dockOpen, setDockOpen] = useState(false);
   const [items, setItems] = useState([]);
   const [selectedId, setSelectedId] = useState('');
   const [roomWidth, setRoomWidth] = useState(20);
@@ -92,7 +109,7 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
   const pieces = useMemo(() => profile ? sectionalPiecesForFamily(catalog, profile.sectional_family, String(profile.model_code)) : [], [catalog, profile]);
   const selectedPiece = pieces.find((piece) => piece.key === selectedKey) || pieces[0];
   const variants = selectedPiece?.variants?.length ? selectedPiece.variants : (selectedPiece?.prefix || '').split('/').map((code) => ({ code: code.trim(), label: '' }));
-  const selectedCode = variants.find((entry) => entry.code === selectedVariant)?.code || variants[0]?.code || selectedPiece?.prefix?.split('/')[0]?.trim() || '';
+  const selectedCode = variants.find((entry) => entry.code === variantByKey[selectedPiece?.key])?.code || variants[0]?.code || selectedPiece?.prefix?.split('/')[0]?.trim() || '';
   const selectedSource = profile?.pieces.find((entry) => entry.key === selectedPiece?.key);
   const selectedSize = parsePieceDimensions(selectedSource?.dimensions_text);
   const room = useMemo(() => ({ width: roomWidth * 12, height: roomDepth * 12 }), [roomWidth, roomDepth]);
@@ -124,16 +141,19 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
   });
   const setProfile = (code) => {
     setModelCode(code);
-    setItems([]); setHistory({ past: [], future: [] }); setSelectedId(''); setSelectedKey(''); setSelectedVariant(''); setNotice('');
+    setItems([]); setHistory({ past: [], future: [] }); setSelectedId(''); setSelectedKey(''); setVariantByKey({}); setNotice('');
     onModelChange?.(code);
   };
-  const addPiece = () => {
-    if (!profile || !selectedPiece || !selectedCode) return;
-    const draft = createItem(selectedPiece, profile, 0, 0, 0, selectedCode);
+  const addPiece = (piece) => {
+    if (!profile || !piece) return;
+    const code = variants.length && selectedPiece?.key === piece.key ? selectedCode : (variantByKey[piece.key] || '');
+    const draft = createItem(piece, profile, 0, 0, 0, code || undefined);
     if (!draft) { setNotice('This piece has no width and depth in the catalog, so it cannot be drawn to scale.'); return; }
     const spot = findFreeSpot(draft, items, room);
     if (!spot) { setNotice('There is no free space left in this room for that piece. Make the room larger or remove a piece.'); return; }
+    setSelectedKey(piece.key);
     commit([...items, { ...draft, ...spot }]); setSelectedId(draft.id); setNotice('');
+    if (narrowScreen()) setFocus(true);
   };
   const applyPreset = (kind) => {
     const next = presetItems(kind, profile, pieces, room);
@@ -143,6 +163,7 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
       return;
     }
     commit(next); setSelectedId(next[0]?.id || '');
+    if (narrowScreen()) setFocus(true);
     setNotice('Layout loaded to scale. Check every connection against the collection tear pad before ordering.');
   };
   const toPoint = (event) => {
@@ -195,25 +216,54 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
   };
   const copy = () => { if (canCopy) { onCopy(rmsText); setNotice('RMS entry preview copied. Verify the style, cover, color, and orderability before entry.'); } };
 
-  const viewBox = `${-MARGIN} ${-MARGIN} ${room.width + MARGIN * 2} ${room.height + MARGIN * 2}`;
+  const bounds = items.length ? { x0: Math.min(...items.map((i) => i.x)), y0: Math.min(...items.map((i) => i.y)), x1: Math.max(...items.map((i) => i.x + i.width)), y1: Math.max(...items.map((i) => i.y + i.height)) } : null;
+  const full = { x: -MARGIN, y: -MARGIN, w: room.width + MARGIN * 2, h: room.height + MARGIN * 2 };
+  const view = (() => {
+    if (!focus || !bounds) return full;
+    const aspect = full.w / full.h;
+    let w = bounds.x1 - bounds.x0 + 64; let h = bounds.y1 - bounds.y0 + 64;
+    if (w / h < aspect) w = h * aspect; else h = w / aspect;
+    w = Math.min(Math.max(w, 150), full.w); h = w / aspect;
+    const cx = (bounds.x0 + bounds.x1) / 2; const cy = (bounds.y0 + bounds.y1) / 2;
+    return { x: Math.min(Math.max(cx - w / 2, full.x), full.x + full.w - w), y: Math.min(Math.max(cy - h / 2, full.y), full.y + full.h - h), w, h };
+  })();
+  const viewBox = `${view.x} ${view.y} ${view.w} ${view.h}`;
+  const unit = view.w / full.w; // 1 at full room; smaller when zoomed in, so text stays proportionate
   const gridLines = (length, step) => Array.from({ length: Math.floor(length / step) - 1 }, (_, index) => (index + 1) * step);
+  const dimTop = bounds && bounds.y0 >= 16;
+  const dimLeft = bounds && bounds.x0 >= 16;
+  const dimY = bounds ? (dimTop ? bounds.y0 - 7 : bounds.y1 + 7) : 0;
+  const dimX = bounds ? (dimLeft ? bounds.x0 - 7 : bounds.x1 + 7) : 0;
+  const tick = 2.5;
+  const label = Math.max(4, 6.5 * Math.max(unit, 0.55));
+  const trayDraft = (piece) => createItem(piece, profile, 0, 0, 0, variantByKey[piece.key]);
+  const variantsOfSelected = variants.length > 1 ? variants : [];
 
   return <section className="module-page design-studio">
     <div className="module-intro"><h1>Sectional <em>Studio</em></h1></div>
     <div className="studio-toolbar card">
-      <label className="form-field"><span>Style / collection</span><select value={profile?.model_code || ''} onChange={(event) => setProfile(event.target.value)}>{[...new Set(profiles.map((entry) => entry.sectional_family))].map((family) => <optgroup key={family} label={family}>{profiles.filter((entry) => entry.sectional_family === family).map((entry) => <option key={entry.model_code} value={entry.model_code}>{entry.model_name} · {entry.model_code}</option>)}</optgroup>)}</select></label>
-      <div className="form-field"><span>Starting layouts</span><div className="chip-row tight" role="group" aria-label="Starting layouts">{[['l-standard', 'L-shape'], ['l-console', 'L with console'], ['u-shape', 'U-shape'], ['straight-chaise', 'Sofa with chaise']].map(([key, label]) => <button key={key} type="button" className="chip" onClick={() => applyPreset(key)}>{label}</button>)}</div></div>
-      <fieldset className="studio-room-fields"><legend>Room size · feet</legend><label>Width <input type="number" min="8" max="40" value={roomWidth} onChange={(event) => setRoomWidth(Math.max(8, Math.min(40, Number(event.target.value) || 8)))} /></label><label>Depth <input type="number" min="8" max="40" value={roomDepth} onChange={(event) => setRoomDepth(Math.max(8, Math.min(40, Number(event.target.value) || 8)))} /></label></fieldset>
+      <label className="form-field"><span>Collection</span><select value={profile?.model_code || ''} onChange={(event) => setProfile(event.target.value)}>{[...new Set(profiles.map((entry) => entry.sectional_family))].map((family) => <optgroup key={family} label={family}>{profiles.filter((entry) => entry.sectional_family === family).map((entry) => <option key={entry.model_code} value={entry.model_code}>{entry.model_name} · {entry.model_code}</option>)}</optgroup>)}</select></label>
+      <fieldset className="studio-room-fields"><legend>Room, feet</legend><label>Width <input type="number" inputMode="numeric" min="8" max="40" value={roomWidth} onChange={(event) => setRoomWidth(Math.max(8, Math.min(40, Number(event.target.value) || 8)))} /></label><span aria-hidden="true">×</span><label>Depth <input type="number" inputMode="numeric" min="8" max="40" value={roomDepth} onChange={(event) => setRoomDepth(Math.max(8, Math.min(40, Number(event.target.value) || 8)))} /></label></fieldset>
+      <div className="studio-layouts" role="group" aria-label="Starting layouts"><span>Start from</span>{[['l-standard', 'L-shape'], ['l-console', 'L with console'], ['u-shape', 'U-shape'], ['straight-chaise', 'Sofa with chaise']].map(([key, text]) => <button key={key} type="button" className="chip" onClick={() => applyPreset(key)}>{text}</button>)}</div>
     </div>
     <div className="studio-workspace">
-      <section className="studio-board-card card"><div className="studio-section-head"><div><h2>{profile?.model_name || 'Collection'} · {roomWidth}′ × {roomDepth}′ room</h2></div><span className="studio-live"><i /> 1 FT GRID</span></div>
+      <section className="studio-board-card card">
+        <div className="studio-tray" role="group" aria-label={`${profile?.model_name || 'Collection'} pieces. Tap one to add it.`}>
+          {pieces.map((piece) => { const draft = trayDraft(piece); return <button key={piece.key} type="button" className={`studio-tile ${selectedKey === piece.key ? 'on' : ''}`} disabled={!draft} onClick={() => addPiece(piece)}>
+            <svg viewBox={draft ? `-3 -3 ${draft.baseWidth + 6} ${draft.baseHeight + 6}` : '0 0 10 10'} aria-hidden="true" focusable="false">{draft && <PieceArt item={draft} />}</svg>
+            <strong>{piece.name}</strong><small>{draft ? `${formatInches(publishedSize(draft).width)} × ${formatInches(publishedSize(draft).depth)}` : 'No size listed'}</small>
+          </button>; })}
+        </div>
+        {variantsOfSelected.length > 0 && <div className="studio-variants" role="group" aria-label={`${selectedPiece?.name} version`}><span>{selectedPiece?.name}</span>{variantsOfSelected.map((entry) => <button key={entry.code} type="button" className={`chip ${selectedCode === entry.code ? 'on' : ''}`} aria-pressed={selectedCode === entry.code} onClick={() => setVariantByKey((current) => ({ ...current, [selectedPiece.key]: entry.code }))}>{entry.code}{entry.label ? ` · ${entry.label}` : ''}</button>)}</div>}
         <div className="studio-tools" role="toolbar" aria-label="Plan tools">
-          <button type="button" onClick={undo} disabled={!history.past.length} aria-label="Undo"><Undo2 size={15} /> Undo</button>
-          <button type="button" onClick={redo} disabled={!history.future.length} aria-label="Redo"><Redo2 size={15} /> Redo</button>
-          <label><input type="checkbox" checked={snapEdges} onChange={(event) => setSnapEdges(event.target.checked)} /> Snap edges</label>
-          <label><input type="checkbox" checked={showReach} onChange={(event) => setShowReach(event.target.checked)} /> Recline reach</label>
-          <label><input type="checkbox" checked={showSizes} onChange={(event) => setShowSizes(event.target.checked)} /> Sizes</label>
-          <button type="button" onClick={() => window.print()} aria-label="Print plan"><Printer size={15} /> Print</button>
+          <button type="button" onClick={undo} disabled={!history.past.length} aria-label="Undo"><Undo2 size={16} /><span>Undo</span></button>
+          <button type="button" onClick={redo} disabled={!history.future.length} aria-label="Redo"><Redo2 size={16} /><span>Redo</span></button>
+          <i aria-hidden="true" />
+          <button type="button" className={snapEdges ? 'on' : ''} aria-pressed={snapEdges} onClick={() => setSnapEdges(!snapEdges)}>Snap</button>
+          <button type="button" className={showReach ? 'on' : ''} aria-pressed={showReach} onClick={() => setShowReach(!showReach)}>Reach</button>
+          <button type="button" className={showSizes ? 'on' : ''} aria-pressed={showSizes} onClick={() => setShowSizes(!showSizes)}>Sizes</button>
+          <button type="button" className={focus ? 'on' : ''} aria-pressed={focus} onClick={() => setFocus(!focus)} disabled={!items.length}><Scan size={15} /> Zoom to fit</button>
+          <button type="button" className="studio-print" onClick={() => window.print()} aria-label="Print plan"><Printer size={16} /><span>Print</span></button>
         </div>
         <div className="studio-board-wrap">
           <svg ref={svgRef} className="studio-svg" viewBox={viewBox} tabIndex={0} role="application" aria-label={`${roomWidth} by ${roomDepth} foot floor plan. Arrow keys move the selected piece, R turns it, Delete removes it.`}
@@ -222,33 +272,47 @@ export function SectionalDesignStudio({ catalog, onCopy, initialModelCode = '724
             <rect className="fp-floor" x="0" y="0" width={room.width} height={room.height} />
             {gridLines(room.width, 12).map((x) => <line key={`gx${x}`} className={x % 60 ? 'fp-grid' : 'fp-grid fp-grid-major'} x1={x} y1="0" x2={x} y2={room.height} />)}
             {gridLines(room.height, 12).map((y) => <line key={`gy${y}`} className={y % 60 ? 'fp-grid' : 'fp-grid fp-grid-major'} x1="0" y1={y} x2={room.width} y2={y} />)}
-            <text className="fp-dim" x={room.width / 2} y={-8} textAnchor="middle">{roomWidth}′</text>
-            <text className="fp-dim" x={-9} y={room.height / 2} textAnchor="middle" transform={`rotate(-90 -9 ${room.height / 2})`}>{roomDepth}′</text>
+            {!focus && <><text className="fp-dim" x={room.width / 2} y={-8} textAnchor="middle">{roomWidth}′</text>
+            <text className="fp-dim" x={-9} y={room.height / 2} textAnchor="middle" transform={`rotate(-90 -9 ${room.height / 2})`}>{roomDepth}′</text></>}
             {showReach && items.map((item) => { const zone = reachRect(item); return zone ? <rect key={`r${item.id}`} className={`fp-reach ${reach.some((entry) => entry.id === item.id) ? 'blocked' : ''}`} x={zone.x} y={zone.y} width={zone.width} height={zone.height} /> : null; })}
             {items.map((item) => <g key={item.id} className={`fp-piece ${selectedId === item.id ? 'selected' : ''}`} onPointerDown={(event) => startDrag(event, item)} role="button" tabIndex={0} aria-label={`${item.name}, ${item.code}, ${formatInches(publishedSize(item).width)} wide by ${formatInches(publishedSize(item).depth)} deep. Select or drag.`} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelectedId(item.id); } }}>
               <g transform={pieceTransform(item)}><PieceArt item={item} /></g>
               <rect className="fp-outline" x={item.x} y={item.y} width={item.width} height={item.height} />
             </g>)}
-            {items.map((item) => <g key={`t${item.id}`} className="fp-labels" pointerEvents="none">
-              <text className="fp-code" x={item.x + item.width / 2} y={item.y + item.height / 2} textAnchor="middle" dominantBaseline="central" fontSize={Math.max(5, Math.min(9, Math.min(item.width, item.height) * 0.22))}>{item.code}</text>
-              {showSizes && item.width >= 44 && item.height >= 30 && <text className="fp-size" x={item.x + item.width / 2} y={item.y + item.height / 2 + Math.max(5, Math.min(9, Math.min(item.width, item.height) * 0.22)) * 1.15} textAnchor="middle" dominantBaseline="central" fontSize="5">{formatInches(publishedSize(item).width)} × {formatInches(publishedSize(item).depth)}</text>}
-            </g>)}
-            <g className="fp-scale" pointerEvents="none"><rect x="0" y={room.height + 6} width="60" height="2.5" /><text x="0" y={room.height + 14} fontSize="5.5">5′ scale</text></g>
+            {items.map((item) => { const at = labelPoint(item); const size = Math.max(4.5, Math.min(9, Math.min(item.width, item.height) * 0.22)); return <g key={`t${item.id}`} className="fp-labels" pointerEvents="none">
+              <text className="fp-code" x={at.x} y={at.y} textAnchor="middle" dominantBaseline="central" fontSize={size}>{item.code}</text>
+              {showSizes && item.width >= 44 && item.height >= 30 && <text className="fp-size" x={at.x} y={at.y + size * 1.2} textAnchor="middle" dominantBaseline="central" fontSize={Math.max(3.8, size * 0.62)}>{formatInches(publishedSize(item).width)} × {formatInches(publishedSize(item).depth)}</text>}
+            </g>; })}
+            {bounds && <g className="fp-measure" pointerEvents="none">
+              <path d={`M${bounds.x0} ${dimY}H${bounds.x1}M${bounds.x0} ${dimY - tick}V${dimY + tick}M${bounds.x1} ${dimY - tick}V${dimY + tick}`} />
+              <text x={(bounds.x0 + bounds.x1) / 2} y={dimTop ? dimY - 2.5 : dimY + label + 1.5} textAnchor="middle" fontSize={label}>{formatInches(bounds.x1 - bounds.x0)}</text>
+              <path d={`M${dimX} ${bounds.y0}V${bounds.y1}M${dimX - tick} ${bounds.y0}H${dimX + tick}M${dimX - tick} ${bounds.y1}H${dimX + tick}`} />
+              <text x={dimLeft ? dimX - 2.5 : dimX + label} y={(bounds.y0 + bounds.y1) / 2} textAnchor="middle" fontSize={label} transform={`rotate(-90 ${dimLeft ? dimX - 2.5 : dimX + label} ${(bounds.y0 + bounds.y1) / 2})`}>{formatInches(bounds.y1 - bounds.y0)}</text>
+            </g>}
+            {!focus && <g className="fp-scale" pointerEvents="none"><rect x="0" y={room.height + 6} width="60" height="2.5" /><text x="0" y={room.height + 14} fontSize="5.5">5′ scale</text></g>}
           </svg>
-          {!items.length && <div className="studio-board-empty"><Sofa size={38} /><strong>Start with a layout or add a piece</strong><span>Pieces are drawn at their real size and cannot overlap</span></div>}
+          {!items.length && <div className="studio-board-empty"><Sofa size={38} /><strong>Tap a piece above, or start from a layout</strong><span>Pieces are drawn at real size and can’t overlap.</span></div>}
         </div>
-        <div className="studio-board-controls">{selectedItem ? <div className="studio-selected-actions"><strong>{selectedItem.name} · {selectedItem.code}</strong><span>{formatInches(publishedSize(selectedItem).width)} W × {formatInches(publishedSize(selectedItem).depth)} D{selectedItem.heightIn ? ` × ${formatInches(selectedItem.heightIn)} H` : ''}{selectedItem.reachIn ? ` · ${formatInches(selectedItem.reachIn)} reclined` : ''}</span><button type="button" onClick={rotateSelected} aria-label="Rotate selected piece"><RotateCw size={15} /> Rotate 90°</button><button type="button" onClick={removeSelected} aria-label="Remove selected piece"><Minus size={15} /> Remove</button></div> : <span>Select a piece to see its size. Drag to move; arrow keys nudge 1″, Shift 6″.</span>}</div>
-        {summary && <div className="studio-summary"><span><strong>{formatInches(summary.width)} × {formatInches(summary.depth)}</strong> overall footprint</span><span>Gap to walls: left {formatInches(summary.gaps.left)} · right {formatInches(summary.gaps.right)} · top {formatInches(summary.gaps.top)} · bottom {formatInches(summary.gaps.bottom)}</span></div>}
+        <div className="studio-selected" aria-live="polite">{selectedItem ? <>
+          <div><strong>{selectedItem.name} · {selectedItem.code}</strong><span>{formatInches(publishedSize(selectedItem).width)} W × {formatInches(publishedSize(selectedItem).depth)} D{selectedItem.heightIn ? ` × ${formatInches(selectedItem.heightIn)} H` : ''}{selectedItem.reachIn ? ` · ${formatInches(selectedItem.reachIn)} reclined` : ''}</span></div>
+          <button type="button" onClick={rotateSelected} aria-label="Rotate selected piece 90 degrees"><RotateCw size={18} /> Rotate</button>
+          <button type="button" className="danger" onClick={removeSelected} aria-label="Remove selected piece"><Trash2 size={18} /> Remove</button>
+        </> : <span className="studio-hint">{items.length ? 'Tap a piece to turn or remove it. Drag to move.' : 'Pieces you add appear in the room at real size.'}</span>}</div>
+        {summary && <details className="studio-summary"><summary><strong>{formatInches(summary.width)} × {formatInches(summary.depth)}</strong> overall · gaps to walls</summary><span>Left {formatInches(summary.gaps.left)} · right {formatInches(summary.gaps.right)} · top {formatInches(summary.gaps.top)} · bottom {formatInches(summary.gaps.bottom)}</span></details>}
         {notice && <p className="studio-notice" role="status">{notice}</p>}
       </section>
-      <aside className="studio-parts card"><div className="studio-section-head"><div><p className="eyebrow">{profile?.sectional_family} · {profile?.model_code}</p><h2>Collection pieces</h2></div><span className="studio-parts-count">{pieces.length} types</span></div><label className="form-field"><span>Piece type</span><select value={selectedPiece?.key || ''} onChange={(event) => { setSelectedKey(event.target.value); setSelectedVariant(''); }}>{pieces.map((piece) => <option key={piece.key} value={piece.key}>{piece.name} · {piece.prefix}</option>)}</select></label>
-        {variants.length > 1 && <label className="form-field"><span>Prefix / power variant</span><select value={selectedCode} onChange={(event) => setSelectedVariant(event.target.value)}>{variants.map((entry) => <option key={entry.code} value={entry.code}>{entry.code}{entry.label ? ` · ${entry.label}` : ''}</option>)}</select></label>}
-        <div className="studio-piece-detail"><Armchair size={19} /><span><strong>{selectedPiece?.name || 'Choose a piece'}</strong><small>{selectedSize ? `${formatInches(selectedSize.width)} W × ${formatInches(selectedSize.depth)} D${selectedSize.height ? ` × ${formatInches(selectedSize.height)} H` : ''}${selectedSource?.fully_extended_in ? ` · ${formatInches(selectedSource.fully_extended_in)} reclined` : ''}` : 'Size not in the supplied data.'}</small></span></div>
-        <button type="button" className="primary-button studio-add" onClick={addPiece} disabled={!selectedSize}><Plus size={16} /> Add piece to floor plan</button>
-        {items.length > 0 && <div className={`studio-check ${validation.valid && items.length ? 'valid' : validation.errors.length ? 'invalid' : ''}`} role="status"><strong>{!items.length ? 'Plan your room' : validation.valid ? 'Layout checks passed' : 'Review the layout'}</strong>{validation.errors.map((error) => <small key={error}>{error}</small>)}{reach.map((entry) => <small key={entry.id}>{entry.code} cannot fully recline: {entry.reason === 'wall' ? 'a wall is in the way.' : `${entry.blocker} is in the way.`}</small>)}{validation.warnings.map((warning) => <small key={warning}>{warning}</small>)}</div>}
-        <div className="studio-cover">{items.length ? <CoverPicker key={sharedSwatches.length} swatches={sharedSwatches} value={coverReady ? `${cover}${pattern}${color}` : ''} onChange={(code, match) => { setCover(match?.grade || ''); setPattern(match?.pattern || ''); setColor(match?.color || ''); }} /> : <small>Add a piece first. Covers shown are the ones every piece in the plan can be built in.</small>}</div>
+      <aside className="studio-parts card">
+        {items.length > 0 && <div className={`studio-check ${validation.valid && items.length ? 'valid' : validation.errors.length ? 'invalid' : ''}`} role="status"><strong>{validation.valid ? 'Layout checks passed' : 'Review the layout'}</strong>{validation.errors.map((error) => <small key={error}>{error}</small>)}{reach.map((entry) => <small key={entry.id}>{entry.code} cannot fully recline: {entry.reason === 'wall' ? 'a wall is in the way.' : `${entry.blocker} is in the way.`}</small>)}{validation.warnings.map((warning) => <small key={warning}>{warning}</small>)}</div>}
+        <div className="studio-cover">{items.length ? <CoverPicker key={sharedSwatches.length} swatches={sharedSwatches} value={coverReady ? `${cover}${pattern}${color}` : ''} onChange={(code, match) => { setCover(match?.grade || ''); setPattern(match?.pattern || ''); setColor(match?.color || ''); }} /> : <p className="studio-hint">Add a piece, then choose one cover that every piece can be built in.</p>}</div>
       </aside>
     </div>
-    <section className="studio-order-drawer" aria-live="polite"><div className="studio-drawer-head"><div><p className="eyebrow"><Layers3 size={12} /> RMS ORDER SUMMARY</p><strong>{items.length} configured {items.length === 1 ? 'piece' : 'pieces'}</strong></div><span className="studio-preview-badge">ENTRY PREVIEW · NOT ORDER-VALIDATED</span></div>{items.length ? <><div className="studio-order-list">{items.map((item, index) => { const supported = getSectionalPieceOptions(catalog, item.family, item.modelCode, item.code); return <article key={item.id}><span className="studio-order-num">{String(index + 1).padStart(2, '0')}</span><span><strong>{item.modelName} · {item.name}</strong><small>Prefix {item.code} · Model {item.modelCode} · {cover} {pattern} {color}</small></span><code>{rmsRows[index]}</code>{supported.length > 0 && <small className="studio-order-options">Indexed options: {supported.join(', ')}</small>}</article>; })}</div><div className="studio-copy-row"><pre>{rmsText}</pre><button type="button" className="copy-button" disabled={!canCopy} onClick={copy}><Copy size={14} /> Copy for RMS</button></div></> : <p className="studio-order-empty">Add a piece to see its model, prefix, cover and draft entry string here.</p>}<p className="studio-order-disclaimer"><Info size={14} /> These are catalog-derived entry references, not guaranteed order SKUs. Verify the exact-style cover, options, availability and assembly with the live RMS/order guide before promising or submitting.</p></section>
+    <section className={`studio-dock ${dockOpen ? 'open' : ''}`} aria-live="polite">
+      <div className="studio-dock-bar">
+        <button type="button" className="studio-dock-toggle" onClick={() => setDockOpen(!dockOpen)} aria-expanded={dockOpen}><Layers3 size={16} /><span>{items.length} {items.length === 1 ? 'piece' : 'pieces'}</span><ChevronUp size={16} className="chev" /></button>
+        <button type="button" className="copy-button" disabled={!canCopy} onClick={copy}><Copy size={16} /> Copy for RMS</button>
+      </div>
+      {dockOpen && <div className="studio-dock-body">{items.length ? <><div className="studio-order-list">{items.map((item, index) => { const supported = getSectionalPieceOptions(catalog, item.family, item.modelCode, item.code); return <article key={item.id}><span><strong>{item.name}</strong><small>{item.code}-{item.modelCode}{coverReady ? ` · ${cover} ${pattern} ${color}` : ' · cover not chosen'}</small></span><code>{rmsRows[index]}</code>{supported.length > 0 && <small className="studio-order-options">Options: {supported.join(', ')}</small>}</article>; })}</div>
+        <p className="studio-order-disclaimer"><Info size={14} /> Entry preview only. Confirm style, cover, options and availability in RMS before promising it.</p></> : <p className="studio-order-empty">Add a piece to see its RMS entry here.</p>}</div>}
+    </section>
   </section>;
 }
