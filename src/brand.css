@@ -1050,3 +1050,37 @@ input,textarea,select{font-size:max(16px,1em)}
 .tile:active,.sf-next:active,.sf-back:active,.sf-secondary:active,.index-launch:active,.chip:active,.primary-button:active,.copy-button:active,.back-button:active,.studio-tile:active,.sf-todo-row:active{transform:scale(.97)}
 .scroll-box,.studio-drawer,.mobile-tools-sheet{overscroll-behavior:contain}
 @media (prefers-reduced-motion:reduce){.tile,.sf-next,.sf-back{transition:none}}
+
+/* Layout repairs (review pass) */
+.stepflow{align-content:start;grid-auto-rows:min-content}
+.stepflow .rms-code-output code{word-break:normal;overflow-wrap:anywhere;font-size:17px;line-height:1.5}
+.sf-step-text small{white-space:normal;display:block;overflow:visible;text-overflow:clip}
+.sf-step-text strong{font-size:16px}
+.sf-side{max-height:calc(100vh - 32px);overflow-y:auto}
+.stepflow .rms-field-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:899px){
+  /* nav docks above the tab bar; content gets room so nothing hides under it */
+  .stepflow{padding-bottom:calc(96px + var(--safe-bottom,0px))}
+  .sf-nav{position:fixed;left:12px;right:12px;bottom:calc(3.75rem + var(--safe-bottom,0px) + 8px);z-index:7}
+  .stepflow .rms-field-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:600px){
+  .main-content details.fold-card>summary{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;row-gap:2px;align-items:center}
+  .main-content details.fold-card>summary>*{grid-column:1}
+  .main-content details.fold-card>summary::after{grid-column:2;grid-row:1 / span 2;align-self:center}
+  .customer-plan .primary-button,.customer-plan .back-button,.plan-empty .primary-button,.plan-empty .back-button{width:100%;justify-content:center}
+}
+@media (max-width:600px){.plan-empty-actions{display:grid;gap:12px;width:100%}.plan-empty-actions button{width:100%;min-height:56px;justify-content:center}}
+@media (min-width:900px) and (max-width:1099px){.stepflow{grid-template-rows:auto auto 1fr}}
+@media (min-width:1100px){.stepflow{grid-template-rows:auto 1fr}}
+.support-card.fold-card>summary .module-head{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:14px;align-items:center;margin:0}
+.support-card.fold-card>summary .module-head:not(:has(.module-icon)){grid-template-columns:minmax(0,1fr)}
+.support-card.fold-card>summary .module-head h2{margin:0 0 2px;font-size:20px;line-height:1.2}
+.support-card.fold-card>summary .module-head p{margin:0;font-size:15px;color:var(--text-secondary,#5b5b60)}
+.panel-heading h2{font-size:26px;line-height:1.2}
+@media (max-width:600px){
+  .wizard-footer{bottom:calc(3.75rem + var(--safe-bottom,0px));box-shadow:0 -6px 18px rgba(0,0,0,.08)}
+  .wizard-panel{padding-bottom:104px}
+}
+@media (max-width:600px){.index-launcher>.index-launch:last-child:nth-child(odd){grid-column:1 / -1}}
+.knowledge-search input,.index-search input{font-size:17px}
