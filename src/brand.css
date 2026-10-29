@@ -1039,7 +1039,9 @@ img.rail-logo { width: 100px; }
 .studio-drawer :is(strong,span,small,legend,label,p,li,button,summary),.studio-dock :is(strong,span,small,legend,label,p,button){font-size:max(14px,1em)}
 .studio-drawer button,.studio-drawer summary{min-height:48px}
 .studio-tile strong{-webkit-line-clamp:4;line-height:1.25}
-.studio-title strong{white-space:normal;line-height:1.2}
+.studio-title strong{white-space:nowrap;line-height:1.2}
+.studio-title span,.studio-title small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.studio-dockbar span{font-size:13px;line-height:1.15}
 
 /* Native-feel baseline (phone): no tap flash, no double-tap delay, 16px inputs so iOS never zooms, press feedback on :active */
 html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
