@@ -332,7 +332,7 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .fitq-choice { position: relative; display: grid; gap: 4px; text-align: left; min-height: 64px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; background: #fff; color: var(--ink); cursor: pointer; font: inherit; }
 .fitq-choice strong { font-size: 15px; }
 .fitq-choice small { color: var(--muted); font-size: 13px; }
-.fitq-choice:hover { border-color: var(--brand-blue); }
+@media (hover:hover) and (pointer:fine){.fitq-choice:hover { border-color: var(--brand-blue); }}
 .fitq-choice.selected { border-color: var(--brand-blue); box-shadow: inset 0 0 0 1px var(--brand-blue); background: var(--brand-blue-soft); }
 .fitq-check { position: absolute; top: 12px; right: 12px; color: var(--brand-blue); }
 .fitq-more { border: 1px dashed var(--line); border-radius: 14px; padding: 12px 16px; }
@@ -345,7 +345,7 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .fitq-pill { display: grid; text-align: left; min-height: 44px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 12px; background: #fff; cursor: pointer; font: inherit; color: var(--ink); }
 .fitq-pill span { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .fitq-pill strong { font-size: 14px; }
-.fitq-pill:hover { border-color: var(--brand-blue); }
+@media (hover:hover) and (pointer:fine){.fitq-pill:hover { border-color: var(--brand-blue); }}
 .fitq-layout { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1fr); gap: 16px; align-items: start; }
 .fitq-matches, .fitq-side { display: grid; gap: 14px; }
 .fitq-side .card { padding: 18px; }
@@ -387,7 +387,7 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .index-jump { position: sticky; top: 0; z-index: 3; display: flex; gap: 8px; flex-wrap: wrap; padding: 10px 0; margin: 0 0 8px; background: var(--wash); }
 .index-jump a { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--ink); font-size: 14px; font-weight: 600; text-decoration: none; }
 .index-jump a b { color: var(--muted); font-weight: 600; }
-.index-jump a:hover { border-color: var(--brand-blue); }
+@media (hover:hover) and (pointer:fine){.index-jump a:hover { border-color: var(--brand-blue); }}
 .index-section { display: grid; gap: 10px; margin-bottom: 28px; scroll-margin-top: 64px; }
 .index-section-head { display: flex; align-items: baseline; justify-content: space-between; margin: 8px 0 0; padding-bottom: 8px; border-bottom: 2px solid var(--brand-navy); font-size: 18px; color: var(--navy-text); }
 .index-section-head span { font-size: 13px; font-weight: 600; color: var(--muted); }
@@ -537,7 +537,7 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .studio-tile svg{width:100%;height:64px}
 .studio-tile strong{font-size:12px;line-height:1.2;font-weight:650;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .studio-tile small{font-size:11px;color:var(--text-secondary,#6b6b70)}
-.studio-tile:hover{border-color:var(--brand-forest,#4e7d6b)}
+@media (hover:hover) and (pointer:fine){.studio-tile:hover{border-color:var(--brand-forest,#4e7d6b)}}
 .studio-tile:active{transform:scale(.97)}
 .studio-tile.on{border-color:var(--brand-navy,#00334b);box-shadow:0 0 0 1px var(--brand-navy,#00334b)}
 .studio-tile:disabled{opacity:.45}
@@ -844,7 +844,7 @@ img.rail-logo { width: 100px; }
 .studio-title strong{grid-area:a;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .studio-title small{grid-area:b;font-size:12px;color:var(--text-secondary,#6b6b70)}
 .studio-title svg{grid-area:c}
-.studio-title:hover,.studio-icon-btn:hover{background:rgba(0,0,0,.05)}
+@media (hover:hover) and (pointer:fine){.studio-title:hover,.studio-icon-btn:hover{background:rgba(0,0,0,.05)}}
 .studio-top-actions{display:flex;gap:2px}
 .studio-icon-btn{display:inline-grid;place-items:center;width:44px;height:44px;border:0;border-radius:12px;background:transparent;color:inherit;cursor:pointer}
 .studio-icon-btn:disabled{opacity:.35;cursor:default}
@@ -915,7 +915,7 @@ img.rail-logo { width: 100px; }
 .index-launch strong{grid-area:n;font-size:17px}
 .index-launch b{grid-area:c;font-size:15px;color:var(--text-secondary,#6b6b70)}
 .index-launch small{grid-area:s;color:var(--text-secondary,#6b6b70);font-size:13px;line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.index-launch:hover{border-color:var(--brand-navy,#00334b)}
+@media (hover:hover) and (pointer:fine){.index-launch:hover{border-color:var(--brand-navy,#00334b)}}
 .index-launch-all{background:rgba(0,51,75,.06)}
 @media (max-width:600px){.index-launcher{grid-template-columns:1fr 1fr}.index-launch{min-height:92px;padding:14px}}
 @media (prefers-color-scheme:dark){.app .index-launch{background:#2c2c2e;border-color:rgba(230,226,213,.18)}}
@@ -959,7 +959,7 @@ img.rail-logo { width: 100px; }
 .sf-nav:has(>span){grid-template-columns:1fr}
 .tiles{display:grid;gap:12px;grid-template-columns:1fr}
 .tile{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px;min-height:72px;padding:16px 18px;border-radius:16px;border:2px solid var(--line,rgba(0,0,0,.14));background:var(--paper,#fff);color:inherit;text-align:left;cursor:pointer;font:inherit}
-.tile:hover{border-color:var(--brand-navy,#003349)}
+@media (hover:hover) and (pointer:fine){.tile:hover{border-color:var(--brand-navy,#003349)}}
 .tile.on{border-color:var(--brand-navy,#003349);background:rgba(0,51,73,.07)}
 .tile:disabled{opacity:.45;cursor:default}
 .tile-mark{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;border:2px solid var(--line,rgba(0,0,0,.28));color:#fff}
@@ -1040,3 +1040,13 @@ img.rail-logo { width: 100px; }
 .studio-drawer button,.studio-drawer summary{min-height:48px}
 .studio-tile strong{-webkit-line-clamp:4;line-height:1.25}
 .studio-title strong{white-space:normal;line-height:1.2}
+
+/* Native-feel baseline (phone): no tap flash, no double-tap delay, 16px inputs so iOS never zooms, press feedback on :active */
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+button,a,[role="button"],[role="radio"],[role="checkbox"],summary{touch-action:manipulation}
+button,[role="button"],[role="radio"],[role="checkbox"],.tile,.chip,.sf-step,.studio-dock-btn,.rail-link,.tab-link{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+input,textarea,select{font-size:max(16px,1em)}
+.tile,.sf-next,.sf-back,.sf-secondary,.index-launch,.chip,.primary-button,.copy-button,.back-button,.studio-tile,.sf-todo-row{transition:transform .1s ease-out,background-color .1s}
+.tile:active,.sf-next:active,.sf-back:active,.sf-secondary:active,.index-launch:active,.chip:active,.primary-button:active,.copy-button:active,.back-button:active,.studio-tile:active,.sf-todo-row:active{transform:scale(.97)}
+.scroll-box,.studio-drawer,.mobile-tools-sheet{overscroll-behavior:contain}
+@media (prefers-reduced-motion:reduce){.tile,.sf-next,.sf-back{transition:none}}
