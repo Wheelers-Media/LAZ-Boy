@@ -1362,3 +1362,12 @@ input,textarea,select{font-size:max(16px,1em)}
 .sheet-wide .cover-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .sheet-wide .cover-tile{min-height:150px}
 .sheet-wide .cover-tile .tile-img,.sheet-wide .cover-tile img{width:100%;height:96px;object-fit:cover;border-radius:10px}
+
+/* Plan: undo bar and add-more row */
+.plan-undo { position: sticky; top: 8px; z-index: 5; display: flex; align-items: center; gap: 12px; padding: 10px 14px; margin: 0 0 12px; border-radius: 12px; background: #17222a; color: #fff; box-shadow: 0 6px 18px rgba(0,0,0,.2); }
+.plan-undo span { flex: 1; font-weight: 600; }
+.plan-undo .primary-button { min-height: 40px; }
+.plan-undo-x { min-width: 44px; min-height: 44px; border: 0; background: transparent; color: #fff; display: grid; place-items: center; }
+.plan-addmore { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 12px 14px; margin: 12px 0; }
+.plan-addmore > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.plan-addmore .back-button { min-height: 44px; display: inline-flex; align-items: center; gap: 6px; }

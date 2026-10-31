@@ -32,7 +32,7 @@ const lineId = () => `ln-${Date.now().toString(36)}-${(counter += 1).toString(36
 export function makeLine(partial) {
   return {
     id: lineId(), kind: 'lead', type: 'Piece', title: '', modelCode: '', modelName: '', detail: '', cover: '', coverCode: '',
-    rms: [], pieces: [], details: null, qty: 1, note: '', source: '', warnings: [], addedAt: Date.now(), ...partial,
+    rms: [], pieces: [], pieceDetails: [], details: null, qty: 1, note: '', source: '', warnings: [], addedAt: Date.now(), ...partial,
   };
 }
 
@@ -52,10 +52,10 @@ export function lineFromSku({ swatchIndex, modelCode, modelName, styleCode, cate
 }
 
 /** A plan line from the Room Builder: the whole sectional as one group, with every piece's RMS entry. */
-export function lineFromSectional({ swatchIndex, modelCode, modelName, family, detail, pieces = [], rms = [], coverCode = '' }) {
+export function lineFromSectional({ swatchIndex, modelCode, modelName, family, detail, pieces = [], pieceDetails = [], rms = [], coverCode = '' }) {
   return makeLine({
     kind: 'sectional', source: 'studio', type: 'Sectional piece', modelCode: String(modelCode), modelName, title: `${modelName} sectional`,
-    detail: detail || `${pieces.length} pieces`, family, pieces, rms, coverCode, coverName: coverNameFor(swatchIndex, coverCode),
+    detail: detail || `${pieces.length} pieces`, family, pieces, pieceDetails, rms, coverCode, coverName: coverNameFor(swatchIndex, coverCode),
   });
 }
 
@@ -192,4 +192,27 @@ export function rmsEntryText(lines) {
   const body = ready.flatMap((line) => line.rms.map((entry) => (line.qty > 1 ? `${entry}  x${line.qty}` : entry)));
   const pending = sortedLines(lines).filter((line) => !line.rms?.length).map((line) => `${line.modelName || line.title} ${line.modelCode || ''}`.trim());
   return { text: body.join('\n'), pending };
+}
+
+/** A copy of a plan line with a fresh id, placed right after the original in the list. */
+export function duplicateLine(plan, id) {
+  const index = plan.lines.findIndex((line) => line.id === id);
+  if (index < 0) return plan;
+  const copy = { ...plan.lines[index], id: lineId(), addedAt: Date.now() };
+  const lines = [...plan.lines.slice(0, index + 1), copy, ...plan.lines.slice(index + 1)];
+  return { ...plan, lines };
+}
+
+/** Remove one line and report what was removed (and where) so it can be put back. */
+export function removeLine(plan, id) {
+  const index = plan.lines.findIndex((line) => line.id === id);
+  if (index < 0) return { plan, removed: null };
+  return { plan: { ...plan, lines: plan.lines.filter((line) => line.id !== id) }, removed: { line: plan.lines[index], index } };
+}
+
+/** Put a removed line back where it was (or at the end if the list is now shorter). */
+export function restoreLine(plan, removed) {
+  if (!removed || plan.lines.some((line) => line.id === removed.line.id)) return plan;
+  const at = Math.min(removed.index, plan.lines.length);
+  return { ...plan, lines: [...plan.lines.slice(0, at), removed.line, ...plan.lines.slice(at)] };
 }

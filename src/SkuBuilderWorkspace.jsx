@@ -1,5 +1,6 @@
 import { Term } from './Term.jsx';
 import React, { useMemo, useState } from 'react';
+import { usePersistentState } from './persist.js';
 import { Check, Copy, Info, Plus, Printer, Search, ShieldCheck } from './icons.jsx';
 import { CoverPicker } from './CoverPicker.jsx';
 import { StepFlow, TileSelect } from './StepFlow.jsx';
@@ -26,15 +27,15 @@ const fieldStatus = (status) => status === 'documented' ? 'Listed' : status === 
 
 export function SkuBuilderWorkspace({ onReport, catalog, modelCode, setModelCode, prefix, setPrefix, cover, setCover, patternCode, setPatternCode, colorShade, setColorShade, finish, setFinish, trimCode, setTrimCode, cushionCode, setCushionCode, optionCodes, setLiveOption, clearLiveOptions, batteryWarning, onCopy, notify, onAddToPlan = () => {} }) {
   const [copied, setCopied] = useState(false);
-  const [companions, setCompanions] = useState([]);
-  const [customGroup, setCustomGroup] = useState('');
-  const [customStyle, setCustomStyle] = useState('');
-  const [customActive, setCustomActive] = useState(false);
-  const [selectedSwatchCode, setSelectedSwatchCode] = useState('');
-  const [pillowCover, setPillowCover] = useState('');
-  const [featherlite, setFeatherlite] = useState(false);
-  const [manualCover, setManualCover] = useState({ grade: '', pattern: '', color: '' });
-  const [customFinishAllowed, setCustomFinishAllowed] = useState(false);
+  const [companions, setCompanions] = usePersistentState('sku-companions', []);
+  const [customGroup, setCustomGroup] = usePersistentState('sku-customGroup', '');
+  const [customStyle, setCustomStyle] = usePersistentState('sku-customStyle', '');
+  const [customActive, setCustomActive] = usePersistentState('sku-customActive', false);
+  const [selectedSwatchCode, setSelectedSwatchCode] = usePersistentState('sku-selectedSwatchCode', '');
+  const [pillowCover, setPillowCover] = usePersistentState('sku-pillowCover', '');
+  const [featherlite, setFeatherlite] = usePersistentState('sku-featherlite', false);
+  const [manualCover, setManualCover] = usePersistentState('sku-manualCover', { grade: '', pattern: '', color: '' });
+  const [customFinishAllowed, setCustomFinishAllowed] = usePersistentState('sku-customFinishAllowed', false);
   const [decodeInput, setDecodeInput] = useState('');
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [quoteContext, setQuoteContext] = useState('');
@@ -152,7 +153,7 @@ export function SkuBuilderWorkspace({ onReport, catalog, modelCode, setModelCode
   };
   const printQuote = () => { setQuoteOpen(true); window.setTimeout(() => window.print(), 80); };
 
-  const [stepId, setStepId] = useState('model');
+  const [stepId, setStepId] = usePersistentState('sku-stepId', 'model');
   const [modelPicking, setModelPicking] = useState(false);
   const [modelQuery, setModelQuery] = useState('');
   const [modelSection, setModelSection] = useState('');

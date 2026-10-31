@@ -1,7 +1,7 @@
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { Armchair, Check, ClipboardCheck, Copy, Layers3, Minus, Plus, Sofa, X } from './icons.jsx';
 import { SwatchIndexContext } from './CoverPicker.jsx';
-import { buildPlanNotes, coverSummary, finishTheSet, lineIssues, NOTE_LIMIT, rmsEntryText, sortedLines } from './plan.js';
+import { buildPlanNotes, coverSummary, duplicateLine, finishTheSet, lineIssues, NOTE_LIMIT, removeLine, restoreLine, rmsEntryText, sortedLines } from './plan.js';
 import { swatchImageFor } from './logic.js';
 import { BuildReport } from './BuildReport.jsx';
 
@@ -30,7 +30,20 @@ export function PlanWorkspace({ catalog, plan, setPlan, fit, onEdit, onAddLead, 
   const notes = useMemo(() => buildPlanNotes({ customer: plan.customer, lines: plan.lines, fit }), [plan.customer, plan.lines, fit]);
   const rms = useMemo(() => rmsEntryText(plan.lines), [plan.lines]);
   const update = (id, patch) => setPlan((current) => ({ ...current, lines: current.lines.map((line) => (line.id === id ? { ...line, ...patch } : line)) }));
-  const remove = (id) => setPlan((current) => ({ ...current, lines: current.lines.filter((line) => line.id !== id) }));
+  const [undo, setUndo] = useState(null); // { label, apply } — the last removal, so one tap puts it back
+  useEffect(() => { if (!undo) return undefined; const timer = setTimeout(() => setUndo(null), 12000); return () => clearTimeout(timer); }, [undo]);
+  const remove = (line) => {
+    const { removed } = removeLine(plan, line.id);
+    setPlan((current) => removeLine(current, line.id).plan);
+    setUndo({ label: `Removed ${line.modelName || line.title}`, apply: () => setPlan((current) => restoreLine(current, removed)) });
+  };
+  const duplicate = (line) => setPlan((current) => duplicateLine(current, line.id));
+  const clearAll = () => {
+    const before = plan;
+    setPlan({ customer: '', lines: [] });
+    setConfirmClear(false);
+    if (before.lines.length) setUndo({ label: 'Plan cleared', apply: () => setPlan(before) });
+  };
 
   if (reportOpen && plan.lines.length) return <BuildReport catalog={catalog} plan={plan} fit={fit} onClose={() => setReportOpen(false)} onCopy={onCopy} />;
   return <section className="module-page plan-page">
@@ -40,6 +53,8 @@ export function PlanWorkspace({ catalog, plan, setPlan, fit, onEdit, onAddLead, 
       {plan.lines.length > 0 && <button type="button" className="primary-button" onClick={() => setReportOpen(true)}>Full report</button>}
       <div className="plan-count"><strong>{plan.lines.reduce((sum, line) => sum + line.qty, 0)}</strong><span>{plan.lines.reduce((sum, line) => sum + line.qty, 0) === 1 ? 'item' : 'items'}</span></div>
     </div>
+
+    {undo && <div className="plan-undo" role="status"><span>{undo.label}</span><button type="button" className="primary-button" onClick={() => { undo.apply(); setUndo(null); }}>Undo</button><button type="button" className="plan-undo-x" aria-label="Dismiss" onClick={() => setUndo(null)}><X size={16} /></button></div>}
 
     {!lines.length ? <div className="plan-empty card">
       <ClipboardCheck size={34} />
@@ -70,9 +85,20 @@ export function PlanWorkspace({ catalog, plan, setPlan, fit, onEdit, onAddLead, 
               <button type="button" aria-label="One more" disabled={line.qty >= 9} onClick={() => update(line.id, { qty: line.qty + 1 })}><Plus size={16} /></button>
             </div>
             <button type="button" className="back-button" onClick={() => onEdit(line)}>{line.kind === 'lead' ? 'Choose style' : 'Edit'}</button>
-            <button type="button" className="plan-remove" aria-label={`Remove ${line.modelName} from the plan`} onClick={() => remove(line.id)}><X size={18} /></button>
+            <button type="button" className="back-button" aria-label={`Add another ${line.modelName || 'item'} like this`} onClick={() => duplicate(line)}>Duplicate</button>
+            <button type="button" className="plan-remove" aria-label={`Remove ${line.modelName} from the plan`} onClick={() => remove(line)}><X size={18} /></button>
           </div>
         </article>; })}
+      </div>
+
+      <div className="plan-addmore card">
+        <strong>Add more to this plan</strong>
+        <div>
+          <button type="button" className="back-button" onClick={() => onOpenTab('Fit')}><Plus size={15} /> Find a fit</button>
+          <button type="button" className="back-button" onClick={() => onOpenTab('Product Index')}><Plus size={15} /> Browse models</button>
+          <button type="button" className="back-button" onClick={() => onOpenTab('SKU Builder')}><Plus size={15} /> Build a SKU</button>
+          <button type="button" className="back-button" onClick={() => onOpenTab('Room Builder')}><Plus size={15} /> Room Builder</button>
+        </div>
       </div>
 
       {covers.mixed && <p className="plan-callout"><Check size={16} /> This plan uses {covers.covers.length} different covers ({covers.covers.join(', ')}). Check they belong together before you quote.</p>}
@@ -103,7 +129,7 @@ export function PlanWorkspace({ catalog, plan, setPlan, fit, onEdit, onAddLead, 
       </section>
 
       <div className="plan-clear">{confirmClear
-        ? <><span>Clear this plan?</span><button type="button" className="back-button" onClick={() => setConfirmClear(false)}>Keep it</button><button type="button" className="primary-button danger" onClick={() => { setPlan({ customer: '', lines: [] }); setConfirmClear(false); }}>Clear plan</button></>
+        ? <><span>Clear this plan?</span><button type="button" className="back-button" onClick={() => setConfirmClear(false)}>Keep it</button><button type="button" className="primary-button danger" onClick={clearAll}>Clear plan</button></>
         : <button type="button" className="back-button" onClick={() => setConfirmClear(true)}>New customer</button>}</div>
     </>}
   </section>;
