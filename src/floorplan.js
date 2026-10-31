@@ -17,6 +17,7 @@ export function pieceKind(key = '') {
   const k = String(key);
   if (/console/i.test(k)) return 'console';
   if (/ottoman/i.test(k)) return 'ottoman';
+  if (/attached_corner/i.test(k)) return /^RA_/.test(k) ? 'arm-right' : 'arm-left'; // a sofa that includes its corner: drawn as a long seat run
   if (/corner/i.test(k)) return 'corner';
   if (/chaise/i.test(k)) return /^RA_/.test(k) ? 'chaise-right' : 'chaise-left';
   if (/storage_arm/i.test(k)) return /^RA_/.test(k) ? 'arm-right' : 'arm-left';
@@ -57,7 +58,7 @@ export function createItem(piece, profile, x, y, rotation = 0, code, options = {
   // wall-space figure we estimate L from W and mark it, rather than guess silently.
   const codeUsed = code || piece.variants?.[0]?.code || String(piece.prefix || '').split('/')[0].trim();
   const corner = kind === 'corner' && size.width >= size.depth;
-  const wallSpace = corner ? guideWallSpace(profile, codeUsed) : null;
+  const wallSpace = corner ? (Number(source?.wall_space_in) > 0 ? Number(source.wall_space_in) : guideWallSpace(profile, codeUsed)) : null;
   const cornerReach = corner ? Math.max(size.depth, wallSpace ? wallSpace / 2 : Math.round((size.width / Math.SQRT2) * 2) / 2) : null;
   const footprint = corner ? { width: cornerReach, depth: cornerReach } : size;
   const box = rotatedSize(footprint.width, footprint.depth, turn);
@@ -213,7 +214,13 @@ export function formatInches(value) {
   return inches ? `${feet}′ ${inchText}″` : `${feet}′`;
 }
 
-const pick = (pieces, pattern) => pieces.find((piece) => pattern.test(piece.key));
+/** Starting layouts the Studio can offer. Each is shown only for collections whose pieces actually build and validate. */
+export const PRESET_LAYOUTS = [
+  ['loveseat', 'Loveseat'], ['sofa-three', 'Sofa'], ['sofa-console', 'Sofa with console'], ['straight-chaise', 'Sofa with chaise'],
+  ['l-standard', 'L-shape, leg left'], ['l-mirror', 'L-shape, leg right'], ['l-middle', 'L with middle seat'], ['l-console', 'L with console'], ['u-shape', 'U-shape'],
+];
+
+const pick = (pieces, pattern) => pieces.find((piece) => pattern.test(piece.key) && !/attached_corner/i.test(piece.key));
 
 /**
  * Starting layouts built edge to edge from the catalog dimensions. Returns null when the collection
@@ -275,6 +282,40 @@ export function presetItems(kind, profile, pieces, room) {
     let cursor = first.x + first.width;
     if (m) { const mid = make(middle, cursor, originY + (tallest - m.height) / 2); items.push(mid); cursor += mid.width; }
     items.push(make(endPiece, cursor, originY + (tallest - b.height) / 2));
+  } else if (kind === 'l-middle') {
+    // Corner, one armless seat, then the arm end; the leg comes down at the left.
+    if (!left || !right || !corner || !middle) return null;
+    const c = size(corner); const m = size(middle); const l = size(right, 270); const r = size(left);
+    if (!c || !m || !l || !r) return null;
+    const originX = (room.width - Math.max(c.width + m.width + r.width, l.width)) / 2;
+    const originY = (room.height - (c.height + l.height)) / 2;
+    const cornerItem = make(corner, originX, originY);
+    const down = make(right, cornerItem.x, cornerItem.y + cornerItem.height, 270);
+    const mid = make(middle, cornerItem.x + cornerItem.width, cornerItem.y);
+    items = [down, cornerItem, mid, make(left, mid.x + mid.width, cornerItem.y)];
+  } else if (kind === 'l-mirror') {
+    // The same L turned the other way: arm end, optional console, mirrored corner, leg down at the right.
+    if (!left || !right || !corner) return null;
+    const c = size(corner); const r = size(right); const l = size(left, 90);
+    if (!c || !r || !l) return null;
+    const originX = (room.width - Math.max(r.width + c.width, r.width + l.width)) / 2;
+    const originY = (room.height - (c.height + l.height)) / 2;
+    const first = make(right, originX, originY);
+    const cornerItem = make(corner, first.x + first.width, originY, 0, { mirror: true });
+    const down = make(left, cornerItem.x + cornerItem.width - l.width, cornerItem.y + cornerItem.height, 90);
+    items = [first, cornerItem, down];
+  } else if (kind === 'sofa-three' || kind === 'loveseat' || kind === 'sofa-console') {
+    // A straight run: right-arm end at the drawing's left, left-arm end at its right.
+    if (!left || !right || (kind === 'sofa-three' && !middle) || (kind === 'sofa-console' && !console)) return null;
+    const between = kind === 'sofa-three' ? middle : kind === 'sofa-console' ? console : null;
+    const parts = [right, ...(between ? [between] : []), left];
+    const sizes = parts.map((piece) => size(piece));
+    if (sizes.some((entry) => !entry)) return null;
+    const totalWidth = sizes.reduce((sum, entry) => sum + entry.width, 0);
+    const tallest = Math.max(...sizes.map((entry) => entry.height));
+    let cursor = (room.width - totalWidth) / 2;
+    const originY = (room.height - tallest) / 2;
+    items = parts.map((piece, index) => { const item = make(piece, cursor, originY); cursor += sizes[index].width; return item; });
   } else return null;
 
   if (items.some((item) => !item)) return null;

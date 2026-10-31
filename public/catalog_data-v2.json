@@ -1074,7 +1074,8 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "wall_space_in": 100
         },
         {
           "code": "8M0",
@@ -1277,7 +1278,8 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "wall_space_in": 100
         },
         {
           "code": "8M0",
@@ -1481,7 +1483,8 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "wall_space_in": 84
         },
         {
           "code": "60M",
@@ -2412,13 +2415,15 @@
           "code": "60C",
           "key": "corner_wedge",
           "name": "Corner",
-          "dimensions_text": "37\" H × 59.5\" W × 37\" D"
+          "dimensions_text": "37\" H × 59.5\" W × 37\" D",
+          "wall_space_in": 97
         },
         {
           "code": "6CC",
           "key": "corner_wedge_compact",
           "name": "Corner",
-          "dimensions_text": "37\" H × 52.5\" W × 37\" D"
+          "dimensions_text": "37\" H × 52.5\" W × 37\" D",
+          "wall_space_in": 74
         },
         {
           "code": "60M",
@@ -3308,7 +3313,8 @@
               "label": "Corner"
             }
           ],
-          "dimensions_text": "42\" H × 62\" W × 38\" D"
+          "dimensions_text": "42\" H × 62\" W × 38\" D",
+          "wall_space_in": 92
         },
         {
           "key": "armless_recliner",
@@ -3886,13 +3892,15 @@
           "code": "60C",
           "key": "corner_wedge",
           "name": "Corner",
-          "dimensions_text": "37.5\" H × 67\" W × 39\" D"
+          "dimensions_text": "37.5\" H × 67\" W × 39\" D",
+          "wall_space_in": 98
         },
         {
           "code": "6CC",
           "key": "corner_wedge_compact",
           "name": "Corner",
-          "dimensions_text": "37.5\" H × 53\" W × 39\" D"
+          "dimensions_text": "37.5\" H × 53\" W × 39\" D",
+          "wall_space_in": 78
         },
         {
           "code": "60M",
@@ -4612,7 +4620,8 @@
               "label": "Corner"
             }
           ],
-          "dimensions_text": "41.5\" H × 61\" W × 39\" D"
+          "dimensions_text": "41.5\" H × 61\" W × 39\" D",
+          "wall_space_in": 88
         },
         {
           "key": "armless_recliner",
@@ -5399,7 +5408,8 @@
           "code": "6CC",
           "key": "corner_wedge",
           "name": "Corner",
-          "dimensions_text": "38\" H × 68\" W × 42\" D"
+          "dimensions_text": "38\" H × 68\" W × 42\" D",
+          "wall_space_in": 84
         },
         {
           "code": "60M",
@@ -5714,7 +5724,8 @@
           "code": "44C",
           "key": "corner_wedge",
           "name": "Rounded Corner Unit",
-          "dimensions_text": "43\" H × 59\" W × 38\" D"
+          "dimensions_text": "43\" H × 59\" W × 38\" D",
+          "wall_space_in": 92
         },
         {
           "key": "RA_reclining_chaise",
@@ -6305,7 +6316,8 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "wall_space_in": 78
         },
         {
           "code": "60C",
@@ -6317,7 +6329,8 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "wall_space_in": 98
         },
         {
           "code": "60M",
@@ -6861,7 +6874,8 @@
           "code": "44C",
           "key": "corner_wedge",
           "name": "Corner",
-          "dimensions_text": "42\" H × 62\" W × 37\" D"
+          "dimensions_text": "42\" H × 62\" W × 37\" D",
+          "wall_space_in": 92
         },
         {
           "key": "armless_recliner",

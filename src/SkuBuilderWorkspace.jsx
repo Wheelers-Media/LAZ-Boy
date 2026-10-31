@@ -25,6 +25,7 @@ const fieldStatus = (status) => status === 'documented' ? 'Listed' : status === 
 
 export function SkuBuilderWorkspace({ catalog, modelCode, setModelCode, prefix, setPrefix, cover, setCover, patternCode, setPatternCode, colorShade, setColorShade, finish, setFinish, trimCode, setTrimCode, cushionCode, setCushionCode, optionCodes, setLiveOption, clearLiveOptions, batteryWarning, onCopy, notify, onAddToPlan = () => {} }) {
   const [copied, setCopied] = useState(false);
+  const [companions, setCompanions] = useState([]);
   const [customGroup, setCustomGroup] = useState('');
   const [customStyle, setCustomStyle] = useState('');
   const [customActive, setCustomActive] = useState(false);
@@ -48,7 +49,7 @@ export function SkuBuilderWorkspace({ catalog, modelCode, setModelCode, prefix, 
   const finishAllowed = customActive ? customFinishAllowed : Boolean(styleOptions?.finishMarkerListed);
   const allowedTrims = catalog.nailhead_trims.filter((item) => item.code === 'NN' || allowedOptions.has(item.code));
   const allowedCushions = catalog.cushion_upgrades.filter((item) => item.code === 'Standard' || allowedOptions.has(item.code));
-  const options = customActive ? [] : [...new Set([...(trimCode !== 'NN' && allowedOptions.has(trimCode) ? [trimCode] : []), ...(cushionCode !== 'Standard' && allowedOptions.has(cushionCode) ? [cushionCode] : []), ...optionCodes.filter((code) => allowedOptions.has(code) && !['NB', 'NH', 'NS', 'FS', 'Z6', 'DC', 'FN', 'ES'].includes(code)), ...(featherlite && allowedOptions.has('FP') ? ['FP'] : []), ...(pillowCover && pillowCover !== selectedSwatch?.code && allowedOptions.has('P1') ? ['P1'] : [])])];
+  const options = customActive ? [] : [...new Set([...(trimCode !== 'NN' && allowedOptions.has(trimCode) ? [trimCode] : []), ...(cushionCode !== 'Standard' && allowedOptions.has(cushionCode) ? [cushionCode] : []), ...optionCodes.filter((code) => allowedOptions.has(code) && !['NB', 'NH', 'NS', 'FS', 'Z6', 'DC', 'FN'].includes(code)), ...(featherlite && allowedOptions.has('FP') ? ['FP'] : []), ...(pillowCover && pillowCover !== selectedSwatch?.code && allowedOptions.has('P1') ? ['P1'] : [])])];
   const displayStyle = customActive ? customStyle : selectedModelCode;
   const guideStyle = useMemo(() => getGuideStyle(catalog, selectedModelCode, activePrefix), [catalog, selectedModelCode, activePrefix]);
   const styleSelect = useMemo(() => formatSelectCovers(guideStyle?.select), [guideStyle]);
@@ -77,18 +78,27 @@ export function SkuBuilderWorkspace({ catalog, modelCode, setModelCode, prefix, 
   const swatchPattern = selectedSwatch?.pattern || '';
   const swatchColor = selectedSwatch?.color || '';
   const fields = buildRmsSkuPreview({ group: customActive ? customGroup : prefixDocumented ? activePrefix : '', style: displayStyle, grade: skuGrade, pattern: swatchPattern, color: swatchColor, finish, options, includeFinish: finishAllowed });
-  const optionRecords = [...catalog.option_suffixes, ...(catalog.motion_catalog_2026?.options || []).map(([code, name]) => ({ code, name })), ...(catalog.recliner_catalog_2026?.universal_options || []).map(([code, name]) => ({ code, name })), ...(catalog.stationary_catalog_2026?.options || []).map((item) => ({ code: item.code, name: item.name }))];
+  const guideOptionRecords = Object.entries(catalog.mechanism_guide_2026?.options || {}).map(([code, value]) => ({ code, name: value.name }));
+  const optionRecords = [...catalog.option_suffixes, ...(catalog.motion_catalog_2026?.options || []).map(([code, name]) => ({ code, name })), ...(catalog.recliner_catalog_2026?.universal_options || []).map(([code, name]) => ({ code, name })), ...(catalog.stationary_catalog_2026?.options || []).map((item) => ({ code: item.code, name: item.name })), ...guideOptionRecords];
   const batteryPacks = new Map((catalog.battery_packs || []).map((pack) => [pack.code, pack]));
-  const orderOptions = [...new Map(optionRecords.filter((item) => allowedOptions.has(item.code) && (!batteryPacks.has(item.code) || findCompatibleBattery(catalog, activePrefix, item.code)) && !['ES', 'FS', 'Z6', 'DC', 'NB', 'NH', 'NS', 'FN', 'FP', 'P1'].includes(item.code)).map((item) => [item.code, item])).values()];
+  const orderOptions = [...new Map(optionRecords.filter((item) => allowedOptions.has(item.code) && (!batteryPacks.has(item.code) || findCompatibleBattery(catalog, activePrefix, item.code)) && !['FS', 'Z6', 'DC', 'NB', 'NH', 'NS', 'FN', 'FP', 'P1'].includes(item.code)).map((item) => [item.code, item])).values()];
   const prefixRecord = catalog.style_prefixes.find((item) => item.code === activePrefix);
   const decoded = useMemo(() => decodeInput.trim() ? decodeRmsSku(decodeInput, catalog) : null, [decodeInput, catalog]);
   const addToPlan = () => { onAddToPlan(lineFromSku({ swatchIndex: catalog.swatch_index, modelCode: selectedModelCode, modelName: selectedModel?.model_name || selectedModelCode, styleCode: displayStyle ? activePrefix || displayStyle : '', category: guideStyle?.category || prefixRecord?.motion_type || '', sku: copyDisabled ? '' : fields.sku, note: pillowNote, coverCode: copyDisabled || !skuGrade || !swatchPattern || !swatchColor ? '' : `${skuGrade}${swatchPattern}${swatchColor}` }), `${selectedModel?.model_name || selectedModelCode} ${activePrefix || ''}`.trim()); };
-  const copyPreview = async () => { if (copyDisabled) return; await onCopy(fields.sku); setCopied(true); window.setTimeout(() => setCopied(false), 1600); };
+  const copyPreview = async () => { if (copyDisabled) return; await onCopy(fullText); setCopied(true); window.setTimeout(() => setCopied(false), 1600); };
+  // Separate RMS line items listed on the style's guide row (swivel base, tall base, battery pack). The guide gives codes, not names.
+  const splitCodes = (value) => String(value || '').split(/[,/;\s]+/).filter(Boolean);
+  const companionGroups = guideStyle && !customActive ? [['Swivel base', splitCodes(guideStyle.swivelBase)], ['Tall base', splitCodes(guideStyle.tallBase)], ['Battery pack', splitCodes(guideStyle.batteryPack)]].filter(([, codes]) => codes.length) : [];
+  const companionCodes = companionGroups.flatMap(([, codes]) => codes);
+  const chosenCompanions = companions.filter((code) => companionCodes.includes(code));
+  const toggleCompanion = (code) => setCompanions((current) => current.includes(code) ? current.filter((entry) => entry !== code) : [...current, code]);
+  const fullText = [fields.sku, ...chosenCompanions].filter(Boolean).join('\n');
   const swatchMatchesCover = Boolean(selectedSwatch);
   const copyDisabled = !fields.complete || (!customActive && (!prefixDocumented || !documentedOptions)) || !swatchMatchesCover || (finishAllowed && !finish);
   const changeModel = (value) => {
     const nextModel = models.find((item) => item.model_code === value);
     const nextChoices = nextModel ? getRmsModelStyleChoices(catalog, value) : [];
+    setCompanions([]);
     setCustomActive(false);
     setCustomFinishAllowed(false);
     setModelCode(value, nextChoices[0]?.code || '');
@@ -103,6 +113,7 @@ export function SkuBuilderWorkspace({ catalog, modelCode, setModelCode, prefix, 
     setFinish('');
   };
   const changeGroup = (value) => {
+    setCompanions([]);
     setCustomActive(false);
     setCustomFinishAllowed(false);
     setPrefix(value);
@@ -142,7 +153,7 @@ export function SkuBuilderWorkspace({ catalog, modelCode, setModelCode, prefix, 
   const entryCard = <div className="rms-entry-card sf-entry">
     <h3 className="rms-side-title">Enter in RMS</h3>
     <div className="rms-field-grid">{fields.fields.map(([label, value]) => <div className="rms-field-cell" key={label}><span>{label}</span><strong>{value || (label === 'Group' ? 'Choose' : label === 'Style' || label === 'Grade' ? 'Enter' : '-')}</strong></div>)}</div>
-    <div className="rms-code-output"><span>SKU STRING PREVIEW</span><code>{fields.sku || 'Complete Group, Style, Grade, Pattern, and Color to preview the string.'}</code><button type="button" className="copy-button" onClick={copyPreview} disabled={copyDisabled}>{copied ? <Check size={15} /> : <Copy size={15} />}{copied ? 'Copied' : 'Copy SKU'}</button><button type="button" className="back-button plan-add-sku" onClick={addToPlan}><Plus size={15} /> Add to plan</button>{copyDisabled && <small className="sku-generation-status">{!customActive && !prefixDocumented ? 'Choose a listed Group or enter a manual Group and Style.' : !customActive && !documentedOptions ? 'This exact model/group has no option record.' : !swatchMatchesCover ? 'Choose a model-listed cover swatch.' : finishAllowed && !finish ? 'Choose a listed finish.' : 'Complete the SKU fields.'}</small>}</div>
+    <div className="rms-code-output"><span>SKU STRING PREVIEW</span><code>{fields.sku || 'Complete Group, Style, Grade, Pattern, and Color to preview the string.'}</code>{chosenCompanions.map((code) => <code key={code} className="rms-extra-line">{code}</code>)}<button type="button" className="copy-button" onClick={copyPreview} disabled={copyDisabled}>{copied ? <Check size={15} /> : <Copy size={15} />}{copied ? 'Copied' : 'Copy SKU'}</button><button type="button" className="back-button plan-add-sku" onClick={addToPlan}><Plus size={15} /> Add to plan</button>{copyDisabled && <small className="sku-generation-status">{!customActive && !prefixDocumented ? 'Choose a listed Group or enter a manual Group and Style.' : !customActive && !documentedOptions ? 'This exact model/group has no option record.' : !swatchMatchesCover ? 'Choose a model-listed cover swatch.' : finishAllowed && !finish ? 'Choose a listed finish.' : 'Complete the SKU fields.'}</small>}</div>
     {catalog.warranty_rules && <div className="floor-warranty"><ShieldCheck size={15} /><span>{catalog.warranty_rules.lifetime_coverage} {catalog.warranty_rules.three_year_coverage} {catalog.warranty_rules.one_year_coverage}</span></div>}
     <details className="rms-details"><summary>Finish and option suffixes</summary><dl><div><dt>Finish</dt><dd>{fields.finish || 'Not selected'}</dd></div><div><dt>Options</dt><dd>{fields.options.join(', ') || 'None selected'}</dd></div><div><dt>Pillows</dt><dd>{pillowNote || 'Match the body cover'}</dd></div><div><dt>Model swatch</dt><dd>{selectedSwatch?.code || 'Not selected'}{selectedSwatch?.note ? ` · ${selectedSwatch.note}` : ''}</dd></div><div><dt>Prefix description</dt><dd>{prefixRecord?.motion_type || 'Not mapped'}</dd></div></dl></details>
     <div className="rms-disclaimer"><Info size={15} /><p><strong>Not an order check.</strong> Confirm in RMS.</p></div>
@@ -173,6 +184,9 @@ export function SkuBuilderWorkspace({ catalog, modelCode, setModelCode, prefix, 
       {allowedCushions.length > 1 && <div className="sf-group"><h3>Cushion</h3><TileSelect label="Cushion" options={allowedCushions.map((item) => ({ value: item.code, title: item.name, desc: `${item.code === 'Standard' ? 'Included' : item.code} · ${item.warranty_years} year foam warranty` }))} value={allowedCushions.some((item) => item.code === cushionCode) ? cushionCode : 'Standard'} onChange={setCushionCode} columns={2} /></div>}
     </> },
     { id: 'options', label: 'Options', hidden: !showOptionsStep, summary: options.length ? options.join(', ') : 'None', done: true, hint: 'Tap every option the customer wants.', content: <TileSelect multi label="Options" options={orderOptions.map((item) => ({ value: item.code, title: batteryPacks.has(item.code) ? `Battery pack · ${batteryPacks.get(item.code).batteries} ${batteryPacks.get(item.code).batteries === 1 ? 'battery' : 'batteries'}` : item.name, desc: item.code }))} values={options} onToggle={setLiveOption} columns={2} /> },
+    { id: 'extras', label: 'Also enter in RMS', hidden: companionGroups.length === 0, summary: chosenCompanions.length ? chosenCompanions.join(', ') : 'None', done: true, hint: 'The guide lists these as separate line items for this style. Tap any the customer wants; each is entered as its own line.', content: <>
+      {companionGroups.map(([label, codes]) => <div className="sf-group" key={label}><h3>{label}</h3>{codes.length > 1 && <p className="sf-hint">The guide lists {codes.length} codes for this style. Choose the one that matches the piece.</p>}<TileSelect multi label={label} options={codes.map((code) => ({ value: code, title: label, desc: code }))} values={chosenCompanions} onToggle={toggleCompanion} columns={2} /></div>)}
+    </> },
     { id: 'pillows', label: 'Pillows', hidden: !showPillowStep, summary: pillowNote || 'Match body cover', done: true, content: <>
       {allowedOptions.has('FP') && <div className="sf-group"><h3>Featherlite pillows</h3><TileSelect multi label="Featherlite" options={[{ value: 'FP', title: 'Featherlite pillow upgrade', desc: 'FP · a feather-and-down blend for a softer, more relaxed feel' }]} values={featherlite ? ['FP'] : []} onToggle={() => setFeatherlite(!featherlite)} /></div>}
       {allowedOptions.has('P1') && <div className="sf-group"><h3>Contrasting pillow cover</h3><p className="sf-hint">{selectedSwatch ? 'Choose a cover listed for this model, or leave it to match the body cover.' : 'Choose the body cover first.'}</p>{selectedSwatch && <CoverPicker key={`pillow-${selectedModelCode}-${activePrefix}-${selectedSwatchCode}`} label="Pillow" describe={(swatch) => describeCoverEligibility(catalog, selectedModelCode, guideListsModel ? activePrefix : '', swatch)} swatches={pillowSwatches} value={pillowCover} onChange={(code) => setPillowCover(code)} />}{pillowCover && <button type="button" className="sf-secondary" onClick={() => setPillowCover('')}>Match body cover</button>}</div>}
