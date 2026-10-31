@@ -1,4 +1,4 @@
-// Real-scale floor plan geometry for the Sectional Studio.
+// Real-scale floor plan geometry for the Room Builder.
 // All lengths are inches. Pieces use their catalog W (width) and D (depth); nothing is estimated.
 // Rotation is clockwise in 90 degree steps. At rotation 0 the back of a piece is at the top and the seat faces down.
 

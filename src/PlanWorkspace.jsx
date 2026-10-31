@@ -47,7 +47,7 @@ export function PlanWorkspace({ catalog, plan, setPlan, fit, onEdit, onAddLead, 
       <p>Add every piece the customer wants. A recliner, a sofa, a sectional and the extras all go in one plan.</p>
       <div className="plan-empty-actions">
         <button type="button" className="primary-button" onClick={() => onOpenTab('Fit')}>Find a fit</button>
-        <button type="button" className="back-button" onClick={() => onOpenTab('Sectional Studio')}>Design a sectional</button>
+        <button type="button" className="back-button" onClick={() => onOpenTab('Room Builder')}>Design a sectional</button>
         <button type="button" className="back-button" onClick={() => onOpenTab('Product Index')}>Browse models</button>
       </div>
     </div> : <>

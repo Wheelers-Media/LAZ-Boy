@@ -1,12 +1,35 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { lineFromLead } from './plan.js';
+import { lineFromLead, lineFromSku } from './plan.js';
+import { CoverPicker } from './CoverPicker.jsx';
+import { configureStyle, styleChoices, toggleOption } from './pieceConfig.js';
+import { describeCoverEligibility, getModelCoverSwatches } from './logic.js';
 import { formatInches, insideRoom, overlaps, reachConflicts, reachRect, rotatedSize, normalizeRotation } from './floorplan.js';
 
 // Free-standing room planner for ANY style in the April 2026 guide. It places pieces to true scale from the guide's
 // width, depth and fully-extended length. It does not check connections: use the sectional planner for modular collections.
 const PX = 3; // screen pixels per inch before the SVG scales to fit
 
-export function RoomPlanner({ catalog, onAddToPlan, onBuild }) {
+function Configurator({ catalog, item, onChange }) {
+  const choices = useMemo(() => styleChoices(catalog, item.modelCode, item.prefix), [catalog, item.modelCode, item.prefix]);
+  const swatches = useMemo(() => getModelCoverSwatches(catalog, item.modelCode, item.prefix), [catalog, item.modelCode, item.prefix]);
+  if (!choices) return <p className="sf-hint">This style is not in the April 2026 guide, so it cannot be configured here.</p>;
+  const config = item.config || {};
+  const result = configureStyle(catalog, item.modelCode, item.prefix, config);
+  const set = (patch) => onChange({ ...config, ...patch });
+  const finish = config.finish || choices.finishes.find((entry) => entry.standard)?.code || '';
+  return <div className="rp-config">
+    <h3>Cover</h3>
+    <CoverPicker key={`${item.modelCode}-${item.prefix}`} describe={(swatch) => describeCoverEligibility(catalog, item.modelCode, item.prefix, swatch)} swatches={swatches} value={config.cover || ''}
+      onChange={(code) => { const swatch = swatches.find((entry) => entry.code === code); set({ cover: code, coverName: swatch?.name || '', coverMaterial: swatch?.material || '' }); }} />
+    {choices.finishes.length > 0 && <><h3>Wood finish</h3><div className="rp-tiles">{choices.finishes.map((entry) => <button type="button" key={entry.code} className={`chip ${finish === entry.code ? 'active' : ''}`} onClick={() => set({ finish: entry.code })}>{entry.name} · {entry.code}{entry.standard ? ' (standard)' : ''}</button>)}</div></>}
+    {choices.options.length > 0 && <><h3>Options</h3><div className="rp-tiles">{choices.options.map((entry) => <button type="button" key={entry.code} className={`chip ${(config.options || []).includes(entry.code) ? 'active' : ''}`} onClick={() => set({ options: toggleOption(config.options || [], entry.code) })}><b>{entry.code}</b> {entry.name || 'No description in the supplied data'}</button>)}</div>
+      {choices.pillowsNeedBuilder && <p className="sf-hint">Contrasting and Featherlite pillows are set in the SKU Builder.</p>}</>}
+    {choices.companions.map(([label, codes]) => <div key={label}><h3>{label} (separate RMS line)</h3><div className="rp-tiles">{codes.map((code) => <button type="button" key={code} className={`chip ${(config.companions || []).includes(code) ? 'active' : ''}`} onClick={() => set({ companions: (config.companions || []).includes(code) ? (config.companions || []).filter((entry) => entry !== code) : [...(config.companions || []), code] })}>{code}</button>)}</div></div>)}
+    <div className="rp-sku"><span>SKU</span><code>{result.sku || `Still needed: ${result.missing.join(', ')}`}</code></div>
+  </div>;
+}
+
+export function RoomPlanner({ catalog, onAddToPlan, onBuild, onSectional }) {
   const rows = useMemo(() => (catalog.style_index_2026?.styles || []).filter((row) => row.dims?.width > 0 && row.dims?.depth > 0), [catalog]);
   const [query, setQuery] = useState('');
   const [roomWidth, setRoomWidth] = useState(14);
@@ -23,7 +46,7 @@ export function RoomPlanner({ catalog, onAddToPlan, onBuild }) {
     const { width, depth, height, fullyExtended } = row.dims;
     const reach = Number(fullyExtended) > depth ? Number(fullyExtended) : null;
     const item = { id: `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`, label: `${row.prefix}${row.model}`, name: row.name, modelCode: row.model, prefix: row.prefix, category: row.category,
-      baseWidth: width, baseHeight: depth, heightIn: height || null, reachIn: reach, code: `${row.prefix}${row.model}`, rotation: 0, x: Math.max(0, (room.width - width) / 2), y: Math.max(0, (room.height - depth) / 2), width, height: depth };
+      baseWidth: width, baseHeight: depth, heightIn: height || null, reachIn: reach, config: {}, code: `${row.prefix}${row.model}`, rotation: 0, x: Math.max(0, (room.width - width) / 2), y: Math.max(0, (room.height - depth) / 2), width, height: depth };
     setItems((list) => [...list, item]); setSelectedId(item.id); setQuery('');
   };
   const update = (id, patch) => setItems((list) => list.map((item) => item.id === id ? { ...item, ...patch } : item));
@@ -42,6 +65,13 @@ export function RoomPlanner({ catalog, onAddToPlan, onBuild }) {
   });
   const reachWarnings = reachConflicts(items, room).map((entry) => `${entry.name} ${entry.code ? `(${entry.code}) ` : ''}cannot fully extend here${entry.reason === 'wall' ? ' (wall)' : entry.blocker ? ` (${entry.blocker})` : ''}.`);
   const selected = items.find((item) => item.id === selectedId);
+  const addToPlan = (item) => {
+    const result = configureStyle(catalog, item.modelCode, item.prefix, item.config || {});
+    const note = `${item.label}`;
+    if (result.complete) onAddToPlan?.(lineFromSku({ swatchIndex: catalog.swatch_index, modelCode: item.modelCode, modelName: item.name, styleCode: item.prefix, category: item.category || '', sku: result.sku, coverCode: item.config?.cover || '', details: result.details }), note);
+    else onAddToPlan?.(lineFromLead({ source: 'planner', modelCode: item.modelCode, modelName: item.name, category: item.category || '', styleCode: item.prefix }), note);
+  };
+  const addAll = () => items.forEach(addToPlan);
 
   return <section className="module-page room-planner">
     <label className="sf-search"><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Add any style: name, model or code" aria-label="Add a style to the room" /></label>
@@ -57,11 +87,13 @@ export function RoomPlanner({ catalog, onAddToPlan, onBuild }) {
     </svg>
     {selected && <div className="rp-selected"><strong>{selected.name} · {selected.label}</strong><span>{formatInches(selected.baseWidth)} W × {formatInches(selected.baseHeight)} D{selected.reachIn ? ` · ${formatInches(selected.reachIn)} fully extended` : ''}</span>
       <button type="button" className="back-button" onClick={() => rotate(selected.id)}>Rotate</button>
-      <button type="button" className="back-button" onClick={() => onAddToPlan?.(lineFromLead({ source: 'planner', modelCode: selected.modelCode, modelName: selected.name, category: selected.category || '', styleCode: selected.prefix }))}>Add to plan</button>
+      <button type="button" className="back-button" onClick={() => addToPlan(selected)}>Add to plan</button>
       {onBuild && <button type="button" className="back-button" onClick={() => onBuild(selected.modelCode)}>Build a SKU</button>}
       <button type="button" className="back-button" onClick={() => remove(selected.id)}>Remove</button></div>}
+    {selected && <details className="rp-config-wrap card" open><summary><strong>Customize {selected.label}</strong><small>Cover, finish, options and extras</small></summary><Configurator catalog={catalog} item={selected} onChange={(config) => update(selected.id, { config })} /></details>}
+    {items.length > 0 && <div className="rp-room-actions"><button type="button" className="primary-button" onClick={addAll}>Add all {items.length} to plan</button></div>}
     {[...problems, ...reachWarnings].length > 0 && <ul className="rp-problems">{[...new Set([...problems, ...reachWarnings])].map((text) => <li key={text}>{text}</li>)}</ul>}
     {!items.length && <p className="sf-empty">Search a style to place it in the room. Sizes come straight from the April 2026 guide.</p>}
-    <p className="sf-hint">Free-standing pieces only. For modular sectionals use the sectional planner, which checks connections.</p>
+    <p className="sf-hint">Any style in the guide, placed to true scale. Modular sectionals that must connect piece to piece are designed in the sectional planner.{onSectional && <> <button type="button" className="sf-link" onClick={onSectional}>Open the sectional planner</button></>}</p>
   </section>;
 }

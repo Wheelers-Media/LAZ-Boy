@@ -98,7 +98,7 @@ function MatchCard({ onAddToPlan, match, weight, inches, sitLog, onLogSit, onInd
       <button type="button" className="back-button" onClick={() => onAddToPlan(lineFromLead({ source: 'fit', modelCode: match.code, modelName: match.name, category: match.category, sectional: Boolean(match.sectional) }))}><Plus size={15} /> Add to plan</button>
       <button type="button" className="back-button" onClick={() => onIndex(match.name)}>See in Product Index</button>
       {match.sectional
-        ? <button type="button" className="primary-button" onClick={() => onSectional(match.code)}>Design in Sectional Studio <ArrowRight size={14} /></button>
+        ? <button type="button" className="primary-button" onClick={() => onSectional(match.code)}>Design in Room Builder <ArrowRight size={14} /></button>
         : <button type="button" className="primary-button" onClick={() => onBuild(match.code)}>Build a SKU <ArrowRight size={14} /></button>}
     </footer>
   </article>;
@@ -126,7 +126,7 @@ export function FitDiscover({ onAddToPlan = () => {}, catalog, research, state, 
     if (isSectional) {
       const sectionals = getSectionalLeads(catalog, { mechanism }).map((lead, index) => ({
         tier: 'S', code: lead.model_code, name: lead.model_name, category: `${lead.family} modular sectional`, sectional: true, rank: index + 1,
-        why: [`${lead.family} modular · ${lead.pieceCount} pieces in Sectional Studio`, mechanism],
+        why: [`${lead.family} modular · ${lead.pieceCount} pieces in Room Builder`, mechanism],
         flags: [], capacity: 'Not listed', capacityKnown: false,
         basis: 'Lay out the pieces to size it to the room, then take the piece SKUs into RMS.',
       }));
@@ -186,7 +186,7 @@ export function FitDiscover({ onAddToPlan = () => {}, catalog, research, state, 
     return <div className="fitq fitq-results">
       <h1 className="sr-only">Fit and discover results</h1>
       <section className="fitq-head">
-        <div><p className="eyebrow"><Sparkles size={13} /> {isSectional ? 'MODULAR LINES' : 'THREE TO SIT IN'}</p><h2>{isSectional ? <>Lines to lay out, <em>then sit in.</em></> : <>Worth sitting in, <em>not a final answer.</em></>}</h2><p>{isSectional ? 'Every modular line that matches. Open one in Sectional Studio to size it to their room.' : 'A short list built from what they told you. It is deliberately broad so they try more than one.'}</p></div>
+        <div><p className="eyebrow"><Sparkles size={13} /> {isSectional ? 'MODULAR LINES' : 'THREE TO SIT IN'}</p><h2>{isSectional ? <>Lines to lay out, <em>then sit in.</em></> : <>Worth sitting in, <em>not a final answer.</em></>}</h2><p>{isSectional ? 'Every modular line that matches. Open one in Room Builder to size it to their room.' : 'A short list built from what they told you. It is deliberately broad so they try more than one.'}</p></div>
         <button type="button" className="back-button" onClick={() => setState({ ...FIT_DEFAULTS, answers: { ...FIT_DEFAULTS.answers } })}>Start over</button>
       </section>
       <div className="fitq-summary" role="list">{summary.map(([label, value, target]) => <button role="listitem" type="button" key={label} className="fitq-pill" onClick={() => go(target)}><span>{label}</span><strong>{value}</strong></button>)}</div>
@@ -248,7 +248,7 @@ export function FitDiscover({ onAddToPlan = () => {}, catalog, research, state, 
             <label className="field-label">How much space is behind it?</label>
             <Choices label="Room behind" value={roomName} onChange={(name) => { const room = ROOMS.find(([key]) => key === name); set({ clearance: `${name} · ${room[3]} in` }); }} options={ROOMS.map(([name, amount, help]) => [name, name, `${amount} · ${help}`])} />
           </>}
-          {isSectional && <p className="tip-strip"><Info size={16} /><span>Room size is set in Sectional Studio, where pieces are drawn at true size.</span></p>}
+          {isSectional && <p className="tip-strip"><Info size={16} /><span>Room size is set in Room Builder, where pieces are drawn at true size.</span></p>}
           <label className="field-label">Which kind of comfort sounds right?</label>
           <Choices label="Recline type" value={mechanism} onChange={(name) => set({ mechanism: name })} options={available.map(([name, hint]) => [name, name, hint])} />
           {cushions.length > 1 && <><label className="field-label">Seat feel</label><div className="chip-row" role="group" aria-label="Seat feel">{cushions.map((item) => <button key={item.code} type="button" className={chip(answers.cushion_preference === item.name)} aria-pressed={answers.cushion_preference === item.name} onClick={() => set({ cushion_preference: item.name })}>{item.name} · {item.code}</button>)}</div></>}
