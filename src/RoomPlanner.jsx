@@ -6,7 +6,7 @@ import { formatInches, insideRoom, overlaps, reachConflicts, reachRect, rotatedS
 // width, depth and fully-extended length. It does not check connections: use the sectional planner for modular collections.
 const PX = 3; // screen pixels per inch before the SVG scales to fit
 
-export function RoomPlanner({ catalog, onAddToPlan }) {
+export function RoomPlanner({ catalog, onAddToPlan, onBuild }) {
   const rows = useMemo(() => (catalog.style_index_2026?.styles || []).filter((row) => row.dims?.width > 0 && row.dims?.depth > 0), [catalog]);
   const [query, setQuery] = useState('');
   const [roomWidth, setRoomWidth] = useState(14);
@@ -58,6 +58,7 @@ export function RoomPlanner({ catalog, onAddToPlan }) {
     {selected && <div className="rp-selected"><strong>{selected.name} · {selected.label}</strong><span>{formatInches(selected.baseWidth)} W × {formatInches(selected.baseHeight)} D{selected.reachIn ? ` · ${formatInches(selected.reachIn)} fully extended` : ''}</span>
       <button type="button" className="back-button" onClick={() => rotate(selected.id)}>Rotate</button>
       <button type="button" className="back-button" onClick={() => onAddToPlan?.(lineFromLead({ source: 'planner', modelCode: selected.modelCode, modelName: selected.name, category: selected.category || '', styleCode: selected.prefix }))}>Add to plan</button>
+      {onBuild && <button type="button" className="back-button" onClick={() => onBuild(selected.modelCode)}>Build a SKU</button>}
       <button type="button" className="back-button" onClick={() => remove(selected.id)}>Remove</button></div>}
     {[...problems, ...reachWarnings].length > 0 && <ul className="rp-problems">{[...new Set([...problems, ...reachWarnings])].map((text) => <li key={text}>{text}</li>)}</ul>}
     {!items.length && <p className="sf-empty">Search a style to place it in the room. Sizes come straight from the April 2026 guide.</p>}
