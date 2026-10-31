@@ -1155,3 +1155,13 @@ input,textarea,select{font-size:max(16px,1em)}
   .main-content .warranty-row>button{grid-column:2;grid-row:2;align-self:start}
 }
 .sku-decoder-panel{margin-bottom:20px}
+/* Fabrics filters: a drawer of wrapping chips, never tiles that spill text */
+.fabric-filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 16px}
+.fabric-filter-btn{min-height:44px}
+.fabric-filter-group{margin:0 0 22px}
+.fabric-filter-group h3{margin:0 0 10px;font-size:1rem}
+.fabric-filter-group .chip-row{display:flex;flex-wrap:wrap;gap:8px}
+.fabric-filter-group .chip{height:auto;min-height:44px;padding:8px 14px;white-space:normal;text-align:left;line-height:1.25;max-width:100%;overflow-wrap:anywhere}
+.fabric-filter-foot{display:flex;gap:12px}
+.fabric-filter-foot .primary-button{flex:1;justify-content:center}
+.fabric-filter-foot .back-button{min-width:96px;justify-content:center}
