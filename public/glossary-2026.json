@@ -1,0 +1,1738 @@
+{
+  "_meta": {
+    "title": "Glossary 2026",
+    "built": "scripts/build-glossary.mjs",
+    "note": "Plain-language definitions read from the project documents named in each entry. Entries marked gap say what the supplied data does not define."
+  },
+  "entries": [
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "ES",
+      "term": "Elongated comfort selector",
+      "short": "Elongated comfort selector",
+      "plain": "Adds 2 inches to the standard comfort-selector handle for better leverage.",
+      "pitch": "“This longer handle gives you more leverage, so raising and lowering the legrest takes less effort.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "H1",
+      "term": "Arc comfort selector",
+      "short": "Arc comfort selector",
+      "plain": "Replaces the standard comfort selector with a brushed-nickel Arc handle. The finish changes the comfort selector.",
+      "pitch": "“A brushed-nickel handle is a small upgrade you will see and feel every time you recline.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "H3",
+      "term": "Black Arc comfort selector",
+      "short": "Black Arc comfort selector",
+      "plain": "Replaces the standard comfort selector with a matte-black Arc handle.",
+      "pitch": "“A matte-black handle gives the chair a modern, finished look.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "1H",
+      "term": "Arc comfort selector",
+      "short": "Arc comfort selector",
+      "plain": "Replaces the standard handles with a brushed-nickel Arc handle.",
+      "pitch": "“A brushed-nickel handle is a small upgrade you will see and feel every time you recline.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "3H",
+      "term": "Black Arc comfort selector",
+      "short": "Black Arc comfort selector",
+      "plain": "Replaces the standard handles with a matte-black Arc handle.",
+      "pitch": "“A matte-black handle gives the chair a modern, finished look.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "2E",
+      "term": "Elongated comfort selector",
+      "short": "Elongated comfort selector",
+      "plain": "Adds 2 inches to the standard handles for better leverage and an easier recline.",
+      "pitch": "“This longer handle gives you more leverage, so reclining takes less effort.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "LS",
+      "term": "Left-hand comfort selector",
+      "short": "Left-hand comfort selector",
+      "plain": "Moves the comfort selector to the left side.",
+      "pitch": "“If you sit on the left side, the handle moves to where your hand naturally falls.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "LE",
+      "term": "Left elongated comfort selector",
+      "short": "Left elongated comfort selector",
+      "plain": "Left-side handle with 2 extra inches of length.",
+      "pitch": "“The handle moves to the left side and is longer for easier leverage.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "L1",
+      "term": "Left-hand Arc comfort selector",
+      "short": "Left-hand Arc comfort selector",
+      "plain": "Left-side handle, replaced with the brushed-nickel Arc handle.",
+      "pitch": "“The handle moves to the left side, in a brushed-nickel Arc style.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "L3",
+      "term": "Left-hand black Arc comfort selector",
+      "short": "Left-hand black Arc comfort selector",
+      "plain": "Left-side handle, replaced with the matte-black Arc handle.",
+      "pitch": "“The handle moves to the left side, in a matte-black Arc style.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "FS",
+      "term": "La-Z-Boy Contour Cushion",
+      "short": "La-Z-Boy Contour Cushion",
+      "plain": "Adds a Contour Cushion foam layer over a high-resiliency foam base for the seat and legrest. The special foam has millions of air capsules that mold to the body for a soothing hug on the back and hips. Raises the foam warranty from 1 year to 3 years.",
+      "pitch": "“The Contour Cushion molds to your body and relieves pressure points, and it carries a longer foam warranty.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "Z6",
+      "term": "ComfortCore Plus with Contour Cushion",
+      "short": "ComfortCore Plus with Contour Cushion",
+      "plain": "Upgrades the Comfort Core seat cushion to ComfortCore Plus with Contour Cushion, a temperature-resistant foam that contours to the body. Raises the foam warranty from 3 years to 5 years.",
+      "pitch": "“This is the most personal seat we make: it contours to you and carries a 5-year foam warranty.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "FP",
+      "term": "Featherlite pillows",
+      "short": "Featherlite pillows",
+      "plain": "Upgrades accent pillows to 95% duck feathers and 5% duck down in a down-proof ticking fabric. Raises the foam warranty from 3 years to 5 years on styles where that applies.",
+      "pitch": "“Featherlite pillows feel plush and hold a softer, more relaxed shape.”",
+      "caution": "Accent pillows are not available on covers with cap codes LL, LS, LM, RL, BU, UE (April 2026 Fabric & Leather List).",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "P1",
+      "term": "Contrasting pillows",
+      "short": "Contrasting pillows",
+      "plain": "Changes the cover on the accent pillows. Enter the code followed by the contrasting fabric number.",
+      "pitch": "“Contrasting pillows let you add colour or pattern without changing the whole piece.”",
+      "caution": "Accent pillows are not available on covers with cap codes LL, LS, LM, RL, BU, UE (April 2026 Fabric & Leather List).",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "P2",
+      "term": "Contrasting pillows",
+      "short": "Contrasting pillows",
+      "plain": "Changes the cover on the accent pillows. Enter the code followed by the contrasting fabric number.",
+      "pitch": "“Contrasting pillows let you add colour or pattern without changing the whole piece.”",
+      "caution": "Accent pillows are not available on covers with cap codes LL, LS, LM, RL, BU, UE (April 2026 Fabric & Leather List).",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "SW",
+      "term": "Swivel base, manual recliners",
+      "short": "Swivel base, manual recliners",
+      "plain": "360-degree, full-race ball-bearing circular base. Available on select styles. Not available on wall recliners or the Summit Series.",
+      "pitch": "“A swivel base lets you turn toward the TV, the window or the conversation without getting up.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "SL",
+      "term": "Power swivel base",
+      "short": "Power swivel base",
+      "plain": "145-degree turn with stoppers for safety on a ball-bearing circular base. Adds 1 inch to overall height. Not available on wall recliners or the Summit Series.",
+      "pitch": "“It turns part of the way for conversation or the TV, and the stoppers keep it safe.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "LT",
+      "term": "Left-side sitting control panel",
+      "short": "Left-side sitting control panel",
+      "plain": "Moves the mounted controls from right to left side sitting.",
+      "pitch": "“The controls move to the left side, where you sit.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "LW",
+      "term": "Left-side wireless remote",
+      "short": "Left-side wireless remote",
+      "plain": "Switches to a left-side sitting mounted cradle with the wireless remote. The cradle includes a remote finder.",
+      "pitch": "“The remote cradle moves to the left side, with a remote finder in the cradle.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "HW",
+      "term": "Hand wand",
+      "short": "Hand wand",
+      "plain": "Replaces the side control panel with a corded hand wand. The cord runs through the centre so either hand can use it. No USB charging with the hand wand.",
+      "pitch": "“A simple corded hand wand is easy to hold and works with either hand.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "W2",
+      "term": "Dual wireless remotes",
+      "short": "Dual wireless remotes",
+      "plain": "Replaces the outside toggle controls with two sitting-mounted cradles with wireless remotes. Remote finder in the cradle, both memory settings on the remote and the cradle.",
+      "pitch": "“Two seats means two remotes, each with its own memory settings.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "T2",
+      "term": "Dual control panel",
+      "short": "Dual control panel",
+      "plain": "Both sitting positions get a control panel.",
+      "pitch": "“Each side of the sofa has its own controls.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "CB",
+      "term": "Power console bundle, black laminate tray",
+      "short": "Power console bundle, black laminate tray",
+      "plain": "Adds a wireless charging tray, two outlets and two USB ports inside the storage tub and two table ports, with a black laminate tray. For 339, U39, X39 and SC3. No battery packs.",
+      "pitch": "“The console charges your phone and keeps drinks and remotes in reach.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "CC",
+      "term": "Power console bundle, Coffee 021 wood tray",
+      "short": "Power console bundle, Coffee 021 wood tray",
+      "plain": "Adds a wireless charging tray, two outlets and two USB ports inside the storage tub and two table ports, with a Coffee finish 021 wood tray. For 339, U39, X39 and SC3. No battery packs.",
+      "pitch": "“The console charges your phone and keeps drinks and remotes in reach.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "CM",
+      "term": "Power console bundle, Mahogany 007 wood tray",
+      "short": "Power console bundle, Mahogany 007 wood tray",
+      "plain": "Adds a wireless charging tray, two outlets and two USB ports inside the storage tub and two table ports, with a Mahogany finish 007 wood tray. For 339, U39, X39 and SC3. No battery packs.",
+      "pitch": "“The console charges your phone and keeps drinks and remotes in reach.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "MA",
+      "term": "SlumberAir mattress",
+      "short": "SlumberAir mattress",
+      "plain": "Replaces the standard sleeper mattress with an inflatable air-cushioned top mattress. The motorised pump inflates it in 45 seconds and a button adjusts firm to soft. 10 inches total height, 5-year warranty.",
+      "pitch": "“Guests can set their own firmness at the touch of a button.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "MT",
+      "term": "Tempur-Response mattress",
+      "short": "Tempur-Response mattress",
+      "plain": "Replaces the standard sleeper mattress with Tempur-Response memory foam over an individually pocketed coil core. 5 inches total height, 3-year warranty.",
+      "pitch": "“Tempur-Response memory foam relieves pressure points and gives guests a better night’s sleep.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "NB",
+      "term": "Hammered black nailhead trim",
+      "short": "Hammered black nailhead trim",
+      "plain": "Adds hammered black nailhead trim. Locations vary by style.",
+      "pitch": "“Black nailhead trim adds a tailored detail to the piece.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "NH",
+      "term": "Brass nailhead trim",
+      "short": "Brass nailhead trim",
+      "plain": "Adds brass nailhead trim. Locations vary by style.",
+      "pitch": "“Brass nailhead trim adds a tailored, warm detail to the piece.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "NS",
+      "term": "Platinum nailhead trim",
+      "short": "Platinum nailhead trim",
+      "plain": "Adds platinum nailhead trim. Locations vary by style.",
+      "pitch": "“Platinum nailhead trim adds a tailored, cool-toned detail to the piece.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "0881YC",
+      "term": "Battery pack, DUO",
+      "short": "Battery pack, DUO",
+      "plain": "Order code for a DUO battery pack. A rechargeable lithium-ion battery pack lets the DUO operate cordless anywhere in the room. 1-year warranty on the battery pack.",
+      "pitch": "“A battery pack lets the DUO sit anywhere in the room, with no cord.”",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "4C",
+      "term": "Casters",
+      "short": "Casters",
+      "plain": "Replaces all four stationary legs with casters.",
+      "pitch": "",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "LG",
+      "term": "Leg change",
+      "short": "Leg change",
+      "plain": "Changes the standard leg to a different leg design. Leg designs vary by style; see Special Information on the style page.",
+      "pitch": "",
+      "caution": "",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "C1",
+      "term": "Cord Option",
+      "short": "Cord Option",
+      "plain": "Cord Option. The supplied data gives the name only, not a description.",
+      "source": "Point of Sale Basics RMS 101 (FY23), custom order upholstery screen, page 27"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "F1",
+      "term": "Fringe Option",
+      "short": "Fringe Option",
+      "plain": "Fringe Option. The supplied data gives the name only, not a description.",
+      "source": "Point of Sale Basics RMS 101 (FY23), custom order upholstery screen, page 27"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "WL",
+      "term": "Contrasting Welt",
+      "short": "Contrasting Welt",
+      "plain": "Contrasting Welt. The supplied data gives the name only, not a description.",
+      "source": "Point of Sale Basics RMS 101 (FY23), custom order upholstery screen, page 27"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "Z4",
+      "term": "ComfortCore GEL Seat Cushion",
+      "short": "ComfortCore GEL Seat Cushion",
+      "plain": "ComfortCore GEL Seat Cushion. The supplied data gives the name only, not a description.",
+      "source": "Point of Sale Basics RMS 101 (FY23), custom order upholstery screen, page 27"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "FN",
+      "term": "Wood finish (non-standard)",
+      "short": "Non-standard wood finish",
+      "plain": "Entered as FN followed by the finish code, for example FN 021. Leave it off to get the style’s standard finish.",
+      "source": "SKU grammar used in this app; finish codes from the Product Knowledge One Pagers"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "DC",
+      "term": "Seat-cushion option (name not shown)",
+      "short": "Seat-cushion option",
+      "plain": "Listed as an option on stationary styles next to Z6, which is ComfortCore Plus with Contour Cushion. The supplied documents do not print the name beside this code.",
+      "gap": true,
+      "source": "April 2026 Product Information Guide (option column)"
+    },
+    {
+      "tier": "B",
+      "kind": "option",
+      "code": "RW",
+      "term": "Right Wireless Remote",
+      "short": "Right Wireless Remote",
+      "plain": "Wireless remote control mounted on right arm side.",
+      "source": "App catalog (catalog_data-v2.json); not described in the mechanism guide"
+    },
+    {
+      "tier": "A",
+      "kind": "option",
+      "code": "NN",
+      "term": "NN · nailhead trim choice (name not shown)",
+      "short": "Nailhead trim choice",
+      "plain": "Appears beside the nailhead trim codes NB and NS on the Dutton 828 styles. The supplied documents do not print its name.",
+      "gap": true,
+      "source": "April 2026 Product Information Guide (option column)"
+    },
+    {
+      "tier": "A",
+      "kind": "cap",
+      "code": "UR",
+      "term": "UR · Up the Roll",
+      "short": "Up the Roll",
+      "plain": "Fabric pattern pieces are cut parallel to the selvage, so no pattern match is possible. On sofas, sleep sofas and multi-seat modular units the front rail is vertically seamed and may not match.",
+      "caution": "",
+      "pitch": "",
+      "source": "April 2026 Upholstery Price Book, Fabric & Leather Information (p. 15–16)"
+    },
+    {
+      "tier": "A",
+      "kind": "cap",
+      "code": "DR",
+      "term": "DR · Directional Railroad",
+      "short": "Directional Railroad",
+      "plain": "Pattern pieces are cut perpendicular to the selvage (railroaded). No vertical pattern match is possible; a horizontal match depends on the fabric design.",
+      "caution": "",
+      "pitch": "",
+      "source": "April 2026 Upholstery Price Book, Fabric & Leather Information (p. 15–16)"
+    },
+    {
+      "tier": "A",
+      "kind": "cap",
+      "code": "VS",
+      "term": "VS · Vertical Stripe",
+      "short": "Vertical Stripe",
+      "plain": "Railroaded and matched vertically only. Seat cushions are reversible on mirrored-image designs.",
+      "caution": "",
+      "pitch": "",
+      "source": "April 2026 Upholstery Price Book, Fabric & Leather Information (p. 15–16)"
+    },
+    {
+      "tier": "A",
+      "kind": "cap",
+      "code": "PS",
+      "term": "PS · Plaid Stripe",
+      "short": "Plaid Stripe",
+      "plain": "Railroaded and matched vertically and horizontally. Seat cushions are reversible on mirror-image designs.",
+      "caution": "",
+      "pitch": "",
+      "source": "April 2026 Upholstery Price Book, Fabric & Leather Information (p. 15–16)"
+    },
+    {
+      "tier": "A",
+      "kind": "cap",
+      "code": "DP",
+      "term": "DP · Directional Plaid",
+      "short": "Directional Plaid",
+      "plain": "Railroaded and matched vertically and horizontally; the pattern has an upward direction. Seat cushions are reversible.",
+      "caution": "",
+      "pitch": "",
+      "source": "April 2026 Upholstery Price Book, Fabric & Leather Information (p. 15–16)"
+    },
+    {
+      "tier": "A",
+      "kind": "cap",
+      "code": "NP",
+      "term": "NP · Non-Mirrored Plaid",
+      "short": "Non-Mirrored Plaid",
+      "plain": "Railroaded and matched vertically only. The design is not a mirror image, so seat cushions are not reversible.",
+      "caution": "",
+      "pitch": "",
+      "source": "April 2026 Upholstery Price Book, Fabric & Leather Information (p. 15–16)"
+    },
+    {
+      "tier": "A",
+      "kind": "cap",
+      "code": "HS",
+      "term": "HS · Horizontal Stripe",
+      "short": "Horizontal Stripe",
+      "plain": "Pattern pieces are cut parallel to the selvage and locked on the stripe line, so the stripe flows horizontally across inside backs, inside arms, seats and rails.",
+      "caution": "",
+      "pitch": "",
+      "source": "April 2026 Upholstery Price Book, Fabric & Leather Information (p. 15–16)"
+    },
+    {
+      "tier": "A",
+      "kind": "cap",
+      "code": "UE",
+      "term": "UE · Urethane",
+      "short": "Urethane",
+      "plain": "Railroaded, no vertical pattern match. Units with loose seats or backs have venting and/or tan denim on one side. Pillows are not available.",
+      "caution": "Accent pillows are not available on this cap code.",
+      "pitch": "",
+      "source": "April 2026 Upholstery Price Book, Fabric & Leather Information (p. 15–16)"
+    },
+    {
+      "tier": "A",
+      "kind": "cap",
+      "code": "BU",
+      "term": "BU · Breathable Urethane",
+      "short": "Breathable Urethane",
+      "plain": "Railroaded, no vertical pattern match. Do not use after-treatment on BU covers. Units with loose seats or backs have venting and/or tan denim on one side. Pillows are not available.",
+      "caution": "Accent pillows are not available on this cap code.",
+      "pitch": "",
+      "source": "April 2026 Upholstery Price Book, Fabric & Leather Information (p. 15–16)"
+    },
+    {
+      "tier": "A",
+      "kind": "cap",
+      "code": "RL",
+      "term": "RL · Recycled Leather",
+      "short": "Recycled Leather",
+      "plain": "A composite of recycled leather scraps with a cellular polyurethane face. Do not use after-treatment on RL covers. Pillows are not available.",
+      "caution": "Accent pillows are not available on this cap code.",
+      "pitch": "",
+      "source": "April 2026 Upholstery Price Book, Fabric & Leather Information (p. 15–16)"
+    },
+    {
+      "tier": "A",
+      "kind": "cap",
+      "code": "LM",
+      "term": "LM · Leather Mate",
+      "short": "Leather Mate",
+      "plain": "Leather plus vinyl or polyurethane. Leather is on the areas that touch the body (back, seat, inside arms); vinyl or polyurethane is on the outer parts. Pillows are not available.",
+      "caution": "Accent pillows are not available on this cap code.",
+      "pitch": "",
+      "source": "April 2026 Upholstery Price Book, Fabric & Leather Information (p. 15–16)"
+    },
+    {
+      "tier": "A",
+      "kind": "cap",
+      "code": "LL",
+      "term": "LL · Full Leather",
+      "short": "Full Leather",
+      "plain": "Covered in all top-grain leather. Units with loose seats or backs have venting and/or tan denim on one side. Pillows are not available.",
+      "caution": "Accent pillows are not available on this cap code.",
+      "pitch": "",
+      "source": "April 2026 Upholstery Price Book, Fabric & Leather Information (p. 15–16)"
+    },
+    {
+      "tier": "A",
+      "kind": "cap",
+      "code": "LS",
+      "term": "LS · Limited Leathers",
+      "short": "Limited Leathers",
+      "plain": "A limited-leathers cap code listed in the Product Information Guide key. The supplied documents do not give a longer definition.",
+      "caution": "Accent pillows are not available on this cap code.",
+      "gap": true,
+      "source": "April 2026 Product Information Guide (cap-code key)"
+    },
+    {
+      "tier": "A",
+      "kind": "cap",
+      "code": "RM",
+      "term": "RM · Recycled Leather Mate",
+      "short": "Recycled Leather Mate",
+      "plain": "Named in the Product Information Guide key. The supplied documents do not give a longer definition.",
+      "gap": true,
+      "source": "April 2026 Product Information Guide (cap-code key)"
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "CAP",
+      "term": "Cap code (cover availability code)",
+      "short": "Cap code",
+      "plain": "Every cover carries a cap code that says how the material is cut and matched and which styles can take it. A style lists the cap codes it accepts, and a cover only fits if its cap code is on that list.",
+      "pitch": "Check the cap code on the cover against the style’s list before showing a customer a swatch.",
+      "source": "April 2026 Upholstery Price Book, Fabric & Leather Information (p. 15–16); April 2026 Product Information Guide"
+    },
+    {
+      "tier": "A",
+      "kind": "wear",
+      "code": "N",
+      "term": "Normal wearability",
+      "short": "Normal",
+      "plain": "Recommended for use on all La-Z-Boy upholstered furniture.",
+      "caution": "",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "wear",
+      "code": "P",
+      "term": "Performance wearability",
+      "short": "Performance",
+      "plain": "Excellent ratings for durability, abrasion, pilling and fraying.",
+      "caution": "The supplied data does not tie the Performance marker to a stain warranty.",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "wear",
+      "code": "M",
+      "term": "Medium Duty wearability",
+      "short": "Medium Duty",
+      "plain": "Allowed on sofas, sleep sofas, duo products, classics and occasional chairs only.",
+      "caution": "",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "clean",
+      "code": "S",
+      "term": "S · Solvent Clean",
+      "short": "Solvent Clean",
+      "plain": "Clean with a mild water-free dry-cleaning solvent only. Never use water on it.",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "clean",
+      "code": "W",
+      "term": "W · Water Clean",
+      "short": "Water Clean",
+      "plain": "Clean with water-based cleaning agents or foam only. Never use solvent on it.",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "clean",
+      "code": "WS",
+      "term": "WS · Water or Solvent Clean",
+      "short": "Water or Solvent Clean",
+      "plain": "Either water-based agents or dry-cleaning solvent can be used.",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "clean",
+      "code": "W*B",
+      "term": "W*B · Bleach Cleanable",
+      "short": "Bleach Cleanable",
+      "plain": "Bleach-cleanable. Check the cover-specific care instructions.",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "special",
+      "code": "I",
+      "term": "i-Clean",
+      "short": "i-Clean",
+      "plain": "i-Clean is a special feature marked on the cover in the fabric list. The supplied documents list the marker but do not give a longer claim; confirm cover-specific care before promising it.",
+      "gap": true,
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "special",
+      "code": "PF",
+      "term": "Pet Friendly",
+      "short": "Pet Friendly",
+      "plain": "Pet Friendly is a special feature marked on the cover in the fabric list. The supplied documents list the marker but do not give a longer claim; confirm cover-specific care before promising it.",
+      "gap": true,
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "special",
+      "code": "C",
+      "term": "Conserve",
+      "short": "Conserve",
+      "plain": "Conserve is a special feature marked on the cover in the fabric list. The supplied documents list the marker but do not give a longer claim; confirm cover-specific care before promising it.",
+      "gap": true,
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "special",
+      "code": "A",
+      "term": "Antimicrobial",
+      "short": "Antimicrobial",
+      "plain": "Antimicrobial is a special feature marked on the cover in the fabric list. The supplied documents list the marker but do not give a longer claim; confirm cover-specific care before promising it.",
+      "gap": true,
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "special",
+      "code": "N",
+      "term": "Nanobionic",
+      "short": "Nanobionic",
+      "plain": "Nanobionic is a special feature marked on the cover in the fabric list. (Here N is Nanobionic, not Normal wearability.) The supplied documents list the marker but do not give a longer claim; confirm cover-specific care before promising it.",
+      "gap": true,
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "special",
+      "code": "W*B",
+      "term": "Bleach Cleanable",
+      "short": "Bleach Cleanable",
+      "plain": "Bleach Cleanable is a special feature marked on the cover in the fabric list. The supplied documents list the marker but do not give a longer claim; confirm cover-specific care before promising it.",
+      "gap": true,
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "LEATHER-AUTHENTIC",
+      "term": "Authentic leather",
+      "short": "Authentic leather",
+      "plain": "Pure, transparent dyes show the natural markings in each hide: wrinkles, scars and brands. Every Authentic leather has a protective topcoat.",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "LEATHER-PERFORMANCE",
+      "term": "Performance leather",
+      "short": "Performance leather",
+      "plain": "Consistent color and subtle markings, made with embossing, corrective techniques and protective coatings that resist soil.",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "LEATHER-NUBUCK",
+      "term": "Nubuck leather",
+      "short": "Nubuck leather",
+      "plain": "Infused with transparent dyes for subtle color variation without hiding the natural character of the hide.",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "LEATHERGROUP-SELECT-LEATHER-RECLINING",
+      "term": "Select Leather Reclining",
+      "short": "Select Leather Reclining",
+      "plain": "Married leather with a urethane or vinyl match on specific reclining frames.",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "LEATHERGROUP-SELECT-LEATHER-STATIONARY",
+      "term": "Select Leather Stationary",
+      "short": "Select Leather Stationary",
+      "plain": "Married leather with a urethane or vinyl match on specific stationary frames.",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "LEATHERGROUP-CUSTOM-LEATHER-MATCH",
+      "term": "Custom Leather Match",
+      "short": "Custom Leather Match",
+      "plain": "Custom leather with a urethane match on select frames.",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "LEATHERGROUP-CUSTOM-LEATHER-PLUS",
+      "term": "Custom Leather Plus",
+      "short": "Custom Leather Plus",
+      "plain": "Custom leather available on most frames.",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "LEATHERGROUP-SPECIALTY-LEATHER",
+      "term": "Specialty Leather",
+      "short": "Specialty Leather",
+      "plain": "Custom leather on most frames. Swatch sets must be requested and purchased.",
+      "source": "April 2026 Fabric & Leather List"
+    },
+    {
+      "tier": "A",
+      "kind": "finish",
+      "code": "007",
+      "term": "Brown Mahogany (007)",
+      "short": "Brown Mahogany",
+      "plain": "Classic medium-brown patina with red-brown undertones.",
+      "caution": "",
+      "source": "Sales reference library; Product Knowledge One Pagers"
+    },
+    {
+      "tier": "A",
+      "kind": "finish",
+      "code": "021",
+      "term": "Coffee (021)",
+      "short": "Coffee",
+      "plain": "Dark, deep brown finish.",
+      "caution": "",
+      "source": "Sales reference library; Product Knowledge One Pagers"
+    },
+    {
+      "tier": "A",
+      "kind": "finish",
+      "code": "041",
+      "term": "Graphite (041)",
+      "short": "Graphite",
+      "plain": "Deep finish with gray and dark-brown undertones.",
+      "caution": "",
+      "source": "Sales reference library; Product Knowledge One Pagers"
+    },
+    {
+      "tier": "A",
+      "kind": "finish",
+      "code": "071",
+      "term": "Driftwood (071)",
+      "short": "Driftwood",
+      "plain": "Textured, lighter natural wood tone.",
+      "caution": "",
+      "source": "Sales reference library; Product Knowledge One Pagers"
+    },
+    {
+      "tier": "A",
+      "kind": "finish",
+      "code": "142",
+      "term": "Mesa (142)",
+      "short": "Mesa",
+      "plain": "Medium brown with rich red undertones.",
+      "caution": "The supplied reference says available only on style numbers 295–423; verify exact style eligibility.",
+      "source": "Sales reference library; Product Knowledge One Pagers"
+    },
+    {
+      "tier": "A",
+      "kind": "finish",
+      "code": "067",
+      "term": "Sable (067)",
+      "short": "Sable",
+      "plain": "Sable wood finish. The supplied documents name it but give no description.",
+      "gap": true,
+      "source": "April 2026 Product Information Guide"
+    },
+    {
+      "tier": "A",
+      "kind": "dim",
+      "code": "W",
+      "term": "Width",
+      "short": "Width",
+      "plain": "Outside body width at the widest point; the source says this includes the handle.",
+      "source": "April 2026 Upholstery Price Book, dimension key"
+    },
+    {
+      "tier": "A",
+      "kind": "dim",
+      "code": "H",
+      "term": "Height",
+      "short": "Height",
+      "plain": "Floor to the top center of the back.",
+      "source": "April 2026 Upholstery Price Book, dimension key"
+    },
+    {
+      "tier": "A",
+      "kind": "dim",
+      "code": "D",
+      "term": "Depth",
+      "short": "Depth",
+      "plain": "Source definition: wall to front edge when the unit is flush against the wall. Check the exact measurement convention for the cited product sheet.",
+      "source": "April 2026 Upholstery Price Book, dimension key"
+    },
+    {
+      "tier": "A",
+      "kind": "dim",
+      "code": "SW",
+      "term": "Seat width",
+      "short": "Seat width",
+      "plain": "Inside width measured between arms.",
+      "source": "April 2026 Upholstery Price Book, dimension key"
+    },
+    {
+      "tier": "A",
+      "kind": "dim",
+      "code": "SH",
+      "term": "Seat height",
+      "short": "Seat height",
+      "plain": "Floor to crown of the seat cushion.",
+      "source": "April 2026 Upholstery Price Book, dimension key"
+    },
+    {
+      "tier": "A",
+      "kind": "dim",
+      "code": "SD",
+      "term": "Seat depth",
+      "short": "Seat depth",
+      "plain": "Front face of the seat cushion to the lower inside back.",
+      "source": "April 2026 Upholstery Price Book, dimension key"
+    },
+    {
+      "tier": "A",
+      "kind": "dim",
+      "code": "AH",
+      "term": "Arm height",
+      "short": "Arm height",
+      "plain": "Floor to top of arm.",
+      "source": "April 2026 Upholstery Price Book, dimension key"
+    },
+    {
+      "tier": "A",
+      "kind": "dim",
+      "code": "RD",
+      "term": "Recline distance",
+      "short": "Recline distance",
+      "plain": "Wall clearance required to recline, as defined in the supplied reference.",
+      "source": "April 2026 Upholstery Price Book, dimension key"
+    },
+    {
+      "tier": "A",
+      "kind": "dim",
+      "code": "WT",
+      "term": "Unit weight",
+      "short": "Unit weight",
+      "plain": "Total unit shipping weight; not user-weight capacity.",
+      "source": "April 2026 Upholstery Price Book, dimension key"
+    },
+    {
+      "tier": "A",
+      "kind": "dim",
+      "code": "FE",
+      "term": "Fully extended",
+      "short": "Fully extended",
+      "plain": "Depth of the unit from the front of the legrest to the top of the back when fully reclined.",
+      "pitch": "This is how much floor the chair takes up when someone is fully reclined. Compare it to the room.",
+      "source": "April 2026 Upholstery Price Book, dimension key"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "recliner-010",
+      "term": "Rocking recliner",
+      "short": "Rocking recliner",
+      "plain": "Needs 12–18 in from the wall to recline. Weight tested to 300 lb. Key features: Independent reclining back & seat, while rocking; 3-position dual-locking legrest; 16-position ratchet tilt; Wingnut back-tension adjustment; Four-sided unibody frame.",
+      "prefixes": [
+        "010"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2025-11"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "recliner-p10",
+      "term": "Power rocking recliner",
+      "short": "Power rocking recliner",
+      "plain": "Needs 12–18 in from the wall to recline. Weight tested to 300 lb. Key features: Independent reclining back & seat, while rocking; 4-button control + USB; Safety springs: legrest; 2 motors.",
+      "prefixes": [
+        "P10"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2025-11"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "recliner-10u",
+      "term": "Power rocking recliner with headrest",
+      "short": "Power rocking recliner with headrest",
+      "plain": "Needs 12–18 in from the wall to recline. Weight tested to 300 lb. Key features: Independent reclining back & seat, while rocking; Adjustable headrest; Wireless remote with memory & home buttons + USB; Safety springs: headrest & legrest; 3 motors.",
+      "prefixes": [
+        "10U"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-01"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "recliner-10x",
+      "term": "Power rocking recliner with headrest & lumbar",
+      "short": "Power rocking recliner with headrest & lumbar",
+      "plain": "Needs 12–18 in from the wall to recline. Weight tested to 300 lb. Key features: Independent reclining back & seat, while rocking; Adjustable headrest & lumbar; Wireless remote with memory & home buttons + USB; Safety springs: headrest & legrest; 4 motors.",
+      "prefixes": [
+        "10X"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-01"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "recliner-016",
+      "term": "Wall recliner",
+      "short": "Wall recliner",
+      "plain": "Needs 4–8 in from the wall to recline. Weight tested to 300 lb. Key features: Independent reclining back & seat; 3-position dual-locking legrest; Track & wheel reclining mechanism; Wingnut back-tension adjustment; Four-sided unibody frame.",
+      "prefixes": [
+        "016"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2025-11"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "recliner-p16",
+      "term": "Power wall recliner",
+      "short": "Power wall recliner",
+      "plain": "Needs 4–8 in from the wall to recline. Weight tested to 300 lb. Key features: Independent reclining back & seat; 4-button control + USB; Safety springs: legrest; 2 motors.",
+      "prefixes": [
+        "P16"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2025-11"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "recliner-16x",
+      "term": "Power wall recliner with headrest & lumbar",
+      "short": "Power wall recliner with headrest & lumbar",
+      "plain": "Needs 4–8 in from the wall to recline. Weight tested to 300 lb. Key features: Independent reclining back & seat; Adjustable headrest & lumbar; Wireless remote with memory & home buttons + USB; Safety springs: headrest & legrest; 4 motors.",
+      "prefixes": [
+        "16X"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-01"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "recliner-017",
+      "term": "Gliding recliner",
+      "short": "Gliding recliner",
+      "plain": "Needs 12–14 in from the wall to recline. Weight tested to 300 lb. Key features: Independent reclining back & seat, while gliding; 1-position dual-locking legrest; Speed-nut back-tension adjustment; Four-sided unibody frame.",
+      "prefixes": [
+        "017"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2025-11"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "lift-bronze",
+      "term": "Bronze lift recliner",
+      "short": "Bronze lift recliner",
+      "plain": "Needs 13.5–14.5 in from the wall to recline. Weight tested to 300 lb. Key features: 2-button control (Bronze); 1-motor lift through full recline; Storage pocket; Safety springs: legrest.",
+      "prefixes": [
+        "3BL"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "lift-gold",
+      "term": "Gold lift recliner",
+      "short": "Gold lift recliner",
+      "plain": "Needs 13.5–13.5 in from the wall to recline. Weight tested to 500 lb. Key features: Articulating backrest; Storage pocket; Independently reclining back & legrest; Vibration with heat & massage; Safety springs: legrest.",
+      "prefixes": [
+        "1HM"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "lift-platinum",
+      "term": "Platinum lift recliner",
+      "short": "Platinum lift recliner",
+      "plain": "Needs 12.5–12.5 in from the wall to recline. Weight tested to 350 lb. Key features: Box mechanism cover; Storage pocket; Independently reclining back & legrest; Legrest elevates to zero gravity; Safety springs: headrest & legrest.",
+      "prefixes": [
+        "1PL",
+        "1PH"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "motion-manual",
+      "term": "Reclina-Way manual motion",
+      "short": "Reclina-Way manual motion",
+      "plain": "Needs 4–12 in from the wall to recline. Weight tested to 300 lb. Key features: Independent reclining back & seat; 3-position dual-locking legrest; Track & wheel reclining mechanism; Wingnut back-tension adjustment; Four-sided unibody frame with levelers; Drop-down table & lower drawer (360 / 36U / 36X sofas); Power console bundle (CB / CC / CM).",
+      "prefixes": [
+        "320",
+        "330",
+        "360",
+        "339"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-06"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "motion-power-headrest",
+      "term": "Power Reclina-Way with headrest",
+      "short": "Power Reclina-Way with headrest",
+      "plain": "Needs 4–12 in from the wall to recline. Weight tested to 300 lb. Key features: Independent reclining back & seat; Adjustable headrest; 3-toggle control with memory & home + USB; Safety springs: headrest & legrest; Emergency battery backup.",
+      "prefixes": [
+        "32U",
+        "33U",
+        "36U",
+        "U39"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-06"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "motion-power-lumbar",
+      "term": "Power Reclina-Way with headrest & lumbar",
+      "short": "Power Reclina-Way with headrest & lumbar",
+      "plain": "Needs 4–12 in from the wall to recline. Weight tested to 300 lb. Key features: Independent reclining back & seat; Adjustable headrest & lumbar; 4-toggle control with memory & home + USB; Safety springs: headrest & legrest; Emergency battery backup.",
+      "prefixes": [
+        "32X",
+        "33X",
+        "36X",
+        "X39"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-06"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "motion-lazTime",
+      "term": "La-Z-Time manual motion",
+      "short": "La-Z-Time manual motion",
+      "plain": "Needs 4–12 in from the wall to recline. Weight tested to 300 lb. Key features: Independent reclining back & seat, while rocking; Spring-release footrest; Legrest tension adjustment; Wingnut back-tension adjustment; Front foot levelers.",
+      "prefixes": [
+        "443",
+        "444",
+        "445",
+        "446",
+        "448",
+        "449",
+        "44A",
+        "44B",
+        "44C",
+        "44D",
+        "44E",
+        "44Q",
+        "44S",
+        "44V"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-06"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "motion-lazTime-u",
+      "term": "Power La-Z-Time with headrest",
+      "short": "Power La-Z-Time with headrest",
+      "plain": "Needs 4–12 in from the wall to recline. Weight tested to 300 lb. Key features: 1-button reclining; Adjustable headrest; Safety springs: headrest & legrest; Emergency battery backup.",
+      "prefixes": [
+        "U43",
+        "U44",
+        "U45",
+        "U46",
+        "U48",
+        "U49",
+        "U4A",
+        "U4B",
+        "U4D",
+        "U4E",
+        "U4Q",
+        "U4S",
+        "U4V"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-06"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "motion-lazTime-x",
+      "term": "Power La-Z-Time with headrest & lumbar",
+      "short": "Power La-Z-Time with headrest & lumbar",
+      "plain": "Needs 4–12 in from the wall to recline. Weight tested to 300 lb. Key features: 1-button reclining; Adjustable headrest & lumbar; Safety springs: headrest & legrest; Emergency battery backup.",
+      "prefixes": [
+        "X43",
+        "X44",
+        "X45",
+        "X46",
+        "X48",
+        "X49",
+        "X4A",
+        "X4B",
+        "X4D",
+        "X4E",
+        "X4Q",
+        "X4S",
+        "X4V"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-06"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "motion-lazMotion",
+      "term": "Power La-Z-Motion with headrest",
+      "short": "Power La-Z-Motion with headrest",
+      "plain": "Needs 9–9 in from the wall to recline. Weight tested to 300 lb. Key features: Power recline & adjustable headrest; Zero-gravity layout; Inside-arm control with Home button + USB; La-Z-Motion seat poly construction; Safety springs: headrest & legrest.",
+      "prefixes": [
+        "81U",
+        "84U",
+        "85U",
+        "88U",
+        "8AU",
+        "8BU",
+        "8SU"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2025-11"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "stationary-ce",
+      "term": "Comfort Essentials stationary",
+      "short": "Comfort Essentials stationary",
+      "plain": "Weight tested to 300 lb. Key features: Interlocking frame; No-sag springs; Single-core seat cushion with logo decking; Double-picked corkscrew poly fill.",
+      "prefixes": [
+        "061",
+        "063",
+        "023"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "stationary-premier",
+      "term": "Premier stationary",
+      "short": "Premier stationary",
+      "plain": "Weight tested to 300 lb. Key features: Fully padded interlocking frame; Comfort Core seat cushion with logo decking; No-sag springs; Double-picked corkscrew poly fill.",
+      "prefixes": [
+        "610",
+        "620",
+        "630",
+        "655",
+        "230",
+        "235"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "stationary-sleeper",
+      "term": "Sleepers",
+      "short": "Sleepers",
+      "plain": "Weight tested to 300 lb. Key features: Saddle seat construction; Tubular steel sleep mechanism; Cross-wire mattress support; Dual-locking headrest with mattress retainer.",
+      "prefixes": [
+        "510",
+        "520",
+        "555"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "stationary-duo",
+      "term": "DUO",
+      "short": "DUO",
+      "plain": "Needs 0–0 in from the wall to recline. Weight tested to 300 lb. Key features: One-touch recline button with USB-A; Reclining inside back & seat; Pivoting legrest; No-sag springs.",
+      "prefixes": [
+        "P91",
+        "P93",
+        "P94"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-06"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "dc-028",
+      "term": "2-position high-leg recliner",
+      "short": "2-position high-leg recliner",
+      "plain": "Needs 12–18 in from the wall to recline. Weight tested to 300 lb. Key features: Extended legrest; 2-position reclining; Frame cross supports.",
+      "prefixes": [
+        "028"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2025-11"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "dc-295",
+      "term": "High-leg recliner",
+      "short": "High-leg recliner",
+      "plain": "Needs 12–18 in from the wall to recline. Weight tested to 300 lb. Key features: Extended legrest; Full-extension reclining; Frame cross supports.",
+      "prefixes": [
+        "295"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-06"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "dc-29u",
+      "term": "Power high-leg recliner with headrest",
+      "short": "Power high-leg recliner with headrest",
+      "plain": "Needs 12–18 in from the wall to recline. Weight tested to 300 lb. Key features: Wireless remote with 2 memories, Home button & USB-A; 1-button reclining; Adjustable headrest; Safety springs: headrest & legrest; 2 motors.",
+      "prefixes": [
+        "29U"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-01"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "dc-210",
+      "term": "High-leg swivel chair",
+      "short": "High-leg swivel chair",
+      "plain": "Needs 6–12 in from the wall to recline. Weight tested to 300 lb. Key features: Fully padded interlocking frame; Comfort Core seat cushion with logo decking; No-sag springs; High-leg swivel base.",
+      "prefixes": [
+        "210"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-06"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "dc-215",
+      "term": "Swivel chair",
+      "short": "Swivel chair",
+      "plain": "Needs 6–12 in from the wall to recline. Weight tested to 300 lb. Key features: Fully padded interlocking frame; Comfort Core seat cushion with logo decking; No-sag springs; Swivel base (track & wheel).",
+      "prefixes": [
+        "215"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-06"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "dc-225",
+      "term": "Swivel glider",
+      "short": "Swivel glider",
+      "plain": "Needs 6–12 in from the wall to recline. Weight tested to 300 lb. Key features: Fully padded interlocking frame; Comfort Core seat cushion with logo decking; No-sag springs; Swivel glider base.",
+      "prefixes": [
+        "225"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-06"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "dc-265",
+      "term": "Press-back reclining chair",
+      "short": "Press-back reclining chair",
+      "plain": "Needs 10–12 in from the wall to recline. Weight tested to 300 lb. Key features: Press-back reclining; Wingnut back-tension adjustment; No-sag springs.",
+      "prefixes": [
+        "265"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2025-11"
+    },
+    {
+      "tier": "A",
+      "kind": "mech",
+      "code": "dc-ottoman",
+      "term": "Ottomans",
+      "short": "Ottomans",
+      "plain": "Needs 0–0 in from the wall to recline. Key features: Fully padded interlocking frame; Ottoman features.",
+      "prefixes": [
+        "024",
+        "240",
+        "245"
+      ],
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues), issued 2026-06"
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "TALL-SERIES",
+      "term": "Tall Series",
+      "short": "Tall Series",
+      "plain": "Tall base included. Deep seat and taller back. Weight tested to 300 lb. Available in 010, 10U, 10X, 016 and 16X.",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "SUMMIT-SERIES",
+      "term": "Summit Series",
+      "short": "Summit Series",
+      "plain": "Elongated handle and tall base included. Wider-scale frame, taller back, extra seat and back springs, bolstered rocker blocks and springs, extra-deep seat with full chaise legrest. No swivel bases allowed. Weight tested to 300 lb. Available in 010, 10U, 10X, 016 and 16X.",
+      "source": "Product Knowledge Library (Nov 2025 – Jun 2026 issues)"
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "SKU",
+      "term": "SKU / RMS line",
+      "short": "SKU / RMS line",
+      "plain": "The ordering code for one item: style code, then cover, then any finish and options, for example 10X709 B153853. The app builds and decodes these strings so you can copy them into RMS.",
+      "pitch": "Always confirm the line in RMS before promising it; the app does not check orders.",
+      "source": "Point of Sale Basics RMS 101 (option codes page); project SKU grammar",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "RMS",
+      "term": "RMS",
+      "short": "RMS",
+      "plain": "The point-of-sale screen where orders are entered. The app mirrors its fields (Group, Style, Grade, Pattern, Color) so a code from the app can be keyed in directly.",
+      "pitch": "",
+      "source": "Point of Sale Basics RMS 101 (FY23)",
+      "gap": true,
+      "caution": "What the letters stand for is not in the supplied data."
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "PREFIX",
+      "term": "Prefix (Group)",
+      "short": "Prefix (Group)",
+      "plain": "The first characters of a style code. They tell you what mechanism or construction it is. 10X is a power rocking recliner with headrest and lumbar; 016 is a wall recliner; 44 is a La-Z-Time motion sofa.",
+      "pitch": "Learn the prefix families first. They sort the whole catalog.",
+      "source": "Product Knowledge Library June 2026, table of contents; April 2026 Product Information Guide",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "MODEL",
+      "term": "Model (collection)",
+      "short": "Model (collection)",
+      "plain": "The three-digit number and name that give a family its look: 709 Jasper, 724 Trouper. One model comes in several styles (prefixes), so the same look can be a rocker, a wall recliner or a power chair.",
+      "pitch": "Pick the look with the customer first, then the prefix for how it moves.",
+      "source": "April 2026 Product Information Guide",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "GRADE",
+      "term": "Grade",
+      "short": "Grade",
+      "plain": "The letter at the start of a cover code: B1538 is grade B. The price book lists fabric prices in grade groups (B–C, D–F, G–N, P–Q), so a higher grade group costs more. The app shows no prices; read the figure from the price book.",
+      "pitch": "Quote the price from the price book, never from memory.",
+      "source": "April 2026 Upholstery Price Book (price list columns); April 2026 Fabric & Leather List",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "PATTERN",
+      "term": "Pattern",
+      "short": "Pattern",
+      "plain": "The four digits after the grade letter that identify one fabric or leather design, for example 1538 Seamount.",
+      "pitch": "",
+      "source": "April 2026 Fabric & Leather List",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "COLOR",
+      "term": "Color",
+      "short": "Color",
+      "plain": "The two digits that pick the colour of a pattern, for example 53 Silver. Each pattern lists its own colours.",
+      "pitch": "",
+      "source": "April 2026 Fabric & Leather List",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "COVER",
+      "term": "Cover",
+      "short": "Cover",
+      "plain": "The fabric or leather on the body of the furniture: grade, pattern and colour together, for example B153853.",
+      "pitch": "",
+      "source": "April 2026 Fabric & Leather List",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "SELECT",
+      "term": "Select covers",
+      "short": "Select covers",
+      "plain": "Some styles list specific covers as Select fabric, Select faux leather or Select leather in the price book. These are named per style, so check the exact style’s list.",
+      "pitch": "If the customer loves a cover that is not on the style’s select list, check the other cover groups before saying no.",
+      "source": "April 2026 Upholstery Price Book (style headers)",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "MOTION",
+      "term": "Motion upholstery",
+      "short": "Motion upholstery",
+      "plain": "The guide’s section for sofas, loveseats and modular sectionals with reclining seats: Reclina-Way, La-Z-Time and La-Z-Motion families.",
+      "pitch": "",
+      "source": "Product Knowledge Library June 2026, table of contents",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "RECLINA-ROCKER",
+      "term": "Reclina-Rocker (rocking recliner)",
+      "short": "Reclina-Rocker (rocking recliner)",
+      "plain": "The rocking recliner family: 010, power P10, 10U and 10X. Rocks as well as reclines.",
+      "pitch": "",
+      "source": "April 2026 Product Information Guide (base kit notes); Product Knowledge Library June 2026",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "RECLINA-WAY",
+      "term": "Reclina-Way (wall recliner)",
+      "short": "Reclina-Way (wall recliner)",
+      "plain": "The wall recliner family: 016, power P16 and 16X. Designed to sit close to a wall; see the wall-space figure on the style.",
+      "pitch": "Ask how far the chair sits from the wall before choosing between rocker and wall recliner.",
+      "source": "April 2026 Product Information Guide (base kit notes); Product Knowledge Library June 2026",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "LA-Z-TIME",
+      "term": "La-Z-Time",
+      "short": "La-Z-Time",
+      "plain": "Motion family with prefixes 44_ (manual), U4_ (power with headrest) and X4_ (power with headrest and lumbar).",
+      "pitch": "",
+      "source": "Product Knowledge Library June 2026, table of contents",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "DUO",
+      "term": "Duo®",
+      "short": "Duo®",
+      "plain": "A reclining sofa, loveseat or chair family with prefixes P9_. The Duo battery pack (0881YC) is for styles with two power recliners.",
+      "pitch": "",
+      "source": "Product Knowledge Library June 2026; April 2026 Product Information Guide (battery pack)",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "LIFT",
+      "term": "Lift recliners",
+      "short": "Lift recliners",
+      "plain": "Power lift chairs: Bronze (3BL), Gold (1HM) and Platinum (1PL, 1PH). Each has its own weight rating; use the lift-chair weight tiers under Support.",
+      "pitch": "Always match the tested weight to the person, and never relax it.",
+      "source": "Product Knowledge Library June 2026, table of contents",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "PLATINUM",
+      "term": "Platinum Luxury-Lift",
+      "short": "Platinum Luxury-Lift",
+      "plain": "The top lift series. Adjustable power-tilt headrest from 0 to 55 degrees, power lumbar with nearly 3.5 in of additional support, a pivoting lumbar pad and a spring-action headrest return that prevents pinching.",
+      "pitch": "Sell the headrest and lumbar: the customer sets their own head and neck position and back support with a button.",
+      "source": "Platinum-Lifts Features and Benefits, Rev 01",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "SLEEPER",
+      "term": "Sleeper (sleep sofa)",
+      "short": "Sleeper (sleep sofa)",
+      "plain": "Sleep sofas come with the Supreme Comfort mattress (5.5 in innerspring with quilted damask topper, 5-year warranty) as standard. Upgrade to a Slumberaire air mattress (5-year) or a Tempur-Response memory foam mattress (3-year).",
+      "pitch": "Ask how often guests actually sleep over: that decides standard versus upgrade.",
+      "source": "Product Knowledge One Pagers (mattress page)",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "COMFORTCORE",
+      "term": "ComfortCore seat",
+      "short": "ComfortCore seat",
+      "plain": "The standard Premier stationary seat construction: zoned cushioning with a 36 lb and a 27 lb polyurethane centre.",
+      "pitch": "",
+      "source": "April 2026 Upholstery Price Book, seat constructions (p. 17–19)",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "ULTRA-PLUSH",
+      "term": "Ultra Plush seat",
+      "short": "Ultra Plush seat",
+      "plain": "A softer recliner seat made by adding an extra layer of 12 lb polyurethane foam on top of the polyurethane foam core.",
+      "pitch": "For the customer who says “soft”.",
+      "source": "April 2026 Upholstery Price Book, seat constructions",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "SUMMIT-SEAT",
+      "term": "Summit seat",
+      "short": "Summit seat",
+      "plain": "Five seat springs and a 36 lb foam core for optimal support.",
+      "pitch": "",
+      "source": "April 2026 Upholstery Price Book, seat constructions",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "CONTOUR",
+      "term": "La-Z-Boy Contour Cushion",
+      "short": "La-Z-Boy Contour Cushion",
+      "plain": "A seat topper of temperature-resistant 2.5-density foam that moulds to the body over a 2.5-density 36 lb core. On recliners it runs from the seat through the legrest. 3-year cushion warranty.",
+      "pitch": "Sell it as the cushion that hugs sore backs and hips.",
+      "source": "Gliding Recliner Resource Guide 017; Product Knowledge One Pagers",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "COMFORTDOWN",
+      "term": "ComfortDown cushion",
+      "short": "ComfortDown cushion",
+      "plain": "A plump, feathery blend over resilient foam around an individually pocketed coil core. Raises the foam warranty from 3 to 5 years.",
+      "pitch": "The cloud-soft option.",
+      "source": "Product Knowledge One Pagers",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "PREMIER-STANDARD",
+      "term": "Premier standard seat",
+      "short": "Premier standard seat",
+      "plain": "Seat type printed as “Premier standard (SS)” on stationary styles. The seat construction definitions are on pages 17–19 of the price book.",
+      "pitch": "",
+      "source": "April 2026 Product Information Guide; April 2026 Upholstery Price Book",
+      "gap": true,
+      "caution": "The “(SS)” tag itself is not defined in the supplied data."
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "WARRANTY",
+      "term": "Warranty at a glance",
+      "short": "Warranty at a glance",
+      "plain": "Limited lifetime on parts for springs, mechanism and frame, with 1 year on labour. 3-year warranty on a ComfortCore seat cushion. 1 year on all other foam, fabric and leather. Categories differ; see Support for the matrix.",
+      "pitch": "State the warranty from the guide only. Never add promises.",
+      "source": "Product Knowledge One Pagers; mechanism guide warranty tiers",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "TEAR-PAD",
+      "term": "Collection tear pad",
+      "short": "Collection tear pad",
+      "plain": "The collection sheet for a sectional that shows which pieces can connect. The app says to check every layout against it before ordering.",
+      "pitch": "A layout in the app is a planning aid. The tear pad decides what can be ordered.",
+      "source": "Sectional tear-pad profiles bundled with the app",
+      "gap": true,
+      "caution": "The tear pad sheets themselves are not in the supplied project files."
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "SWIVEL-BASE",
+      "term": "Swivel and tall bases",
+      "short": "Swivel and tall bases",
+      "plain": "Manual rockers swivel 360 degrees; power rockers swivel 145 degrees. A tall base adds 1 to 1.5 in to seat height and overall height depending on the kit. Base kits are separate RMS lines.",
+      "pitch": "Ask about knees and getting up: a tall base helps taller customers.",
+      "source": "April 2026 Product Information Guide (base assembly kits)",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "BATTERY",
+      "term": "Battery pack",
+      "short": "Battery pack",
+      "plain": "A rechargeable pack that replaces the corded power supply on power styles. Check compatibility for the exact style under Support before adding one.",
+      "pitch": "",
+      "source": "April 2026 Product Information Guide (batteries)",
+      "gap": false,
+      "caution": ""
+    },
+    {
+      "tier": "A",
+      "kind": "term",
+      "code": "PILLOWS",
+      "term": "Accent pillows",
+      "short": "Accent pillows",
+      "plain": "Pillows that come with some styles. FeatherLite upgrades them to 95% duck feather and 5% duck down in a cotton down-proof ticking. Contrasting pillows (P1/P2) let the pillow fabric differ from the body cover. Not available on LL, LS, LM, RL, BU or UE covers.",
+      "pitch": "Pillows are an easy add-on that changes the look. Check the cover’s cap code first.",
+      "source": "Product Knowledge One Pagers; April 2026 Fabric & Leather List",
+      "gap": false,
+      "caution": ""
+    }
+  ]
+}

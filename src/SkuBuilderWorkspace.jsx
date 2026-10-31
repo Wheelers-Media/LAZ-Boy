@@ -1,3 +1,4 @@
+import { Term } from './Term.jsx';
 import React, { useMemo, useState } from 'react';
 import { Check, Copy, Info, Plus, Printer, Search, ShieldCheck } from './icons.jsx';
 import { CoverPicker } from './CoverPicker.jsx';
@@ -166,8 +167,8 @@ export function SkuBuilderWorkspace({ onReport, catalog, modelCode, setModelCode
   const showOptionsStep = !customActive && orderOptions.length > 0;
   const showPillowStep = !customActive && (allowedOptions.has('FP') || allowedOptions.has('P1'));
   const entryCard = <div className="rms-entry-card sf-entry">
-    <h3 className="rms-side-title">Enter in RMS</h3>
-    <div className="rms-field-grid">{fields.fields.map(([label, value]) => <div className="rms-field-cell" key={label}><span>{label}</span><strong>{value || (label === 'Group' ? 'Choose' : label === 'Style' || label === 'Grade' ? 'Enter' : '-')}</strong></div>)}</div>
+    <h3 className="rms-side-title"><Term kind="term" code="RMS">Enter in RMS</Term></h3>
+    <div className="rms-field-grid">{fields.fields.map(([label, value]) => <div className="rms-field-cell" key={label}><span><Term kind="term" code={({ Group: 'PREFIX', Style: 'MODEL', Grade: 'GRADE', Pattern: 'PATTERN', Color: 'COLOR' })[label]}>{label}</Term></span><strong>{value || (label === 'Group' ? 'Choose' : label === 'Style' || label === 'Grade' ? 'Enter' : '-')}</strong></div>)}</div>
     <div className="rms-code-output"><span>SKU STRING PREVIEW</span><code>{fields.sku || 'Complete Group, Style, Grade, Pattern, and Color to preview the string.'}</code>{chosenCompanions.map((code) => <code key={code} className="rms-extra-line">{code}</code>)}<button type="button" className="copy-button" onClick={copyPreview} disabled={copyDisabled}>{copied ? <Check size={15} /> : <Copy size={15} />}{copied ? 'Copied' : 'Copy SKU'}</button><button type="button" className="back-button plan-add-sku" onClick={() => addToPlan()}><Plus size={15} /> Add to plan</button>{copyDisabled && <small className="sku-generation-status">{!customActive && !prefixDocumented ? 'Choose a listed Group or enter a manual Group and Style.' : !customActive && !documentedOptions ? 'This exact model/group has no option record.' : !swatchMatchesCover ? 'Choose a model-listed cover swatch.' : finishAllowed && !finish ? 'Choose a listed finish.' : 'Complete the SKU fields.'}</small>}</div>
     {catalog.warranty_rules && <div className="floor-warranty"><ShieldCheck size={15} /><span>{catalog.warranty_rules.lifetime_coverage} {catalog.warranty_rules.three_year_coverage} {catalog.warranty_rules.one_year_coverage}</span></div>}
     <details className="rms-details"><summary>Finish and option suffixes</summary><dl><div><dt>Finish</dt><dd>{fields.finish || 'Not selected'}</dd></div><div><dt>Options</dt><dd>{fields.options.join(', ') || 'None selected'}</dd></div><div><dt>Pillows</dt><dd>{pillowNote || 'Match the body cover'}</dd></div><div><dt>Model swatch</dt><dd>{selectedSwatch?.code || 'Not selected'}{selectedSwatch?.note ? ` · ${selectedSwatch.note}` : ''}</dd></div><div><dt>Prefix description</dt><dd>{prefixRecord?.motion_type || 'Not mapped'}</dd></div></dl></details>
