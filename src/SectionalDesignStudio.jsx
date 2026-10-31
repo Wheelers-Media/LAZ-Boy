@@ -1,9 +1,12 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { CoverPicker } from './CoverPicker.jsx';
-import { lineFromSectional } from './plan.js';
-import { ChevronDown, ChevronLeft, ChevronUp, ClipboardCheck, X, Copy, Plus, Info, Layers3, Printer, Redo2, RotateCw, Scan, Sofa, Trash2, Undo2 } from './icons.jsx';
+import { lineFromSectional, lineFromSku, lineFromLead } from './plan.js';
+import { ChairArt, ReachArt, freeTransform } from './ChairArt.jsx';
+import { PieceConfigurator } from './PieceConfigurator.jsx';
+import { configureStyle } from './pieceConfig.js';
+import { Armchair, ChevronDown, ChevronLeft, ChevronUp, ClipboardCheck, X, Copy, Plus, Info, Layers3, Printer, Redo2, RotateCw, Scan, Sofa, Trash2, Undo2 } from './icons.jsx';
 import { buildSectionalStudioRmsLine, getSharedCoverSwatches, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
-import { createItem, applyPlacement, findFreeSpot, formatInches, placementCandidates, rankPlacements, layoutSummary, normalizeRotation, parsePieceDimensions, presetItems, PRESET_LAYOUTS, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
+import { insideRoom, overlaps, createFreeItem, createItem, applyPlacement, findFreeSpot, formatInches, placementCandidates, rankPlacements, layoutSummary, normalizeRotation, parsePieceDimensions, presetItems, PRESET_LAYOUTS, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
 
 const narrowScreen = () => typeof window !== 'undefined' && window.matchMedia?.('(max-width: 800px)').matches;
 const WALL = 4;
@@ -11,6 +14,7 @@ const MARGIN = 18;
 
 /** Top-down drawing of one piece, in real inches. At rotation 0 the back is at the top and the seat faces down. */
 function PieceArt({ item }) {
+  if (item.free && item.kind !== 'ottoman') return <ChairArt item={item} />;
   const w = item.baseWidth;
   const d = item.baseHeight;
   const kind = item.kind;
@@ -56,6 +60,7 @@ function PieceArt({ item }) {
 const publishedSize = (item) => ({ width: item.publishedWidth || item.baseWidth, depth: item.attachIn || item.baseHeight });
 
 const pieceTransform = (item) => {
+  if (item.free) return freeTransform(item);
   const { x, y, baseWidth: w, baseHeight: d } = item;
   const flip = item.mirror ? ` translate(${w} 0) scale(-1 1)` : '';
   return `${rotationTransform(normalizeRotation(item.rotation), x, y, w, d)}${flip}`;
@@ -71,6 +76,7 @@ const rotationTransform = (rotation, x, y, w, d) => {
 
 /** Where a piece's label sits on the plan. A corner's box centre is the empty void in front of the wedge, so use its seat. */
 const labelPoint = (item) => {
+  if (item.free) return { x: item.x + item.width / 2, y: item.y + item.height / 2 };
   const { x, y, baseWidth: w, baseHeight: d } = item;
   let lx = w / 2; let ly = d / 2;
   if (item.kind === 'corner') { lx = w * 0.42; ly = w * 0.42; }
@@ -83,7 +89,7 @@ const labelPoint = (item) => {
   }
 };
 
-export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {}, initialModelCode = '724', onModelChange, onExit }) {
+export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {}, initialModelCode = '724', initialStyle = null, onStyleUsed, onBuild, onModelChange, onExit }) {
   const profiles = (catalog.product_profiles || []).filter((profile) => profile.pieces?.length);
   const [modelCode, setModelCode] = useState(String(initialModelCode));
   const profile = profiles.find((item) => String(item.model_code) === modelCode) || profiles[0];
@@ -115,7 +121,17 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
   const selectedSource = profile?.pieces.find((entry) => entry.key === selectedPiece?.key);
   const selectedSize = parsePieceDimensions(selectedSource?.dimensions_text);
   const room = useMemo(() => ({ width: roomWidth * 12, height: roomDepth * 12 }), [roomWidth, roomDepth]);
-  const validation = validateSectionalStudioLayout(items, room, catalog);
+  const sectionalItems = useMemo(() => items.filter((item) => !item.free), [items]);
+  const freeItems = useMemo(() => items.filter((item) => item.free), [items]);
+  const validation = useMemo(() => {
+    const base = sectionalItems.length ? validateSectionalStudioLayout(sectionalItems, room, catalog) : { valid: freeItems.length > 0, errors: freeItems.length ? [] : ['Add a piece to the floor plan.'], warnings: [] };
+    const errors = [...base.errors];
+    freeItems.forEach((item, index) => {
+      if (!insideRoom(item, room)) errors.push(`${item.code} is outside the room.`);
+      items.forEach((other, at) => { if (other.id !== item.id && (other.free ? items.indexOf(item) < at : true) && overlaps(item, other)) errors.push(`${item.code} overlaps ${other.code}.`); });
+    });
+    return { ...base, errors, valid: errors.length === 0 && (sectionalItems.length ? base.valid : freeItems.length > 0) };
+  }, [sectionalItems, freeItems, items, room, catalog]);
   // Offer only layouts this collection can really build: every piece exists and the finished plan passes the same checks as a hand-built one.
   const availablePresets = useMemo(() => {
     if (!profile) return [];
@@ -127,11 +143,12 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
   }, [catalog, profile, pieces]);
   const reach = reachConflicts(items, room);
   const summary = layoutSummary(items, room);
-  const sharedSwatches = useMemo(() => getSharedCoverSwatches(catalog, items), [catalog, items]);
+  const sharedSwatches = useMemo(() => getSharedCoverSwatches(catalog, sectionalItems), [catalog, sectionalItems]);
   const coverReady = Boolean(cover) && pattern.length === 4 && color.length === 2 && sharedSwatches.some((item) => item.code === `${cover}${pattern}${color}`);
-  const canCopy = items.length > 0 && validation.valid && coverReady;
-  const rmsRows = items.map((piece) => (coverReady ? buildSectionalStudioRmsLine(piece, cover, pattern, color) : `${piece.code}-${piece.modelCode}`));
-  const rmsText = rmsRows.join('\n');
+  const freeResults = freeItems.map((item) => ({ item, ...configureStyle(catalog, item.modelCode, item.prefix, item.config || {}) }));
+  const canCopy = items.length > 0 && validation.valid && (sectionalItems.length === 0 || coverReady) && freeResults.every((entry) => entry.complete);
+  const rmsRows = sectionalItems.map((piece) => (coverReady ? buildSectionalStudioRmsLine(piece, cover, pattern, color) : `${piece.code}-${piece.modelCode}`));
+  const rmsText = [...rmsRows, ...freeResults.map((entry) => entry.sku).filter(Boolean)].join('\n');
   const selectedItem = items.find((item) => item.id === selectedId);
 
   const commit = (next) => {
@@ -155,11 +172,11 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
   const setProfile = (code) => {
     setAlt(null);
     setModelCode(code);
-    setItems([]); setHistory({ past: [], future: [] }); setSelectedId(''); setSelectedKey(''); setVariantByKey({}); setNotice('');
+    setItems(itemsRef.current.filter((item) => item.free)); setHistory({ past: [], future: [] }); setSelectedId(''); setSelectedKey(''); setVariantByKey({}); setNotice('');
     onModelChange?.(code);
   };
   const validateTrial = (list) => validateSectionalStudioLayout(list, room, catalog);
-  const spotsFor = (draft, list = items) => (list.length ? rankPlacements(draft, placementCandidates(draft, list, room), list, room, { validate: validateTrial, selectedId }) : []);
+  const spotsFor = (draft, list = sectionalItems) => (list.length ? rankPlacements(draft, placementCandidates(draft, list, room), list, room, { validate: (trial) => validateTrial(trial.filter((entry) => !entry.free)), selectedId }).filter((spot) => !freeItems.some((other) => overlaps({ ...draft, x: spot.x, y: spot.y, width: spot.width, height: spot.height }, other))) : []);
   const addPiece = (piece) => {
     if (!profile || !piece) return;
     const code = variants.length && selectedPiece?.key === piece.key ? selectedCode : (variantByKey[piece.key] || '');
@@ -170,23 +187,48 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
     if (spots.length) {
       const best = spots[0];
       const anchor = items.find((entry) => entry.id === best.anchorId);
-      commit(applyPlacement(items, draft, best));
+      commit([...applyPlacement(sectionalItems, draft, best), ...freeItems]);
       setSelectedId(draft.id);
-      setAlt(spots.length > 1 ? { id: draft.id, draft, base: items, spots, index: 0 } : null);
+      setAlt(spots.length > 1 ? { id: draft.id, draft, base: sectionalItems, spots, index: 0 } : null);
       setNotice(`${best.shift ? 'Slotted in at' : 'Joined to'} the ${best.anchorSide} side of ${anchor?.code || 'the last piece'}.${best.shift ? ' The pieces beyond it slid along to make room.' : ''}${spots.length > 1 ? ` ${spots.length - 1} other spot${spots.length > 2 ? 's' : ''} fit.` : ''}${best.errors.length ? ` ${best.errors[0]}` : ''}`);
     } else {
       const spot = findFreeSpot(draft, items, room);
       if (!spot) { setNotice('There is no free space left in this room for that piece. Make the room larger or remove a piece.'); return; }
       commit([...items, { ...draft, ...spot }]); setSelectedId(draft.id); setAlt(null);
-      setNotice(items.length ? 'No open connection fits this piece, so it was placed loose. Move it against a piece, or turn or remove a neighbour.' : '');
+      setNotice(sectionalItems.length ? 'No open connection fits this piece, so it was placed loose. Move it against a piece, or turn or remove a neighbour.' : '');
     }
     if (narrowScreen()) setFocus(true);
   };
+  const [modelQuery, setModelQuery] = useState('');
+  const guideRows = useMemo(() => (catalog.style_index_2026?.styles || []).filter((row) => row.kind === 'style' && row.dims?.width > 0 && row.dims?.depth > 0), [catalog]);
+  const modelHits = useMemo(() => {
+    const q = modelQuery.trim().toLowerCase();
+    if (!q) return [];
+    return guideRows.filter((row) => `${row.name} ${row.prefix}${row.model} ${row.model} ${row.category || ''}`.toLowerCase().includes(q)).slice(0, 24);
+  }, [guideRows, modelQuery]);
+  const addFree = (row) => {
+    const draft = createFreeItem(row, 0, 0, 0);
+    if (!draft) { setNotice('The guide gives no width and depth for that style, so it cannot be drawn to scale.'); return; }
+    const spot = findFreeSpot(draft, items, room);
+    if (!spot) { setNotice('There is no free space left in this room for that piece. Make the room larger or remove a piece.'); return; }
+    commit([...items, { ...draft, ...spot }]); setSelectedId(draft.id); setAlt(null);
+    setNotice(`${row.name} ${row.prefix}${row.model} placed to scale. Drag it, turn it in 45° steps, then customize it.`);
+    if (narrowScreen()) { setPanel(''); setFocus(true); }
+  };
+  const usedStyle = useRef(null);
+  React.useEffect(() => {
+    if (!initialStyle) { usedStyle.current = null; return; }
+    if (usedStyle.current === `${initialStyle.prefix}${initialStyle.model}`) return;
+    const row = guideRows.find((entry) => String(entry.model) === String(initialStyle.model) && entry.prefix === String(initialStyle.prefix));
+    usedStyle.current = `${initialStyle.prefix}${initialStyle.model}`;
+    if (row) addFree(row);
+    onStyleUsed?.();
+  }, [initialStyle, guideRows]);
   const useSpot = (index) => {
     if (!alt) return;
     const spot = alt.spots[index];
     if (!spot) return;
-    commit(applyPlacement(alt.base, alt.draft, spot));
+    commit([...applyPlacement(alt.base, alt.draft, spot), ...itemsRef.current.filter((item) => item.free)]);
     setAlt({ ...alt, index });
     const anchor = items.find((entry) => entry.id === spot.anchorId);
     setNotice(`${spot.shift ? 'Slotted in at' : 'Joined to'} the ${spot.anchorSide} side of ${anchor?.code || 'a piece'}.${spot.errors.length ? ` ${spot.errors[0]}` : ''}`);
@@ -198,7 +240,7 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
       setNotice(fitsBigRoom ? 'That layout is bigger than this room. Make the room larger to use it.' : 'This collection does not list every piece that layout needs. Choose another layout or collection.');
       return;
     }
-    commit(next); setAlt(null); setSelectedId(next[0]?.id || '');
+    commit([...next, ...freeItems.filter((item) => !next.some((placed) => overlaps(item, placed)))]); setAlt(null); setSelectedId(next[0]?.id || '');
     if (narrowScreen()) setFocus(true);
     setNotice('Layout loaded to scale. Check every connection against the collection tear pad before ordering.');
   };
@@ -230,9 +272,9 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
     setItems(next);
   };
   const endDrag = () => { dragRef.current = null; };
-  const rotateSelected = () => {
+  const rotateSelected = (turn) => {
     if (!selectedItem) return;
-    const next = rotateItem(items, selectedId, room);
+    const next = rotateItem(items, selectedId, room, selectedItem.free ? (turn || 45) : 90);
     if (!next) { setNotice('There is no free space to turn that piece here.'); return; }
     commit(next); setNotice(''); setAlt(null);
   };
@@ -248,10 +290,18 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
     if (!selectedItem) return;
     const moves = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] };
     if (moves[event.key]) { event.preventDefault(); nudge(...moves[event.key]); }
-    else if (event.key.toLowerCase() === 'r') { event.preventDefault(); rotateSelected(); }
+    else if (event.key.toLowerCase() === 'r') { event.preventDefault(); rotateSelected(event.shiftKey ? -45 : 45); }
     else if (event.key === 'Delete' || event.key === 'Backspace') { event.preventDefault(); removeSelected(); }
   };
-  const addSectionalToPlan = () => { if (!items.length) return; onAddToPlan(lineFromSectional({ swatchIndex: catalog.swatch_index, modelCode: profile.model_code, modelName: profile.model_name, family: profile.sectional_family, detail: `${items.length} ${items.length === 1 ? 'piece' : 'pieces'}${summary ? `, ${formatInches(summary.width)} × ${formatInches(summary.depth)}` : ''}`, pieces: items.map((item) => item.code), rms: rmsRows, coverCode: coverReady ? `${cover}${pattern}${color}` : '' }), `${profile.model_name} sectional`); };
+  const addToPlanAll = () => {
+    if (!items.length) return;
+    if (sectionalItems.length) onAddToPlan(lineFromSectional({ swatchIndex: catalog.swatch_index, modelCode: profile.model_code, modelName: profile.model_name, family: profile.sectional_family, detail: `${sectionalItems.length} ${sectionalItems.length === 1 ? 'piece' : 'pieces'}${summary ? `, ${formatInches(summary.width)} × ${formatInches(summary.depth)}` : ''}`, pieces: sectionalItems.map((item) => item.code), rms: rmsRows, coverCode: coverReady ? `${cover}${pattern}${color}` : '' }), `${profile.model_name} sectional`);
+    freeResults.forEach((entry) => {
+      const { item } = entry;
+      if (entry.complete) onAddToPlan(lineFromSku({ swatchIndex: catalog.swatch_index, modelCode: item.modelCode, modelName: item.modelName, styleCode: item.prefix, category: item.category, sku: entry.sku, coverCode: item.config?.cover || '', details: entry.details }), item.code);
+      else onAddToPlan(lineFromLead({ source: 'room', modelCode: item.modelCode, modelName: item.modelName, category: item.category, styleCode: item.prefix }), item.code);
+    });
+  };
   const copy = () => { if (canCopy) { onCopy(rmsText); setNotice('RMS entry preview copied. Verify the style, cover, color, and orderability before entry.'); } };
 
   const bounds = items.length ? { x0: Math.min(...items.map((i) => i.x)), y0: Math.min(...items.map((i) => i.y)), x1: Math.max(...items.map((i) => i.x + i.width)), y1: Math.max(...items.map((i) => i.y + i.height)) } : null;
@@ -274,7 +324,7 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
   const dimX = bounds ? (dimLeft ? bounds.x0 - 7 : bounds.x1 + 7) : 0;
   const tick = 2.5;
   const label = Math.max(4, 6.5 * Math.max(unit, 0.55));
-  const fitsNow = useMemo(() => Object.fromEntries(items.length ? pieces.map((piece) => { const draft = createItem(piece, profile, 0, 0, 0, variantByKey[piece.key]); return [piece.key, draft ? placementCandidates(draft, items, room).length > 0 : false]; }) : []), [items, pieces, profile, room, variantByKey]);
+  const fitsNow = useMemo(() => Object.fromEntries(sectionalItems.length ? pieces.map((piece) => { const draft = createItem(piece, profile, 0, 0, 0, variantByKey[piece.key]); return [piece.key, draft ? placementCandidates(draft, sectionalItems, room).length > 0 : false]; }) : []), [sectionalItems, pieces, profile, room, variantByKey]);
   const trayDraft = (piece) => createItem(piece, profile, 0, 0, 0, variantByKey[piece.key]);
   const variantsOfSelected = variants.length > 1 ? variants : [];
 
@@ -283,8 +333,8 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
   const drawerHead = (title) => <div className="studio-drawer-head"><h2>{title}</h2><button type="button" className="studio-icon-btn" onClick={closePanel} aria-label="Close"><X size={18} /></button></div>;
   return <section className="design-studio studio-full" aria-label="Room Builder">
     <header className="studio-topbar">
-      <button type="button" className="studio-icon-btn" onClick={() => onExit?.()} aria-label="Leave sectional design"><ChevronLeft size={20} /></button>
-      <button type="button" className="studio-title" onClick={() => togglePanel('setup')} aria-expanded={panel === 'setup'}><strong>{profile?.model_name || 'Sectional'} · {profile?.model_code}</strong><small>{roomWidth} × {roomDepth} ft room</small><ChevronDown size={15} /></button>
+      <button type="button" className="studio-icon-btn" onClick={() => onExit?.()} aria-label="Leave Room Builder"><ChevronLeft size={20} /></button>
+      <button type="button" className="studio-title" onClick={() => togglePanel('setup')} aria-expanded={panel === 'setup'}><strong>Room Builder</strong><small>{profile?.model_name || 'Sectional'} {profile?.model_code} · {roomWidth} × {roomDepth} ft room</small><ChevronDown size={15} /></button>
       <div className="studio-top-actions">
         <button type="button" className="studio-icon-btn" onClick={undo} disabled={!history.past.length} aria-label="Undo"><Undo2 size={18} /></button>
         <button type="button" className="studio-icon-btn" onClick={redo} disabled={!history.future.length} aria-label="Redo"><Redo2 size={18} /></button>
@@ -302,13 +352,13 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
             {gridLines(room.height, 12).map((y) => <line key={`gy${y}`} className={y % 60 ? 'fp-grid' : 'fp-grid fp-grid-major'} x1="0" y1={y} x2={room.width} y2={y} />)}
             {!focus && <><text className="fp-dim" x={room.width / 2} y={-8} textAnchor="middle">{roomWidth}′</text>
             <text className="fp-dim" x={-9} y={room.height / 2} textAnchor="middle" transform={`rotate(-90 -9 ${room.height / 2})`}>{roomDepth}′</text></>}
-            {showReach && items.map((item) => { const zone = reachRect(item); return zone ? <rect key={`r${item.id}`} className={`fp-reach ${reach.some((entry) => entry.id === item.id) ? 'blocked' : ''}`} x={zone.x} y={zone.y} width={zone.width} height={zone.height} /> : null; })}
+            {showReach && items.map((item) => { if (item.free) return item.reachIn ? <g key={`r${item.id}`} transform={freeTransform(item)}><ReachArt item={item} blocked={reach.some((entry) => entry.id === item.id)} /></g> : null; const zone = reachRect(item); return zone ? <rect key={`r${item.id}`} className={`fp-reach ${reach.some((entry) => entry.id === item.id) ? 'blocked' : ''}`} x={zone.x} y={zone.y} width={zone.width} height={zone.height} /> : null; })}
             {alt && alt.spots.slice(0, 8).map((spot, index) => index === alt.index ? null : <g key={`ghost${index}`} className="fp-ghost" role="button" tabIndex={0} aria-label={`Move to spot ${index + 1}: ${spot.anchorSide} side of a neighbour`} onPointerDown={(event) => { event.stopPropagation(); useSpot(index); }} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); useSpot(index); } }}>
               <rect x={spot.x} y={spot.y} width={spot.width} height={spot.height} rx="3" /><text x={spot.x + spot.width / 2} y={spot.y + spot.height / 2} textAnchor="middle" dominantBaseline="central" fontSize="9">+</text>
             </g>)}
             {items.map((item) => <g key={item.id} className={`fp-piece ${selectedId === item.id ? 'selected' : ''}`} onPointerDown={(event) => startDrag(event, item)} role="button" tabIndex={0} aria-label={`${item.name}, ${item.code}, ${formatInches(publishedSize(item).width)} wide by ${formatInches(publishedSize(item).depth)} deep. Select or drag.`} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelectedId(item.id); } }}>
               <g transform={pieceTransform(item)}><PieceArt item={item} /></g>
-              <rect className="fp-outline" x={item.x} y={item.y} width={item.width} height={item.height} />
+              {item.free ? <g transform={freeTransform(item)}><rect className="fp-outline" width={item.baseWidth} height={item.baseHeight} rx="4" /></g> : <rect className="fp-outline" x={item.x} y={item.y} width={item.width} height={item.height} />}
             </g>)}
             {items.map((item) => { const at = labelPoint(item); const size = Math.max(4.5, Math.min(9, Math.min(item.width, item.height) * 0.22)); return <g key={`t${item.id}`} className="fp-labels" pointerEvents="none">
               <text className="fp-code" x={at.x} y={at.y} textAnchor="middle" dominantBaseline="central" fontSize={size}>{item.code}</text>
@@ -326,9 +376,11 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
         </div>
       <div className="studio-float">
         <div className="studio-selected" aria-live="polite">{selectedItem ? <>
-          <div><strong>{selectedItem.name} · {selectedItem.code}</strong><span>{formatInches(publishedSize(selectedItem).width)} W × {formatInches(publishedSize(selectedItem).depth)} D{selectedItem.heightIn ? ` × ${formatInches(selectedItem.heightIn)} H` : ''}{selectedItem.reachIn ? ` · ${formatInches(selectedItem.reachIn)} reclined` : ''}{selectedItem.kind === 'corner' ? ` · ${formatInches(selectedItem.baseWidth)} along each wall${selectedItem.reachSource === 'estimated' ? ' (estimated)' : ''}` : ''}</span></div>
+          <div><strong>{selectedItem.name} · {selectedItem.code}</strong><span>{formatInches(publishedSize(selectedItem).width)} W × {formatInches(publishedSize(selectedItem).depth)} D{selectedItem.heightIn ? ` × ${formatInches(selectedItem.heightIn)} H` : ''}{selectedItem.reachIn ? ` · ${formatInches(selectedItem.reachIn)} reclined` : ''}{selectedItem.free && selectedItem.rotation ? ` · turned ${selectedItem.rotation}°` : ''}{selectedItem.kind === 'corner' ? ` · ${formatInches(selectedItem.baseWidth)} along each wall${selectedItem.reachSource === 'estimated' ? ' (estimated)' : ''}` : ''}</span></div>
           {alt && alt.id === selectedId && alt.spots.length > 1 && <button type="button" onClick={() => useSpot((alt.index + 1) % alt.spots.length)} aria-label="Try the next connection spot"><Scan size={18} /> Next spot {alt.index + 1}/{Math.min(alt.spots.length, 99)}</button>}
-          <button type="button" onClick={rotateSelected} aria-label="Rotate selected piece 90 degrees"><RotateCw size={18} /> Rotate</button>
+          {selectedItem.free && <button type="button" onClick={() => setPanel('customize')} aria-label="Customize selected piece"><Plus size={18} /> Customize</button>}
+          {selectedItem.free && <button type="button" onClick={() => rotateSelected(-45)} aria-label="Turn selected piece back 45 degrees"><RotateCw size={18} style={{ transform: 'scaleX(-1)' }} /> −45°</button>}
+          <button type="button" onClick={() => rotateSelected(selectedItem.free ? 45 : 90)} aria-label={selectedItem.free ? 'Turn selected piece 45 degrees' : 'Rotate selected piece 90 degrees'}><RotateCw size={18} /> {selectedItem.free ? '+45°' : 'Rotate'}</button>
           <button type="button" className="danger" onClick={removeSelected} aria-label="Remove selected piece"><Trash2 size={18} /> Remove</button>
         </> : <span className="studio-hint">{items.length ? 'Tap a piece to turn or remove it. Drag to move.' : 'Pieces you add appear in the room at real size.'}</span>}</div>
         {notice && <p className="studio-notice" role="status">{notice}</p>}
@@ -343,6 +395,25 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
           </button>; })}
         </div>
         {variantsOfSelected.length > 0 && <div className="studio-variants" role="group" aria-label={`${selectedPiece?.name} version`}><span>{selectedPiece?.name}</span>{variantsOfSelected.map((entry) => <button key={entry.code} type="button" className={`chip ${selectedCode === entry.code ? 'on' : ''}`} aria-pressed={selectedCode === entry.code} onClick={() => setVariantByKey((current) => ({ ...current, [selectedPiece.key]: entry.code }))}>{entry.code}{entry.label ? ` · ${entry.label}` : ''}</button>)}</div>}
+      </aside>
+      <aside className={`studio-drawer studio-drawer-left ${panel === 'models' ? 'open' : ''}`} aria-hidden={panel !== 'models'} aria-label="Add any model">
+        {drawerHead('Add any model')}
+        <label className="sf-search"><input type="search" value={modelQuery} onChange={(event) => setModelQuery(event.target.value)} placeholder="Name, model number or style code" aria-label="Search every style in the guide" /></label>
+        <div className="studio-tray" role="group" aria-label="Styles. Tap one to place it in the room.">
+          {modelHits.map((row) => { const draft = createFreeItem(row); return <button key={`${row.prefix}${row.model}`} type="button" className="studio-tile" onClick={() => addFree(row)}>
+            <svg viewBox={`-3 -3 ${draft.baseWidth + 6} ${draft.baseHeight + 6}`} aria-hidden="true" focusable="false"><PieceArt item={draft} /></svg>
+            <strong>{row.name} · {row.prefix}{row.model}</strong><small>{row.category} · {formatInches(draft.baseWidth)} × {formatInches(draft.baseHeight)}{draft.reachIn ? ` · ${formatInches(draft.reachIn)} reclined` : ''}</small>
+          </button>; })}
+          {!modelQuery.trim() && <p className="studio-hint">Search any recliner, chair, sofa or ottoman in the April 2026 guide. It is placed at its real size.</p>}
+          {modelQuery.trim() && !modelHits.length && <p className="studio-hint">No style with a listed size matches.</p>}
+        </div>
+      </aside>
+      <aside className={`studio-drawer studio-drawer-right ${panel === 'customize' ? 'open' : ''}`} aria-hidden={panel !== 'customize'} aria-label="Customize piece">
+        {drawerHead(selectedItem?.free ? `Customize ${selectedItem.code}` : 'Customize')}
+        {selectedItem?.free ? <>
+          <PieceConfigurator catalog={catalog} item={selectedItem} onChange={(config) => setItems((list) => list.map((entry) => (entry.id === selectedItem.id ? { ...entry, config } : entry)))} />
+          {onBuild && <button type="button" className="back-button" onClick={() => onBuild(selectedItem.modelCode)}>Open this model in the SKU Builder</button>}
+        </> : <p className="studio-hint">Select a chair, recliner or sofa you added from Add any model to choose its cover, finish and options. Modular pieces share one cover in Review.</p>}
       </aside>
       <aside className={`studio-drawer studio-drawer-left ${panel === 'setup' ? 'open' : ''}`} aria-hidden={panel !== 'setup'} aria-label="Collection and room">
         {drawerHead('Collection and room')}
@@ -365,15 +436,16 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
       <aside className={`studio-drawer studio-drawer-right ${panel === 'review' ? 'open' : ''}`} aria-hidden={panel !== 'review'} aria-label="Review and order">
         {drawerHead('Review and order')}
         {items.length > 0 && <div className={`studio-check ${validation.valid && items.length ? 'valid' : validation.errors.length ? 'invalid' : ''}`} role="status"><strong>{validation.valid ? 'Layout checks passed' : 'Review the layout'}</strong>{validation.errors.map((error) => <small key={error}>{error}</small>)}{reach.map((entry) => <small key={entry.id}>{entry.code} cannot fully recline: {entry.reason === 'wall' ? 'a wall is in the way.' : `${entry.blocker} is in the way.`}</small>)}{validation.warnings.map((warning) => <small key={warning}>{warning}</small>)}</div>}
-        <div className="studio-cover">{items.length ? <CoverPicker key={sharedSwatches.length} swatches={sharedSwatches} value={coverReady ? `${cover}${pattern}${color}` : ''} onChange={(code, match) => { setCover(match?.grade || ''); setPattern(match?.pattern || ''); setColor(match?.color || ''); }} /> : <p className="studio-hint">Add a piece, then choose one cover that every piece can be built in.</p>}</div>
-        <div className="studio-dock-body">{items.length ? <><div className="studio-order-list">{items.map((item, index) => { const supported = getSectionalPieceOptions(catalog, item.family, item.modelCode, item.code); return <article key={item.id}><span><strong>{item.name}</strong><small>{item.code}-{item.modelCode}{coverReady ? ` · ${cover} ${pattern} ${color}` : ' · cover not chosen'}</small></span><code>{rmsRows[index]}</code>{supported.length > 0 && <small className="studio-order-options">Options: {supported.join(', ')}</small>}</article>; })}</div>
+        <div className="studio-cover">{sectionalItems.length ? <CoverPicker key={sharedSwatches.length} swatches={sharedSwatches} value={coverReady ? `${cover}${pattern}${color}` : ''} onChange={(code, match) => { setCover(match?.grade || ''); setPattern(match?.pattern || ''); setColor(match?.color || ''); }} /> : <p className="studio-hint">Add modular pieces to choose one cover they all share. Chairs and recliners from Add any model are customized one by one.</p>}</div>
+        <div className="studio-dock-body">{items.length ? <><div className="studio-order-list">{sectionalItems.map((item, index) => { const supported = getSectionalPieceOptions(catalog, item.family, item.modelCode, item.code); return <article key={item.id}><span><strong>{item.name}</strong><small>{item.code}-{item.modelCode}{coverReady ? ` · ${cover} ${pattern} ${color}` : ' · cover not chosen'}</small></span><code>{rmsRows[index]}</code>{supported.length > 0 && <small className="studio-order-options">Options: {supported.join(', ')}</small>}</article>; })}{freeResults.map(({ item, sku, missing }) => <article key={item.id}><span><strong>{item.name}</strong><small>{item.code}{missing.length ? ` · still needed: ${missing.join(', ')}` : ''}</small></span>{sku ? <code>{sku}</code> : <button type="button" className="back-button" onClick={() => { setSelectedId(item.id); setPanel('customize'); }}>Customize</button>}</article>)}</div>
         <p className="studio-order-disclaimer"><Info size={14} /> Entry preview only. Confirm style, cover, options and availability in RMS before promising it.</p></> : <p className="studio-order-empty">Add a piece to see its RMS entry here.</p>}</div>
       </aside>
     </div>
     <nav className="studio-dockbar" aria-label="Studio actions">
       <button type="button" className={`studio-dock-btn ${panel === 'pieces' ? 'on' : ''}`} onClick={() => togglePanel('pieces')} aria-expanded={panel === 'pieces'}><Plus size={18} /><span>Pieces</span></button>
+      <button type="button" className={`studio-dock-btn ${panel === 'models' ? 'on' : ''}`} onClick={() => togglePanel('models')} aria-expanded={panel === 'models'}><Armchair size={18} /><span>Models</span></button>
       <button type="button" className={`studio-dock-btn ${panel === 'review' ? 'on' : ''}`} onClick={() => togglePanel('review')} aria-expanded={panel === 'review'}><Layers3 size={18} /><span>Review{items.length ? ` · ${items.length}` : ''}</span>{items.length > 0 && !validation.valid && <i className="studio-dot" aria-label="Needs review" />}</button>
-      <button type="button" className="studio-dock-btn" disabled={!items.length} onClick={addSectionalToPlan}><ClipboardCheck size={18} /><span>Add to plan</span></button>
+      <button type="button" className="studio-dock-btn" disabled={!items.length} onClick={addToPlanAll}><ClipboardCheck size={18} /><span>Add to plan</span></button>
       <button type="button" className="studio-dock-btn primary" disabled={!canCopy} onClick={copy}><Copy size={18} /><span>Copy for RMS</span></button>
     </nav>
   </section>;
