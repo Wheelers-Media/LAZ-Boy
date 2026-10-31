@@ -32,7 +32,7 @@ const lineId = () => `ln-${Date.now().toString(36)}-${(counter += 1).toString(36
 export function makeLine(partial) {
   return {
     id: lineId(), kind: 'lead', type: 'Piece', title: '', modelCode: '', modelName: '', detail: '', cover: '', coverCode: '',
-    rms: [], pieces: [], qty: 1, note: '', source: '', warnings: [], addedAt: Date.now(), ...partial,
+    rms: [], pieces: [], details: null, qty: 1, note: '', source: '', warnings: [], addedAt: Date.now(), ...partial,
   };
 }
 
@@ -44,10 +44,10 @@ export function coverNameFor(swatchIndex, coverCode = '') {
 }
 
 /** A plan line from the SKU Builder: one RMS entry the rep has fully specified. */
-export function lineFromSku({ swatchIndex, modelCode, modelName, styleCode, category, sku, coverCode, note = '' }) {
+export function lineFromSku({ swatchIndex, modelCode, modelName, styleCode, category, sku, coverCode, note = '', details = null }) {
   return makeLine({
     kind: 'sku', source: 'sku', type: pieceType(category), modelCode: String(modelCode), modelName, styleCode: String(styleCode || ''),
-    title: `${modelName} ${styleCode || ''}`.trim(), detail: category || '', coverCode: coverCode || '', coverName: coverNameFor(swatchIndex, coverCode), rms: sku ? [sku] : [], note,
+    title: `${modelName} ${styleCode || ''}`.trim(), detail: category || '', coverCode: coverCode || '', coverName: coverNameFor(swatchIndex, coverCode), rms: sku ? [sku] : [], note, details,
   });
 }
 
