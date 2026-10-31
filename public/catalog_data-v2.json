@@ -1050,7 +1050,14 @@
           "printed_codes": [
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "8AU": {
+              "width": 44.5,
+              "depth": 40,
+              "height": 43
+            }
+          }
         },
         {
           "code": "8BU",
@@ -1062,7 +1069,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "8BU": {
+              "width": 44.5,
+              "depth": 40,
+              "height": 43
+            }
+          }
         },
         {
           "code": "8C0",
@@ -1075,7 +1089,14 @@
             "9DP",
             "90M"
           ],
-          "wall_space_in": 100
+          "wall_space_in": 100,
+          "guide_dims_in": {
+            "8C0": {
+              "width": 68.5,
+              "depth": 40,
+              "height": 43
+            }
+          }
         },
         {
           "code": "8M0",
@@ -1085,7 +1106,14 @@
           "printed_codes": [
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "8M0": {
+              "width": 35,
+              "depth": 40,
+              "height": 43
+            }
+          }
         },
         {
           "code": "8SU",
@@ -1097,7 +1125,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "8SU": {
+              "width": 35,
+              "depth": 40,
+              "height": 43
+            }
+          }
         },
         {
           "code": "8SC",
@@ -1109,7 +1144,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "8SC": {
+              "width": 13,
+              "depth": 39,
+              "height": 39
+            }
+          }
         }
       ],
       "configuration_diagram_dimension_labels_in": [
@@ -1253,7 +1295,14 @@
           "printed_codes": [
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "8AU": {
+              "width": 45,
+              "depth": 38.5,
+              "height": 42
+            }
+          }
         },
         {
           "code": "8BU",
@@ -1265,7 +1314,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "8BU": {
+              "width": 45,
+              "depth": 38.5,
+              "height": 42
+            }
+          }
         },
         {
           "code": "8C0",
@@ -1279,7 +1335,14 @@
             "9DP",
             "90M"
           ],
-          "wall_space_in": 100
+          "wall_space_in": 100,
+          "guide_dims_in": {
+            "8C0": {
+              "width": 68.5,
+              "depth": 38,
+              "height": 34.5
+            }
+          }
         },
         {
           "code": "8M0",
@@ -1289,7 +1352,14 @@
           "printed_codes": [
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "8M0": {
+              "width": 34,
+              "depth": 38.5,
+              "height": 34.5
+            }
+          }
         },
         {
           "code": "8SU",
@@ -1301,7 +1371,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "8SU": {
+              "width": 34,
+              "depth": 38.5,
+              "height": 42
+            }
+          }
         },
         {
           "code": "8SC",
@@ -1313,7 +1390,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "8SC": {
+              "width": 13,
+              "depth": 38,
+              "height": 29.5
+            }
+          }
         }
       ],
       "configuration_diagram_dimension_labels_in": [
@@ -1459,7 +1543,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "60A": {
+              "width": 46,
+              "depth": 42,
+              "height": 38
+            }
+          }
         },
         {
           "code": "60B",
@@ -1471,7 +1562,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "60B": {
+              "width": 46,
+              "depth": 42,
+              "height": 38
+            }
+          }
         },
         {
           "code": "6CC",
@@ -1484,7 +1582,14 @@
             "9DP",
             "90M"
           ],
-          "wall_space_in": 84
+          "wall_space_in": 84,
+          "guide_dims_in": {
+            "6CC": {
+              "width": 68,
+              "depth": 42,
+              "height": 38
+            }
+          }
         },
         {
           "code": "60M",
@@ -1497,7 +1602,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "60M": {
+              "width": 40.5,
+              "depth": 42,
+              "height": 38
+            }
+          }
         },
         {
           "code": "60L",
@@ -1509,7 +1621,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "60L": {
+              "width": 46,
+              "depth": 66,
+              "height": 38
+            }
+          }
         },
         {
           "code": "60R",
@@ -1521,7 +1640,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "60R": {
+              "width": 46,
+              "depth": 66,
+              "height": 38
+            }
+          }
         }
       ],
       "configuration_diagram_dimension_labels_in": [
@@ -1825,7 +1951,24 @@
             }
           ],
           "dimensions_text": "42\" H × 32\" W × 39\" D",
-          "fully_extended_in": 65.5
+          "fully_extended_in": 65.5,
+          "guide_dims_in": {
+            "44A": {
+              "width": 32,
+              "depth": 39,
+              "height": 42
+            },
+            "U4A": {
+              "width": 32,
+              "depth": 41,
+              "height": 42
+            },
+            "X4A": {
+              "width": 32,
+              "depth": 41,
+              "height": 42
+            }
+          }
         },
         {
           "key": "RA_recliner",
@@ -1845,7 +1988,24 @@
             }
           ],
           "dimensions_text": "42\" H × 32\" W × 39\" D",
-          "fully_extended_in": 65.5
+          "fully_extended_in": 65.5,
+          "guide_dims_in": {
+            "44B": {
+              "width": 32,
+              "depth": 39,
+              "height": 42
+            },
+            "U4B": {
+              "width": 32,
+              "depth": 41,
+              "height": 42
+            },
+            "X4B": {
+              "width": 32,
+              "depth": 41,
+              "height": 42
+            }
+          }
         },
         {
           "key": "LA_chaise",
@@ -1865,7 +2025,24 @@
             }
           ],
           "dimensions_text": "42\" H × 35\" W × 67\" D",
-          "fully_extended_in": 76
+          "fully_extended_in": 76,
+          "guide_dims_in": {
+            "44Q": {
+              "width": 35,
+              "depth": 67,
+              "height": 42
+            },
+            "U4Q": {
+              "width": 35,
+              "depth": 67,
+              "height": 42
+            },
+            "X4Q": {
+              "width": 35,
+              "depth": 67,
+              "height": 42
+            }
+          }
         },
         {
           "key": "RA_chaise",
@@ -1885,7 +2062,24 @@
             }
           ],
           "dimensions_text": "42\" H × 35\" W × 67\" D",
-          "fully_extended_in": 76
+          "fully_extended_in": 76,
+          "guide_dims_in": {
+            "44V": {
+              "width": 35,
+              "depth": 67,
+              "height": 42
+            },
+            "U4V": {
+              "width": 35,
+              "depth": 67,
+              "height": 42
+            },
+            "X4V": {
+              "width": 35,
+              "depth": 67,
+              "height": 42
+            }
+          }
         },
         {
           "key": "storage_console",
@@ -1896,7 +2090,14 @@
               "label": "Console"
             }
           ],
-          "dimensions_text": "38.5\" H × 14.5\" W × 37.5\" D"
+          "dimensions_text": "38.5\" H × 14.5\" W × 37.5\" D",
+          "guide_dims_in": {
+            "SC4": {
+              "width": 14.5,
+              "depth": 37.5,
+              "height": 38.5
+            }
+          }
         },
         {
           "key": "corner_wedge",
@@ -1907,7 +2108,14 @@
               "label": "Corner"
             }
           ],
-          "dimensions_text": "42\" H × 60\" W × 39\" D"
+          "dimensions_text": "42\" H × 60\" W × 39\" D",
+          "guide_dims_in": {
+            "44C": {
+              "width": 60,
+              "depth": 41,
+              "height": 42
+            }
+          }
         },
         {
           "key": "armless_recliner",
@@ -1927,7 +2135,24 @@
             }
           ],
           "dimensions_text": "42\" H × 24\" W × 39\" D",
-          "fully_extended_in": 65.5
+          "fully_extended_in": 65.5,
+          "guide_dims_in": {
+            "44S": {
+              "width": 24,
+              "depth": 41,
+              "height": 42
+            },
+            "U4S": {
+              "width": 24,
+              "depth": 41,
+              "height": 42
+            },
+            "X4S": {
+              "width": 24,
+              "depth": 41,
+              "height": 42
+            }
+          }
         },
         {
           "key": "armless_chair",
@@ -1938,7 +2163,14 @@
               "label": "Chair"
             }
           ],
-          "dimensions_text": "42\" H × 24\" W × 39\" D"
+          "dimensions_text": "42\" H × 24\" W × 39\" D",
+          "guide_dims_in": {
+            "M44": {
+              "width": 24,
+              "depth": 41,
+              "height": 42
+            }
+          }
         },
         {
           "key": "LA_reclining_loveseat",
@@ -1958,7 +2190,24 @@
             }
           ],
           "dimensions_text": "42\" H × 57\" W × 39\" D",
-          "fully_extended_in": 65.5
+          "fully_extended_in": 65.5,
+          "guide_dims_in": {
+            "44D": {
+              "width": 54.5,
+              "depth": 39,
+              "height": 42
+            },
+            "U4D": {
+              "width": 54.5,
+              "depth": 41,
+              "height": 42
+            },
+            "X4D": {
+              "width": 54.5,
+              "depth": 41,
+              "height": 42
+            }
+          }
         },
         {
           "key": "RA_reclining_loveseat",
@@ -1978,7 +2227,24 @@
             }
           ],
           "dimensions_text": "42\" H × 57\" W × 39\" D",
-          "fully_extended_in": 65.5
+          "fully_extended_in": 65.5,
+          "guide_dims_in": {
+            "44E": {
+              "width": 54.5,
+              "depth": 39,
+              "height": 42
+            },
+            "U4E": {
+              "width": 54.5,
+              "depth": 41,
+              "height": 42
+            },
+            "X4E": {
+              "width": 54.5,
+              "depth": 41,
+              "height": 42
+            }
+          }
         }
       ],
       "configuration_diagram_dimension_labels_in": [
@@ -2391,82 +2657,173 @@
           "code": "6SR",
           "key": "RA_storage_chaise",
           "name": "Right-Arm Sitting Chaise with Storage",
-          "dimensions_text": "37\" H × 37.5\" W × 63.5\" D"
+          "dimensions_text": "37\" H × 37.5\" W × 63.5\" D",
+          "guide_dims_in": {
+            "6SR": {
+              "width": 37.5,
+              "depth": 63.5,
+              "height": 37
+            }
+          }
         },
         {
           "code": "6SL",
           "key": "LA_storage_chaise",
           "name": "Left-Arm Sitting Chaise with Storage",
-          "dimensions_text": "37\" H × 37.5\" W × 63.5\" D"
+          "dimensions_text": "37\" H × 37.5\" W × 63.5\" D",
+          "guide_dims_in": {
+            "6SL": {
+              "width": 37.5,
+              "depth": 63.5,
+              "height": 37
+            }
+          }
         },
         {
           "code": "60A",
           "key": "LA_chair",
           "name": "Left-Arm Sitting Chair",
-          "dimensions_text": "37\" H × 37\" W × 38.5\" D"
+          "dimensions_text": "37\" H × 37\" W × 38.5\" D",
+          "guide_dims_in": {
+            "60A": {
+              "width": 37,
+              "depth": 38.5,
+              "height": 37
+            }
+          }
         },
         {
           "code": "60B",
           "key": "RA_chair",
           "name": "Right-Arm Sitting Chair",
-          "dimensions_text": "37\" H × 37\" W × 38.5\" D"
+          "dimensions_text": "37\" H × 37\" W × 38.5\" D",
+          "guide_dims_in": {
+            "60B": {
+              "width": 37,
+              "depth": 38.5,
+              "height": 37
+            }
+          }
         },
         {
           "code": "60C",
           "key": "corner_wedge",
           "name": "Corner",
           "dimensions_text": "37\" H × 59.5\" W × 37\" D",
-          "wall_space_in": 97
+          "wall_space_in": 97,
+          "guide_dims_in": {
+            "60C": {
+              "width": 59.5,
+              "depth": 37,
+              "height": 37
+            }
+          }
         },
         {
           "code": "6CC",
           "key": "corner_wedge_compact",
           "name": "Corner",
           "dimensions_text": "37\" H × 52.5\" W × 37\" D",
-          "wall_space_in": 74
+          "wall_space_in": 74,
+          "guide_dims_in": {
+            "6CC": {
+              "width": 52.5,
+              "depth": 37,
+              "height": 37
+            }
+          }
         },
         {
           "code": "60M",
           "key": "armless_chair",
           "name": "Armless Chair",
-          "dimensions_text": "37\" H × 32\" W × 38\" D"
+          "dimensions_text": "37\" H × 32\" W × 38\" D",
+          "guide_dims_in": {
+            "60M": {
+              "width": 32,
+              "depth": 38,
+              "height": 37
+            }
+          }
         },
         {
           "code": "60D",
           "key": "LA_loveseat",
           "name": "Left-Arm Sitting Loveseat",
-          "dimensions_text": "37\" H × 68.5\" W × 38.5\" D"
+          "dimensions_text": "37\" H × 68.5\" W × 38.5\" D",
+          "guide_dims_in": {
+            "60D": {
+              "width": 68.5,
+              "depth": 38.5,
+              "height": 37
+            }
+          }
         },
         {
           "code": "60E",
           "key": "RA_loveseat",
           "name": "Right-Arm Sitting Loveseat",
-          "dimensions_text": "37\" H × 68.5\" W × 38.5\" D"
+          "dimensions_text": "37\" H × 68.5\" W × 38.5\" D",
+          "guide_dims_in": {
+            "60E": {
+              "width": 68.5,
+              "depth": 38.5,
+              "height": 37
+            }
+          }
         },
         {
           "code": "6SP",
           "key": "armless_full_sleeper_sofa",
           "name": "Armless Full Sleeper Sofa",
           "dimensions_text": "37\" H × 62.5\" W × 38\" D",
-          "fully_extended_in": 90.5
+          "fully_extended_in": 90.5,
+          "guide_dims_in": {
+            "6SP": {
+              "width": 62.5,
+              "depth": 38,
+              "height": 37
+            }
+          }
         },
         {
           "code": "6MM",
           "key": "armless_loveseat",
           "name": "Armless Loveseat",
-          "dimensions_text": "37\" H × 62.5\" W × 38\" D"
+          "dimensions_text": "37\" H × 62.5\" W × 38\" D",
+          "guide_dims_in": {
+            "6MM": {
+              "width": 62.5,
+              "depth": 38,
+              "height": 37
+            }
+          }
         },
         {
           "code": "60L",
           "key": "LA_chaise",
           "name": "Left-Arm Sitting Chaise",
-          "dimensions_text": "37\" H × 37.5\" W × 63.5\" D"
+          "dimensions_text": "37\" H × 37.5\" W × 63.5\" D",
+          "guide_dims_in": {
+            "60L": {
+              "width": 37.5,
+              "depth": 63.5,
+              "height": 37
+            }
+          }
         },
         {
           "code": "60R",
           "key": "RA_chaise",
           "name": "Right-Arm Sitting Chaise",
-          "dimensions_text": "37\" H × 37.5\" W × 63.5\" D"
+          "dimensions_text": "37\" H × 37.5\" W × 63.5\" D",
+          "guide_dims_in": {
+            "60R": {
+              "width": 37.5,
+              "depth": 63.5,
+              "height": 37
+            }
+          }
         }
       ],
       "configuration_diagram_dimension_labels_in": [
@@ -3282,7 +3639,24 @@
             }
           ],
           "dimensions_text": "42\" H × 56\" W × 40\" D",
-          "fully_extended_in": 66
+          "fully_extended_in": 66,
+          "guide_dims_in": {
+            "44D": {
+              "width": 56,
+              "depth": 40,
+              "height": 42
+            },
+            "U4D": {
+              "width": 56,
+              "depth": 40,
+              "height": 42
+            },
+            "X4D": {
+              "width": 56,
+              "depth": 40,
+              "height": 42
+            }
+          }
         },
         {
           "key": "RA_reclining_loveseat",
@@ -3302,7 +3676,24 @@
             }
           ],
           "dimensions_text": "42\" H × 56\" W × 40\" D",
-          "fully_extended_in": 66
+          "fully_extended_in": 66,
+          "guide_dims_in": {
+            "44E": {
+              "width": 56,
+              "depth": 40,
+              "height": 42
+            },
+            "U4E": {
+              "width": 56,
+              "depth": 40,
+              "height": 42
+            },
+            "X4E": {
+              "width": 56,
+              "depth": 40,
+              "height": 42
+            }
+          }
         },
         {
           "key": "corner_wedge",
@@ -3314,7 +3705,14 @@
             }
           ],
           "dimensions_text": "42\" H × 62\" W × 38\" D",
-          "wall_space_in": 92
+          "wall_space_in": 92,
+          "guide_dims_in": {
+            "44C": {
+              "width": 62,
+              "depth": 38,
+              "height": 42
+            }
+          }
         },
         {
           "key": "armless_recliner",
@@ -3334,7 +3732,24 @@
             }
           ],
           "dimensions_text": "42\" H × 24\" W × 40\" D",
-          "fully_extended_in": 66
+          "fully_extended_in": 66,
+          "guide_dims_in": {
+            "44S": {
+              "width": 24,
+              "depth": 40,
+              "height": 42
+            },
+            "U4S": {
+              "width": 24,
+              "depth": 40,
+              "height": 42
+            },
+            "X4S": {
+              "width": 24,
+              "depth": 40,
+              "height": 42
+            }
+          }
         },
         {
           "key": "armless_chair",
@@ -3345,7 +3760,14 @@
               "label": "Chair"
             }
           ],
-          "dimensions_text": "42\" H × 24\" W × 40\" D"
+          "dimensions_text": "42\" H × 24\" W × 40\" D",
+          "guide_dims_in": {
+            "M44": {
+              "width": 24,
+              "depth": 40,
+              "height": 42
+            }
+          }
         },
         {
           "key": "LA_chaise",
@@ -3365,7 +3787,24 @@
             }
           ],
           "dimensions_text": "42\" H × 35\" W × 68\" D",
-          "fully_extended_in": 79
+          "fully_extended_in": 79,
+          "guide_dims_in": {
+            "44Q": {
+              "width": 35,
+              "depth": 68,
+              "height": 42
+            },
+            "U4Q": {
+              "width": 35,
+              "depth": 68,
+              "height": 42
+            },
+            "X4Q": {
+              "width": 35,
+              "depth": 68,
+              "height": 42
+            }
+          }
         },
         {
           "key": "RA_chaise",
@@ -3385,7 +3824,24 @@
             }
           ],
           "dimensions_text": "42\" H × 35\" W × 68\" D",
-          "fully_extended_in": 79
+          "fully_extended_in": 79,
+          "guide_dims_in": {
+            "44V": {
+              "width": 35,
+              "depth": 68,
+              "height": 42
+            },
+            "U4V": {
+              "width": 35,
+              "depth": 68,
+              "height": 42
+            },
+            "X4V": {
+              "width": 35,
+              "depth": 68,
+              "height": 42
+            }
+          }
         },
         {
           "key": "storage_console",
@@ -3396,7 +3852,14 @@
               "label": "Console"
             }
           ],
-          "dimensions_text": "38.5\" H × 14.5\" W × 37.5\" D"
+          "dimensions_text": "38.5\" H × 14.5\" W × 37.5\" D",
+          "guide_dims_in": {
+            "SC4": {
+              "width": 14.5,
+              "depth": 37.5,
+              "height": 38.5
+            }
+          }
         },
         {
           "key": "LA_recliner",
@@ -3416,7 +3879,24 @@
             }
           ],
           "dimensions_text": "42\" H × 30\" W × 40\" D",
-          "fully_extended_in": 66
+          "fully_extended_in": 66,
+          "guide_dims_in": {
+            "44A": {
+              "width": 30,
+              "depth": 40,
+              "height": 42
+            },
+            "U4A": {
+              "width": 30,
+              "depth": 40,
+              "height": 42
+            },
+            "X4A": {
+              "width": 30,
+              "depth": 40,
+              "height": 42
+            }
+          }
         },
         {
           "key": "RA_recliner",
@@ -3436,7 +3916,24 @@
             }
           ],
           "dimensions_text": "42\" H × 30\" W × 40\" D",
-          "fully_extended_in": 66
+          "fully_extended_in": 66,
+          "guide_dims_in": {
+            "44B": {
+              "width": 30,
+              "depth": 40,
+              "height": 42
+            },
+            "U4B": {
+              "width": 30,
+              "depth": 40,
+              "height": 42
+            },
+            "X4B": {
+              "width": 30,
+              "depth": 40,
+              "height": 42
+            }
+          }
         }
       ],
       "configuration_diagram_dimension_labels_in": [
@@ -3862,88 +4359,186 @@
           "code": "6SR",
           "key": "RA_storage_chaise",
           "name": "Right-Arm Sitting Chaise with Storage",
-          "dimensions_text": "37.5\" H × 39\" W × 64\" D"
+          "dimensions_text": "37.5\" H × 39\" W × 64\" D",
+          "guide_dims_in": {
+            "6SR": {
+              "width": 39,
+              "depth": 64,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "6SC",
           "key": "storage_console",
           "name": "Storage Console",
-          "dimensions_text": "25.5\" H × 10\" W × 38.5\" D"
+          "dimensions_text": "25.5\" H × 10\" W × 38.5\" D",
+          "guide_dims_in": {
+            "6SC": {
+              "width": 10,
+              "depth": 38.5,
+              "height": 25.5
+            }
+          }
         },
         {
           "code": "6SL",
           "key": "LA_storage_chaise",
           "name": "Left-Arm Sitting Chaise with Storage",
-          "dimensions_text": "37.5\" H × 39\" W × 64\" D"
+          "dimensions_text": "37.5\" H × 39\" W × 64\" D",
+          "guide_dims_in": {
+            "6SL": {
+              "width": 39,
+              "depth": 64,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60A",
           "key": "LA_chair",
           "name": "Left-Arm Sitting Chair",
-          "dimensions_text": "37.5\" H × 32.5\" W × 39\" D"
+          "dimensions_text": "37.5\" H × 32.5\" W × 39\" D",
+          "guide_dims_in": {
+            "60A": {
+              "width": 32.5,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60B",
           "key": "RA_chair",
           "name": "Right-Arm Sitting Chair",
-          "dimensions_text": "37.5\" H × 32.5\" W × 39\" D"
+          "dimensions_text": "37.5\" H × 32.5\" W × 39\" D",
+          "guide_dims_in": {
+            "60B": {
+              "width": 32.5,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60C",
           "key": "corner_wedge",
           "name": "Corner",
           "dimensions_text": "37.5\" H × 67\" W × 39\" D",
-          "wall_space_in": 98
+          "wall_space_in": 98,
+          "guide_dims_in": {
+            "60C": {
+              "width": 67,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "6CC",
           "key": "corner_wedge_compact",
           "name": "Corner",
           "dimensions_text": "37.5\" H × 53\" W × 39\" D",
-          "wall_space_in": 78
+          "wall_space_in": 78,
+          "guide_dims_in": {
+            "6CC": {
+              "width": 53,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60M",
           "key": "armless_chair",
           "name": "Armless Chair",
-          "dimensions_text": "37.5\" H × 24\" W × 39\" D"
+          "dimensions_text": "37.5\" H × 24\" W × 39\" D",
+          "guide_dims_in": {
+            "60M": {
+              "width": 24,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60D",
           "key": "LA_loveseat",
           "name": "Left-Arm Sitting Loveseat",
-          "dimensions_text": "37.5\" H × 56.5\" W × 39\" D"
+          "dimensions_text": "37.5\" H × 56.5\" W × 39\" D",
+          "guide_dims_in": {
+            "60D": {
+              "width": 56.5,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60E",
           "key": "RA_loveseat",
           "name": "Right-Arm Sitting Loveseat",
-          "dimensions_text": "37.5\" H × 56.5\" W × 39\" D"
+          "dimensions_text": "37.5\" H × 56.5\" W × 39\" D",
+          "guide_dims_in": {
+            "60E": {
+              "width": 56.5,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "6SP",
           "key": "armless_full_sleeper_sofa",
           "name": "Armless Full Sleeper Sofa",
           "dimensions_text": "37.5\" H × 63\" W × 39\" D",
-          "fully_extended_in": 90
+          "fully_extended_in": 90,
+          "guide_dims_in": {
+            "6SP": {
+              "width": 63,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "6MM",
           "key": "armless_loveseat",
           "name": "Armless Loveseat",
-          "dimensions_text": "37.5\" H × 63\" W × 39\" D"
+          "dimensions_text": "37.5\" H × 63\" W × 39\" D",
+          "guide_dims_in": {
+            "6MM": {
+              "width": 63,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60L",
           "key": "LA_chaise",
           "name": "Left-Arm Sitting Chaise",
-          "dimensions_text": "37.5\" H × 32.5\" W × 64\" D"
+          "dimensions_text": "37.5\" H × 32.5\" W × 64\" D",
+          "guide_dims_in": {
+            "60L": {
+              "width": 32.5,
+              "depth": 64,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60R",
           "key": "RA_chaise",
           "name": "Right-Arm Sitting Chaise",
-          "dimensions_text": "37.5\" H × 32.5\" W × 64\" D"
+          "dimensions_text": "37.5\" H × 32.5\" W × 64\" D",
+          "guide_dims_in": {
+            "60R": {
+              "width": 32.5,
+              "depth": 64,
+              "height": 37.5
+            }
+          }
         }
       ],
       "configuration_diagram_dimension_note": "The supplied text extraction contains sectional arrangement diagrams, but it does not preserve reliable mappings between the footprint labels and specific configurations. No arrangement footprint is assigned.",
@@ -4549,7 +5144,24 @@
             }
           ],
           "dimensions_text": "41.5\" H × 33\" W × 39.5\" D",
-          "fully_extended_in": 64.5
+          "fully_extended_in": 64.5,
+          "guide_dims_in": {
+            "44A": {
+              "width": 33,
+              "depth": 39.5,
+              "height": 41.5
+            },
+            "U4A": {
+              "width": 33,
+              "depth": 39.5,
+              "height": 41.5
+            },
+            "X4A": {
+              "width": 33,
+              "depth": 39.5,
+              "height": 41.5
+            }
+          }
         },
         {
           "key": "RA_recliner",
@@ -4569,7 +5181,24 @@
             }
           ],
           "dimensions_text": "41.5\" H × 33\" W × 39.5\" D",
-          "fully_extended_in": 64.5
+          "fully_extended_in": 64.5,
+          "guide_dims_in": {
+            "44B": {
+              "width": 33,
+              "depth": 39.5,
+              "height": 41.5
+            },
+            "U4B": {
+              "width": 33,
+              "depth": 39.5,
+              "height": 41.5
+            },
+            "X4B": {
+              "width": 33,
+              "depth": 39.5,
+              "height": 41.5
+            }
+          }
         },
         {
           "key": "LA_reclining_loveseat",
@@ -4589,7 +5218,24 @@
             }
           ],
           "dimensions_text": "41.5\" H × 56.5\" W × 39.5\" D",
-          "fully_extended_in": 64.5
+          "fully_extended_in": 64.5,
+          "guide_dims_in": {
+            "44D": {
+              "width": 56.5,
+              "depth": 39.5,
+              "height": 41.5
+            },
+            "U4D": {
+              "width": 56.5,
+              "depth": 39.5,
+              "height": 41.5
+            },
+            "X4D": {
+              "width": 56.5,
+              "depth": 39.5,
+              "height": 41.5
+            }
+          }
         },
         {
           "key": "RA_reclining_loveseat",
@@ -4609,7 +5255,24 @@
             }
           ],
           "dimensions_text": "41.5\" H × 56.5\" W × 39.5\" D",
-          "fully_extended_in": 64.5
+          "fully_extended_in": 64.5,
+          "guide_dims_in": {
+            "44E": {
+              "width": 56.5,
+              "depth": 39.5,
+              "height": 41.5
+            },
+            "U4E": {
+              "width": 56.5,
+              "depth": 39.5,
+              "height": 41.5
+            },
+            "X4E": {
+              "width": 56.5,
+              "depth": 39.5,
+              "height": 41.5
+            }
+          }
         },
         {
           "key": "corner_wedge",
@@ -4621,7 +5284,14 @@
             }
           ],
           "dimensions_text": "41.5\" H × 61\" W × 39\" D",
-          "wall_space_in": 88
+          "wall_space_in": 88,
+          "guide_dims_in": {
+            "44C": {
+              "width": 61,
+              "depth": 39.5,
+              "height": 41.5
+            }
+          }
         },
         {
           "key": "armless_recliner",
@@ -4641,7 +5311,24 @@
             }
           ],
           "dimensions_text": "41.5\" H × 23.5\" W × 39.5\" D",
-          "fully_extended_in": 64.5
+          "fully_extended_in": 64.5,
+          "guide_dims_in": {
+            "44S": {
+              "width": 23.5,
+              "depth": 39.5,
+              "height": 41.5
+            },
+            "U4S": {
+              "width": 23.5,
+              "depth": 39.5,
+              "height": 41.5
+            },
+            "X4S": {
+              "width": 23.5,
+              "depth": 39.5,
+              "height": 41.5
+            }
+          }
         },
         {
           "key": "armless_chair",
@@ -4652,7 +5339,14 @@
               "label": "Chair"
             }
           ],
-          "dimensions_text": "41.5\" H × 23.5\" W × 39.5\" D"
+          "dimensions_text": "41.5\" H × 23.5\" W × 39.5\" D",
+          "guide_dims_in": {
+            "M44": {
+              "width": 23.5,
+              "depth": 39.5,
+              "height": 41.5
+            }
+          }
         },
         {
           "key": "storage_console",
@@ -4663,7 +5357,14 @@
               "label": "Console"
             }
           ],
-          "dimensions_text": "38.5\" H × 14.5\" W × 37.5\" D"
+          "dimensions_text": "38.5\" H × 14.5\" W × 37.5\" D",
+          "guide_dims_in": {
+            "SC4": {
+              "width": 14.5,
+              "depth": 38.5,
+              "height": 38.5
+            }
+          }
         },
         {
           "key": "LA_chaise",
@@ -4683,7 +5384,24 @@
             }
           ],
           "dimensions_text": "41.5\" H × 37.5\" W × 68\" D",
-          "fully_extended_in": 77.5
+          "fully_extended_in": 77.5,
+          "guide_dims_in": {
+            "44Q": {
+              "width": 37.5,
+              "depth": 68,
+              "height": 41.5
+            },
+            "U4Q": {
+              "width": 37.5,
+              "depth": 68,
+              "height": 41.5
+            },
+            "X4Q": {
+              "width": 37.5,
+              "depth": 68,
+              "height": 41.5
+            }
+          }
         },
         {
           "key": "RA_chaise",
@@ -4703,7 +5421,24 @@
             }
           ],
           "dimensions_text": "41.5\" H × 37.5\" W × 68\" D",
-          "fully_extended_in": 77.5
+          "fully_extended_in": 77.5,
+          "guide_dims_in": {
+            "44V": {
+              "width": 37.5,
+              "depth": 68,
+              "height": 41.5
+            },
+            "U4V": {
+              "width": 37.5,
+              "depth": 68,
+              "height": 41.5
+            },
+            "X4V": {
+              "width": 37.5,
+              "depth": 68,
+              "height": 41.5
+            }
+          }
         }
       ],
       "configuration_diagram_dimension_note": "The extracted tear-pad text includes additional arrangement diagrams, but does not preserve reliable mappings between the total footprint labels and specific layouts. No arrangement footprint is assigned.",
@@ -4742,7 +5477,14 @@
           "name": "Left-Arm Sitting Sofa with Attached Corner",
           "dimensions_text": "37\" H × 107\" W × 36\" D",
           "pricebook_dimensions_text": "34\" H × 107\" W × 36\" D",
-          "dimensions_conflict_note": "The 2025 tear pad lists 37 inches high; the April 2026 manufacturer price book lists 34 inches high for the same 60W603 code. Width and depth agree. Height is retained source-by-source and should be visually verified against the documents before use."
+          "dimensions_conflict_note": "The 2025 tear pad lists 37 inches high; the April 2026 manufacturer price book lists 34 inches high for the same 60W603 code. Width and depth agree. Height is retained source-by-source and should be visually verified against the documents before use.",
+          "guide_dims_in": {
+            "60W": {
+              "width": 107,
+              "depth": 36,
+              "height": 34
+            }
+          }
         },
         {
           "code": "60X",
@@ -4750,7 +5492,14 @@
           "name": "Right-Arm Sitting Sofa with Attached Corner",
           "dimensions_text": "37\" H × 107\" W × 36\" D",
           "pricebook_dimensions_text": "34\" H × 107\" W × 36\" D",
-          "dimensions_conflict_note": "The 2025 tear pad lists 37 inches high; the April 2026 manufacturer price book lists 34 inches high for the same 60X603 code. Width and depth agree. Height is retained source-by-source and should be visually verified against the documents before use."
+          "dimensions_conflict_note": "The 2025 tear pad lists 37 inches high; the April 2026 manufacturer price book lists 34 inches high for the same 60X603 code. Width and depth agree. Height is retained source-by-source and should be visually verified against the documents before use.",
+          "guide_dims_in": {
+            "60X": {
+              "width": 107,
+              "depth": 36,
+              "height": 34
+            }
+          }
         },
         {
           "code": "60Y",
@@ -4758,7 +5507,14 @@
           "name": "Left-Arm Sitting Sofa",
           "dimensions_text": "37\" H × 73.5\" W × 36\" D",
           "pricebook_dimensions_text": "34\" H × 73.5\" W × 36\" D",
-          "dimensions_conflict_note": "The 2025 tear pad lists 37 inches high; the April 2026 manufacturer price book lists 34 inches high for the same 60Y603 code. Width and depth agree. Height is retained source-by-source and should be visually verified against the documents before use."
+          "dimensions_conflict_note": "The 2025 tear pad lists 37 inches high; the April 2026 manufacturer price book lists 34 inches high for the same 60Y603 code. Width and depth agree. Height is retained source-by-source and should be visually verified against the documents before use.",
+          "guide_dims_in": {
+            "60Y": {
+              "width": 73.5,
+              "depth": 36,
+              "height": 34
+            }
+          }
         },
         {
           "code": "60Z",
@@ -4766,25 +5522,53 @@
           "name": "Right-Arm Sitting Sofa",
           "dimensions_text": "37\" H × 73.5\" W × 36\" D",
           "pricebook_dimensions_text": "34\" H × 73.5\" W × 36\" D",
-          "dimensions_conflict_note": "The 2025 tear pad lists 37 inches high; the April 2026 manufacturer price book lists 34 inches high for the same 60Z603 code. Width and depth agree. Height is retained source-by-source and should be visually verified against the documents before use."
+          "dimensions_conflict_note": "The 2025 tear pad lists 37 inches high; the April 2026 manufacturer price book lists 34 inches high for the same 60Z603 code. Width and depth agree. Height is retained source-by-source and should be visually verified against the documents before use.",
+          "guide_dims_in": {
+            "60Z": {
+              "width": 73.5,
+              "depth": 36,
+              "height": 34
+            }
+          }
         },
         {
           "code": "610",
           "key": "sofa",
           "name": "Sofa",
-          "dimensions_text": "34\" H × 75.5\" W × 36\" D"
+          "dimensions_text": "34\" H × 75.5\" W × 36\" D",
+          "guide_dims_in": {
+            "610": {
+              "width": 75.5,
+              "depth": 36,
+              "height": 34
+            }
+          }
         },
         {
           "code": "655",
           "key": "chair_and_a_half",
           "name": "Chair and a Half",
-          "dimensions_text": "34\" H × 39\" W × 36\" D"
+          "dimensions_text": "34\" H × 39\" W × 36\" D",
+          "guide_dims_in": {
+            "655": {
+              "width": 39,
+              "depth": 36,
+              "height": 34
+            }
+          }
         },
         {
           "code": "240",
           "key": "ottoman",
           "name": "Ottoman",
-          "dimensions_text": "18\" H × 37.5\" W × 24\" D"
+          "dimensions_text": "18\" H × 37.5\" W × 24\" D",
+          "guide_dims_in": {
+            "240": {
+              "width": 37.5,
+              "depth": 24,
+              "height": 18
+            }
+          }
         }
       ],
       "pricebook_measurements_note": "The price-book dimension column legend defines H as height, W as width, D as depth, WT as unit weight, SH as seat height, SW as seat width, SD as seat depth, and AH as arm height. Values are cataloged as printed for each exact style prefix. The price book cautions that its general guidance may not apply to all prefixes and refers readers to the Product Information Guide for prefix-specific detail.",
@@ -5071,7 +5855,14 @@
             "FP",
             "P1",
             "Z6"
-          ]
+          ],
+          "guide_dims_in": {
+            "60A": {
+              "width": 47,
+              "depth": 38.5,
+              "height": 37
+            }
+          }
         },
         {
           "code": "6AL",
@@ -5081,7 +5872,13 @@
           "pricebook_dimensions_text": "25.5\" H × 10\" W × 38.5\" D; arm height 25.5\"; unit weight 59 lb",
           "pricebook_options": [
             "FN"
-          ]
+          ],
+          "guide_dims_in": {
+            "6AL": {
+              "width": 10,
+              "depth": 38.5
+            }
+          }
         },
         {
           "code": "60B",
@@ -5094,7 +5891,14 @@
             "FP",
             "P1",
             "Z6"
-          ]
+          ],
+          "guide_dims_in": {
+            "60B": {
+              "width": 47,
+              "depth": 38.5,
+              "height": 37
+            }
+          }
         },
         {
           "code": "6AR",
@@ -5104,7 +5908,13 @@
           "pricebook_dimensions_text": "25.5\" H × 10\" W × 38.5\" D; arm height 25.5\"; unit weight 59 lb",
           "pricebook_options": [
             "FN"
-          ]
+          ],
+          "guide_dims_in": {
+            "6AR": {
+              "width": 10,
+              "depth": 38.5
+            }
+          }
         },
         {
           "code": "6SC",
@@ -5114,7 +5924,14 @@
           "pricebook_dimensions_text": "25.5\" H × 10\" W × 38.5\" D; unit weight 59 lb",
           "pricebook_options": [
             "FN"
-          ]
+          ],
+          "guide_dims_in": {
+            "6SC": {
+              "width": 10,
+              "depth": 38.5,
+              "height": 25.5
+            }
+          }
         },
         {
           "code": "6CC",
@@ -5127,7 +5944,14 @@
             "FP",
             "P1",
             "Z6"
-          ]
+          ],
+          "guide_dims_in": {
+            "6CC": {
+              "width": 39.5,
+              "depth": 39.5,
+              "height": 37
+            }
+          }
         },
         {
           "code": "60M",
@@ -5149,7 +5973,14 @@
           "pricebook_options": [
             "DC",
             "Z6"
-          ]
+          ],
+          "guide_dims_in": {
+            "6MM": {
+              "width": 74.5,
+              "depth": 38.5,
+              "height": 37
+            }
+          }
         },
         {
           "code": "240",
@@ -5159,7 +5990,14 @@
           "pricebook_dimensions_text": "21.5\" H × 38.5\" W × 38.5\" D; unit weight 87 lb",
           "pricebook_options": [
             "N/A"
-          ]
+          ],
+          "guide_dims_in": {
+            "240": {
+              "width": 38.5,
+              "depth": 38.5,
+              "height": 21.5
+            }
+          }
         }
       ],
       "configuration_diagram_dimension_labels_in": [
@@ -5384,39 +6222,81 @@
           "code": "60A",
           "key": "LA_chair",
           "name": "Left-Arm Sitting Chair",
-          "dimensions_text": "38\" H × 45\" W × 42\" D"
+          "dimensions_text": "38\" H × 45\" W × 42\" D",
+          "guide_dims_in": {
+            "60A": {
+              "width": 45,
+              "depth": 42,
+              "height": 38
+            }
+          }
         },
         {
           "code": "60B",
           "key": "RA_chair",
           "name": "Right-Arm Sitting Chair",
-          "dimensions_text": "38\" H × 45\" W × 42\" D"
+          "dimensions_text": "38\" H × 45\" W × 42\" D",
+          "guide_dims_in": {
+            "60B": {
+              "width": 45,
+              "depth": 42,
+              "height": 38
+            }
+          }
         },
         {
           "code": "60L",
           "key": "LA_chaise",
           "name": "Left-Arm Sitting Chaise",
-          "dimensions_text": "38\" H × 45\" W × 66.5\" D"
+          "dimensions_text": "38\" H × 45\" W × 66.5\" D",
+          "guide_dims_in": {
+            "60L": {
+              "width": 45,
+              "depth": 66.5,
+              "height": 38
+            }
+          }
         },
         {
           "code": "60R",
           "key": "RA_chaise",
           "name": "Right-Arm Sitting Chaise",
-          "dimensions_text": "38\" H × 45\" W × 66.5\" D"
+          "dimensions_text": "38\" H × 45\" W × 66.5\" D",
+          "guide_dims_in": {
+            "60R": {
+              "width": 45,
+              "depth": 66.5,
+              "height": 38
+            }
+          }
         },
         {
           "code": "6CC",
           "key": "corner_wedge",
           "name": "Corner",
           "dimensions_text": "38\" H × 68\" W × 42\" D",
-          "wall_space_in": 84
+          "wall_space_in": 84,
+          "guide_dims_in": {
+            "6CC": {
+              "width": 68,
+              "depth": 42,
+              "height": 38
+            }
+          }
         },
         {
           "code": "60M",
           "key": "armless_chair",
           "name": "Armless Chair",
           "dimensions_text": "38\" D × 40\" W × 42\" D",
-          "dimensions_note": "The supplied text extraction lists 38 inches D × 40 inches W × 42 inches D, with no unambiguous height and a repeated depth designation. This source text is preserved without inferring or correcting the dimensions."
+          "dimensions_note": "The supplied text extraction lists 38 inches D × 40 inches W × 42 inches D, with no unambiguous height and a repeated depth designation. This source text is preserved without inferring or correcting the dimensions.",
+          "guide_dims_in": {
+            "60M": {
+              "width": 40,
+              "depth": 42,
+              "height": 38
+            }
+          }
         }
       ],
       "configuration_diagram_dimension_labels_in": [
@@ -5718,14 +6598,38 @@
               "label": "Power"
             }
           ],
-          "dimensions_text": "43\" H × 42.5\" W × 66.5\" D"
+          "dimensions_text": "43\" H × 42.5\" W × 66.5\" D",
+          "guide_dims_in": {
+            "44Q": {
+              "width": 42.5,
+              "depth": 66.5,
+              "height": 43
+            },
+            "U4Q": {
+              "width": 42.5,
+              "depth": 66.5,
+              "height": 43
+            },
+            "X4Q": {
+              "width": 42.5,
+              "depth": 66.5,
+              "height": 43
+            }
+          }
         },
         {
           "code": "44C",
           "key": "corner_wedge",
           "name": "Rounded Corner Unit",
           "dimensions_text": "43\" H × 59\" W × 38\" D",
-          "wall_space_in": 92
+          "wall_space_in": 92,
+          "guide_dims_in": {
+            "44C": {
+              "width": 59,
+              "depth": 38,
+              "height": 43
+            }
+          }
         },
         {
           "key": "RA_reclining_chaise",
@@ -5744,13 +6648,37 @@
               "label": "Power"
             }
           ],
-          "dimensions_text": "43\" H × 42.5\" W × 66.5\" D"
+          "dimensions_text": "43\" H × 42.5\" W × 66.5\" D",
+          "guide_dims_in": {
+            "44V": {
+              "width": 42.5,
+              "depth": 66.5,
+              "height": 43
+            },
+            "U4V": {
+              "width": 42.5,
+              "depth": 66.5,
+              "height": 43
+            },
+            "X4V": {
+              "width": 42.5,
+              "depth": 66.5,
+              "height": 43
+            }
+          }
         },
         {
           "code": "M44",
           "key": "armless_chair",
           "name": "Armless Chair",
-          "dimensions_text": "43\" H × 33.5\" W × 38\" D"
+          "dimensions_text": "43\" H × 33.5\" W × 38\" D",
+          "guide_dims_in": {
+            "M44": {
+              "width": 33.5,
+              "depth": 38,
+              "height": 43
+            }
+          }
         },
         {
           "key": "armless_recliner",
@@ -5769,7 +6697,24 @@
               "label": "Power"
             }
           ],
-          "dimensions_text": "43\" H × 33.5\" W × 38\" D"
+          "dimensions_text": "43\" H × 33.5\" W × 38\" D",
+          "guide_dims_in": {
+            "44S": {
+              "width": 33.5,
+              "depth": 38,
+              "height": 43
+            },
+            "U4S": {
+              "width": 33.5,
+              "depth": 38,
+              "height": 43
+            },
+            "X4S": {
+              "width": 33.5,
+              "depth": 38,
+              "height": 43
+            }
+          }
         },
         {
           "key": "reclining_chair_and_a_half",
@@ -5788,7 +6733,24 @@
               "label": "Power"
             }
           ],
-          "dimensions_text": "43\" H × 54.5\" W × 38\" D"
+          "dimensions_text": "43\" H × 54.5\" W × 38\" D",
+          "guide_dims_in": {
+            "445": {
+              "width": 54.5,
+              "depth": 38,
+              "height": 43
+            },
+            "U45": {
+              "width": 54.5,
+              "depth": 38,
+              "height": 43
+            },
+            "X45": {
+              "width": 54.5,
+              "depth": 38,
+              "height": 43
+            }
+          }
         },
         {
           "key": "storage_console",
@@ -5799,7 +6761,14 @@
               "label": "Console"
             }
           ],
-          "dimensions_text": "38.5\" H × 14.5\" W × 38.5\" D"
+          "dimensions_text": "38.5\" H × 14.5\" W × 38.5\" D",
+          "guide_dims_in": {
+            "SC4": {
+              "width": 14.5,
+              "depth": 38.5,
+              "height": 38.5
+            }
+          }
         },
         {
           "key": "LA_recliner",
@@ -5818,7 +6787,24 @@
               "label": "Power"
             }
           ],
-          "dimensions_text": "43\" H × 42.5\" W × 38\" D"
+          "dimensions_text": "43\" H × 42.5\" W × 38\" D",
+          "guide_dims_in": {
+            "44A": {
+              "width": 42.5,
+              "depth": 38,
+              "height": 43
+            },
+            "U4A": {
+              "width": 42.5,
+              "depth": 38,
+              "height": 43
+            },
+            "X4A": {
+              "width": 42.5,
+              "depth": 38,
+              "height": 43
+            }
+          }
         },
         {
           "key": "RA_recliner",
@@ -5837,7 +6823,24 @@
               "label": "Power"
             }
           ],
-          "dimensions_text": "43\" H × 42.5\" W × 38\" D"
+          "dimensions_text": "43\" H × 42.5\" W × 38\" D",
+          "guide_dims_in": {
+            "44B": {
+              "width": 42.5,
+              "depth": 38,
+              "height": 43
+            },
+            "U4B": {
+              "width": 42.5,
+              "depth": 38,
+              "height": 43
+            },
+            "X4B": {
+              "width": 42.5,
+              "depth": 38,
+              "height": 43
+            }
+          }
         }
       ],
       "configuration_diagram_dimension_labels_in": [
@@ -6280,7 +7283,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "60A": {
+              "width": 31,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60B",
@@ -6292,19 +7302,40 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "60B": {
+              "width": 31,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60D",
           "key": "LA_loveseat",
           "name": "Left-Arm Sitting Loveseat",
-          "dimensions_text": "37.5\" H × 55\" W × 39\" D"
+          "dimensions_text": "37.5\" H × 55\" W × 39\" D",
+          "guide_dims_in": {
+            "60D": {
+              "width": 55,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60E",
           "key": "RA_loveseat",
           "name": "Right-Arm Sitting Loveseat",
-          "dimensions_text": "37.5\" H × 55\" W × 39\" D"
+          "dimensions_text": "37.5\" H × 55\" W × 39\" D",
+          "guide_dims_in": {
+            "60E": {
+              "width": 55,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "6CC",
@@ -6317,7 +7348,14 @@
             "9DP",
             "90M"
           ],
-          "wall_space_in": 78
+          "wall_space_in": 78,
+          "guide_dims_in": {
+            "6CC": {
+              "width": 53,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60C",
@@ -6330,19 +7368,40 @@
             "9DP",
             "90M"
           ],
-          "wall_space_in": 98
+          "wall_space_in": 98,
+          "guide_dims_in": {
+            "60C": {
+              "width": 67,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60M",
           "key": "armless_chair",
           "name": "Armless Chair",
-          "dimensions_text": "37.5\" H × 24\" W × 39\" D"
+          "dimensions_text": "37.5\" H × 24\" W × 39\" D",
+          "guide_dims_in": {
+            "60M": {
+              "width": 24,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "6MM",
           "key": "armless_loveseat",
           "name": "Armless Loveseat",
-          "dimensions_text": "37.5\" H × 63\" W × 39\" D"
+          "dimensions_text": "37.5\" H × 63\" W × 39\" D",
+          "guide_dims_in": {
+            "6MM": {
+              "width": 63,
+              "depth": 39,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60L",
@@ -6354,7 +7413,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "60L": {
+              "width": 31,
+              "depth": 64,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "60R",
@@ -6366,7 +7432,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "60R": {
+              "width": 31,
+              "depth": 64,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "6SL",
@@ -6378,7 +7451,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "6SL": {
+              "width": 39,
+              "depth": 64,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "6SR",
@@ -6390,7 +7470,14 @@
             "9EP",
             "9DP",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "6SR": {
+              "width": 39,
+              "depth": 64,
+              "height": 37.5
+            }
+          }
         },
         {
           "code": "6SC",
@@ -6400,7 +7487,14 @@
           "printed_codes": [
             "9CC",
             "90M"
-          ]
+          ],
+          "guide_dims_in": {
+            "6SC": {
+              "width": 10,
+              "depth": 38.5,
+              "height": 25.5
+            }
+          }
         }
       ],
       "configuration_diagram_dimension_labels_in": [
@@ -6849,7 +7943,24 @@
               "label": "Power"
             }
           ],
-          "dimensions_text": "42\" H × 40\" W × 40\" D"
+          "dimensions_text": "42\" H × 40\" W × 40\" D",
+          "guide_dims_in": {
+            "44A": {
+              "width": 40,
+              "depth": 40,
+              "height": 42
+            },
+            "U4A": {
+              "width": 40,
+              "depth": 40,
+              "height": 42
+            },
+            "X4A": {
+              "width": 40,
+              "depth": 40,
+              "height": 42
+            }
+          }
         },
         {
           "key": "RA_recliner",
@@ -6868,14 +7979,38 @@
               "label": "Power"
             }
           ],
-          "dimensions_text": "42\" H × 40\" W × 40\" D"
+          "dimensions_text": "42\" H × 40\" W × 40\" D",
+          "guide_dims_in": {
+            "44B": {
+              "width": 40,
+              "depth": 40,
+              "height": 42
+            },
+            "U4B": {
+              "width": 40,
+              "depth": 40,
+              "height": 42
+            },
+            "X4B": {
+              "width": 40,
+              "depth": 40,
+              "height": 42
+            }
+          }
         },
         {
           "code": "44C",
           "key": "corner_wedge",
           "name": "Corner",
           "dimensions_text": "42\" H × 62\" W × 37\" D",
-          "wall_space_in": 92
+          "wall_space_in": 92,
+          "guide_dims_in": {
+            "44C": {
+              "width": 62,
+              "depth": 37,
+              "height": 42
+            }
+          }
         },
         {
           "key": "armless_recliner",
@@ -6894,13 +8029,37 @@
               "label": "Power"
             }
           ],
-          "dimensions_text": "42\" H × 32\" W × 40\" D"
+          "dimensions_text": "42\" H × 32\" W × 40\" D",
+          "guide_dims_in": {
+            "44S": {
+              "width": 32,
+              "depth": 40,
+              "height": 42
+            },
+            "U4S": {
+              "width": 32,
+              "depth": 40,
+              "height": 42
+            },
+            "X4S": {
+              "width": 32,
+              "depth": 40,
+              "height": 42
+            }
+          }
         },
         {
           "code": "M44",
           "key": "armless_chair",
           "name": "Armless Chair",
-          "dimensions_text": "42\" H × 32\" W × 40\" D"
+          "dimensions_text": "42\" H × 32\" W × 40\" D",
+          "guide_dims_in": {
+            "M44": {
+              "width": 32,
+              "depth": 40,
+              "height": 42
+            }
+          }
         },
         {
           "key": "storage_console",
@@ -6911,7 +8070,14 @@
               "label": "Console"
             }
           ],
-          "dimensions_text": "38.5\" H × 14.5\" W × 37.5\" D"
+          "dimensions_text": "38.5\" H × 14.5\" W × 37.5\" D",
+          "guide_dims_in": {
+            "SC4": {
+              "width": 14.5,
+              "depth": 37.5,
+              "height": 38.5
+            }
+          }
         },
         {
           "key": "LA_reclining_chaise",
@@ -6930,7 +8096,24 @@
               "label": "Power"
             }
           ],
-          "dimensions_text": "42\" H × 42\" W × 65.5\" D"
+          "dimensions_text": "42\" H × 42\" W × 65.5\" D",
+          "guide_dims_in": {
+            "44Q": {
+              "width": 42,
+              "depth": 65.5,
+              "height": 42
+            },
+            "U4Q": {
+              "width": 42,
+              "depth": 65.5,
+              "height": 42
+            },
+            "X4Q": {
+              "width": 42,
+              "depth": 65.5,
+              "height": 42
+            }
+          }
         },
         {
           "key": "RA_reclining_chaise",
@@ -6949,7 +8132,24 @@
               "label": "Power"
             }
           ],
-          "dimensions_text": "42\" H × 42\" W × 65.5\" D"
+          "dimensions_text": "42\" H × 42\" W × 65.5\" D",
+          "guide_dims_in": {
+            "44V": {
+              "width": 42,
+              "depth": 65.5,
+              "height": 42
+            },
+            "U4V": {
+              "width": 42,
+              "depth": 65.5,
+              "height": 42
+            },
+            "X4V": {
+              "width": 42,
+              "depth": 65.5,
+              "height": 42
+            }
+          }
         }
       ],
       "configuration_diagram_dimension_labels_in": [

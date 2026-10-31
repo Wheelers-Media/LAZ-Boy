@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { createFreeItem, boundsFor, overlaps, isFree, reachConflicts, rotateItem, polygonsOverlap, polygonOf } from '../src/floorplan.js';
+import { createFreeItem, boundsFor, overlaps, isFree, reachConflicts, rotateItem, turnItemTo, polygonsOverlap, polygonOf } from '../src/floorplan.js';
 
 const styles = JSON.parse(fs.readFileSync(new URL('../public/style-index-2026.json', import.meta.url), 'utf8')).styles;
 const row = styles.find((r) => r.prefix === '10X' && r.model === '724');
@@ -41,4 +41,14 @@ test('polygons of a free item at 90 degrees match its box', () => {
   assert.ok(Math.abs(Math.max(...ys) - (10 + item.height)) < 0.01);
   assert.ok(isFree({ ...item, x: 10, y: 10 }, [], room));
   assert.equal(polygonsOverlap(poly, poly), true);
+});
+
+test('a free piece turns to any angle, and still turns when boxed in', () => {
+  const item = { ...createFreeItem(row, 0, 0, 0), x: 100, y: 60 };
+  const at30 = turnItemTo([item], item.id, room, 30)[0];
+  assert.equal(at30.rotation, 30);
+  const cramped = { width: 60, height: 60 };
+  const wedged = { ...item, x: 0, y: 0 };
+  const result = turnItemTo([wedged], wedged.id, cramped, 45);
+  assert.ok(result && result[0].rotation === 45, 'never refuses to turn');
 });

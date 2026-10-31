@@ -6,7 +6,7 @@ import { PieceConfigurator } from './PieceConfigurator.jsx';
 import { configureStyle } from './pieceConfig.js';
 import { Armchair, ChevronDown, ChevronLeft, ChevronUp, ClipboardCheck, X, Copy, Plus, Info, Layers3, Printer, Redo2, RotateCw, Scan, Sofa, Trash2, Undo2 } from './icons.jsx';
 import { buildSectionalStudioRmsLine, getSharedCoverSwatches, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
-import { insideRoom, overlaps, createFreeItem, createItem, applyPlacement, findFreeSpot, formatInches, placementCandidates, rankPlacements, layoutSummary, normalizeRotation, parsePieceDimensions, presetItems, PRESET_LAYOUTS, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
+import { insideRoom, overlaps, createFreeItem, createItem, applyPlacement, findFreeSpot, formatInches, placementCandidates, rankPlacements, layoutSummary, normalizeRotation, parsePieceDimensions, turnItemTo, presetItems, PRESET_LAYOUTS, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
 
 const narrowScreen = () => typeof window !== 'undefined' && window.matchMedia?.('(max-width: 800px)').matches;
 const WALL = 4;
@@ -264,6 +264,18 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
     const drag = dragRef.current;
     if (!drag) return;
     const point = toPoint(event);
+    if (drag.rotate) {
+      const piece = itemsRef.current.find((entry) => entry.id === drag.id);
+      if (!piece) return;
+      const angle = (Math.atan2(point.y - (piece.y + piece.height / 2), point.x - (piece.x + piece.width / 2)) * 180) / Math.PI + 90;
+      let snapped = Math.round(angle / 15) * 15;
+      const nearest45 = Math.round(angle / 45) * 45;
+      if (Math.abs(angle - nearest45) < 6) snapped = nearest45; // sticks to 45 degree steps
+      const turned = turnItemTo(itemsRef.current, drag.id, room, snapped);
+      if (!drag.moved) { drag.moved = true; setHistory((current) => ({ past: [...current.past.slice(-59), drag.snapshot], future: [] })); }
+      setItems(turned);
+      return;
+    }
     const next = resolveMove(itemsRef.current, drag.id, { x: point.x - drag.dx, y: point.y - drag.dy }, room, { snap: snapEdges });
     if (!drag.moved) {
       drag.moved = true;
@@ -272,6 +284,16 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
     setItems(next);
   };
   const endDrag = () => { dragRef.current = null; };
+  const startRotate = (event, piece) => {
+    event.preventDefault(); event.stopPropagation();
+    svgRef.current.setPointerCapture?.(event.pointerId);
+    dragRef.current = { id: piece.id, rotate: true, snapshot: itemsRef.current, moved: false };
+  };
+  const setAngle = (angle, final = true) => {
+    if (!selectedItem?.free) return;
+    const turned = turnItemTo(itemsRef.current, selectedId, room, angle);
+    if (final) commit(turned); else setItems(turned);
+  };
   const rotateSelected = (turn) => {
     if (!selectedItem) return;
     const next = rotateItem(items, selectedId, room, selectedItem.free ? (turn || 45) : 90);
@@ -358,7 +380,7 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
             </g>)}
             {items.map((item) => <g key={item.id} className={`fp-piece ${selectedId === item.id ? 'selected' : ''}`} onPointerDown={(event) => startDrag(event, item)} role="button" tabIndex={0} aria-label={`${item.name}, ${item.code}, ${formatInches(publishedSize(item).width)} wide by ${formatInches(publishedSize(item).depth)} deep. Select or drag.`} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelectedId(item.id); } }}>
               <g transform={pieceTransform(item)}><PieceArt item={item} /></g>
-              {item.free ? <g transform={freeTransform(item)}><rect className="fp-outline" width={item.baseWidth} height={item.baseHeight} rx="4" /></g> : <rect className="fp-outline" x={item.x} y={item.y} width={item.width} height={item.height} />}
+              {item.free ? <g transform={freeTransform(item)}><rect className="fp-outline" width={item.baseWidth} height={item.baseHeight} rx="4" />{selectedId === item.id && <g className="fp-rotate" onPointerDown={(event) => startRotate(event, item)}><line x1={item.baseWidth / 2} y1="0" x2={item.baseWidth / 2} y2="-12" /><circle cx={item.baseWidth / 2} cy="-16" r="6" /><path d={`M${item.baseWidth / 2 - 2.6} -16.6a2.8 2.8 0 1 1 1 2.2`} /></g>}</g> : <rect className="fp-outline" x={item.x} y={item.y} width={item.width} height={item.height} />}
             </g>)}
             {items.map((item) => { const at = labelPoint(item); const size = Math.max(4.5, Math.min(9, Math.min(item.width, item.height) * 0.22)); return <g key={`t${item.id}`} className="fp-labels" pointerEvents="none">
               <text className="fp-code" x={at.x} y={at.y} textAnchor="middle" dominantBaseline="central" fontSize={size}>{item.code}</text>
@@ -383,6 +405,10 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
           <button type="button" onClick={() => rotateSelected(selectedItem.free ? 45 : 90)} aria-label={selectedItem.free ? 'Turn selected piece 45 degrees' : 'Rotate selected piece 90 degrees'}><RotateCw size={18} /> {selectedItem.free ? '+45°' : 'Rotate'}</button>
           <button type="button" className="danger" onClick={removeSelected} aria-label="Remove selected piece"><Trash2 size={18} /> Remove</button>
         </> : <span className="studio-hint">{items.length ? 'Tap a piece to turn or remove it. Drag to move.' : 'Pieces you add appear in the room at real size.'}</span>}</div>
+        {selectedItem?.free && <div className="studio-angle" role="group" aria-label="Angle">
+          <label><span>Angle {Math.round(selectedItem.rotation)}°</span><input type="range" min="0" max="359" step="5" value={Math.round(selectedItem.rotation)} onPointerDown={() => setHistory((current) => ({ past: [...current.past.slice(-59), itemsRef.current], future: [] }))} onChange={(event) => setAngle(Number(event.target.value), false)} aria-label="Angle in degrees" /></label>
+          <div>{[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => <button key={angle} type="button" className={`chip ${Math.round(selectedItem.rotation) === angle ? 'on' : ''}`} onClick={() => setAngle(angle)}>{angle}°</button>)}</div>
+        </div>}
         {notice && <p className="studio-notice" role="status">{notice}</p>}
       </div>
       {panel && <button type="button" className="studio-scrim" aria-label="Close panel" onClick={closePanel} />}
