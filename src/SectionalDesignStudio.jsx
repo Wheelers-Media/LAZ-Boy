@@ -3,9 +3,10 @@ import { CoverPicker } from './CoverPicker.jsx';
 import { lineFromSectional, lineFromSku, lineFromLead } from './plan.js';
 import { ChairArt, ReachArt, freeTransform } from './ChairArt.jsx';
 import { PieceConfigurator } from './PieceConfigurator.jsx';
+import { GuidedAdd } from './GuidedAdd.jsx';
 import { configureStyle } from './pieceConfig.js';
 import { Armchair, ChevronDown, ChevronLeft, ChevronUp, ClipboardCheck, X, Copy, Plus, Info, Layers3, Printer, Redo2, RotateCw, Scan, Sofa, Trash2, Undo2 } from './icons.jsx';
-import { buildSectionalStudioRmsLine, getSharedCoverSwatches, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
+import { buildSectionalStudioRmsLine, getModelCoverSwatches, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
 import { insideRoom, overlaps, createFreeItem, createItem, applyPlacement, findFreeSpot, formatInches, placementCandidates, rankPlacements, layoutSummary, normalizeRotation, parsePieceDimensions, turnItemTo, presetItems, PRESET_LAYOUTS, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
 
 const narrowScreen = () => typeof window !== 'undefined' && window.matchMedia?.('(max-width: 800px)').matches;
@@ -105,9 +106,7 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
   const [snapEdges, setSnapEdges] = useState(true);
   const [showReach, setShowReach] = useState(true);
   const [showSizes, setShowSizes] = useState(true);
-  const [cover, setCover] = useState('');
-  const [pattern, setPattern] = useState('');
-  const [color, setColor] = useState('');
+  const [coverEditId, setCoverEditId] = useState('');
   const [notice, setNotice] = useState('');
   const [history, setHistory] = useState({ past: [], future: [] });
   const svgRef = useRef(null);
@@ -143,12 +142,30 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
   }, [catalog, profile, pieces]);
   const reach = reachConflicts(items, room);
   const summary = layoutSummary(items, room);
-  const sharedSwatches = useMemo(() => getSharedCoverSwatches(catalog, sectionalItems), [catalog, sectionalItems]);
-  const coverReady = Boolean(cover) && pattern.length === 4 && color.length === 2 && sharedSwatches.some((item) => item.code === `${cover}${pattern}${color}`);
+  // Every piece carries its own cover. Modular pieces keep it on `cover`; chairs keep it in their configuration.
+  const swatchesFor = (item) => getModelCoverSwatches(catalog, item.modelCode, item.free ? item.prefix : item.code);
+  const coverOf = (item) => (item.free ? item.config?.cover : item.cover) || '';
+  const allShared = useMemo(() => {
+    const lists = items.map((item) => getModelCoverSwatches(catalog, item.modelCode, item.free ? item.prefix : item.code));
+    return lists.length ? lists[0].filter((cover) => lists.every((list) => list.some((entry) => entry.code === cover.code))) : [];
+  }, [catalog, items]);
+  const setCoverFor = (ids, code) => {
+    const next = itemsRef.current.map((item) => {
+      if (!ids.includes(item.id)) return item;
+      const swatch = swatchesFor(item).find((entry) => entry.code === code);
+      if (!swatch) return item;
+      return item.free ? { ...item, config: { ...item.config, cover: code, coverName: swatch.name || '', coverMaterial: swatch.material || '' } } : { ...item, cover: code, coverName: swatch.name || '' };
+    });
+    commit(next);
+  };
+  const modularReady = sectionalItems.every((item) => coverOf(item) && swatchesFor(item).some((entry) => entry.code === coverOf(item)));
+  const coverReady = sectionalItems.length > 0 && modularReady;
   const freeResults = freeItems.map((item) => ({ item, ...configureStyle(catalog, item.modelCode, item.prefix, item.config || {}) }));
-  const canCopy = items.length > 0 && validation.valid && (sectionalItems.length === 0 || coverReady) && freeResults.every((entry) => entry.complete);
-  const rmsRows = sectionalItems.map((piece) => (coverReady ? buildSectionalStudioRmsLine(piece, cover, pattern, color) : `${piece.code}-${piece.modelCode}`));
+  const canCopy = items.length > 0 && validation.valid && modularReady && freeResults.every((entry) => entry.complete);
+  const lineFor = (piece) => { const match = coverOf(piece).match(/^([A-Z]{1,3})(\d{4})(\d{2})$/); return match ? buildSectionalStudioRmsLine(piece, match[1], match[2], match[3]) : `${piece.code}-${piece.modelCode}`; };
+  const rmsRows = sectionalItems.map(lineFor);
   const rmsText = [...rmsRows, ...freeResults.map((entry) => entry.sku).filter(Boolean)].join('\n');
+  const coverNameOf = (item) => { const code = coverOf(item); if (!code) return ''; const swatch = swatchesFor(item).find((entry) => entry.code === code); return `${code}${swatch?.name ? ` · ${swatch.name}` : ''}`; };
   const selectedItem = items.find((item) => item.id === selectedId);
 
   const commit = (next) => {
@@ -200,6 +217,7 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
     if (narrowScreen()) setFocus(true);
   };
   const [modelQuery, setModelQuery] = useState('');
+  const [searchAll, setSearchAll] = useState(false);
   const guideRows = useMemo(() => (catalog.style_index_2026?.styles || []).filter((row) => row.kind === 'style' && row.dims?.width > 0 && row.dims?.depth > 0), [catalog]);
   const modelHits = useMemo(() => {
     const q = modelQuery.trim().toLowerCase();
@@ -317,7 +335,7 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
   };
   const addToPlanAll = () => {
     if (!items.length) return;
-    if (sectionalItems.length) onAddToPlan(lineFromSectional({ swatchIndex: catalog.swatch_index, modelCode: profile.model_code, modelName: profile.model_name, family: profile.sectional_family, detail: `${sectionalItems.length} ${sectionalItems.length === 1 ? 'piece' : 'pieces'}${summary ? `, ${formatInches(summary.width)} × ${formatInches(summary.depth)}` : ''}`, pieces: sectionalItems.map((item) => item.code), rms: rmsRows, coverCode: coverReady ? `${cover}${pattern}${color}` : '' }), `${profile.model_name} sectional`);
+    if (sectionalItems.length) onAddToPlan(lineFromSectional({ swatchIndex: catalog.swatch_index, modelCode: profile.model_code, modelName: profile.model_name, family: profile.sectional_family, detail: `${sectionalItems.length} ${sectionalItems.length === 1 ? 'piece' : 'pieces'}${summary ? `, ${formatInches(summary.width)} × ${formatInches(summary.depth)}` : ''}`, pieces: sectionalItems.map((item) => item.code), rms: rmsRows, coverCode: [...new Set(sectionalItems.map(coverOf))].length === 1 ? coverOf(sectionalItems[0]) : '' }), `${profile.model_name} sectional`);
     freeResults.forEach((entry) => {
       const { item } = entry;
       if (entry.complete) onAddToPlan(lineFromSku({ swatchIndex: catalog.swatch_index, modelCode: item.modelCode, modelName: item.modelName, styleCode: item.prefix, category: item.category, sku: entry.sku, coverCode: item.config?.cover || '', details: entry.details }), item.code);
@@ -422,17 +440,23 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
         </div>
         {variantsOfSelected.length > 0 && <div className="studio-variants" role="group" aria-label={`${selectedPiece?.name} version`}><span>{selectedPiece?.name}</span>{variantsOfSelected.map((entry) => <button key={entry.code} type="button" className={`chip ${selectedCode === entry.code ? 'on' : ''}`} aria-pressed={selectedCode === entry.code} onClick={() => setVariantByKey((current) => ({ ...current, [selectedPiece.key]: entry.code }))}>{entry.code}{entry.label ? ` · ${entry.label}` : ''}</button>)}</div>}
       </aside>
-      <aside className={`studio-drawer studio-drawer-left ${panel === 'models' ? 'open' : ''}`} aria-hidden={panel !== 'models'} aria-label="Add any model">
-        {drawerHead('Add any model')}
-        <label className="sf-search"><input type="search" value={modelQuery} onChange={(event) => setModelQuery(event.target.value)} placeholder="Name, model number or style code" aria-label="Search every style in the guide" /></label>
-        <div className="studio-tray" role="group" aria-label="Styles. Tap one to place it in the room.">
-          {modelHits.map((row) => { const draft = createFreeItem(row); return <button key={`${row.prefix}${row.model}`} type="button" className="studio-tile" onClick={() => addFree(row)}>
-            <svg viewBox={`-3 -3 ${draft.baseWidth + 6} ${draft.baseHeight + 6}`} aria-hidden="true" focusable="false"><PieceArt item={draft} /></svg>
-            <strong>{row.name} · {row.prefix}{row.model}</strong><small>{row.category} · {formatInches(draft.baseWidth)} × {formatInches(draft.baseHeight)}{draft.reachIn ? ` · ${formatInches(draft.reachIn)} reclined` : ''}</small>
-          </button>; })}
-          {!modelQuery.trim() && <p className="studio-hint">Search any recliner, chair, sofa or ottoman in the April 2026 guide. It is placed at its real size.</p>}
-          {modelQuery.trim() && !modelHits.length && <p className="studio-hint">No style with a listed size matches.</p>}
-        </div>
+      <aside className={`studio-drawer studio-drawer-left ${panel === 'models' ? 'open' : ''}`} aria-hidden={panel !== 'models'} aria-label="Add a chair, recliner or sofa">
+        {drawerHead('Add a chair, recliner or sofa')}
+        {!searchAll ? <>
+          <GuidedAdd styles={guideRows} onAdd={addFree} />
+          <button type="button" className="sf-link" onClick={() => setSearchAll(true)}>Search every style instead</button>
+        </> : <>
+          <button type="button" className="sf-link" onClick={() => { setSearchAll(false); setModelQuery(''); }}>‹ Answer a few questions instead</button>
+          <label className="sf-search"><input type="search" value={modelQuery} onChange={(event) => setModelQuery(event.target.value)} placeholder="Name, model number or style code" aria-label="Search every style in the guide" /></label>
+          <div className="studio-tray" role="group" aria-label="Styles. Tap one to place it in the room.">
+            {modelHits.map((row) => { const draft = createFreeItem(row); return <button key={`${row.prefix}${row.model}`} type="button" className="studio-tile" onClick={() => addFree(row)}>
+              <svg viewBox={`-3 -3 ${draft.baseWidth + 6} ${draft.baseHeight + 6}`} aria-hidden="true" focusable="false"><PieceArt item={draft} /></svg>
+              <strong>{row.name} · {row.prefix}{row.model}</strong><small>{row.category} · {formatInches(draft.baseWidth)} × {formatInches(draft.baseHeight)}{draft.reachIn ? ` · ${formatInches(draft.reachIn)} reclined` : ''}</small>
+            </button>; })}
+            {!modelQuery.trim() && <p className="studio-hint">Type a name, model number or code.</p>}
+            {modelQuery.trim() && !modelHits.length && <p className="studio-hint">No style with a listed size matches.</p>}
+          </div>
+        </>}
       </aside>
       <aside className={`studio-drawer studio-drawer-right ${panel === 'customize' ? 'open' : ''}`} aria-hidden={panel !== 'customize'} aria-label="Customize piece">
         {drawerHead(selectedItem?.free ? `Customize ${selectedItem.code}` : 'Customize')}
@@ -462,8 +486,17 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
       <aside className={`studio-drawer studio-drawer-right ${panel === 'review' ? 'open' : ''}`} aria-hidden={panel !== 'review'} aria-label="Review and order">
         {drawerHead('Review and order')}
         {items.length > 0 && <div className={`studio-check ${validation.valid && items.length ? 'valid' : validation.errors.length ? 'invalid' : ''}`} role="status"><strong>{validation.valid ? 'Layout checks passed' : 'Review the layout'}</strong>{validation.errors.map((error) => <small key={error}>{error}</small>)}{reach.map((entry) => <small key={entry.id}>{entry.code} cannot fully recline: {entry.reason === 'wall' ? 'a wall is in the way.' : `${entry.blocker} is in the way.`}</small>)}{validation.warnings.map((warning) => <small key={warning}>{warning}</small>)}</div>}
-        <div className="studio-cover">{sectionalItems.length ? <CoverPicker key={sharedSwatches.length} swatches={sharedSwatches} value={coverReady ? `${cover}${pattern}${color}` : ''} onChange={(code, match) => { setCover(match?.grade || ''); setPattern(match?.pattern || ''); setColor(match?.color || ''); }} /> : <p className="studio-hint">Add modular pieces to choose one cover they all share. Chairs and recliners from Add any model are customized one by one.</p>}</div>
-        <div className="studio-dock-body">{items.length ? <><div className="studio-order-list">{sectionalItems.map((item, index) => { const supported = getSectionalPieceOptions(catalog, item.family, item.modelCode, item.code); return <article key={item.id}><span><strong>{item.name}</strong><small>{item.code}-{item.modelCode}{coverReady ? ` · ${cover} ${pattern} ${color}` : ' · cover not chosen'}</small></span><code>{rmsRows[index]}</code>{supported.length > 0 && <small className="studio-order-options">Options: {supported.join(', ')}</small>}</article>; })}{freeResults.map(({ item, sku, missing }) => <article key={item.id}><span><strong>{item.name}</strong><small>{item.code}{missing.length ? ` · still needed: ${missing.join(', ')}` : ''}</small></span>{sku ? <code>{sku}</code> : <button type="button" className="back-button" onClick={() => { setSelectedId(item.id); setPanel('customize'); }}>Customize</button>}</article>)}</div>
+        <div className="studio-cover">{items.length ? <>
+          <h3>One fabric for everything</h3>
+          {allShared.length ? <CoverPicker key={`all-${allShared.length}`} swatches={allShared} value={items.every((item) => coverOf(item) === coverOf(items[0])) ? coverOf(items[0]) : ''} onChange={(code) => setCoverFor(items.map((item) => item.id), code)} /> : <p className="studio-hint">No single cover is listed for every piece here. Choose a cover for each piece below.</p>}
+        </> : <p className="studio-hint">Add pieces, then choose one fabric for all of them or a different fabric for each.</p>}</div>
+        <div className="studio-dock-body">{items.length ? <><div className="studio-order-list">{items.map((item) => { const free = item.free ? freeResults.find((entry) => entry.item.id === item.id) : null; const supported = item.free ? [] : getSectionalPieceOptions(catalog, item.family, item.modelCode, item.code); const row = item.free ? free?.sku : rmsRows[sectionalItems.indexOf(item)]; return <article key={item.id}>
+          <span><strong>{item.name}</strong><small>{item.code}{item.free ? '' : `-${item.modelCode}`} · {coverNameOf(item) || 'cover not chosen'}{free?.missing?.filter((entry) => entry !== 'Cover').length ? ` · still needed: ${free.missing.filter((entry) => entry !== 'Cover').join(', ')}` : ''}</small></span>
+          {row && <code>{row}</code>}
+          {supported.length > 0 && <small className="studio-order-options">Options: {supported.join(', ')}</small>}
+          <div className="studio-piece-actions"><button type="button" className="back-button" onClick={() => setCoverEditId(coverEditId === item.id ? '' : item.id)}>{coverEditId === item.id ? 'Done' : coverOf(item) ? 'Change fabric' : 'Choose fabric'}</button>{item.free && <button type="button" className="back-button" onClick={() => { setSelectedId(item.id); setPanel('customize'); }}>Finish, options</button>}</div>
+          {coverEditId === item.id && <CoverPicker key={`own-${item.id}`} swatches={swatchesFor(item)} value={coverOf(item)} onChange={(code) => setCoverFor([item.id], code)} />}
+        </article>; })}</div>
         <p className="studio-order-disclaimer"><Info size={14} /> Entry preview only. Confirm style, cover, options and availability in RMS before promising it.</p></> : <p className="studio-order-empty">Add a piece to see its RMS entry here.</p>}</div>
       </aside>
     </div>

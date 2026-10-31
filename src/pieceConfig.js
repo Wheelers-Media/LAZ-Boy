@@ -56,3 +56,26 @@ export function configureStyle(catalog, modelCode, prefix, config = {}) {
     },
   };
 }
+
+const GROUPS = [
+  ['Comfort handle', 'Which handle does the customer want?', ['ES', 'H1', 'H3', '1H', '3H', '2E', 'LS', 'LE', 'L1', 'L3']],
+  ['Controls', 'How should it be controlled?', ['HW', 'LW', 'LT', 'RW', 'W2']],
+  ['Base and legs', 'Any change to the base or legs?', ['SW', 'SL', 'LG', '4C']],
+  ['Seat cushion', 'Any cushion upgrade?', ['FS', 'Z6', 'DC']],
+  ['Nailhead trim', 'Nailhead trim?', ['NB', 'NH', 'NS']],
+  ['Console and charging', 'Console features?', ['CB', 'CC', 'CM']],
+  ['Mattress', 'Sleeper mattress?', ['MA', 'MT']],
+];
+
+/** Options of one style sorted into plain-language groups. Anything the groups do not know goes under "More". */
+export function optionGroups(options) {
+  const placed = new Set();
+  const groups = GROUPS.map(([title, question, codes]) => {
+    const items = options.filter((option) => codes.includes(option.code));
+    items.forEach((option) => placed.add(option.code));
+    return { title, question, items };
+  }).filter((group) => group.items.length);
+  const rest = options.filter((option) => !placed.has(option.code));
+  if (rest.length) groups.push({ title: 'More', question: 'Anything else?', items: rest });
+  return groups;
+}
