@@ -48,7 +48,11 @@ function guideWallSpace(profile, code) {
 
 export function createItem(piece, profile, x, y, rotation = 0, code, options = {}) {
   const source = profile.pieces.find((entry) => entry.key === piece.key);
-  const size = parsePieceDimensions(source?.dimensions_text);
+  const parsed = parsePieceDimensions(source?.dimensions_text);
+  const codeKey = code || piece.variants?.[0]?.code || String(piece.prefix || '').split('/')[0].trim();
+  // The April 2026 guide's figures for this exact code win over older catalog text.
+  const guided = source?.guide_dims_in?.[codeKey];
+  const size = guided ? { width: guided.width, depth: guided.depth, height: guided.height ?? parsed?.height ?? null } : parsed;
   if (!size) return null;
   const turn = normalizeRotation(rotation);
   const kind = pieceKind(piece.key);
@@ -69,7 +73,7 @@ export function createItem(piece, profile, x, y, rotation = 0, code, options = {
     key: piece.key, name: piece.name, code: code || piece.variants?.[0]?.code || String(piece.prefix || '').split('/')[0].trim(),
     x, y, width: box.width, height: box.height, baseWidth: footprint.width, baseHeight: footprint.depth, heightIn: size.height,
     attachIn: corner ? Math.min(size.depth, cornerReach) : null, publishedWidth: size.width, reachSource: corner ? (wallSpace ? 'wall-space' : 'estimated') : null, mirror: Boolean(options.mirror),
-    rotation: turn, dimensionsLabel: source?.dimensions_text || '', reachIn: reach, kind,
+    rotation: turn, dimensionsLabel: source?.dimensions_text || '', sizeSource: guided ? 'guide' : 'catalog', reachIn: reach, kind,
   };
 }
 
@@ -80,8 +84,8 @@ export function boundsFor(width, depth, rotation) {
   return { width: round2(width * cos + depth * sin), height: round2(width * sin + depth * cos) };
 }
 const round2 = (value) => Math.round(value * 100) / 100;
-/** Free-standing furniture can turn in 45 degree steps; modular pieces stay on 90. */
-export const normalizeFreeRotation = (rotation = 0) => ((Math.round(rotation / 45) * 45) % 360 + 360) % 360;
+/** Free-standing furniture turns to any whole degree (the controls offer 45 degree steps and a fine slider); modular pieces stay on 90. */
+export const normalizeFreeRotation = (rotation = 0) => ((Math.round(rotation) % 360) + 360) % 360;
 const isDiagonal = (item) => Boolean(item?.free) && (Number(item.rotation) || 0) % 90 !== 0;
 
 /** Corner points of a rectangle (local x, y, w, h) turned about the item's centre, in room coordinates. */
@@ -224,7 +228,7 @@ export function rotateItem(items, id, room, turn = 90) {
   const centerY = current.y + current.height / 2;
   const base = { ...current, rotation, width: box.width, height: box.height };
   const start = { ...base, x: Math.min(Math.max(centerX - box.width / 2, 0), room.width - box.width), y: Math.min(Math.max(centerY - box.height / 2, 0), room.height - box.height) };
-  for (let radius = 0; radius <= 48; radius += 2) {
+  for (let radius = 0; radius <= 96; radius += 2) {
     for (let dx = -radius; dx <= radius; dx += 2) {
       for (let dy = -radius; dy <= radius; dy += 2) {
         if (Math.max(Math.abs(dx), Math.abs(dy)) !== radius) continue;
@@ -233,7 +237,15 @@ export function rotateItem(items, id, room, turn = 90) {
       }
     }
   }
-  return null;
+  // A free-standing piece always turns; if it then touches something, the Room Builder says so instead of refusing silently.
+  return current.free ? items.map((item) => (item.id === id ? start : item)) : null;
+}
+
+/** Turn a free-standing piece to an exact angle. */
+export function turnItemTo(items, id, room, angle) {
+  const current = items.find((item) => item.id === id);
+  if (!current || !current.free) return items;
+  return rotateItem(items, id, room, normalizeFreeRotation(angle) - (current.rotation || 0));
 }
 
 /** First free spot for a new piece, scanning the room from the top-left in 6 inch steps. Returns null if the room is full. */
