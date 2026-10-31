@@ -67,7 +67,7 @@ export function lineFromLead({ source, modelCode, modelName, category = '', sect
 /** Add a line, or raise the quantity when the same configured line is already there. */
 export function addLine(plan, line) {
   const same = plan.lines.find((entry) => entry.kind === line.kind && entry.modelCode === line.modelCode && entry.kind !== 'sectional'
-    && (line.kind === 'lead' ? entry.styleCode === line.styleCode : entry.rms[0] && entry.rms[0] === line.rms[0]));
+    && (line.kind === 'lead' || line.kind === 'pillow' ? entry.styleCode === line.styleCode && entry.detail === line.detail : entry.rms[0] && entry.rms[0] === line.rms[0]));
   if (same) return { ...plan, lines: plan.lines.map((entry) => (entry.id === same.id ? { ...entry, qty: Math.min(9, entry.qty + 1) } : entry)), merged: true };
   return { ...plan, lines: [...plan.lines, line], merged: false };
 }
@@ -87,7 +87,8 @@ export function savePlan(storage, plan) {
 /** What still has to happen before a line can be entered. Empty means it is ready to confirm in RMS. */
 export function lineIssues(line) {
   const issues = [];
-  if (line.kind === 'lead') issues.push('Style not chosen');
+  if (line.kind === 'pillow') issues.push('Cover and entry to confirm in RMS');
+  else if (line.kind === 'lead') issues.push('Style not chosen');
   else if (!line.coverCode) issues.push('Cover not chosen');
   for (const warning of line.warnings || []) issues.push(warning);
   return issues;
@@ -237,4 +238,18 @@ export function deleteCustomer(list, id) {
 export function customerLabel(entry) {
   const count = (entry.lines || []).reduce((sum, line) => sum + (line.qty || 1), 0);
   return { name: entry.customer || 'No name', count };
+}
+
+/**
+ * A plan line for a custom pillow style (01P / 08P). No RMS entry is written: the guide gives the style and its allowed
+ * cover cap codes, not an entry format for pillows, so the line is a reminder to confirm the cover and entry in RMS.
+ */
+export function lineFromPillow({ style, featherlite = false }) {
+  const label = `${style.styleNumber.slice(0, 3)}-${style.styleNumber.slice(3)}`;
+  const size = style.dims?.height && style.dims?.width ? `${style.dims.height} × ${style.dims.width} in` : '';
+  return makeLine({
+    kind: 'pillow', source: 'pillows', type: 'Pillow', modelCode: style.styleNumber, modelName: `Pillow ${label}`, styleCode: style.styleNumber,
+    title: `Pillow ${label}`, detail: [style.category.replace(/^\(\d\)\s*/, ''), size, /^\(2\)/.test(style.category) ? 'pair' : 'single', featherlite ? 'Featherlite (FP)' : ''].filter(Boolean).join(' · '),
+    note: '',
+  });
 }
