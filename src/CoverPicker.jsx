@@ -56,7 +56,7 @@ export function CoverPicker({ swatches, value, onChange, label = 'Cover', descri
       {selectedPhoto && <img className="cover-preview" src={selectedPhoto} alt={`${selected.name} swatch`} />}
       <p className="cover-note"><strong>{selected.name}</strong> · {selected.code}{describe ? ` · ${describe(selected)}` : selected.basis === 'cap code' ? ` · accepted by cap code ${selected.capCode}. Confirm for this exact style.` : ''}</p>
     </div>}
-    <Sheet open={open} onClose={() => setOpen(false)} title={`Choose ${label.toLowerCase()}`}>
+    <Sheet wide open={open} onClose={() => setOpen(false)} title={`Choose ${label.toLowerCase()}`}>
       <div className="cover-sheet-grades" role="radiogroup" aria-label={`${label} grade`}>{grades.map((item) => <button type="button" role="radio" aria-checked={grade === item.grade} key={item.grade} className={`chip ${grade === item.grade ? 'on' : ''}`} onClick={() => pickGrade(item.grade)}>{gradeLabel(item)}</button>)}</div>
       {!grade && <p className="cover-sheet-hint">Pick a grade to see its patterns.</p>}
       {grade && <div className="cover-step">

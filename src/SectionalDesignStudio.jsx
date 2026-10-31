@@ -90,7 +90,7 @@ const labelPoint = (item) => {
   }
 };
 
-export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {}, initialModelCode = '724', initialStyle = null, onStyleUsed, onBuild, onModelChange, onExit }) {
+export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {}, initialModelCode = '724', initialStyle = null, onStyleUsed, onBuild, onReport, onModelChange, onExit }) {
   const profiles = (catalog.product_profiles || []).filter((profile) => profile.pieces?.length);
   const [modelCode, setModelCode] = useState(String(initialModelCode));
   const profile = profiles.find((item) => String(item.model_code) === modelCode) || profiles[0];
@@ -333,8 +333,12 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
     else if (event.key.toLowerCase() === 'r') { event.preventDefault(); rotateSelected(event.shiftKey ? -45 : 45); }
     else if (event.key === 'Delete' || event.key === 'Backspace') { event.preventDefault(); removeSelected(); }
   };
+  const planSignature = JSON.stringify(items.map((item) => [item.id, item.code, item.x, item.y, item.rotation, item.config]));
+  const [addedSignature, setAddedSignature] = useState('');
   const addToPlanAll = () => {
     if (!items.length) return;
+    if (addedSignature === planSignature) { setNotice('Already in the plan. Open the full report to see it.'); return; }
+    setAddedSignature(planSignature);
     if (sectionalItems.length) onAddToPlan(lineFromSectional({ swatchIndex: catalog.swatch_index, modelCode: profile.model_code, modelName: profile.model_name, family: profile.sectional_family, detail: `${sectionalItems.length} ${sectionalItems.length === 1 ? 'piece' : 'pieces'}${summary ? `, ${formatInches(summary.width)} × ${formatInches(summary.depth)}` : ''}`, pieces: sectionalItems.map((item) => item.code), rms: rmsRows, coverCode: [...new Set(sectionalItems.map(coverOf))].length === 1 ? coverOf(sectionalItems[0]) : '' }), `${profile.model_name} sectional`);
     freeResults.forEach((entry) => {
       const { item } = entry;
@@ -342,6 +346,7 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
       else onAddToPlan(lineFromLead({ source: 'room', modelCode: item.modelCode, modelName: item.modelName, category: item.category, styleCode: item.prefix }), item.code);
     });
   };
+  const openReport = () => { addToPlanAll(); onReport?.(); };
   const copy = () => { if (canCopy) { onCopy(rmsText); setNotice('RMS entry preview copied. Verify the style, cover, color, and orderability before entry.'); } };
 
   const bounds = items.length ? { x0: Math.min(...items.map((i) => i.x)), y0: Math.min(...items.map((i) => i.y)), x1: Math.max(...items.map((i) => i.x + i.width)), y1: Math.max(...items.map((i) => i.y + i.height)) } : null;
@@ -428,6 +433,7 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
           <div>{[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => <button key={angle} type="button" className={`chip ${Math.round(selectedItem.rotation) === angle ? 'on' : ''}`} onClick={() => setAngle(angle)}>{angle}°</button>)}</div>
         </div>}
         {notice && <p className="studio-notice" role="status">{notice}</p>}
+        {addedSignature && addedSignature === planSignature && <div className="studio-added" role="status"><strong>Added to the plan</strong><span>Pieces, fabrics and RMS lines are saved.</span><button type="button" className="primary-button" onClick={onReport}>Open full report</button><button type="button" className="back-button" onClick={() => setAddedSignature('')}>Keep building</button></div>}
       </div>
       {panel && <button type="button" className="studio-scrim" aria-label="Close panel" onClick={closePanel} />}
       <aside className={`studio-drawer studio-drawer-left ${panel === 'pieces' ? 'open' : ''}`} aria-hidden={panel !== 'pieces'} aria-label="Add a piece">
@@ -497,7 +503,7 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
           <div className="studio-piece-actions"><button type="button" className="back-button" onClick={() => setCoverEditId(coverEditId === item.id ? '' : item.id)}>{coverEditId === item.id ? 'Done' : coverOf(item) ? 'Change fabric' : 'Choose fabric'}</button>{item.free && <button type="button" className="back-button" onClick={() => { setSelectedId(item.id); setPanel('customize'); }}>Finish, options</button>}</div>
           {coverEditId === item.id && <CoverPicker key={`own-${item.id}`} swatches={swatchesFor(item)} value={coverOf(item)} onChange={(code) => setCoverFor([item.id], code)} />}
         </article>; })}</div>
-        <p className="studio-order-disclaimer"><Info size={14} /> Entry preview only. Confirm style, cover, options and availability in RMS before promising it.</p></> : <p className="studio-order-empty">Add a piece to see its RMS entry here.</p>}</div>
+        <p className="studio-order-disclaimer"><Info size={14} /> Entry preview only. Confirm style, cover, options and availability in RMS before promising it.</p><div className="studio-review-foot"><button type="button" className="primary-button" onClick={openReport}>Full report</button><button type="button" className="back-button" onClick={addToPlanAll}>Add to plan</button></div></> : <p className="studio-order-empty">Add a piece to see its RMS entry here.</p>}</div>
       </aside>
     </div>
     <nav className="studio-dockbar" aria-label="Studio actions">
