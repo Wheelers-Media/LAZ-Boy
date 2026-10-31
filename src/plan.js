@@ -1,4 +1,4 @@
-// The customer plan: every piece a customer wants, collected from the Fit wizard, SKU Builder, Sectional Studio and the
+// The customer plan: every piece a customer wants, collected from the Fit wizard, SKU Builder, Room Builder and the
 // Product Index, with the notes for the store system built from it. Pure functions only; nothing here reads the DOM.
 // Nothing in a plan is a price, a stock level or an order. A line is a reference to confirm in RMS.
 import { FIT_NEEDS, getGuideStyleRows, heightInches } from './logic.js';
@@ -27,7 +27,7 @@ const lineId = () => `ln-${Date.now().toString(36)}-${(counter += 1).toString(36
 
 /**
  * A plan line. kind: 'lead' (a model worth considering, no style chosen yet), 'sku' (one RMS line) or 'sectional'
- * (a group of pieces from the Sectional Studio). `rms` holds the entry lines to confirm in RMS.
+ * (a group of pieces from the Room Builder). `rms` holds the entry lines to confirm in RMS.
  */
 export function makeLine(partial) {
   return {
@@ -51,7 +51,7 @@ export function lineFromSku({ swatchIndex, modelCode, modelName, styleCode, cate
   });
 }
 
-/** A plan line from the Sectional Studio: the whole sectional as one group, with every piece's RMS entry. */
+/** A plan line from the Room Builder: the whole sectional as one group, with every piece's RMS entry. */
 export function lineFromSectional({ swatchIndex, modelCode, modelName, family, detail, pieces = [], rms = [], coverCode = '' }) {
   return makeLine({
     kind: 'sectional', source: 'studio', type: 'Sectional piece', modelCode: String(modelCode), modelName, title: `${modelName} sectional`,

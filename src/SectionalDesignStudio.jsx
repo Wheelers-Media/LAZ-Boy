@@ -281,9 +281,9 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
   const togglePanel = (name) => setPanel((current) => (current === name ? '' : name));
   const closePanel = () => setPanel('');
   const drawerHead = (title) => <div className="studio-drawer-head"><h2>{title}</h2><button type="button" className="studio-icon-btn" onClick={closePanel} aria-label="Close"><X size={18} /></button></div>;
-  return <section className="design-studio studio-full" aria-label="Sectional Studio">
+  return <section className="design-studio studio-full" aria-label="Room Builder">
     <header className="studio-topbar">
-      <button type="button" className="studio-icon-btn" onClick={() => onExit?.()} aria-label="Leave Sectional Studio"><ChevronLeft size={20} /></button>
+      <button type="button" className="studio-icon-btn" onClick={() => onExit?.()} aria-label="Leave sectional design"><ChevronLeft size={20} /></button>
       <button type="button" className="studio-title" onClick={() => togglePanel('setup')} aria-expanded={panel === 'setup'}><strong>{profile?.model_name || 'Sectional'} · {profile?.model_code}</strong><small>{roomWidth} × {roomDepth} ft room</small><ChevronDown size={15} /></button>
       <div className="studio-top-actions">
         <button type="button" className="studio-icon-btn" onClick={undo} disabled={!history.past.length} aria-label="Undo"><Undo2 size={18} /></button>

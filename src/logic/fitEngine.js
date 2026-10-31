@@ -734,7 +734,7 @@ export const FIT_NEEDS = [
   { key: 'unsure', label: 'Not sure yet', hint: 'Browse the options on the next screens', patch: {} },
 ];
 
-// Modular sectionals come from the models the Sectional Studio has pieces for, grouped by family:
+// Modular sectionals come from the models the Room Builder has pieces for, grouped by family:
 // La-Z-Time lists non-power (44x), power (U4x) and power + lumbar (X4x) pieces, La-Z-Motion is power, Stationary has no mechanism.
 export function getSectionalLeads(catalog, answers) {
   const mechanism = String(answers.mechanism || '');
