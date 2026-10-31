@@ -74,7 +74,7 @@ function App() {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
   const [plan, setPlan] = useState(() => loadPlan(typeof window === 'undefined' ? null : window.localStorage));
-  useEffect(() => { savePlan(window.localStorage, { customer: plan.customer, lines: plan.lines }); }, [plan]);
+  useEffect(() => { savePlan(window.localStorage, { id: plan.id || '', customer: plan.customer, lines: plan.lines }); }, [plan]);
   const [sitLog, setSitLog] = useState(() => { try { const saved = JSON.parse(window.localStorage.getItem('sit-log') || '[]'); return Array.isArray(saved) ? saved : []; } catch { return []; } });
 
   useEffect(() => {
