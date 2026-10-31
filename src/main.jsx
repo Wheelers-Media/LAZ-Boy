@@ -68,6 +68,8 @@ function App() {
     return () => window.removeEventListener('keydown', onKey);
   }, [mobileToolsOpen]);
 
+  useEffect(() => { window.scrollTo(0, 0); }, [activeTab]);
+
   useEffect(() => {
     const onFloorInfo = (event) => setInfo({ title: event.detail.title, technical: event.detail.text, pitch: event.detail.pitch });
     window.addEventListener('floor-info', onFloorInfo);
