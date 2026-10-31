@@ -1315,3 +1315,22 @@ input,textarea,select{font-size:max(16px,1em)}
 .link-button{border:0;background:none;color:var(--brand,#0a3a52);text-decoration:underline;font:inherit;cursor:pointer;padding:0}
 .fabric-codes{margin:0 0 8px;font-size:.9rem}
 .sh-group summary small{margin-left:6px;opacity:.6}
+/* UI audit fixes: visible "?" on any background, 44px targets, nothing hidden behind sticky bars */
+.term .term-q{display:inline-grid!important;width:16px;height:16px;margin:0 0 0 3px!important;padding:0;background:#fff!important;color:#003349!important;border:1.5px solid #003349;border-radius:50%;font-size:11px!important;font-weight:800;line-height:1;transform:none}
+@media(prefers-color-scheme:dark){.term .term-q{border-color:#4FBCCA}}
+.term{text-decoration-color:currentColor;position:relative}
+.term::after{content:"";position:absolute;inset:-10px -6px}
+.fabric-help{margin:6px 0 10px;font-size:.9rem;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.icon-help,button[aria-label$="details"]{min-width:44px;min-height:44px;display:inline-grid;place-items:center;color:var(--brand-navy,#003349)}
+.icon-help svg,button[aria-label$="details"] svg{width:20px;height:20px}
+.primary-button:disabled,.primary-button[disabled]{background:#dfe5e8;color:#46555e;border-color:#c5cfd4;opacity:1}
+.studio-dockbar button:disabled{opacity:.7}
+@media(max-width:800px){
+  .module-page{padding-bottom:calc(150px + env(safe-area-inset-bottom,0px))}
+  .knowledge-search input{flex:1 1 calc(100% - 48px);min-width:0}
+  .knowledge-search .product-index-count{margin-right:auto}
+  .studio-dockbar{grid-template-columns:repeat(5,1fr)}
+  .studio-dockbar button{font-size:12px;padding-left:2px;padding-right:2px}
+  .studio-title{padding:0 4px}.studio-title strong{font-size:14px}
+}
+@media(max-width:800px){.knowledge-search{height:auto;max-height:none;min-height:50px;row-gap:8px;padding-top:8px;padding-bottom:8px;align-items:center}.knowledge-search .hs-quiz{margin-left:auto}}
