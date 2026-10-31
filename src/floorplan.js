@@ -73,8 +73,50 @@ export function createItem(piece, profile, x, y, rotation = 0, code, options = {
   };
 }
 
-export const overlaps = (a, b, tolerance = EPSILON) => Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x) > tolerance
+/** Axis-aligned bounds of a width x depth rectangle turned by any angle. */
+export function boundsFor(width, depth, rotation) {
+  const radians = (rotation * Math.PI) / 180;
+  const cos = Math.abs(Math.cos(radians)); const sin = Math.abs(Math.sin(radians));
+  return { width: round2(width * cos + depth * sin), height: round2(width * sin + depth * cos) };
+}
+const round2 = (value) => Math.round(value * 100) / 100;
+/** Free-standing furniture can turn in 45 degree steps; modular pieces stay on 90. */
+export const normalizeFreeRotation = (rotation = 0) => ((Math.round(rotation / 45) * 45) % 360 + 360) % 360;
+const isDiagonal = (item) => Boolean(item?.free) && (Number(item.rotation) || 0) % 90 !== 0;
+
+/** Corner points of a rectangle (local x, y, w, h) turned about the item's centre, in room coordinates. */
+function turnedRect(item, local) {
+  const radians = ((Number(item.rotation) || 0) * Math.PI) / 180;
+  const cos = Math.cos(radians); const sin = Math.sin(radians);
+  const cx = item.x + item.width / 2; const cy = item.y + item.height / 2;
+  const ox = local.x - item.baseWidth / 2; const oy = local.y - item.baseHeight / 2;
+  return [[0, 0], [local.w, 0], [local.w, local.h], [0, local.h]].map(([dx, dy]) => {
+    const px = ox + dx; const py = oy + dy;
+    return [cx + px * cos - py * sin, cy + px * sin + py * cos];
+  });
+}
+/** The outline of an item as a polygon. Modular pieces use their box; free pieces use their true turned shape. */
+export const polygonOf = (item) => (item.free ? turnedRect(item, { x: 0, y: 0, w: item.baseWidth, h: item.baseHeight }) : [[item.x, item.y], [item.x + item.width, item.y], [item.x + item.width, item.y + item.height], [item.x, item.y + item.height]]);
+/** Separating-axis test: true when two convex polygons overlap by more than the tolerance. */
+export function polygonsOverlap(p, q, tolerance = EPSILON) {
+  for (const poly of [p, q]) {
+    for (let i = 0; i < poly.length; i += 1) {
+      const [x1, y1] = poly[i]; const [x2, y2] = poly[(i + 1) % poly.length];
+      const nx = y1 - y2; const ny = x2 - x1; const length = Math.hypot(nx, ny) || 1;
+      const project = (points) => { const values = points.map(([x, y]) => (x * nx + y * ny) / length); return [Math.min(...values), Math.max(...values)]; };
+      const [a0, a1] = project(p); const [b0, b1] = project(q);
+      if (Math.min(a1, b1) - Math.max(a0, b0) <= tolerance) return false;
+    }
+  }
+  return true;
+}
+const rectOverlap = (a, b, tolerance) => Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x) > tolerance
   && Math.min(a.y + a.height, b.y + b.height) - Math.max(a.y, b.y) > tolerance;
+export const overlaps = (a, b, tolerance = EPSILON) => {
+  if (!rectOverlap(a, b, tolerance)) return false; // boxes apart means shapes apart
+  if (isDiagonal(a) || isDiagonal(b)) return polygonsOverlap(polygonOf(a), polygonOf(b), tolerance);
+  return true;
+};
 
 export const insideRoom = (item, room) => item.x >= -EPSILON && item.y >= -EPSILON
   && item.x + item.width <= room.width + EPSILON && item.y + item.height <= room.height + EPSILON;
@@ -94,14 +136,24 @@ export function reachRect(item) {
   }
 }
 
+/** The floor a free-standing recliner needs when fully extended, as a polygon turned with the chair. */
+export function reachPolygon(item) {
+  if (!item.reachIn) return null;
+  const extra = item.reachIn - item.baseHeight;
+  if (!(extra > 0)) return null;
+  if (item.free) return turnedRect(item, { x: 0, y: item.baseHeight, w: item.baseWidth, h: extra });
+  const zone = reachRect(item);
+  return zone ? [[zone.x, zone.y], [zone.x + zone.width, zone.y], [zone.x + zone.width, zone.y + zone.height], [zone.x, zone.y + zone.height]] : null;
+}
+
 /** Which recliners cannot fully extend because a wall or another piece is in the way. Warnings only. */
 export function reachConflicts(items, room) {
   const conflicts = [];
   for (const item of items) {
-    const zone = reachRect(item);
+    const zone = reachPolygon(item);
     if (!zone) continue;
-    const outside = zone.x < -EPSILON || zone.y < -EPSILON || zone.x + zone.width > room.width + EPSILON || zone.y + zone.height > room.height + EPSILON;
-    const blocker = items.find((other) => other.id !== item.id && overlaps(zone, other));
+    const outside = zone.some(([x, y]) => x < -EPSILON || y < -EPSILON || x > room.width + EPSILON || y > room.height + EPSILON);
+    const blocker = items.find((other) => other.id !== item.id && polygonsOverlap(zone, polygonOf(other)));
     if (outside) conflicts.push({ id: item.id, name: item.name, code: item.code, reason: 'wall' });
     else if (blocker) conflicts.push({ id: item.id, name: item.name, code: item.code, reason: 'piece', blocker: blocker.name });
   }
@@ -166,8 +218,8 @@ export function rotateItem(items, id, room, turn = 90) {
   const current = items.find((item) => item.id === id);
   if (!current) return items;
   const others = items.filter((item) => item.id !== id);
-  const rotation = normalizeRotation(current.rotation + turn);
-  const box = rotatedSize(current.baseWidth, current.baseHeight, rotation);
+  const rotation = current.free ? normalizeFreeRotation(current.rotation + turn) : normalizeRotation(current.rotation + turn);
+  const box = current.free ? boundsFor(current.baseWidth, current.baseHeight, rotation) : rotatedSize(current.baseWidth, current.baseHeight, rotation);
   const centerX = current.x + current.width / 2;
   const centerY = current.y + current.height / 2;
   const base = { ...current, rotation, width: box.width, height: box.height };
@@ -458,4 +510,28 @@ export function rankPlacements(draft, candidates, items, room, { validate, selec
     const anchorRank = spot.anchorId === selectedId ? 0 : spot.anchorId === newest ? 1 : 2;
     return { ...spot, width: box.width, height: box.height, errors: checks.errors, score: checks.errors.length * 100 + blocked * 10 + anchorRank * 3 + wall + (spot.shift ? 2 : 0) };
   }).sort((a, b) => a.score - b.score);
+}
+
+/** What a free-standing guide style looks like from above: a recliner, a sofa, an ottoman or a chair. */
+export function freeKind(row) {
+  const text = `${row.name || ''} ${row.category || ''}`;
+  if (/ottoman|footstool/i.test(text)) return 'ottoman';
+  if (Number(row.dims?.fullyExtended) > Number(row.dims?.depth)) return 'recliner';
+  if (/sofa|loveseat|sleep|settee|sectional/i.test(text)) return 'sofa';
+  return 'chair';
+}
+
+/** A free-standing item from a style-index row (April 2026 guide). Null when the guide gives no width and depth. */
+export function createFreeItem(row, x = 0, y = 0, rotation = 0) {
+  const d = row?.dims || {};
+  if (!(d.width > 0) || !(d.depth > 0)) return null;
+  const turn = normalizeFreeRotation(rotation);
+  const box = boundsFor(d.width, d.depth, turn);
+  return {
+    id: `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`, free: true, kind: freeKind(row),
+    modelCode: String(row.model), modelName: row.name, prefix: row.prefix, category: row.category || '', name: row.category || row.name,
+    code: `${row.prefix}${row.model}`, x, y, width: box.width, height: box.height, baseWidth: d.width, baseHeight: d.depth, heightIn: d.height || null,
+    reachIn: Number(d.fullyExtended) > d.depth ? Number(d.fullyExtended) : null, rotation: turn, publishedWidth: d.width,
+    seatWidth: d.seatWidth || null, seatDepth: d.seatDepth || null, config: {}, dimensionsLabel: '',
+  };
 }
