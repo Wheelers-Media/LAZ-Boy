@@ -1214,3 +1214,5 @@ input,textarea,select{font-size:max(16px,1em)}
 .style-more{margin:6px 0 4px}
 .style-more summary{cursor:pointer;font-weight:600;font-size:13px;min-height:36px;display:flex;align-items:center}
 .style-more .style-facts{margin-top:4px}
+
+.rms-extra-line { display: block; margin-top: 6px; }

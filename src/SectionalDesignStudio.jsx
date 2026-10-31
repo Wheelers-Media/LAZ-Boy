@@ -3,7 +3,7 @@ import { CoverPicker } from './CoverPicker.jsx';
 import { lineFromSectional } from './plan.js';
 import { ChevronDown, ChevronLeft, ChevronUp, ClipboardCheck, X, Copy, Plus, Info, Layers3, Printer, Redo2, RotateCw, Scan, Sofa, Trash2, Undo2 } from './icons.jsx';
 import { buildSectionalStudioRmsLine, getSharedCoverSwatches, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
-import { createItem, applyPlacement, findFreeSpot, formatInches, placementCandidates, rankPlacements, layoutSummary, normalizeRotation, parsePieceDimensions, presetItems, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
+import { createItem, applyPlacement, findFreeSpot, formatInches, placementCandidates, rankPlacements, layoutSummary, normalizeRotation, parsePieceDimensions, presetItems, PRESET_LAYOUTS, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
 
 const narrowScreen = () => typeof window !== 'undefined' && window.matchMedia?.('(max-width: 800px)').matches;
 const WALL = 4;
@@ -116,6 +116,15 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
   const selectedSize = parsePieceDimensions(selectedSource?.dimensions_text);
   const room = useMemo(() => ({ width: roomWidth * 12, height: roomDepth * 12 }), [roomWidth, roomDepth]);
   const validation = validateSectionalStudioLayout(items, room, catalog);
+  // Offer only layouts this collection can really build: every piece exists and the finished plan passes the same checks as a hand-built one.
+  const availablePresets = useMemo(() => {
+    if (!profile) return [];
+    const big = { width: 1200, height: 1200 };
+    return PRESET_LAYOUTS.filter(([key]) => {
+      const built = presetItems(key, profile, pieces, big);
+      return built && validateSectionalStudioLayout(built, big, catalog).valid;
+    });
+  }, [catalog, profile, pieces]);
   const reach = reachConflicts(items, room);
   const summary = layoutSummary(items, room);
   const sharedSwatches = useMemo(() => getSharedCoverSwatches(catalog, items), [catalog, items]);
@@ -340,7 +349,7 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
         <div className="studio-toolbar">
       <label className="form-field"><span>Collection</span><select value={profile?.model_code || ''} onChange={(event) => setProfile(event.target.value)}>{[...new Set(profiles.map((entry) => entry.sectional_family))].map((family) => <optgroup key={family} label={family}>{profiles.filter((entry) => entry.sectional_family === family).map((entry) => <option key={entry.model_code} value={entry.model_code}>{entry.model_name} · {entry.model_code}</option>)}</optgroup>)}</select></label>
       <fieldset className="studio-room-fields"><legend>Room, feet</legend><label>Width <input type="number" inputMode="numeric" min="8" max="40" value={roomWidth} onChange={(event) => setRoomWidth(Math.max(8, Math.min(40, Number(event.target.value) || 8)))} /></label><span aria-hidden="true">×</span><label>Depth <input type="number" inputMode="numeric" min="8" max="40" value={roomDepth} onChange={(event) => setRoomDepth(Math.max(8, Math.min(40, Number(event.target.value) || 8)))} /></label></fieldset>
-      <div className="studio-layouts" role="group" aria-label="Starting layouts"><span>Start from</span>{[['l-standard', 'L-shape'], ['l-console', 'L with console'], ['u-shape', 'U-shape'], ['straight-chaise', 'Sofa with chaise']].map(([key, text]) => <button key={key} type="button" className="chip" onClick={() => applyPreset(key)}>{text}</button>)}</div>
+      <div className="studio-layouts" role="group" aria-label="Starting layouts"><span>Start from</span>{availablePresets.map(([key, text]) => <button key={key} type="button" className="chip" onClick={() => applyPreset(key)}>{text}</button>)}</div>
         </div>
       </aside>
       <aside className={`studio-drawer studio-drawer-left ${panel === 'view' ? 'open' : ''}`} aria-hidden={panel !== 'view'} aria-label="View options">
