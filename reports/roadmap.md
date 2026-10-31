@@ -31,7 +31,7 @@ Data: catalog JSON in `public/`, tear-pad profiles in `data/tear-pad-profiles/` 
 3. **Photos and identification drills.** Quiz mode from the product index (arm, back, base) with the one-line giveaway per model, scored over time on the device.
 4. **Swatch support.** Color names for the remaining 427 April colors need the swatch pages from the current color book; add swatch images once you have them.
 5. **Compare.** Two or three models side by side: dimensions, recline length, covers, options.
-6. **Housekeeping.** A `test` script in `package.json`; pin dependency versions instead of `latest`; remove either `vercel.json` or the Cloudflare worker; split `logic.js` (1,457 lines) into recommendation, SKU and sectional files.
+6. **Housekeeping.** A `test` script in `package.json`; pin dependency versions instead of `latest`; split `logic.js` (1,457 lines) into recommendation, SKU and sectional files.
 
 ## Limits that stay
 Nothing in the app claims price, stock, order validity or Canadian availability. Piece sizes come only from the catalogs and tear pads; where a size is missing the piece cannot be placed.
