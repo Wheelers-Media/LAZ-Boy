@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react';
 import { AlertTriangle, Armchair, ArrowLeft, ArrowRight, Check, ClipboardCheck, Copy, Info, MessageSquareText, Plus, Ruler, Sparkles } from './icons.jsx';
 import { lineFromLead } from './plan.js';
+import { FitHandoff } from './HelperTools.jsx';
+import { buildFitSummary, encodeFitLink } from './fitSummary.js';
 import { FIT_NEEDS, SIT_VERDICTS, getCatalogCapabilityLeads, getContextualModelOptions, getContextualPreferenceChoices, getDimensionBasedRecommendations, getRecommendations, getRoomClearance, getSeatFit, getSectionalLeads, heightInches, sitLogToText, summarizeSitLog } from './logic.js';
 
 export const FIT_STEPS = ['Their fit', 'What they need', 'Room and comfort', 'Real life'];
@@ -202,6 +204,7 @@ export function FitDiscover({ onAddToPlan = () => {}, catalog, research, state, 
             <button type="button" className="primary-button" onClick={() => results.matches.forEach((match) => onAddToPlan(lineFromLead({ source: 'fit', modelCode: match.code, modelName: match.name, category: match.category, sectional: Boolean(match.sectional) })))}><Plus size={15} /> Add all {results.matches.length} to plan</button>
             <button type="button" className="back-button" onClick={() => onOpenTab('Plan')}>Open plan <ArrowRight size={14} /></button>
           </section>}
+          {results?.matches.length > 0 && <FitHandoff text={buildFitSummary({ answers, sizeName, roomName, matches: results.matches })} link={encodeFitLink(answers)} onCopy={onCopyText} />}
           <section className="card"><h3><MessageSquareText size={16} /> Greet to Discover</h3><ol>{GREET.map((line) => <li key={line}>{line}</li>)}</ol></section>
           <section className="card"><h3><ClipboardCheck size={16} /> Sit-test checklist</h3><ul>{SIT_TEST.map((line) => <li key={line}>{line}</li>)}</ul>
             {sitLog.length > 0 && <><p className="fitq-floor">{sitLog.length} sit {sitLog.length === 1 ? 'test' : 'tests'} logged on this device.</p><button type="button" className="copy-button" onClick={() => onCopyText(sitLogToText(sitLog), 'Sit log')}><Copy size={15} /> Copy sit log</button></>}
