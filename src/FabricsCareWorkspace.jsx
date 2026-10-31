@@ -1,3 +1,4 @@
+import { Term } from './Term.jsx';
 import { Sheet } from './Sheet.jsx';
 import React, { useMemo, useState } from 'react';
 import { Droplets, Search, Shield, Sparkles } from './icons.jsx';
@@ -43,6 +44,7 @@ function CoverCard({ catalog, record, isLeather, definitions, priorLabel }) {
     <div className="fabric-strip" aria-hidden="true">{colourList(record).slice(0, 10).map((item) => <span key={item.code} className="strip-tile"><SwatchTile photo={swatchImageFor(catalog?.swatch_index, record.coverCode, item.code, 'thumb')} tone={tones?.[item.name]} /></span>)}{record.colors.length > 10 && <span className="strip-more">+{record.colors.length - 10}</span>}</div>
     {tags.length > 0 && <p className="fabric-tags">{tags.map((tag) => <span key={tag}>{tag}</span>)}</p>}
     {open && <div className="fabric-card-body">
+      <p className="fabric-codes">Cap code <Term kind="cap" code={record.capCode} /> · Wearability <Term kind="wear" code={record.wearability === 'Medium' ? 'M' : record.wearability} /> · Cleaning <Term kind="clean" code={record.cleaningCode} />{(record.specialtyAttributes || []).map((code) => <React.Fragment key={code}> · <Term kind="special" code={code} /></React.Fragment>)}</p>
       {isLeather && <p><strong>{record.group}.</strong> {definitions.leatherGroups?.[record.group]}</p>}
       {isLeather && definitions.leatherTypes?.[record.leatherType] && <p><strong>{record.leatherType}.</strong> {definitions.leatherTypes[record.leatherType]}</p>}
             <ul className="fabric-colours">{colourList(record).map((item) => <li key={item.code}><SwatchTile photo={swatchImageFor(catalog?.swatch_index, record.coverCode, item.code, 'zoom')} tone={tones?.[item.name]} /><span className="tile-name">{item.name || `Colour ${item.code}`}</span><small>{record.coverCode}{item.code}</small></li>)}</ul>
