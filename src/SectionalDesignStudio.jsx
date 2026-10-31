@@ -1,4 +1,5 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { readSaved, writeSaved } from './persist.js';
 import { CoverPicker } from './CoverPicker.jsx';
 import { lineFromSectional, lineFromSku, lineFromLead } from './plan.js';
 import { ChairArt, ReachArt, freeTransform } from './ChairArt.jsx';
@@ -92,20 +93,27 @@ const labelPoint = (item) => {
 
 export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {}, initialModelCode = '724', initialStyle = null, onStyleUsed, onBuild, onReport, onModelChange, onExit }) {
   const profiles = (catalog.product_profiles || []).filter((profile) => profile.pieces?.length);
-  const [modelCode, setModelCode] = useState(String(initialModelCode));
+  // The room you were building is kept across tab changes and reloads.
+  const saved = useRef(null);
+  if (saved.current === null) {
+    const raw = readSaved('room', null);
+    saved.current = raw && Array.isArray(raw.items) && raw.items.every((item) => item && item.id && Number.isFinite(item.x) && Number.isFinite(item.y)) ? raw : {};
+  }
+  const keep = saved.current;
+  const [modelCode, setModelCode] = useState(String(keep.items?.length && profiles.some((entry) => String(entry.model_code) === String(keep.modelCode)) ? keep.modelCode : initialModelCode));
   const profile = profiles.find((item) => String(item.model_code) === modelCode) || profiles[0];
   const [selectedKey, setSelectedKey] = useState('');
-  const [variantByKey, setVariantByKey] = useState({});
+  const [variantByKey, setVariantByKey] = useState(keep.variantByKey || {});
   const [focus, setFocus] = useState(false);
   const [panel, setPanel] = useState(() => (narrowScreen() ? '' : 'pieces'));
   const [alt, setAlt] = useState(null); // other connection spots for the piece that was just placed
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(() => keep.items || []);
   const [selectedId, setSelectedId] = useState('');
-  const [roomWidth, setRoomWidth] = useState(20);
-  const [roomDepth, setRoomDepth] = useState(14);
-  const [snapEdges, setSnapEdges] = useState(true);
-  const [showReach, setShowReach] = useState(true);
-  const [showSizes, setShowSizes] = useState(true);
+  const [roomWidth, setRoomWidth] = useState(Number(keep.roomWidth) > 0 ? Number(keep.roomWidth) : 20);
+  const [roomDepth, setRoomDepth] = useState(Number(keep.roomDepth) > 0 ? Number(keep.roomDepth) : 14);
+  const [snapEdges, setSnapEdges] = useState(keep.snapEdges !== false);
+  const [showReach, setShowReach] = useState(keep.showReach !== false);
+  const [showSizes, setShowSizes] = useState(keep.showSizes !== false);
   const [coverEditId, setCoverEditId] = useState('');
   const [notice, setNotice] = useState('');
   const [history, setHistory] = useState({ past: [], future: [] });
@@ -335,11 +343,12 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
   };
   const planSignature = JSON.stringify(items.map((item) => [item.id, item.code, item.x, item.y, item.rotation, item.config]));
   const [addedSignature, setAddedSignature] = useState('');
+  useEffect(() => { writeSaved('room', { modelCode, items, roomWidth, roomDepth, snapEdges, showReach, showSizes, variantByKey }); }, [modelCode, items, roomWidth, roomDepth, snapEdges, showReach, showSizes, variantByKey]);
   const addToPlanAll = () => {
     if (!items.length) return;
     if (addedSignature === planSignature) { setNotice('Already in the plan. Open the full report to see it.'); return; }
     setAddedSignature(planSignature);
-    if (sectionalItems.length) onAddToPlan(lineFromSectional({ swatchIndex: catalog.swatch_index, modelCode: profile.model_code, modelName: profile.model_name, family: profile.sectional_family, detail: `${sectionalItems.length} ${sectionalItems.length === 1 ? 'piece' : 'pieces'}${summary ? `, ${formatInches(summary.width)} × ${formatInches(summary.depth)}` : ''}`, pieces: sectionalItems.map((item) => item.code), rms: rmsRows, coverCode: [...new Set(sectionalItems.map(coverOf))].length === 1 ? coverOf(sectionalItems[0]) : '' }), `${profile.model_name} sectional`);
+    if (sectionalItems.length) onAddToPlan(lineFromSectional({ swatchIndex: catalog.swatch_index, modelCode: profile.model_code, modelName: profile.model_name, family: profile.sectional_family, detail: `${sectionalItems.length} ${sectionalItems.length === 1 ? 'piece' : 'pieces'}${summary ? `, ${formatInches(summary.width)} × ${formatInches(summary.depth)}` : ''}`, pieces: sectionalItems.map((item) => item.code), pieceDetails: sectionalItems.map((item) => ({ name: item.name, code: item.code, size: item.dimensionsLabel || (item.publishedWidth ? `${item.publishedWidth} in wide` : '') })), rms: rmsRows, coverCode: [...new Set(sectionalItems.map(coverOf))].length === 1 ? coverOf(sectionalItems[0]) : '' }), `${profile.model_name} sectional`);
     freeResults.forEach((entry) => {
       const { item } = entry;
       if (entry.complete) onAddToPlan(lineFromSku({ swatchIndex: catalog.swatch_index, modelCode: item.modelCode, modelName: item.modelName, styleCode: item.prefix, category: item.category, sku: entry.sku, coverCode: item.config?.cover || '', details: entry.details }), item.code);

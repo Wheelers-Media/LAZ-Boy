@@ -36,7 +36,8 @@ export function reportLine(catalog, line, number) {
     ['Width', inches(d.width)], ['Depth', inches(d.depth)], ['Height', inches(d.height)], ['Seat height', inches(d.seatHeight)],
     ['Fully extended', inches(d.fullyExtended)], ['Wall space', inches(d.wallSpace)],
   ]);
-  if (line.kind === 'sectional' && line.pieces?.length) sections.push({ title: 'Pieces', rows: line.pieces.map((piece, index) => [String(index + 1), piece]) });
+  if (line.kind === 'sectional' && line.pieceDetails?.length) sections.push({ title: 'Pieces', rows: line.pieceDetails.map((piece, index) => [String(index + 1), [piece.name, piece.code, piece.size].filter(Boolean).join(' · ')]) });
+  else if (line.kind === 'sectional' && line.pieces?.length) sections.push({ title: 'Pieces', rows: line.pieces.map((piece, index) => [String(index + 1), piece]) });
   if (line.note) add('Note', [['Note', line.note]]);
   return { number, id: line.id, heading: `${line.modelName || line.title}${line.modelCode ? ` ${line.modelCode}` : ''}`, type: line.kind === 'sectional' ? 'Sectional' : line.type, sections, rms: line.rms || [], issues: lineIssues(line), qty: line.qty };
 }
