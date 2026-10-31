@@ -1,4 +1,4 @@
-import { TileSelect } from './StepFlow.jsx';
+import { Sheet } from './Sheet.jsx';
 import React, { useMemo, useState } from 'react';
 import { Droplets, Search, Shield, Sparkles } from './icons.jsx';
 import { getCoverReach, swatchImageFor } from './logic.js';
@@ -14,10 +14,6 @@ function Chips({ label, options, value, onChange }) {
   return <div className="chip-row" role="group" aria-label={label}>
     {options.map(([key, text]) => <button key={key} type="button" className={`chip ${value === key ? 'on' : ''}`} aria-pressed={value === key} onClick={() => onChange(value === key ? '' : key)}>{text}</button>)}
   </div>;
-}
-
-function Pick({ label, options, value, onChange }) {
-  return <div className="sf-group fabric-pick"><h3>{label}</h3><TileSelect label={label} columns={2} options={[{ value: '', title: 'All' }, ...options.map(([key, text]) => ({ value: key, title: text }))]} value={value} onChange={onChange} /></div>;
 }
 
 function Reach({ catalog, record, isLeather }) {
@@ -99,6 +95,7 @@ export function FabricsCareWorkspace({ catalog }) {
   const [featureFilter, setFeatureFilter] = useState('');
   const [capFilter, setCapFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('');
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const isLeather = tab === 'Leather';
   const priorOf = (list) => (includePrior && prior ? (list || []).map((record) => ({ ...record, prior: true })) : []);
   const records = isLeather ? [...program.leathers, ...priorOf(prior?.leathers)] : [...program.fabrics, ...priorOf(prior?.fabrics)];
@@ -122,6 +119,16 @@ export function FabricsCareWorkspace({ catalog }) {
   const grades = [...new Set(program.fabrics.map(grade))].sort();
   const caps = [...new Set(records.map((record) => record.capCode))].sort();
   const activeFilters = [gradeFilter, wearFilter, cleanFilter, featureFilter, capFilter, typeFilter].filter(Boolean).length;
+  const clearFilters = () => { setGradeFilter(''); setWearFilter(''); setCleanFilter(''); setFeatureFilter(''); setCapFilter(''); setTypeFilter(''); };
+  const filterGroups = [
+    ...(isLeather ? [['Leather type', typeFilter, setTypeFilter, Object.keys(definitions.leatherTypes || {}).map((name) => [name, name])]] : [
+      ['Grade', gradeFilter, setGradeFilter, grades.map((item) => [item, `Grade ${item}`])],
+      ['Wearability', wearFilter, setWearFilter, Object.entries(WEAR)],
+      ['Cleaning', cleanFilter, setCleanFilter, Object.entries(definitions.cleaningCodes || {})],
+      ['Special feature', featureFilter, setFeatureFilter, Object.entries(definitions.specialtyAttributes || {})],
+    ]),
+    ['Cap code', capFilter, setCapFilter, caps.map((item) => [item, `Cap ${item}`])],
+  ];
   const reset = () => { setQuery(''); setGradeFilter(''); setWearFilter(''); setCleanFilter(''); setFeatureFilter(''); setCapFilter(''); setTypeFilter(''); };
   const changeTab = (next) => { setTab(next); reset(); };
   return <section className="module-page fabrics-index">
@@ -132,19 +139,14 @@ export function FabricsCareWorkspace({ catalog }) {
     </div>}
     {tab === 'Care guide' ? <CareGuide catalog={catalog} definitions={definitions} /> : <>
       <div className="knowledge-search card"><Search size={19} /><input aria-label={`Search ${tab.toLowerCase()}`} placeholder="Search a pattern, cover code or colour" value={query} onChange={(event) => setQuery(event.target.value)} /><span className="product-index-count">{shown.length} shown</span></div>
-      <details className="fabric-filter-panel" open={activeFilters > 0}><summary>Filters{activeFilters > 0 ? ` · ${activeFilters}` : ''}</summary>
-      <div className="fabric-filters">
-        {!isLeather && <>
-          <Pick label="Grade" value={gradeFilter} onChange={setGradeFilter} options={grades.map((item) => [item, `Grade ${item}`])} />
-          <Pick label="Wearability" value={wearFilter} onChange={setWearFilter} options={Object.entries(WEAR)} />
-          <Pick label="Cleaning" value={cleanFilter} onChange={setCleanFilter} options={Object.entries(definitions.cleaningCodes || {})} />
-          <Pick label="Special feature" value={featureFilter} onChange={setFeatureFilter} options={Object.entries(definitions.specialtyAttributes || {})} />
-        </>}
-        {isLeather && <Pick label="Leather type" value={typeFilter} onChange={setTypeFilter} options={Object.keys(definitions.leatherTypes || {}).map((name) => [name, name])} />}
-        <Pick label="Cap code" value={capFilter} onChange={setCapFilter} options={caps.map((item) => [item, `Cap ${item}`])} />
-        {filtering && <button type="button" className="back-button" onClick={reset}>Clear filters</button>}
-      </div></details>
-      <div className="fabric-sections">{sections.map((section, index) => <details key={`${tab}-${section.name}-${filtering}`} className="fabric-section" open={filtering || index === 0}><summary><strong>{section.name}</strong><span>{section.items.length} {section.items.length === 1 ? 'cover' : 'covers'}</span></summary><div className="fabric-grid">{section.items.map((record, itemIndex) => <CoverCard key={`${record.prior ? 'prior' : 'april'}-${record.coverCode}-${itemIndex}`} priorLabel={prior?.label} catalog={catalog} record={record} isLeather={isLeather} definitions={definitions} />)}</div></details>)}</div>
+      <div className="fabric-filter-bar">
+        <button type="button" className={`chip fabric-filter-btn${activeFilters ? ' on' : ''}`} aria-haspopup="dialog" onClick={() => setFiltersOpen(true)}>Filters{activeFilters > 0 ? ` · ${activeFilters}` : ''}</button>
+        {activeFilters > 0 && <button type="button" className="chip" onClick={clearFilters}>Clear filters</button>}
+      </div>
+      <Sheet open={filtersOpen} onClose={() => setFiltersOpen(false)} title="Filter covers" footer={<div className="fabric-filter-foot"><button type="button" className="back-button" onClick={clearFilters} disabled={!activeFilters}>Clear</button><button type="button" className="primary-button" onClick={() => setFiltersOpen(false)}>Show {shown.length} {shown.length === 1 ? 'cover' : 'covers'}</button></div>}>
+        {filterGroups.map(([label, value, onChange, options]) => <div className="fabric-filter-group" key={label}><h3>{label}</h3><Chips label={label} options={options} value={value} onChange={onChange} /></div>)}
+      </Sheet>
+      <div className="fabric-sections">{sections.map((section) => <details key={`${tab}-${section.name}-${filtering}`} className="fabric-section" open={filtering}><summary><strong>{section.name}</strong><span>{section.items.length} {section.items.length === 1 ? 'cover' : 'covers'}</span></summary><div className="fabric-grid">{section.items.map((record, itemIndex) => <CoverCard key={`${record.prior ? 'prior' : 'april'}-${record.coverCode}-${itemIndex}`} priorLabel={prior?.label} catalog={catalog} record={record} isLeather={isLeather} definitions={definitions} />)}</div></details>)}</div>
       {!shown.length && <p className="empty-state">Nothing matches. <button type="button" className="back-button" onClick={reset}>Clear filters</button></p>}
     </>}
   </section>;
