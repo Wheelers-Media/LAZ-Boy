@@ -1435,6 +1435,14 @@
    "name": "Battery pack, DUO",
    "benefit": "Order code for a DUO battery pack. A rechargeable lithium-ion battery pack lets the DUO operate cordless anywhere in the room. 1-year warranty on the battery pack.",
    "pitch": "“A battery pack lets the DUO sit anywhere in the room, with no cord.”"
+  },
+  "4C": {
+   "name": "Casters",
+   "benefit": "Replaces all four stationary legs with casters."
+  },
+  "LG": {
+   "name": "Leg change",
+   "benefit": "Changes the standard leg to a different leg design. Leg designs vary by style; see Special Information on the style page."
   }
  },
  "warrantyTiers": [
