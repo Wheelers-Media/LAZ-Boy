@@ -3,6 +3,7 @@ import { Armchair, Check, ClipboardCheck, Copy, Layers3, Minus, Plus, Sofa, X } 
 import { SwatchIndexContext } from './CoverPicker.jsx';
 import { buildPlanNotes, coverSummary, finishTheSet, lineIssues, NOTE_LIMIT, rmsEntryText, sortedLines } from './plan.js';
 import { swatchImageFor } from './logic.js';
+import { BuildReport } from './BuildReport.jsx';
 
 const TYPE_ICON = { 'Sectional piece': Layers3, Sofa, Loveseat: Sofa, Recliner: Armchair, Chair: Armchair };
 
@@ -21,7 +22,7 @@ function NoteBlock({ title, where, text, onCopy }) {
   </div>;
 }
 
-export function PlanWorkspace({ catalog, plan, setPlan, fit, onEdit, onAddLead, onOpenTab, onCopy }) {
+export function PlanWorkspace({ catalog, plan, setPlan, fit, onEdit, onAddLead, onOpenTab, onCopy, reportOpen, setReportOpen }) {
   const [confirmClear, setConfirmClear] = useState(false);
   const lines = useMemo(() => sortedLines(plan.lines), [plan.lines]);
   const covers = useMemo(() => coverSummary(plan.lines), [plan.lines]);
@@ -31,10 +32,12 @@ export function PlanWorkspace({ catalog, plan, setPlan, fit, onEdit, onAddLead, 
   const update = (id, patch) => setPlan((current) => ({ ...current, lines: current.lines.map((line) => (line.id === id ? { ...line, ...patch } : line)) }));
   const remove = (id) => setPlan((current) => ({ ...current, lines: current.lines.filter((line) => line.id !== id) }));
 
+  if (reportOpen && plan.lines.length) return <BuildReport catalog={catalog} plan={plan} fit={fit} onClose={() => setReportOpen(false)} onCopy={onCopy} />;
   return <section className="module-page plan-page">
     <div className="module-intro"><h1>Customer <em>plan</em></h1></div>
     <div className="plan-top card">
       <label className="form-field"><span>Customer</span><input value={plan.customer} placeholder="First name (optional)" maxLength={40} onChange={(event) => setPlan((current) => ({ ...current, customer: event.target.value }))} /></label>
+      {plan.lines.length > 0 && <button type="button" className="primary-button" onClick={() => setReportOpen(true)}>Full report</button>}
       <div className="plan-count"><strong>{plan.lines.reduce((sum, line) => sum + line.qty, 0)}</strong><span>{plan.lines.reduce((sum, line) => sum + line.qty, 0) === 1 ? 'item' : 'items'}</span></div>
     </div>
 
