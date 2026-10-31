@@ -54,3 +54,32 @@ test('saved customers: save, update in place, open, delete', () => {
   assert.deepEqual(customerLabel(again.list[0]), { name: 'Dana R', count: 2 });
   assert.equal(deleteCustomer(again.list, first.plan.id).length, 0);
 });
+
+import { readFileSync } from 'node:fs';
+import { lineFromPillow, lineIssues, addLine } from '../src/plan.js';
+
+const guide = JSON.parse(readFileSync(new URL('../public/style-index-2026.json', import.meta.url), 'utf8')).styles;
+const pillows = guide.filter((row) => row.prefix === '01P' || row.prefix === '08P');
+
+test('the guide holds ten custom pillow styles, fabric covers only, FP the only listed option', () => {
+  assert.equal(pillows.length, 10);
+  pillows.forEach((row) => {
+    assert.deepEqual(row.options, ['FP']);
+    assert.ok(!row.capCodes.some((code) => ['LL', 'LS', 'LM', 'RL', 'BU', 'UE'].includes(code)), row.styleNumber);
+  });
+  assert.equal(pillows.filter((row) => /^\(1\)/.test(row.category)).length, 6, '5 x 01P plus the single 08P-201');
+});
+
+test('a pillow plan line names the style, size and pair, never invents an RMS entry, and merges repeats', () => {
+  const style = pillows.find((row) => row.styleNumber === '08P220');
+  const line = lineFromPillow({ style, featherlite: true });
+  assert.equal(line.kind, 'pillow');
+  assert.match(line.detail, /18 × 18 in · pair · Featherlite \(FP\)/);
+  assert.deepEqual(line.rms, []);
+  assert.deepEqual(lineIssues(line), ['Cover and entry to confirm in RMS']);
+  const once = addLine({ id: '', customer: '', lines: [] }, line);
+  const twice = addLine(once, lineFromPillow({ style, featherlite: true }));
+  assert.equal(twice.lines.length, 1);
+  assert.equal(twice.lines[0].qty, 2);
+  assert.equal(addLine(twice, lineFromPillow({ style, featherlite: false })).lines.length, 2, 'plain and Featherlite are different lines');
+});

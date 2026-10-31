@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useMemo, useState } from 'react';
-import { Armchair, Check, ClipboardCheck, Copy, Layers3, Minus, Plus, Sofa, X } from './icons.jsx';
+import { Pillow, Armchair, Check, ClipboardCheck, Copy, Layers3, Minus, Plus, Sofa, X } from './icons.jsx';
 import { SwatchIndexContext } from './CoverPicker.jsx';
 import { usePersistentState } from './persist.js';
 import { buildPlanNotes, coverSummary, customerLabel, deleteCustomer, duplicateLine, openCustomer, saveCustomer, finishTheSet, lineIssues, NOTE_LIMIT, removeLine, restoreLine, rmsEntryText, sortedLines } from './plan.js';
 import { swatchImageFor } from './logic.js';
 import { BuildReport } from './BuildReport.jsx';
 
-const TYPE_ICON = { 'Sectional piece': Layers3, Sofa, Loveseat: Sofa, Recliner: Armchair, Chair: Armchair };
+const TYPE_ICON = { Pillow, 'Sectional piece': Layers3, Sofa, Loveseat: Sofa, Recliner: Armchair, Chair: Armchair };
 
 function Thumb({ line }) {
   const swatches = useContext(SwatchIndexContext);
@@ -99,7 +99,7 @@ export function PlanWorkspace({ catalog, plan, setPlan, fit, onEdit, onAddLead, 
             <h3>{line.modelName || line.title}{line.modelCode && <small> {line.modelCode}</small>}</h3>
             {line.detail && <p className="plan-detail">{line.detail}</p>}
             {line.kind === 'sectional' && line.pieces.length > 0 && <p className="plan-pieces">{line.pieces.join(' · ')}</p>}
-            <p className="plan-cover">{line.coverName || line.coverCode ? <><b>{line.coverName || line.coverCode}</b>{line.coverName && <small> {line.coverCode}</small>}</> : line.kind === 'lead' ? <small>Cover and style come next</small> : <small>No cover yet</small>}</p>
+            <p className="plan-cover">{line.coverName || line.coverCode ? <><b>{line.coverName || line.coverCode}</b>{line.coverName && <small> {line.coverCode}</small>}</> : line.kind === 'pillow' ? <small>Covers: DR, UR, DP, NP, PS, VS</small> : line.kind === 'lead' ? <small>Cover and style come next</small> : <small>No cover yet</small>}</p>
             {issues.length > 0 && <ul className="plan-issues">{issues.map((issue) => <li key={issue}>{issue}</li>)}</ul>}
             <label className="plan-note-input"><span className="sr-only">Note for {line.modelName}</span><input value={line.note} placeholder="Add a note" maxLength={60} onChange={(event) => update(line.id, { note: event.target.value })} /></label>
           </div>
@@ -109,7 +109,7 @@ export function PlanWorkspace({ catalog, plan, setPlan, fit, onEdit, onAddLead, 
               <span aria-live="polite">{line.qty}</span>
               <button type="button" aria-label="One more" disabled={line.qty >= 9} onClick={() => update(line.id, { qty: line.qty + 1 })}><Plus size={16} /></button>
             </div>
-            <button type="button" className="back-button" onClick={() => onEdit(line)}>{line.kind === 'lead' ? 'Choose style' : 'Edit'}</button>
+            <button type="button" className="back-button" onClick={() => onEdit(line)}>{line.kind === 'lead' ? 'Choose style' : line.kind === 'pillow' ? 'Pillows' : 'Edit'}</button>
             <button type="button" className="back-button" aria-label={`Add another ${line.modelName || 'item'} like this`} onClick={() => duplicate(line)}>Duplicate</button>
             <button type="button" className="plan-remove" aria-label={`Remove ${line.modelName} from the plan`} onClick={() => remove(line)}><X size={18} /></button>
           </div>
