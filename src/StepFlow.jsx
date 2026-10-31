@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Check, ChevronLeft } from './icons.jsx';
 
 /**
@@ -8,6 +8,9 @@ import { Check, ChevronLeft } from './icons.jsx';
  * `steps`: [{ id, label, summary, done, hidden, content }]. Hidden steps are skipped everywhere.
  */
 export function StepFlow({ steps, active, onActive, side, strip, finish }) {
+  const root = useRef(null);
+  const mounted = useRef(false);
+  useEffect(() => { if (!mounted.current) { mounted.current = true; return; } root.current?.scrollIntoView({ block: 'start' }); }, [active]);
   const visible = steps.filter((step) => !step.hidden);
   const index = Math.max(0, visible.findIndex((step) => step.id === active));
   const current = visible[index];
@@ -15,7 +18,7 @@ export function StepFlow({ steps, active, onActive, side, strip, finish }) {
   const previous = visible[index - 1];
   if (!current) return null;
   return (
-    <div className="stepflow">
+    <div className="stepflow" ref={root}>
       <nav className="sf-rail" aria-label="Steps">
         <ol>
           {visible.map((step, position) => (

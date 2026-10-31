@@ -1086,3 +1086,43 @@ input,textarea,select{font-size:max(16px,1em)}
 }
 @media (max-width:600px){.index-launcher>.index-launch:last-child:nth-child(odd){grid-column:1 / -1}}
 .knowledge-search input,.index-search input{font-size:17px}
+
+/* ---- Sheets: bottom sheet on phones, centred dialog on wider screens ---- */
+.sheet-backdrop{position:fixed;inset:0;z-index:70;display:flex;align-items:flex-end;justify-content:center;background:rgba(14,35,51,.42);animation:sheet-fade .18s ease-out}
+.sheet{width:100%;max-width:680px;max-height:88vh;max-height:88dvh;display:flex;flex-direction:column;background:#fff;color:var(--ink,#1c1c1e);border-radius:20px 20px 0 0;box-shadow:0 -12px 40px rgba(14,35,51,.25);padding-bottom:var(--safe-bottom,0px);outline:none;animation:sheet-up .24s cubic-bezier(.2,.8,.2,1)}
+.sheet-grab{width:40px;height:5px;border-radius:3px;background:rgba(60,60,67,.3);margin:8px auto 0;flex:none}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 20px;border-bottom:1px solid var(--line,rgba(60,60,67,.16));flex:none}
+.sheet-head h2{margin:0;font-size:1.125rem;font-weight:700;color:var(--brand-navy,#003349)}
+.sheet-close{width:44px;height:44px;display:grid;place-items:center;border:0;border-radius:50%;background:transparent;color:var(--ink,#1c1c1e)}
+.sheet-body{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:16px 20px 24px}
+.sheet-foot{flex:none;padding:12px 20px;border-top:1px solid var(--line,rgba(60,60,67,.16))}
+@keyframes sheet-up{from{transform:translateY(100%)}to{transform:none}}
+@keyframes sheet-fade{from{opacity:0}to{opacity:1}}
+@media(min-width:801px){.sheet-backdrop{align-items:center;padding:24px}.sheet{border-radius:20px;max-height:84vh;max-height:84dvh;box-shadow:0 24px 70px rgba(14,35,51,.3)}.sheet-grab{display:none}.sheet-head{padding-top:12px}}
+@media(prefers-reduced-motion:reduce){.sheet,.sheet-backdrop{animation:none}}
+@media(prefers-color-scheme:dark){.sheet{background:#1c1c1e;color:#f2f2f7}.sheet-head h2{color:#f2f2f7}.sheet-close{color:#f2f2f7}.cover-sheet-grades{background:#1c1c1e}}
+/* cover sheet */
+.cover-sheet-grades{position:sticky;top:-16px;z-index:2;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:-16px -20px 12px;padding:12px 20px;background:#fff;border-bottom:1px solid var(--line,rgba(60,60,67,.16))}
+.cover-sheet-grades::-webkit-scrollbar{display:none}
+.cover-sheet-grades .chip{flex:none;min-height:44px;padding:0 16px;font-size:.9375rem}
+.cover-sheet-hint{margin:8px 0;color:var(--text-secondary,#404040);font-size:.9375rem}
+.sheet .cover-label{display:block;margin:4px 0 10px;font-size:.8125rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-secondary,#404040)}
+.sheet .cover-step{scroll-margin-top:72px;margin-bottom:20px}
+.sheet .tile-name{font-size:.875rem;line-height:1.25;overflow-wrap:anywhere}
+.sheet .cover-tile small{font-size:.8125rem}
+.cover-trigger{width:100%;min-height:64px;text-align:left}
+/* phone comfort: readable text, no cut-off, room for the tab bar */
+.stepflow{scroll-margin-top:calc(4.75rem + var(--safe-top,0px))}
+@media(max-width:800px){
+  html{font-size:16px}
+  .sf-hint,.fine-print,.tile small,.sf-step-text small{font-size:.875rem;line-height:1.4}
+  .tile{min-height:56px}
+  .tile strong,.tile small{overflow-wrap:anywhere}
+  .module-intro h1{font-size:1.625rem}
+  .main-content{padding-bottom:calc(6rem + var(--safe-bottom,0px))}
+  .toast{bottom:calc(5rem + var(--safe-bottom,0px));max-width:calc(100vw - 2rem);text-align:center}
+}
+/* swatches inside a sheet: three across on phones so a whole grade fits in a screen or two */
+.stepflow .sheet .cover-tiles,.stepflow .sheet .cover-tiles-pattern{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.stepflow .sheet .tile-name,.stepflow .sheet .cover-tile strong{font-size:.875rem}
+@media(min-width:801px){.stepflow .sheet .cover-tiles,.stepflow .sheet .cover-tiles-pattern{grid-template-columns:repeat(4,minmax(0,1fr))}}
