@@ -39,3 +39,18 @@ test('saved work survives, and blocked storage does not crash', () => {
   assert.equal(readSaved('x', 'fallback'), 'fallback');
   delete globalThis.window;
 });
+
+import { saveCustomer, openCustomer, deleteCustomer, customerLabel } from '../src/plan.js';
+
+test('saved customers: save, update in place, open, delete', () => {
+  const p = { id: '', customer: 'Dana', lines: [makeLine({ modelName: 'A', qty: 2 })] };
+  const first = saveCustomer([], p, 1000);
+  assert.ok(first.plan.id);
+  const again = saveCustomer(first.list, { ...first.plan, customer: 'Dana R' }, 2000);
+  assert.equal(again.list.length, 1, 'same id updates, not duplicates');
+  assert.equal(again.list[0].customer, 'Dana R');
+  assert.deepEqual(openCustomer(again.list, first.plan.id).lines.length, 1);
+  assert.equal(openCustomer(again.list, 'nope'), null);
+  assert.deepEqual(customerLabel(again.list[0]), { name: 'Dana R', count: 2 });
+  assert.equal(deleteCustomer(again.list, first.plan.id).length, 0);
+});

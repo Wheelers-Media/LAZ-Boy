@@ -75,9 +75,9 @@ export function addLine(plan, line) {
 export function loadPlan(storage) {
   try {
     const saved = JSON.parse(storage?.getItem(PLAN_STORAGE_KEY) || 'null');
-    if (saved && Array.isArray(saved.lines)) return { customer: String(saved.customer || ''), lines: saved.lines.filter((line) => line && line.id) };
+    if (saved && Array.isArray(saved.lines)) return { id: saved.id ? String(saved.id) : '', customer: String(saved.customer || ''), lines: saved.lines.filter((line) => line && line.id) };
   } catch { /* storage blocked or corrupt: start empty */ }
-  return { customer: '', lines: [] };
+  return { id: '', customer: '', lines: [] };
 }
 
 export function savePlan(storage, plan) {
@@ -215,4 +215,26 @@ export function restoreLine(plan, removed) {
   if (!removed || plan.lines.some((line) => line.id === removed.line.id)) return plan;
   const at = Math.min(removed.index, plan.lines.length);
   return { ...plan, lines: [...plan.lines.slice(0, at), removed.line, ...plan.lines.slice(at)] };
+}
+
+/** Saved customers: a list of plan snapshots the rep can come back to. Pure; the caller stores the list. */
+export function saveCustomer(list, plan, now = Date.now()) {
+  const id = plan.id || `cu-${now.toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
+  const entry = { id, customer: plan.customer || '', lines: plan.lines, savedAt: now };
+  const rest = list.filter((item) => item.id !== id);
+  return { list: [entry, ...rest].slice(0, 50), plan: { ...plan, id } };
+}
+
+export function openCustomer(list, id) {
+  const entry = list.find((item) => item.id === id);
+  return entry ? { id: entry.id, customer: entry.customer, lines: entry.lines } : null;
+}
+
+export function deleteCustomer(list, id) {
+  return list.filter((item) => item.id !== id);
+}
+
+export function customerLabel(entry) {
+  const count = (entry.lines || []).reduce((sum, line) => sum + (line.qty || 1), 0);
+  return { name: entry.customer || 'No name', count };
 }

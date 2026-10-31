@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { Armchair, Check, ClipboardCheck, Copy, Layers3, Minus, Plus, Sofa, X } from './icons.jsx';
 import { SwatchIndexContext } from './CoverPicker.jsx';
-import { buildPlanNotes, coverSummary, duplicateLine, finishTheSet, lineIssues, NOTE_LIMIT, removeLine, restoreLine, rmsEntryText, sortedLines } from './plan.js';
+import { usePersistentState } from './persist.js';
+import { buildPlanNotes, coverSummary, customerLabel, deleteCustomer, duplicateLine, openCustomer, saveCustomer, finishTheSet, lineIssues, NOTE_LIMIT, removeLine, restoreLine, rmsEntryText, sortedLines } from './plan.js';
 import { swatchImageFor } from './logic.js';
 import { BuildReport } from './BuildReport.jsx';
 
@@ -38,12 +39,25 @@ export function PlanWorkspace({ catalog, plan, setPlan, fit, onEdit, onAddLead, 
     setUndo({ label: `Removed ${line.modelName || line.title}`, apply: () => setPlan((current) => restoreLine(current, removed)) });
   };
   const duplicate = (line) => setPlan((current) => duplicateLine(current, line.id));
+  const [saved, setSaved] = usePersistentState('customers', [], Array.isArray);
+  const [showSaved, setShowSaved] = useState(false);
+  const saveNow = () => { const result = saveCustomer(saved, plan); setSaved(result.list); setPlan(result.plan); setUndo({ label: `${plan.customer || 'Plan'} saved`, apply: null }); };
+  // Starting a new customer keeps the current one in the saved list, so nothing is lost.
   const clearAll = () => {
     const before = plan;
-    setPlan({ customer: '', lines: [] });
+    const worth = before.lines.length > 0 || before.customer;
+    const result = worth ? saveCustomer(saved, before) : null;
+    if (result) setSaved(result.list);
+    setPlan({ id: '', customer: '', lines: [] });
     setConfirmClear(false);
-    if (before.lines.length) setUndo({ label: 'Plan cleared', apply: () => setPlan(before) });
+    if (result) setUndo({ label: `${before.customer || 'This plan'} saved under Saved customers`, apply: () => setPlan(result.plan) });
   };
+  const openSaved = (id) => {
+    if (plan.lines.length || plan.customer) setSaved(saveCustomer(saved, plan).list);
+    const next = openCustomer(saved, id);
+    if (next) { setPlan(next); setShowSaved(false); setUndo(null); }
+  };
+  const dropSaved = (entry) => { setSaved(deleteCustomer(saved, entry.id)); setUndo({ label: `Deleted ${entry.customer || 'saved plan'}`, apply: () => setSaved((current) => [entry, ...current.filter((item) => item.id !== entry.id)]) }); };
 
   if (reportOpen && plan.lines.length) return <BuildReport catalog={catalog} plan={plan} fit={fit} onClose={() => setReportOpen(false)} onCopy={onCopy} />;
   return <section className="module-page plan-page">
@@ -51,10 +65,21 @@ export function PlanWorkspace({ catalog, plan, setPlan, fit, onEdit, onAddLead, 
     <div className="plan-top card">
       <label className="form-field"><span>Customer</span><input value={plan.customer} placeholder="First name (optional)" maxLength={40} onChange={(event) => setPlan((current) => ({ ...current, customer: event.target.value }))} /></label>
       {plan.lines.length > 0 && <button type="button" className="primary-button" onClick={() => setReportOpen(true)}>Full report</button>}
+      <button type="button" className="back-button" aria-expanded={showSaved} onClick={() => setShowSaved((open) => !open)}>Saved customers{saved.length > 0 ? ` (${saved.length})` : ''}</button>
+      {(plan.lines.length > 0 || plan.customer) && <button type="button" className="back-button" onClick={saveNow}>Save</button>}
       <div className="plan-count"><strong>{plan.lines.reduce((sum, line) => sum + line.qty, 0)}</strong><span>{plan.lines.reduce((sum, line) => sum + line.qty, 0) === 1 ? 'item' : 'items'}</span></div>
     </div>
 
-    {undo && <div className="plan-undo" role="status"><span>{undo.label}</span><button type="button" className="primary-button" onClick={() => { undo.apply(); setUndo(null); }}>Undo</button><button type="button" className="plan-undo-x" aria-label="Dismiss" onClick={() => setUndo(null)}><X size={16} /></button></div>}
+    {showSaved && <section className="plan-saved card" aria-label="Saved customers">
+      <h2>Saved customers</h2>
+      {!saved.length ? <p>No saved customers yet. Tap Save to keep this plan, or start a new customer and it is saved for you.</p> : <ul>{saved.map((entry) => { const info = customerLabel(entry); return <li key={entry.id} className={entry.id === plan.id ? 'current' : ''}>
+        <span><strong>{info.name}</strong><small>{info.count} {info.count === 1 ? 'item' : 'items'} · {new Date(entry.savedAt).toLocaleDateString()}{entry.id === plan.id ? ' · open now' : ''}</small></span>
+        <button type="button" className="back-button" disabled={entry.id === plan.id} onClick={() => openSaved(entry.id)}>Open</button>
+        <button type="button" className="plan-remove" aria-label={`Delete saved plan for ${info.name}`} onClick={() => dropSaved(entry)}><X size={18} /></button>
+      </li>; })}</ul>}
+    </section>}
+
+    {undo && <div className="plan-undo" role="status"><span>{undo.label}</span>{undo.apply && <button type="button" className="primary-button" onClick={() => { undo.apply(); setUndo(null); }}>Undo</button>}<button type="button" className="plan-undo-x" aria-label="Dismiss" onClick={() => setUndo(null)}><X size={16} /></button></div>}
 
     {!lines.length ? <div className="plan-empty card">
       <ClipboardCheck size={34} />
@@ -129,8 +154,8 @@ export function PlanWorkspace({ catalog, plan, setPlan, fit, onEdit, onAddLead, 
       </section>
 
       <div className="plan-clear">{confirmClear
-        ? <><span>Clear this plan?</span><button type="button" className="back-button" onClick={() => setConfirmClear(false)}>Keep it</button><button type="button" className="primary-button danger" onClick={clearAll}>Clear plan</button></>
-        : <button type="button" className="back-button" onClick={() => setConfirmClear(true)}>New customer</button>}</div>
+        ? <><span>Save this plan and start fresh?</span><button type="button" className="back-button" onClick={() => setConfirmClear(false)}>Cancel</button><button type="button" className="primary-button" onClick={clearAll}>Save and start new</button></>
+        : <button type="button" className="back-button" onClick={() => setConfirmClear(true)}>Save and start a new customer</button>}</div>
     </>}
   </section>;
 }
