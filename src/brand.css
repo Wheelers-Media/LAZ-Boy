@@ -1126,3 +1126,32 @@ input,textarea,select{font-size:max(16px,1em)}
 .stepflow .sheet .cover-tiles,.stepflow .sheet .cover-tiles-pattern{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .stepflow .sheet .tile-name,.stepflow .sheet .cover-tile strong{font-size:.875rem}
 @media(min-width:801px){.stepflow .sheet .cover-tiles,.stepflow .sheet .cover-tiles-pattern{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* ---- One layout system for every page ----
+   Fluid width (no centred 1120px column), one side gutter, relaxed vertical rhythm.
+   Loaded last so it settles the many earlier .main-content rules. */
+:root{--gutter:16px}
+@media(min-width:480px){:root{--gutter:20px}}
+@media(min-width:801px){:root{--gutter:clamp(24px,3vw,48px)}}
+.main-content{width:auto;max-width:none;margin-right:0;padding-left:max(var(--gutter),var(--safe-left,0px));padding-right:max(var(--gutter),var(--safe-right,0px))}
+@media(min-width:801px){.main-content{margin-left:var(--rail-width)}.topbar{padding-left:var(--gutter);padding-right:var(--gutter)}}
+@media(max-width:800px){.main-content{margin-left:0}.topbar{padding-left:max(var(--gutter),var(--safe-left,0px));padding-right:max(var(--gutter),var(--safe-right,0px))}}
+.module-page,.fitq,.plan-page,.fabrics-index,.support-reference,.product-index-page,.floor-workspace,.sku-builder-page{max-width:none;width:100%;margin-left:0;margin-right:0}
+/* long lines stay readable even when the page is wide */
+.main-content p,.main-content .sf-hint{max-width:75ch}
+/* vertical room: text no longer stacked tight */
+.main-content p,.main-content li{line-height:1.55}
+.module-intro{margin-bottom:28px}
+.stepflow{gap:24px}
+.sf-main{gap:20px}
+@media(min-width:900px){.sf-main{padding:32px}.stepflow{gap:28px}}
+.main-content .sf-group{margin-top:8px}
+.main-content .card{padding-block:max(1.25rem,var(--card-pad-block,0px))}
+/* phone: stack label above text so sentences get the full row instead of a narrow strip */
+@media(max-width:600px){
+  .main-content .warranty-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px}
+  .main-content .warranty-term{grid-column:1/-1;justify-self:start;width:auto;padding:6px 12px}
+  .main-content .warranty-row>div{grid-column:1}
+  .main-content .warranty-row>button{grid-column:2;grid-row:2;align-self:start}
+}
+.sku-decoder-panel{margin-bottom:20px}
