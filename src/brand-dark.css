@@ -162,3 +162,76 @@
   .app .rail-link, .app .rail-link span { color: var(--brand-cream-80) !important; }
   .app .rail-link:hover, .app .rail-link.active, .app .rail-link:hover span, .app .rail-link.active span { color: var(--brand-cream) !important; }
 }
+
+/* ---- Dark mode, site-wide pass (October 2026): every surface that was hard-coded white or navy ---- */
+@media (prefers-color-scheme: dark) {
+  :root { --wash: #1A1A1A; --paper: rgba(36, 36, 38, .97); --dk-card: #2c2c2e; --dk-line: rgba(230, 226, 213, .2); --dk-accent: #4FBCCA; --dk-warn: #ff9f84; }
+  .app .term, .app button.term { color: var(--brand-cream); }
+  .app .chip.on, .app .studio-variants .chip.on { background: var(--dk-accent); border-color: var(--dk-accent); color: #00252f; }
+  .app .chip-new, .app .index-card-chips .chip-new { background: rgba(79, 188, 202, .2); color: var(--dk-accent); }
+  .app .sf-secondary { color: var(--brand-cream); border-color: var(--dk-line); background: transparent; }
+  .app .studio-selected button.danger, .app .studio-full .studio-selected button.danger { color: var(--dk-warn); }
+  .app .index-filter { background: var(--wash); }
+  .app .index-filter button b { color: var(--brand-cream-80, #c7c7cc); }
+  .app .fabric-badge { background: #3a3a3c; border-color: var(--dk-line); color: var(--brand-cream); }
+  .app .fabric-badge.wear-P { background: rgba(79, 188, 202, .22); border-color: var(--dk-accent); }
+  .app .fabric-badge.wear-Medium { background: rgba(217, 185, 107, .22); border-color: #d9b96b; }
+  .app .sc-chips li { background: var(--dk-card); border-color: var(--dk-line); color: var(--brand-cream); }
+  .app .plan-type { color: var(--dk-accent); }
+  .app .plan-issues li { background: rgba(255, 159, 132, .16); color: var(--dk-warn); }
+  .app .plan-saved li { border-color: var(--dk-line); }
+  .app .plan-saved li.current { background: rgba(79, 188, 202, .14); }
+  .app .plan-saved small { color: var(--brand-cream-80, #c7c7cc); }
+  .app .plan-addmore, .app .plan-saved { background: var(--dk-card); }
+
+  /* Start here */
+  .app .sh-block > h2, .app .sh-seg b, .app .sh-rule { color: var(--brand-cream); }
+  .app .sh-job { background: var(--dk-card); border-color: var(--dk-line); border-top-color: var(--dk-accent) !important; color: var(--ink); }
+  .app .sh-job:hover { background: #3a3a3c; }
+  .app .sh-icon { background: rgba(230, 226, 213, .12); color: var(--dk-accent); }
+  .app .sh-seg { background: var(--dk-card) !important; border-color: var(--dk-line); border-top-color: var(--seg, var(--dk-accent)); }
+  .app .sh-seg small { color: var(--brand-cream-80, #c7c7cc); }
+  .app .sh-chunk { color: var(--ink); }
+  .app .sh-prefix { --seg: #4FBCCA; } .app .sh-model { --seg: #5fb39b; } .app .sh-grade { --seg: #d9b96b; } .app .sh-pattern { --seg: #e08a97; } .app .sh-color { --seg: #8fb4d6; }
+  .app .sh-rule { background: var(--dk-card); border: 1px solid var(--dk-line); }
+  .app .sh-rule span { color: var(--brand-cream-80, #c7c7cc); }
+  .app .sh-legend code, .app .sh-group summary { color: var(--ink); }
+
+  /* Pillows */
+  .app .pil-ways h2, .app .pil-block > h2, .app .pil-card h3, .app .pil-say dt, .app .pil-cap { color: var(--brand-cream); }
+  .app .pil-n { background: rgba(230, 226, 213, .14); color: var(--brand-cream); }
+  .app .pil-cap { background: var(--dk-card); border-color: var(--dk-line); }
+  .app .pil-cap.on { background: var(--dk-accent); color: #00252f; border-color: var(--dk-accent); }
+  .app .pil-verdict.yes { background: rgba(95, 179, 155, .2); color: #bfe8da; }
+  .app .pil-verdict.no { background: rgba(255, 159, 132, .18); color: #ffd0c2; }
+  .app .pil-card, .app .pil-styles li { background: var(--dk-card); border-color: var(--dk-line); color: var(--ink); }
+  .app .pil-shape { background: #3a3a3c; }
+  .app .pil-body { fill: #232325; stroke: var(--dk-accent); }
+  .app .pil-welt { stroke: var(--dk-accent); }
+  .app .pil-note { background: rgba(230, 226, 213, .1); color: var(--brand-cream); }
+  .app .pil-lead { color: var(--brand-cream-80, #c7c7cc); }
+}
+@media (prefers-color-scheme: dark) {
+  .app .fabric-tags span { background: #3a3a3c; border-color: var(--dk-line); color: var(--brand-cream); }
+  .app .index-filter button.active b { color: #00252f; }
+}
+@media (prefers-color-scheme: dark) {
+  .app .fitq-pill { background: var(--dk-card); border: 1px solid var(--dk-line); }
+  .app .fitq-pill, .app .fitq-pill * { color: var(--brand-cream); }
+  .app .fitq-pill span:first-child { color: var(--brand-cream-80, #c7c7cc); }
+  .app .seat-in { background: rgba(79, 188, 202, .14); border: 1px solid rgba(79, 188, 202, .4); }
+  .app .seat-in, .app .seat-in * { color: var(--brand-cream); }
+  .app .seat-in small { color: var(--brand-cream-80, #c7c7cc); }
+  .app .ga-tile { background: var(--dk-card); border-color: var(--dk-line); }
+  .app .ga-tile strong { color: var(--brand-cream); }
+  .app .ga-tile small, .app .sf-link { color: var(--dk-accent); }
+  .app .ga-tile small { color: var(--brand-cream-80, #c7c7cc); }
+  .app code { background: rgba(230, 226, 213, .12); color: var(--brand-cream); }
+  .app .rep-open { background: rgba(255, 159, 132, .12); border-left-color: var(--dk-warn); color: var(--brand-cream); }
+  .app .rep-open strong, .app .rep-open li { color: var(--brand-cream); }
+  .app .rep-num { background: var(--brand-cream); color: #003349; }
+  .app .rep-pending { color: var(--dk-warn); }
+}
+@media (prefers-color-scheme: dark) {
+  .app .studio-drawer .studio-order-list code { background: rgba(230, 226, 213, .12); color: var(--brand-cream); }
+}
