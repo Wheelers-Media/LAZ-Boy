@@ -83,3 +83,26 @@ test('a pillow plan line names the style, size and pair, never invents an RMS en
   assert.equal(twice.lines[0].qty, 2);
   assert.equal(addLine(twice, lineFromPillow({ style, featherlite: false })).lines.length, 2, 'plain and Featherlite are different lines');
 });
+
+import { layoutSnapshot, layoutShapes, loadPlan, savePlan } from '../src/plan.js';
+
+test('a room layout is snapshotted, drawn as shapes, saved with the plan and reloaded', () => {
+  const room = { width: 240, height: 168 };
+  const items = [
+    { code: '44C', name: 'Corner', free: false, x: 0, y: 0, width: 62, height: 62, baseWidth: 62, baseHeight: 62, rotation: 0 },
+    { code: '10X724', name: 'Chair', free: true, x: 100, y: 40, width: 50, height: 50, baseWidth: 38, baseHeight: 40, rotation: 45 },
+    { code: '10X724', name: 'Chair', free: true, x: 160, y: 40, width: 40, height: 38, baseWidth: 38, baseHeight: 40, rotation: 90 },
+  ];
+  const layout = layoutSnapshot(items, room);
+  const model = layoutShapes(layout);
+  assert.equal(model.shapes.length, 3);
+  assert.equal(model.shapes[1].turn, 45);
+  assert.deepEqual([model.shapes[2].width, model.shapes[2].height], [40, 38], 'a chair turned 90 degrees swaps width and depth');
+  assert.equal(layoutShapes(null), null);
+  assert.equal(layoutShapes({ room: { width: 0, height: 0 }, items: [] }), null);
+  const store = new Map();
+  const storage = { getItem: (k) => store.get(k) ?? null, setItem: (k, v) => store.set(k, v) };
+  savePlan(storage, { id: '', customer: 'Sam', lines: [], layout });
+  assert.deepEqual(loadPlan(storage).layout, layout);
+  assert.equal(loadPlan({ getItem: () => JSON.stringify({ lines: [], layout: { junk: 1 } }) }).layout, null);
+});

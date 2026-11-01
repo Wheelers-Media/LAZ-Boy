@@ -75,9 +75,9 @@ export function addLine(plan, line) {
 export function loadPlan(storage) {
   try {
     const saved = JSON.parse(storage?.getItem(PLAN_STORAGE_KEY) || 'null');
-    if (saved && Array.isArray(saved.lines)) return { id: saved.id ? String(saved.id) : '', customer: String(saved.customer || ''), lines: saved.lines.filter((line) => line && line.id) };
+    if (saved && Array.isArray(saved.lines)) return { id: saved.id ? String(saved.id) : '', customer: String(saved.customer || ''), lines: saved.lines.filter((line) => line && line.id), layout: validLayout(saved.layout) ? saved.layout : null };
   } catch { /* storage blocked or corrupt: start empty */ }
-  return { id: '', customer: '', lines: [] };
+  return { id: '', customer: '', lines: [], layout: null };
 }
 
 export function savePlan(storage, plan) {
@@ -221,14 +221,14 @@ export function restoreLine(plan, removed) {
 /** Saved customers: a list of plan snapshots the rep can come back to. Pure; the caller stores the list. */
 export function saveCustomer(list, plan, now = Date.now()) {
   const id = plan.id || `cu-${now.toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
-  const entry = { id, customer: plan.customer || '', lines: plan.lines, savedAt: now };
+  const entry = { id, customer: plan.customer || '', lines: plan.lines, layout: plan.layout || null, savedAt: now };
   const rest = list.filter((item) => item.id !== id);
   return { list: [entry, ...rest].slice(0, 50), plan: { ...plan, id } };
 }
 
 export function openCustomer(list, id) {
   const entry = list.find((item) => item.id === id);
-  return entry ? { id: entry.id, customer: entry.customer, lines: entry.lines } : null;
+  return entry ? { id: entry.id, customer: entry.customer, lines: entry.lines, layout: entry.layout || null } : null;
 }
 
 export function deleteCustomer(list, id) {
@@ -252,4 +252,32 @@ export function lineFromPillow({ style, featherlite = false }) {
     title: `Pillow ${label}`, detail: [style.category.replace(/^\(\d\)\s*/, ''), size, /^\(2\)/.test(style.category) ? 'pair' : 'single', featherlite ? 'Featherlite (FP)' : ''].filter(Boolean).join(' · '),
     note: '',
   });
+}
+
+const validLayout = (layout) => Boolean(layout && layout.room && Number(layout.room.width) > 0 && Number(layout.room.height) > 0 && Array.isArray(layout.items));
+
+/** What the Room Builder drew, kept with the plan so the report can show it. Sizes are inches. */
+export function layoutSnapshot(items, room) {
+  return {
+    room: { width: room.width, height: room.height },
+    items: items.map((item) => ({
+      code: item.code, name: item.name || item.modelName || '', free: Boolean(item.free), x: item.x, y: item.y, width: item.width, height: item.height,
+      baseWidth: item.baseWidth || item.width, baseHeight: item.baseHeight || item.height, rotation: Number(item.rotation) || 0,
+    })),
+  };
+}
+
+/** Plain shapes for drawing a saved layout as a static schematic: a room outline and one labelled rectangle per piece. */
+export function layoutShapes(layout) {
+  if (!validLayout(layout)) return null;
+  const { room } = layout;
+  const shapes = layout.items.map((item, index) => {
+    const cx = item.x + item.width / 2; const cy = item.y + item.height / 2;
+    const turned = item.free && item.rotation % 90 !== 0;
+    const w = item.free ? item.baseWidth : item.width; const h = item.free ? item.baseHeight : item.height;
+    const sideways = item.free && item.rotation % 180 === 90;
+    const dw = sideways ? h : w; const dh = sideways ? w : h;
+    return { key: `${item.code}-${index}`, number: index + 1, code: item.code, name: item.name, x: cx - dw / 2, y: cy - dh / 2, width: dw, height: dh, turn: turned ? item.rotation : 0, cx, cy };
+  });
+  return { width: room.width, height: room.height, shapes };
 }
