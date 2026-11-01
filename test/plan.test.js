@@ -91,8 +91,8 @@ test('plan storage round-trips and survives blocked or corrupt storage', () => {
   const storage = { getItem: (k) => store.get(k) ?? null, setItem: (k, v) => store.set(k, v) };
   savePlan(storage, { customer: 'Sarah', lines: [recliner] });
   assert.equal(loadPlan(storage).lines.length, 1);
-  assert.deepEqual(loadPlan({ getItem: () => '{bad' }), { id: '', customer: '', lines: [] });
-  assert.deepEqual(loadPlan({ getItem: () => { throw new Error('blocked'); } }), { id: '', customer: '', lines: [] });
+  assert.deepEqual(loadPlan({ getItem: () => '{bad' }), { id: '', customer: '', lines: [], layout: null });
+  assert.deepEqual(loadPlan({ getItem: () => { throw new Error('blocked'); } }), { id: '', customer: '', lines: [], layout: null });
   assert.doesNotThrow(() => savePlan({ setItem: () => { throw new Error('blocked'); } }, { customer: '', lines: [] }));
 });
 

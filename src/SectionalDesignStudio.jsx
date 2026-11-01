@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { readSaved, writeSaved } from './persist.js';
+import { layoutSnapshot } from './plan.js';
 import { CoverPicker } from './CoverPicker.jsx';
 import { lineFromSectional, lineFromSku, lineFromLead } from './plan.js';
 import { ChairArt, ReachArt, freeTransform } from './ChairArt.jsx';
@@ -7,7 +8,7 @@ import { PieceConfigurator } from './PieceConfigurator.jsx';
 import { GuidedAdd } from './GuidedAdd.jsx';
 import { configureStyle } from './pieceConfig.js';
 import { Armchair, ChevronDown, ChevronLeft, ChevronUp, ClipboardCheck, X, Copy, Plus, Info, Layers3, Printer, Redo2, RotateCw, Scan, Sofa, Trash2, Undo2 } from './icons.jsx';
-import { buildSectionalStudioRmsLine, getModelCoverSwatches, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
+import { buildSectionalStudioRmsLine, formatWallProximity, getMechanismForPrefix, getModelCoverSwatches, getSectionalPieceOptions, sectionalPiecesForFamily, validateSectionalStudioLayout } from './logic.js';
 import { insideRoom, overlaps, createFreeItem, createItem, applyPlacement, findFreeSpot, formatInches, placementCandidates, rankPlacements, layoutSummary, normalizeRotation, parsePieceDimensions, turnItemTo, presetItems, PRESET_LAYOUTS, reachConflicts, reachRect, resolveMove, rotateItem } from './floorplan.js';
 
 const narrowScreen = () => typeof window !== 'undefined' && window.matchMedia?.('(max-width: 800px)').matches;
@@ -91,7 +92,7 @@ const labelPoint = (item) => {
   }
 };
 
-export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {}, initialModelCode = '724', initialStyle = null, onStyleUsed, onBuild, onReport, onModelChange, onExit }) {
+export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {}, initialModelCode = '724', initialStyle = null, onStyleUsed, onBuild, onReport, onLayout, onModelChange, onExit }) {
   const profiles = (catalog.product_profiles || []).filter((profile) => profile.pieces?.length);
   // The room you were building is kept across tab changes and reloads.
   const saved = useRef(null);
@@ -113,6 +114,8 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
   const [roomDepth, setRoomDepth] = useState(Number(keep.roomDepth) > 0 ? Number(keep.roomDepth) : 14);
   const [snapEdges, setSnapEdges] = useState(keep.snapEdges !== false);
   const [showReach, setShowReach] = useState(keep.showReach !== false);
+  const [clean, setClean] = useState(false); // customer view: hides grid, sizes and reach
+  const [confirmClear, setConfirmClear] = useState(false);
   const [showSizes, setShowSizes] = useState(keep.showSizes !== false);
   const [coverEditId, setCoverEditId] = useState('');
   const [notice, setNotice] = useState('');
@@ -327,6 +330,16 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
     commit(next); setNotice(''); setAlt(null);
   };
   const removeSelected = () => { if (!selectedItem) return; setAlt(null); commit(items.filter((item) => item.id !== selectedId)); setSelectedId(''); };
+  const duplicateSelected = () => {
+    if (!selectedItem?.free) return;
+    const draft = { ...selectedItem, id: `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`, x: 0, y: 0 };
+    const spot = findFreeSpot(draft, items, room);
+    if (!spot) { setNotice('There is no free space left in this room for another one. Make the room larger or remove a piece.'); return; }
+    commit([...items, { ...draft, ...spot }]); setSelectedId(draft.id); setAlt(null);
+    setNotice(`${selectedItem.name} ${selectedItem.code} added again. Drag it where you want it.`);
+  };
+  const clearRoom = () => { setAlt(null); commit([]); setSelectedId(''); setConfirmClear(false); setNotice('Room cleared. Undo brings it back.'); };
+  const wallNote = selectedItem ? (() => { const mech = getMechanismForPrefix(catalog, selectedItem.free ? selectedItem.prefix : String(selectedItem.code).split('-')[0]); const range = mech?.wallProximityIn; return Array.isArray(range) ? `Wall proximity ${formatWallProximity(range)} (${mech.name}, product guide)` : ''; })() : '';
   const nudge = (dx, dy) => {
     if (!selectedItem) return;
     commit(resolveMove(items, selectedId, { x: selectedItem.x + dx, y: selectedItem.y + dy }, room, { snap: false }));
@@ -346,6 +359,7 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
   useEffect(() => { writeSaved('room', { modelCode, items, roomWidth, roomDepth, snapEdges, showReach, showSizes, variantByKey }); }, [modelCode, items, roomWidth, roomDepth, snapEdges, showReach, showSizes, variantByKey]);
   const addToPlanAll = () => {
     if (!items.length) return;
+    onLayout?.(layoutSnapshot(items, room));
     if (addedSignature === planSignature) { setNotice('Already in the plan. Open the full report to see it.'); return; }
     setAddedSignature(planSignature);
     if (sectionalItems.length) onAddToPlan(lineFromSectional({ swatchIndex: catalog.swatch_index, modelCode: profile.model_code, modelName: profile.model_name, family: profile.sectional_family, detail: `${sectionalItems.length} ${sectionalItems.length === 1 ? 'piece' : 'pieces'}${summary ? `, ${formatInches(summary.width)} × ${formatInches(summary.depth)}` : ''}`, pieces: sectionalItems.map((item) => item.code), pieceDetails: sectionalItems.map((item) => ({ name: item.name, code: item.code, size: item.dimensionsLabel || (item.publishedWidth ? `${item.publishedWidth} in wide` : '') })), rms: rmsRows, coverCode: [...new Set(sectionalItems.map(coverOf))].length === 1 ? coverOf(sectionalItems[0]) : '' }), `${profile.model_name} sectional`);
@@ -393,12 +407,13 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
         <button type="button" className="studio-icon-btn" onClick={undo} disabled={!history.past.length} aria-label="Undo"><Undo2 size={18} /></button>
         <button type="button" className="studio-icon-btn" onClick={redo} disabled={!history.future.length} aria-label="Redo"><Redo2 size={18} /></button>
         <button type="button" className={`studio-icon-btn ${focus ? 'on' : ''}`} aria-pressed={focus} onClick={() => setFocus(!focus)} disabled={!items.length} aria-label="Zoom to fit"><Scan size={18} /></button>
+        <button type="button" className={`studio-icon-btn ${clean ? 'on' : ''}`} aria-pressed={clean} onClick={() => setClean(!clean)} aria-label="Clean view for the customer: hide grid, sizes and reach"><Info size={18} /></button>
         <button type="button" className={`studio-icon-btn ${panel === 'view' ? 'on' : ''}`} onClick={() => togglePanel('view')} aria-expanded={panel === 'view'} aria-label="View options"><Layers3 size={18} /></button>
       </div>
     </header>
     <div className="studio-stage">
         <div className="studio-board-wrap">
-          <svg ref={svgRef} className="studio-svg" viewBox={viewBox} tabIndex={0} role="application" aria-label={`${roomWidth} by ${roomDepth} foot floor plan. Arrow keys move the selected piece, R turns it, Delete removes it.`}
+          <svg ref={svgRef} className={`studio-svg${clean ? ' is-clean' : ''}`} viewBox={viewBox} tabIndex={0} role="application" aria-label={`${roomWidth} by ${roomDepth} foot floor plan. Arrow keys move the selected piece, R turns it, Delete removes it.`}
             onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag} onKeyDown={onKeyDown} onPointerDown={(event) => { if (event.target === event.currentTarget || event.target.classList?.contains('fp-floor')) setSelectedId(''); }}>
             <rect className="fp-wall" x={-WALL} y={-WALL} width={room.width + WALL * 2} height={room.height + WALL * 2} />
             <rect className="fp-floor" x="0" y="0" width={room.width} height={room.height} />
@@ -435,8 +450,10 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
           {selectedItem.free && <button type="button" onClick={() => setPanel('customize')} aria-label="Customize selected piece"><Plus size={18} /> Customize</button>}
           {selectedItem.free && <button type="button" onClick={() => rotateSelected(-45)} aria-label="Turn selected piece back 45 degrees"><RotateCw size={18} style={{ transform: 'scaleX(-1)' }} /> −45°</button>}
           <button type="button" onClick={() => rotateSelected(selectedItem.free ? 45 : 90)} aria-label={selectedItem.free ? 'Turn selected piece 45 degrees' : 'Rotate selected piece 90 degrees'}><RotateCw size={18} /> {selectedItem.free ? '+45°' : 'Rotate'}</button>
+          {selectedItem.free && <button type="button" onClick={duplicateSelected} aria-label="Add another one like the selected piece"><Copy size={18} /> Duplicate</button>}
           <button type="button" className="danger" onClick={removeSelected} aria-label="Remove selected piece"><Trash2 size={18} /> Remove</button>
         </> : <span className="studio-hint">{items.length ? 'Tap a piece to turn or remove it. Drag to move.' : 'Pieces you add appear in the room at real size.'}</span>}</div>
+        {wallNote && <p className="studio-wallnote">{wallNote}</p>}
         {selectedItem?.free && <div className="studio-angle" role="group" aria-label="Angle">
           <label><span>Angle {Math.round(selectedItem.rotation)}°</span><input type="range" min="0" max="359" step="5" value={Math.round(selectedItem.rotation)} onPointerDown={() => setHistory((current) => ({ past: [...current.past.slice(-59), itemsRef.current], future: [] }))} onChange={(event) => setAngle(Number(event.target.value), false)} aria-label="Angle in degrees" /></label>
           <div>{[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => <button key={angle} type="button" className={`chip ${Math.round(selectedItem.rotation) === angle ? 'on' : ''}`} onClick={() => setAngle(angle)}>{angle}°</button>)}</div>
@@ -485,6 +502,7 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
         <div className="studio-toolbar">
       <label className="form-field"><span>Collection</span><select value={profile?.model_code || ''} onChange={(event) => setProfile(event.target.value)}>{[...new Set(profiles.map((entry) => entry.sectional_family))].map((family) => <optgroup key={family} label={family}>{profiles.filter((entry) => entry.sectional_family === family).map((entry) => <option key={entry.model_code} value={entry.model_code}>{entry.model_name} · {entry.model_code}</option>)}</optgroup>)}</select></label>
       <fieldset className="studio-room-fields"><legend>Room, feet</legend><label>Width <input type="number" inputMode="numeric" min="8" max="40" value={roomWidth} onChange={(event) => setRoomWidth(Math.max(8, Math.min(40, Number(event.target.value) || 8)))} /></label><span aria-hidden="true">×</span><label>Depth <input type="number" inputMode="numeric" min="8" max="40" value={roomDepth} onChange={(event) => setRoomDepth(Math.max(8, Math.min(40, Number(event.target.value) || 8)))} /></label></fieldset>
+      {items.length > 0 && <div className="studio-clear">{confirmClear ? <><span>Remove everything from the room?</span><button type="button" className="back-button" onClick={() => setConfirmClear(false)}>Keep it</button><button type="button" className="primary-button danger" onClick={clearRoom}>Clear room</button></> : <button type="button" className="back-button" onClick={() => setConfirmClear(true)}>Clear room</button>}</div>}
       <div className="studio-layouts" role="group" aria-label="Starting layouts"><span>Start from</span>{availablePresets.map(([key, text]) => <button key={key} type="button" className="chip" onClick={() => applyPreset(key)}>{text}</button>)}</div>
         </div>
       </aside>
@@ -494,6 +512,7 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
           <label><input type="checkbox" checked={snapEdges} onChange={() => setSnapEdges(!snapEdges)} /><span>Snap to edges</span></label>
           <label><input type="checkbox" checked={showReach} onChange={() => setShowReach(!showReach)} /><span>Show recline reach</span></label>
           <label><input type="checkbox" checked={showSizes} onChange={() => setShowSizes(!showSizes)} /><span>Show piece sizes</span></label>
+          <label><input type="checkbox" checked={clean} onChange={() => setClean(!clean)} /><span>Clean view for the customer</span></label>
         </div>
         <button type="button" className="back-button" onClick={() => window.print()}><Printer size={16} /> Print plan</button>
         {summary && <details className="studio-summary"><summary><strong>{formatInches(summary.width)} × {formatInches(summary.depth)}</strong> overall · gaps to walls</summary><span>Left {formatInches(summary.gaps.left)} · right {formatInches(summary.gaps.right)} · top {formatInches(summary.gaps.top)} · bottom {formatInches(summary.gaps.bottom)}</span></details>}

@@ -48,7 +48,7 @@ export function PlanWorkspace({ catalog, plan, setPlan, fit, onEdit, onAddLead, 
     const worth = before.lines.length > 0 || before.customer;
     const result = worth ? saveCustomer(saved, before) : null;
     if (result) setSaved(result.list);
-    setPlan({ id: '', customer: '', lines: [] });
+    setPlan({ id: '', customer: '', lines: [], layout: null });
     setConfirmClear(false);
     if (result) setUndo({ label: `${before.customer || 'This plan'} saved under Saved customers`, apply: () => setPlan(result.plan) });
   };

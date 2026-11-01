@@ -49,7 +49,7 @@ export function buildFullReport(catalog, plan, fit = null) {
   const rms = rmsEntryText(plan.lines || []);
   const companions = ordered.flatMap((line) => (line.details?.companions || []).map((item) => `${item.code}  (${item.label}, with ${line.modelName} ${line.styleCode})`));
   return {
-    customer: plan.customer || '', count: lines.reduce((sum, line) => sum + line.qty, 0), lines, covers, rms,
+    customer: plan.customer || '', layout: plan.layout || null, count: lines.reduce((sum, line) => sum + line.qty, 0), lines, covers, rms,
     companions, open: lines.flatMap((line) => line.issues.map((issue) => `#${line.number} ${line.heading}: ${issue}`)), fit,
   };
 }
