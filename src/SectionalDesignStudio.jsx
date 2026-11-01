@@ -411,7 +411,7 @@ export function SectionalDesignStudio({ catalog, onCopy, onAddToPlan = () => {},
         <button type="button" className={`studio-icon-btn ${panel === 'view' ? 'on' : ''}`} onClick={() => togglePanel('view')} aria-expanded={panel === 'view'} aria-label="View options"><Layers3 size={18} /></button>
       </div>
     </header>
-    <div className="studio-stage">
+    <div className={`studio-stage${panel ? (["customize", "review"].includes(panel) ? " panel-right" : " panel-left") : ""}`}>
         <div className="studio-board-wrap">
           <svg ref={svgRef} className={`studio-svg${clean ? ' is-clean' : ''}`} viewBox={viewBox} tabIndex={0} role="application" aria-label={`${roomWidth} by ${roomDepth} foot floor plan. Arrow keys move the selected piece, R turns it, Delete removes it.`}
             onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag} onKeyDown={onKeyDown} onPointerDown={(event) => { if (event.target === event.currentTarget || event.target.classList?.contains('fp-floor')) setSelectedId(''); }}>
