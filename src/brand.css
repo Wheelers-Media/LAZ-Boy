@@ -804,7 +804,7 @@ img.rail-logo { width: 100px; }
 /* Product Index: filter chips + card grid */
 .index-filter{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;margin:0 0 4px;scrollbar-width:none;position:sticky;top:0;z-index:3;background:var(--wash)}
 .index-filter::-webkit-scrollbar{display:none}
-.index-filter button{flex:none;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:600 14px/1 inherit;cursor:pointer}
+.index-filter button{flex:none;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-weight:600;font-size:14px;line-height:1;font-family:inherit;cursor:pointer}
 .index-filter button b{color:var(--muted);font-weight:600}
 .index-filter button.active{background:var(--brand-navy);border-color:var(--brand-navy);color:#fff}
 .index-filter button.active b{color:rgba(255,255,255,.75)}
@@ -815,7 +815,7 @@ img.rail-logo { width: 100px; }
 .index-card>summary{display:grid!important;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"tile text" "tile chips";gap:2px 14px;align-items:center;padding:14px 44px 14px 14px!important;cursor:pointer}
 .index-card>summary::after{right:16px!important}
 .index-card>summary .index-card-chips{position:static!important;transform:none!important}
-.index-tile{grid-area:tile;display:grid;place-items:center;width:54px;height:54px;border-radius:14px;background:rgba(0,56,86,.08);color:var(--brand-navy);font:700 15px/1 inherit;letter-spacing:.02em}
+.index-tile{grid-area:tile;display:grid;place-items:center;width:54px;height:54px;border-radius:14px;background:rgba(0,56,86,.08);color:var(--brand-navy);font-weight:700;font-size:15px;line-height:1;font-family:inherit;letter-spacing:.02em}
 .index-card-text{grid-area:text;display:grid;gap:2px;min-width:0}
 .index-card-text strong{font-size:16px}
 .index-card-text small{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -864,7 +864,7 @@ img.rail-logo { width: 100px; }
 .studio-switches input{width:22px;height:22px}
 .studio-full .studio-dock-body{display:grid;gap:12px;padding:0;border:0;background:none}
 .studio-dockbar{flex:none;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:6px max(10px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));background:var(--paper,#fff);border-top:1px solid var(--line,rgba(0,0,0,.1));position:relative;z-index:5}
-.studio-dock-btn{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:52px;padding:4px 6px;border:0;border-radius:14px;background:transparent;color:inherit;font:600 12px/1.1 inherit;cursor:pointer}
+.studio-dock-btn{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:52px;padding:4px 6px;border:0;border-radius:14px;background:transparent;color:inherit;font-weight:600;font-size:12px;line-height:1.1;font-family:inherit;cursor:pointer}
 .studio-dock-btn:disabled{opacity:.38;cursor:default}
 .studio-dock-btn.on{background:rgba(0,51,75,.1)}
 .studio-dock-btn.primary:not(:disabled){background:var(--brand-teal,#4cb9c9);color:#06303a}
@@ -931,8 +931,8 @@ img.rail-logo { width: 100px; }
 .sf-group{display:grid;gap:12px}
 .sf-group>h3{margin:0;font-size:18px}
 .sf-empty{margin:0;padding:18px;border-radius:14px;background:rgba(0,0,0,.04);font-size:16px}
-.sf-link{justify-self:start;min-height:48px;padding:0 4px;border:0;background:none;color:var(--brand-navy,#003349);font:600 16px/1 inherit;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
-.sf-secondary{min-height:52px;padding:0 20px;border-radius:14px;border:2px solid var(--brand-navy,#003349);background:transparent;color:var(--brand-navy,#003349);font:700 16px/1 inherit;cursor:pointer}
+.sf-link{justify-self:start;min-height:48px;padding:0 4px;border:0;background:none;color:var(--brand-navy,#003349);font-weight:600;font-size:16px;line-height:1;font-family:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.sf-secondary{min-height:52px;padding:0 20px;border-radius:14px;border:2px solid var(--brand-navy,#003349);background:transparent;color:var(--brand-navy,#003349);font-weight:700;font-size:16px;line-height:1;font-family:inherit;cursor:pointer}
 .sf-current-card{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px;border-radius:18px;background:rgba(0,51,73,.06);border:2px solid var(--brand-navy,#003349)}
 .sf-current-card>div{display:grid;gap:3px}
 .sf-current-card strong{font-size:22px}
@@ -941,8 +941,8 @@ img.rail-logo { width: 100px; }
 .sf-search:focus-within{border-color:var(--brand-navy,#003349)}
 .sf-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font-size:18px;color:inherit;min-height:56px}
 .sf-nav{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:center;position:sticky;bottom:calc(3.75rem + var(--safe-bottom,0px) + 8px);z-index:6;padding:10px;border-radius:20px;background:var(--paper,#fff);border:1px solid var(--line,rgba(0,0,0,.1));box-shadow:0 8px 28px rgba(0,0,0,.14)}
-.sf-back{display:inline-flex;align-items:center;gap:6px;min-height:56px;padding:0 18px;border-radius:14px;border:2px solid var(--line,rgba(0,0,0,.18));background:transparent;color:inherit;font:700 16px/1 inherit;cursor:pointer}
-.sf-next{min-height:56px;padding:0 20px;border:0;border-radius:14px;background:var(--brand-navy,#003349);color:#fff;font:700 17px/1.1 inherit;cursor:pointer;text-align:center}
+.sf-back{display:inline-flex;align-items:center;gap:6px;min-height:56px;padding:0 18px;border-radius:14px;border:2px solid var(--line,rgba(0,0,0,.18));background:transparent;color:inherit;font-weight:700;font-size:16px;line-height:1;font-family:inherit;cursor:pointer}
+.sf-next{min-height:56px;padding:0 20px;border:0;border-radius:14px;background:var(--brand-navy,#003349);color:#fff;font-weight:700;font-size:17px;line-height:1.1;font-family:inherit;cursor:pointer;text-align:center}
 .sf-next:disabled{opacity:.4;cursor:default}
 .sf-nav>span{display:none}
 .sf-nav:has(>span){grid-template-columns:1fr}
@@ -1468,3 +1468,53 @@ input,textarea,select{font-size:max(16px,1em)}
   .app .studio-wallnote { background: var(--paper); color: var(--brand-cream); }
 }
 @media print { .rep-layout svg { max-height: 300px; } }
+
+/* ---- Design audit, phase 1 ---- */
+/* Product Index search: one row, centred, never clipped */
+.knowledge-search { flex-wrap: nowrap; height: auto; min-height: 60px; padding-block: 6px; }
+.knowledge-search input { flex: 1 1 auto; min-width: 0; height: 48px; }
+.knowledge-search .product-index-count { white-space: nowrap; }
+.knowledge-search .hs-quiz { margin-left: 0; }
+@media (max-width: 800px) { .knowledge-search { flex-wrap: wrap; } .knowledge-search input { flex: 1 1 calc(100% - 48px); } }
+
+/* Category tiles: three across, title and list line up across a row */
+.index-launcher { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.index-launch { align-content: start; grid-template-rows: auto 1fr; padding: 16px 18px; row-gap: 8px; }
+.index-launch small { align-self: end; }
+@media (max-width: 800px) { .index-launcher { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Opaque Room Builder surfaces so pieces never show through panels */
+.studio-drawer, .studio-full .studio-selected, .studio-full .studio-notice, .studio-wallnote { background: #fff; }
+@media (min-width: 900px) {
+  .studio-stage.panel-left .studio-board-wrap { left: 420px; }
+  .studio-stage.panel-left .studio-float { left: 432px; }
+  .studio-stage.panel-right .studio-board-wrap { right: 420px; }
+  .studio-stage.panel-right .studio-float { right: 432px; }
+}
+@media (prefers-color-scheme: dark) { .studio-drawer, .studio-full .studio-selected, .studio-full .studio-notice, .studio-wallnote { background: #1c1c1e; } }
+
+/* Model page: pick a style, see it in two columns */
+.model-styles { display: grid; gap: 16px; margin-top: 8px; }
+.ms-picker { display: flex; flex-wrap: wrap; gap: 8px; }
+.ms-picker button { display: inline-flex; align-items: baseline; gap: 8px; min-height: 48px; max-width: 320px; padding: 0 16px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--brand-navy); font: inherit; font-size: 15px; cursor: pointer; }
+.ms-picker button b { font-weight: 700; }
+.ms-picker button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary, #5b5b60); font-size: 14px; }
+.ms-picker button.on { background: var(--brand-navy); border-color: var(--brand-navy); color: #fff; }
+.ms-picker button.on span { color: rgba(255, 255, 255, .82); }
+.ms-style { display: grid; gap: 14px; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+.ms-head h3 { margin: 0; font-size: 20px; color: var(--brand-navy); }
+.ms-head p, .ms-head small { margin: 4px 0 0; display: block; color: var(--text-secondary, #5b5b60); }
+.ms-cols { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px; align-items: start; }
+.ms-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+@media (max-width: 900px) { .ms-cols { grid-template-columns: minmax(0, 1fr); gap: 18px; } }
+@media (prefers-color-scheme: dark) { .app .ms-picker button, .app .ms-style { background: #2c2c2e; border-color: rgba(230, 226, 213, .2); color: var(--brand-cream); } .app .ms-head h3 { color: var(--brand-cream); } .app .ms-picker button.on { background: #4FBCCA; border-color: #4FBCCA; color: #06303a; } .app .ms-picker button.on span { color: #06303a; } }
+.index-launch-all { grid-column: 1 / -1; }
+.ms-style .sc-chips li { min-height: 0; padding: 6px 12px; line-height: 1.3; font-size: 14px; }
+.ms-style .sc-lines { font-size: 15px; gap: 4px; }
+.ms-style .style-codes { gap: 18px; margin: 0; }
+.ms-style .sc-label { font-size: 12px; opacity: .85; font-weight: 700; }
+.ms-style .sc-label .term { font: inherit; }
+.ms-style .style-more > summary { color: var(--brand-navy); font-weight: 600; cursor: pointer; min-height: 44px; display: flex; align-items: center; }
+@media (min-width: 900px) { .studio-float { bottom: 44px; } }
+.ms-style .sc-chips .term { min-height: 0; }
+.ms-style .sc-row { align-content: start; gap: 8px; }
