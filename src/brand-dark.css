@@ -235,3 +235,8 @@
 @media (prefers-color-scheme: dark) {
   .app .studio-drawer .studio-order-list code { background: rgba(230, 226, 213, .12); color: var(--brand-cream); }
 }
+
+@media (prefers-color-scheme: dark) {
+  .app .prov-tag { background: #3a3a3c; border-color: var(--dk-line); color: var(--brand-cream); }
+  .app .prov-tag.prov-dealer { background: rgba(79, 188, 202, .22); border-color: var(--dk-accent); }
+}

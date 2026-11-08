@@ -107,7 +107,10 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "86": "Slate"
+      }
     },
     {
       "coverCode": "C1525",
@@ -132,7 +135,14 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "31": "Oyster",
+        "48": "Chestnut",
+        "50": "Onyx",
+        "87": "Indigo",
+        "97": "Marine"
+      }
     },
     {
       "coverCode": "C1625",
@@ -158,7 +168,10 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "76": "Daybreak"
+      }
     },
     {
       "coverCode": "C1700",
@@ -273,7 +286,13 @@
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "86": "Indigo",
+        "58": "Slate",
+        "53": "Dove",
+        "62": "Truffle"
+      }
     },
     {
       "coverCode": "C1872",
@@ -282,7 +301,12 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "33": "Burlap",
+        "32": "Cream",
+        "52": "Cement"
+      }
     },
     {
       "coverCode": "C1882",
@@ -321,7 +345,14 @@
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "33": "Stone",
+        "55": "Smoke",
+        "64": "Taupe",
+        "68": "Mocha",
+        "86": "Navy"
+      }
     },
     {
       "coverCode": "C2029",
@@ -406,7 +437,13 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "18": "Spice",
+        "48": "Camel",
+        "53": "Fog",
+        "54": "Mineral"
+      }
     },
     {
       "coverCode": "C2053",
@@ -415,7 +452,12 @@
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "14": "Blush",
+        "76": "Mocha",
+        "87": "Indigo"
+      }
     },
     {
       "coverCode": "C2056",
@@ -424,7 +466,12 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "15": "Brandy",
+        "31": "Porcelain",
+        "82": "Slate"
+      }
     },
     {
       "coverCode": "C2067",
@@ -448,7 +495,14 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Ecru",
+        "52": "Stone",
+        "56": "Steel",
+        "64": "Sable",
+        "69": "Mocha"
+      }
     },
     {
       "coverCode": "C2119",
@@ -457,7 +511,13 @@
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Linen",
+        "52": "Nickel",
+        "55": "Stone",
+        "62": "Pebble"
+      }
     },
     {
       "coverCode": "C2120",
@@ -466,7 +526,14 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "29": "Jungle",
+        "32": "Putty",
+        "53": "Shadow",
+        "61": "Fossil",
+        "86": "Indigo"
+      }
     },
     {
       "coverCode": "C2121",
@@ -475,7 +542,13 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "52": "Mineral",
+        "67": "Flint",
+        "71": "Flax",
+        "74": "Sandstone"
+      }
     },
     {
       "coverCode": "C2122",
@@ -484,7 +557,13 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Linen",
+        "52": "Silver",
+        "63": "Taupe",
+        "67": "Mushroom"
+      }
     },
     {
       "coverCode": "D1494",
@@ -493,7 +572,11 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "15": "Currant",
+        "52": "Greystone"
+      }
     },
     {
       "coverCode": "D1564",
@@ -550,7 +633,14 @@
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "03": "Mauve",
+        "14": "Russet",
+        "46": "Sunflower",
+        "62": "Camel",
+        "98": "Teal"
+      }
     },
     {
       "coverCode": "D1706",
@@ -559,7 +649,8 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {}
     },
     {
       "coverCode": "D1759",
@@ -632,7 +723,9 @@
         "53": "Fossil",
         "59": "Smoke",
         "64": "Sand",
-        "75": "Camel"
+        "75": "Camel",
+        "52": "Platinum",
+        "58": "Twilight"
       },
       "capCode": "BU",
       "wearability": "N",
@@ -662,7 +755,12 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "34": "Linen",
+        "57": "Onyx",
+        "82": "Sky"
+      }
     },
     {
       "coverCode": "D1970",
@@ -687,7 +785,11 @@
       "capCode": "PS",
       "wearability": "P",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "49": "Caramel",
+        "72": "Driftwood"
+      }
     },
     {
       "coverCode": "D2009",
@@ -731,7 +833,12 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "31": "Linen",
+        "54": "Tusk",
+        "95": "Teal"
+      }
     },
     {
       "coverCode": "D2016",
@@ -740,7 +847,8 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {}
     },
     {
       "coverCode": "D2027",
@@ -781,7 +889,13 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "18": "Sienna",
+        "29": "Palmetto",
+        "31": "Natural",
+        "87": "Indigo"
+      }
     },
     {
       "coverCode": "D2065",
@@ -790,7 +904,11 @@
       "capCode": "UR",
       "wearability": "P",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "17": "Chestnut",
+        "24": "Sage"
+      }
     },
     {
       "coverCode": "D2066",
@@ -895,7 +1013,10 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W*B",
-      "specialtyAttributes": ["W*B"]
+      "specialtyAttributes": ["W*B"],
+      "colorNames": {
+        "38": "Sisal"
+      }
     },
     {
       "coverCode": "D2086",
@@ -904,7 +1025,12 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "06": "Blossom",
+        "31": "Muslin",
+        "75": "Jewel"
+      }
     },
     {
       "coverCode": "D2090",
@@ -913,7 +1039,10 @@
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "09": "Crimson"
+      }
     },
     {
       "coverCode": "D2092",
@@ -956,7 +1085,11 @@
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "48": "Copper",
+        "78": "Chili"
+      }
     },
     {
       "coverCode": "D2095",
@@ -996,7 +1129,14 @@
       "capCode": "DR",
       "wearability": "Medium",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "12": "Canyon",
+        "16": "Harvest",
+        "27": "Forest",
+        "32": "Linen",
+        "85": "Bluebird"
+      }
     },
     {
       "coverCode": "D2098",
@@ -1005,7 +1145,12 @@
       "capCode": "NP",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "10": "Gold",
+        "31": "Ecru",
+        "80": "Mist"
+      }
     },
     {
       "coverCode": "D2099",
@@ -1060,7 +1205,12 @@
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "11": "Desert",
+        "61": "Flax",
+        "90": "Spa"
+      }
     },
     {
       "coverCode": "D2104",
@@ -1069,7 +1219,13 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Buff",
+        "46": "Gold",
+        "86": "Jeans",
+        "90": "Mist"
+      }
     },
     {
       "coverCode": "D2106",
@@ -1078,7 +1234,14 @@
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "56": "Storm",
+        "59": "Graphite",
+        "63": "Flax",
+        "77": "Umber",
+        "86": "Indigo"
+      }
     },
     {
       "coverCode": "D2107",
@@ -1102,7 +1265,13 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Porcelain",
+        "52": "Fog",
+        "75": "Saddle",
+        "86": "Indigo"
+      }
     },
     {
       "coverCode": "D2123",
@@ -1111,7 +1280,14 @@
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "31": "Porcelain",
+        "51": "Dove",
+        "63": "Sandstone",
+        "73": "Twine",
+        "86": "Granite"
+      }
     },
     {
       "coverCode": "D2124",
@@ -1135,7 +1311,13 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "33": "Oyster",
+        "58": "Stone",
+        "64": "Pebble",
+        "73": "Twig"
+      }
     },
     {
       "coverCode": "D2126",
@@ -1144,7 +1326,13 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "33": "Sandstone",
+        "53": "Ash",
+        "74": "Pebble",
+        "78": "Multi"
+      }
     },
     {
       "coverCode": "D2127",
@@ -1153,7 +1341,12 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "18": "Rust",
+        "65": "Mink",
+        "80": "Powder"
+      }
     },
     {
       "coverCode": "D2128",
@@ -1162,7 +1355,12 @@
       "capCode": "BU",
       "wearability": "P",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "56": "Steel",
+        "69": "Pebble",
+        "75": "Pecan"
+      }
     },
     {
       "coverCode": "D2129",
@@ -1171,7 +1369,14 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "31": "Dove",
+        "34": "Natural",
+        "52": "Steel",
+        "54": "Stone",
+        "70": "Mushroom"
+      }
     },
     {
       "coverCode": "D2140",
@@ -1180,7 +1385,14 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I"]
+      "specialtyAttributes": ["I"],
+      "colorNames": {
+        "32": "Linen",
+        "60": "Wind",
+        "63": "Hemp",
+        "74": "Cocoa",
+        "83": "Lake"
+      }
     },
     {
       "coverCode": "E1537",
@@ -1208,7 +1420,13 @@
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I", "C"]
+      "specialtyAttributes": ["I", "C"],
+      "colorNames": {
+        "33": "Natural",
+        "52": "Charcoal",
+        "63": "Hemp",
+        "81": "Seaglass"
+      }
     },
     {
       "coverCode": "E1652",
@@ -1232,7 +1450,11 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I", "C"]
+      "specialtyAttributes": ["I", "C"],
+      "colorNames": {
+        "17": "Aurora",
+        "24": "Classic"
+      }
     },
     {
       "coverCode": "E1763",
@@ -1241,7 +1463,10 @@
       "capCode": "UR",
       "wearability": "P",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I", "C", "PF"]
+      "specialtyAttributes": ["I", "C", "PF"],
+      "colorNames": {
+        "15": "Autumn"
+      }
     },
     {
       "coverCode": "E1764",
@@ -1250,7 +1475,11 @@
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I", "C", "PF"]
+      "specialtyAttributes": ["I", "C", "PF"],
+      "colorNames": {
+        "53": "Smoke",
+        "94": "Mist"
+      }
     },
     {
       "coverCode": "E1785",
@@ -1259,7 +1488,13 @@
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I", "A", "PF"]
+      "specialtyAttributes": ["I", "A", "PF"],
+      "colorNames": {
+        "30": "Ivory",
+        "53": "Platinum",
+        "62": "Fawn",
+        "86": "Midnight"
+      }
     },
     {
       "coverCode": "E1790",
@@ -1268,7 +1503,11 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I", "A"]
+      "specialtyAttributes": ["I", "A"],
+      "colorNames": {
+        "36": "Granite",
+        "85": "Serenity"
+      }
     },
     {
       "coverCode": "E1815",
@@ -1277,7 +1516,12 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I", "C"]
+      "specialtyAttributes": ["I", "C"],
+      "colorNames": {
+        "17": "Poppy",
+        "66": "Stone",
+        "86": "Monaco"
+      }
     },
     {
       "coverCode": "E1820",
@@ -1286,7 +1530,15 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "14": "Copper",
+        "16": "Spice",
+        "23": "Mist",
+        "32": "Cream",
+        "59": "Espresso",
+        "87": "Indigo"
+      }
     },
     {
       "coverCode": "E1866",
@@ -1295,7 +1547,15 @@
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "08": "Brick",
+        "24": "Windsor Green",
+        "50": "Noir",
+        "54": "Carbon",
+        "72": "Linen",
+        "86": "Deep Sea"
+      }
     },
     {
       "coverCode": "E1870",
@@ -1304,7 +1564,11 @@
       "capCode": "VS",
       "wearability": "P",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "59": "Raven",
+        "68": "Taupe"
+      }
     },
     {
       "coverCode": "E1917",
@@ -1328,7 +1592,13 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "33": "Oatmeal",
+        "50": "Charcoal",
+        "52": "Mineral",
+        "86": "Indigo"
+      }
     },
     {
       "coverCode": "E2014",
@@ -1337,7 +1607,12 @@
       "capCode": "PS",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "52": "Seashell",
+        "78": "Bark",
+        "98": "Dark Teal"
+      }
     },
     {
       "coverCode": "E2036",
@@ -1362,7 +1637,14 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I"]
+      "specialtyAttributes": ["I"],
+      "colorNames": {
+        "23": "Moss",
+        "31": "Cotton",
+        "52": "Granite",
+        "62": "Marble",
+        "78": "Earth"
+      }
     },
     {
       "coverCode": "E2041",
@@ -1371,7 +1653,15 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "19": "Acorn",
+        "29": "Cypress",
+        "32": "Peyote",
+        "54": "Pebble",
+        "69": "Smoke",
+        "84": "Slate"
+      }
     },
     {
       "coverCode": "E2045",
@@ -1380,7 +1670,8 @@
       "capCode": "PS",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {}
     },
     {
       "coverCode": "E2052",
@@ -1389,7 +1680,12 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "20": "Herb",
+        "64": "Mushroom",
+        "84": "Harbor"
+      }
     },
     {
       "coverCode": "E2058",
@@ -1398,7 +1694,10 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Natural"
+      }
     },
     {
       "coverCode": "F1574",
@@ -1407,7 +1706,12 @@
       "capCode": "VS",
       "wearability": "P",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I"]
+      "specialtyAttributes": ["I"],
+      "colorNames": {
+        "73": "Antique",
+        "87": "Marble",
+        "94": "Spa"
+      }
     },
     {
       "coverCode": "F1680",
@@ -1416,7 +1720,10 @@
       "capCode": "DR",
       "wearability": "Medium",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "86": "Bluestone"
+      }
     },
     {
       "coverCode": "G1664",
@@ -1425,7 +1732,8 @@
       "capCode": "NP",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I"]
+      "specialtyAttributes": ["I"],
+      "colorNames": {}
     },
     {
       "coverCode": "G1696",
@@ -1434,7 +1742,11 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I", "C"]
+      "specialtyAttributes": ["I", "C"],
+      "colorNames": {
+        "73": "Heather",
+        "92": "Willow"
+      }
     },
     {
       "coverCode": "G1715",
@@ -1443,7 +1755,12 @@
       "capCode": "VS",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I"]
+      "specialtyAttributes": ["I"],
+      "colorNames": {
+        "17": "Brick",
+        "34": "Stone",
+        "54": "Dove"
+      }
     },
     {
       "coverCode": "G1773",
@@ -1452,7 +1769,12 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "63": "Champagne",
+        "65": "Straw",
+        "86": "Horizon"
+      }
     },
     {
       "coverCode": "H1571",
@@ -1461,7 +1783,10 @@
       "capCode": "PS",
       "wearability": "Medium",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I"]
+      "specialtyAttributes": ["I"],
+      "colorNames": {
+        "58": "Ebony"
+      }
     },
     {
       "coverCode": "H1572",
@@ -1470,7 +1795,12 @@
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I"]
+      "specialtyAttributes": ["I"],
+      "colorNames": {
+        "57": "Charcoal",
+        "86": "Indigo",
+        "92": "Mystic"
+      }
     },
     {
       "coverCode": "J1708",
@@ -1479,7 +1809,11 @@
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "44": "Harvest",
+        "65": "Winter"
+      }
     },
     {
       "coverCode": "J1819",
@@ -1488,7 +1822,11 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "85": "Cobalt",
+        "92": "Powder"
+      }
     },
     {
       "coverCode": "J1821",
@@ -1497,7 +1835,12 @@
       "capCode": "DP",
       "wearability": "P",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "18": "Spice",
+        "46": "Copper",
+        "85": "Denim"
+      }
     },
     {
       "coverCode": "J1921",
@@ -1506,7 +1849,11 @@
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "27": "Forest",
+        "23": "Earth"
+      }
     },
     {
       "coverCode": "J1923",
@@ -1515,7 +1862,13 @@
       "capCode": "PS",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "24": "Eucalyptus",
+        "44": "Honey",
+        "74": "Sand",
+        "86": "Rainstorm"
+      }
     },
     {
       "coverCode": "J1925",
@@ -1524,7 +1877,8 @@
       "capCode": "PS",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {}
     },
     {
       "coverCode": "J1959",
@@ -1533,7 +1887,10 @@
       "capCode": "PS",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "92": "Mist"
+      }
     },
     {
       "coverCode": "J1974",
@@ -1542,7 +1899,12 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "17": "Nutmeg",
+        "92": "Coastal",
+        "96": "Lakeside"
+      }
     },
     {
       "coverCode": "J1986",
@@ -1551,7 +1913,12 @@
       "capCode": "UR",
       "wearability": "P",
       "cleaningCode": "WS",
-      "specialtyAttributes": ["I"]
+      "specialtyAttributes": ["I"],
+      "colorNames": {
+        "54": "Seal",
+        "72": "Hemp",
+        "77": "Auburn"
+      }
     },
     {
       "coverCode": "J1990",
@@ -1560,7 +1927,13 @@
       "capCode": "PS",
       "wearability": "P",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "29": "Pine",
+        "70": "Barley",
+        "78": "Java",
+        "87": "Indigo"
+      }
     },
     {
       "coverCode": "J1995",
@@ -1569,7 +1942,12 @@
       "capCode": "NP",
       "wearability": "Medium",
       "cleaningCode": "W*B",
-      "specialtyAttributes": ["W*B"]
+      "specialtyAttributes": ["W*B"],
+      "colorNames": {
+        "19": "Persimmon",
+        "74": "Bark",
+        "85": "Riviera"
+      }
     },
     {
       "coverCode": "J2017",
@@ -1578,7 +1956,13 @@
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "05": "Terracotta",
+        "34": "Driftwood",
+        "58": "Granite",
+        "84": "Lake"
+      }
     },
     {
       "coverCode": "J2044",
@@ -1587,7 +1971,8 @@
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "W*B",
-      "specialtyAttributes": ["W*B"]
+      "specialtyAttributes": ["W*B"],
+      "colorNames": {}
     },
     {
       "coverCode": "J2046",
@@ -1596,7 +1981,13 @@
       "capCode": "PS",
       "wearability": "N",
       "cleaningCode": "W*B",
-      "specialtyAttributes": ["W*B"]
+      "specialtyAttributes": ["W*B"],
+      "colorNames": {
+        "32": "Flax",
+        "58": "Charcoal",
+        "65": "Oatmeal",
+        "74": "Salsa"
+      }
     },
     {
       "coverCode": "J2047",
@@ -1605,7 +1996,8 @@
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {}
     },
     {
       "coverCode": "J2048",
@@ -1614,7 +2006,15 @@
       "capCode": "PS",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "14": "Cognac",
+        "20": "Pine",
+        "30": "Natural",
+        "34": "Porcelain",
+        "41": "Barley",
+        "82": "Mist"
+      }
     },
     {
       "coverCode": "J2050",
@@ -1623,7 +2023,11 @@
       "capCode": "PS",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "54": "Iron",
+        "69": "Almond"
+      }
     },
     {
       "coverCode": "J2083",
@@ -1632,7 +2036,13 @@
       "capCode": "VS",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": ["I"]
+      "specialtyAttributes": ["I"],
+      "colorNames": {
+        "21": "Fern",
+        "33": "Desert",
+        "62": "Stone",
+        "86": "Sapphire"
+      }
     },
     {
       "coverCode": "J2085",
@@ -1641,7 +2051,14 @@
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "W*B",
-      "specialtyAttributes": ["W*B"]
+      "specialtyAttributes": ["W*B"],
+      "colorNames": {
+        "17": "Apricot",
+        "35": "Cream",
+        "59": "Soot",
+        "75": "Camel",
+        "83": "Dusty Teal"
+      }
     },
     {
       "coverCode": "J2088",
@@ -1650,7 +2067,10 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "02": "Blush"
+      }
     },
     {
       "coverCode": "J2089",
@@ -1659,7 +2079,10 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "07": "Papaya"
+      }
     },
     {
       "coverCode": "J2108",
@@ -1668,7 +2091,11 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "76": "Ochre",
+        "90": "Aloe"
+      }
     },
     {
       "coverCode": "J2109",
@@ -1677,7 +2104,11 @@
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "86": "Tapestry",
+        "90": "Silver"
+      }
     },
     {
       "coverCode": "J2110",
@@ -1686,7 +2117,12 @@
       "capCode": "VS",
       "wearability": "Medium",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "31": "Winter",
+        "81": "Fog",
+        "19": "Spice"
+      }
     },
     {
       "coverCode": "J2131",
@@ -1695,7 +2131,10 @@
       "capCode": "DR",
       "wearability": "Medium",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Oatmeal"
+      }
     },
     {
       "coverCode": "J2132",
@@ -1704,7 +2143,11 @@
       "capCode": "PS",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "25": "Earth",
+        "55": "Whale"
+      }
     },
     {
       "coverCode": "J2133",
@@ -1713,7 +2156,12 @@
       "capCode": "PS",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "08": "Mauve",
+        "36": "Cashmere",
+        "84": "Pewter"
+      }
     },
     {
       "coverCode": "J2134",
@@ -1722,7 +2170,13 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W*B",
-      "specialtyAttributes": ["W*B"]
+      "specialtyAttributes": ["W*B"],
+      "colorNames": {
+        "22": "Moss",
+        "36": "Oatmeal",
+        "67": "Cocoa",
+        "82": "Chrome"
+      }
     },
     {
       "coverCode": "J2135",
@@ -1731,7 +2185,11 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "08": "Wine",
+        "84": "Stonewash"
+      }
     },
     {
       "coverCode": "J2138",
@@ -1740,7 +2198,12 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "08": "Chai",
+        "27": "Herbal",
+        "81": "Slate"
+      }
     },
     {
       "coverCode": "M1567",
@@ -1749,7 +2212,10 @@
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I"]
+      "specialtyAttributes": ["I"],
+      "colorNames": {
+        "63": "Industrial"
+      }
     },
     {
       "coverCode": "N1791",
@@ -1758,7 +2224,10 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I", "A"]
+      "specialtyAttributes": ["I", "A"],
+      "colorNames": {
+        "84": "Breeze"
+      }
     },
     {
       "coverCode": "Q1912",
@@ -1767,7 +2236,13 @@
       "capCode": "BU",
       "wearability": "P",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I", "PF", "N"]
+      "specialtyAttributes": ["I", "PF", "N"],
+      "colorNames": {
+        "32": "Flint",
+        "57": "Iron",
+        "73": "Tusk",
+        "75": "Chestnut"
+      }
     },
     {
       "coverCode": "Q1941",
@@ -1776,7 +2251,13 @@
       "capCode": "DR",
       "wearability": "P",
       "cleaningCode": "W",
-      "specialtyAttributes": ["I", "PF", "N"]
+      "specialtyAttributes": ["I", "PF", "N"],
+      "colorNames": {
+        "52": "Twilight",
+        "54": "Charcoal",
+        "61": "Linen",
+        "64": "Camel"
+      }
     },
     {
       "coverCode": "Q1977",
@@ -1785,7 +2266,11 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W*B",
-      "specialtyAttributes": ["W*B"]
+      "specialtyAttributes": ["W*B"],
+      "colorNames": {
+        "15": "Autumn",
+        "26": "Botany"
+      }
     },
     {
       "coverCode": "Q1992",
@@ -1794,7 +2279,10 @@
       "capCode": "PS",
       "wearability": "Medium",
       "cleaningCode": "WS",
-      "specialtyAttributes": ["C"]
+      "specialtyAttributes": ["C"],
+      "colorNames": {
+        "81": "Sky"
+      }
     },
     {
       "coverCode": "Q1993",
@@ -1803,7 +2291,12 @@
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "W*B",
-      "specialtyAttributes": ["W*B"]
+      "specialtyAttributes": ["W*B"],
+      "colorNames": {
+        "49": "Caramel",
+        "57": "Steel",
+        "64": "Taupe"
+      }
     },
     {
       "coverCode": "Q1994",
@@ -1812,7 +2305,8 @@
       "capCode": "UR",
       "wearability": "N",
       "cleaningCode": "W*B",
-      "specialtyAttributes": ["W*B"]
+      "specialtyAttributes": ["W*B"],
+      "colorNames": {}
     },
     {
       "coverCode": "Q1996",
@@ -1821,7 +2315,13 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "16": "Spice",
+        "51": "Linen",
+        "74": "Tobacco",
+        "87": "Steel"
+      }
     },
     {
       "coverCode": "Q2059",
@@ -1830,7 +2330,10 @@
       "capCode": "NP",
       "wearability": "N",
       "cleaningCode": "WS",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Oyster"
+      }
     },
     {
       "coverCode": "Q2080",
@@ -1839,7 +2342,11 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "32": "Natural",
+        "65": "Smoke"
+      }
     },
     {
       "coverCode": "Q2087",
@@ -1848,7 +2355,13 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "05": "Rouge",
+        "19": "Rust",
+        "24": "Sage",
+        "58": "Antique"
+      }
     },
     {
       "coverCode": "Q2114",
@@ -1857,7 +2370,11 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "S",
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "44": "Sisal",
+        "75": "Amber"
+      }
     },
     {
       "coverCode": "Q2139",
@@ -1866,7 +2383,11 @@
       "capCode": "DR",
       "wearability": "N",
       "cleaningCode": "W*B",
-      "specialtyAttributes": ["W*B"]
+      "specialtyAttributes": ["W*B"],
+      "colorNames": {
+        "61": "Taupe",
+        "86": "Slate"
+      }
     }
   ],
   "leathers": [
@@ -2193,7 +2714,9 @@
       "models": ["810 Quinault"],
       "specialtyAttributes": [],
       "colorNames": {
-        "79": "Dark Chocolate"
+        "79": "Dark Chocolate",
+        "19": "Chestnut",
+        "29": "Olive"
       }
     },
     {
@@ -2276,7 +2799,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["757 Apollo"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "68": "Slate",
+        "76": "Chestnut"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -2304,7 +2831,8 @@
       "specialtyAttributes": [],
       "colorNames": {
         "76": "Chocolate",
-        "79": "Slate"
+        "79": "Slate",
+        "31": "Ice"
       }
     },
     {
@@ -2315,7 +2843,11 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["826 Sammy"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "59": "Coal",
+        "79": "Moreno"
+      }
     },
     {
       "group": "Select Leather Reclining",
@@ -2326,7 +2858,8 @@
       "leatherType": "Authentic",
       "models": ["828 Dutton"],
       "specialtyAttributes": [],
-      "notes": ["The pattern name is spelled Rythmic in the master sheet and Rhythmic on the one-page list."]
+      "notes": ["The pattern name is spelled Rythmic in the master sheet and Rhythmic on the one-page list."],
+      "colorNames": {}
     },
     {
       "group": "Select Leather Reclining",
@@ -2337,7 +2870,11 @@
       "leatherType": "Authentic",
       "models": ["A86 Ovation"],
       "specialtyAttributes": [],
-      "notes": ["The model is written A86 Ovation in the source."]
+      "notes": ["The model is written A86 Ovation in the source."],
+      "colorNames": {
+        "59": "Slate",
+        "76": "Pecan"
+      }
     },
     {
       "group": "Select Leather Stationary",
@@ -2363,7 +2900,14 @@
       "capCode": "LM",
       "leatherType": "Authentic",
       "models": ["Any LM cap code"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "58": "Coal",
+        "63": "Stonewash",
+        "73": "Butternut",
+        "78": "Chocolate",
+        "86": "Blue"
+      }
     },
     {
       "group": "Custom Leather Match",
@@ -2373,7 +2917,16 @@
       "capCode": "LM",
       "leatherType": "Performance",
       "models": ["Any LM cap code"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "07": "Wine",
+        "09": "Pomegranate",
+        "31": "Oyster",
+        "36": "Marshmallow",
+        "50": "Licorice",
+        "51": "Dusty",
+        "54": "Putty"
+      }
     },
     {
       "group": "Custom Leather Match",
@@ -2383,7 +2936,14 @@
       "capCode": "LM",
       "leatherType": "Performance",
       "models": ["Any LM cap code"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "56": "Grey",
+        "76": "Walnut",
+        "87": "Blueberry",
+        "90": "Seafoam",
+        "98": "Arctic Blue"
+      }
     },
     {
       "group": "Custom Leather Plus",
@@ -2393,7 +2953,10 @@
       "capCode": "LL",
       "leatherType": "Nubuck",
       "models": ["Any LL cap code"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "74": "Camel"
+      }
     },
     {
       "group": "Custom Leather Plus",
@@ -2403,7 +2966,14 @@
       "capCode": "LL",
       "leatherType": "Authentic",
       "models": ["Any LL cap code"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "51": "Platinum",
+        "58": "Charcoal",
+        "65": "Clay",
+        "74": "Cinnamon",
+        "75": "Chocolate"
+      }
     },
     {
       "group": "Custom Leather Plus",
@@ -2413,7 +2983,13 @@
       "capCode": "LL",
       "leatherType": "Authentic",
       "models": ["Any LL cap code"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "59": "Ash",
+        "73": "Russet",
+        "77": "Dark Brown",
+        "86": "Marine"
+      }
     },
     {
       "group": "Custom Leather Plus",
@@ -2423,7 +2999,15 @@
       "capCode": "LL",
       "leatherType": "Authentic",
       "models": ["Any LL cap code"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "07": "Rouge",
+        "59": "Otter",
+        "63": "Stone",
+        "72": "Barley",
+        "75": "Khaki",
+        "77": "Sepia"
+      }
     },
     {
       "group": "Custom Leather Plus",
@@ -2433,7 +3017,13 @@
       "capCode": "LL",
       "leatherType": "Authentic",
       "models": ["Any LL cap code"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "51": "Dove Grey",
+        "59": "Otter",
+        "75": "Chestnut",
+        "98": "Ocean"
+      }
     },
     {
       "group": "Custom Leather Plus",
@@ -2443,7 +3033,16 @@
       "capCode": "LL",
       "leatherType": "Performance",
       "models": ["Any LL cap code"],
-      "specialtyAttributes": []
+      "specialtyAttributes": [],
+      "colorNames": {
+        "28": "Hunter",
+        "30": "White",
+        "32": "Ivory",
+        "50": "Ebony",
+        "53": "Gray",
+        "65": "Cobblestone",
+        "82": "Powder Blue"
+      }
     },
     {
       "group": "Custom Leather Plus",
@@ -2454,7 +3053,13 @@
       "leatherType": "Performance",
       "models": ["Any LL cap code"],
       "specialtyAttributes": [],
-      "notes": ["The one-page list shows this Samba set as 08 17 26 42 62 87 96. The master sheet shows 17 26 87 96."]
+      "notes": ["The one-page list shows this Samba set as 08 17 26 42 62 87 96. The master sheet shows 17 26 87 96."],
+      "colorNames": {
+        "17": "Cognac",
+        "26": "Sage",
+        "87": "Ultramarine",
+        "96": "Aqua"
+      }
     },
     {
       "group": "Specialty Leather",
@@ -2464,7 +3069,14 @@
       "capCode": "LL",
       "leatherType": "Performance",
       "models": ["Any LL cap code"],
-      "specialtyAttributes": ["I"]
+      "specialtyAttributes": ["I"],
+      "colorNames": {
+        "36": "Moonbeam",
+        "58": "Charcoal",
+        "75": "Cinnamon",
+        "78": "Coffee",
+        "86": "Midnight Blue"
+      }
     },
     {
       "group": "Specialty Leather",
@@ -2474,7 +3086,15 @@
       "capCode": "LL",
       "leatherType": "Authentic",
       "models": ["Any LL cap code"],
-      "specialtyAttributes": ["A"]
+      "specialtyAttributes": ["A"],
+      "colorNames": {
+        "36": "Stonewash",
+        "54": "Light Grey",
+        "58": "Storm",
+        "77": "Chocolate",
+        "84": "Haze",
+        "87": "Dark Blue"
+      }
     },
     {
       "group": "Specialty Leather",
@@ -2484,7 +3104,16 @@
       "capCode": "LL",
       "leatherType": "Performance",
       "models": ["Any LL cap code"],
-      "specialtyAttributes": ["I"]
+      "specialtyAttributes": ["I"],
+      "colorNames": {
+        "08": "Burgundy",
+        "55": "Grey",
+        "59": "Carbon",
+        "63": "Ash",
+        "73": "Oak",
+        "77": "Brown",
+        "84": "Granite Grey"
+      }
     },
     {
       "group": "Specialty Leather",
@@ -2494,7 +3123,15 @@
       "capCode": "LL",
       "leatherType": "Authentic",
       "models": ["Any LL cap code"],
-      "specialtyAttributes": ["I"]
+      "specialtyAttributes": ["I"],
+      "colorNames": {
+        "25": "Olive",
+        "29": "Envy",
+        "31": "Ivory",
+        "49": "Tan",
+        "76": "Toffee",
+        "86": "Midnight"
+      }
     },
     {
       "group": "Specialty Leather",
@@ -2504,7 +3141,13 @@
       "capCode": "LL",
       "leatherType": "Authentic",
       "models": ["Any LL cap code"],
-      "specialtyAttributes": ["A"]
+      "specialtyAttributes": ["A"],
+      "colorNames": {
+        "73": "Oak",
+        "75": "Saddle",
+        "77": "Brown",
+        "79": "Walnut"
+      }
     }
   ],
   "priorSeason": {

@@ -1543,3 +1543,10 @@ input,textarea,select{font-size:max(16px,1em)}
 /* Tablets: answer cards pair up (2x2) instead of leaving one alone; dock bar keeps all five actions on one row */
 .fitq-group { grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
 @media (max-width: 899px) { .studio-dockbar { grid-template-columns: repeat(5, 1fr); } }
+
+/* Provenance tags on the Canadian floor guide and care procedures */
+.prov-tag{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;border:1px solid var(--brand-storm,#D5CFC7);background:var(--brand-cream-40,#F5F3EE);color:var(--brand-navy,#112f4e);font-size:max(12px,.75rem);font-weight:500;vertical-align:middle;white-space:nowrap}
+.prov-tag.prov-dealer{background:var(--brand-sky-40,#E0F3F8);border-color:var(--brand-sea,#4FBCCA)}
+.prov-tag.prov-corporate-us{background:var(--brand-cream-60,#F0EEE6)}
+.care-procedures ol{margin:8px 0 8px 20px;padding:0}
+.care-procedures li{margin:4px 0}

@@ -4,6 +4,7 @@ import React, { useMemo, useState } from 'react';
 import { Droplets, Search, Shield, Sparkles } from './icons.jsx';
 import { getCoverReach, swatchImageFor } from './logic.js';
 import { SwatchTile } from './CoverPicker.jsx';
+import { CareProcedures } from './CanadaGuide.jsx';
 
 const TABS = ['Fabrics', 'Leather', 'Care guide'];
 const WEAR = { N: 'Normal', P: 'Performance', Medium: 'Medium duty' };
@@ -62,6 +63,7 @@ function CareGuide({ catalog, definitions }) {
   const styleRows = (catalog.style_index_2026?.styles || []).filter((row) => row.kind === 'style');
   const capRows = ['DR', 'UR', 'DP', 'NP', 'PS', 'UE', 'VS', 'BU', 'RL', 'LL', 'LM', 'LS'].map((code) => ({ code, name: CAP_NAMES[code] || '', covers: covers.filter((item) => item.capCode === code).length, styles: styleRows.filter((row) => row.capCodes.includes(code)).length }));
   return <div className="care-guide">
+    <CareProcedures care={catalog.canada_guide_2026?.care} />
     <section className="card"><h2><Droplets size={17} /> Cleaning codes</h2>
       <dl>{Object.entries(definitions.cleaningCodes || {}).map(([code, name]) => { const detail = cleaning.find((item) => item.code === code || (code === 'WS' && item.code === 'W-S')); return <div key={code}><dt>{code}</dt><dd><strong>{name}</strong>{detail?.instruction ? ` · ${detail.instruction}` : ''}</dd></div>; })}</dl>
     </section>
