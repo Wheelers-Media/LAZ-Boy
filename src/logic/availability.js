@@ -20,7 +20,14 @@ export function classifyCode(input) {
   return { kind: 'unknown', code };
 }
 
-export function checkStyleCode(availability, code, styleIndex) {
+/** Index the Summer/Fall 2025 reference (public/catalog-2025-reference.json) by style number. */
+export function buildReference2025(reference) {
+  const byStyle = new Map();
+  for (const row of reference?.styles || []) byStyle.set(row.s, [...(byStyle.get(row.s) || []), row]);
+  return { byStyle, prefixes: reference?.prefixes || {}, catalogs: reference?._meta?.catalogs || {} };
+}
+
+export function checkStyleCode(availability, code, styleIndex, reference2025) {
   const norm = clean(code);
   const listed = availability.styles.has(norm);
   const soon = availability.comingSoon.has(norm);
@@ -36,6 +43,9 @@ export function checkStyleCode(availability, code, styleIndex) {
     appName: known?.name || '',
     appFamily: known?.family || '',
     prefixInApp: prefixKnown,
+    prefixDefinition: reference2025?.prefixes?.[prefix]?.def || '',
+    prefixSection: reference2025?.prefixes?.[prefix]?.section || '',
+    in2025: (reference2025?.byStyle?.get(norm) || []).map((row) => ({ name: row.n, type: row.t, dims: row.d, catalog: reference2025.catalogs[row.c] || row.c, page: row.p, wql: Boolean(row.wql), new: Boolean(row.new), in26: row.in26 })),
   };
 }
 
@@ -58,12 +68,12 @@ export function checkCoverCode(availability, code, program, swatchIndexHas) {
 }
 
 /** Prefixes on the available list that the app's style index has no record for, with how many listed codes use each. */
-export function prefixGaps(availability, styleIndex) {
+export function prefixGaps(availability, styleIndex, reference2025) {
   const known = new Set((styleIndex || []).map((row) => row.prefix));
   const counts = new Map();
   for (const code of availability.styles) {
     const prefix = code.slice(0, 3);
     if (!known.has(prefix)) counts.set(prefix, (counts.get(prefix) || 0) + 1);
   }
-  return [...counts].map(([prefix, count]) => ({ prefix, count })).sort((a, b) => b.count - a.count || a.prefix.localeCompare(b.prefix));
+  return [...counts].map(([prefix, count]) => ({ prefix, count, definition: reference2025?.prefixes?.[prefix]?.def || '' })).sort((a, b) => b.count - a.count || a.prefix.localeCompare(b.prefix));
 }

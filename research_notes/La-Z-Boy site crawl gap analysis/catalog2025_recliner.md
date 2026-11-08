@@ -9,12 +9,12 @@ Source: https://view.publitas.com/la-z-boy/recliner-collection-catalog-summer-fa
 - Text-layer limits (so not invented): (1) Table of Contents bullets (Rocker/Wall, Swivel Glider, Power Recliner, Lift Chair, Massage Chair, Fabric, Leather columns, fp 5-8) lost their column alignment, so per-style bullet assignment is not recoverable; (2) the Warranty table (fp 9) bullets lost their 1/3/5-year column alignment; (3) lift-chair "Features" icon labels (fp 14,16,18,20,52,54,55) are listed but the text layer cannot show which are active vs greyed; (4) swatch colour names are in a separate text run from swatch codes, so code-to-name pairing was not reconstructed (codes are listed per page in the JSON only as the cover collections; swatch codes counted but not tabulated); (5) fp 62 Colby row has odd "duo Reclining Chair" with a registered mark split onto a separate line; (6) the page graphic of a few pages (e.g. fp 14/16 "1PL is stocked in ...") was parsed from fragmented text and is reproduced as read.
 - **Edition mismatch:** this catalog is the (US-style) Summer/Fall 2025 catalog; the app holds the Summer/Fall 2026 / April 2026 Canadian guide data. Differences are therefore "changed/discontinued/added in 2026", not necessarily app errors.
 
-**Counts:** 219 style-prefix rows across 47 model numbers (47 recliner/lift models + 2 duo chairs counted in the 47); 3 marked NEW (725 Sherman, 803 Cade, 804 Belmont), 6 marked WQL (754 Talladega, 773 Soren, 775 Mateo, 783 Aries, 521-James silver lift 4LP-521 header "WQL"; plus the Style Index flags). Style prefix codes appear as `PFX-MODEL` in the catalog; app `styleNumber` is `PFXMODEL`.
+**Counts:** 219 style-prefix rows across 47 model numbers (45 recliner/lift models + 2 duo chairs, Colby 893 and Bennett 899); 3 marked NEW (725 Sherman, 803 Cade, 804 Belmont), 5 marked WQL at style level (754 Talladega, 773 Soren, 775 Mateo, 783 Aries, and the James Silver lift page "521 JAMES WQL | POWER LIFT" = 4LP-521); individual cover swatches are also flagged WQL on fp 13, 29, 33, 40, 44, 46, 53 (specific swatch pairing not recoverable from the text layer). Style prefix codes appear as `PFX-MODEL` in the catalog; app `styleNumber` is `PFXMODEL`.
 
 Headline results:
-- 26 style rows (5 models + 1 lift SKU) are in the 2025 catalog but **absent from the app 2026 recliner catalog and style index**: Talladega 754, Soren 773, Mateo 775, Hawthorn 780, Aries 783 and James Silver lift 4LP-521 -> treat as changed/discontinued in 2026 (four are marked WQL in 2025; Hawthorn is not).
-- 193 rows match an app model/prefix. Of these, 83 have different dimensions in the app (mostly power-recliner width/depth/height revised) and 171 have option-code differences (the app adds `FN` and drops `LT` on power prefixes, etc.).
-- 2025 cover collections differ from the app 2026 list on 26 of 49 models (see C3).
+- 26 style rows (5 models + 1 lift SKU) are in the 2025 catalog but **absent from the app 2026 recliner catalog and style index**: Talladega 754, Soren 773, Mateo 775, Hawthorn 780, Aries 783 and James Silver lift 4LP-521 -> treat as changed/discontinued in 2026 (all but Hawthorn are marked WQL in 2025).
+- 193 of 219 rows match an app model/prefix. Of these, 83 have different dimensions in the app (mostly power-recliner width/depth/height revised) and 171 have option-code differences (the app adds `FN` and drops `LT` on power prefixes, etc.).
+- 2025 cover collections differ from the app 2026 list on 24 of the 42 matched models (see C3); 42 of the 47 models are in the app recliner catalog (the 5 absent are the A1 models).
 - Option codes `TF`, `Z5`, `ZB` and the lift Silver-series prefix `4LP` (in rec/motion prefix definitions) have no definition in the app data files checked.
 
 ---
@@ -46,7 +46,6 @@ Notes: James **4LP-521** = "Silver Power Lift Recliner", 43.5"H x 40"W x 39.5"D,
 | Prefixes `P9D`, `P9E`, `640` | duo Power Reclining Loveseat prefixes / Extra-Long Sofa (stationary sections of prefix list) | fp 3 | not in recliner or motion prefix definitions; `90M` (Armless Middle) only in `catalog_data-v2.json` |
 | Catalog prefix-list entries only in 2025 print | "NEW BELMONT in LB192976" (fp 2), "NEW SHILOH in D207432" (fp 3), "NEW AUDREY in FL207829" (fp 9) | fp 2, 3, 9 | Belmont, Shiloh, Audrey models are present in app (see `_app_inventory.md`); the cover-number references are a 2025 promotional note only |
 | Lift-chair spec block (Wall proximity / Seat scale / Lift capacity / stocked cover) | Per lift SKU, see A3 | fp 14, 16, 18, 20, 52, 54, 55 | Lift capacity and zero gravity appear in app lift `features`; "Seat scale" (Full/Standard/Small) and wall-proximity inches are not in style records (wall proximity/lift capacity only in `mechanism-guide-2026.json`) |
-| Finish `041` Graphite shown as optional for duo | fp 62, 63 and fp 61 | | present in app (glossary, recliner-catalog finishes) |
 
 ### A3. Power lift specs printed in 2025 (reference for the gap above)
 
@@ -300,7 +299,7 @@ Models with **no** row in either PDF list: 502, 700, 704, 706, 709, 712, 715, 71
 | P94 | FN | Z5 | 1 | P94893 |
 | P94 | FN, LT | Z5 | 1 | P94899 |
 
-Reading: (a) `FN` (non-standard wood finish, entered "FN 021") is a 2026 addition on nearly all manual/power rows; in 2025 only Sherman 725, Cade 803 and Belmont 804 carry `FN`. (b) `LT` (left-hand power activator) is listed on 2025 power rows (10U/10X/16X, P10/P16) but absent from the app 2026 lists for 10U/10X/16X (and replaced by `RW` on Cade 10U/10X). (c) Specific 2025-only differences: 700 Wynne 016-700 prints `LE LS` with a missing comma (`LE LS`), app has LS, SW; 804 Belmont 010-804 omits `SW` in 2025 (app adds SW); Duo P94-893 Colby 2025 options `LT, Z5` vs app (FN, no Z5/LT?) and P94-899 Bennett `Z5` vs app `FN, LT`. (d) Several models have no `ES`/`SW`/`LS` by design: Summit 776/777, Soren 773 (no FS), Talladega/Aries (`TF` instead of `FS`).
+Reading: (a) `FN` (non-standard wood finish, entered "FN 021") is a 2026 addition on nearly all manual/power rows; in 2025 only Sherman 725, Cade 803 and Belmont 804 carry `FN`. (b) `LT` (left-hand power activator) is listed on 2025 power rows (10U/10X/16X, P10/P16) but absent from the app 2026 lists for 10U/10X/16X (Cade 10U/10X: app adds `RW`, which 2025 does not list). (c) Specific 2025-only differences: 700 Wynne 016-700 prints `LE LS` with a missing comma (`LE LS`), app has LS, SW; 804 Belmont 010-804 omits `SW` in 2025 (app adds SW); Duo P94-893 Colby: 2025 options `LT, Z5`, app `FN, LT`; P94-899 Bennett: 2025 option `Z5` only, app `FN, LT` (Z5 not in app). (d) Several models have no `ES`/`SW`/`LS` by design: Summit 776/777, Soren 773 (no FS), Talladega/Aries (`TF` instead of `FS`).
 
 ### C3. Cover collection programs differ (2025 vs app `cover_collections`)
 
@@ -349,7 +348,7 @@ Reading: (a) `FN` (non-standard wood finish, entered "FN 021") is a 2026 additio
 | 893 | Colby | C1700 - Nico | Nico | same |
 | 899 | Bennett | B1808 - Social Club, D2030 - Howell | Social Club | DIFF |
 
-General note: some 2025 collection names are carried over (e.g. Kemet, Damon, Donegal, Nora, Topflight, Social Club, Tiago, Seamount), others are replaced in 2026 (e.g. Seasons -> Cosdrew, Persia, Playlist/Roberto replace Salvo, Ollie/Helix/Rogue -> Defender/i-Favorite). Swatch-colour codes: 476 of 521 swatch codes printed in this catalog were found as literal strings in `swatch-manifest.json`, `fabric-cover-program-a26.json` or `april-2026-model-cover-applications.json`; Finley 747 is the most changed (only 3 of 12 codes found).
+General note: many 2025 collection names are carried over (e.g. Kemet, Damon, Donegal, Nora, Topflight, Social Club, Tiago, Seamount, Outlier). Others in the 2025 print have no counterpart in the app list for that model (e.g. 2025 Persia, Seasons, Salvo on Greyson, Ollie/Helix/Rogue on Finley); the app lists different collections instead (e.g. Cosdrew, Playlist, Roberto, Defender, i-Favorite). The tables list differences only; no one-to-one replacement is asserted. Swatch-colour codes: 476 of 521 swatch codes printed in this catalog were found as literal strings in `swatch-manifest.json`, `fabric-cover-program-a26.json` or `april-2026-model-cover-applications.json`; Finley 747 is the most changed (only 3 of 12 codes found).
 
 ### C4. Lift-chair stocked covers and attributes (2025 vs app `style-index-2026`)
 

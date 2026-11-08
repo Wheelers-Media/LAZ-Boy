@@ -53,3 +53,28 @@ test('prefix gaps only list prefixes the style index has no record for', () => {
   assert.ok(gaps.length > 40);
   for (const gap of gaps) assert.ok(!known.has(gap.prefix), gap.prefix);
 });
+
+import { buildReference2025 } from '../src/logic/availability.js';
+const reference = buildReference2025(await read('catalog-2025-reference.json'));
+
+test('a style printed in the 2025 catalogs is described from there, and flagged when 2026 lacks it', () => {
+  const kirby = checkStyleCode(availability, '620-60D', styleIndex, reference);
+  assert.ok(kirby.in2025.length >= 1, 'Kirby 620-60D is in the 2025 stationary catalog');
+  assert.equal(kirby.in2025[0].in26, false);
+  assert.match(kirby.in2025[0].catalog, /Stationary/);
+});
+
+test('prefix meanings from the 2025 motion catalog fill in unknown prefixes', () => {
+  const gaps = prefixGaps(availability, styleIndex, reference);
+  assert.ok(gaps.some((gap) => gap.definition), 'at least one missing prefix gets a meaning');
+  assert.match(checkStyleCode(availability, '4LP521', styleIndex, reference).prefixDefinition, /Silver Power Lift/);
+  // Most prefixes on the supplied list are not defined in any 2025 catalog; those stay blank rather than guessed.
+  assert.equal(checkStyleCode(availability, '44P726', styleIndex, reference).prefixDefinition, '');
+});
+
+test('the 2025 reference keeps every style from all four catalogs and the printed prefix list', async () => {
+  const ref = await read('catalog-2025-reference.json');
+  for (const key of ['R', 'M', 'S', 'D']) assert.ok(ref.styles.some((row) => row.c === key), key);
+  assert.ok(Object.keys(ref.prefixes).length > 100);
+  assert.match(ref._meta.note, /not the app's 2026 data/);
+});
