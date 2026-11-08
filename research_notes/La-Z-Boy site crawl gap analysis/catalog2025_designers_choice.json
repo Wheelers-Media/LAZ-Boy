@@ -1,0 +1,2242 @@
+{
+ "source": "https://view.publitas.com/la-z-boy/designers-choice-collection-catalog-summer-fall-2025/page/1",
+ "edition": "Designer's Choice Collection Summer/Fall 2025",
+ "footer": "(c) 2025 La-Z-Boy Incorporated - 07/2025 - CA0314",
+ "extraction": "Publitas viewer pages are image-only; text taken from the flipbook's PDF download (44 PDF pages) via Firecrawl PDF parser. Printed catalog pages 1-29 and 32-33 hold model pages; 30-31 hold the second Options/Finish Options spread.",
+ "style_records": [
+  {
+   "style_number": "024-205",
+   "app_style_number": "024205",
+   "model_code": "205",
+   "model_name": "Cory",
+   "type": "Ottoman",
+   "dims_raw": "20\"H X 45\"W X 26\"D",
+   "height_in": 20.0,
+   "width_in": 45.0,
+   "depth_in": 26.0,
+   "options": [
+    "N/A"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL"
+    ]
+   },
+   "finish_standard": "N/A",
+   "finish_optional": [],
+   "finish_footnote": "",
+   "page": 1,
+   "new": false,
+   "notes": [
+    "ADDITIONAL STORAGE callout",
+    "024-205 shown in discontinued cover"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "024-225",
+   "app_style_number": "024225",
+   "model_code": "225",
+   "model_name": "Roundabout",
+   "type": "Ottoman",
+   "dims_raw": "18\"H X 35\"W X 35\"D",
+   "height_in": 18.0,
+   "width_in": 35.0,
+   "depth_in": 35.0,
+   "options": [
+    "N/A"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL"
+    ]
+   },
+   "finish_standard": "N/A",
+   "finish_optional": [],
+   "finish_footnote": "",
+   "page": 2,
+   "new": false,
+   "notes": [
+    "TUFT DETAIL ON TOP callout",
+    "shown in E186672"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [],
+   "in_pdf_codes": true
+  },
+  {
+   "style_number": "245-301",
+   "app_style_number": "245301",
+   "model_code": "301",
+   "model_name": "Oliver",
+   "type": "Ottoman",
+   "dims_raw": "18\"H X 39.5\"W X 39.5\"D",
+   "height_in": 18.0,
+   "width_in": 39.5,
+   "depth_in": 39.5,
+   "options": [
+    "N/A"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "N/A",
+   "finish_optional": [],
+   "finish_footnote": "",
+   "page": 3,
+   "new": false,
+   "notes": [
+    "ADDITIONAL STORAGE callout",
+    "shown in FL202651"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "024-30A",
+   "app_style_number": "02430A",
+   "model_code": "30A",
+   "model_name": "Leo",
+   "type": "Ottoman",
+   "dims_raw": "21.5\"H X 22.5\"W X 22.5\"D",
+   "height_in": 21.5,
+   "width_in": 22.5,
+   "depth_in": 22.5,
+   "options": [
+    "4C"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041",
+    "071"
+   ],
+   "finish_footnote": "",
+   "page": 4,
+   "new": false,
+   "notes": [
+    "ADDITIONAL STORAGE callout",
+    "shown in D179787"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "4C",
+    "FN"
+   ],
+   "in_pdf_codes": true
+  },
+  {
+   "style_number": "225-400",
+   "app_style_number": "225400",
+   "model_code": "400",
+   "model_name": "Dora",
+   "type": "Swivel Gliding Chair",
+   "dims_raw": "41.5\"H X 34.5\"W X 38\"D",
+   "height_in": 41.5,
+   "width_in": 34.5,
+   "depth_in": 38.0,
+   "options": [
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041*",
+    "071*"
+   ],
+   "finish_footnote": "*Finish option available on prefixes 235 and 245 only",
+   "page": 5,
+   "new": false,
+   "notes": [
+    "235/245-400 shown in discontinued cover"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "235-400",
+   "app_style_number": "235400",
+   "model_code": "400",
+   "model_name": "Dora",
+   "type": "Chair",
+   "dims_raw": "41.5\"H X 34.5\"W X 37.5\"D",
+   "height_in": 41.5,
+   "width_in": 34.5,
+   "depth_in": 37.5,
+   "options": [
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041*",
+    "071*"
+   ],
+   "finish_footnote": "*Finish option available on prefixes 235 and 245 only",
+   "page": 5,
+   "new": false,
+   "notes": [
+    "235/245-400 shown in discontinued cover"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "245-400",
+   "app_style_number": "245400",
+   "model_code": "400",
+   "model_name": "Dora",
+   "type": "Ottoman",
+   "dims_raw": "20\"H X 29\"W X 23.5\"D",
+   "height_in": 20.0,
+   "width_in": 29.0,
+   "depth_in": 23.5,
+   "options": [
+    "N/A"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041*",
+    "071*"
+   ],
+   "finish_footnote": "*Finish option available on prefixes 235 and 245 only",
+   "page": 5,
+   "new": false,
+   "notes": [
+    "235/245-400 shown in discontinued cover"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "225-401",
+   "app_style_number": "225401",
+   "model_code": "401",
+   "model_name": "Allegra",
+   "type": "Swivel Gliding Chair",
+   "dims_raw": "36\"H X 34\"W X 35\"D",
+   "height_in": 36.0,
+   "width_in": 34.0,
+   "depth_in": 35.0,
+   "options": [
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL"
+    ]
+   },
+   "finish_standard": "021",
+   "finish_optional": [
+    "007",
+    "041*"
+   ],
+   "finish_footnote": "*Finish option available on prefixes 235 and 245 only",
+   "page": 6,
+   "new": false,
+   "notes": [
+    "shown in C158431"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "235-401",
+   "app_style_number": "235401",
+   "model_code": "401",
+   "model_name": "Allegra",
+   "type": "Chair",
+   "dims_raw": "35.5\"H X 34\"W X 34\"D",
+   "height_in": 35.5,
+   "width_in": 34.0,
+   "depth_in": 34.0,
+   "options": [
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL"
+    ]
+   },
+   "finish_standard": "021",
+   "finish_optional": [
+    "007",
+    "041*"
+   ],
+   "finish_footnote": "*Finish option available on prefixes 235 and 245 only",
+   "page": 6,
+   "new": false,
+   "notes": [
+    "shown in C158431"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "245-401",
+   "app_style_number": "245401",
+   "model_code": "401",
+   "model_name": "Allegra",
+   "type": "Ottoman",
+   "dims_raw": "19\"H X 27.5\"W X 23\"D",
+   "height_in": 19.0,
+   "width_in": 27.5,
+   "depth_in": 23.0,
+   "options": [
+    "N/A"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL"
+    ]
+   },
+   "finish_standard": "021",
+   "finish_optional": [
+    "007",
+    "041*"
+   ],
+   "finish_footnote": "*Finish option available on prefixes 235 and 245 only",
+   "page": 6,
+   "new": false,
+   "notes": [
+    "shown in C158431"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "225-402",
+   "app_style_number": "225402",
+   "model_code": "402",
+   "model_name": "Maeve",
+   "type": "Swivel Gliding Chair",
+   "dims_raw": "35.5\"H X 31\"W X 40\"D",
+   "height_in": 35.5,
+   "width_in": 31.0,
+   "depth_in": 40.0,
+   "options": [
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041*",
+    "071*"
+   ],
+   "finish_footnote": "*Finish options available on prefix 235 only",
+   "page": 7,
+   "new": false,
+   "notes": [
+    "ADDITIONAL STORAGE callout",
+    "shown in FL196373"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "Z6"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "235-402",
+   "app_style_number": "235402",
+   "model_code": "402",
+   "model_name": "Maeve",
+   "type": "Chair",
+   "dims_raw": "37\"H X 31\"W X 40\"D",
+   "height_in": 37.0,
+   "width_in": 31.0,
+   "depth_in": 40.0,
+   "options": [
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041*",
+    "071*"
+   ],
+   "finish_footnote": "*Finish options available on prefix 235 only",
+   "page": 7,
+   "new": false,
+   "notes": [
+    "ADDITIONAL STORAGE callout",
+    "shown in FL196373"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "Z6"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "245-402",
+   "app_style_number": "245402",
+   "model_code": "402",
+   "model_name": "Maeve",
+   "type": "Ottoman",
+   "dims_raw": "18\"H X 28\"W X 22\"D",
+   "height_in": 18.0,
+   "width_in": 28.0,
+   "depth_in": 22.0,
+   "options": [
+    "N/A"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041*",
+    "071*"
+   ],
+   "finish_footnote": "*Finish options available on prefix 235 only",
+   "page": 7,
+   "new": false,
+   "notes": [
+    "ADDITIONAL STORAGE callout",
+    "shown in FL196373"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "295-404",
+   "app_style_number": "295404",
+   "model_code": "404",
+   "model_name": "Mercer",
+   "type": "High Leg Reclining Chair",
+   "dims_raw": "43\"H X 32\"W X 38.5\"D",
+   "height_in": 43.0,
+   "width_in": 32.0,
+   "depth_in": 38.5,
+   "options": [
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "UE",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": []
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041",
+    "071"
+   ],
+   "finish_footnote": "",
+   "page": 8,
+   "new": false,
+   "notes": [
+    "29U-404 shown in Q191273"
+   ],
+   "in_app_2026": false,
+   "app_status": null,
+   "app_options": null,
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "29U-404",
+   "app_style_number": "29U404",
+   "model_code": "404",
+   "model_name": "Mercer",
+   "type": "High Leg Power Recliner w/ Headrest",
+   "dims_raw": "43\"H X 32\"W X 38.5\"D",
+   "height_in": 43.0,
+   "width_in": 32.0,
+   "depth_in": 38.5,
+   "options": [
+    "LW",
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "UE",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": []
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041",
+    "071"
+   ],
+   "finish_footnote": "",
+   "page": 8,
+   "new": false,
+   "notes": [
+    "29U-404 shown in Q191273"
+   ],
+   "in_app_2026": false,
+   "app_status": null,
+   "app_options": null,
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "295-405",
+   "app_style_number": "295405",
+   "model_code": "405",
+   "model_name": "Dante",
+   "type": "High Leg Reclining Chair",
+   "dims_raw": "43\"H X 29.5\"W X 43\"D",
+   "height_in": 43.0,
+   "width_in": 29.5,
+   "depth_in": 43.0,
+   "options": [
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041",
+    "071"
+   ],
+   "finish_footnote": "",
+   "page": 9,
+   "new": false,
+   "notes": [
+    "29U-405 shown in HL190673"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "29U-405",
+   "app_style_number": "29U405",
+   "model_code": "405",
+   "model_name": "Dante",
+   "type": "High Leg Power Recliner w/ Headrest",
+   "dims_raw": "43\"H X 29.5\"W X 43\"D",
+   "height_in": 43.0,
+   "width_in": 29.5,
+   "depth_in": 43.0,
+   "options": [
+    "LW",
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041",
+    "071"
+   ],
+   "finish_footnote": "",
+   "page": 9,
+   "new": false,
+   "notes": [
+    "29U-405 shown in HL190673"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS",
+    "LW"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "225-408",
+   "app_style_number": "225408",
+   "model_code": "408",
+   "model_name": "Ferndale",
+   "type": "Swivel Gliding Chair",
+   "dims_raw": "39\"H X 35\"W X 37\"D",
+   "height_in": 39.0,
+   "width_in": 35.0,
+   "depth_in": 37.0,
+   "options": [
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041*",
+    "071*"
+   ],
+   "finish_footnote": "*Finish options available on prefixes 245 and 265 only",
+   "page": 10,
+   "new": false,
+   "notes": [
+    "245/265-408 shown in discontinued cover"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "245-408",
+   "app_style_number": "245408",
+   "model_code": "408",
+   "model_name": "Ferndale",
+   "type": "Ottoman",
+   "dims_raw": "18\"H X 25\"W X 22\"D",
+   "height_in": 18.0,
+   "width_in": 25.0,
+   "depth_in": 22.0,
+   "options": [
+    "N/A"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041*",
+    "071*"
+   ],
+   "finish_footnote": "*Finish options available on prefixes 245 and 265 only",
+   "page": 10,
+   "new": false,
+   "notes": [
+    "245/265-408 shown in discontinued cover"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "265-408",
+   "app_style_number": "265408",
+   "model_code": "408",
+   "model_name": "Ferndale",
+   "type": "Reclining Chair",
+   "dims_raw": "40\"H X 32\"W X 34.5\"D",
+   "height_in": 40.0,
+   "width_in": 32.0,
+   "depth_in": 34.5,
+   "options": [
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041*",
+    "071*"
+   ],
+   "finish_footnote": "*Finish options available on prefixes 245 and 265 only",
+   "page": 10,
+   "new": false,
+   "notes": [
+    "245/265-408 shown in discontinued cover"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "210-421",
+   "app_style_number": "210421",
+   "model_code": "421",
+   "model_name": "Bellevue",
+   "type": "High Leg Swivel Chair",
+   "dims_raw": "37\"H X 33\"W X 36\"D",
+   "height_in": 37.0,
+   "width_in": 33.0,
+   "depth_in": 36.0,
+   "options": [
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": []
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041",
+    "071"
+   ],
+   "finish_footnote": "",
+   "page": 11,
+   "new": false,
+   "notes": [
+    "'Living Room Chair' tag",
+    "shown in G171517"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "295-423",
+   "app_style_number": "295423",
+   "model_code": "423",
+   "model_name": "Eldorado",
+   "type": "High Leg Reclining Chair",
+   "dims_raw": "42\"H X 32.5\"W X 41\"D",
+   "height_in": 42.0,
+   "width_in": 32.5,
+   "depth_in": 41.0,
+   "options": [
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "142",
+   "finish_optional": [
+    "021"
+   ],
+   "finish_footnote": "",
+   "page": 12,
+   "new": false,
+   "notes": [
+    "'Mission Recliner' tag",
+    "shown in FL941965, FN 021",
+    "Mesa 142 finish only available on 295-423"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "295-424",
+   "app_style_number": "295424",
+   "model_code": "424",
+   "model_name": "Fletcher",
+   "type": "High Leg Reclining Chair",
+   "dims_raw": "40\"H X 35.5\"W X 36.5\"D",
+   "height_in": 40.0,
+   "width_in": 35.5,
+   "depth_in": 36.5,
+   "options": [
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021"
+   ],
+   "finish_footnote": "",
+   "page": 13,
+   "new": false,
+   "notes": [
+    "shown in DL159574"
+   ],
+   "in_app_2026": true,
+   "app_status": "discontinued",
+   "app_options": [
+    "FN",
+    "FS"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "225-425",
+   "app_style_number": "225425",
+   "model_code": "425",
+   "model_name": "Alma",
+   "type": "Swivel Gliding Chair",
+   "dims_raw": "36\"H X 32\"W X 37.5\"D",
+   "height_in": 36.0,
+   "width_in": 32.0,
+   "depth_in": 37.5,
+   "options": [
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "UE",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": []
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021"
+   ],
+   "finish_footnote": "",
+   "page": 14,
+   "new": false,
+   "notes": [
+    "shown in E163993"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "295-430",
+   "app_style_number": "295430",
+   "model_code": "430",
+   "model_name": "Brentwood",
+   "type": "High Leg Reclining Chair",
+   "dims_raw": "43.5\"H X 33.5\"W X 35\"D",
+   "height_in": 43.5,
+   "width_in": 33.5,
+   "depth_in": 35.0,
+   "options": [
+    "LG",
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "UE",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041",
+    "071"
+   ],
+   "finish_footnote": "",
+   "page": 15,
+   "new": false,
+   "notes": [
+    "shown in C186331"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS",
+    "LG"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "29U-430",
+   "app_style_number": "29U430",
+   "model_code": "430",
+   "model_name": "Brentwood",
+   "type": "High Leg Power Recliner w/ Headrest",
+   "dims_raw": "43.5\"H X 33.5\"W X 35\"D",
+   "height_in": 43.5,
+   "width_in": 33.5,
+   "depth_in": 35.0,
+   "options": [
+    "LG",
+    "LW",
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "UE",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041",
+    "071"
+   ],
+   "finish_footnote": "",
+   "page": 15,
+   "new": false,
+   "notes": [
+    "shown in C186331"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS",
+    "LG",
+    "LW"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "028-431",
+   "app_style_number": "028431",
+   "model_code": "431",
+   "model_name": "Scarlett",
+   "type": "High Leg Reclining Chair",
+   "dims_raw": "39\"H X 33\"W X 37\"D",
+   "height_in": 39.0,
+   "width_in": 33.0,
+   "depth_in": 37.0,
+   "options": [
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041"
+   ],
+   "finish_footnote": "",
+   "page": 16,
+   "new": false,
+   "notes": [
+    "shown in F171692"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "295-448",
+   "app_style_number": "295448",
+   "model_code": "448",
+   "model_name": "Riley",
+   "type": "High Leg Reclining Chair",
+   "dims_raw": "41\"H X 35.5\"W X 37\"D",
+   "height_in": 41.0,
+   "width_in": 35.5,
+   "depth_in": 37.0,
+   "options": [
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021"
+   ],
+   "finish_footnote": "",
+   "page": 17,
+   "new": false,
+   "notes": [
+    "shown in E176315"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "028-450",
+   "app_style_number": "028450",
+   "model_code": "450",
+   "model_name": "Haven",
+   "type": "High Leg Reclining Chair",
+   "dims_raw": "40\"H X 35\"W X 37\"D",
+   "height_in": 40.0,
+   "width_in": 35.0,
+   "depth_in": 37.0,
+   "options": [
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041"
+   ],
+   "finish_footnote": "",
+   "page": 18,
+   "new": false,
+   "notes": [
+    "shown in E182023"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS"
+   ],
+   "in_pdf_codes": true
+  },
+  {
+   "style_number": "215-456",
+   "app_style_number": "215456",
+   "model_code": "456",
+   "model_name": "Opal",
+   "type": "Swivel Chair",
+   "dims_raw": "34.5\"H X 51\"W X 52\"D",
+   "height_in": 34.5,
+   "width_in": 51.0,
+   "depth_in": 52.0,
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "UE",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "N/A",
+   "finish_optional": [],
+   "finish_footnote": "",
+   "page": 19,
+   "new": false,
+   "notes": [
+    "shown in FL190784"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "295-457",
+   "app_style_number": "295457",
+   "model_code": "457",
+   "model_name": "Audrey",
+   "type": "High Leg Reclining Chair",
+   "dims_raw": "42\"H X 31.5\"W X 38.5\"D",
+   "height_in": 42.0,
+   "width_in": 31.5,
+   "depth_in": 38.5,
+   "options": [
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041",
+    "071"
+   ],
+   "finish_footnote": "",
+   "page": 20,
+   "new": true,
+   "notes": [
+    "NEW marker (TOC + page heading)",
+    "shown in E205284",
+    "warranty page caption 'NEW AUDREY in FL207829'"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "29U-457",
+   "app_style_number": "29U457",
+   "model_code": "457",
+   "model_name": "Audrey",
+   "type": "High Leg Power Recliner w/ Headrest",
+   "dims_raw": "42\"H X 31.5\"W X 38.5\"D",
+   "height_in": 42.0,
+   "width_in": 31.5,
+   "depth_in": 38.5,
+   "options": [
+    "LW",
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041",
+    "071"
+   ],
+   "finish_footnote": "",
+   "page": 20,
+   "new": true,
+   "notes": [
+    "NEW marker (TOC + page heading)",
+    "shown in E205284",
+    "warranty page caption 'NEW AUDREY in FL207829'"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS",
+    "LW"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "295-458",
+   "app_style_number": "295458",
+   "model_code": "458",
+   "model_name": "Rheeves",
+   "type": "High Leg Reclining Chair",
+   "dims_raw": "43\"H X 33.5\"W X 36\"D",
+   "height_in": 43.0,
+   "width_in": 33.5,
+   "depth_in": 36.0,
+   "options": [
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041"
+   ],
+   "finish_footnote": "",
+   "page": 21,
+   "new": false,
+   "notes": [
+    "29U-458 shown in DL196286"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "29U-458",
+   "app_style_number": "29U458",
+   "model_code": "458",
+   "model_name": "Rheeves",
+   "type": "High Leg Power Recliner w/ Headrest",
+   "dims_raw": "43\"H X 33.5\"W X 36\"D",
+   "height_in": 43.0,
+   "width_in": 33.5,
+   "depth_in": 36.0,
+   "options": [
+    "LW",
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041"
+   ],
+   "finish_footnote": "",
+   "page": 21,
+   "new": false,
+   "notes": [
+    "29U-458 shown in DL196286"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS",
+    "LW"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "210-460",
+   "app_style_number": "210460",
+   "model_code": "460",
+   "model_name": "Reegan",
+   "type": "High Leg Swivel Chair",
+   "dims_raw": "36.5\"H X 30\"W X 35\"D",
+   "height_in": 36.5,
+   "width_in": 30.0,
+   "depth_in": 35.0,
+   "options": [
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041",
+    "071"
+   ],
+   "finish_footnote": "",
+   "page": 22,
+   "new": false,
+   "notes": [
+    "shown in H157286"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "225-462",
+   "app_style_number": "225462",
+   "model_code": "462",
+   "model_name": "Roxie",
+   "type": "Swivel Gliding Chair",
+   "dims_raw": "37\"H X 37\"W X 37\"D",
+   "height_in": 37.0,
+   "width_in": 37.0,
+   "depth_in": 37.0,
+   "options": [
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": []
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021"
+   ],
+   "finish_footnote": "",
+   "page": 23,
+   "new": false,
+   "notes": [
+    "shown in E176453"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "295-471",
+   "app_style_number": "295471",
+   "model_code": "471",
+   "model_name": "Carleton",
+   "type": "High Leg Reclining Chair",
+   "dims_raw": "42\"H X 36\"W X 39\"D",
+   "height_in": 42.0,
+   "width_in": 36.0,
+   "depth_in": 39.0,
+   "options": [
+    "NB",
+    "NH",
+    "NS",
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021"
+   ],
+   "finish_footnote": "",
+   "page": 24,
+   "new": false,
+   "notes": [
+    "NAIL HEAD TRIM LOCATION callout",
+    "shown in FL941982"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS",
+    "NB",
+    "NH",
+    "NS"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "29U-471",
+   "app_style_number": "29U471",
+   "model_code": "471",
+   "model_name": "Carleton",
+   "type": "High Leg Power Recliner w/ Headrest",
+   "dims_raw": "42\"H X 36\"W X 39\"D",
+   "height_in": 42.0,
+   "width_in": 36.0,
+   "depth_in": 39.0,
+   "options": [
+    "LW",
+    "NB",
+    "NH",
+    "NS",
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021"
+   ],
+   "finish_footnote": "",
+   "page": 24,
+   "new": false,
+   "notes": [
+    "NAIL HEAD TRIM LOCATION callout",
+    "shown in FL941982"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS",
+    "LW",
+    "NB",
+    "NH",
+    "NS"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "225-479",
+   "app_style_number": "225479",
+   "model_code": "479",
+   "model_name": "Midtown",
+   "type": "Swivel Gliding Chair",
+   "dims_raw": "40\"H X 32\"W X 36\"D",
+   "height_in": 40.0,
+   "width_in": 32.0,
+   "depth_in": 36.0,
+   "options": [
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "VS"
+    ],
+    "recycled": [],
+    "leather": [
+     "LL"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021"
+   ],
+   "finish_footnote": "",
+   "page": 25,
+   "new": false,
+   "notes": [
+    "TOP STITCHING DETAIL SHOWN FOR LEATHER COVERS",
+    "footnote: *When ordered in LL cap code, the welt trim will be replaced with single-needle topstitching",
+    "shown in FL135958"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "235-498",
+   "app_style_number": "235498",
+   "model_code": "498",
+   "model_name": "Marietta",
+   "type": "Chair",
+   "dims_raw": "39\"H X 30\"W X 36.5\"D",
+   "height_in": 39.0,
+   "width_in": 30.0,
+   "depth_in": 36.5,
+   "options": [
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "UE",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041",
+    "071"
+   ],
+   "finish_footnote": "",
+   "page": 26,
+   "new": false,
+   "notes": [
+    "shown in D156332"
+   ],
+   "in_app_2026": false,
+   "app_status": null,
+   "app_options": null,
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "240-632",
+   "app_style_number": "240632",
+   "model_code": "632",
+   "model_name": "Tahoe",
+   "type": "Ottoman",
+   "dims_raw": "21.5\"H X 38.5\"W X 38.5\"D",
+   "height_in": 21.5,
+   "width_in": 38.5,
+   "depth_in": 38.5,
+   "options": [
+    "N/A"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "N/A",
+   "finish_optional": [],
+   "finish_footnote": "",
+   "page": 27,
+   "new": false,
+   "notes": [
+    "ADDITIONAL STORAGE callout",
+    "La-Z-Boy SELECT covers: D2009 Promise (D200931 Ecru, D200946 Gold, D200952 Oyster, D200959 Thunder, D200972 Khaki, D200983 Powder); E1917 i-Adario (E191734 Basmati, E191752 Fog, E191753 Stone, E191765 Taupe)"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "028-916",
+   "app_style_number": "028916",
+   "model_code": "916",
+   "model_name": "Kimberly",
+   "type": "High Leg Reclining Chair",
+   "dims_raw": "41\"H X 29.5\"W X 37.5\"D",
+   "height_in": 41.0,
+   "width_in": 29.5,
+   "depth_in": 37.5,
+   "options": [
+    "TF"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR"
+    ],
+    "recycled": [],
+    "leather": []
+   },
+   "finish_standard": "007",
+   "finish_optional": [],
+   "finish_footnote": "Optional: N/A",
+   "page": 28,
+   "new": false,
+   "notes": [
+    "shown in C177287"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FS"
+   ],
+   "in_pdf_codes": true
+  },
+  {
+   "style_number": "028-931",
+   "app_style_number": "028931",
+   "model_code": "931",
+   "model_name": "Charlotte",
+   "type": "High Leg Reclining Chair",
+   "dims_raw": "38.5\"H X 33\"W X 35\"D",
+   "height_in": 38.5,
+   "width_in": 33.0,
+   "depth_in": 35.0,
+   "options": [
+    "(options not legible in extraction)"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": []
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041"
+   ],
+   "finish_footnote": "",
+   "page": 29,
+   "new": false,
+   "notes": [
+    "shown in C177223",
+    "options cell empty in text layer; stray text 'duo / SOPHISTICATED STYLE / RECLINING POWER' on page"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "FS"
+   ],
+   "in_pdf_codes": true
+  },
+  {
+   "style_number": "P94-893",
+   "app_style_number": "P94893",
+   "model_code": "893",
+   "model_name": "Colby",
+   "type": "duo Reclining Chair",
+   "dims_raw": "41\"H X 39\"W X 39.5\"D",
+   "height_in": 41.0,
+   "width_in": 39.0,
+   "depth_in": 39.5,
+   "options": [
+    "LT",
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "DP",
+     "NP",
+     "PS",
+     "UE",
+     "VS",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041"
+   ],
+   "finish_footnote": "",
+   "page": 32,
+   "new": false,
+   "notes": [
+    "La-Z-Boy SELECT covers: C1700 Nico (C170033 Oyster, C170053 Ash, C170057 Charcoal)"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "LT"
+   ],
+   "in_pdf_codes": false
+  },
+  {
+   "style_number": "P94-899",
+   "app_style_number": "P94899",
+   "model_code": "899",
+   "model_name": "Bennett",
+   "type": "duo Reclining Chair",
+   "dims_raw": "39.5\"H X 37.5\"W X 39\"D",
+   "height_in": 39.5,
+   "width_in": 37.5,
+   "depth_in": 39.0,
+   "options": [
+    "Z5"
+   ],
+   "cover_caps": {
+    "fabric": [
+     "DR",
+     "UR",
+     "UE",
+     "BU"
+    ],
+    "recycled": [
+     "RL"
+    ],
+    "leather": [
+     "LL",
+     "LM"
+    ]
+   },
+   "finish_standard": "007",
+   "finish_optional": [
+    "021",
+    "041"
+   ],
+   "finish_footnote": "",
+   "page": 33,
+   "new": false,
+   "notes": [
+    "'duo by La-Z-Boy' header",
+    "La-Z-Boy SELECT covers: B1808 Social Club (B180852 Stone, B180857 Charcoal, B180868 Pewter, B180872 Chalk, B180876 Cocoa); D2030 Howell (D203032 Sand, D203034 Granite, D203053 Ash)"
+   ],
+   "in_app_2026": true,
+   "app_status": "",
+   "app_options": [
+    "FN",
+    "LT"
+   ],
+   "in_pdf_codes": false
+  }
+ ]
+}

@@ -1,0 +1,5122 @@
+{
+ "_meta": {
+  "source": "https://view.publitas.com/la-z-boy/stationary-collection-catalog-summer-fall-2025 (Publitas flipbook; text read from the flipbook PDF https://view.publitas.com/29465/2409877/pdfs/f90f1f30-6927-40cb-921d-8b92891ce95b.pdf, 40 pages)",
+  "edition": "Stationary Collection SUMMER/FALL 2025",
+  "footer": "© 2025 La-Z-Boy Incorporated - 07/2025 - CA0317",
+  "total_publitas_pages": 40,
+  "printed_catalog_pages": 28,
+  "page_mapping": "Publitas page = printed catalog page + 10 (printed pages 24-25 are un-numbered in the index; mapping verified for spreads 4-5,6-7,8-9,10-11,12-13,14-15 and page 40)",
+  "record_count": 128
+ },
+ "styles": [
+  {
+   "style_number": "240-411",
+   "prefix": "240",
+   "model": "411",
+   "name": "LAUREL",
+   "type": "Ottoman",
+   "dimensions": "19\"H X 41\"W X 23.5\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 1,
+   "publitas_page": 11,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "19 in H × 41 in W × 23.5 in D",
+   "app_2026_options": [
+    "N/A"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": false
+  },
+  {
+   "style_number": "610-411",
+   "prefix": "610",
+   "model": "411",
+   "name": "LAUREL",
+   "type": "Sofa",
+   "dimensions": "39\"H X 80\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 1,
+   "publitas_page": 11,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39 in H × 80 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "655-411",
+   "prefix": "655",
+   "model": "411",
+   "name": "LAUREL",
+   "type": "Chair & a Half",
+   "dimensions": "39\"H X 52\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 1,
+   "publitas_page": 11,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39 in H × 52 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "510-418",
+   "prefix": "510",
+   "model": "418",
+   "name": "LEAH",
+   "type": "Queen Sleep Sofa",
+   "dimensions": "38\"H X 82\"W X 38.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 2,
+   "publitas_page": 12,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 82 in W × 38.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "520-418",
+   "prefix": "520",
+   "model": "418",
+   "name": "LEAH",
+   "type": "Full Sleep Sofa",
+   "dimensions": "38\"H X 73.5\"W X 38.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 2,
+   "publitas_page": 12,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 73.5 in W × 38.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "555-418",
+   "prefix": "555",
+   "model": "418",
+   "name": "LEAH",
+   "type": "Twin Sleep Chair",
+   "dimensions": "38\"H X 54\"W X 38.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 2,
+   "publitas_page": 12,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 54 in W × 38.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "230-435",
+   "prefix": "230",
+   "model": "435",
+   "name": "MACKENZIE",
+   "type": "Chair",
+   "dimensions": "37.5\"H X 42\"W X 37\"D",
+   "options": [
+    "Z5"
+   ],
+   "catalog_page": 3,
+   "publitas_page": 13,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37.5 in H × 42 in W × 37 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "240-435",
+   "prefix": "240",
+   "model": "435",
+   "name": "MACKENZIE",
+   "type": "Ottoman",
+   "dimensions": "19.5\"H X 32\"W X 24\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 3,
+   "publitas_page": 13,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "19.5 in H × 32 in W × 24 in D",
+   "app_2026_options": [
+    "N/A"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": false
+  },
+  {
+   "style_number": "510-435",
+   "prefix": "510",
+   "model": "435",
+   "name": "MACKENZIE",
+   "type": "Queen Sleep Sofa",
+   "dimensions": "36.5\"H X 87\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 3,
+   "publitas_page": 13,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "36.5 in H × 87 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "610-435",
+   "prefix": "610",
+   "model": "435",
+   "name": "MACKENZIE",
+   "type": "Sofa",
+   "dimensions": "36.5\"H X 87\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 3,
+   "publitas_page": 13,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "36.5 in H × 87 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "630-435",
+   "prefix": "630",
+   "model": "435",
+   "name": "MACKENZIE",
+   "type": "Loveseat",
+   "dimensions": "36.5\"H X 64\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 3,
+   "publitas_page": 13,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "36.5 in H × 64 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "230-491",
+   "prefix": "230",
+   "model": "491",
+   "name": "NATALIE",
+   "type": "Chair",
+   "dimensions": "39\"H X 41\"W X 38\"D",
+   "options": [
+    "Z5"
+   ],
+   "catalog_page": 4,
+   "publitas_page": 14,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39 in H × 41 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "240-491",
+   "prefix": "240",
+   "model": "491",
+   "name": "NATALIE",
+   "type": "Ottoman",
+   "dimensions": "19\"H X 31.5\"W X 23\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 4,
+   "publitas_page": 14,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "19 in H × 31.5 in W × 23 in D",
+   "app_2026_options": [
+    "FN"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "510-491",
+   "prefix": "510",
+   "model": "491",
+   "name": "NATALIE",
+   "type": "Queen Sleep Sofa",
+   "dimensions": "39\"H X 86\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 4,
+   "publitas_page": 14,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39 in H × 86 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "610-491",
+   "prefix": "610",
+   "model": "491",
+   "name": "NATALIE",
+   "type": "Sofa",
+   "dimensions": "39\"H X 86\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 4,
+   "publitas_page": 14,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39 in H × 89 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "630-491",
+   "prefix": "630",
+   "model": "491",
+   "name": "NATALIE",
+   "type": "Loveseat",
+   "dimensions": "39\"H X 63.5\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 4,
+   "publitas_page": 14,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39 in H × 65 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "230-494",
+   "prefix": "230",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Chair",
+   "dimensions": "37\"H X 39\"W X 38\"D",
+   "options": [
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 5,
+   "publitas_page": 15,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37.5 in H × 41 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "240-494",
+   "prefix": "240",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Ottoman",
+   "dimensions": "18.5H x 31.5W x 23.5D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 5,
+   "publitas_page": 15,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "18.5 in H × 31.5 in W × 23.5 in D",
+   "app_2026_options": [],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "610-494",
+   "prefix": "610",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Sofa",
+   "dimensions": "37\"H X 87\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 5,
+   "publitas_page": 15,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37.5 in H × 89 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "630-494",
+   "prefix": "630",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Loveseat",
+   "dimensions": "37\"H X 63\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 5,
+   "publitas_page": 15,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37.5 in H × 65 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60A-494",
+   "prefix": "60A",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Left-Arm Sitting Chair",
+   "dimensions": "37\"H X 33\"W X 39\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 6,
+   "publitas_page": 16,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37.5 in H × 32.5 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60B-494",
+   "prefix": "60B",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Right-Arm Sitting Chair",
+   "dimensions": "37\"H X 33\"W X 39\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 6,
+   "publitas_page": 16,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37.5 in H × 32.5 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60C-494",
+   "prefix": "60C",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Rounded Corner Unit (Wall Space Required: 98\")",
+   "dimensions": "37\"H X 67\"W X 39\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 6,
+   "publitas_page": 16,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37.5 in H × 67 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60D-494",
+   "prefix": "60D",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Left-Arm Sitting Loveseat",
+   "dimensions": "37\"H X 57\"W X 39\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 6,
+   "publitas_page": 16,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37.5 in H × 56.5 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60E-494",
+   "prefix": "60E",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Right-Arm Sitting Loveseat",
+   "dimensions": "37\"H X 57\"W X 39\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 6,
+   "publitas_page": 16,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37.5 in H × 56.5 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60L-494",
+   "prefix": "60L",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Left-Arm Sitting Chaise",
+   "dimensions": "37\"H X 33\"W X 64\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 6,
+   "publitas_page": 16,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37.5 in H × 32.5 in W × 64 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60M-494",
+   "prefix": "60M",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Armless Chair",
+   "dimensions": "37\"H X 24\"W X 39\"D",
+   "options": [
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 6,
+   "publitas_page": 16,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37.5 in H × 24 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60R-494",
+   "prefix": "60R",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Right-Arm Sitting Chaise",
+   "dimensions": "37\"H X 33\"W X 64\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 6,
+   "publitas_page": 16,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37 in H × 33.5 in W × 64 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6CC-494",
+   "prefix": "6CC",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "90 Degree Corner Unit (Wall Space Required: 78\")",
+   "dimensions": "37\"H X 53\"W X 39\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 6,
+   "publitas_page": 16,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37.5 in H × 53 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6MM-494",
+   "prefix": "6MM",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Sectional Armless Loveseat",
+   "dimensions": "37\"H X 62\"W X 39\"D",
+   "options": [
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 6,
+   "publitas_page": 16,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37 in H × 62 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6SC-494",
+   "prefix": "6SC",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Storage Console",
+   "dimensions": "25.5\"H X 10\"W X 38.5\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 6,
+   "publitas_page": 16,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "25.5 in H × 10 in W × 38.5 in D",
+   "app_2026_options": [
+    "FN"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6SL-494",
+   "prefix": "6SL",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Left-Arm Sitting Chaise w/ Storage",
+   "dimensions": "37\"H X 39\"W X 64\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 6,
+   "publitas_page": 16,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 39 in W × 64 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6SP-494",
+   "prefix": "6SP",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Armless Full Sleeper",
+   "dimensions": "37\"H X 62\"W X 39\"D",
+   "options": [
+    "MA",
+    "MT",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 6,
+   "publitas_page": 16,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": true,
+   "app_2026_dimensions": "37 in H × 62 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "MA",
+    "MT",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6SR-494",
+   "prefix": "6SR",
+   "model": "494",
+   "name": "COLLINS",
+   "type": "Right-Arm Sitting Chaise w/ Storage",
+   "dimensions": "37\"H X 39\"W X 64\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 6,
+   "publitas_page": 16,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 39 in W × 64 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "230-593",
+   "prefix": "230",
+   "model": "593",
+   "name": "KENNEDY",
+   "type": "Chair",
+   "dimensions": "39\"H X 32\"W X 38\"D",
+   "options": [
+    "Z5"
+   ],
+   "catalog_page": 8,
+   "publitas_page": 18,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39 in H × 32 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "240-593",
+   "prefix": "240",
+   "model": "593",
+   "name": "KENNEDY",
+   "type": "Ottoman",
+   "dimensions": "19\"H X 27\"W X 24\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 8,
+   "publitas_page": 18,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "19 in H × 27 in W × 24 in D",
+   "app_2026_options": [
+    "FN"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "510-593",
+   "prefix": "510",
+   "model": "593",
+   "name": "KENNEDY",
+   "type": "Queen Sleep Sofa",
+   "dimensions": "39\"H X 77\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 8,
+   "publitas_page": 18,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39 in H × 77 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "520-593",
+   "prefix": "520",
+   "model": "593",
+   "name": "KENNEDY",
+   "type": "Full Sleep Sofa",
+   "dimensions": "39\"H X 69\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 8,
+   "publitas_page": 18,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39 in H × 69 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "610-593",
+   "prefix": "610",
+   "model": "593",
+   "name": "KENNEDY",
+   "type": "Sofa",
+   "dimensions": "39\"H X 77\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 8,
+   "publitas_page": 18,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39 in H × 77 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "620-593",
+   "prefix": "620",
+   "model": "593",
+   "name": "KENNEDY",
+   "type": "Apartment-Size Sofa",
+   "dimensions": "39\"H X 69\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 8,
+   "publitas_page": 18,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39 in H × 69 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "630-593",
+   "prefix": "630",
+   "model": "593",
+   "name": "KENNEDY",
+   "type": "Loveseat",
+   "dimensions": "39\"H X 54.5\"W X 38\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 8,
+   "publitas_page": 18,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39 in H × 54.5 in W × 38 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "240-60D",
+   "prefix": "240",
+   "model": "60D",
+   "name": "KIRBY",
+   "type": "Ottoman",
+   "dimensions": "18\"H X 36\"W X 24\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 9,
+   "publitas_page": 19,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": false,
+   "in_available_products_pdf": false
+  },
+  {
+   "style_number": "620-60D",
+   "prefix": "620",
+   "model": "60D",
+   "name": "KIRBY",
+   "type": "Apartment-Size Sofa",
+   "dimensions": "37\"H X 71\"W X 41\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 9,
+   "publitas_page": 19,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": false,
+   "in_available_products_pdf": false
+  },
+  {
+   "style_number": "640-60D",
+   "prefix": "640",
+   "model": "60D",
+   "name": "KIRBY",
+   "type": "Extra Long Sofa",
+   "dimensions": "37\"H X 92\"W X 41\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 9,
+   "publitas_page": 19,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": false,
+   "in_available_products_pdf": false
+  },
+  {
+   "style_number": "655-60D",
+   "prefix": "655",
+   "model": "60D",
+   "name": "KIRBY",
+   "type": "Chair & a Half",
+   "dimensions": "37\"H X 42.5\"W X 41\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 9,
+   "publitas_page": 19,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": false,
+   "in_available_products_pdf": false
+  },
+  {
+   "style_number": "610-603",
+   "prefix": "610",
+   "model": "603",
+   "name": "WILMETTE",
+   "type": "Sofa",
+   "dimensions": "37\"H X 75.5\"W X 36\"D",
+   "options": [
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 10,
+   "publitas_page": 20,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 75.5 in W × 36 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "655-603",
+   "prefix": "655",
+   "model": "603",
+   "name": "WILMETTE",
+   "type": "Chair & a Half",
+   "dimensions": "37\"H X 39\"W X 36\"D",
+   "options": [
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 10,
+   "publitas_page": 20,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 39 in W × 36 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "240-603",
+   "prefix": "240",
+   "model": "603",
+   "name": "WILMETTE",
+   "type": "Ottoman",
+   "dimensions": "18\"H X 37.5\"W X 24\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 10,
+   "publitas_page": 20,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "18 in H × 37.5 in W × 24 in D",
+   "app_2026_options": [
+    "FN"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60W-603",
+   "prefix": "60W",
+   "model": "603",
+   "name": "WILMETTE",
+   "type": "Left-Arm Sitting Sofa w/ Attached Corner",
+   "dimensions": "37\"H X 107\"W X 36\"D",
+   "options": [
+    "FN",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 11,
+   "publitas_page": 21,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 107 in W × 36 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60X-603",
+   "prefix": "60X",
+   "model": "603",
+   "name": "WILMETTE",
+   "type": "Right-Arm Sitting Sofa w/ Attached Corner",
+   "dimensions": "37\"H X 107\"W X 36\"D",
+   "options": [
+    "FN",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 11,
+   "publitas_page": 21,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 107 in W × 36 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60Y-603",
+   "prefix": "60Y",
+   "model": "603",
+   "name": "WILMETTE",
+   "type": "Left-Arm Sitting Sofa",
+   "dimensions": "37\"H X 73.5\"W X 36\"D",
+   "options": [
+    "FN",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 11,
+   "publitas_page": 21,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 73.5 in W × 36 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60Z-603",
+   "prefix": "60Z",
+   "model": "603",
+   "name": "WILMETTE",
+   "type": "Right-Arm Sitting Sofa",
+   "dimensions": "37\"H X 73.5\"W X 36\"D",
+   "options": [
+    "FN",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 11,
+   "publitas_page": 21,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 73.5 in W × 36 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "230-606",
+   "prefix": "230",
+   "model": "606",
+   "name": "NOAH",
+   "type": "Chair",
+   "dimensions": "36.5\"H X 35\"W X 36\"D",
+   "options": [
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 12,
+   "publitas_page": 22,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "36.5 in H × 35 in W × 36 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "240-606",
+   "prefix": "240",
+   "model": "606",
+   "name": "NOAH",
+   "type": "Ottoman",
+   "dimensions": "17.5\"H X 30\"W X 23\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 12,
+   "publitas_page": 22,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "17.5 in H × 30 in W × 23 in D",
+   "app_2026_options": [
+    "FN"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "610-606",
+   "prefix": "610",
+   "model": "606",
+   "name": "NOAH",
+   "type": "Sofa",
+   "dimensions": "36.5\"H X 83\"W X 36\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 12,
+   "publitas_page": 22,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "36.5 in H × 83 in W × 36 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "630-606",
+   "prefix": "630",
+   "model": "606",
+   "name": "NOAH",
+   "type": "Loveseat",
+   "dimensions": "36.5\"H X 60.5\"W X 36\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 12,
+   "publitas_page": 22,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "36.5 in H × 60.5 in W × 36 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "510-613",
+   "prefix": "510",
+   "model": "613",
+   "name": "OLSON",
+   "type": "Queen Sleep Sofa",
+   "dimensions": "37\"H X 83.5\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 13,
+   "publitas_page": 23,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 83.5 in W × 39.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "520-613",
+   "prefix": "520",
+   "model": "613",
+   "name": "OLSON",
+   "type": "Full Sleep Sofa",
+   "dimensions": "37\"H X 75.5\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 13,
+   "publitas_page": 23,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 75.5 in W × 39.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "555-613",
+   "prefix": "555",
+   "model": "613",
+   "name": "OLSON",
+   "type": "Twin Sleep Chair",
+   "dimensions": "37\"H X 56\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 13,
+   "publitas_page": 23,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 56 in W × 39.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "610-613",
+   "prefix": "610",
+   "model": "613",
+   "name": "OLSON",
+   "type": "Sofa",
+   "dimensions": "37\"H X 83.5\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 13,
+   "publitas_page": 23,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 83.5 in W × 39.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "620-613",
+   "prefix": "620",
+   "model": "613",
+   "name": "OLSON",
+   "type": "Apartment-Size Sofa",
+   "dimensions": "37\"H X 75.5\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 13,
+   "publitas_page": 23,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 75.5 in W × 39.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "655-613",
+   "prefix": "655",
+   "model": "613",
+   "name": "OLSON",
+   "type": "Chair & a Half",
+   "dimensions": "37\"H X 56\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 13,
+   "publitas_page": 23,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 56 in W × 39.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "510-620",
+   "prefix": "510",
+   "model": "620",
+   "name": "PIPER",
+   "type": "Queen Sleep Sofa",
+   "dimensions": "37.5\"H X 82\"W X 37\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 14,
+   "publitas_page": 24,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 82 in W × 37 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "610-620",
+   "prefix": "610",
+   "model": "620",
+   "name": "PIPER",
+   "type": "Sofa",
+   "dimensions": "37.5\"H X 82\"W X 37\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 14,
+   "publitas_page": 24,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 82 in W × 37 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "630-620",
+   "prefix": "630",
+   "model": "620",
+   "name": "PIPER",
+   "type": "Loveseat",
+   "dimensions": "37.5\"H X 59.5\"W X 37\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 14,
+   "publitas_page": 24,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 59.5 in W × 37 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "51S-620",
+   "prefix": "51S",
+   "model": "620",
+   "name": "PIPER",
+   "type": "Queen Sleep Sofa w/ Chaise",
+   "dimensions": "37.5\"H X 82\"W X 61\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 14,
+   "publitas_page": 24,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 82 in W × 61 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "61S-620",
+   "prefix": "61S",
+   "model": "620",
+   "name": "PIPER",
+   "type": "Sofa w/ Chaise",
+   "dimensions": "37.5\"H X 82\"W X 61\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 14,
+   "publitas_page": 24,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 82 in W × 61 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "240-632",
+   "prefix": "240",
+   "model": "632",
+   "name": "TAHOE",
+   "type": "Storage Ottoman",
+   "dimensions": "21.5\"H X 38.5\"W X 38.5\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 15,
+   "publitas_page": 25,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "21.5 in H × 38.5 in W × 38.5 in D",
+   "app_2026_options": [],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60M-632",
+   "prefix": "60M",
+   "model": "632",
+   "name": "TAHOE",
+   "type": "Armless Chair",
+   "dimensions": "37\"H X 37\"W X 38.5\"D",
+   "options": [
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 15,
+   "publitas_page": 25,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 37 in W × 38.5 in D",
+   "app_2026_options": [
+    "DC",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6MM-632",
+   "prefix": "6MM",
+   "model": "632",
+   "name": "TAHOE",
+   "type": "Armless Loveseat",
+   "dimensions": "37\"H X 74.5\"W X 38.5\"D",
+   "options": [
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 15,
+   "publitas_page": 25,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 74.5 in W × 38.5 in D",
+   "app_2026_options": [
+    "DC",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6CC-632",
+   "prefix": "6CC",
+   "model": "632",
+   "name": "TAHOE",
+   "type": "90 Degree Corner Unit (Wall Space Required: 79\")",
+   "dimensions": "37\"H X 39.5\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 15,
+   "publitas_page": 25,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 39.5 in W × 39.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6AL-632",
+   "prefix": "6AL",
+   "model": "632",
+   "name": "TAHOE",
+   "type": "Left-Arm Sitting Storage Arm",
+   "dimensions": "25.5\"H X 10\"W X 38.5\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 15,
+   "publitas_page": 25,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "25.5 in H × 10 in W × 38.5 in D",
+   "app_2026_options": [
+    "FN"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6AR-632",
+   "prefix": "6AR",
+   "model": "632",
+   "name": "TAHOE",
+   "type": "Right-Arm Sitting Storage Arm",
+   "dimensions": "25.5\"H X 10\"W X 38.5\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 15,
+   "publitas_page": 25,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "25.5 in H × 10 in W × 38.5 in D",
+   "app_2026_options": [
+    "FN"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6SC-632",
+   "prefix": "6SC",
+   "model": "632",
+   "name": "TAHOE",
+   "type": "Storage Console",
+   "dimensions": "25.5\"H X 10\"W X 38.5\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 15,
+   "publitas_page": 25,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "25.5 in H × 10 in W × 38.5 in D",
+   "app_2026_options": [
+    "FN"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60A-632",
+   "prefix": "60A",
+   "model": "632",
+   "name": "TAHOE",
+   "type": "Left-Arm Sitting Chair",
+   "dimensions": "37\"H X 37\"W X 38.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 15,
+   "publitas_page": 25,
+   "new_marker_2025": true,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 47 in W × 38.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60B-632",
+   "prefix": "60B",
+   "model": "632",
+   "name": "TAHOE",
+   "type": "Right-Arm Sitting Chair",
+   "dimensions": "37\"H X 37\"W X 38.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 15,
+   "publitas_page": 25,
+   "new_marker_2025": true,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 47 in W × 38.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "510-636",
+   "prefix": "510",
+   "model": "636",
+   "name": "SHILOH",
+   "type": "Queen Sleep Sofa",
+   "dimensions": "37\"H X 80.5\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 16,
+   "publitas_page": 26,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 80.5 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "520-636",
+   "prefix": "520",
+   "model": "636",
+   "name": "SHILOH",
+   "type": "Full Sleep Sofa",
+   "dimensions": "37\"H X 72.5\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 16,
+   "publitas_page": 26,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 72.5 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "555-636",
+   "prefix": "555",
+   "model": "636",
+   "name": "SHILOH",
+   "type": "Twin Sleep Sofa",
+   "dimensions": "37\"H X 52\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 16,
+   "publitas_page": 26,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 44 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "MA",
+    "MT",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "610-636",
+   "prefix": "610",
+   "model": "636",
+   "name": "SHILOH",
+   "type": "Sofa",
+   "dimensions": "37\"H X 80.5\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 16,
+   "publitas_page": 26,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 80.5 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "620-636",
+   "prefix": "620",
+   "model": "636",
+   "name": "SHILOH",
+   "type": "Apartment - Size Sofa",
+   "dimensions": "37\"H X 72.5\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 16,
+   "publitas_page": 26,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 72.5 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "655-636",
+   "prefix": "655",
+   "model": "636",
+   "name": "SHILOH",
+   "type": "Chair & a Half",
+   "dimensions": "37\"H X 52\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 16,
+   "publitas_page": 26,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37 in H × 44 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "240-663",
+   "prefix": "240",
+   "model": "663",
+   "name": "PAXTON",
+   "type": "Ottoman",
+   "dimensions": "18.5\"H X 40.5\"W X 26\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 17,
+   "publitas_page": 27,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "19 in H × 41 in W × 26.5 in D",
+   "app_2026_options": [
+    "FN"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "610-663",
+   "prefix": "610",
+   "model": "663",
+   "name": "PAXTON",
+   "type": "Sofa",
+   "dimensions": "38\"H X 88\"W X 42\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 17,
+   "publitas_page": 27,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 88 in W × 42 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "630-663",
+   "prefix": "630",
+   "model": "663",
+   "name": "PAXTON",
+   "type": "Loveseat",
+   "dimensions": "38\"H X 64\"W X 42\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 17,
+   "publitas_page": 27,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 64 in W × 42 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "655-663",
+   "prefix": "655",
+   "model": "663",
+   "name": "PAXTON",
+   "type": "Chair & a Half",
+   "dimensions": "38\"H X 52\"W X 42\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 17,
+   "publitas_page": 27,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 52 in W × 42 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60A-663",
+   "prefix": "60A",
+   "model": "663",
+   "name": "PAXTON",
+   "type": "Left-Arm Sitting Chair",
+   "dimensions": "38\"H X 45\"W X 42\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 18,
+   "publitas_page": 28,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 45 in W × 42 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60B-663",
+   "prefix": "60B",
+   "model": "663",
+   "name": "PAXTON",
+   "type": "Right-Arm Sitting Chair",
+   "dimensions": "38\"H X 45\"W X 42\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 18,
+   "publitas_page": 28,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 45 in W × 42 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60L-663",
+   "prefix": "60L",
+   "model": "663",
+   "name": "PAXTON",
+   "type": "Left-Arm Sitting Chaise",
+   "dimensions": "38\"H X 45\"W X 66.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 18,
+   "publitas_page": 28,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 45 in W × 66.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60M-663",
+   "prefix": "60M",
+   "model": "663",
+   "name": "PAXTON",
+   "type": "Armless Chair",
+   "dimensions": "38\"H X 40\"W X 42\"D",
+   "options": [
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 18,
+   "publitas_page": 28,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 40 in W × 42 in D",
+   "app_2026_options": [
+    "DC",
+    "FN"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60R-663",
+   "prefix": "60R",
+   "model": "663",
+   "name": "PAXTON",
+   "type": "Right-Arm Sitting Chaise",
+   "dimensions": "38\"H X 45\"W X 66.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 18,
+   "publitas_page": 28,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 45 in W × 66.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6CC-663",
+   "prefix": "6CC",
+   "model": "663",
+   "name": "PAXTON",
+   "type": "90 Degree Corner Unit (Wall Space Required: 84\")",
+   "dimensions": "38\"H X 68\"W X 42\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 18,
+   "publitas_page": 28,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 68 in W × 42 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60A-665",
+   "prefix": "60A",
+   "model": "665",
+   "name": "ALANI",
+   "type": "Left-Arm Sitting Chair",
+   "dimensions": "38\"H X 46\"W X 42\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 19,
+   "publitas_page": 29,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 46 in W × 42 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60B-665",
+   "prefix": "60B",
+   "model": "665",
+   "name": "ALANI",
+   "type": "Right-Arm Sitting Chair",
+   "dimensions": "38\"H X 46\"W X 42\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 19,
+   "publitas_page": 29,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 46 in W × 42 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60L-665",
+   "prefix": "60L",
+   "model": "665",
+   "name": "ALANI",
+   "type": "Left-Arm Sitting Chaise",
+   "dimensions": "38\"H X 46\"W X 64\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 19,
+   "publitas_page": 29,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 46 in W × 64 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60M-665",
+   "prefix": "60M",
+   "model": "665",
+   "name": "ALANI",
+   "type": "Armless Chair",
+   "dimensions": "38\"H X 40.5\"W X 42\"D",
+   "options": [
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 19,
+   "publitas_page": 29,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 40.5 in W × 42 in D",
+   "app_2026_options": [
+    "DC",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60R-665",
+   "prefix": "60R",
+   "model": "665",
+   "name": "ALANI",
+   "type": "Right-Arm Sitting Chaise",
+   "dimensions": "38\"H X 46\"W X 64\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 19,
+   "publitas_page": 29,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 46 in W × 64 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6CC-665",
+   "prefix": "6CC",
+   "model": "665",
+   "name": "ALANI",
+   "type": "90 Degree Corner Unit (Wall Space Required: 84\")",
+   "dimensions": "38\"H X 68\"W X 42\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 19,
+   "publitas_page": 29,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 68 in W × 42 in D",
+   "app_2026_options": [
+    "DC",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "510-681",
+   "prefix": "510",
+   "model": "681",
+   "name": "BEXLEY",
+   "type": "Queen Sleep Sofa",
+   "dimensions": "38\"H X 82\"W X 38.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "MA",
+    "MT",
+    "NB",
+    "NH",
+    "NS",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 20,
+   "publitas_page": 30,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 82 in W × 38.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "MA",
+    "MT",
+    "NB",
+    "NH",
+    "NS",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "610-681",
+   "prefix": "610",
+   "model": "681",
+   "name": "BEXLEY",
+   "type": "Sofa",
+   "dimensions": "38\"H X 82\"W X 38.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "NB",
+    "NH",
+    "NS",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 20,
+   "publitas_page": 30,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 82 in W × 38.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "NB",
+    "NH",
+    "NS",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "630-681",
+   "prefix": "630",
+   "model": "681",
+   "name": "BEXLEY",
+   "type": "Loveseat",
+   "dimensions": "38\"H X 59.5\"W X 38.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "NB",
+    "NH",
+    "NS",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 20,
+   "publitas_page": 30,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "38 in H × 59.5 in W × 38.5 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "NB",
+    "NH",
+    "NS",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "230-694",
+   "prefix": "230",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Chair",
+   "dimensions": "38\"H X 38\"W X 40\"D",
+   "options": [
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 21,
+   "publitas_page": 31,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 38 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "240-694",
+   "prefix": "240",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Ottoman",
+   "dimensions": "18\"H X 30\"W X 23\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 21,
+   "publitas_page": 31,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "18 in H × 30.5 in W × 23.5 in D",
+   "app_2026_options": [
+    "FN"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "610-694",
+   "prefix": "610",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Sofa",
+   "dimensions": "38\"H X 86\"W X 40\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "WL",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 21,
+   "publitas_page": 31,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 86 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "630-694",
+   "prefix": "630",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Loveseat",
+   "dimensions": "38\"H X 62\"W X 40\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "WL",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 21,
+   "publitas_page": 31,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 62 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60C-694",
+   "prefix": "60C",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Rounded Corner Unit (Wall Space Required: 98\")",
+   "dimensions": "37.5\"H X 66\"W X 55\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 22,
+   "publitas_page": 32,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 67 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6SC-694",
+   "prefix": "6SC",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Storage Console",
+   "dimensions": "25.5\"H X 10\"W X 38.5\"D",
+   "options": [
+    "N/A"
+   ],
+   "catalog_page": 22,
+   "publitas_page": 32,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "25.5 in H × 10 in W × 38.5 in D",
+   "app_2026_options": [
+    "FN"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60D-694",
+   "prefix": "60D",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Left-Arm Sitting Loveseat",
+   "dimensions": "37.5\"H X 57\"W X 40\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 22,
+   "publitas_page": 32,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 55 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60E-694",
+   "prefix": "60E",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Right-Arm Sitting Loveseat",
+   "dimensions": "37.5\"H X 57\"W X 40\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 22,
+   "publitas_page": 32,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 55 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60L-694",
+   "prefix": "60L",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Left-Arm Sitting Chaise",
+   "dimensions": "37.5\"H X 32\"W X 64.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 22,
+   "publitas_page": 32,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 31 in W × 64 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60M-694",
+   "prefix": "60M",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Sectional Armless Chair",
+   "dimensions": "37.5\"H X 24\"W X 40\"D",
+   "options": [
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 22,
+   "publitas_page": 32,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 24 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60R-694",
+   "prefix": "60R",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Right-Arm Sitting Chaise",
+   "dimensions": "37.5\"H X 32\"W X 64.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 22,
+   "publitas_page": 32,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 31 in W × 64 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "Z6",
+    "P1"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6CC-694",
+   "prefix": "6CC",
+   "model": "694",
+   "name": "MEYER",
+   "type": "90 Degree Corner Unit (Wall Space Required: 78\")",
+   "dimensions": "37.5\"H X 53\"W X 40\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 22,
+   "publitas_page": 32,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 53 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6SL-694",
+   "prefix": "6SL",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Left-Arm Sitting Chaise w/ Storage",
+   "dimensions": "37.5\"H X 38\"W X 64\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 22,
+   "publitas_page": 32,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 39 in W × 64 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6SR-694",
+   "prefix": "6SR",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Right-Arm Sitting Chaise w/ Storage",
+   "dimensions": "37.5\"H X 38\"W X 64\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 22,
+   "publitas_page": 32,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 39 in W × 64 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": true,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60A-694",
+   "prefix": "60A",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Left-Arm Sitting Chair",
+   "dimensions": "37.5\"H X 31\"W X 39\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FN",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 22,
+   "publitas_page": 32,
+   "new_marker_2025": true,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 31 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "60B-694",
+   "prefix": "60B",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Right-Arm Sitting Chair",
+   "dimensions": "37.5\"H X 31\"W X 39\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FN",
+    "FP",
+    "P1",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 22,
+   "publitas_page": 32,
+   "new_marker_2025": true,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 31 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "6MM-694",
+   "prefix": "6MM",
+   "model": "694",
+   "name": "MEYER",
+   "type": "Armless Loveseat",
+   "dimensions": "37.5\"H X 63\"W X 39\"D",
+   "options": [
+    "FN",
+    "Z5",
+    "ZB"
+   ],
+   "catalog_page": 22,
+   "publitas_page": 32,
+   "new_marker_2025": true,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "37.5 in H × 63 in W × 39 in D",
+   "app_2026_options": [
+    "DC",
+    "FN",
+    "FP",
+    "P1",
+    "Z6"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "P91-893",
+   "prefix": "P91",
+   "model": "893",
+   "name": "COLBY",
+   "type": "duo Reclining Sofa",
+   "dimensions": "41\"H X 83\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 26,
+   "publitas_page": 36,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "41 in H × 83 in W × 39.5 in D",
+   "app_2026_options": [
+    "FN",
+    "FP",
+    "P1"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "P93-893",
+   "prefix": "P93",
+   "model": "893",
+   "name": "COLBY",
+   "type": "duo Reclining Loveseat",
+   "dimensions": "41\"H X 61\"W X 39.5\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 26,
+   "publitas_page": 36,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "41 in H × 61 in W × 39.5 in D",
+   "app_2026_options": [
+    "FN",
+    "FP",
+    "P1"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "P94-893",
+   "prefix": "P94",
+   "model": "893",
+   "name": "COLBY",
+   "type": "duo Reclining Chair",
+   "dimensions": "41\"H X 39\"W X 39.5\"D",
+   "options": [
+    "LT",
+    "Z5"
+   ],
+   "catalog_page": 26,
+   "publitas_page": 36,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "41 in H × 39 in W × 39.5 in D",
+   "app_2026_options": [
+    "FN",
+    "LT"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "90M-897",
+   "prefix": "90M",
+   "model": "897",
+   "name": "EDIE",
+   "type": "duo Armless Chair",
+   "dimensions": "39\"H X 36.5\"W X 42\"D",
+   "options": [
+    "Z5"
+   ],
+   "catalog_page": 27,
+   "publitas_page": 37,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": false,
+   "in_available_products_pdf": true
+  },
+  {
+   "style_number": "9CC-897",
+   "prefix": "9CC",
+   "model": "897",
+   "name": "EDIE",
+   "type": "duo Corner (Wall Space Required: 83\")",
+   "dimensions": "39\"H X 58\"W X 42\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 27,
+   "publitas_page": 37,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": false,
+   "in_available_products_pdf": true
+  },
+  {
+   "style_number": "P9D-897",
+   "prefix": "P9D",
+   "model": "897",
+   "name": "EDIE",
+   "type": "duo Left-Arm Sitting Reclining Loveseat",
+   "dimensions": "39\"H X 76.5\"W X 42\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 27,
+   "publitas_page": 37,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": false,
+   "in_available_products_pdf": false
+  },
+  {
+   "style_number": "P9E-897",
+   "prefix": "P9E",
+   "model": "897",
+   "name": "EDIE",
+   "type": "duo Right-Arm Sitting Reclining Loveseat",
+   "dimensions": "39\"H X 76.5\"W X 42\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 27,
+   "publitas_page": 37,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": false,
+   "in_available_products_pdf": false
+  },
+  {
+   "style_number": "P91-899",
+   "prefix": "P91",
+   "model": "899",
+   "name": "BENNETT",
+   "type": "duo Reclining Sofa",
+   "dimensions": "39.5\"H X 82.5\"W X 39\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 28,
+   "publitas_page": 38,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39.5 in H × 82.5 in W × 39 in D",
+   "app_2026_options": [
+    "FN",
+    "FP",
+    "P1"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "P93-899",
+   "prefix": "P93",
+   "model": "899",
+   "name": "BENNETT",
+   "type": "duo Reclining Loveseat",
+   "dimensions": "39.5\"H X 60\"W X 39\"D",
+   "options": [
+    "C1",
+    "F1",
+    "FP",
+    "P1",
+    "Z5"
+   ],
+   "catalog_page": 28,
+   "publitas_page": 38,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39.5 in H × 60 in W × 39 in D",
+   "app_2026_options": [
+    "FN",
+    "FP",
+    "P1"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  },
+  {
+   "style_number": "P94-899",
+   "prefix": "P94",
+   "model": "899",
+   "name": "BENNETT",
+   "type": "duo Reclining Chair",
+   "dimensions": "39.5\"H X 37.5\"W X 39\"D",
+   "options": [
+    "Z5"
+   ],
+   "catalog_page": 28,
+   "publitas_page": 38,
+   "new_marker_2025": false,
+   "in_app_stationary_catalog_2026": true,
+   "in_available_products_pdf": false,
+   "app_2026_dimensions": "39.5 in H × 37.5 in W × 39 in D",
+   "app_2026_options": [
+    "FN",
+    "LT"
+   ],
+   "dimensions_differ_in_2026": false,
+   "options_differ_in_2026": true
+  }
+ ],
+ "models": [
+  {
+   "model": "411",
+   "name": "Laurel",
+   "catalog_pages": [
+    1
+   ],
+   "publitas_pages": [
+    11
+   ],
+   "cover_cap_choices_by_page": {
+    "1": "fabric:DR,UR"
+   },
+   "finishes_by_page": {
+    "1": "std 021 Coffee; opt 007 Brown Mahogany, 041 Graphite"
+   },
+   "select_covers": [
+    {
+     "collection": "C1659",
+     "swatches": [
+      [
+       "C165962",
+       "Smoke"
+      ],
+      [
+       "C165967",
+       "Charcoal"
+      ],
+      [
+       "C165972",
+       "Taupe"
+      ],
+      [
+       "C165986",
+       "Indigo"
+      ],
+      [
+       "C165992",
+       "Mist"
+      ]
+     ]
+    },
+    {
+     "collection": "C2042",
+     "swatches": [
+      [
+       "C204232",
+       "Oat"
+      ],
+      [
+       "C204253",
+       "Fog"
+      ],
+      [
+       "C204260",
+       "Dove"
+      ],
+      [
+       "C204274",
+       "Hazel"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "418",
+   "name": "Leah",
+   "catalog_pages": [
+    2
+   ],
+   "publitas_pages": [
+    12
+   ],
+   "cover_cap_choices_by_page": {
+    "2": "fabric:DR,UR,DP,NP,PS,UE,VS,BU; recycled leather:RL"
+   },
+   "finishes_by_page": {
+    "2": "N/A"
+   },
+   "select_covers": [
+    {
+     "collection": "B1808 Social Club",
+     "swatches": [
+      [
+       "B180852",
+       "Stone"
+      ],
+      [
+       "B180857",
+       "Charcoal"
+      ],
+      [
+       "B180868",
+       "Pewter"
+      ],
+      [
+       "B180872",
+       "Chalk"
+      ],
+      [
+       "B180876",
+       "Cocoa"
+      ]
+     ]
+    },
+    {
+     "collection": "C1659 McKittrick",
+     "swatches": [
+      [
+       "C165962",
+       "Smoke"
+      ],
+      [
+       "C165967",
+       "Charcoal"
+      ],
+      [
+       "C165972",
+       "Taupe"
+      ],
+      [
+       "C165986",
+       "Indigo"
+      ],
+      [
+       "C165992",
+       "Mist"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "435",
+   "name": "Mackenzie",
+   "catalog_pages": [
+    3
+   ],
+   "publitas_pages": [
+    13
+   ],
+   "cover_cap_choices_by_page": {
+    "3": "fabric:DR,UR,DP,NP,PS,UE,VS,BU; recycled leather:RL; leather:LL,LM"
+   },
+   "finishes_by_page": {
+    "3": "std 007 Brown Mahogany; opt 021 Coffee"
+   },
+   "select_covers": [
+    {
+     "collection": "C1757 Bartaloni",
+     "swatches": [
+      [
+       "C175731",
+       "Oatmeal"
+      ],
+      [
+       "C175733",
+       "Birch"
+      ],
+      [
+       "C175753",
+       "Flannel"
+      ],
+      [
+       "C175773",
+       "Twig"
+      ]
+     ]
+    },
+    {
+     "collection": "E1918 Artisan",
+     "swatches": [
+      [
+       "E191853",
+       "Steel"
+      ],
+      [
+       "E191859",
+       "Raven"
+      ],
+      [
+       "E191862",
+       "Barley"
+      ],
+      [
+       "E191886",
+       "Eclipse"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "491",
+   "name": "Natalie",
+   "catalog_pages": [
+    4
+   ],
+   "publitas_pages": [
+    14
+   ],
+   "cover_cap_choices_by_page": {
+    "4": "fabric:DR,UR"
+   },
+   "finishes_by_page": {
+    "4": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite, 071 Driftwood"
+   },
+   "select_covers": [
+    {
+     "collection": "C1812",
+     "swatches": [
+      [
+       "C181233",
+       "Oyster"
+      ],
+      [
+       "C181254",
+       "Stone"
+      ],
+      [
+       "C181257",
+       "Charcoal"
+      ],
+      [
+       "C181262",
+       "Muslin"
+      ],
+      [
+       "C181286",
+       "Midnight"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "494",
+   "name": "Collins",
+   "catalog_pages": [
+    5,
+    6
+   ],
+   "publitas_pages": [
+    15,
+    16
+   ],
+   "cover_cap_choices_by_page": {
+    "5": "fabric:DR,UR,DP,NP,PS,VS; leather:LL,LM",
+    "6": "fabric:DR,UR,DP,NP,PS,VS; leather:LL,LM"
+   },
+   "finishes_by_page": {
+    "5": "N/A",
+    "6": "std 007 Brown Mahogany; opt 021 Coffee (finish options only on 6SC prefix)"
+   },
+   "select_covers": [
+    {
+     "collection": "D1807 Fairfax",
+     "swatches": [
+      [
+       "D180732",
+       "Oyster"
+      ],
+      [
+       "D180753",
+       "Ash"
+      ],
+      [
+       "D180757",
+       "Iron"
+      ],
+      [
+       "D180764",
+       "Almond"
+      ],
+      [
+       "D180774",
+       "Mocha"
+      ],
+      [
+       "D180786",
+       "Eclipse"
+      ]
+     ]
+    },
+    {
+     "collection": "D1905 York",
+     "swatches": [
+      [
+       "D190531",
+       "Cream"
+      ],
+      [
+       "D190554",
+       "Quarry"
+      ],
+      [
+       "D190558",
+       "Granite"
+      ],
+      [
+       "D190572",
+       "Barley"
+      ],
+      [
+       "D190574",
+       "Bisque"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "593",
+   "name": "Kennedy",
+   "catalog_pages": [
+    8
+   ],
+   "publitas_pages": [
+    18
+   ],
+   "cover_cap_choices_by_page": {
+    "8": "fabric:DR,UR,UE,VS,BU; recycled leather:RL; leather:LL"
+   },
+   "finishes_by_page": {
+    "8": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite, 071 Driftwood"
+   },
+   "select_covers": [
+    {
+     "collection": "D1564 i-Hallandale",
+     "swatches": [
+      [
+       "D156431",
+       "Ivory"
+      ],
+      [
+       "D156453",
+       "Platinum"
+      ],
+      [
+       "D156458",
+       "Charcoal"
+      ],
+      [
+       "D156464",
+       "Wicker"
+      ],
+      [
+       "D156487",
+       "Admiral"
+      ]
+     ]
+    },
+    {
+     "collection": "D2038 Picchu",
+     "swatches": [
+      [
+       "D203830",
+       "Snow"
+      ],
+      [
+       "D203859",
+       "Carbon"
+      ],
+      [
+       "D203862",
+       "Flax"
+      ],
+      [
+       "D203872",
+       "Brown Sugar"
+      ],
+      [
+       "D203878",
+       "Cocoa"
+      ],
+      [
+       "D203885",
+       "Navy"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "60D",
+   "name": "Kirby",
+   "catalog_pages": [
+    9
+   ],
+   "publitas_pages": [
+    19
+   ],
+   "cover_cap_choices_by_page": {
+    "9": "fabric:DR,UR,UE,BU; recycled leather:RL"
+   },
+   "finishes_by_page": {
+    "9": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite"
+   },
+   "select_covers": [
+    {
+     "collection": "E1917 i-Adario",
+     "swatches": [
+      [
+       "E191734",
+       "Basmati"
+      ],
+      [
+       "E191752",
+       "Fog"
+      ],
+      [
+       "E191753",
+       "Stone"
+      ],
+      [
+       "E191765",
+       "Taupe"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "603",
+   "name": "Wilmette",
+   "catalog_pages": [
+    10,
+    11
+   ],
+   "publitas_pages": [
+    20,
+    21
+   ],
+   "cover_cap_choices_by_page": {
+    "10": "fabric:DR,UR,DP,NP,PS,UE,VS,BU; recycled leather:RL; leather:LL,LM",
+    "11": "fabric:DR,UR,DP,NP,PS,UE,VS,BU; recycled leather:RL; leather:LL,LM"
+   },
+   "finishes_by_page": {
+    "10": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite, 071 Driftwood",
+    "11": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite, 071 Driftwood"
+   },
+   "select_covers": [
+    {
+     "collection": "C2042",
+     "swatches": [
+      [
+       "C204232",
+       "Oat"
+      ],
+      [
+       "C204253",
+       "Fog"
+      ],
+      [
+       "C204260",
+       "Dove"
+      ],
+      [
+       "C204274",
+       "Hazel"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "606",
+   "name": "Noah",
+   "catalog_pages": [
+    12
+   ],
+   "publitas_pages": [
+    22
+   ],
+   "cover_cap_choices_by_page": {
+    "12": "fabric:DR,UR,UE,BU; recycled leather:RL; leather:LL,LM"
+   },
+   "finishes_by_page": {
+    "12": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite"
+   },
+   "select_covers": [
+    {
+     "collection": "D2010",
+     "swatches": [
+      [
+       "D201014",
+       "Nutmeg"
+      ],
+      [
+       "D201019",
+       "Spice"
+      ],
+      [
+       "D201025",
+       "Moss"
+      ],
+      [
+       "D201032",
+       "Oat"
+      ],
+      [
+       "D201052",
+       "Ash"
+      ],
+      [
+       "D201065",
+       "Mushroom"
+      ],
+      [
+       "D201081",
+       "Bluestone"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "613",
+   "name": "Olson",
+   "catalog_pages": [
+    13
+   ],
+   "publitas_pages": [
+    23
+   ],
+   "cover_cap_choices_by_page": {
+    "13": "fabric:DR,UR,DP,NP,PS,UE,VS,BU; recycled leather:RL; leather:LL,LM"
+   },
+   "finishes_by_page": {
+    "13": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite, 071 Driftwood"
+   },
+   "select_covers": [
+    {
+     "collection": "D1970 Marteon",
+     "swatches": [
+      [
+       "D197034",
+       "Natural"
+      ],
+      [
+       "D197052",
+       "Whisper"
+      ],
+      [
+       "D197056",
+       "Onyx"
+      ],
+      [
+       "D197066",
+       "Porcini"
+      ],
+      [
+       "D197096",
+       "Ocean"
+      ]
+     ]
+    },
+    {
+     "collection": "D2074 Gail",
+     "swatches": [
+      [
+       "D207432",
+       "Ecru"
+      ],
+      [
+       "D207451",
+       "Oyster"
+      ],
+      [
+       "D207460",
+       "Porcelain"
+      ],
+      [
+       "D207478",
+       "Fossil"
+      ],
+      [
+       "D207480",
+       "Lotus"
+      ],
+      [
+       "D207486",
+       "Navy"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "620",
+   "name": "Piper",
+   "catalog_pages": [
+    14
+   ],
+   "publitas_pages": [
+    24
+   ],
+   "cover_cap_choices_by_page": {
+    "14": "fabric:DR,UR,UE,BU; recycled leather:RL; leather:LL,LM"
+   },
+   "finishes_by_page": {
+    "14": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite, 071 Driftwood"
+   },
+   "select_covers": [
+    {
+     "collection": "C2043 Sheldon",
+     "swatches": [
+      [
+       "C204357",
+       "Granite"
+      ],
+      [
+       "C204373",
+       "Fawn"
+      ],
+      [
+       "C204376",
+       "Stone"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "632",
+   "name": "Tahoe",
+   "catalog_pages": [
+    15
+   ],
+   "publitas_pages": [
+    25
+   ],
+   "cover_cap_choices_by_page": {
+    "15": "fabric:DR,UR,UE,BU; recycled leather:RL; leather:LL,LM"
+   },
+   "finishes_by_page": {
+    "15": "std 007 Brown Mahogany; opt 021 Coffee (only on 6AL, 6AR & 6SC)"
+   },
+   "select_covers": [
+    {
+     "collection": "D2009 Promise",
+     "swatches": [
+      [
+       "D200931",
+       "Ecru"
+      ],
+      [
+       "D200946",
+       "Gold"
+      ],
+      [
+       "D200952",
+       "Oyster"
+      ],
+      [
+       "D200959",
+       "Thunder"
+      ],
+      [
+       "D200972",
+       "Khaki"
+      ],
+      [
+       "D200983",
+       "Powder"
+      ]
+     ]
+    },
+    {
+     "collection": "E1917 i-Adario",
+     "swatches": [
+      [
+       "E191734",
+       "Basmati"
+      ],
+      [
+       "E191752",
+       "Fog"
+      ],
+      [
+       "E191753",
+       "Stone"
+      ],
+      [
+       "E191765",
+       "Taupe"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "636",
+   "name": "Shiloh",
+   "catalog_pages": [
+    16
+   ],
+   "publitas_pages": [
+    26
+   ],
+   "cover_cap_choices_by_page": {
+    "16": "fabric:DR,UR,DP,NP,PS,UE,VS,BU; recycled leather:RL; leather:LL,LM"
+   },
+   "finishes_by_page": {
+    "16": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite"
+   },
+   "select_covers": [
+    {
+     "collection": "D1970 Marteon",
+     "swatches": [
+      [
+       "D197034",
+       "Natural"
+      ],
+      [
+       "D197052",
+       "Whisper"
+      ],
+      [
+       "D197056",
+       "Onyx"
+      ],
+      [
+       "D197066",
+       "Porcini"
+      ],
+      [
+       "D197096",
+       "Ocean"
+      ]
+     ]
+    },
+    {
+     "collection": "D2074 Gail",
+     "swatches": [
+      [
+       "D207432",
+       "Ecru"
+      ],
+      [
+       "D207451",
+       "Oyster"
+      ],
+      [
+       "D207460",
+       "Porcelain"
+      ],
+      [
+       "D207478",
+       "Fossil"
+      ],
+      [
+       "D207480",
+       "Lotus"
+      ],
+      [
+       "D207486",
+       "Navy"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "663",
+   "name": "Paxton",
+   "catalog_pages": [
+    17,
+    18
+   ],
+   "publitas_pages": [
+    27,
+    28
+   ],
+   "cover_cap_choices_by_page": {
+    "17": "fabric:DR,UR,UE,BU; recycled leather:RL; leather:LL,LM",
+    "18": "fabric:DR,UR,UE,BU; recycled leather:RL; leather:LL,LM"
+   },
+   "finishes_by_page": {
+    "17": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite, 071 Driftwood",
+    "18": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite, 071 Driftwood"
+   },
+   "select_covers": [
+    {
+     "collection": "C1915 Solstice",
+     "swatches": [
+      [
+       "C191532",
+       "Porcelain"
+      ],
+      [
+       "C191556",
+       "Metal"
+      ],
+      [
+       "C191565",
+       "Oatmeal"
+      ],
+      [
+       "C191579",
+       "Cocoa"
+      ]
+     ]
+    },
+    {
+     "collection": "D1656 Ollie",
+     "swatches": [
+      [
+       "D165631",
+       "Parchment"
+      ],
+      [
+       "D165657",
+       "Midnight"
+      ],
+      [
+       "D165664",
+       "Smoke"
+      ],
+      [
+       "D165667",
+       "Granite"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "665",
+   "name": "Alani",
+   "catalog_pages": [
+    19
+   ],
+   "publitas_pages": [
+    29
+   ],
+   "cover_cap_choices_by_page": {
+    "19": "fabric:DR,UR,UE,BU; recycled leather:RL; leather:LL,LM"
+   },
+   "finishes_by_page": {
+    "19": "N/A"
+   },
+   "select_covers": [
+    {
+     "collection": "D1807 Fairfax",
+     "swatches": [
+      [
+       "D180732",
+       "Oyster"
+      ],
+      [
+       "D180753",
+       "Ash"
+      ],
+      [
+       "D180757",
+       "Iron"
+      ],
+      [
+       "D180764",
+       "Almond"
+      ],
+      [
+       "D180774",
+       "Mocha"
+      ],
+      [
+       "D180786",
+       "Eclipse"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "681",
+   "name": "Bexley",
+   "catalog_pages": [
+    20
+   ],
+   "publitas_pages": [
+    30
+   ],
+   "cover_cap_choices_by_page": {
+    "20": "fabric:DR,UR,DP,NP,PS,UE,VS,BU; recycled leather:RL"
+   },
+   "finishes_by_page": {
+    "20": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite, 071 Driftwood"
+   },
+   "select_covers": [
+    {
+     "collection": "D2009/D2071 (collection labels not printed)",
+     "swatches": [
+      [
+       "D200931",
+       "Ecru"
+      ],
+      [
+       "D200946",
+       "Gold"
+      ],
+      [
+       "D200952",
+       "Oyster"
+      ],
+      [
+       "D200959",
+       "Thunder"
+      ],
+      [
+       "D200972",
+       "Khaki"
+      ],
+      [
+       "D200983",
+       "Powder"
+      ],
+      [
+       "D207119",
+       "Salsa"
+      ],
+      [
+       "D207131",
+       "Linen"
+      ],
+      [
+       "D207152",
+       "Mushroom"
+      ],
+      [
+       "D207154",
+       "Grey"
+      ],
+      [
+       "D207178",
+       "Brownstone"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "694",
+   "name": "Meyer",
+   "catalog_pages": [
+    21,
+    22
+   ],
+   "publitas_pages": [
+    31,
+    32
+   ],
+   "cover_cap_choices_by_page": {
+    "21": "fabric:DR,UR,UE,BU; recycled leather:RL; leather:LL,LM",
+    "22": "fabric:DR,UR,DP,NP,PS,UE,VS,BU; recycled leather:RL; leather:LL,LM"
+   },
+   "finishes_by_page": {
+    "21": "std 007 Brown Mahogany; opt 021 Coffee",
+    "22": "std 007 Brown Mahogany; opt 021 Coffee"
+   },
+   "select_covers": [
+    {
+     "collection": "C1516 Merit",
+     "swatches": [
+      [
+       "C151631",
+       "Dove"
+      ],
+      [
+       "C151651",
+       "Platinum"
+      ],
+      [
+       "C151657",
+       "Charcoal"
+      ],
+      [
+       "C151664",
+       "Sable"
+      ],
+      [
+       "C151677",
+       "Mocha"
+      ]
+     ]
+    },
+    {
+     "collection": "C1700 Nico",
+     "swatches": [
+      [
+       "C170033",
+       "Oyster"
+      ],
+      [
+       "C170053",
+       "Ash"
+      ],
+      [
+       "C170057",
+       "Charcoal"
+      ]
+     ]
+    },
+    {
+     "collection": "C1965 Nora",
+     "swatches": [
+      [
+       "C196532",
+       "Ivory"
+      ],
+      [
+       "C196552",
+       "Oyster"
+      ],
+      [
+       "C196566",
+       "Truffle"
+      ],
+      [
+       "C196584",
+       "Harbor"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "893",
+   "name": "Colby",
+   "catalog_pages": [
+    26
+   ],
+   "publitas_pages": [
+    36
+   ],
+   "cover_cap_choices_by_page": {
+    "26": "fabric:DR,UR,DP,NP,PS,UE,VS,BU; recycled leather:RL; leather:LL,LM"
+   },
+   "finishes_by_page": {
+    "26": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite"
+   },
+   "select_covers": [
+    {
+     "collection": "C1700 Nico",
+     "swatches": [
+      [
+       "C170033",
+       "Oyster"
+      ],
+      [
+       "C170053",
+       "Ash"
+      ],
+      [
+       "C170057",
+       "Charcoal"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "897",
+   "name": "Edie",
+   "catalog_pages": [
+    27
+   ],
+   "publitas_pages": [
+    37
+   ],
+   "cover_cap_choices_by_page": {
+    "27": "fabric:DR,UR,UE,BU; recycled leather:RL; leather:LL"
+   },
+   "finishes_by_page": {
+    "27": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite"
+   },
+   "select_covers": [
+    {
+     "collection": "C1661 Belleame",
+     "swatches": [
+      [
+       "C166132",
+       "Buff"
+      ],
+      [
+       "C166158",
+       "Slate"
+      ],
+      [
+       "C166164",
+       "Pewter"
+      ],
+      [
+       "C166173",
+       "Fawn"
+      ],
+      [
+       "C166176",
+       "Otter"
+      ],
+      [
+       "C166184",
+       "Stonewash"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "model": "899",
+   "name": "Bennett",
+   "catalog_pages": [
+    28
+   ],
+   "publitas_pages": [
+    38
+   ],
+   "cover_cap_choices_by_page": {
+    "28": "fabric:DR,UR,UE,BU; recycled leather:RL; leather:LL,LM"
+   },
+   "finishes_by_page": {
+    "28": "std 007 Brown Mahogany; opt 021 Coffee, 041 Graphite"
+   },
+   "select_covers": [
+    {
+     "collection": "B1808 Social Club",
+     "swatches": [
+      [
+       "B180852",
+       "Stone"
+      ],
+      [
+       "B180857",
+       "Charcoal"
+      ],
+      [
+       "B180868",
+       "Pewter"
+      ],
+      [
+       "B180872",
+       "Chalk"
+      ],
+      [
+       "B180876",
+       "Cocoa"
+      ]
+     ]
+    },
+    {
+     "collection": "D2030 Howell",
+     "swatches": [
+      [
+       "D203032",
+       "Sand"
+      ],
+      [
+       "D203034",
+       "Granite"
+      ],
+      [
+       "D203053",
+       "Ash"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "options_2025": [
+  {
+   "code": "C1/C2",
+   "name": "CORD",
+   "details": "Cord accent can be added to primary or secondary pillows on most styles."
+  },
+  {
+   "code": "F1/F2",
+   "name": "FRINGE",
+   "details": "Fringe accent can be added to primary or secondary pillows on most styles."
+  },
+  {
+   "code": "LG",
+   "name": "LEG CHANGE",
+   "details": "Changes all standard legs to a different leg design."
+  },
+  {
+   "code": "NS",
+   "name": "NAILHEAD TRIM - PLATINUM",
+   "details": "Platinum nailhead trim can be added to select styles."
+  },
+  {
+   "code": "NB",
+   "name": "NAILHEAD TRIM - BLACK",
+   "details": "Hammered black nickel nailhead trim can be added to select styles."
+  },
+  {
+   "code": "NH",
+   "name": "NAILHEAD TRIM - BRASS",
+   "details": "Brass nailhead trim can be added to select styles."
+  },
+  {
+   "code": "NN",
+   "name": "NO NAILHEAD TRIM",
+   "details": "Nailhead trim can be removed from styles when it is a standard feature."
+  },
+  {
+   "code": "P1",
+   "name": "CONTRASTING PILLOWS",
+   "details": "Fabric on accent pillows can be changed."
+  },
+  {
+   "code": "P2",
+   "name": "CONTRASTING PILLOWS",
+   "details": "Fabric on second set of accent pillows can be changed on styles that come standard with two sets of pillows."
+  },
+  {
+   "code": "FP",
+   "name": "FEATHERLITE PILLOWS",
+   "details": "Upgrades accent pillows to 95% duck feathers, 5% duck down, encased in a 100% cotton down-proof ticking (DPT) fabric."
+  },
+  {
+   "code": "Z5",
+   "name": "COMFORTCORE PLUS TEMPUR-RESPONSE Z5 MEMORY FOAM CUSHIONING",
+   "details": "Upgrades standard ComfortCore seat cushions to ComfortCore plus TEMPUR-Response Memory Foam seat cushions."
+  },
+  {
+   "code": "ZB",
+   "name": "COMFORTCORE PLUS TEMPUR-RESPONSE MEMORY ZB FOAM SEAT AND BACK CUSHIONING",
+   "details": "Upgrades standard ComfortCore seat cushions and backs to ComfortCore plus TEMPUR-Response Memory Foam seat and back cushioning."
+  },
+  {
+   "code": "MA",
+   "name": "SLUMBERAIR MATTRESS",
+   "details": "Upgrade standard sleep sofa mattress with the SlumberAir Mattress System - Queen, Full & Twin Sizes."
+  },
+  {
+   "code": "MT",
+   "name": "TEMPUR-RESPONSE MEMORY FOAM MATTRESS",
+   "details": "Upgrade standard sleep sofa mattress with the La-Z-Boy plus TEMPUR-Response Memory Foam mattress - Queen, Full & Twin Sizes."
+  },
+  {
+   "code": "088AC3/088AC4",
+   "name": "ARM CAP / HEADREST COVERS",
+   "details": "Quantities of napkin style arm caps and headrest covers are available with all fabric orders."
+  },
+  {
+   "code": "EXTRA FABRIC",
+   "name": "EXTRA FABRIC",
+   "details": "Additional yards of fabric or complete leather hides can be ordered for decorative detailing or to keep on hand for repair."
+  },
+  {
+   "code": "LT",
+   "name": "LEFT HAND POWER ACTIVATOR",
+   "details": "Changes the location of 2-button mounted controller with USB for operating the power recliner from right-side to left-side sitting."
+  },
+  {
+   "code": "0881YC",
+   "name": "BATTERY PACK",
+   "details": "Rechargeable lithium-ion battery pack to power motion styles for cordless operation. Not available on lift chairs."
+  }
+ ],
+ "finishes_2025": [
+  {
+   "code": "007",
+   "name": "Brown Mahogany",
+   "details": "The medium brown patina of this finish is a classic that easily mixes with other finishes in a room for an enduring look that never goes out of style."
+  },
+  {
+   "code": "021",
+   "name": "Coffee",
+   "details": "A deep rich finish with dark brown undertones, this sophisticated hue creates a contemporary vibe and an up-to-the-minute look."
+  },
+  {
+   "code": "041",
+   "name": "Graphite",
+   "details": "With understated gray tones that project a style that is both dramatic and modern, this finish makes a powerful design statement in any room."
+  },
+  {
+   "code": "071",
+   "name": "Driftwood",
+   "details": "This textured, lighter natural wood tone produces a more casual finish that is mixable within any room environment."
+  }
+ ],
+ "pillow_styles_2025": [
+  {
+   "code": "01P-202",
+   "category": "Box Border Kidney",
+   "dimensions": "12\"H X 21\"W",
+   "options": "FP",
+   "quantity": 1
+  },
+  {
+   "code": "01P-203",
+   "category": "Long Box Border Kidney",
+   "dimensions": "12\"H X 26\"W",
+   "options": "FP",
+   "quantity": 1
+  },
+  {
+   "code": "01P-204",
+   "category": "Long Knife Edge Kidney",
+   "dimensions": "11\"H X 36\"W",
+   "options": "FP",
+   "quantity": 1
+  },
+  {
+   "code": "01P-222",
+   "category": "Knife Edge with Welt",
+   "dimensions": "18\"H X 18\"W",
+   "options": "C1, F1, FP",
+   "quantity": 1
+  },
+  {
+   "code": "01P-262",
+   "category": "Knife Edge with Welt",
+   "dimensions": "20\"H X 20\"W",
+   "options": "C1, F1, FP",
+   "quantity": 1
+  },
+  {
+   "code": "08P-201*",
+   "category": "Knife Edge Kidney with Welt",
+   "dimensions": "12\"H X 23\"W",
+   "options": "C1, F1, FP",
+   "quantity": 1
+  },
+  {
+   "code": "08P-220",
+   "category": "Knife Edge",
+   "dimensions": "18\"H X 18\"W",
+   "options": "C1, F1, FP",
+   "quantity": 2
+  },
+  {
+   "code": "08P-222",
+   "category": "Knife Edge with Welt",
+   "dimensions": "18\"H X 18\"W",
+   "options": "C1, F1, FP",
+   "quantity": 2
+  },
+  {
+   "code": "08P-260",
+   "category": "Knife Edge",
+   "dimensions": "20\"H X 20\"W",
+   "options": "C1, F1, FP",
+   "quantity": 2
+  },
+  {
+   "code": "08P-262",
+   "category": "Knife Edge with Welt",
+   "dimensions": "20\"H X 20\"W",
+   "options": "C1, F1, FP",
+   "quantity": 2
+  }
+ ],
+ "pillow_cover_cap_choices": "FABRIC: DR, UR, DP, NP, PS, VS",
+ "pillow_note": "*08P-201 is a single pillow. All other 08P prefixes are pairs. (Printed \"O1P\"/\"O8P\" in the table, \"01P\"/\"08P\" elsewhere in the catalog.)",
+ "style_name_index_2025": [
+  [
+   "ALANI",
+   "665",
+   "19"
+  ],
+  [
+   "BENNETT",
+   "899",
+   "28"
+  ],
+  [
+   "BEXLEY",
+   "681",
+   "20"
+  ],
+  [
+   "COLBY",
+   "893",
+   "26"
+  ],
+  [
+   "COLLINS",
+   "494",
+   "5-7"
+  ],
+  [
+   "EDIE",
+   "897",
+   "27"
+  ],
+  [
+   "KENNEDY",
+   "593",
+   "8"
+  ],
+  [
+   "KIRBY",
+   "60D",
+   "9"
+  ],
+  [
+   "LAUREL",
+   "411",
+   "1"
+  ],
+  [
+   "LEAH",
+   "418",
+   "2"
+  ],
+  [
+   "MACKENZIE",
+   "435",
+   "3"
+  ],
+  [
+   "MEYER",
+   "694",
+   "21-23"
+  ],
+  [
+   "NATALIE",
+   "491",
+   "4"
+  ],
+  [
+   "NOAH",
+   "606",
+   "12"
+  ],
+  [
+   "OLSON",
+   "613",
+   "13"
+  ],
+  [
+   "PAXTON",
+   "663",
+   "17-18"
+  ],
+  [
+   "PIPER",
+   "620",
+   "14"
+  ],
+  [
+   "SHILOH (NEW)",
+   "636",
+   "16"
+  ],
+  [
+   "TAHOE",
+   "632",
+   "15"
+  ],
+  [
+   "WILMETTE (NEW)",
+   "603",
+   "10-11"
+  ]
+ ]
+}
