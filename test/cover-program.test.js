@@ -50,13 +50,16 @@ test('every cap code used by a cover is documented', () => {
 
 test('color names only come from the catalog swatch list and match their codes', async () => {
   const names = JSON.parse(await readFile(new URL('../data/source/catalog-swatch-names.json', import.meta.url), 'utf8'));
+  const site = JSON.parse(await readFile(new URL('../data/source/free-swatch-names.json', import.meta.url), 'utf8')).names;
   let named = 0;
   for (const record of [...program.fabrics, ...program.leathers]) {
     for (const [color, name] of Object.entries(record.colorNames || {})) {
       assert.ok(record.colors.includes(color), `${record.coverCode} names color ${color} it does not list`);
-      assert.equal(name, names[record.coverCode + color]);
+      const code = record.coverCode + color;
+      // Either the catalog list, or the La-Z-Boy free-swatch page ("<Pattern> <Colour>") for names the April list left blank.
+      assert.ok(name === names[code] || (site[code] && site[code].toLowerCase().endsWith(` ${name}`.toLowerCase())), `${code} ${name}`);
       named += 1;
     }
   }
-  assert.ok(named > 250, `expected 250+ named colors, got ${named}`);
+  assert.ok(named > 600, `expected 600+ named colors, got ${named}`);
 });

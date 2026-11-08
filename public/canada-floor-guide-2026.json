@@ -1,0 +1,137 @@
+{
+  "_meta": {
+    "title": "Canadian floor guide 2026",
+    "built": "Hand-written from the Nov 2026 site crawl (research_notes/La-Z-Boy site crawl gap analysis). Read-only reference; nothing here changes a style, price or warranty record.",
+    "provenanceKey": {
+      "dealer": "One independent Ottawa / Gatineau / Kingston La-Z-Boy dealer group (stylemeetscomfort.ca). Their fees, plans and policies, not La-Z-Boy Canada policy. Another dealer may differ.",
+      "corporate-us": "La-Z-Boy US customer-care pages (la-z-boy.com). Confirm the Canadian tag or dealer before quoting.",
+      "app": "Already in this app's own data; shown here for context."
+    }
+  },
+  "sections": [
+    {
+      "id": "lift-tax",
+      "title": "Lift chairs and Canadian tax (prescription)",
+      "provenance": "dealer",
+      "asOf": "2026-11",
+      "note": "Not tax advice. This is a dealer's plain-language summary of Canada Revenue Agency guidance. Ontario HST is the only worked example; Quebec (QST) and other provinces were not covered. Send the customer to the CRA or a tax professional for their own case.",
+      "items": [
+        { "q": "Can a lift chair be tax-free?", "a": "A lift chair can be zero-rated for GST/HST when the customer has a written order from a doctor, occupational therapist or physiotherapist. The cost may also qualify for the Medical Expense Tax Credit." },
+        { "q": "What does the chair have to be?", "a": "A complete chair (base, seat and backrest) with an electric lifting and tilting mechanism, a stable base and controls the person can use independently, intended mainly for a diagnosed condition, not just comfort. Attachments or partial mechanisms do not qualify." },
+        { "q": "What does the written order need?", "a": "It must come from a recognized professional (medical doctor, occupational therapist or physiotherapist), state medical necessity, and carry the patient's name and signature." },
+        { "q": "When do we need it?", "a": "At purchase, or before the order is completed. If the customer already paid tax, a refund of tax paid in error may be possible through CRA; they keep the order and receipts." },
+        { "q": "What else can be zero-rated?", "a": "The dealer says delivery and extended-warranty charges can also be zero-rated when they are part of the medically necessary purchase." },
+        { "q": "Example the dealer gives", "a": "A $3,000 chair with delivery and protection could save up to $390 in Ontario (13% HST). Say \"up to\" and \"for example\"; the customer's own tax situation decides." }
+      ],
+      "source": "stylemeetscomfort.ca: lift-chairs-tax-deductible-canada and lift-recliner-chair-cost (Nov 2026 crawl)"
+    },
+    {
+      "id": "fit-check",
+      "title": "Recliner fit check (sit-test script)",
+      "provenance": "dealer",
+      "asOf": "2026-11",
+      "note": "Use this alongside the Fit tab and the sit test. It is a coaching script, not a measurement rule.",
+      "items": [
+        { "q": "Sitting upright", "a": "Head lines up with the head cushion, lower back is supported, feet are flat, and knees are about 90 degrees." },
+        { "q": "Fully reclined", "a": "Legs are fully supported by the footrest with the heels just reaching its edge. Shoulders line up with the back cushions and the customer is not pushing the chin forward." },
+        { "q": "Walk away test", "a": "They should not need to shift, scoot or keep adjusting. If they do, try the next size or model." },
+        { "q": "Height bands the dealer uses (best-fit article)", "a": "Petite: 5'4\" and under. Small/medium: 5'5\" to 5'9\". Tall: 5'10\" to 6'2\". Extra tall: 6'3\" and up. The same dealer's buyer's guide overlaps these at 5'4\" and 6'2\", so use these bands, which match the app's 6'3\" extra-tall rule." }
+      ],
+      "source": "stylemeetscomfort.ca: recliner-best-fit and recliners-buyers-guide (Nov 2026 crawl)"
+    },
+    {
+      "id": "fit-through-door",
+      "title": "Will it fit through the door?",
+      "provenance": "dealer",
+      "asOf": "2026-11",
+      "note": "The app does not store diagonal depth per style, so this is a checklist, not a calculator. Use the packaged size if the store has it.",
+      "items": [
+        { "q": "Measure the furniture", "a": "Width (arm to arm), depth (seat front to frame back), height (floor to top) and diagonal depth. Diagonal depth: lay a straight edge from the top back corner of the frame to the front of the arm, then measure from the bottom rear corner to that edge." },
+        { "q": "Measure every entry", "a": "Door width and height (with and without trim), hinges, knobs and swing; stairs (bottom entry, step width, stairwell diagonal); elevators (interior height, width, depth and door opening; book the elevator for delivery); tight corners." },
+        { "q": "Quick rule", "a": "If the opening is wider than the piece it moves flat. If not, it has to tilt on end, and then the opening height must exceed the piece width. A diagonal depth smaller than the doorway height usually means it can pass at an angle." },
+        { "q": "In the room", "a": "Leave 30 to 36 inches of walking clearance, more around reclining furniture. Note ceiling fans, radiators, fireplaces, handrails, outlets and vents." }
+      ],
+      "source": "stylemeetscomfort.ca: how-to-measure-a-room-for-furniture and avoiding-no-fit-delivery (Nov 2026 crawl)"
+    },
+    {
+      "id": "product-id-tag",
+      "title": "Product ID Tag and starting a service claim",
+      "provenance": "corporate-us",
+      "asOf": "2026-11",
+      "note": "The tag wording is from the US customer-care page; the claim steps combine that page with one dealer's service process. Follow your own store's process.",
+      "items": [
+        { "q": "Where is it?", "a": "A tag under or behind the furniture. It carries the ACK number, the STYLE number and the COVER number." },
+        { "q": "Have ready", "a": "ACK, style and cover numbers, the delivery date, the receipt and a description of the problem (what, when, where on the unit). Photos or video may be asked for." },
+        { "q": "Who handles it?", "a": "Claims go through the store that sold the piece. A dealer ticket is usually acknowledged within a few business days and often takes about four weeks to resolve, longer when parts need approval." },
+        { "q": "Not covered by the dealer", "a": "Reupholstery is outside the dealer's service scope in the source." }
+      ],
+      "source": "la-z-boy.com Parts & Warranty; stylemeetscomfort.ca service-department (Nov 2026 crawl)"
+    },
+    {
+      "id": "dealer-terms",
+      "title": "One dealer's delivery and ordering terms",
+      "provenance": "dealer",
+      "asOf": "2026-11",
+      "note": "Ottawa / Gatineau / Kingston group only. Rates and terms change and the dealer's own pages disagree in places (removal fees, financing terms, lead times), so only the consistent points are listed. Check the live store page before quoting.",
+      "items": [
+        { "q": "White-glove delivery", "a": "$129.99 local, $169.99 out of town. Includes stairs to the second floor, unpacking, set-up of power pieces, an operation test and a walk-through." },
+        { "q": "Delivery calls", "a": "A 48-hour confirmation call, then a 24-hour call with a two-hour window." },
+        { "q": "Custom order timing", "a": "Roughly 6 to 12 weeks depending on the item (the dealer's own pages give 6-10 weeks for a recliner and about 12 weeks as a general figure). Treat it as an estimate." },
+        { "q": "Delivery damage", "a": "Report within 24 hours." },
+        { "q": "Financing", "a": "Flexiti, with equal-payment and deferred-payment plans. The dealer's pages disagree on the term (\"0% up to 36 months\" versus 12 or 24 month plans), so confirm the live plan." },
+        { "q": "Dealer protection plan", "a": "A dealer-exclusive five-year plan sold at checkout. Price depends on the sale amount. It is not La-Z-Boy's factory warranty." }
+      ],
+      "source": "stylemeetscomfort.ca: delivery-pick-ups, shipping-and-return-policy, flexiti-financing, furniture-protection-plan (Nov 2026 crawl)"
+    },
+    {
+      "id": "claims-to-avoid",
+      "title": "Claims to avoid on the floor",
+      "provenance": "app",
+      "asOf": "2026-11",
+      "note": "Web pages (dealer and manufacturer) said these, but they contradict each other or this app's own data. Do not repeat them to a customer without a manager confirming.",
+      "items": [
+        { "q": "\"Add a battery pack to a lift chair\"", "a": "Battery packs are not for lift chairs. A few dealer review pages list one by mistake." },
+        { "q": "\"Liam lift needs only about 5 inches of wall space\"", "a": "The app lists 14.5 inches for the Liam lift. Use the app's per-style figure." },
+        { "q": "\"Jean has independent back and legrest\"", "a": "Not supported by the app's data for the Bronze tier." },
+        { "q": "\"Lifetime warranty on the lift mechanism\"", "a": "The app records lifetime on the frame and 3 years on the lift mechanism. Quote the warranty matrix, not a review page." },
+        { "q": "Heat and massage details", "a": "Heat zones, temperatures and session lengths differ between sources. Do not state them as fact." },
+        { "q": "Dealer dimension tables", "a": "Several review tables have copy-paste errors. Use the style's own dimensions in the app." },
+        { "q": "\"Made in the USA\"", "a": "Marketing wording that is not verified for Canadian product. Do not claim it." },
+        { "q": "How long a recliner lasts", "a": "Sources say 7-10 years and 10-20 years. Never promise a lifespan." }
+      ],
+      "source": "Conflicts found in the Nov 2026 crawl (research_notes/La-Z-Boy site crawl gap analysis)"
+    }
+  ],
+  "care": {
+    "provenance": "corporate-us",
+    "asOf": "2026-11",
+    "note": "From La-Z-Boy's US care pages. The cleaning code is on the cover tag; if it is missing, send the customer to the store. Always pretest in a hidden spot and never saturate.",
+    "procedures": [
+      { "code": "W", "title": "Water clean", "steps": ["Spot clean only with a water-based shampoo or foam upholstery cleaner. Pretest a small hidden area first.", "Do not saturate. Clean from the outside of the stain toward the middle so it does not ring.", "Blot spills right away. Pile fabrics may need brushing.", "No solvents. Hot-water extraction and steam cleaning are not recommended, and cushion covers should not be removed and washed."] },
+      { "code": "S", "title": "Solvent clean", "steps": ["Spot clean only with a water-free dry-cleaning solvent.", "Do not use water and do not saturate.", "Do not remove cushion covers to have them dry cleaned."] },
+      { "code": "WS", "title": "Water or solvent clean", "steps": ["Water-based stains (ketchup, mustard, wine, soft drinks, most food): blot off the excess, work in neutral soap and water from the edge toward the center to avoid a halo, rinse with plain water, blot dry, then buff or vacuum to restore the nap.", "Oil-based stains (ink, shoe polish, cosmetics): light soil comes out with mild soap and water. Heavier stains may need an over-the-counter solvent cleaner such as K2r or another non-bleaching household cleaner. Test a hidden spot, follow the label, then clean lightly with neutral soap and water, dry and buff."] },
+      { "code": "X", "title": "Vacuum only", "steps": ["Do not use any foam or liquid cleaner.", "Vacuum or brush lightly to remove soil."], "note": "Code X appears on the US care page but not in the April 2026 cover program, so it may not apply to current covers." }
+    ],
+    "leather": {
+      "title": "Leather routine",
+      "steps": ["Dust and vacuum often, using a crevice tool in the seams. Once a week, wipe with a soft lint-free cloth slightly damp with distilled water.", "Keep it out of direct sunlight and at least 12 inches from radiators and other heat sources. Strong light fades any leather.", "Blot spills, do not rub. For a spill, mix half mild soap and half distilled water, work up a foam on a barely damp cloth, then blot the residue with a cloth damp with distilled water.", "For difficult stains use a professional leather cleaner."]
+    },
+    "iclean": {
+      "title": "i-Clean covers",
+      "steps": ["Liquid spills: blot with a white cloth, then clean with soap and water (about 1 teaspoon of liquid detergent to 16 oz of water) in a gentle circular motion, then wipe with a damp white cloth to remove the soap. Do not over-wet.", "Non-liquid spills (chocolate syrup, dirt, ice cream, jelly, ketchup, salsa, washable marker): remove the excess first, then use the same soap-and-water method.", "If a mark stays, repeat with a multi-purpose cleaner such as Woolite Fabric and Upholstery Cleaner. On pile fabrics, clean the whole panel seam to seam.", "Not covered: oil-based stains (salad dressing, lotion), wax (candle wax, crayon), ink and mustard."],
+      "warning": "The i-Clean stain warranty is void if a fabric treatment is applied. All i-Clean cover names start with \"i-\"."
+    },
+    "performance": {
+      "title": "Fabric words on the performance-fabric page",
+      "terms": [
+        { "term": "Micro denier", "meaning": "A very fine yarn, usually a nylon and polyester blend. Unsueded micro denier is the plain version." },
+        { "term": "Sueded micro denier", "meaning": "Micro denier brushed twice to get a suede feel, then dyed, sheared and finished for cleanability. The tight weave keeps dirt, dust and food out." },
+        { "term": "Padded sueded micro denier", "meaning": "Sueded micro denier with a padding layer behind the face for softness and dimension." },
+        { "term": "Recycled leather", "meaning": "A composite of recycled leather scraps with a polyurethane face. After-treatment is not recommended." },
+        { "term": "Urethane fabric", "meaning": "Several urethane film layers that form a mostly water-repellent barrier." }
+      ],
+      "note": "The page's pattern list is a legacy US list that does not match the April 2026 program, so use these as definitions only."
+    },
+    "source": "la-z-boy.com Fabric & Leather Care, iClean Cleaning, iClean Warranty and Performance Fabric Patterns & Care (Nov 2026 crawl)"
+  }
+}
